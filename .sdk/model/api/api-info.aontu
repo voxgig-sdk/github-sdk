@@ -1,0 +1,31 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      auth: false
+      contact: {
+        name: "Support"
+        url: "https://support.github.com/contact?tags=dotcom-rest-api"
+      }
+      description: "GitHub's v3 REST API."
+      license: {
+        name: "MIT"
+        url: "https://spdx.org/licenses/MIT"
+      }
+      servers: [
+        {
+          url: "https://api.github.com"
+        }
+      ]
+      summary: "GitHub's v3 REST API."
+      termsOfService: "https://docs.github.com/articles/github-terms-of-service"
+      title: "GitHub v3 REST API"
+      version: "1.1.4"
+      website: "https://docs.github.com/rest/"
+      "x-github-plan": "api.github.com"
+    }
+  }
+}
+
