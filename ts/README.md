@@ -411,22 +411,22 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `allow_auto_merge` |  |
-| `allow_forking` |  |
-| `allow_merge_commit` |  |
-| `allow_rebase_merge` |  |
-| `allow_squash_merge` |  |
-| `allow_update_branch` |  |
-| `anonymous_access_enabled` |  |
+| `allow_auto_merge` | Whether to allow Auto-merge to be used on pull requests. |
+| `allow_forking` | Either `true` to allow private forks, or `false` to prevent private forks. |
+| `allow_merge_commit` | Whether to allow merge commits for pull requests. |
+| `allow_rebase_merge` | Whether to allow rebase merges for pull requests. |
+| `allow_squash_merge` | Whether to allow squash merges for pull requests. |
+| `allow_update_branch` | Either `true` to always allow a pull request head branch that is behind its base branch to be updated even if it is not required to be up to date before merging, or false otherwise. |
+| `anonymous_access_enabled` | Whether anonymous git access is allowed. |
 | `archive_url` |  |
-| `archived` |  |
+| `archived` | Whether to archive this repository. |
 | `assignees_url` |  |
-| `auto_init` |  |
+| `auto_init` | Whether the repository is initialized with a minimal README. |
 | `blobs_url` |  |
 | `branches_url` |  |
 | `clone_url` |  |
-| `code_of_conduct` |  |
-| `code_search_index_status` |  |
+| `code_of_conduct` | Code of Conduct Simple |
+| `code_search_index_status` | The status of the code search index for this repository |
 | `collaborators_url` |  |
 | `comments_url` |  |
 | `commits_url` |  |
@@ -434,12 +434,12 @@ The `prepare()` method returns:
 | `contents_url` |  |
 | `contributors_url` |  |
 | `created_at` |  |
-| `custom_properties` |  |
-| `default_branch` |  |
-| `delete_branch_on_merge` |  |
+| `custom_properties` | The custom properties that were defined for the repository. |
+| `default_branch` | Updates the default branch for this repository. |
+| `delete_branch_on_merge` | Whether to delete head branches when pull requests are merged |
 | `deployments_url` |  |
-| `description` |  |
-| `disabled` |  |
+| `description` | A short description of the repository. |
+| `disabled` | Returns whether or not this repository disabled. |
 | `downloads_url` |  |
 | `events_url` |  |
 | `fork` |  |
@@ -451,19 +451,19 @@ The `prepare()` method returns:
 | `git_refs_url` |  |
 | `git_tags_url` |  |
 | `git_url` |  |
-| `gitignore_template` |  |
-| `has_discussions` |  |
-| `has_downloads` |  |
-| `has_issues` |  |
+| `gitignore_template` | The desired language or platform to apply to the .gitignore. |
+| `has_discussions` | Whether discussions are enabled. |
+| `has_downloads` | Whether downloads are enabled. |
+| `has_issues` | Whether issues are enabled. |
 | `has_pages` |  |
-| `has_projects` |  |
-| `has_pull_requests` |  |
-| `has_wiki` |  |
-| `homepage` |  |
+| `has_projects` | Whether projects are enabled. |
+| `has_pull_requests` | Either `true` to allow pull requests for this repository or `false` to prevent pull requests. |
+| `has_wiki` | Whether the wiki is enabled. |
+| `homepage` | A URL with more information about the repository. |
 | `hooks_url` |  |
 | `html_url` |  |
-| `id` |  |
-| `is_template` |  |
+| `id` | Unique identifier of the repository |
+| `is_template` | Whether this repository acts as a template that can be used to generate new repositories. |
 | `issue_comment_url` |  |
 | `issue_events_url` |  |
 | `issues_url` |  |
@@ -471,34 +471,34 @@ The `prepare()` method returns:
 | `labels_url` |  |
 | `language` |  |
 | `languages_url` |  |
-| `license` |  |
-| `license_template` |  |
+| `license` | License Simple |
+| `license_template` | The license keyword of the open source license for this repository. |
 | `master_branch` |  |
-| `merge_commit_message` |  |
-| `merge_commit_title` |  |
+| `merge_commit_message` | The default value for a merge commit message. |
+| `merge_commit_title` | The default value for a merge commit title. |
 | `merges_url` |  |
 | `milestones_url` |  |
 | `mirror_url` |  |
-| `name` |  |
+| `name` | The name of the repository. |
 | `network_count` |  |
 | `node_id` |  |
 | `notifications_url` |  |
 | `open_issues` |  |
 | `open_issues_count` |  |
-| `organization` |  |
-| `owner` |  |
-| `parent` |  |
+| `organization` | A GitHub user. |
+| `owner` | A GitHub user. |
+| `parent` | A repository on GitHub. |
 | `permissions` |  |
-| `private` |  |
-| `pull_request_creation_policy` |  |
+| `private` | Whether the repository is private. |
+| `pull_request_creation_policy` | The policy controlling who can create pull requests: all or collaborators_only. |
 | `pulls_url` |  |
 | `pushed_at` |  |
 | `releases_url` |  |
-| `security_and_analysis` |  |
-| `size` |  |
-| `source` |  |
-| `squash_merge_commit_message` |  |
-| `squash_merge_commit_title` |  |
+| `security_and_analysis` | Specify which security and analysis features to enable or disable for the repository. |
+| `size` | The size of the repository, in kilobytes. |
+| `source` | A repository on GitHub. |
+| `squash_merge_commit_message` | The default value for a squash merge commit message: - `PR_BODY` - default to the pull request's body. |
+| `squash_merge_commit_title` | The default value for a squash merge commit title: - `PR_TITLE` - default to the pull request's title. |
 | `ssh_url` |  |
 | `stargazers_count` |  |
 | `stargazers_url` |  |
@@ -509,19 +509,19 @@ The `prepare()` method returns:
 | `subscription_url` |  |
 | `svn_url` |  |
 | `tags_url` |  |
-| `team_id` |  |
+| `team_id` | The id of the team that will be granted access to this repository. |
 | `teams_url` |  |
 | `temp_clone_token` |  |
-| `template_repository` |  |
+| `template_repository` | A repository on GitHub. |
 | `topics` |  |
 | `trees_url` |  |
 | `updated_at` |  |
 | `url` |  |
-| `use_squash_pr_title_as_default` |  |
-| `visibility` |  |
+| `use_squash_pr_title_as_default` | Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message. |
+| `visibility` | The repository visibility: public, private, or internal. |
 | `watchers` |  |
 | `watchers_count` |  |
-| `web_commit_signoff_required` |  |
+| `web_commit_signoff_required` | Either `true` to require contributors to sign off on web-based commits, or `false` to not require contributors to sign off on web-based commits. |
 
 Operations: create, list, load, remove, update.
 
@@ -550,22 +550,22 @@ Create an instance: `const repo = client.Repo()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `allow_auto_merge` | `boolean` |  |
-| `allow_forking` | `boolean` |  |
-| `allow_merge_commit` | `boolean` |  |
-| `allow_rebase_merge` | `boolean` |  |
-| `allow_squash_merge` | `boolean` |  |
-| `allow_update_branch` | `boolean` |  |
-| `anonymous_access_enabled` | `boolean` |  |
+| `allow_auto_merge` | `boolean` | Whether to allow Auto-merge to be used on pull requests. |
+| `allow_forking` | `boolean` | Either `true` to allow private forks, or `false` to prevent private forks. |
+| `allow_merge_commit` | `boolean` | Whether to allow merge commits for pull requests. |
+| `allow_rebase_merge` | `boolean` | Whether to allow rebase merges for pull requests. |
+| `allow_squash_merge` | `boolean` | Whether to allow squash merges for pull requests. |
+| `allow_update_branch` | `boolean` | Either `true` to always allow a pull request head branch that is behind its base branch to be updated even if it is not required to be up to date before merging, or false otherwise. |
+| `anonymous_access_enabled` | `boolean` | Whether anonymous git access is allowed. |
 | `archive_url` | `string` |  |
-| `archived` | `boolean` |  |
+| `archived` | `boolean` | Whether to archive this repository. |
 | `assignees_url` | `string` |  |
-| `auto_init` | `boolean` |  |
+| `auto_init` | `boolean` | Whether the repository is initialized with a minimal README. |
 | `blobs_url` | `string` |  |
 | `branches_url` | `string` |  |
 | `clone_url` | `string` |  |
-| `code_of_conduct` | `Record<string, any>` |  |
-| `code_search_index_status` | `Record<string, any>` |  |
+| `code_of_conduct` | `Record<string, any>` | Code of Conduct Simple |
+| `code_search_index_status` | `Record<string, any>` | The status of the code search index for this repository |
 | `collaborators_url` | `string` |  |
 | `comments_url` | `string` |  |
 | `commits_url` | `string` |  |
@@ -573,12 +573,12 @@ Create an instance: `const repo = client.Repo()`
 | `contents_url` | `string` |  |
 | `contributors_url` | `string` |  |
 | `created_at` | `string` |  |
-| `custom_properties` | `Record<string, any>` |  |
-| `default_branch` | `string` |  |
-| `delete_branch_on_merge` | `boolean` |  |
+| `custom_properties` | `Record<string, any>` | The custom properties that were defined for the repository. |
+| `default_branch` | `string` | Updates the default branch for this repository. |
+| `delete_branch_on_merge` | `boolean` | Whether to delete head branches when pull requests are merged |
 | `deployments_url` | `string` |  |
-| `description` | `string` |  |
-| `disabled` | `boolean` |  |
+| `description` | `string` | A short description of the repository. |
+| `disabled` | `boolean` | Returns whether or not this repository disabled. |
 | `downloads_url` | `string` |  |
 | `events_url` | `string` |  |
 | `fork` | `boolean` |  |
@@ -590,19 +590,19 @@ Create an instance: `const repo = client.Repo()`
 | `git_refs_url` | `string` |  |
 | `git_tags_url` | `string` |  |
 | `git_url` | `string` |  |
-| `gitignore_template` | `string` |  |
-| `has_discussions` | `boolean` |  |
-| `has_downloads` | `boolean` |  |
-| `has_issues` | `boolean` |  |
+| `gitignore_template` | `string` | The desired language or platform to apply to the .gitignore. |
+| `has_discussions` | `boolean` | Whether discussions are enabled. |
+| `has_downloads` | `boolean` | Whether downloads are enabled. |
+| `has_issues` | `boolean` | Whether issues are enabled. |
 | `has_pages` | `boolean` |  |
-| `has_projects` | `boolean` |  |
-| `has_pull_requests` | `boolean` |  |
-| `has_wiki` | `boolean` |  |
-| `homepage` | `string` |  |
+| `has_projects` | `boolean` | Whether projects are enabled. |
+| `has_pull_requests` | `boolean` | Either `true` to allow pull requests for this repository or `false` to prevent pull requests. |
+| `has_wiki` | `boolean` | Whether the wiki is enabled. |
+| `homepage` | `string` | A URL with more information about the repository. |
 | `hooks_url` | `string` |  |
 | `html_url` | `string` |  |
-| `id` | `number` |  |
-| `is_template` | `boolean` |  |
+| `id` | `number` | Unique identifier of the repository |
+| `is_template` | `boolean` | Whether this repository acts as a template that can be used to generate new repositories. |
 | `issue_comment_url` | `string` |  |
 | `issue_events_url` | `string` |  |
 | `issues_url` | `string` |  |
@@ -610,34 +610,34 @@ Create an instance: `const repo = client.Repo()`
 | `labels_url` | `string` |  |
 | `language` | `string` |  |
 | `languages_url` | `string` |  |
-| `license` | `Record<string, any>` |  |
-| `license_template` | `string` |  |
+| `license` | `Record<string, any>` | License Simple |
+| `license_template` | `string` | The license keyword of the open source license for this repository. |
 | `master_branch` | `string` |  |
-| `merge_commit_message` | `string` |  |
-| `merge_commit_title` | `string` |  |
+| `merge_commit_message` | `string` | The default value for a merge commit message. |
+| `merge_commit_title` | `string` | The default value for a merge commit title. |
 | `merges_url` | `string` |  |
 | `milestones_url` | `string` |  |
 | `mirror_url` | `string` |  |
-| `name` | `string` |  |
+| `name` | `string` | The name of the repository. |
 | `network_count` | `number` |  |
 | `node_id` | `string` |  |
 | `notifications_url` | `string` |  |
 | `open_issues` | `number` |  |
 | `open_issues_count` | `number` |  |
-| `organization` | `Record<string, any>` |  |
-| `owner` | `Record<string, any>` |  |
-| `parent` | `Record<string, any>` |  |
+| `organization` | `Record<string, any>` | A GitHub user. |
+| `owner` | `Record<string, any>` | A GitHub user. |
+| `parent` | `Record<string, any>` | A repository on GitHub. |
 | `permissions` | `Record<string, any>` |  |
-| `private` | `boolean` |  |
-| `pull_request_creation_policy` | `string` |  |
+| `private` | `boolean` | Whether the repository is private. |
+| `pull_request_creation_policy` | `string` | The policy controlling who can create pull requests: all or collaborators_only. |
 | `pulls_url` | `string` |  |
 | `pushed_at` | `string` |  |
 | `releases_url` | `string` |  |
-| `security_and_analysis` | `Record<string, any>` |  |
-| `size` | `number` |  |
-| `source` | `Record<string, any>` |  |
-| `squash_merge_commit_message` | `string` |  |
-| `squash_merge_commit_title` | `string` |  |
+| `security_and_analysis` | `Record<string, any>` | Specify which security and analysis features to enable or disable for the repository. |
+| `size` | `number` | The size of the repository, in kilobytes. |
+| `source` | `Record<string, any>` | A repository on GitHub. |
+| `squash_merge_commit_message` | `string` | The default value for a squash merge commit message: - `PR_BODY` - default to the pull request's body. |
+| `squash_merge_commit_title` | `string` | The default value for a squash merge commit title: - `PR_TITLE` - default to the pull request's title. |
 | `ssh_url` | `string` |  |
 | `stargazers_count` | `number` |  |
 | `stargazers_url` | `string` |  |
@@ -648,19 +648,19 @@ Create an instance: `const repo = client.Repo()`
 | `subscription_url` | `string` |  |
 | `svn_url` | `string` |  |
 | `tags_url` | `string` |  |
-| `team_id` | `number` |  |
+| `team_id` | `number` | The id of the team that will be granted access to this repository. |
 | `teams_url` | `string` |  |
 | `temp_clone_token` | `string` |  |
-| `template_repository` | `Record<string, any>` |  |
+| `template_repository` | `Record<string, any>` | A repository on GitHub. |
 | `topics` | `any[]` |  |
 | `trees_url` | `string` |  |
 | `updated_at` | `string` |  |
 | `url` | `string` |  |
-| `use_squash_pr_title_as_default` | `boolean` |  |
-| `visibility` | `string` |  |
+| `use_squash_pr_title_as_default` | `boolean` | Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message. |
+| `visibility` | `string` | The repository visibility: public, private, or internal. |
 | `watchers` | `number` |  |
 | `watchers_count` | `number` |  |
-| `web_commit_signoff_required` | `boolean` |  |
+| `web_commit_signoff_required` | `boolean` | Either `true` to require contributors to sign off on web-based commits, or `false` to not require contributors to sign off on web-based commits. |
 
 #### Example: Load
 

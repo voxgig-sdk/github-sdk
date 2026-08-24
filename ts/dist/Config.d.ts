@@ -28,6 +28,7 @@ declare class Config {
         repo: {
             fields: ({
                 name: string;
+                short: string;
                 type: string;
                 req?: undefined;
                 op?: undefined;
@@ -35,6 +36,7 @@ declare class Config {
                 name: string;
                 req: boolean;
                 type: string;
+                short?: undefined;
                 op?: undefined;
             } | {
                 name: string;
@@ -46,7 +48,14 @@ declare class Config {
                     list?: undefined;
                 };
                 req: boolean;
+                short: string;
                 type: string;
+            } | {
+                name: string;
+                req: boolean;
+                short: string;
+                type: string;
+                op?: undefined;
             } | {
                 name: string;
                 op: {
@@ -59,6 +68,7 @@ declare class Config {
                     list?: undefined;
                 };
                 req: boolean;
+                short: string;
                 type: string;
             } | {
                 name: string;
@@ -73,6 +83,7 @@ declare class Config {
                     update?: undefined;
                 };
                 req: boolean;
+                short: string;
                 type: string;
             } | {
                 name: string;
@@ -84,8 +95,15 @@ declare class Config {
                     update?: undefined;
                     create?: undefined;
                 };
+                short: string;
                 type: string;
                 req?: undefined;
+            } | {
+                name: string;
+                type: string;
+                short?: undefined;
+                req?: undefined;
+                op?: undefined;
             })[];
             name: string;
             op: {

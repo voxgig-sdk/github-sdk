@@ -45,30 +45,37 @@ class Config {
             "fields": [
                 {
                     "name": "allow_auto_merge",
+                    "short": "Whether to allow Auto-merge to be used on pull requests.",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "allow_forking",
+                    "short": "Either `true` to allow private forks, or `false` to prevent private forks.",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "allow_merge_commit",
+                    "short": "Whether to allow merge commits for pull requests.",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "allow_rebase_merge",
+                    "short": "Whether to allow rebase merges for pull requests.",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "allow_squash_merge",
+                    "short": "Whether to allow squash merges for pull requests.",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "allow_update_branch",
+                    "short": "Either `true` to always allow a pull request head branch that is behind its base branch to be updated even if it is not required to be up to date before merging, or false otherwise.",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "anonymous_access_enabled",
+                    "short": "Whether anonymous git access is allowed.",
                     "type": "`$BOOLEAN`"
                 },
                 {
@@ -84,6 +91,7 @@ class Config {
                         }
                     },
                     "req": true,
+                    "short": "Whether to archive this repository.",
                     "type": "`$BOOLEAN`"
                 },
                 {
@@ -93,6 +101,7 @@ class Config {
                 },
                 {
                     "name": "auto_init",
+                    "short": "Whether the repository is initialized with a minimal README.",
                     "type": "`$BOOLEAN`"
                 },
                 {
@@ -113,10 +122,12 @@ class Config {
                 {
                     "name": "code_of_conduct",
                     "req": true,
+                    "short": "Code of Conduct Simple",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "code_search_index_status",
+                    "short": "The status of the code search index for this repository",
                     "type": "`$OBJECT`"
                 },
                 {
@@ -156,6 +167,7 @@ class Config {
                 },
                 {
                     "name": "custom_properties",
+                    "short": "The custom properties that were defined for the repository.",
                     "type": "`$OBJECT`"
                 },
                 {
@@ -166,10 +178,12 @@ class Config {
                         }
                     },
                     "req": true,
+                    "short": "Updates the default branch for this repository.",
                     "type": "`$STRING`"
                 },
                 {
                     "name": "delete_branch_on_merge",
+                    "short": "Whether to delete head branches when pull requests are merged",
                     "type": "`$BOOLEAN`"
                 },
                 {
@@ -188,11 +202,13 @@ class Config {
                         }
                     },
                     "req": true,
+                    "short": "A short description of the repository.",
                     "type": "`$STRING`"
                 },
                 {
                     "name": "disabled",
                     "req": true,
+                    "short": "Returns whether or not this repository disabled.",
                     "type": "`$BOOLEAN`"
                 },
                 {
@@ -252,6 +268,7 @@ class Config {
                 },
                 {
                     "name": "gitignore_template",
+                    "short": "The desired language or platform to apply to the .gitignore.",
                     "type": "`$STRING`"
                 },
                 {
@@ -265,6 +282,7 @@ class Config {
                         }
                     },
                     "req": true,
+                    "short": "Whether discussions are enabled.",
                     "type": "`$BOOLEAN`"
                 },
                 {
@@ -275,6 +293,7 @@ class Config {
                             "type": "`$BOOLEAN`"
                         }
                     },
+                    "short": "Whether downloads are enabled.",
                     "type": "`$BOOLEAN`"
                 },
                 {
@@ -288,6 +307,7 @@ class Config {
                         }
                     },
                     "req": true,
+                    "short": "Whether issues are enabled.",
                     "type": "`$BOOLEAN`"
                 },
                 {
@@ -306,10 +326,12 @@ class Config {
                         }
                     },
                     "req": true,
+                    "short": "Whether projects are enabled.",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "has_pull_requests",
+                    "short": "Either `true` to allow pull requests for this repository or `false` to prevent pull requests.",
                     "type": "`$BOOLEAN`"
                 },
                 {
@@ -323,6 +345,7 @@ class Config {
                         }
                     },
                     "req": true,
+                    "short": "Whether the wiki is enabled.",
                     "type": "`$BOOLEAN`"
                 },
                 {
@@ -336,6 +359,7 @@ class Config {
                         }
                     },
                     "req": true,
+                    "short": "A URL with more information about the repository.",
                     "type": "`$STRING`"
                 },
                 {
@@ -351,10 +375,12 @@ class Config {
                 {
                     "name": "id",
                     "req": true,
+                    "short": "Unique identifier of the repository",
                     "type": "`$INTEGER`"
                 },
                 {
                     "name": "is_template",
+                    "short": "Whether this repository acts as a template that can be used to generate new repositories.",
                     "type": "`$BOOLEAN`"
                 },
                 {
@@ -395,10 +421,12 @@ class Config {
                 {
                     "name": "license",
                     "req": true,
+                    "short": "License Simple",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "license_template",
+                    "short": "The license keyword of the open source license for this repository.",
                     "type": "`$STRING`"
                 },
                 {
@@ -407,10 +435,12 @@ class Config {
                 },
                 {
                     "name": "merge_commit_message",
+                    "short": "The default value for a merge commit message.",
                     "type": "`$STRING`"
                 },
                 {
                     "name": "merge_commit_title",
+                    "short": "The default value for a merge commit title.",
                     "type": "`$STRING`"
                 },
                 {
@@ -436,6 +466,7 @@ class Config {
                         }
                     },
                     "req": true,
+                    "short": "The name of the repository.",
                     "type": "`$STRING`"
                 },
                 {
@@ -466,16 +497,19 @@ class Config {
                 {
                     "name": "organization",
                     "req": true,
+                    "short": "A GitHub user.",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "owner",
                     "req": true,
+                    "short": "A GitHub user.",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "parent",
                     "req": true,
+                    "short": "A repository on GitHub.",
                     "type": "`$OBJECT`"
                 },
                 {
@@ -494,10 +528,12 @@ class Config {
                         }
                     },
                     "req": true,
+                    "short": "Whether the repository is private.",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "pull_request_creation_policy",
+                    "short": "The policy controlling who can create pull requests: all or collaborators_only.",
                     "type": "`$STRING`"
                 },
                 {
@@ -517,24 +553,29 @@ class Config {
                 },
                 {
                     "name": "security_and_analysis",
+                    "short": "Specify which security and analysis features to enable or disable for the repository.",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "size",
                     "req": true,
+                    "short": "The size of the repository, in kilobytes.",
                     "type": "`$INTEGER`"
                 },
                 {
                     "name": "source",
                     "req": true,
+                    "short": "A repository on GitHub.",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "squash_merge_commit_message",
+                    "short": "The default value for a squash merge commit message: - `PR_BODY` - default to the pull request's body.",
                     "type": "`$STRING`"
                 },
                 {
                     "name": "squash_merge_commit_title",
+                    "short": "The default value for a squash merge commit title: - `PR_TITLE` - default to the pull request's title.",
                     "type": "`$STRING`"
                 },
                 {
@@ -588,6 +629,7 @@ class Config {
                 },
                 {
                     "name": "team_id",
+                    "short": "The id of the team that will be granted access to this repository.",
                     "type": "`$INTEGER`"
                 },
                 {
@@ -602,6 +644,7 @@ class Config {
                 {
                     "name": "template_repository",
                     "req": true,
+                    "short": "A repository on GitHub.",
                     "type": "`$OBJECT`"
                 },
                 {
@@ -625,10 +668,12 @@ class Config {
                 },
                 {
                     "name": "use_squash_pr_title_as_default",
+                    "short": "Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message.",
                     "type": "`$BOOLEAN`"
                 },
                 {
                     "name": "visibility",
+                    "short": "The repository visibility: public, private, or internal.",
                     "type": "`$STRING`"
                 },
                 {
@@ -643,6 +688,7 @@ class Config {
                 },
                 {
                     "name": "web_commit_signoff_required",
+                    "short": "Either `true` to require contributors to sign off on web-based commits, or `false` to not require contributors to sign off on web-based commits.",
                     "type": "`$BOOLEAN`"
                 }
             ],

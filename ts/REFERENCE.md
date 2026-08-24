@@ -116,22 +116,22 @@ const repo = client.Repo()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allow_auto_merge` | `boolean` | No |  |
-| `allow_forking` | `boolean` | No |  |
-| `allow_merge_commit` | `boolean` | No |  |
-| `allow_rebase_merge` | `boolean` | No |  |
-| `allow_squash_merge` | `boolean` | No |  |
-| `allow_update_branch` | `boolean` | No |  |
-| `anonymous_access_enabled` | `boolean` | No |  |
+| `allow_auto_merge` | `boolean` | No | Whether to allow Auto-merge to be used on pull requests. |
+| `allow_forking` | `boolean` | No | Either `true` to allow private forks, or `false` to prevent private forks. |
+| `allow_merge_commit` | `boolean` | No | Whether to allow merge commits for pull requests. |
+| `allow_rebase_merge` | `boolean` | No | Whether to allow rebase merges for pull requests. |
+| `allow_squash_merge` | `boolean` | No | Whether to allow squash merges for pull requests. |
+| `allow_update_branch` | `boolean` | No | Either `true` to always allow a pull request head branch that is behind its base branch to be updated even if it is not required to be up to date before merging, or false otherwise. |
+| `anonymous_access_enabled` | `boolean` | No | Whether anonymous git access is allowed. |
 | `archive_url` | `string` | Yes |  |
-| `archived` | `boolean` | Yes |  |
+| `archived` | `boolean` | Yes | Whether to archive this repository. |
 | `assignees_url` | `string` | Yes |  |
-| `auto_init` | `boolean` | No |  |
+| `auto_init` | `boolean` | No | Whether the repository is initialized with a minimal README. |
 | `blobs_url` | `string` | Yes |  |
 | `branches_url` | `string` | Yes |  |
 | `clone_url` | `string` | Yes |  |
-| `code_of_conduct` | `Record<string, any>` | Yes |  |
-| `code_search_index_status` | `Record<string, any>` | No |  |
+| `code_of_conduct` | `Record<string, any>` | Yes | Code of Conduct Simple |
+| `code_search_index_status` | `Record<string, any>` | No | The status of the code search index for this repository |
 | `collaborators_url` | `string` | Yes |  |
 | `comments_url` | `string` | Yes |  |
 | `commits_url` | `string` | Yes |  |
@@ -139,12 +139,12 @@ const repo = client.Repo()
 | `contents_url` | `string` | Yes |  |
 | `contributors_url` | `string` | Yes |  |
 | `created_at` | `string` | Yes |  |
-| `custom_properties` | `Record<string, any>` | No |  |
-| `default_branch` | `string` | Yes |  |
-| `delete_branch_on_merge` | `boolean` | No |  |
+| `custom_properties` | `Record<string, any>` | No | The custom properties that were defined for the repository. |
+| `default_branch` | `string` | Yes | Updates the default branch for this repository. |
+| `delete_branch_on_merge` | `boolean` | No | Whether to delete head branches when pull requests are merged |
 | `deployments_url` | `string` | Yes |  |
-| `description` | `string` | Yes |  |
-| `disabled` | `boolean` | Yes |  |
+| `description` | `string` | Yes | A short description of the repository. |
+| `disabled` | `boolean` | Yes | Returns whether or not this repository disabled. |
 | `downloads_url` | `string` | Yes |  |
 | `events_url` | `string` | Yes |  |
 | `fork` | `boolean` | Yes |  |
@@ -156,19 +156,19 @@ const repo = client.Repo()
 | `git_refs_url` | `string` | Yes |  |
 | `git_tags_url` | `string` | Yes |  |
 | `git_url` | `string` | Yes |  |
-| `gitignore_template` | `string` | No |  |
-| `has_discussions` | `boolean` | Yes |  |
-| `has_downloads` | `boolean` | No |  |
-| `has_issues` | `boolean` | Yes |  |
+| `gitignore_template` | `string` | No | The desired language or platform to apply to the .gitignore. |
+| `has_discussions` | `boolean` | Yes | Whether discussions are enabled. |
+| `has_downloads` | `boolean` | No | Whether downloads are enabled. |
+| `has_issues` | `boolean` | Yes | Whether issues are enabled. |
 | `has_pages` | `boolean` | Yes |  |
-| `has_projects` | `boolean` | Yes |  |
-| `has_pull_requests` | `boolean` | No |  |
-| `has_wiki` | `boolean` | Yes |  |
-| `homepage` | `string` | Yes |  |
+| `has_projects` | `boolean` | Yes | Whether projects are enabled. |
+| `has_pull_requests` | `boolean` | No | Either `true` to allow pull requests for this repository or `false` to prevent pull requests. |
+| `has_wiki` | `boolean` | Yes | Whether the wiki is enabled. |
+| `homepage` | `string` | Yes | A URL with more information about the repository. |
 | `hooks_url` | `string` | Yes |  |
 | `html_url` | `string` | Yes |  |
-| `id` | `number` | Yes |  |
-| `is_template` | `boolean` | No |  |
+| `id` | `number` | Yes | Unique identifier of the repository |
+| `is_template` | `boolean` | No | Whether this repository acts as a template that can be used to generate new repositories. |
 | `issue_comment_url` | `string` | Yes |  |
 | `issue_events_url` | `string` | Yes |  |
 | `issues_url` | `string` | Yes |  |
@@ -176,34 +176,34 @@ const repo = client.Repo()
 | `labels_url` | `string` | Yes |  |
 | `language` | `string` | Yes |  |
 | `languages_url` | `string` | Yes |  |
-| `license` | `Record<string, any>` | Yes |  |
-| `license_template` | `string` | No |  |
+| `license` | `Record<string, any>` | Yes | License Simple |
+| `license_template` | `string` | No | The license keyword of the open source license for this repository. |
 | `master_branch` | `string` | No |  |
-| `merge_commit_message` | `string` | No |  |
-| `merge_commit_title` | `string` | No |  |
+| `merge_commit_message` | `string` | No | The default value for a merge commit message. |
+| `merge_commit_title` | `string` | No | The default value for a merge commit title. |
 | `merges_url` | `string` | Yes |  |
 | `milestones_url` | `string` | Yes |  |
 | `mirror_url` | `string` | Yes |  |
-| `name` | `string` | Yes |  |
+| `name` | `string` | Yes | The name of the repository. |
 | `network_count` | `number` | Yes |  |
 | `node_id` | `string` | Yes |  |
 | `notifications_url` | `string` | Yes |  |
 | `open_issues` | `number` | Yes |  |
 | `open_issues_count` | `number` | Yes |  |
-| `organization` | `Record<string, any>` | Yes |  |
-| `owner` | `Record<string, any>` | Yes |  |
-| `parent` | `Record<string, any>` | Yes |  |
+| `organization` | `Record<string, any>` | Yes | A GitHub user. |
+| `owner` | `Record<string, any>` | Yes | A GitHub user. |
+| `parent` | `Record<string, any>` | Yes | A repository on GitHub. |
 | `permissions` | `Record<string, any>` | Yes |  |
-| `private` | `boolean` | Yes |  |
-| `pull_request_creation_policy` | `string` | No |  |
+| `private` | `boolean` | Yes | Whether the repository is private. |
+| `pull_request_creation_policy` | `string` | No | The policy controlling who can create pull requests: all or collaborators_only. |
 | `pulls_url` | `string` | Yes |  |
 | `pushed_at` | `string` | Yes |  |
 | `releases_url` | `string` | Yes |  |
-| `security_and_analysis` | `Record<string, any>` | No |  |
-| `size` | `number` | Yes |  |
-| `source` | `Record<string, any>` | Yes |  |
-| `squash_merge_commit_message` | `string` | No |  |
-| `squash_merge_commit_title` | `string` | No |  |
+| `security_and_analysis` | `Record<string, any>` | No | Specify which security and analysis features to enable or disable for the repository. |
+| `size` | `number` | Yes | The size of the repository, in kilobytes. |
+| `source` | `Record<string, any>` | Yes | A repository on GitHub. |
+| `squash_merge_commit_message` | `string` | No | The default value for a squash merge commit message: - `PR_BODY` - default to the pull request's body. |
+| `squash_merge_commit_title` | `string` | No | The default value for a squash merge commit title: - `PR_TITLE` - default to the pull request's title. |
 | `ssh_url` | `string` | Yes |  |
 | `stargazers_count` | `number` | Yes |  |
 | `stargazers_url` | `string` | Yes |  |
@@ -214,19 +214,19 @@ const repo = client.Repo()
 | `subscription_url` | `string` | Yes |  |
 | `svn_url` | `string` | Yes |  |
 | `tags_url` | `string` | Yes |  |
-| `team_id` | `number` | No |  |
+| `team_id` | `number` | No | The id of the team that will be granted access to this repository. |
 | `teams_url` | `string` | Yes |  |
 | `temp_clone_token` | `string` | No |  |
-| `template_repository` | `Record<string, any>` | Yes |  |
+| `template_repository` | `Record<string, any>` | Yes | A repository on GitHub. |
 | `topics` | `any[]` | No |  |
 | `trees_url` | `string` | Yes |  |
 | `updated_at` | `string` | Yes |  |
 | `url` | `string` | Yes |  |
-| `use_squash_pr_title_as_default` | `boolean` | No |  |
-| `visibility` | `string` | No |  |
+| `use_squash_pr_title_as_default` | `boolean` | No | Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message. |
+| `visibility` | `string` | No | The repository visibility: public, private, or internal. |
 | `watchers` | `number` | Yes |  |
 | `watchers_count` | `number` | Yes |  |
-| `web_commit_signoff_required` | `boolean` | No |  |
+| `web_commit_signoff_required` | `boolean` | No | Either `true` to require contributors to sign off on web-based commits, or `false` to not require contributors to sign off on web-based commits. |
 
 ### Field Usage by Operation
 
