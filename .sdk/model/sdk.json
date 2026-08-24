@@ -45,42 +45,49 @@
               "active": true,
               "name": "allow_auto_merge",
               "req": false,
+              "short": "Whether to allow Auto-merge to be used on pull requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "allow_forking",
               "req": false,
+              "short": "Either `true` to allow private forks, or `false` to prevent private forks.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "allow_merge_commit",
               "req": false,
+              "short": "Whether to allow merge commits for pull requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "allow_rebase_merge",
               "req": false,
+              "short": "Whether to allow rebase merges for pull requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "allow_squash_merge",
               "req": false,
+              "short": "Whether to allow squash merges for pull requests.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "allow_update_branch",
               "req": false,
+              "short": "Either `true` to always allow a pull request head branch that is behind its base branch to be updated even if it is not required to be up to date before merging, or false otherwise.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "anonymous_access_enabled",
               "req": false,
+              "short": "Whether anonymous git access is allowed.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -99,6 +106,7 @@
                 }
               },
               "req": true,
+              "short": "Whether to archive this repository.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -111,6 +119,7 @@
               "active": true,
               "name": "auto_init",
               "req": false,
+              "short": "Whether the repository is initialized with a minimal README.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -135,12 +144,14 @@
               "active": true,
               "name": "code_of_conduct",
               "req": true,
+              "short": "Code of Conduct Simple",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "code_search_index_status",
               "req": false,
+              "short": "The status of the code search index for this repository",
               "type": "`$OBJECT`"
             },
             {
@@ -189,6 +200,7 @@
               "active": true,
               "name": "custom_properties",
               "req": false,
+              "short": "The custom properties that were defined for the repository.",
               "type": "`$OBJECT`"
             },
             {
@@ -201,12 +213,14 @@
                 }
               },
               "req": true,
+              "short": "Updates the default branch for this repository.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "delete_branch_on_merge",
               "req": false,
+              "short": "Whether to delete head branches when pull requests are merged",
               "type": "`$BOOLEAN`"
             },
             {
@@ -229,12 +243,14 @@
                 }
               },
               "req": true,
+              "short": "A short description of the repository.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "disabled",
               "req": true,
+              "short": "Returns whether or not this repository disabled.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -307,6 +323,7 @@
               "active": true,
               "name": "gitignore_template",
               "req": false,
+              "short": "The desired language or platform to apply to the .gitignore.",
               "type": "`$STRING`"
             },
             {
@@ -323,6 +340,7 @@
                 }
               },
               "req": true,
+              "short": "Whether discussions are enabled.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -335,6 +353,7 @@
                 }
               },
               "req": false,
+              "short": "Whether downloads are enabled.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -351,6 +370,7 @@
                 }
               },
               "req": true,
+              "short": "Whether issues are enabled.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -373,12 +393,14 @@
                 }
               },
               "req": true,
+              "short": "Whether projects are enabled.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "has_pull_requests",
               "req": false,
+              "short": "Either `true` to allow pull requests for this repository or `false` to prevent pull requests.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -395,6 +417,7 @@
                 }
               },
               "req": true,
+              "short": "Whether the wiki is enabled.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -411,6 +434,7 @@
                 }
               },
               "req": true,
+              "short": "A URL with more information about the repository.",
               "type": "`$STRING`"
             },
             {
@@ -429,12 +453,14 @@
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Unique identifier of the repository",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "is_template",
               "req": false,
+              "short": "Whether this repository acts as a template that can be used to generate new repositories.",
               "type": "`$BOOLEAN`"
             },
             {
@@ -483,12 +509,14 @@
               "active": true,
               "name": "license",
               "req": true,
+              "short": "License Simple",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "license_template",
               "req": false,
+              "short": "The license keyword of the open source license for this repository.",
               "type": "`$STRING`"
             },
             {
@@ -501,12 +529,14 @@
               "active": true,
               "name": "merge_commit_message",
               "req": false,
+              "short": "The default value for a merge commit message.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "merge_commit_title",
               "req": false,
+              "short": "The default value for a merge commit title.",
               "type": "`$STRING`"
             },
             {
@@ -537,6 +567,7 @@
                 }
               },
               "req": true,
+              "short": "The name of the repository.",
               "type": "`$STRING`"
             },
             {
@@ -573,18 +604,21 @@
               "active": true,
               "name": "organization",
               "req": true,
+              "short": "A GitHub user.",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "owner",
               "req": true,
+              "short": "A GitHub user.",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "parent",
               "req": true,
+              "short": "A repository on GitHub.",
               "type": "`$OBJECT`"
             },
             {
@@ -607,12 +641,14 @@
                 }
               },
               "req": true,
+              "short": "Whether the repository is private.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "pull_request_creation_policy",
               "req": false,
+              "short": "The policy controlling who can create pull requests: all or collaborators_only.",
               "type": "`$STRING`"
             },
             {
@@ -637,30 +673,35 @@
               "active": true,
               "name": "security_and_analysis",
               "req": false,
+              "short": "Specify which security and analysis features to enable or disable for the repository.",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "size",
               "req": true,
+              "short": "The size of the repository, in kilobytes.",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "source",
               "req": true,
+              "short": "A repository on GitHub.",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "squash_merge_commit_message",
               "req": false,
+              "short": "The default value for a squash merge commit message: - `PR_BODY` - default to the pull request's body.",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "squash_merge_commit_title",
               "req": false,
+              "short": "The default value for a squash merge commit title: - `PR_TITLE` - default to the pull request's title.",
               "type": "`$STRING`"
             },
             {
@@ -727,6 +768,7 @@
               "active": true,
               "name": "team_id",
               "req": false,
+              "short": "The id of the team that will be granted access to this repository.",
               "type": "`$INTEGER`"
             },
             {
@@ -745,6 +787,7 @@
               "active": true,
               "name": "template_repository",
               "req": true,
+              "short": "A repository on GitHub.",
               "type": "`$OBJECT`"
             },
             {
@@ -775,12 +818,14 @@
               "active": true,
               "name": "use_squash_pr_title_as_default",
               "req": false,
+              "short": "Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message.",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "visibility",
               "req": false,
+              "short": "The repository visibility: public, private, or internal.",
               "type": "`$STRING`"
             },
             {
@@ -799,6 +844,7 @@
               "active": true,
               "name": "web_commit_signoff_required",
               "req": false,
+              "short": "Either `true` to require contributors to sign off on web-based commits, or `false` to not require contributors to sign off on web-based commits.",
               "type": "`$BOOLEAN`"
             }
           ],
