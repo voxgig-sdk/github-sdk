@@ -12,6 +12,209 @@ declare(strict_types=1);
 // registered on the composer classmap autoload. The SDK boundary exchanges
 // assoc-arrays; these classes name the shapes for tooling and typed callers.
 
+/** Pull entity data model. */
+class Pull
+{
+    public ?string $active_lock_reason = null;
+    public int $additions;
+    public array $assignee;
+    public ?array $assignees = null;
+    public string $author_association;
+    public array $auto_merge;
+    public array $base;
+    public string $body;
+    public int $changed_files;
+    public string $closed_at;
+    public int $comments;
+    public string $comments_url;
+    public ?string $commit_message = null;
+    public ?string $commit_title = null;
+    public int $commits;
+    public string $commits_url;
+    public string $created_at;
+    public int $deletions;
+    public string $diff_url;
+    public ?bool $draft = null;
+    public array $head;
+    public ?string $head_repo = null;
+    public string $html_url;
+    public int $id;
+    public ?int $issue = null;
+    public string $issue_url;
+    public array $labels;
+    public array $links;
+    public bool $locked;
+    public bool $maintainer_can_modify;
+    public string $merge_commit_sha;
+    public ?string $merge_method = null;
+    public bool $mergeable;
+    public string $mergeable_state;
+    public bool $merged;
+    public string $merged_at;
+    public array $merged_by;
+    public string $message;
+    public array $milestone;
+    public string $node_id;
+    public int $number;
+    public string $patch_url;
+    public ?bool $rebaseable = null;
+    public ?array $requested_reviewers = null;
+    public ?array $requested_teams = null;
+    public string $review_comment_url;
+    public int $review_comments;
+    public string $review_comments_url;
+    public string $sha;
+    public array $stack;
+    public string $state;
+    public string $statuses_url;
+    public string $title;
+    public string $updated_at;
+    public string $url;
+    public array $user;
+}
+
+/** Request payload for Pull#load. */
+class PullLoadMatch
+{
+    public string $owner;
+    public int $pull_number;
+    public string $repo;
+}
+
+/** Request payload for Pull#list. */
+class PullListMatch
+{
+    public string $owner;
+    public string $repo;
+}
+
+/** Request payload for Pull#create. */
+class PullCreateData
+{
+    public string $owner;
+    public string $repo;
+    public ?string $active_lock_reason = null;
+    public int $additions;
+    public array $assignee;
+    public ?array $assignees = null;
+    public string $author_association;
+    public array $auto_merge;
+    public array $base;
+    public string $body;
+    public int $changed_files;
+    public string $closed_at;
+    public int $comments;
+    public string $comments_url;
+    public ?string $commit_message = null;
+    public ?string $commit_title = null;
+    public int $commits;
+    public string $commits_url;
+    public string $created_at;
+    public int $deletions;
+    public string $diff_url;
+    public ?bool $draft = null;
+    public array $head;
+    public ?string $head_repo = null;
+    public string $html_url;
+    public int $id;
+    public ?int $issue = null;
+    public string $issue_url;
+    public array $labels;
+    public array $links;
+    public bool $locked;
+    public bool $maintainer_can_modify;
+    public string $merge_commit_sha;
+    public ?string $merge_method = null;
+    public bool $mergeable;
+    public string $mergeable_state;
+    public bool $merged;
+    public string $merged_at;
+    public array $merged_by;
+    public string $message;
+    public array $milestone;
+    public string $node_id;
+    public int $number;
+    public string $patch_url;
+    public ?bool $rebaseable = null;
+    public ?array $requested_reviewers = null;
+    public ?array $requested_teams = null;
+    public string $review_comment_url;
+    public int $review_comments;
+    public string $review_comments_url;
+    public string $sha;
+    public array $stack;
+    public string $state;
+    public string $statuses_url;
+    public string $title;
+    public string $updated_at;
+    public string $url;
+    public array $user;
+}
+
+/** Request payload for Pull#update. */
+class PullUpdateData
+{
+    public string $owner;
+    public int $pull_number;
+    public string $repo;
+    public ?string $active_lock_reason = null;
+    public ?int $additions = null;
+    public ?array $assignee = null;
+    public ?array $assignees = null;
+    public ?string $author_association = null;
+    public ?array $auto_merge = null;
+    public ?array $base = null;
+    public ?string $body = null;
+    public ?int $changed_files = null;
+    public ?string $closed_at = null;
+    public ?int $comments = null;
+    public ?string $comments_url = null;
+    public ?string $commit_message = null;
+    public ?string $commit_title = null;
+    public ?int $commits = null;
+    public ?string $commits_url = null;
+    public ?string $created_at = null;
+    public ?int $deletions = null;
+    public ?string $diff_url = null;
+    public ?bool $draft = null;
+    public ?array $head = null;
+    public ?string $head_repo = null;
+    public ?string $html_url = null;
+    public ?int $id = null;
+    public ?int $issue = null;
+    public ?string $issue_url = null;
+    public ?array $labels = null;
+    public ?array $links = null;
+    public ?bool $locked = null;
+    public ?bool $maintainer_can_modify = null;
+    public ?string $merge_commit_sha = null;
+    public ?string $merge_method = null;
+    public ?bool $mergeable = null;
+    public ?string $mergeable_state = null;
+    public ?bool $merged = null;
+    public ?string $merged_at = null;
+    public ?array $merged_by = null;
+    public ?string $message = null;
+    public ?array $milestone = null;
+    public ?string $node_id = null;
+    public ?int $number = null;
+    public ?string $patch_url = null;
+    public ?bool $rebaseable = null;
+    public ?array $requested_reviewers = null;
+    public ?array $requested_teams = null;
+    public ?string $review_comment_url = null;
+    public ?int $review_comments = null;
+    public ?string $review_comments_url = null;
+    public ?string $sha = null;
+    public ?array $stack = null;
+    public ?string $state = null;
+    public ?string $statuses_url = null;
+    public ?string $title = null;
+    public ?string $updated_at = null;
+    public ?string $url = null;
+    public ?array $user = null;
+}
+
 /** Repo entity data model. */
 class Repo
 {

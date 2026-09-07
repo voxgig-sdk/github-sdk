@@ -1,5 +1,6 @@
 // Github Js SDK
 
+const { PullEntity } = require('./entity/PullEntity')
 const { RepoEntity } = require('./entity/RepoEntity')
 
 
@@ -285,6 +286,15 @@ class GithubSDK {
     return res
   }
 
+
+
+  // Entity access: `client.Pull().list()` / `client.Pull().load({ id })`.
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Pull(entopts) {
+    const self = this
+    return new PullEntity(self, entopts)
+  }
 
 
   // Entity access: `client.Repo().list()` / `client.Repo().load({ id })`.

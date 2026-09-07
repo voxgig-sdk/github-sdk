@@ -1,5 +1,6 @@
 // Github Ts SDK
 
+import { PullEntity } from './entity/PullEntity'
 import { RepoEntity } from './entity/RepoEntity'
 
 export type * from './GithubTypes'
@@ -289,6 +290,15 @@ class GithubSDK {
     return res
   }
 
+
+
+  // Entity access: `client.Pull().list()` / `client.Pull().load({ id })`.
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Pull(entopts?: Record<string, any>) {
+    const self = this
+    return new PullEntity(self, entopts)
+  }
 
 
   // Entity access: `client.Repo().list()` / `client.Repo().load({ id })`.

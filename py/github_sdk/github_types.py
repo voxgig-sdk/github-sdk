@@ -16,6 +16,208 @@ from __future__ import annotations
 from typing import TypedDict, Any
 
 
+class PullRequired(TypedDict):
+    additions: int
+    assignee: dict
+    author_association: str
+    auto_merge: dict
+    base: dict
+    body: str
+    changed_files: int
+    closed_at: str
+    comments: int
+    comments_url: str
+    commits: int
+    commits_url: str
+    created_at: str
+    deletions: int
+    diff_url: str
+    head: dict
+    html_url: str
+    id: int
+    issue_url: str
+    labels: list
+    links: dict
+    locked: bool
+    maintainer_can_modify: bool
+    merge_commit_sha: str
+    mergeable: bool
+    mergeable_state: str
+    merged: bool
+    merged_at: str
+    merged_by: dict
+    message: str
+    milestone: dict
+    node_id: str
+    number: int
+    patch_url: str
+    review_comment_url: str
+    review_comments: int
+    review_comments_url: str
+    sha: str
+    stack: dict
+    state: str
+    statuses_url: str
+    title: str
+    updated_at: str
+    url: str
+    user: dict
+
+
+class Pull(PullRequired, total=False):
+    active_lock_reason: str
+    assignees: list
+    commit_message: str
+    commit_title: str
+    draft: bool
+    head_repo: str
+    issue: int
+    merge_method: str
+    rebaseable: bool
+    requested_reviewers: list
+    requested_teams: list
+
+
+class PullLoadMatch(TypedDict):
+    owner: str
+    pull_number: int
+    repo: str
+
+
+class PullListMatch(TypedDict):
+    owner: str
+    repo: str
+
+
+class PullCreateDataRequired(TypedDict):
+    owner: str
+    repo: str
+    additions: int
+    assignee: dict
+    author_association: str
+    auto_merge: dict
+    base: dict
+    body: str
+    changed_files: int
+    closed_at: str
+    comments: int
+    comments_url: str
+    commits: int
+    commits_url: str
+    created_at: str
+    deletions: int
+    diff_url: str
+    head: dict
+    html_url: str
+    id: int
+    issue_url: str
+    labels: list
+    links: dict
+    locked: bool
+    maintainer_can_modify: bool
+    merge_commit_sha: str
+    mergeable: bool
+    mergeable_state: str
+    merged: bool
+    merged_at: str
+    merged_by: dict
+    message: str
+    milestone: dict
+    node_id: str
+    number: int
+    patch_url: str
+    review_comment_url: str
+    review_comments: int
+    review_comments_url: str
+    sha: str
+    stack: dict
+    state: str
+    statuses_url: str
+    title: str
+    updated_at: str
+    url: str
+    user: dict
+
+
+class PullCreateData(PullCreateDataRequired, total=False):
+    active_lock_reason: str
+    assignees: list
+    commit_message: str
+    commit_title: str
+    draft: bool
+    head_repo: str
+    issue: int
+    merge_method: str
+    rebaseable: bool
+    requested_reviewers: list
+    requested_teams: list
+
+
+class PullUpdateDataRequired(TypedDict):
+    owner: str
+    pull_number: int
+    repo: str
+
+
+class PullUpdateData(PullUpdateDataRequired, total=False):
+    active_lock_reason: str
+    additions: int
+    assignee: dict
+    assignees: list
+    author_association: str
+    auto_merge: dict
+    base: dict
+    body: str
+    changed_files: int
+    closed_at: str
+    comments: int
+    comments_url: str
+    commit_message: str
+    commit_title: str
+    commits: int
+    commits_url: str
+    created_at: str
+    deletions: int
+    diff_url: str
+    draft: bool
+    head: dict
+    head_repo: str
+    html_url: str
+    id: int
+    issue: int
+    issue_url: str
+    labels: list
+    links: dict
+    locked: bool
+    maintainer_can_modify: bool
+    merge_commit_sha: str
+    merge_method: str
+    mergeable: bool
+    mergeable_state: str
+    merged: bool
+    merged_at: str
+    merged_by: dict
+    message: str
+    milestone: dict
+    node_id: str
+    number: int
+    patch_url: str
+    rebaseable: bool
+    requested_reviewers: list
+    requested_teams: list
+    review_comment_url: str
+    review_comments: int
+    review_comments_url: str
+    sha: str
+    stack: dict
+    state: str
+    statuses_url: str
+    title: str
+    updated_at: str
+    url: str
+    user: dict
+
+
 class RepoRequired(TypedDict):
     archive_url: str
     archived: bool

@@ -40,6 +40,10 @@ local client = sdk.test()
 
 ### Instance Methods
 
+#### `Pull(data)`
+
+Create a new `Pull` entity instance. Pass `nil` for no initial data.
+
 #### `Repo(data)`
 
 Create a new `Repo` entity instance. Pass `nil` for no initial data.
@@ -76,6 +80,251 @@ Prepare a fetch definition without sending the request. Accepts the
 same parameters as `direct()`.
 
 **Returns:** `table, err`
+
+
+---
+
+## PullEntity
+
+```lua
+local pull = client:Pull(nil)
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `active_lock_reason` | `string` | No |  |
+| `additions` | `number` | Yes |  |
+| `assignee` | `table` | Yes |  |
+| `assignees` | `table` | No |  |
+| `author_association` | `string` | Yes |  |
+| `auto_merge` | `table` | Yes |  |
+| `base` | `table` | Yes |  |
+| `body` | `string` | Yes |  |
+| `changed_files` | `number` | Yes |  |
+| `closed_at` | `string` | Yes |  |
+| `comments` | `number` | Yes |  |
+| `comments_url` | `string` | Yes |  |
+| `commit_message` | `string` | No |  |
+| `commit_title` | `string` | No |  |
+| `commits` | `number` | Yes |  |
+| `commits_url` | `string` | Yes |  |
+| `created_at` | `string` | Yes |  |
+| `deletions` | `number` | Yes |  |
+| `diff_url` | `string` | Yes |  |
+| `draft` | `boolean` | No |  |
+| `head` | `table` | Yes |  |
+| `head_repo` | `string` | No |  |
+| `html_url` | `string` | Yes |  |
+| `id` | `number` | Yes |  |
+| `issue` | `number` | No |  |
+| `issue_url` | `string` | Yes |  |
+| `labels` | `table` | Yes |  |
+| `links` | `table` | Yes |  |
+| `locked` | `boolean` | Yes |  |
+| `maintainer_can_modify` | `boolean` | Yes |  |
+| `merge_commit_sha` | `string` | Yes |  |
+| `merge_method` | `string` | No |  |
+| `mergeable` | `boolean` | Yes |  |
+| `mergeable_state` | `string` | Yes |  |
+| `merged` | `boolean` | Yes |  |
+| `merged_at` | `string` | Yes |  |
+| `merged_by` | `table` | Yes |  |
+| `message` | `string` | Yes |  |
+| `milestone` | `table` | Yes |  |
+| `node_id` | `string` | Yes |  |
+| `number` | `number` | Yes |  |
+| `patch_url` | `string` | Yes |  |
+| `rebaseable` | `boolean` | No |  |
+| `requested_reviewers` | `table` | No |  |
+| `requested_teams` | `table` | No |  |
+| `review_comment_url` | `string` | Yes |  |
+| `review_comments` | `number` | Yes |  |
+| `review_comments_url` | `string` | Yes |  |
+| `sha` | `string` | Yes |  |
+| `stack` | `table` | Yes |  |
+| `state` | `string` | Yes |  |
+| `statuses_url` | `string` | Yes |  |
+| `title` | `string` | Yes |  |
+| `updated_at` | `string` | Yes |  |
+| `url` | `string` | Yes |  |
+| `user` | `table` | Yes |  |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `active_lock_reason` | - | - | - | - |
+| `additions` | - | - | - | - |
+| `assignee` | - | - | - | - |
+| `assignees` | - | - | - | - |
+| `author_association` | - | - | - | - |
+| `auto_merge` | - | - | - | - |
+| `base` | - | - | - | - |
+| `body` | - | - | Yes | - |
+| `changed_files` | - | - | - | - |
+| `closed_at` | - | - | - | - |
+| `comments` | - | - | - | - |
+| `comments_url` | - | - | - | - |
+| `commit_message` | - | - | - | - |
+| `commit_title` | - | - | - | - |
+| `commits` | - | - | - | - |
+| `commits_url` | - | - | - | - |
+| `created_at` | - | - | - | - |
+| `deletions` | - | - | - | - |
+| `diff_url` | - | - | - | - |
+| `draft` | - | - | - | - |
+| `head` | - | - | - | - |
+| `head_repo` | - | - | - | - |
+| `html_url` | - | - | - | - |
+| `id` | - | - | - | - |
+| `issue` | - | - | - | - |
+| `issue_url` | - | - | - | - |
+| `labels` | - | - | - | - |
+| `links` | - | - | - | - |
+| `locked` | - | - | - | - |
+| `maintainer_can_modify` | - | - | Yes | - |
+| `merge_commit_sha` | - | - | - | - |
+| `merge_method` | - | - | - | - |
+| `mergeable` | - | - | - | - |
+| `mergeable_state` | - | - | - | - |
+| `merged` | - | - | - | - |
+| `merged_at` | - | - | - | - |
+| `merged_by` | - | - | - | - |
+| `message` | - | - | - | - |
+| `milestone` | - | - | - | - |
+| `node_id` | - | - | - | - |
+| `number` | - | - | - | - |
+| `patch_url` | - | - | - | - |
+| `rebaseable` | - | - | - | - |
+| `requested_reviewers` | - | - | - | - |
+| `requested_teams` | - | - | - | - |
+| `review_comment_url` | - | - | - | - |
+| `review_comments` | - | - | - | - |
+| `review_comments_url` | - | - | - | - |
+| `sha` | - | - | - | Yes |
+| `stack` | - | - | - | - |
+| `state` | - | - | - | - |
+| `statuses_url` | - | - | - | - |
+| `title` | - | - | Yes | - |
+| `updated_at` | - | - | - | - |
+| `url` | - | - | - | - |
+| `user` | - | - | - | - |
+
+### Operations
+
+#### `create(reqdata, ctrl) -> any, err`
+
+Create a new entity with the given data.
+
+```lua
+local result, err = client:Pull():create({
+  owner = --[[ string ]],
+  repo = --[[ string ]],
+  additions = --[[ number ]],
+  assignee = --[[ table ]],
+  author_association = --[[ string ]],
+  auto_merge = --[[ table ]],
+  base = --[[ table ]],
+  body = --[[ string ]],
+  changed_files = --[[ number ]],
+  closed_at = --[[ string ]],
+  comments = --[[ number ]],
+  comments_url = --[[ string ]],
+  commits = --[[ number ]],
+  commits_url = --[[ string ]],
+  created_at = --[[ string ]],
+  deletions = --[[ number ]],
+  diff_url = --[[ string ]],
+  head = --[[ table ]],
+  html_url = --[[ string ]],
+  id = --[[ number ]],
+  issue_url = --[[ string ]],
+  labels = --[[ table ]],
+  links = --[[ table ]],
+  locked = --[[ boolean ]],
+  maintainer_can_modify = --[[ boolean ]],
+  merge_commit_sha = --[[ string ]],
+  mergeable = --[[ boolean ]],
+  mergeable_state = --[[ string ]],
+  merged = --[[ boolean ]],
+  merged_at = --[[ string ]],
+  merged_by = --[[ table ]],
+  message = --[[ string ]],
+  milestone = --[[ table ]],
+  node_id = --[[ string ]],
+  number = --[[ number ]],
+  patch_url = --[[ string ]],
+  review_comment_url = --[[ string ]],
+  review_comments = --[[ number ]],
+  review_comments_url = --[[ string ]],
+  sha = --[[ string ]],
+  stack = --[[ table ]],
+  state = --[[ string ]],
+  statuses_url = --[[ string ]],
+  title = --[[ string ]],
+  updated_at = --[[ string ]],
+  url = --[[ string ]],
+  user = --[[ table ]],
+})
+```
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:Pull():list()
+```
+
+#### `load(reqmatch, ctrl) -> any, err`
+
+Load a single entity matching the given criteria.
+
+```lua
+local result, err = client:Pull():load({ owner = "owner", pull_number = 1, repo = "repo" })
+```
+
+#### `update(reqdata, ctrl) -> any, err`
+
+Update an existing entity. The data must include the entity `id`.
+
+```lua
+local result, err = client:Pull():update({
+  owner = "owner",
+  pull_number = 1,
+  repo = "repo",
+  -- Fields to update
+})
+```
+
+### Common Methods
+
+#### `data_get() -> table`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set(data)`
+
+Set the entity data.
+
+#### `match_get() -> table`
+
+Get the entity match criteria.
+
+#### `match_set(match)`
+
+Set the entity match criteria.
+
+#### `make() -> Entity`
+
+Create a new `PullEntity` instance with the same client and
+options.
+
+#### `get_name() -> string`
+
+Return the entity name.
 
 
 ---

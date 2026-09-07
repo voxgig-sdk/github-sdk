@@ -14,14 +14,14 @@ Learn more about Voxgig SDKs at [voxgig.com/sdk](https://voxgig.com/sdk/).
 
 ## Entities, not endpoints
 
-This SDK exposes the API as a small set of **semantic entities** — Repo — that you
+This SDK exposes the API as a small set of **semantic entities** — Pull and Repo — that you
 call directly, instead of assembling URL paths and query strings. Entities are
 **Capitalised** to mark them as the primary surface, each with the operations they
 support (`list`, `load`, `create`, `update`, `remove`):
 
 ```ts
 const client = new GithubSDK()
-const items = await client.Repo().list()
+const items = await client.Pull().list({ owner: "example", repo: "example" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -40,23 +40,23 @@ network, and no credentials:
 // Shape: { entity: { <entity-name>: { <id>: <record> } } }
 const client = GithubSDK.test({
   entity: {
-    repo: {
-      test01: { id: 'test01', archive_url: 'example_archive_url', archived: true, assignees_url: 'example_assignees_url' },
+    pull: {
+      test01: { id: 'test01', owner: 'example_owner', repo: 'example_repo', additions: 1 },
     },
   },
 })
-const repos = await client.Repo().list()
-// repos is an array of Repo entities, populated with mock data
-// — call repos[0].data() for the record itself
-console.log(repos)
+const pulls = await client.Pull().list()
+// pulls is an array of Pull entities, populated with mock data
+// — call pulls[0].data() for the record itself
+console.log(pulls)
 ```
 
 ### Python
 
 ```python
 client = GithubSDK.test()
-repos = client.Repo().list()
-print(repos)
+pulls = client.Pull().list()
+print(pulls)
 ```
 
 ### PHP
@@ -64,16 +64,16 @@ print(repos)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = GithubSDK::test([
-    "entity" => ["repo" => ["test01" => []]],
+    "entity" => ["pull" => ["test01" => []]],
 ]);
-$repos = $client->Repo()->list();
+$pulls = $client->Pull()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Repo(nil).List(
+result, err := client.Pull(nil).List(
     nil, nil,
 )
 ```
@@ -82,17 +82,17 @@ result, err := client.Repo(nil).List(
 
 ```lua
 local client = sdk.test()
-local results, err = client:Repo():list()
+local results, err = client:Pull():list()
 ```
 
 ### JavaScript
 
 ```js
 const client = GithubSDK.test()
-const repos = await client.Repo().list()
-// repos is an array of entities, populated with mock data
-// — call repos[0].data() for the record itself
-console.log(repos)
+const pulls = await client.Pull().list()
+// pulls is an array of entities, populated with mock data
+// — call pulls[0].data() for the record itself
+console.log(pulls)
 ```
 
 ## Packages
@@ -117,18 +117,19 @@ import { GithubSDK } from '@voxgig-sdk/github'
 
 const client = new GithubSDK()
 
-// List all repos (returns RepoEntity[] — .data() for the record)
-const repos = await client.Repo().list()
-for (const repo of repos) {
-  console.log(repo)
+// List all pulls (returns PullEntity[] — .data() for the record)
+const pulls = await client.Pull().list({ owner: "example", repo: "example" })
+for (const pull of pulls) {
+  console.log(pull)
 }
 
-// Load a specific repo (returns a Repo)
-const repo = await client.Repo().load({
+// Load a specific pull (returns a Pull)
+const pull = await client.Pull().load({
   owner: 'example_owner',
+  pull_number: 1,
   repo: 'example_repo',
 })
-console.log(repo)
+console.log(pull)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -165,10 +166,11 @@ Then add it to your agent's MCP config (Claude Desktop, Cursor, etc.):
 
 ## Entities
 
-The API exposes one entity:
+The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
+| **Pull** | The Pull entity (create, list, load, update). | `/repos/{owner}/{repo}/pulls` |
 | **Repo** | The Repo entity (create, list, load, remove, update). | `/user/repos` |
 
 The operations available across these entities are **load**, **list**, **create**, **update**, **remove** — see each entity's
@@ -183,14 +185,14 @@ from github_sdk import GithubSDK
 
 client = GithubSDK()
 
-# List all repos (returns a list, raises on error)
-repos = client.Repo().list()
-for repo in repos:
-    print(repo)
+# List all pulls (returns a list, raises on error)
+pulls = client.Pull().list({"owner": "example", "repo": "example"})
+for pull in pulls:
+    print(pull)
 
-# Load a specific repo (returns the record, raises on error)
-repo = client.Repo().load({"owner": "example_owner", "repo": "example_repo"})
-print(repo)
+# Load a specific pull (returns the record, raises on error)
+pull = client.Pull().load({"owner": "example_owner", "pull_number": 1, "repo": "example_repo"})
+print(pull)
 ```
 
 ### PHP
@@ -201,13 +203,13 @@ require_once 'github_sdk.php';
 
 $client = new GithubSDK();
 
-// List all repos (returns an array; throws on error)
-$repos = $client->Repo()->list();
-print_r($repos);
+// List all pulls (returns an array; throws on error)
+$pulls = $client->Pull()->list();
+print_r($pulls);
 
-// Load a specific repo (returns the ENTITY; call data_get() for the record; throws on error)
-$repo = $client->Repo()->load(["owner" => "example_owner", "repo" => "example_repo"]);
-print_r($repo);
+// Load a specific pull (returns the ENTITY; call data_get() for the record; throws on error)
+$pull = $client->Pull()->load(["owner" => "example_owner", "pull_number" => 1, "repo" => "example_repo"]);
+print_r($pull);
 ```
 
 ### Golang
@@ -217,21 +219,21 @@ import sdk "github.com/voxgig-sdk/github-sdk/go"
 
 client := sdk.New()
 
-// List all repos
-repos, err := client.Repo(nil).List(nil, nil)
+// List all pulls
+pulls, err := client.Pull(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(repos)
+fmt.Println(pulls)
 
-// Load a specific repo
-repo, err := client.Repo(nil).Load(
-    map[string]any{"owner": "example_owner", "repo": "example_repo"}, nil,
+// Load a specific pull
+pull, err := client.Pull(nil).Load(
+    map[string]any{"owner": "example_owner", "pull_number": 1, "repo": "example_repo"}, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(repo)
+fmt.Println(pull)
 ```
 
 ### Lua
@@ -241,13 +243,13 @@ local sdk = require("github_sdk")
 
 local client = sdk.new()
 
--- List all repos
-local repos, err = client:Repo():list()
-print(repos)
+-- List all pulls
+local pulls, err = client:Pull():list()
+print(pulls)
 
--- Load a specific repo
-local repo, err = client:Repo():load({ owner = "example_owner", repo = "example_repo" })
-print(repo)
+-- Load a specific pull
+local pull, err = client:Pull():load({ owner = "example_owner", pull_number = 1, repo = "example_repo" })
+print(pull)
 ```
 
 ### JavaScript
@@ -257,18 +259,19 @@ const { GithubSDK } = require('@voxgig-sdk/github-js')
 
 const client = new GithubSDK()
 
-// List all repos (returns an array)
-const repos = await client.Repo().list()
-for (const repo of repos) {
-  console.log(repo)
+// List all pulls (returns an array)
+const pulls = await client.Pull().list({ owner: "example", repo: "example" })
+for (const pull of pulls) {
+  console.log(pull)
 }
 
-// Load a specific repo (returns the entity)
-const repo = await client.Repo().load({
+// Load a specific pull (returns the entity)
+const pull = await client.Pull().load({
   owner: 'example_owner',
+  pull_number: 1,
   repo: 'example_repo',
 })
-console.log(repo)
+console.log(pull)
 ```
 
 ## Direct and prepare

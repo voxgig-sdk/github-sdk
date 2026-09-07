@@ -45,10 +45,572 @@ def make_config():
         "content-type": "application/json",
       },
             "entity": {
+                "pull": {},
                 "repo": {},
             },
         },
         "entity": {
+      "pull": {
+        "fields": [
+          {
+            "name": "active_lock_reason",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "additions",
+            "req": True,
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "assignee",
+            "req": True,
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "assignees",
+            "type": "`$ARRAY`",
+          },
+          {
+            "name": "author_association",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "auto_merge",
+            "req": True,
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "base",
+            "req": True,
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "body",
+            "op": {
+              "create": {
+                "type": "`$STRING`",
+              },
+            },
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "changed_files",
+            "req": True,
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "closed_at",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "comments",
+            "req": True,
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "comments_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "commit_message",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "commit_title",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "commits",
+            "req": True,
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "commits_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "created_at",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "deletions",
+            "req": True,
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "diff_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "draft",
+            "type": "`$BOOLEAN`",
+          },
+          {
+            "name": "head",
+            "req": True,
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "head_repo",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "html_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "id",
+            "req": True,
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "issue",
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "issue_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "labels",
+            "req": True,
+            "type": "`$ARRAY`",
+          },
+          {
+            "name": "links",
+            "req": True,
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "locked",
+            "req": True,
+            "type": "`$BOOLEAN`",
+          },
+          {
+            "name": "maintainer_can_modify",
+            "op": {
+              "create": {
+                "type": "`$BOOLEAN`",
+              },
+            },
+            "req": True,
+            "type": "`$BOOLEAN`",
+          },
+          {
+            "name": "merge_commit_sha",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "merge_method",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "mergeable",
+            "req": True,
+            "type": "`$BOOLEAN`",
+          },
+          {
+            "name": "mergeable_state",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "merged",
+            "req": True,
+            "type": "`$BOOLEAN`",
+          },
+          {
+            "name": "merged_at",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "merged_by",
+            "req": True,
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "message",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "milestone",
+            "req": True,
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "node_id",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "number",
+            "req": True,
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "patch_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "rebaseable",
+            "type": "`$BOOLEAN`",
+          },
+          {
+            "name": "requested_reviewers",
+            "type": "`$ARRAY`",
+          },
+          {
+            "name": "requested_teams",
+            "type": "`$ARRAY`",
+          },
+          {
+            "name": "review_comment_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "review_comments",
+            "req": True,
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "review_comments_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "sha",
+            "op": {
+              "update": {
+                "type": "`$STRING`",
+              },
+            },
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "stack",
+            "req": True,
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "state",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "statuses_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "title",
+            "op": {
+              "create": {
+                "type": "`$STRING`",
+              },
+            },
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "updated_at",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "user",
+            "req": True,
+            "type": "`$OBJECT`",
+          },
+        ],
+        "name": "pull",
+        "op": {
+          "create": {
+            "input": "data",
+            "name": "create",
+            "points": [
+              {
+                "args": {
+                  "params": [
+                    {
+                      "kind": "param",
+                      "name": "owner",
+                      "orig": "owner",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "kind": "param",
+                      "name": "repo",
+                      "orig": "repo",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "POST",
+                "orig": "/repos/{owner}/{repo}/pulls",
+                "parts": [
+                  "repos",
+                  "{owner}",
+                  "{repo}",
+                  "pulls",
+                ],
+                "select": {
+                  "exist": [
+                    "owner",
+                    "repo",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+              },
+            ],
+          },
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "args": {
+                  "params": [
+                    {
+                      "kind": "param",
+                      "name": "owner",
+                      "orig": "owner",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "kind": "param",
+                      "name": "repo",
+                      "orig": "repo",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                  "query": [
+                    {
+                      "kind": "query",
+                      "name": "base",
+                      "orig": "base",
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "kind": "query",
+                      "name": "direction",
+                      "orig": "direction",
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "kind": "query",
+                      "name": "head",
+                      "orig": "head",
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "example": 1,
+                      "kind": "query",
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                    },
+                    {
+                      "example": 30,
+                      "kind": "query",
+                      "name": "per_page",
+                      "orig": "per_page",
+                      "type": "`$INTEGER`",
+                    },
+                    {
+                      "example": "created",
+                      "kind": "query",
+                      "name": "sort",
+                      "orig": "sort",
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "example": "open",
+                      "kind": "query",
+                      "name": "state",
+                      "orig": "state",
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/repos/{owner}/{repo}/pulls",
+                "parts": [
+                  "repos",
+                  "{owner}",
+                  "{repo}",
+                  "pulls",
+                ],
+                "select": {
+                  "exist": [
+                    "base",
+                    "direction",
+                    "head",
+                    "owner",
+                    "page",
+                    "per_page",
+                    "repo",
+                    "sort",
+                    "state",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+              },
+            ],
+          },
+          "load": {
+            "input": "data",
+            "name": "load",
+            "points": [
+              {
+                "args": {
+                  "params": [
+                    {
+                      "kind": "param",
+                      "name": "owner",
+                      "orig": "owner",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "kind": "param",
+                      "name": "pull_number",
+                      "orig": "pull_number",
+                      "reqd": True,
+                      "type": "`$INTEGER`",
+                    },
+                    {
+                      "kind": "param",
+                      "name": "repo",
+                      "orig": "repo",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/repos/{owner}/{repo}/pulls/{pull_number}",
+                "parts": [
+                  "repos",
+                  "{owner}",
+                  "{repo}",
+                  "pulls",
+                  "{pull_number}",
+                ],
+                "select": {
+                  "exist": [
+                    "owner",
+                    "pull_number",
+                    "repo",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+              },
+            ],
+          },
+          "update": {
+            "input": "data",
+            "name": "update",
+            "points": [
+              {
+                "args": {
+                  "params": [
+                    {
+                      "kind": "param",
+                      "name": "owner",
+                      "orig": "owner",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "kind": "param",
+                      "name": "pull_number",
+                      "orig": "pull_number",
+                      "reqd": True,
+                      "type": "`$INTEGER`",
+                    },
+                    {
+                      "kind": "param",
+                      "name": "repo",
+                      "orig": "repo",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "PUT",
+                "orig": "/repos/{owner}/{repo}/pulls/{pull_number}/merge",
+                "parts": [
+                  "repos",
+                  "{owner}",
+                  "{repo}",
+                  "pulls",
+                  "{pull_number}",
+                  "merge",
+                ],
+                "select": {
+                  "exist": [
+                    "owner",
+                    "pull_number",
+                    "repo",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+              },
+            ],
+          },
+        },
+        "relations": {
+          "ancestors": [
+            [
+              "repo",
+            ],
+            [
+              "repo",
+              "pull",
+            ],
+          ],
+        },
+      },
       "repo": {
         "fields": [
           {

@@ -38,5 +38,6 @@ def: 'github-repo-only.json'
 main: kit: target: 'seneca-provider': output: {
   path: '../../seneca/github-provider'
   sdkrel: '../../voxgig-sdk/github-sdk'
+  adopt: true
 }
 

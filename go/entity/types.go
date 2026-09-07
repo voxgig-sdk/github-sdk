@@ -12,6 +12,204 @@ import (
 	"github.com/voxgig-sdk/github-sdk/go/core"
 )
 
+// Pull is the typed data model for the pull entity.
+type Pull struct {
+	ActiveLockReason *string `json:"active_lock_reason,omitempty"`
+	Additions int `json:"additions"`
+	Assignee map[string]any `json:"assignee"`
+	Assignees *[]any `json:"assignees,omitempty"`
+	AuthorAssociation string `json:"author_association"`
+	AutoMerge map[string]any `json:"auto_merge"`
+	Base map[string]any `json:"base"`
+	Body string `json:"body"`
+	ChangedFiles int `json:"changed_files"`
+	ClosedAt string `json:"closed_at"`
+	Comments int `json:"comments"`
+	CommentsUrl string `json:"comments_url"`
+	CommitMessage *string `json:"commit_message,omitempty"`
+	CommitTitle *string `json:"commit_title,omitempty"`
+	Commits int `json:"commits"`
+	CommitsUrl string `json:"commits_url"`
+	CreatedAt string `json:"created_at"`
+	Deletions int `json:"deletions"`
+	DiffUrl string `json:"diff_url"`
+	Draft *bool `json:"draft,omitempty"`
+	Head map[string]any `json:"head"`
+	HeadRepo *string `json:"head_repo,omitempty"`
+	HtmlUrl string `json:"html_url"`
+	Id int `json:"id"`
+	Issue *int `json:"issue,omitempty"`
+	IssueUrl string `json:"issue_url"`
+	Labels []any `json:"labels"`
+	Links map[string]any `json:"links"`
+	Locked bool `json:"locked"`
+	MaintainerCanModify bool `json:"maintainer_can_modify"`
+	MergeCommitSha string `json:"merge_commit_sha"`
+	MergeMethod *string `json:"merge_method,omitempty"`
+	Mergeable bool `json:"mergeable"`
+	MergeableState string `json:"mergeable_state"`
+	Merged bool `json:"merged"`
+	MergedAt string `json:"merged_at"`
+	MergedBy map[string]any `json:"merged_by"`
+	Message string `json:"message"`
+	Milestone map[string]any `json:"milestone"`
+	NodeId string `json:"node_id"`
+	Number int `json:"number"`
+	PatchUrl string `json:"patch_url"`
+	Rebaseable *bool `json:"rebaseable,omitempty"`
+	RequestedReviewers *[]any `json:"requested_reviewers,omitempty"`
+	RequestedTeams *[]any `json:"requested_teams,omitempty"`
+	ReviewCommentUrl string `json:"review_comment_url"`
+	ReviewComments int `json:"review_comments"`
+	ReviewCommentsUrl string `json:"review_comments_url"`
+	Sha string `json:"sha"`
+	Stack map[string]any `json:"stack"`
+	State string `json:"state"`
+	StatusesUrl string `json:"statuses_url"`
+	Title string `json:"title"`
+	UpdatedAt string `json:"updated_at"`
+	Url string `json:"url"`
+	User map[string]any `json:"user"`
+}
+
+// PullLoadMatch is the typed request payload for Pull.LoadTyped.
+type PullLoadMatch struct {
+	Owner string `json:"owner"`
+	PullNumber int `json:"pull_number"`
+	Repo string `json:"repo"`
+}
+
+// PullListMatch is the typed request payload for Pull.ListTyped.
+type PullListMatch struct {
+	Owner string `json:"owner"`
+	Repo string `json:"repo"`
+}
+
+// PullCreateData is the typed request payload for Pull.CreateTyped.
+type PullCreateData struct {
+	Owner string `json:"owner"`
+	Repo string `json:"repo"`
+	ActiveLockReason *string `json:"active_lock_reason,omitempty"`
+	Additions int `json:"additions"`
+	Assignee map[string]any `json:"assignee"`
+	Assignees *[]any `json:"assignees,omitempty"`
+	AuthorAssociation string `json:"author_association"`
+	AutoMerge map[string]any `json:"auto_merge"`
+	Base map[string]any `json:"base"`
+	Body string `json:"body"`
+	ChangedFiles int `json:"changed_files"`
+	ClosedAt string `json:"closed_at"`
+	Comments int `json:"comments"`
+	CommentsUrl string `json:"comments_url"`
+	CommitMessage *string `json:"commit_message,omitempty"`
+	CommitTitle *string `json:"commit_title,omitempty"`
+	Commits int `json:"commits"`
+	CommitsUrl string `json:"commits_url"`
+	CreatedAt string `json:"created_at"`
+	Deletions int `json:"deletions"`
+	DiffUrl string `json:"diff_url"`
+	Draft *bool `json:"draft,omitempty"`
+	Head map[string]any `json:"head"`
+	HeadRepo *string `json:"head_repo,omitempty"`
+	HtmlUrl string `json:"html_url"`
+	Id int `json:"id"`
+	Issue *int `json:"issue,omitempty"`
+	IssueUrl string `json:"issue_url"`
+	Labels []any `json:"labels"`
+	Links map[string]any `json:"links"`
+	Locked bool `json:"locked"`
+	MaintainerCanModify bool `json:"maintainer_can_modify"`
+	MergeCommitSha string `json:"merge_commit_sha"`
+	MergeMethod *string `json:"merge_method,omitempty"`
+	Mergeable bool `json:"mergeable"`
+	MergeableState string `json:"mergeable_state"`
+	Merged bool `json:"merged"`
+	MergedAt string `json:"merged_at"`
+	MergedBy map[string]any `json:"merged_by"`
+	Message string `json:"message"`
+	Milestone map[string]any `json:"milestone"`
+	NodeId string `json:"node_id"`
+	Number int `json:"number"`
+	PatchUrl string `json:"patch_url"`
+	Rebaseable *bool `json:"rebaseable,omitempty"`
+	RequestedReviewers *[]any `json:"requested_reviewers,omitempty"`
+	RequestedTeams *[]any `json:"requested_teams,omitempty"`
+	ReviewCommentUrl string `json:"review_comment_url"`
+	ReviewComments int `json:"review_comments"`
+	ReviewCommentsUrl string `json:"review_comments_url"`
+	Sha string `json:"sha"`
+	Stack map[string]any `json:"stack"`
+	State string `json:"state"`
+	StatusesUrl string `json:"statuses_url"`
+	Title string `json:"title"`
+	UpdatedAt string `json:"updated_at"`
+	Url string `json:"url"`
+	User map[string]any `json:"user"`
+}
+
+// PullUpdateData is the typed request payload for Pull.UpdateTyped.
+type PullUpdateData struct {
+	Owner string `json:"owner"`
+	PullNumber int `json:"pull_number"`
+	Repo string `json:"repo"`
+	ActiveLockReason *string `json:"active_lock_reason,omitempty"`
+	Additions *int `json:"additions,omitempty"`
+	Assignee *map[string]any `json:"assignee,omitempty"`
+	Assignees *[]any `json:"assignees,omitempty"`
+	AuthorAssociation *string `json:"author_association,omitempty"`
+	AutoMerge *map[string]any `json:"auto_merge,omitempty"`
+	Base *map[string]any `json:"base,omitempty"`
+	Body *string `json:"body,omitempty"`
+	ChangedFiles *int `json:"changed_files,omitempty"`
+	ClosedAt *string `json:"closed_at,omitempty"`
+	Comments *int `json:"comments,omitempty"`
+	CommentsUrl *string `json:"comments_url,omitempty"`
+	CommitMessage *string `json:"commit_message,omitempty"`
+	CommitTitle *string `json:"commit_title,omitempty"`
+	Commits *int `json:"commits,omitempty"`
+	CommitsUrl *string `json:"commits_url,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
+	Deletions *int `json:"deletions,omitempty"`
+	DiffUrl *string `json:"diff_url,omitempty"`
+	Draft *bool `json:"draft,omitempty"`
+	Head *map[string]any `json:"head,omitempty"`
+	HeadRepo *string `json:"head_repo,omitempty"`
+	HtmlUrl *string `json:"html_url,omitempty"`
+	Id *int `json:"id,omitempty"`
+	Issue *int `json:"issue,omitempty"`
+	IssueUrl *string `json:"issue_url,omitempty"`
+	Labels *[]any `json:"labels,omitempty"`
+	Links *map[string]any `json:"links,omitempty"`
+	Locked *bool `json:"locked,omitempty"`
+	MaintainerCanModify *bool `json:"maintainer_can_modify,omitempty"`
+	MergeCommitSha *string `json:"merge_commit_sha,omitempty"`
+	MergeMethod *string `json:"merge_method,omitempty"`
+	Mergeable *bool `json:"mergeable,omitempty"`
+	MergeableState *string `json:"mergeable_state,omitempty"`
+	Merged *bool `json:"merged,omitempty"`
+	MergedAt *string `json:"merged_at,omitempty"`
+	MergedBy *map[string]any `json:"merged_by,omitempty"`
+	Message *string `json:"message,omitempty"`
+	Milestone *map[string]any `json:"milestone,omitempty"`
+	NodeId *string `json:"node_id,omitempty"`
+	Number *int `json:"number,omitempty"`
+	PatchUrl *string `json:"patch_url,omitempty"`
+	Rebaseable *bool `json:"rebaseable,omitempty"`
+	RequestedReviewers *[]any `json:"requested_reviewers,omitempty"`
+	RequestedTeams *[]any `json:"requested_teams,omitempty"`
+	ReviewCommentUrl *string `json:"review_comment_url,omitempty"`
+	ReviewComments *int `json:"review_comments,omitempty"`
+	ReviewCommentsUrl *string `json:"review_comments_url,omitempty"`
+	Sha *string `json:"sha,omitempty"`
+	Stack *map[string]any `json:"stack,omitempty"`
+	State *string `json:"state,omitempty"`
+	StatusesUrl *string `json:"statuses_url,omitempty"`
+	Title *string `json:"title,omitempty"`
+	UpdatedAt *string `json:"updated_at,omitempty"`
+	Url *string `json:"url,omitempty"`
+	User *map[string]any `json:"user,omitempty"`
+}
+
 // Repo is the typed data model for the repo entity.
 type Repo struct {
 	AllowAutoMerge *bool `json:"allow_auto_merge,omitempty"`

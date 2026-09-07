@@ -7,6 +7,204 @@
 // edit by hand.
 
 /**
+ * @typedef {Object} Pull
+ * @property {string} [active_lock_reason]
+ * @property {number} additions
+ * @property {Object} assignee
+ * @property {Array} [assignees]
+ * @property {string} author_association
+ * @property {Object} auto_merge
+ * @property {Object} base
+ * @property {string} body
+ * @property {number} changed_files
+ * @property {string} closed_at
+ * @property {number} comments
+ * @property {string} comments_url
+ * @property {string} [commit_message]
+ * @property {string} [commit_title]
+ * @property {number} commits
+ * @property {string} commits_url
+ * @property {string} created_at
+ * @property {number} deletions
+ * @property {string} diff_url
+ * @property {boolean} [draft]
+ * @property {Object} head
+ * @property {string} [head_repo]
+ * @property {string} html_url
+ * @property {number} id
+ * @property {number} [issue]
+ * @property {string} issue_url
+ * @property {Array} labels
+ * @property {Object} links
+ * @property {boolean} locked
+ * @property {boolean} maintainer_can_modify
+ * @property {string} merge_commit_sha
+ * @property {string} [merge_method]
+ * @property {boolean} mergeable
+ * @property {string} mergeable_state
+ * @property {boolean} merged
+ * @property {string} merged_at
+ * @property {Object} merged_by
+ * @property {string} message
+ * @property {Object} milestone
+ * @property {string} node_id
+ * @property {number} number
+ * @property {string} patch_url
+ * @property {boolean} [rebaseable]
+ * @property {Array} [requested_reviewers]
+ * @property {Array} [requested_teams]
+ * @property {string} review_comment_url
+ * @property {number} review_comments
+ * @property {string} review_comments_url
+ * @property {string} sha
+ * @property {Object} stack
+ * @property {string} state
+ * @property {string} statuses_url
+ * @property {string} title
+ * @property {string} updated_at
+ * @property {string} url
+ * @property {Object} user
+ */
+
+/**
+ * @typedef {Object} PullLoadMatch
+ * @property {string} owner
+ * @property {number} pull_number
+ * @property {string} repo
+ */
+
+/**
+ * @typedef {Object} PullListMatch
+ * @property {string} owner
+ * @property {string} repo
+ */
+
+/**
+ * @typedef {Object} PullCreateData
+ * @property {string} owner
+ * @property {string} repo
+ * @property {string} [active_lock_reason]
+ * @property {number} additions
+ * @property {Object} assignee
+ * @property {Array} [assignees]
+ * @property {string} author_association
+ * @property {Object} auto_merge
+ * @property {Object} base
+ * @property {string} body
+ * @property {number} changed_files
+ * @property {string} closed_at
+ * @property {number} comments
+ * @property {string} comments_url
+ * @property {string} [commit_message]
+ * @property {string} [commit_title]
+ * @property {number} commits
+ * @property {string} commits_url
+ * @property {string} created_at
+ * @property {number} deletions
+ * @property {string} diff_url
+ * @property {boolean} [draft]
+ * @property {Object} head
+ * @property {string} [head_repo]
+ * @property {string} html_url
+ * @property {number} id
+ * @property {number} [issue]
+ * @property {string} issue_url
+ * @property {Array} labels
+ * @property {Object} links
+ * @property {boolean} locked
+ * @property {boolean} maintainer_can_modify
+ * @property {string} merge_commit_sha
+ * @property {string} [merge_method]
+ * @property {boolean} mergeable
+ * @property {string} mergeable_state
+ * @property {boolean} merged
+ * @property {string} merged_at
+ * @property {Object} merged_by
+ * @property {string} message
+ * @property {Object} milestone
+ * @property {string} node_id
+ * @property {number} number
+ * @property {string} patch_url
+ * @property {boolean} [rebaseable]
+ * @property {Array} [requested_reviewers]
+ * @property {Array} [requested_teams]
+ * @property {string} review_comment_url
+ * @property {number} review_comments
+ * @property {string} review_comments_url
+ * @property {string} sha
+ * @property {Object} stack
+ * @property {string} state
+ * @property {string} statuses_url
+ * @property {string} title
+ * @property {string} updated_at
+ * @property {string} url
+ * @property {Object} user
+ */
+
+/**
+ * @typedef {Object} PullUpdateData
+ * @property {string} owner
+ * @property {number} pull_number
+ * @property {string} repo
+ * @property {string} [active_lock_reason]
+ * @property {number} [additions]
+ * @property {Object} [assignee]
+ * @property {Array} [assignees]
+ * @property {string} [author_association]
+ * @property {Object} [auto_merge]
+ * @property {Object} [base]
+ * @property {string} [body]
+ * @property {number} [changed_files]
+ * @property {string} [closed_at]
+ * @property {number} [comments]
+ * @property {string} [comments_url]
+ * @property {string} [commit_message]
+ * @property {string} [commit_title]
+ * @property {number} [commits]
+ * @property {string} [commits_url]
+ * @property {string} [created_at]
+ * @property {number} [deletions]
+ * @property {string} [diff_url]
+ * @property {boolean} [draft]
+ * @property {Object} [head]
+ * @property {string} [head_repo]
+ * @property {string} [html_url]
+ * @property {number} [id]
+ * @property {number} [issue]
+ * @property {string} [issue_url]
+ * @property {Array} [labels]
+ * @property {Object} [links]
+ * @property {boolean} [locked]
+ * @property {boolean} [maintainer_can_modify]
+ * @property {string} [merge_commit_sha]
+ * @property {string} [merge_method]
+ * @property {boolean} [mergeable]
+ * @property {string} [mergeable_state]
+ * @property {boolean} [merged]
+ * @property {string} [merged_at]
+ * @property {Object} [merged_by]
+ * @property {string} [message]
+ * @property {Object} [milestone]
+ * @property {string} [node_id]
+ * @property {number} [number]
+ * @property {string} [patch_url]
+ * @property {boolean} [rebaseable]
+ * @property {Array} [requested_reviewers]
+ * @property {Array} [requested_teams]
+ * @property {string} [review_comment_url]
+ * @property {number} [review_comments]
+ * @property {string} [review_comments_url]
+ * @property {string} [sha]
+ * @property {Object} [stack]
+ * @property {string} [state]
+ * @property {string} [statuses_url]
+ * @property {string} [title]
+ * @property {string} [updated_at]
+ * @property {string} [url]
+ * @property {Object} [user]
+ */
+
+/**
  * @typedef {Object} Repo
  * @property {boolean} [allow_auto_merge]
  * @property {boolean} [allow_forking]

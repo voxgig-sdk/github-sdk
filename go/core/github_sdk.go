@@ -338,6 +338,14 @@ func (sdk *GithubSDK) Graphql(
 }
 
 
+// Pull returns a Pull entity bound to this client.
+// Idiomatic usage: client.Pull(nil).List(nil, nil) or
+// client.Pull(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *GithubSDK) Pull(data map[string]any) GithubEntity {
+	return NewPullEntityFunc(sdk, data)
+}
+
+
 // Repo returns a Repo entity bound to this client.
 // Idiomatic usage: client.Repo(nil).List(nil, nil) or
 // client.Repo(nil).Load(map[string]any{"id": ...}, nil).

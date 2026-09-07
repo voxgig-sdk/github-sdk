@@ -4,7 +4,7 @@
 
 The Golang SDK for the Github API — an entity-oriented client using standard Go conventions. No generics required; data flows as `map[string]any`.
 
-It exposes the API as capitalised, semantic **Entities** — e.g. `client.Repo(nil)` — each with the same small set of operations (`List`, `Load`, `Create`, `Update`, `Remove`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
+It exposes the API as capitalised, semantic **Entities** — e.g. `client.Pull(nil)` — each with the same small set of operations (`List`, `Load`, `Create`, `Update`, `Remove`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
 > Also generated from this model: `go-cli`, `go-mcp`, `js`, `lua`, `php`, `py`, `ts` — see
 > the [top-level README](../README.md).
@@ -50,42 +50,35 @@ import (
 func main() {
     client := sdk.New()
 
-    // List repo records — the value is the array of records itself.
-    repos, err := client.Repo(nil).List(nil, nil)
+    // List pull records — the value is the array of records itself.
+    pulls, err := client.Pull(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-    for _, item := range repos.([]any) {
+    for _, item := range pulls.([]any) {
         fmt.Println(item)
     }
 
-    // Load a single repo — the value is the loaded record.
-    repo, err := client.Repo(nil).Load(map[string]any{"owner": "example_owner", "repo": "example_repo"}, nil)
+    // Load a single pull — the value is the loaded record.
+    pull, err := client.Pull(nil).Load(map[string]any{"owner": "example_owner", "pull_number": 1, "repo": "example_repo"}, nil)
     if err != nil {
         panic(err)
     }
-    fmt.Println(repo)
+    fmt.Println(pull)
 
-    // Create a repo.
-    created, err := client.Repo(nil).Create(map[string]any{"archive_url": "example_archive_url", "archived": true, "assignees_url": "example_assignees_url", "blobs_url": "example_blobs_url", "branches_url": "example_branches_url", "clone_url": "example_clone_url", "code_of_conduct": map[string]any{}, "collaborators_url": "example_collaborators_url", "comments_url": "example_comments_url", "commits_url": "example_commits_url", "compare_url": "example_compare_url", "contents_url": "example_contents_url", "contributors_url": "example_contributors_url", "created_at": "example_created_at", "default_branch": "example_default_branch", "deployments_url": "example_deployments_url", "description": "example_description", "disabled": true, "downloads_url": "example_downloads_url", "events_url": "example_events_url", "fork": true, "forks": 1, "forks_count": 1, "forks_url": "example_forks_url", "full_name": "example_full_name", "git_commits_url": "example_git_commits_url", "git_refs_url": "example_git_refs_url", "git_tags_url": "example_git_tags_url", "git_url": "example_git_url", "has_discussions": true, "has_issues": true, "has_pages": true, "has_projects": true, "has_wiki": true, "homepage": "example_homepage", "hooks_url": "example_hooks_url", "html_url": "example_html_url", "id": 1, "issue_comment_url": "example_issue_comment_url", "issue_events_url": "example_issue_events_url", "issues_url": "example_issues_url", "keys_url": "example_keys_url", "labels_url": "example_labels_url", "language": "example_language", "languages_url": "example_languages_url", "license": map[string]any{}, "merges_url": "example_merges_url", "milestones_url": "example_milestones_url", "mirror_url": "example_mirror_url", "name": "example_name", "network_count": 1, "node_id": "example_node_id", "notifications_url": "example_notifications_url", "open_issues": 1, "open_issues_count": 1, "organization": map[string]any{}, "owner": map[string]any{}, "parent": map[string]any{}, "permissions": map[string]any{}, "private": true, "pulls_url": "example_pulls_url", "pushed_at": "example_pushed_at", "releases_url": "example_releases_url", "size": 1, "source": map[string]any{}, "ssh_url": "example_ssh_url", "stargazers_count": 1, "stargazers_url": "example_stargazers_url", "statuses_url": "example_statuses_url", "subscribers_count": 1, "subscribers_url": "example_subscribers_url", "subscription_url": "example_subscription_url", "svn_url": "example_svn_url", "tags_url": "example_tags_url", "teams_url": "example_teams_url", "template_repository": map[string]any{}, "trees_url": "example_trees_url", "updated_at": "example_updated_at", "url": "example_url", "watchers": 1, "watchers_count": 1}, nil)
+    // Create a pull.
+    created, err := client.Pull(nil).Create(map[string]any{"owner": "example_owner", "repo": "example_repo", "additions": 1, "assignee": map[string]any{}, "author_association": "example_author_association", "auto_merge": map[string]any{}, "base": map[string]any{}, "body": "example_body", "changed_files": 1, "closed_at": "example_closed_at", "comments": 1, "comments_url": "example_comments_url", "commits": 1, "commits_url": "example_commits_url", "created_at": "example_created_at", "deletions": 1, "diff_url": "example_diff_url", "head": map[string]any{}, "html_url": "example_html_url", "id": 1, "issue_url": "example_issue_url", "labels": []any{}, "links": map[string]any{}, "locked": true, "maintainer_can_modify": true, "merge_commit_sha": "example_merge_commit_sha", "mergeable": true, "mergeable_state": "example_mergeable_state", "merged": true, "merged_at": "example_merged_at", "merged_by": map[string]any{}, "message": "example_message", "milestone": map[string]any{}, "node_id": "example_node_id", "number": 1, "patch_url": "example_patch_url", "review_comment_url": "example_review_comment_url", "review_comments": 1, "review_comments_url": "example_review_comments_url", "sha": "example_sha", "stack": map[string]any{}, "state": "example_state", "statuses_url": "example_statuses_url", "title": "example_title", "updated_at": "example_updated_at", "url": "example_url", "user": map[string]any{}}, nil)
     if err != nil {
         panic(err)
     }
     fmt.Println(created)
 
-    // Update a repo.
-    updated, err := client.Repo(nil).Update(map[string]any{"owner": "example_owner", "repo": "example_repo"}, nil)
+    // Update a pull.
+    updated, err := client.Pull(nil).Update(map[string]any{"owner": "example_owner", "pull_number": 1, "repo": "example_repo"}, nil)
     if err != nil {
         panic(err)
     }
     fmt.Println(updated)
-
-    // Remove a repo.
-    removed, err := client.Repo(nil).Remove(map[string]any{"owner": "example_owner", "repo": "example_repo"}, nil)
-    if err != nil {
-        panic(err)
-    }
-    fmt.Println(removed)
 }
 ```
 
@@ -96,12 +89,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-repos, err := client.Repo(nil).List(nil, nil)
+pulls, err := client.Pull(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = repos
+_ = pulls
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -165,13 +158,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-repo, err := client.Repo(nil).List(
+pull, err := client.Pull(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(repo) // the returned mock data
+fmt.Println(pull) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -248,6 +241,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `GetUtility` | `() *Utility` | Copy of the SDK utility object. |
 | `Prepare` | `(fetchargs map[string]any) (map[string]any, error)` | Build an HTTP request definition without sending. |
 | `Direct` | `(fetchargs map[string]any) (map[string]any, error)` | Build and send an HTTP request. |
+| `Pull` | `(data map[string]any) GithubEntity` | Create a Pull entity instance. |
 | `Repo` | `(data map[string]any) GithubEntity` | Create a Repo entity instance. |
 
 ### Entity interface (GithubEntity)
@@ -280,14 +274,79 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    repo, err := client.Repo(nil).List(map[string]any{/* fields */}, nil)
+    pull, err := client.Pull(nil).List(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // repo is the returned record
+    // pull is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
 
 ### Entities
+
+#### Pull
+
+| Field | Description |
+| --- | --- |
+| `"active_lock_reason"` |  |
+| `"additions"` |  |
+| `"assignee"` |  |
+| `"assignees"` |  |
+| `"author_association"` |  |
+| `"auto_merge"` |  |
+| `"base"` |  |
+| `"body"` |  |
+| `"changed_files"` |  |
+| `"closed_at"` |  |
+| `"comments"` |  |
+| `"comments_url"` |  |
+| `"commit_message"` |  |
+| `"commit_title"` |  |
+| `"commits"` |  |
+| `"commits_url"` |  |
+| `"created_at"` |  |
+| `"deletions"` |  |
+| `"diff_url"` |  |
+| `"draft"` |  |
+| `"head"` |  |
+| `"head_repo"` |  |
+| `"html_url"` |  |
+| `"id"` |  |
+| `"issue"` |  |
+| `"issue_url"` |  |
+| `"labels"` |  |
+| `"links"` |  |
+| `"locked"` |  |
+| `"maintainer_can_modify"` |  |
+| `"merge_commit_sha"` |  |
+| `"merge_method"` |  |
+| `"mergeable"` |  |
+| `"mergeable_state"` |  |
+| `"merged"` |  |
+| `"merged_at"` |  |
+| `"merged_by"` |  |
+| `"message"` |  |
+| `"milestone"` |  |
+| `"node_id"` |  |
+| `"number"` |  |
+| `"patch_url"` |  |
+| `"rebaseable"` |  |
+| `"requested_reviewers"` |  |
+| `"requested_teams"` |  |
+| `"review_comment_url"` |  |
+| `"review_comments"` |  |
+| `"review_comments_url"` |  |
+| `"sha"` |  |
+| `"stack"` |  |
+| `"state"` |  |
+| `"statuses_url"` |  |
+| `"title"` |  |
+| `"updated_at"` |  |
+| `"url"` |  |
+| `"user"` |  |
+
+Operations: Create, List, Load, Update.
+
+API path: `/repos/{owner}/{repo}/pulls`
 
 #### Repo
 
@@ -412,6 +471,159 @@ API path: `/user/repos`
 
 
 ## Entities
+
+
+### Pull
+
+Create an instance: `pull := client.Pull(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `List(match, ctrl)` | List entities matching the criteria. |
+| `Load(match, ctrl)` | Load a single entity by match criteria. |
+| `Create(data, ctrl)` | Create a new entity with the given data. |
+| `Update(data, ctrl)` | Update an existing entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `active_lock_reason` | `string` |  |
+| `additions` | `int` |  |
+| `assignee` | `map[string]any` |  |
+| `assignees` | `[]any` |  |
+| `author_association` | `string` |  |
+| `auto_merge` | `map[string]any` |  |
+| `base` | `map[string]any` |  |
+| `body` | `string` |  |
+| `changed_files` | `int` |  |
+| `closed_at` | `string` |  |
+| `comments` | `int` |  |
+| `comments_url` | `string` |  |
+| `commit_message` | `string` |  |
+| `commit_title` | `string` |  |
+| `commits` | `int` |  |
+| `commits_url` | `string` |  |
+| `created_at` | `string` |  |
+| `deletions` | `int` |  |
+| `diff_url` | `string` |  |
+| `draft` | `bool` |  |
+| `head` | `map[string]any` |  |
+| `head_repo` | `string` |  |
+| `html_url` | `string` |  |
+| `id` | `int` |  |
+| `issue` | `int` |  |
+| `issue_url` | `string` |  |
+| `labels` | `[]any` |  |
+| `links` | `map[string]any` |  |
+| `locked` | `bool` |  |
+| `maintainer_can_modify` | `bool` |  |
+| `merge_commit_sha` | `string` |  |
+| `merge_method` | `string` |  |
+| `mergeable` | `bool` |  |
+| `mergeable_state` | `string` |  |
+| `merged` | `bool` |  |
+| `merged_at` | `string` |  |
+| `merged_by` | `map[string]any` |  |
+| `message` | `string` |  |
+| `milestone` | `map[string]any` |  |
+| `node_id` | `string` |  |
+| `number` | `int` |  |
+| `patch_url` | `string` |  |
+| `rebaseable` | `bool` |  |
+| `requested_reviewers` | `[]any` |  |
+| `requested_teams` | `[]any` |  |
+| `review_comment_url` | `string` |  |
+| `review_comments` | `int` |  |
+| `review_comments_url` | `string` |  |
+| `sha` | `string` |  |
+| `stack` | `map[string]any` |  |
+| `state` | `string` |  |
+| `statuses_url` | `string` |  |
+| `title` | `string` |  |
+| `updated_at` | `string` |  |
+| `url` | `string` |  |
+| `user` | `map[string]any` |  |
+
+#### Example: Load
+
+```go
+pull, err := client.Pull(nil).Load(map[string]any{"owner": "owner", "pull_number": 1, "repo": "repo"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(pull) // the loaded record
+```
+
+#### Example: List
+
+```go
+pulls, err := client.Pull(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(pulls) // the array of records
+```
+
+#### Example: Create
+
+```go
+result, err := client.Pull(nil).Create(map[string]any{
+    "owner": "example_owner",
+    "repo": "example_repo",
+    "additions": 1,
+    "assignee": map[string]any{},
+    "author_association": "example_author_association",
+    "auto_merge": map[string]any{},
+    "base": map[string]any{},
+    "body": "example_body",
+    "changed_files": 1,
+    "closed_at": "example_closed_at",
+    "comments": 1,
+    "comments_url": "example_comments_url",
+    "commits": 1,
+    "commits_url": "example_commits_url",
+    "created_at": "example_created_at",
+    "deletions": 1,
+    "diff_url": "example_diff_url",
+    "head": map[string]any{},
+    "html_url": "example_html_url",
+    "id": 1,
+    "issue_url": "example_issue_url",
+    "labels": []any{},
+    "links": map[string]any{},
+    "locked": true,
+    "maintainer_can_modify": true,
+    "merge_commit_sha": "example_merge_commit_sha",
+    "mergeable": true,
+    "mergeable_state": "example_mergeable_state",
+    "merged": true,
+    "merged_at": "example_merged_at",
+    "merged_by": map[string]any{},
+    "message": "example_message",
+    "milestone": map[string]any{},
+    "node_id": "example_node_id",
+    "number": 1,
+    "patch_url": "example_patch_url",
+    "review_comment_url": "example_review_comment_url",
+    "review_comments": 1,
+    "review_comments_url": "example_review_comments_url",
+    "sha": "example_sha",
+    "stack": map[string]any{},
+    "state": "example_state",
+    "statuses_url": "example_statuses_url",
+    "title": "example_title",
+    "updated_at": "example_updated_at",
+    "url": "example_url",
+    "user": map[string]any{},
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
 
 
 ### Repo
@@ -730,11 +942,11 @@ Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-repo := client.Repo(nil)
-repo.List(nil, nil)
+pull := client.Pull(nil)
+pull.List(nil, nil)
 
-// repo.Data() now returns the repo data from the last list
-// repo.Match() returns the last match criteria
+// pull.Data() now returns the pull data from the last list
+// pull.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

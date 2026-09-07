@@ -307,6 +307,12 @@ class GithubSDK:
         return res
 
 
+    def Pull(self, data=None) -> "PullEntity":
+        """Entity factory: client.Pull().list() / client.Pull().load({"id": ...})."""
+        from github_sdk.entity.pull_entity import PullEntity
+        return PullEntity(self, data)
+
+
     def Repo(self, data=None) -> "RepoEntity":
         """Entity factory: client.Repo().list() / client.Repo().load({"id": ...})."""
         from github_sdk.entity.repo_entity import RepoEntity
@@ -340,4 +346,5 @@ class GithubSDK:
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
+    from github_sdk.entity.pull_entity import PullEntity
     from github_sdk.entity.repo_entity import RepoEntity

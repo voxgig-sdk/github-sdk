@@ -19,17 +19,18 @@ make build
 export GITHUB_APIKEY=sk_live_xxx
 
 # 4. Each command line is ONE boru expression, run against the API:
+./github-cli list pull
+./github-cli load 1 pull            # {id:1} shorthand
+./github-cli load '{id:1}' pull       # explicit match map
+./github-cli update '{name:"x"}' pull
 ./github-cli list repo
-./github-cli load 1 repo            # {id:1} shorthand
-./github-cli load '{id:1}' repo       # explicit match map
-./github-cli update '{name:"x"}' repo
 
 # 5. Override the API base URL for a single call
-GITHUB_BASE=https://api.example.com ./github-cli list repo
+GITHUB_BASE=https://api.example.com ./github-cli list pull
 
 # 6. No arguments -> interactive REPL
 ./github-cli
-github> list repo
+github> list pull
 github> /quit
 ```
 
@@ -55,7 +56,7 @@ github> /quit
    arguments to open the REPL):
 
    ```sh
-   ./dist/*/github-cli list repo
+   ./dist/*/github-cli list pull
    ```
 
 4. **Go interactive.** Run the binary with no arguments to open the REPL, then
@@ -68,7 +69,7 @@ That is the whole loop: *build → set key → evaluate boru expressions*.
 ### List the records of an entity
 
 ```sh
-./github-cli list repo
+./github-cli list pull
 ```
 
 `list <entity>` returns the first page of records. `<entity>` is a bareword —
@@ -77,8 +78,8 @@ it is auto-quoted as an boru atom, so no quotes are needed.
 ### Load a single record
 
 ```sh
-./github-cli load 1 repo          # scalar shorthand for {id:1}
-./github-cli load '{id:1}' repo     # explicit match map
+./github-cli load 1 pull          # scalar shorthand for {id:1}
+./github-cli load '{id:1}' pull     # explicit match map
 ```
 
 The query is either a **scalar** (`1`, treated as `{id:1}`) or a **match map**
@@ -87,7 +88,7 @@ The query is either a **scalar** (`1`, treated as `{id:1}`) or a **match map**
 ### Update a record
 
 ```sh
-./github-cli update '{id:1,name:"new"}' repo
+./github-cli update '{id:1,name:"new"}' pull
 ```
 
 The match map carries both the selector and the new field values; the updated
@@ -100,7 +101,7 @@ Configuration is read from the environment — nothing is written to disk:
 ```sh
 export GITHUB_APIKEY=sk_live_xxx            # API key
 export GITHUB_BASE=https://api.example.com  # optional: override the API base URL
-./github-cli list repo
+./github-cli list pull
 ```
 
 Both are injectable by a secrets vault, so the key never has to be typed inline.
@@ -112,7 +113,7 @@ evaluated as its own boru expression:
 
 ```text
 $ ./github-cli
-github> list repo
+github> list pull
 github> /help
 github> /quit
 ```
@@ -127,7 +128,7 @@ make build-all   # linux/darwin/windows x amd64/arm64, under dist/<os>-<arch>/
 ### Discover the available entities
 
 `/help` in the REPL prints the full entity list, or see [Entities](#entities)
-below — this SDK exposes 1 entity.
+below — this SDK exposes 2 entities.
 
 ## Reference
 
@@ -141,7 +142,7 @@ The CLI registers these boru words, each bound to the SDK:
 | `load`   | `load <entity>` · `load <query> <entity>`     | A single record                |
 | `update` | `update <query> <entity>`                     | Update a record, return it     |
 
-- `<entity>` is a bareword, auto-quoted as an boru atom (e.g. `repo`).
+- `<entity>` is a bareword, auto-quoted as an boru atom (e.g. `pull`).
 - `<query>` is either a **Map** (`{id:1}`) or a **Scalar** (`1`, treated as
   `{id:1}`). A scalar is always wrapped as `{id:<value>}`.
 
@@ -182,9 +183,9 @@ Meta-commands use the `/` prefix (everything else on a line is evaluated as boru
 
 ### Entities
 
-The 1 entity this SDK exposes (any is valid as `<entity>`):
+The 2 entities this SDK exposes (any is valid as `<entity>`):
 
-repo
+pull repo
 
 ## Explanation
 

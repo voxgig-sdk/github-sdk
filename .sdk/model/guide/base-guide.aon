@@ -1,9 +1,9 @@
 # Guide
 
 guide: {
-  metrics: count: entity: 1
-  metrics: count: path: 2
-  metrics: count: method: 5
+  metrics: count: entity: 2
+  metrics: count: path: 5
+  metrics: count: method: 9
 
   entity: repo: {
     path: "/repos/{owner}/{repo}": {
@@ -14,6 +14,21 @@ guide: {
     path: "/user/repos": {
       op: create: method: *POST
       op: list: method: *GET
+    }
+  }
+
+  entity: pull: {
+    path: "/repos/{owner}/{repo}/pulls": {
+      op: list: method: *GET
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}": {
+      op: load: method: *GET
+    }
+    # apidef only resolves the 6 built-in CRUD op names; "update" here maps to
+    # GitHub's merge endpoint since this entity has no other update op.
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}/merge": {
+      op: update: method: *PUT
     }
   }
 

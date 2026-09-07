@@ -15,5 +15,18 @@ dist-test/
 log/
 *.log
 
+# apidef writes each `.aon` model file's derived `.aontu` twin (and this
+# project's own compat symlinks, see build/link-aon-compat.js) back into the
+# working tree; neither needs to be committed, both regenerate on build.
+model/sdk.aontu
+model/config.aontu
+model/entity/*.aontu
+model/flow/*.aontu
+model/guide/*.aontu
+model/feature/*.aontu
+model/api/*.aontu
+model/target/*.aontu
+apidef-warnings.txt
+
 # OS
 .DS_Store

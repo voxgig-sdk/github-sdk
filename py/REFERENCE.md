@@ -41,6 +41,10 @@ client = GithubSDK.test()
 
 ### Instance Methods
 
+#### `Pull(data=None)`
+
+Create a new `PullEntity` instance. Pass `None` for no initial data.
+
 #### `Repo(data=None)`
 
 Create a new `RepoEntity` instance. Pass `None` for no initial data.
@@ -73,6 +77,252 @@ Make a direct HTTP request to any API endpoint. Returns a result `dict` with `ok
 #### `prepare(fetchargs=None) -> dict`
 
 Prepare a fetch definition without sending. Returns the `fetchdef` and raises on error.
+
+
+---
+
+## PullEntity
+
+```python
+pull = client.Pull()
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `active_lock_reason` | `str` | No |  |
+| `additions` | `int` | Yes |  |
+| `assignee` | `dict` | Yes |  |
+| `assignees` | `list` | No |  |
+| `author_association` | `str` | Yes |  |
+| `auto_merge` | `dict` | Yes |  |
+| `base` | `dict` | Yes |  |
+| `body` | `str` | Yes |  |
+| `changed_files` | `int` | Yes |  |
+| `closed_at` | `str` | Yes |  |
+| `comments` | `int` | Yes |  |
+| `comments_url` | `str` | Yes |  |
+| `commit_message` | `str` | No |  |
+| `commit_title` | `str` | No |  |
+| `commits` | `int` | Yes |  |
+| `commits_url` | `str` | Yes |  |
+| `created_at` | `str` | Yes |  |
+| `deletions` | `int` | Yes |  |
+| `diff_url` | `str` | Yes |  |
+| `draft` | `bool` | No |  |
+| `head` | `dict` | Yes |  |
+| `head_repo` | `str` | No |  |
+| `html_url` | `str` | Yes |  |
+| `id` | `int` | Yes |  |
+| `issue` | `int` | No |  |
+| `issue_url` | `str` | Yes |  |
+| `labels` | `list` | Yes |  |
+| `links` | `dict` | Yes |  |
+| `locked` | `bool` | Yes |  |
+| `maintainer_can_modify` | `bool` | Yes |  |
+| `merge_commit_sha` | `str` | Yes |  |
+| `merge_method` | `str` | No |  |
+| `mergeable` | `bool` | Yes |  |
+| `mergeable_state` | `str` | Yes |  |
+| `merged` | `bool` | Yes |  |
+| `merged_at` | `str` | Yes |  |
+| `merged_by` | `dict` | Yes |  |
+| `message` | `str` | Yes |  |
+| `milestone` | `dict` | Yes |  |
+| `node_id` | `str` | Yes |  |
+| `number` | `int` | Yes |  |
+| `patch_url` | `str` | Yes |  |
+| `rebaseable` | `bool` | No |  |
+| `requested_reviewers` | `list` | No |  |
+| `requested_teams` | `list` | No |  |
+| `review_comment_url` | `str` | Yes |  |
+| `review_comments` | `int` | Yes |  |
+| `review_comments_url` | `str` | Yes |  |
+| `sha` | `str` | Yes |  |
+| `stack` | `dict` | Yes |  |
+| `state` | `str` | Yes |  |
+| `statuses_url` | `str` | Yes |  |
+| `title` | `str` | Yes |  |
+| `updated_at` | `str` | Yes |  |
+| `url` | `str` | Yes |  |
+| `user` | `dict` | Yes |  |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `active_lock_reason` | - | - | - | - |
+| `additions` | - | - | - | - |
+| `assignee` | - | - | - | - |
+| `assignees` | - | - | - | - |
+| `author_association` | - | - | - | - |
+| `auto_merge` | - | - | - | - |
+| `base` | - | - | - | - |
+| `body` | - | - | Yes | - |
+| `changed_files` | - | - | - | - |
+| `closed_at` | - | - | - | - |
+| `comments` | - | - | - | - |
+| `comments_url` | - | - | - | - |
+| `commit_message` | - | - | - | - |
+| `commit_title` | - | - | - | - |
+| `commits` | - | - | - | - |
+| `commits_url` | - | - | - | - |
+| `created_at` | - | - | - | - |
+| `deletions` | - | - | - | - |
+| `diff_url` | - | - | - | - |
+| `draft` | - | - | - | - |
+| `head` | - | - | - | - |
+| `head_repo` | - | - | - | - |
+| `html_url` | - | - | - | - |
+| `id` | - | - | - | - |
+| `issue` | - | - | - | - |
+| `issue_url` | - | - | - | - |
+| `labels` | - | - | - | - |
+| `links` | - | - | - | - |
+| `locked` | - | - | - | - |
+| `maintainer_can_modify` | - | - | Yes | - |
+| `merge_commit_sha` | - | - | - | - |
+| `merge_method` | - | - | - | - |
+| `mergeable` | - | - | - | - |
+| `mergeable_state` | - | - | - | - |
+| `merged` | - | - | - | - |
+| `merged_at` | - | - | - | - |
+| `merged_by` | - | - | - | - |
+| `message` | - | - | - | - |
+| `milestone` | - | - | - | - |
+| `node_id` | - | - | - | - |
+| `number` | - | - | - | - |
+| `patch_url` | - | - | - | - |
+| `rebaseable` | - | - | - | - |
+| `requested_reviewers` | - | - | - | - |
+| `requested_teams` | - | - | - | - |
+| `review_comment_url` | - | - | - | - |
+| `review_comments` | - | - | - | - |
+| `review_comments_url` | - | - | - | - |
+| `sha` | - | - | - | Yes |
+| `stack` | - | - | - | - |
+| `state` | - | - | - | - |
+| `statuses_url` | - | - | - | - |
+| `title` | - | - | Yes | - |
+| `updated_at` | - | - | - | - |
+| `url` | - | - | - | - |
+| `user` | - | - | - | - |
+
+### Operations
+
+#### `create(reqdata, ctrl=None) -> dict`
+
+Create a new entity with the given data. Returns the created entity data and raises on error.
+
+```python
+result = client.Pull().create({
+    "owner": "example_owner",  # str
+    "repo": "example_repo",  # str
+    "additions": 1,  # int
+    "assignee": {},  # dict
+    "author_association": "example_author_association",  # str
+    "auto_merge": {},  # dict
+    "base": {},  # dict
+    "body": "example_body",  # str
+    "changed_files": 1,  # int
+    "closed_at": "example_closed_at",  # str
+    "comments": 1,  # int
+    "comments_url": "example_comments_url",  # str
+    "commits": 1,  # int
+    "commits_url": "example_commits_url",  # str
+    "created_at": "example_created_at",  # str
+    "deletions": 1,  # int
+    "diff_url": "example_diff_url",  # str
+    "head": {},  # dict
+    "html_url": "example_html_url",  # str
+    "id": 1,  # int
+    "issue_url": "example_issue_url",  # str
+    "labels": [],  # list
+    "links": {},  # dict
+    "locked": True,  # bool
+    "maintainer_can_modify": True,  # bool
+    "merge_commit_sha": "example_merge_commit_sha",  # str
+    "mergeable": True,  # bool
+    "mergeable_state": "example_mergeable_state",  # str
+    "merged": True,  # bool
+    "merged_at": "example_merged_at",  # str
+    "merged_by": {},  # dict
+    "message": "example_message",  # str
+    "milestone": {},  # dict
+    "node_id": "example_node_id",  # str
+    "number": 1,  # int
+    "patch_url": "example_patch_url",  # str
+    "review_comment_url": "example_review_comment_url",  # str
+    "review_comments": 1,  # int
+    "review_comments_url": "example_review_comments_url",  # str
+    "sha": "example_sha",  # str
+    "stack": {},  # dict
+    "state": "example_state",  # str
+    "statuses_url": "example_statuses_url",  # str
+    "title": "example_title",  # str
+    "updated_at": "example_updated_at",  # str
+    "url": "example_url",  # str
+    "user": {},  # dict
+})
+```
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.Pull().list({"owner": "example", "repo": "example"})
+for pull in results:
+    print(pull)
+```
+
+#### `load(reqmatch, ctrl=None) -> dict`
+
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
+
+```python
+result = client.Pull().load({"owner": "owner", "pull_number": 1, "repo": "repo"})
+```
+
+#### `update(reqdata, ctrl=None) -> dict`
+
+Update an existing entity. The data must include the entity `id`. Returns the updated entity data and raises on error.
+
+```python
+result = client.Pull().update({
+    "owner": "owner",
+    "pull_number": 1,
+    "repo": "repo",
+    # Fields to update
+})
+```
+
+### Common Methods
+
+#### `data_get() -> dict`
+
+Get the entity data.
+
+#### `data_set(data)`
+
+Set the entity data.
+
+#### `match_get() -> dict`
+
+Get the entity match criteria.
+
+#### `match_set(match)`
+
+Set the entity match criteria.
+
+#### `make() -> Entity`
+
+Create a new `PullEntity` instance with the same options.
+
+#### `get_name() -> str`
+
+Return the entity name.
 
 
 ---

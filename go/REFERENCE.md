@@ -47,6 +47,10 @@ client := sdk.TestSDK(testopts, sdkopts)
 
 ### Instance Methods
 
+#### `Pull(data map[string]any) GithubEntity`
+
+Create a new `Pull` entity instance. Pass `nil` for no initial data.
+
 #### `Repo(data map[string]any) GithubEntity`
 
 Create a new `Repo` entity instance. Pass `nil` for no initial data.
@@ -83,6 +87,262 @@ Prepare a fetch definition without sending the request. Accepts the
 same parameters as `Direct()`.
 
 **Returns:** `(map[string]any, error)`
+
+
+---
+
+## PullEntity
+
+```go
+pull := client.Pull(nil)
+fmt.Println(pull.GetName()) // "pull"
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `active_lock_reason` | `string` | No |  |
+| `additions` | `int` | Yes |  |
+| `assignee` | `map[string]any` | Yes |  |
+| `assignees` | `[]any` | No |  |
+| `author_association` | `string` | Yes |  |
+| `auto_merge` | `map[string]any` | Yes |  |
+| `base` | `map[string]any` | Yes |  |
+| `body` | `string` | Yes |  |
+| `changed_files` | `int` | Yes |  |
+| `closed_at` | `string` | Yes |  |
+| `comments` | `int` | Yes |  |
+| `comments_url` | `string` | Yes |  |
+| `commit_message` | `string` | No |  |
+| `commit_title` | `string` | No |  |
+| `commits` | `int` | Yes |  |
+| `commits_url` | `string` | Yes |  |
+| `created_at` | `string` | Yes |  |
+| `deletions` | `int` | Yes |  |
+| `diff_url` | `string` | Yes |  |
+| `draft` | `bool` | No |  |
+| `head` | `map[string]any` | Yes |  |
+| `head_repo` | `string` | No |  |
+| `html_url` | `string` | Yes |  |
+| `id` | `int` | Yes |  |
+| `issue` | `int` | No |  |
+| `issue_url` | `string` | Yes |  |
+| `labels` | `[]any` | Yes |  |
+| `links` | `map[string]any` | Yes |  |
+| `locked` | `bool` | Yes |  |
+| `maintainer_can_modify` | `bool` | Yes |  |
+| `merge_commit_sha` | `string` | Yes |  |
+| `merge_method` | `string` | No |  |
+| `mergeable` | `bool` | Yes |  |
+| `mergeable_state` | `string` | Yes |  |
+| `merged` | `bool` | Yes |  |
+| `merged_at` | `string` | Yes |  |
+| `merged_by` | `map[string]any` | Yes |  |
+| `message` | `string` | Yes |  |
+| `milestone` | `map[string]any` | Yes |  |
+| `node_id` | `string` | Yes |  |
+| `number` | `int` | Yes |  |
+| `patch_url` | `string` | Yes |  |
+| `rebaseable` | `bool` | No |  |
+| `requested_reviewers` | `[]any` | No |  |
+| `requested_teams` | `[]any` | No |  |
+| `review_comment_url` | `string` | Yes |  |
+| `review_comments` | `int` | Yes |  |
+| `review_comments_url` | `string` | Yes |  |
+| `sha` | `string` | Yes |  |
+| `stack` | `map[string]any` | Yes |  |
+| `state` | `string` | Yes |  |
+| `statuses_url` | `string` | Yes |  |
+| `title` | `string` | Yes |  |
+| `updated_at` | `string` | Yes |  |
+| `url` | `string` | Yes |  |
+| `user` | `map[string]any` | Yes |  |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `active_lock_reason` | - | - | - | - |
+| `additions` | - | - | - | - |
+| `assignee` | - | - | - | - |
+| `assignees` | - | - | - | - |
+| `author_association` | - | - | - | - |
+| `auto_merge` | - | - | - | - |
+| `base` | - | - | - | - |
+| `body` | - | - | Yes | - |
+| `changed_files` | - | - | - | - |
+| `closed_at` | - | - | - | - |
+| `comments` | - | - | - | - |
+| `comments_url` | - | - | - | - |
+| `commit_message` | - | - | - | - |
+| `commit_title` | - | - | - | - |
+| `commits` | - | - | - | - |
+| `commits_url` | - | - | - | - |
+| `created_at` | - | - | - | - |
+| `deletions` | - | - | - | - |
+| `diff_url` | - | - | - | - |
+| `draft` | - | - | - | - |
+| `head` | - | - | - | - |
+| `head_repo` | - | - | - | - |
+| `html_url` | - | - | - | - |
+| `id` | - | - | - | - |
+| `issue` | - | - | - | - |
+| `issue_url` | - | - | - | - |
+| `labels` | - | - | - | - |
+| `links` | - | - | - | - |
+| `locked` | - | - | - | - |
+| `maintainer_can_modify` | - | - | Yes | - |
+| `merge_commit_sha` | - | - | - | - |
+| `merge_method` | - | - | - | - |
+| `mergeable` | - | - | - | - |
+| `mergeable_state` | - | - | - | - |
+| `merged` | - | - | - | - |
+| `merged_at` | - | - | - | - |
+| `merged_by` | - | - | - | - |
+| `message` | - | - | - | - |
+| `milestone` | - | - | - | - |
+| `node_id` | - | - | - | - |
+| `number` | - | - | - | - |
+| `patch_url` | - | - | - | - |
+| `rebaseable` | - | - | - | - |
+| `requested_reviewers` | - | - | - | - |
+| `requested_teams` | - | - | - | - |
+| `review_comment_url` | - | - | - | - |
+| `review_comments` | - | - | - | - |
+| `review_comments_url` | - | - | - | - |
+| `sha` | - | - | - | Yes |
+| `stack` | - | - | - | - |
+| `state` | - | - | - | - |
+| `statuses_url` | - | - | - | - |
+| `title` | - | - | Yes | - |
+| `updated_at` | - | - | - | - |
+| `url` | - | - | - | - |
+| `user` | - | - | - | - |
+
+### Operations
+
+#### `List(reqmatch, ctrl map[string]any) (any, error)`
+
+List entities matching the given criteria. Returns an array.
+
+```go
+results, err := client.Pull(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
+```
+
+#### `Load(reqmatch, ctrl map[string]any) (any, error)`
+
+Load a single entity matching the given criteria.
+
+```go
+result, err := client.Pull(nil).Load(map[string]any{"owner": "owner", "pull_number": 1, "repo": "repo"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Create(reqdata, ctrl map[string]any) (any, error)`
+
+Create a new entity with the given data.
+
+```go
+result, err := client.Pull(nil).Create(map[string]any{
+    "owner": "example_owner",
+    "repo": "example_repo",
+    "additions": 1,
+    "assignee": map[string]any{},
+    "author_association": "example_author_association",
+    "auto_merge": map[string]any{},
+    "base": map[string]any{},
+    "body": "example_body",
+    "changed_files": 1,
+    "closed_at": "example_closed_at",
+    "comments": 1,
+    "comments_url": "example_comments_url",
+    "commits": 1,
+    "commits_url": "example_commits_url",
+    "created_at": "example_created_at",
+    "deletions": 1,
+    "diff_url": "example_diff_url",
+    "head": map[string]any{},
+    "html_url": "example_html_url",
+    "id": 1,
+    "issue_url": "example_issue_url",
+    "labels": []any{},
+    "links": map[string]any{},
+    "locked": true,
+    "maintainer_can_modify": true,
+    "merge_commit_sha": "example_merge_commit_sha",
+    "mergeable": true,
+    "mergeable_state": "example_mergeable_state",
+    "merged": true,
+    "merged_at": "example_merged_at",
+    "merged_by": map[string]any{},
+    "message": "example_message",
+    "milestone": map[string]any{},
+    "node_id": "example_node_id",
+    "number": 1,
+    "patch_url": "example_patch_url",
+    "review_comment_url": "example_review_comment_url",
+    "review_comments": 1,
+    "review_comments_url": "example_review_comments_url",
+    "sha": "example_sha",
+    "stack": map[string]any{},
+    "state": "example_state",
+    "statuses_url": "example_statuses_url",
+    "title": "example_title",
+    "updated_at": "example_updated_at",
+    "url": "example_url",
+    "user": map[string]any{},
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+#### `Update(reqdata, ctrl map[string]any) (any, error)`
+
+Update an existing entity. The data must include the entity `id`.
+
+```go
+result, err := client.Pull(nil).Update(map[string]any{
+    "owner": "owner",
+    "pull_number": 1,
+    "repo": "repo",
+    // Fields to update
+}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
+```
+
+### Common Methods
+
+#### `Data(args ...any) any`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `Match(args ...any) any`
+
+Get or set the entity match criteria. Works the same as `Data()`.
+
+#### `Make() Entity`
+
+Create a new `PullEntity` instance with the same client and
+options.
+
+#### `GetName() string`
+
+Return the entity name.
 
 
 ---

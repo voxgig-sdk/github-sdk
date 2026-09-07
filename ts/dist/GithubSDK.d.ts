@@ -1,3 +1,4 @@
+import { PullEntity } from './entity/PullEntity';
 import { RepoEntity } from './entity/RepoEntity';
 export type * from './GithubTypes';
 import { inspect } from 'node:util';
@@ -44,6 +45,7 @@ declare class GithubSDK {
         data?: undefined;
     }>;
     graphql(query: string, variables?: any, ctrl?: any): Promise<any>;
+    Pull(entopts?: Record<string, any>): PullEntity;
     Repo(entopts?: Record<string, any>): RepoEntity;
     static test(testoptsarg?: any, sdkoptsarg?: any): GithubSDK;
     tester(testopts?: any, sdkopts?: any): GithubSDK;

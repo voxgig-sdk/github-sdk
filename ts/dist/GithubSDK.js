@@ -2,6 +2,7 @@
 // Github Ts SDK
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SDK = exports.GithubSDK = exports.GithubEntityBase = exports.BaseFeature = exports.config = exports.stdutil = void 0;
+const PullEntity_1 = require("./entity/PullEntity");
 const RepoEntity_1 = require("./entity/RepoEntity");
 const node_util_1 = require("node:util");
 const Config_1 = require("./Config");
@@ -224,6 +225,13 @@ class GithubSDK {
             return { ok: false, status: res.status, headers: res.headers, err, data: res.data };
         }
         return res;
+    }
+    // Entity access: `client.Pull().list()` / `client.Pull().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Pull(entopts) {
+        const self = this;
+        return new PullEntity_1.PullEntity(self, entopts);
     }
     // Entity access: `client.Repo().list()` / `client.Repo().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity

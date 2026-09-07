@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Github SDK Project",
   "scripts": {
+    "postinstall": "node build/link-aon-compat.js",
     "generate": "tsc --build src && voxgig-model model/sdk.aon && voxgig-model test/test.aon",
     "watch-generate": "voxgig-model -w model/sdk.aon",
     "dry-generate": "tsc --build src && voxgig-model -y model/sdk.aon",
@@ -23,13 +24,13 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": ">=25.6",
-    "typescript": ">=6.0",
-    "@voxgig/apidef": ">=5.8",
-    "@voxgig/model": ">=8.1",
-    "@voxgig/sdkgen": ">=0.40",
-    "@voxgig/util": ">=0.4",
-    "@voxgig/struct": ">=0.1.0",
-    "jostraca": ">=0.29",
-    "aontu": ">=0.44"
+    "@voxgig/apidef": "7.1.1",
+    "@voxgig/model": "9.4.1",
+    "@voxgig/sdkgen": "3.7.3",
+    "@voxgig/struct": "0.2.2",
+    "@voxgig/util": "0.5.4",
+    "aontu": "0.52.0",
+    "jostraca": "^0.33.1",
+    "typescript": "7.0.2"
   }
 }
