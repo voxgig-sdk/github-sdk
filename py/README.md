@@ -4,7 +4,7 @@
 
 The Python SDK for the Github API — an entity-oriented client following Pythonic conventions.
 
-The SDK exposes the API as capitalised, semantic **Entities** — for example `client.Repo()` — each
+The SDK exposes the API as capitalised, semantic **Entities** — for example `client.Pull()` — each
 carrying a small, uniform set of operations (`list`, `load`, `create`, `update`, `remove`) instead of raw URL
 paths and query strings. You work with named resources and verbs, which
 keeps the cognitive load low.
@@ -31,34 +31,37 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
+import os
 from github_sdk import GithubSDK
 
-client = GithubSDK()
+client = GithubSDK({
+    "apikey": os.environ.get("GITHUB_APIKEY"),
+})
 ```
 
-### 2. List repo records
+### 2. List pull records
 
 `list()` returns a `list` of records (each a `dict`) and raises on
 error — iterate it directly.
 
 ```python
 try:
-    repos = client.Repo().list()
-    for repo in repos:
-        print(repo)
+    pulls = client.Pull().list({"owner": "example", "repo": "example"})
+    for pull in pulls:
+        print(pull)
 except Exception as err:
     print(f"list failed: {err}")
 ```
 
-### 3. Load a repo
+### 3. Load a pull
 
-Repo is nested under owner, so provide the `owner`.
+Pull is nested under owner, so provide the `owner`.
 `load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
-    repo = client.Repo().load({"owner": "example_owner", "repo": "example_repo"})
-    print(repo)
+    pull = client.Pull().load({"owner": "example_owner", "repo": "example_repo", "id": 1})
+    print(pull)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -67,13 +70,11 @@ except Exception as err:
 
 ```python
 # Create — returns the ENTITY (call data_get() for the record)
-created = client.Repo().create({"archive_url": "example_archive_url", "archived": True, "assignees_url": "example_assignees_url", "blobs_url": "example_blobs_url", "branches_url": "example_branches_url", "clone_url": "example_clone_url", "code_of_conduct": {}, "collaborators_url": "example_collaborators_url", "comments_url": "example_comments_url", "commits_url": "example_commits_url", "compare_url": "example_compare_url", "contents_url": "example_contents_url", "contributors_url": "example_contributors_url", "created_at": "example_created_at", "default_branch": "example_default_branch", "deployments_url": "example_deployments_url", "description": "example_description", "disabled": True, "downloads_url": "example_downloads_url", "events_url": "example_events_url", "fork": True, "forks": 1, "forks_count": 1, "forks_url": "example_forks_url", "full_name": "example_full_name", "git_commits_url": "example_git_commits_url", "git_refs_url": "example_git_refs_url", "git_tags_url": "example_git_tags_url", "git_url": "example_git_url", "has_discussions": True, "has_issues": True, "has_pages": True, "has_projects": True, "has_wiki": True, "homepage": "example_homepage", "hooks_url": "example_hooks_url", "html_url": "example_html_url", "id": 1, "issue_comment_url": "example_issue_comment_url", "issue_events_url": "example_issue_events_url", "issues_url": "example_issues_url", "keys_url": "example_keys_url", "labels_url": "example_labels_url", "language": "example_language", "languages_url": "example_languages_url", "license": {}, "merges_url": "example_merges_url", "milestones_url": "example_milestones_url", "mirror_url": "example_mirror_url", "name": "example_name", "network_count": 1, "node_id": "example_node_id", "notifications_url": "example_notifications_url", "open_issues": 1, "open_issues_count": 1, "organization": {}, "owner": {}, "parent": {}, "permissions": {}, "private": True, "pulls_url": "example_pulls_url", "pushed_at": "example_pushed_at", "releases_url": "example_releases_url", "size": 1, "source": {}, "ssh_url": "example_ssh_url", "stargazers_count": 1, "stargazers_url": "example_stargazers_url", "statuses_url": "example_statuses_url", "subscribers_count": 1, "subscribers_url": "example_subscribers_url", "subscription_url": "example_subscription_url", "svn_url": "example_svn_url", "tags_url": "example_tags_url", "teams_url": "example_teams_url", "template_repository": {}, "trees_url": "example_trees_url", "updated_at": "example_updated_at", "url": "example_url", "watchers": 1, "watchers_count": 1})
+created = client.Pull().create({"owner": "example_owner", "repo": "example_repo", "additions": 1, "assignee": {}, "author_association": "example_author_association", "auto_merge": {}, "base": {}, "body": "example_body", "changed_files": 1, "closed_at": "example_closed_at", "comments": 1, "comments_url": "example_comments_url", "commits": 1, "commits_url": "example_commits_url", "created_at": "example_created_at", "deletions": 1, "diff_url": "example_diff_url", "head": {}, "html_url": "example_html_url", "id": 1, "issue_url": "example_issue_url", "labels": [], "links": {}, "locked": True, "maintainer_can_modify": True, "merge_commit_sha": "example_merge_commit_sha", "mergeable": True, "mergeable_state": "example_mergeable_state", "merged": True, "merged_at": "example_merged_at", "merged_by": {}, "message": "example_message", "milestone": {}, "node_id": "example_node_id", "number": 1, "patch_url": "example_patch_url", "review_comment_url": "example_review_comment_url", "review_comments": 1, "review_comments_url": "example_review_comments_url", "sha": "example_sha", "stack": {}, "state": "example_state", "statuses_url": "example_statuses_url", "title": "example_title", "updated_at": "example_updated_at", "url": "example_url", "user": {}})
 
 # Update — the created record's id is a plain dict key
-client.Repo().update({"owner": "example_owner", "repo": "example_repo"})
+client.Pull().update({"id": created.data_get()["id"], "owner": "example_owner", "repo": "example_repo"})
 
-# Remove
-client.Repo().remove({"owner": "example_owner", "repo": "example_repo"})
 ```
 
 
@@ -83,8 +84,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    repos = client.Repo().list()
-    print(repos)
+    pulls = client.Pull().list()
+    print(pulls)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -152,8 +153,8 @@ client = GithubSDK.test()
 
 # Entity ops return the ENTITY and raises on error;
 # call data_get() for the record.
-repo = client.Repo().list()
-# repo contains the mock response record
+pull = client.Pull().list()
+# pull contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -183,6 +184,7 @@ Create a `.env.local` file at the project root:
 
 ```
 GITHUB_TEST_LIVE=TRUE
+GITHUB_APIKEY=<your-key>
 ```
 
 Then run:
@@ -206,6 +208,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |
@@ -229,6 +232,7 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
+| `Pull` | `(data) -> PullEntity` | Create a Pull entity instance. |
 | `Repo` | `(data) -> RepoEntity` | Create a Repo entity instance. |
 
 ### Entity interface
@@ -268,6 +272,71 @@ you branch on via `result["ok"]`:
 On error, `ok` is `False` and `err` contains the error value.
 
 ### Entities
+
+#### Pull
+
+| Field | Description |
+| --- | --- |
+| `active_lock_reason` |  |
+| `additions` |  |
+| `assignee` | A GitHub user. |
+| `assignees` |  |
+| `author_association` | How the author is associated with the repository. |
+| `auto_merge` | The status of auto merging a pull request. |
+| `base` | The name of the branch you want the changes pulled into. |
+| `body` | The contents of the pull request. |
+| `changed_files` |  |
+| `closed_at` |  |
+| `comments` |  |
+| `comments_url` |  |
+| `commit_message` | Extra detail to append to automatic commit message. |
+| `commit_title` | Title for the automatic commit message. |
+| `commits` |  |
+| `commits_url` |  |
+| `created_at` |  |
+| `deletions` |  |
+| `diff_url` |  |
+| `draft` | Indicates whether or not the pull request is a draft. |
+| `head` | The name of the branch where your changes are implemented. |
+| `head_repo` | The name of the repository where the changes in the pull request were made. |
+| `html_url` |  |
+| `id` |  |
+| `issue` | An issue in the repository to convert to a pull request. |
+| `issue_url` |  |
+| `labels` |  |
+| `links` |  |
+| `locked` |  |
+| `maintainer_can_modify` | Indicates whether maintainers can modify the pull request. |
+| `merge_commit_sha` |  |
+| `merge_method` | The merge method to use. |
+| `mergeable` |  |
+| `mergeable_state` |  |
+| `merged` |  |
+| `merged_at` |  |
+| `merged_by` | A GitHub user. |
+| `message` |  |
+| `milestone` | A collection of related issues and pull requests. |
+| `node_id` |  |
+| `number` | Number uniquely identifying the pull request within its repository. |
+| `patch_url` |  |
+| `rebaseable` |  |
+| `requested_reviewers` |  |
+| `requested_teams` |  |
+| `review_comment_url` |  |
+| `review_comments` |  |
+| `review_comments_url` |  |
+| `sha` | SHA that pull request head must match to allow merge. |
+| `stack` | The stack information associated with a pull request. |
+| `state` | State of this Pull Request. |
+| `statuses_url` |  |
+| `title` | The title of the pull request. |
+| `updated_at` |  |
+| `url` |  |
+| `user` | A GitHub user. |
+
+Operations: Create, List, Load, Update.
+
+API path: `/repos/{owner}/{repo}/pulls`
 
 #### Repo
 
@@ -392,6 +461,147 @@ API path: `/user/repos`
 
 
 ## Entities
+
+
+### Pull
+
+Create an instance: `pull = client.Pull()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list()` | List entities, optionally matching the given criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+| `update(data)` | Update an existing entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `active_lock_reason` | `str` |  |
+| `additions` | `int` |  |
+| `assignee` | `dict` | A GitHub user. |
+| `assignees` | `list` |  |
+| `author_association` | `str` | How the author is associated with the repository. |
+| `auto_merge` | `dict` | The status of auto merging a pull request. |
+| `base` | `dict` | The name of the branch you want the changes pulled into. |
+| `body` | `str` | The contents of the pull request. |
+| `changed_files` | `int` |  |
+| `closed_at` | `str` |  |
+| `comments` | `int` |  |
+| `comments_url` | `str` |  |
+| `commit_message` | `str` | Extra detail to append to automatic commit message. |
+| `commit_title` | `str` | Title for the automatic commit message. |
+| `commits` | `int` |  |
+| `commits_url` | `str` |  |
+| `created_at` | `str` |  |
+| `deletions` | `int` |  |
+| `diff_url` | `str` |  |
+| `draft` | `bool` | Indicates whether or not the pull request is a draft. |
+| `head` | `dict` | The name of the branch where your changes are implemented. |
+| `head_repo` | `str` | The name of the repository where the changes in the pull request were made. |
+| `html_url` | `str` |  |
+| `id` | `int` |  |
+| `issue` | `int` | An issue in the repository to convert to a pull request. |
+| `issue_url` | `str` |  |
+| `labels` | `list` |  |
+| `links` | `dict` |  |
+| `locked` | `bool` |  |
+| `maintainer_can_modify` | `bool` | Indicates whether maintainers can modify the pull request. |
+| `merge_commit_sha` | `str` |  |
+| `merge_method` | `str` | The merge method to use. |
+| `mergeable` | `bool` |  |
+| `mergeable_state` | `str` |  |
+| `merged` | `bool` |  |
+| `merged_at` | `str` |  |
+| `merged_by` | `dict` | A GitHub user. |
+| `message` | `str` |  |
+| `milestone` | `dict` | A collection of related issues and pull requests. |
+| `node_id` | `str` |  |
+| `number` | `int` | Number uniquely identifying the pull request within its repository. |
+| `patch_url` | `str` |  |
+| `rebaseable` | `bool` |  |
+| `requested_reviewers` | `list` |  |
+| `requested_teams` | `list` |  |
+| `review_comment_url` | `str` |  |
+| `review_comments` | `int` |  |
+| `review_comments_url` | `str` |  |
+| `sha` | `str` | SHA that pull request head must match to allow merge. |
+| `stack` | `dict` | The stack information associated with a pull request. |
+| `state` | `str` | State of this Pull Request. |
+| `statuses_url` | `str` |  |
+| `title` | `str` | The title of the pull request. |
+| `updated_at` | `str` |  |
+| `url` | `str` |  |
+| `user` | `dict` | A GitHub user. |
+
+#### Example: Load
+
+```python
+pull = client.Pull().load({"id": 1, "owner": "owner", "repo": "repo"})
+```
+
+#### Example: List
+
+```python
+pulls = client.Pull().list({"owner": "example", "repo": "example"})
+```
+
+#### Example: Create
+
+```python
+pull = client.Pull().create({
+    "owner": "example_owner",  # str
+    "repo": "example_repo",  # str
+    "additions": 1,  # int
+    "assignee": {},  # dict
+    "author_association": "example_author_association",  # str
+    "auto_merge": {},  # dict
+    "base": {},  # dict
+    "body": "example_body",  # str
+    "changed_files": 1,  # int
+    "closed_at": "example_closed_at",  # str
+    "comments": 1,  # int
+    "comments_url": "example_comments_url",  # str
+    "commits": 1,  # int
+    "commits_url": "example_commits_url",  # str
+    "created_at": "example_created_at",  # str
+    "deletions": 1,  # int
+    "diff_url": "example_diff_url",  # str
+    "head": {},  # dict
+    "html_url": "example_html_url",  # str
+    "id": 1,  # int
+    "issue_url": "example_issue_url",  # str
+    "labels": [],  # list
+    "links": {},  # dict
+    "locked": True,  # bool
+    "maintainer_can_modify": True,  # bool
+    "merge_commit_sha": "example_merge_commit_sha",  # str
+    "mergeable": True,  # bool
+    "mergeable_state": "example_mergeable_state",  # str
+    "merged": True,  # bool
+    "merged_at": "example_merged_at",  # str
+    "merged_by": {},  # dict
+    "message": "example_message",  # str
+    "milestone": {},  # dict
+    "node_id": "example_node_id",  # str
+    "number": 1,  # int
+    "patch_url": "example_patch_url",  # str
+    "review_comment_url": "example_review_comment_url",  # str
+    "review_comments": 1,  # int
+    "review_comments_url": "example_review_comments_url",  # str
+    "sha": "example_sha",  # str
+    "stack": {},  # dict
+    "state": "example_state",  # str
+    "statuses_url": "example_statuses_url",  # str
+    "title": "example_title",  # str
+    "updated_at": "example_updated_at",  # str
+    "url": "example_url",  # str
+    "user": {},  # dict
+})
+```
 
 
 ### Repo
@@ -624,6 +834,29 @@ repo = client.Repo().create({
 })
 ```
 
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
+
 
 ## Advanced
 
@@ -700,11 +933,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-repo = client.Repo()
-repo.list()
+pull = client.Pull()
+pull.list()
 
-# repo.data_get() now returns the repo data from the last list
-# repo.match_get() returns the last match criteria
+# pull.data_get() now returns the pull data from the last list
+# pull.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

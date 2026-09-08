@@ -5,6 +5,211 @@
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
+export interface Pull {
+  active_lock_reason?: string
+  additions: number
+  assignee: Record<string, any>
+  assignees?: any[]
+  author_association: string
+  auto_merge: Record<string, any>
+  base: Record<string, any>
+  body: string
+  changed_files: number
+  closed_at: string
+  comments: number
+  comments_url: string
+  commit_message?: string
+  commit_title?: string
+  commits: number
+  commits_url: string
+  created_at: string
+  deletions: number
+  diff_url: string
+  draft?: boolean
+  head: Record<string, any>
+  head_repo?: string
+  html_url: string
+  id: number
+  issue?: number
+  issue_url: string
+  labels: any[]
+  links: Record<string, any>
+  locked: boolean
+  maintainer_can_modify: boolean
+  merge_commit_sha: string
+  merge_method?: string
+  mergeable: boolean
+  mergeable_state: string
+  merged: boolean
+  merged_at: string
+  merged_by: Record<string, any>
+  message: string
+  milestone: Record<string, any>
+  node_id: string
+  number: number
+  patch_url: string
+  rebaseable?: boolean
+  requested_reviewers?: any[]
+  requested_teams?: any[]
+  review_comment_url: string
+  review_comments: number
+  review_comments_url: string
+  sha: string
+  stack: Record<string, any>
+  state: string
+  statuses_url: string
+  title: string
+  updated_at: string
+  url: string
+  user: Record<string, any>
+}
+
+export interface PullLoadMatch {
+  id: number
+  owner: string
+  repo: string
+}
+
+export interface PullListMatch {
+  owner: string
+  repo: string
+  base?: string
+  direction?: string
+  head?: string
+  page?: number
+  per_page?: number
+  sort?: string
+  state?: string
+}
+
+export interface PullCreateData {
+  owner: string
+  repo: string
+  active_lock_reason?: string
+  additions: number
+  assignee: Record<string, any>
+  assignees?: any[]
+  author_association: string
+  auto_merge: Record<string, any>
+  base: Record<string, any>
+  body: string
+  changed_files: number
+  closed_at: string
+  comments: number
+  comments_url: string
+  commit_message?: string
+  commit_title?: string
+  commits: number
+  commits_url: string
+  created_at: string
+  deletions: number
+  diff_url: string
+  draft?: boolean
+  head: Record<string, any>
+  head_repo?: string
+  html_url: string
+  id: number
+  issue?: number
+  issue_url: string
+  labels: any[]
+  links: Record<string, any>
+  locked: boolean
+  maintainer_can_modify: boolean
+  merge_commit_sha: string
+  merge_method?: string
+  mergeable: boolean
+  mergeable_state: string
+  merged: boolean
+  merged_at: string
+  merged_by: Record<string, any>
+  message: string
+  milestone: Record<string, any>
+  node_id: string
+  number: number
+  patch_url: string
+  rebaseable?: boolean
+  requested_reviewers?: any[]
+  requested_teams?: any[]
+  review_comment_url: string
+  review_comments: number
+  review_comments_url: string
+  sha: string
+  stack: Record<string, any>
+  state: string
+  statuses_url: string
+  title: string
+  updated_at: string
+  url: string
+  user: Record<string, any>
+}
+
+export interface PullUpdateData {
+  id: number
+  owner: string
+  repo: string
+  active_lock_reason?: string
+  additions?: number
+  assignee?: Record<string, any>
+  assignees?: any[]
+  author_association?: string
+  auto_merge?: Record<string, any>
+  base?: Record<string, any>
+  body?: string
+  changed_files?: number
+  closed_at?: string
+  comments?: number
+  comments_url?: string
+  commit_message?: string
+  commit_title?: string
+  commits?: number
+  commits_url?: string
+  created_at?: string
+  deletions?: number
+  diff_url?: string
+  draft?: boolean
+  head?: Record<string, any>
+  head_repo?: string
+  html_url?: string
+  issue?: number
+  issue_url?: string
+  labels?: any[]
+  links?: Record<string, any>
+  locked?: boolean
+  maintainer_can_modify?: boolean
+  merge_commit_sha?: string
+  merge_method?: string
+  mergeable?: boolean
+  mergeable_state?: string
+  merged?: boolean
+  merged_at?: string
+  merged_by?: Record<string, any>
+  message?: string
+  milestone?: Record<string, any>
+  node_id?: string
+  number?: number
+  patch_url?: string
+  rebaseable?: boolean
+  requested_reviewers?: any[]
+  requested_teams?: any[]
+  review_comment_url?: string
+  review_comments?: number
+  review_comments_url?: string
+  sha?: string
+  stack?: Record<string, any>
+  state?: string
+  statuses_url?: string
+  title?: string
+  updated_at?: string
+  url?: string
+  user?: Record<string, any>
+
+  // Selects a custom action instead of the plain update:
+  //   'merge'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
+}
+
 export interface Repo {
   allow_auto_merge?: boolean
   allow_forking?: boolean
@@ -125,117 +330,15 @@ export interface RepoLoadMatch {
 }
 
 export interface RepoListMatch {
-  allow_auto_merge?: boolean
-  allow_forking?: boolean
-  allow_merge_commit?: boolean
-  allow_rebase_merge?: boolean
-  allow_squash_merge?: boolean
-  allow_update_branch?: boolean
-  anonymous_access_enabled?: boolean
-  archive_url?: string
-  archived?: boolean
-  assignees_url?: string
-  auto_init?: boolean
-  blobs_url?: string
-  branches_url?: string
-  clone_url?: string
-  code_of_conduct?: Record<string, any>
-  code_search_index_status?: Record<string, any>
-  collaborators_url?: string
-  comments_url?: string
-  commits_url?: string
-  compare_url?: string
-  contents_url?: string
-  contributors_url?: string
-  created_at?: string
-  custom_properties?: Record<string, any>
-  default_branch?: string
-  delete_branch_on_merge?: boolean
-  deployments_url?: string
-  description?: string
-  disabled?: boolean
-  downloads_url?: string
-  events_url?: string
-  fork?: boolean
-  forks?: number
-  forks_count?: number
-  forks_url?: string
-  full_name?: string
-  git_commits_url?: string
-  git_refs_url?: string
-  git_tags_url?: string
-  git_url?: string
-  gitignore_template?: string
-  has_discussions?: boolean
-  has_downloads?: boolean
-  has_issues?: boolean
-  has_pages?: boolean
-  has_projects?: boolean
-  has_pull_requests?: boolean
-  has_wiki?: boolean
-  homepage?: string
-  hooks_url?: string
-  html_url?: string
-  id?: number
-  is_template?: boolean
-  issue_comment_url?: string
-  issue_events_url?: string
-  issues_url?: string
-  keys_url?: string
-  labels_url?: string
-  language?: string
-  languages_url?: string
-  license?: Record<string, any>
-  license_template?: string
-  master_branch?: string
-  merge_commit_message?: string
-  merge_commit_title?: string
-  merges_url?: string
-  milestones_url?: string
-  mirror_url?: string
-  name?: string
-  network_count?: number
-  node_id?: string
-  notifications_url?: string
-  open_issues?: number
-  open_issues_count?: number
-  organization?: Record<string, any>
-  owner?: Record<string, any>
-  parent?: Record<string, any>
-  permissions?: Record<string, any>
-  private?: boolean
-  pull_request_creation_policy?: string
-  pulls_url?: string
-  pushed_at?: string
-  releases_url?: string
-  security_and_analysis?: Record<string, any>
-  size?: number
-  source?: Record<string, any>
-  squash_merge_commit_message?: string
-  squash_merge_commit_title?: string
-  ssh_url?: string
-  stargazers_count?: number
-  stargazers_url?: string
-  starred_at?: string
-  statuses_url?: string
-  subscribers_count?: number
-  subscribers_url?: string
-  subscription_url?: string
-  svn_url?: string
-  tags_url?: string
-  team_id?: number
-  teams_url?: string
-  temp_clone_token?: string
-  template_repository?: Record<string, any>
-  topics?: any[]
-  trees_url?: string
-  updated_at?: string
-  url?: string
-  use_squash_pr_title_as_default?: boolean
+  affiliation?: string
+  before?: string
+  direction?: string
+  page?: number
+  per_page?: number
+  since?: string
+  sort?: string
+  type?: string
   visibility?: string
-  watchers?: number
-  watchers_count?: number
-  web_commit_signoff_required?: boolean
 }
 
 export interface RepoCreateData {

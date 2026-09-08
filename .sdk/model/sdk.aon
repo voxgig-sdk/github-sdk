@@ -35,8 +35,12 @@ def: 'github-repo-only.json'
 
 
 # Seneca provider plugin generates out-of-tree into the sibling repo.
+# `adopt` writes into that checkout when it is there; `create: false` skips
+# the target when it is not, so a fresh clone never fabricates a sibling.
 main: kit: target: 'seneca-provider': output: {
   path: '../../seneca/github-provider'
   sdkrel: '../../voxgig-sdk/github-sdk'
+  adopt: true
+  create: false
 }
 

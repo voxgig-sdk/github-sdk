@@ -43,6 +43,24 @@ permissions:
   contents: read
 
 jobs:
+  # The generator itself. A fresh clone installs the pinned toolchain,
+  # compiles the components and regenerates into a clean tree. This is the
+  # only job that can see a lock/scaffold skew, a generate that runs no
+  # actions, or a hand-edited generated file; the per-target jobs below
+  # test whatever was committed, whether or not it can be reproduced.
+  sdk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: '24'
+      - run: cd .sdk && npm install --no-audit --no-fund
+      - run: cd .sdk && npm run build
+      - run: cd .sdk && npm run generate
+      # Regeneration must reproduce the committed tree byte for byte.
+      - run: git diff --exit-code --stat
+
   go:
     runs-on: ubuntu-latest
     steps:

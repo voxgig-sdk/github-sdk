@@ -32,6 +32,9 @@ func init() {
 	core.NewTestFeatureFunc = func() core.Feature {
 		return feature.NewTestFeature()
 	}
+	core.NewPullEntityFunc = func(client *core.GithubSDK, entopts map[string]any) core.GithubEntity {
+		return entity.NewPullEntity(client, entopts)
+	}
 	core.NewRepoEntityFunc = func(client *core.GithubSDK, entopts map[string]any) core.GithubEntity {
 		return entity.NewRepoEntity(client, entopts)
 	}

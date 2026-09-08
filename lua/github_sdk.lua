@@ -336,6 +336,20 @@ end
 
 
 
+-- Idiomatic facade: client:Pull():list() / client:Pull():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function GithubSDK:Pull(data)
+  local EntityMod = require("entity.pull_entity")
+  if data == nil then
+    if self._pull == nil then
+      self._pull = EntityMod.new(self, nil)
+    end
+    return self._pull
+  end
+  return EntityMod.new(self, data)
+end
+
+
 -- Idiomatic facade: client:Repo():list() / client:Repo():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function GithubSDK:Repo(data)

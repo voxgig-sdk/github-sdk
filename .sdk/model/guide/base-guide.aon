@@ -1,9 +1,26 @@
 # Guide
 
 guide: {
-  metrics: count: entity: 1
-  metrics: count: path: 2
-  metrics: count: method: 5
+  metrics: count: entity: 2
+  metrics: count: path: 5
+  metrics: count: method: 10
+
+  entity: pull: {
+    path: "/repos/{owner}/{repo}/pulls": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}": {
+      rename: param: "pull_number": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}/merge": {
+      action: "merge": {}
+      rename: param: "pull_number": *"id"
+      op: update: method: *PUT
+    }
+  }
 
   entity: repo: {
     path: "/repos/{owner}/{repo}": {

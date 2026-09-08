@@ -1,5 +1,6 @@
 // Github Js SDK
 
+const { PullEntity } = require('./entity/PullEntity')
 const { RepoEntity } = require('./entity/RepoEntity')
 
 
@@ -13,6 +14,7 @@ const { GithubEntityBase } = require('./GithubEntityBase')
 const { BaseFeature } = require('./feature/base/BaseFeature')
 
 
+
 const stdutil = new Utility()
 
 
@@ -22,6 +24,7 @@ class GithubSDK {
   _utility = new Utility()
   _features
   _rootctx
+  
 
   constructor(options) {
 
@@ -94,6 +97,8 @@ class GithubSDK {
     return this._utility.struct.clone(this._utility)
   }
 
+  
+
 
   async prepare(fetchargs) {
     const utility = this._utility
@@ -139,6 +144,8 @@ class GithubSDK {
         spec.headers[key] = uheaders[key]
       }
     }
+
+    
 
     // Apply SDK auth (apikey, auth prefix, etc.)
     const authResult = prepareAuth(ctx)
@@ -287,6 +294,15 @@ class GithubSDK {
 
 
 
+  // Entity access: `client.Pull().list()` / `client.Pull().load({ id })`.
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Pull(entopts) {
+    const self = this
+    return new PullEntity(self, entopts)
+  }
+
+
   // Entity access: `client.Repo().list()` / `client.Repo().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
@@ -345,6 +361,7 @@ const SDK = GithubSDK
 module.exports = {
   stdutil,
   config,
+  
 
   BaseFeature,
   GithubEntityBase,
