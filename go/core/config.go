@@ -101,6 +101,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "closed_at",
 						"req": true,
 						"type": "`$STRING`",
@@ -111,6 +112,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "comments_url",
 						"req": true,
 						"type": "`$STRING`",
@@ -131,11 +133,13 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "commits_url",
 						"req": true,
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "created_at",
 						"req": true,
 						"type": "`$STRING`",
@@ -146,6 +150,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "diff_url",
 						"req": true,
 						"type": "`$STRING`",
@@ -162,26 +167,31 @@ func MakeConfig() map[string]any {
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
+						"format": "repo.nwo",
 						"name": "head_repo",
 						"short": "The name of the repository where the changes in the pull request were made.",
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "html_url",
 						"req": true,
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "int64",
 						"name": "id",
 						"req": true,
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "int64",
 						"name": "issue",
 						"short": "An issue in the repository to convert to a pull request.",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "issue_url",
 						"req": true,
 						"type": "`$STRING`",
@@ -241,6 +251,7 @@ func MakeConfig() map[string]any {
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "merged_at",
 						"req": true,
 						"type": "`$STRING`",
@@ -274,6 +285,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "patch_url",
 						"req": true,
 						"type": "`$STRING`",
@@ -301,6 +313,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "review_comments_url",
 						"req": true,
 						"type": "`$STRING`",
@@ -334,6 +347,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "statuses_url",
 						"req": true,
 						"type": "`$STRING`",
@@ -353,11 +367,13 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "updated_at",
 						"req": true,
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "url",
 						"req": true,
 						"type": "`$STRING`",
@@ -895,11 +911,13 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "contributors_url",
 						"req": true,
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "created_at",
 						"req": true,
 						"type": "`$STRING`",
@@ -926,6 +944,7 @@ func MakeConfig() map[string]any {
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "deployments_url",
 						"req": true,
 						"type": "`$STRING`",
@@ -951,11 +970,13 @@ func MakeConfig() map[string]any {
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "downloads_url",
 						"req": true,
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "events_url",
 						"req": true,
 						"type": "`$STRING`",
@@ -976,6 +997,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "forks_url",
 						"req": true,
 						"type": "`$STRING`",
@@ -1025,6 +1047,7 @@ func MakeConfig() map[string]any {
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
+						"deprecated": true,
 						"name": "has_downloads",
 						"op": map[string]any{
 							"list": map[string]any{
@@ -1088,6 +1111,7 @@ func MakeConfig() map[string]any {
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "homepage",
 						"op": map[string]any{
 							"create": map[string]any{
@@ -1102,16 +1126,19 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "hooks_url",
 						"req": true,
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "html_url",
 						"req": true,
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "int64",
 						"name": "id",
 						"req": true,
 						"short": "Unique identifier of the repository",
@@ -1153,6 +1180,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "languages_url",
 						"req": true,
 						"type": "`$STRING`",
@@ -1183,6 +1211,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "merges_url",
 						"req": true,
 						"type": "`$STRING`",
@@ -1193,6 +1222,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "mirror_url",
 						"req": true,
 						"type": "`$STRING`",
@@ -1281,6 +1311,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "pushed_at",
 						"req": true,
 						"type": "`$STRING`",
@@ -1328,6 +1359,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "stargazers_url",
 						"req": true,
 						"type": "`$STRING`",
@@ -1347,21 +1379,25 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "subscribers_url",
 						"req": true,
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "subscription_url",
 						"req": true,
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "svn_url",
 						"req": true,
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "tags_url",
 						"req": true,
 						"type": "`$STRING`",
@@ -1372,6 +1408,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "teams_url",
 						"req": true,
 						"type": "`$STRING`",
@@ -1396,16 +1433,19 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "updated_at",
 						"req": true,
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "url",
 						"req": true,
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"deprecated": true,
 						"name": "use_squash_pr_title_as_default",
 						"short": "Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message.",
 						"type": "`$BOOLEAN`",

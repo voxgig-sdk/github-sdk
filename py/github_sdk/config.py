@@ -126,6 +126,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "date-time",
             "name": "closed_at",
             "req": True,
             "type": "`$STRING`",
@@ -136,6 +137,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "comments_url",
             "req": True,
             "type": "`$STRING`",
@@ -156,11 +158,13 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "commits_url",
             "req": True,
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "created_at",
             "req": True,
             "type": "`$STRING`",
@@ -171,6 +175,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "diff_url",
             "req": True,
             "type": "`$STRING`",
@@ -187,26 +192,31 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "repo.nwo",
             "name": "head_repo",
             "short": "The name of the repository where the changes in the pull request were made.",
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "html_url",
             "req": True,
             "type": "`$STRING`",
           },
           {
+            "format": "int64",
             "name": "id",
             "req": True,
             "type": "`$INTEGER`",
           },
           {
+            "format": "int64",
             "name": "issue",
             "short": "An issue in the repository to convert to a pull request.",
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "issue_url",
             "req": True,
             "type": "`$STRING`",
@@ -266,6 +276,7 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "date-time",
             "name": "merged_at",
             "req": True,
             "type": "`$STRING`",
@@ -299,6 +310,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "patch_url",
             "req": True,
             "type": "`$STRING`",
@@ -326,6 +338,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "review_comments_url",
             "req": True,
             "type": "`$STRING`",
@@ -359,6 +372,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "statuses_url",
             "req": True,
             "type": "`$STRING`",
@@ -378,11 +392,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "updated_at",
             "req": True,
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "url",
             "req": True,
             "type": "`$STRING`",
@@ -920,11 +936,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "contributors_url",
             "req": True,
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "created_at",
             "req": True,
             "type": "`$STRING`",
@@ -951,6 +969,7 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "uri",
             "name": "deployments_url",
             "req": True,
             "type": "`$STRING`",
@@ -976,11 +995,13 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "uri",
             "name": "downloads_url",
             "req": True,
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "events_url",
             "req": True,
             "type": "`$STRING`",
@@ -1001,6 +1022,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "forks_url",
             "req": True,
             "type": "`$STRING`",
@@ -1050,6 +1072,7 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "deprecated": True,
             "name": "has_downloads",
             "op": {
               "list": {
@@ -1113,6 +1136,7 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "uri",
             "name": "homepage",
             "op": {
               "create": {
@@ -1127,16 +1151,19 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "hooks_url",
             "req": True,
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "html_url",
             "req": True,
             "type": "`$STRING`",
           },
           {
+            "format": "int64",
             "name": "id",
             "req": True,
             "short": "Unique identifier of the repository",
@@ -1178,6 +1205,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "languages_url",
             "req": True,
             "type": "`$STRING`",
@@ -1208,6 +1236,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "merges_url",
             "req": True,
             "type": "`$STRING`",
@@ -1218,6 +1247,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "mirror_url",
             "req": True,
             "type": "`$STRING`",
@@ -1306,6 +1336,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "pushed_at",
             "req": True,
             "type": "`$STRING`",
@@ -1353,6 +1384,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "stargazers_url",
             "req": True,
             "type": "`$STRING`",
@@ -1372,21 +1404,25 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "subscribers_url",
             "req": True,
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "subscription_url",
             "req": True,
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "svn_url",
             "req": True,
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "tags_url",
             "req": True,
             "type": "`$STRING`",
@@ -1397,6 +1433,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "teams_url",
             "req": True,
             "type": "`$STRING`",
@@ -1421,16 +1458,19 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "updated_at",
             "req": True,
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "url",
             "req": True,
             "type": "`$STRING`",
           },
           {
+            "deprecated": True,
             "name": "use_squash_pr_title_as_default",
             "short": "Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message.",
             "type": "`$BOOLEAN`",

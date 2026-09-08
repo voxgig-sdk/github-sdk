@@ -38,18 +38,21 @@ declare class Config {
                 req?: undefined;
                 short?: undefined;
                 op?: undefined;
+                format?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 type: string;
                 short?: undefined;
                 op?: undefined;
+                format?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 short: string;
                 type: string;
                 op?: undefined;
+                format?: undefined;
             } | {
                 name: string;
                 op: {
@@ -61,6 +64,7 @@ declare class Config {
                 req: boolean;
                 short: string;
                 type: string;
+                format?: undefined;
             } | {
                 name: string;
                 op: {
@@ -74,7 +78,23 @@ declare class Config {
                 req: boolean;
                 short: string;
                 type: string;
+                format?: undefined;
             } | {
+                format: string;
+                name: string;
+                req: boolean;
+                type: string;
+                short?: undefined;
+                op?: undefined;
+            } | {
+                name: string;
+                short: string;
+                type: string;
+                req?: undefined;
+                op?: undefined;
+                format?: undefined;
+            } | {
+                format: string;
                 name: string;
                 short: string;
                 type: string;
@@ -291,12 +311,16 @@ declare class Config {
                 type: string;
                 req?: undefined;
                 op?: undefined;
+                format?: undefined;
+                deprecated?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 type: string;
                 short?: undefined;
                 op?: undefined;
+                format?: undefined;
+                deprecated?: undefined;
             } | {
                 name: string;
                 op: {
@@ -309,12 +333,24 @@ declare class Config {
                 req: boolean;
                 short: string;
                 type: string;
+                format?: undefined;
+                deprecated?: undefined;
             } | {
                 name: string;
                 req: boolean;
                 short: string;
                 type: string;
                 op?: undefined;
+                format?: undefined;
+                deprecated?: undefined;
+            } | {
+                format: string;
+                name: string;
+                req: boolean;
+                type: string;
+                short?: undefined;
+                op?: undefined;
+                deprecated?: undefined;
             } | {
                 name: string;
                 op: {
@@ -329,6 +365,8 @@ declare class Config {
                 req: boolean;
                 short: string;
                 type: string;
+                format?: undefined;
+                deprecated?: undefined;
             } | {
                 name: string;
                 op: {
@@ -344,7 +382,10 @@ declare class Config {
                 req: boolean;
                 short: string;
                 type: string;
+                format?: undefined;
+                deprecated?: undefined;
             } | {
+                deprecated: boolean;
                 name: string;
                 op: {
                     list: {
@@ -357,12 +398,47 @@ declare class Config {
                 short: string;
                 type: string;
                 req?: undefined;
+                format?: undefined;
+            } | {
+                format: string;
+                name: string;
+                op: {
+                    create: {
+                        type: string;
+                    };
+                    update: {
+                        type: string;
+                    };
+                    list?: undefined;
+                };
+                req: boolean;
+                short: string;
+                type: string;
+                deprecated?: undefined;
+            } | {
+                format: string;
+                name: string;
+                req: boolean;
+                short: string;
+                type: string;
+                op?: undefined;
+                deprecated?: undefined;
             } | {
                 name: string;
                 type: string;
                 short?: undefined;
                 req?: undefined;
                 op?: undefined;
+                format?: undefined;
+                deprecated?: undefined;
+            } | {
+                deprecated: boolean;
+                name: string;
+                short: string;
+                type: string;
+                req?: undefined;
+                op?: undefined;
+                format?: undefined;
             })[];
             name: string;
             op: {

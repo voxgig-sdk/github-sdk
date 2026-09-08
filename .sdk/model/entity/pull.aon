@@ -72,6 +72,7 @@ main: kit: entity: pull: {
       type: "`$INTEGER`"
     }
     {
+      format: "date-time"
       name: "closed_at"
       req: true
       type: "`$STRING`"
@@ -82,6 +83,7 @@ main: kit: entity: pull: {
       type: "`$INTEGER`"
     }
     {
+      format: "uri"
       name: "comments_url"
       req: true
       type: "`$STRING`"
@@ -104,11 +106,13 @@ main: kit: entity: pull: {
       type: "`$INTEGER`"
     }
     {
+      format: "uri"
       name: "commits_url"
       req: true
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "created_at"
       req: true
       type: "`$STRING`"
@@ -119,6 +123,7 @@ main: kit: entity: pull: {
       type: "`$INTEGER`"
     }
     {
+      format: "uri"
       name: "diff_url"
       req: true
       type: "`$STRING`"
@@ -136,28 +141,33 @@ main: kit: entity: pull: {
       type: "`$OBJECT`"
     }
     {
+      format: "repo.nwo"
       name: "head_repo"
       req: false
       short: "The name of the repository where the changes in the pull request were made."
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "html_url"
       req: true
       type: "`$STRING`"
     }
     {
+      format: "int64"
       name: "id"
       req: true
       type: "`$INTEGER`"
     }
     {
+      format: "int64"
       name: "issue"
       req: false
       short: "An issue in the repository to convert to a pull request."
       type: "`$INTEGER`"
     }
     {
+      format: "uri"
       name: "issue_url"
       req: true
       type: "`$STRING`"
@@ -220,6 +230,7 @@ main: kit: entity: pull: {
       type: "`$BOOLEAN`"
     }
     {
+      format: "date-time"
       name: "merged_at"
       req: true
       type: "`$STRING`"
@@ -253,6 +264,7 @@ main: kit: entity: pull: {
       type: "`$INTEGER`"
     }
     {
+      format: "uri"
       name: "patch_url"
       req: true
       type: "`$STRING`"
@@ -283,6 +295,7 @@ main: kit: entity: pull: {
       type: "`$INTEGER`"
     }
     {
+      format: "uri"
       name: "review_comments_url"
       req: true
       type: "`$STRING`"
@@ -318,6 +331,7 @@ main: kit: entity: pull: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "statuses_url"
       req: true
       type: "`$STRING`"
@@ -339,11 +353,13 @@ main: kit: entity: pull: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "updated_at"
       req: true
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "url"
       req: true
       type: "`$STRING`"
