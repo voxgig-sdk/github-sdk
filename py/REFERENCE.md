@@ -20,6 +20,7 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `dict` | SDK configuration options. |
+| `options["apikey"]` | `str` | API key for authentication. |
 | `options["base"]` | `str` | Base URL for API requests. |
 | `options["prefix"]` | `str` | URL prefix appended after base. |
 | `options["suffix"]` | `str` | URL suffix appended after path. |
@@ -40,6 +41,10 @@ client = GithubSDK.test()
 
 
 ### Instance Methods
+
+#### `Pull(data=None)`
+
+Create a new `PullEntity` instance. Pass `None` for no initial data.
 
 #### `Repo(data=None)`
 
@@ -73,6 +78,252 @@ Make a direct HTTP request to any API endpoint. Returns a result `dict` with `ok
 #### `prepare(fetchargs=None) -> dict`
 
 Prepare a fetch definition without sending. Returns the `fetchdef` and raises on error.
+
+
+---
+
+## PullEntity
+
+```python
+pull = client.Pull()
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `active_lock_reason` | `str` | No |  |
+| `additions` | `int` | Yes |  |
+| `assignee` | `dict` | Yes | A GitHub user. |
+| `assignees` | `list` | No |  |
+| `author_association` | `str` | Yes | How the author is associated with the repository. |
+| `auto_merge` | `dict` | Yes | The status of auto merging a pull request. |
+| `base` | `dict` | Yes | The name of the branch you want the changes pulled into. |
+| `body` | `str` | Yes | The contents of the pull request. |
+| `changed_files` | `int` | Yes |  |
+| `closed_at` | `str` | Yes |  |
+| `comments` | `int` | Yes |  |
+| `comments_url` | `str` | Yes |  |
+| `commit_message` | `str` | No | Extra detail to append to automatic commit message. |
+| `commit_title` | `str` | No | Title for the automatic commit message. |
+| `commits` | `int` | Yes |  |
+| `commits_url` | `str` | Yes |  |
+| `created_at` | `str` | Yes |  |
+| `deletions` | `int` | Yes |  |
+| `diff_url` | `str` | Yes |  |
+| `draft` | `bool` | No | Indicates whether or not the pull request is a draft. |
+| `head` | `dict` | Yes | The name of the branch where your changes are implemented. |
+| `head_repo` | `str` | No | The name of the repository where the changes in the pull request were made. |
+| `html_url` | `str` | Yes |  |
+| `id` | `int` | Yes |  |
+| `issue` | `int` | No | An issue in the repository to convert to a pull request. |
+| `issue_url` | `str` | Yes |  |
+| `labels` | `list` | Yes |  |
+| `links` | `dict` | Yes |  |
+| `locked` | `bool` | Yes |  |
+| `maintainer_can_modify` | `bool` | Yes | Indicates whether maintainers can modify the pull request. |
+| `merge_commit_sha` | `str` | Yes |  |
+| `merge_method` | `str` | No | The merge method to use. |
+| `mergeable` | `bool` | Yes |  |
+| `mergeable_state` | `str` | Yes |  |
+| `merged` | `bool` | Yes |  |
+| `merged_at` | `str` | Yes |  |
+| `merged_by` | `dict` | Yes | A GitHub user. |
+| `message` | `str` | Yes |  |
+| `milestone` | `dict` | Yes | A collection of related issues and pull requests. |
+| `node_id` | `str` | Yes |  |
+| `number` | `int` | Yes | Number uniquely identifying the pull request within its repository. |
+| `patch_url` | `str` | Yes |  |
+| `rebaseable` | `bool` | No |  |
+| `requested_reviewers` | `list` | No |  |
+| `requested_teams` | `list` | No |  |
+| `review_comment_url` | `str` | Yes |  |
+| `review_comments` | `int` | Yes |  |
+| `review_comments_url` | `str` | Yes |  |
+| `sha` | `str` | Yes | SHA that pull request head must match to allow merge. |
+| `stack` | `dict` | Yes | The stack information associated with a pull request. |
+| `state` | `str` | Yes | State of this Pull Request. |
+| `statuses_url` | `str` | Yes |  |
+| `title` | `str` | Yes | The title of the pull request. |
+| `updated_at` | `str` | Yes |  |
+| `url` | `str` | Yes |  |
+| `user` | `dict` | Yes | A GitHub user. |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `active_lock_reason` | - | - | - | - |
+| `additions` | - | - | - | - |
+| `assignee` | - | - | - | - |
+| `assignees` | - | - | - | - |
+| `author_association` | - | - | - | - |
+| `auto_merge` | - | - | - | - |
+| `base` | - | - | - | Yes |
+| `body` | - | - | Yes | Yes |
+| `changed_files` | - | - | - | - |
+| `closed_at` | - | - | - | - |
+| `comments` | - | - | - | - |
+| `comments_url` | - | - | - | - |
+| `commit_message` | - | - | - | - |
+| `commit_title` | - | - | - | - |
+| `commits` | - | - | - | - |
+| `commits_url` | - | - | - | - |
+| `created_at` | - | - | - | - |
+| `deletions` | - | - | - | - |
+| `diff_url` | - | - | - | - |
+| `draft` | - | - | - | - |
+| `head` | - | - | - | - |
+| `head_repo` | - | - | - | - |
+| `html_url` | - | - | - | - |
+| `id` | - | - | - | - |
+| `issue` | - | - | - | - |
+| `issue_url` | - | - | - | - |
+| `labels` | - | - | - | - |
+| `links` | - | - | - | - |
+| `locked` | - | - | - | - |
+| `maintainer_can_modify` | - | - | Yes | Yes |
+| `merge_commit_sha` | - | - | - | - |
+| `merge_method` | - | - | - | - |
+| `mergeable` | - | - | - | - |
+| `mergeable_state` | - | - | - | - |
+| `merged` | - | - | - | - |
+| `merged_at` | - | - | - | - |
+| `merged_by` | - | - | - | - |
+| `message` | - | - | - | - |
+| `milestone` | - | - | - | - |
+| `node_id` | - | - | - | - |
+| `number` | - | - | - | - |
+| `patch_url` | - | - | - | - |
+| `rebaseable` | - | - | - | - |
+| `requested_reviewers` | - | - | - | - |
+| `requested_teams` | - | - | - | - |
+| `review_comment_url` | - | - | - | - |
+| `review_comments` | - | - | - | - |
+| `review_comments_url` | - | - | - | - |
+| `sha` | - | - | - | Yes |
+| `stack` | - | - | - | - |
+| `state` | - | - | - | Yes |
+| `statuses_url` | - | - | - | - |
+| `title` | - | - | Yes | Yes |
+| `updated_at` | - | - | - | - |
+| `url` | - | - | - | - |
+| `user` | - | - | - | - |
+
+### Operations
+
+#### `create(reqdata, ctrl=None) -> dict`
+
+Create a new entity with the given data. Returns the created entity data and raises on error.
+
+```python
+result = client.Pull().create({
+    "owner": "example_owner",  # str
+    "repo": "example_repo",  # str
+    "additions": 1,  # int
+    "assignee": {},  # dict
+    "author_association": "example_author_association",  # str
+    "auto_merge": {},  # dict
+    "base": {},  # dict
+    "body": "example_body",  # str
+    "changed_files": 1,  # int
+    "closed_at": "example_closed_at",  # str
+    "comments": 1,  # int
+    "comments_url": "example_comments_url",  # str
+    "commits": 1,  # int
+    "commits_url": "example_commits_url",  # str
+    "created_at": "example_created_at",  # str
+    "deletions": 1,  # int
+    "diff_url": "example_diff_url",  # str
+    "head": {},  # dict
+    "html_url": "example_html_url",  # str
+    "id": 1,  # int
+    "issue_url": "example_issue_url",  # str
+    "labels": [],  # list
+    "links": {},  # dict
+    "locked": True,  # bool
+    "maintainer_can_modify": True,  # bool
+    "merge_commit_sha": "example_merge_commit_sha",  # str
+    "mergeable": True,  # bool
+    "mergeable_state": "example_mergeable_state",  # str
+    "merged": True,  # bool
+    "merged_at": "example_merged_at",  # str
+    "merged_by": {},  # dict
+    "message": "example_message",  # str
+    "milestone": {},  # dict
+    "node_id": "example_node_id",  # str
+    "number": 1,  # int
+    "patch_url": "example_patch_url",  # str
+    "review_comment_url": "example_review_comment_url",  # str
+    "review_comments": 1,  # int
+    "review_comments_url": "example_review_comments_url",  # str
+    "sha": "example_sha",  # str
+    "stack": {},  # dict
+    "state": "example_state",  # str
+    "statuses_url": "example_statuses_url",  # str
+    "title": "example_title",  # str
+    "updated_at": "example_updated_at",  # str
+    "url": "example_url",  # str
+    "user": {},  # dict
+})
+```
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.Pull().list({"owner": "example", "repo": "example"})
+for pull in results:
+    print(pull)
+```
+
+#### `load(reqmatch, ctrl=None) -> dict`
+
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
+
+```python
+result = client.Pull().load({"id": 1, "owner": "owner", "repo": "repo"})
+```
+
+#### `update(reqdata, ctrl=None) -> dict`
+
+Update an existing entity. The data must include the entity `id`. Returns the updated entity data and raises on error.
+
+```python
+result = client.Pull().update({
+    "id": 1,
+    "owner": "owner",
+    "repo": "repo",
+    # Fields to update
+})
+```
+
+### Common Methods
+
+#### `data_get() -> dict`
+
+Get the entity data.
+
+#### `data_set(data)`
+
+Set the entity data.
+
+#### `match_get() -> dict`
+
+Get the entity match criteria.
+
+#### `match_set(match)`
+
+Set the entity match criteria.
+
+#### `make() -> Entity`
+
+Create a new `PullEntity` instance with the same options.
+
+#### `get_name() -> str`
+
+Return the entity name.
 
 
 ---
@@ -490,4 +741,42 @@ client = GithubSDK({
     },
 })
 ```
+
+
+### Configuring features
+
+Each feature is inactive until switched on, and an SDK with no feature
+configured does no feature work at all. Every option below keeps its default
+unless you name it.
+
+The array form of \`feature\` is significant: several features wrap the
+transport, and the order you list them in is the order they nest.
+
+#### `test`
+
+In-memory mock transport for testing without a live server.
+
+**Configuration**
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Options above are those the model carries a default for. A feature may
+also accept callback options — a `sink` to receive each record, for
+instance — which have no default and are covered in the full feature
+reference.
+
+**Usage**
+
+Set `feature.test.active` to true in the client options, and override any option above in the same entry. Every option keeps
+its default unless you name it.
+
+**Considerations**
+
+- Attaches to pipeline hooks, not the transport, so activation order does
+  not change what it observes.
+- Installs the BASE transport that the wrapping features wrap, so it must be
+  activated before them.
+- Inactive by default: leaving it out costs nothing at runtime.
 

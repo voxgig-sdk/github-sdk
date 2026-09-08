@@ -16,7 +16,7 @@ import (
 // reqdata map passed through to the SDK. For load, `query` should be
 // `{"id": <value>}`. For list, omit `query` or pass an empty map.
 type Args struct {
-	Entity string         `json:"entity" jsonschema:"repo"`
+	Entity string         `json:"entity" jsonschema:"pull | repo"`
 	Query  map[string]any `json:"query,omitempty" jsonschema:"optional match map e.g. {\"id\":1} for load, omit for list"`
 }
 
@@ -77,6 +77,8 @@ func runOp(client *sdk.GithubSDK, op string, args Args) (*mcp.CallToolResult, an
 // emits one `case "<name>":` per entity defined in the SDK model.
 func entityFor(client *sdk.GithubSDK, name string) (sdk.GithubEntity, error) {
 	switch strings.ToLower(name) {
+	case "pull":
+		return client.Pull(nil), nil
 	case "repo":
 		return client.Repo(nil), nil
 

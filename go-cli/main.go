@@ -20,7 +20,7 @@ import (
 const prompt = "github"
 
 // entitiesHelp is the space-separated entity list shown by /help.
-const entitiesHelp = "repo"
+const entitiesHelp = "pull repo"
 
 func main() {
 	os.Exit(run(os.Args[1:], os.Stdin, os.Stdout, os.Stderr))

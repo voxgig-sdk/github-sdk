@@ -2,7 +2,7 @@
 const envlocal = __dirname + '/../../../.env.local'
 require('dotenv').config({ quiet: true, path: [envlocal] })
 
-const { test, describe } = require('node:test')
+const { test, describe, afterEach } = require('node:test')
 const assert = require('node:assert')
 
 
@@ -10,10 +10,16 @@ const { GithubSDK } = require('../../..')
 
 const {
   envOverride,
+  liveClientOptions,
+  liveDelay,
 } = require('../../utility')
 
 
 describe('RepoDirect', async () => {
+
+  // Per-test live pacing. Delay is read from sdk-test-control.json's
+  // `test.live.delayMs`; only sleeps when GITHUB_TEST_LIVE=TRUE.
+  afterEach(liveDelay('GITHUB_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new GithubSDK({
@@ -106,13 +112,18 @@ function directSetup(mockres) {
   const env = envOverride({
     'GITHUB_TEST_REPO_ENTID': {},
     'GITHUB_TEST_LIVE': 'FALSE',
+    'GITHUB_APIKEY': '',
   })
 
   const live = 'TRUE' === env.GITHUB_TEST_LIVE
 
   if (live) {
-    const client = new GithubSDK({
-    })
+    // Merged so the generated fields win: sdk-test-control.json's
+    // test.client.options adds to the live client, it does not redirect it.
+    const client = new GithubSDK(
+      Object.assign({}, liveClientOptions(), {
+      apikey: env.GITHUB_APIKEY,
+      }))
 
     let idmap = env['GITHUB_TEST_REPO_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {

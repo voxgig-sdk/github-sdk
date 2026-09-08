@@ -1,6 +1,14 @@
 # Github SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -37,18 +45,766 @@ def make_config():
         "options": {
           "active": False,
         },
+        "transport": "base",
       },
         },
         "options": {
             "base": "https://api.github.com",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
             "entity": {
+                "pull": {},
                 "repo": {},
             },
         },
         "entity": {
+      "pull": {
+        "fields": [
+          {
+            "name": "active_lock_reason",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "additions",
+            "req": True,
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "assignee",
+            "req": True,
+            "short": "A GitHub user.",
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "assignees",
+            "type": "`$ARRAY`",
+          },
+          {
+            "name": "author_association",
+            "req": True,
+            "short": "How the author is associated with the repository.",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "auto_merge",
+            "req": True,
+            "short": "The status of auto merging a pull request.",
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "base",
+            "op": {
+              "update": {
+                "type": "`$STRING`",
+              },
+            },
+            "req": True,
+            "short": "The name of the branch you want the changes pulled into.",
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "body",
+            "op": {
+              "create": {
+                "type": "`$STRING`",
+              },
+              "update": {
+                "type": "`$STRING`",
+              },
+            },
+            "req": True,
+            "short": "The contents of the pull request.",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "changed_files",
+            "req": True,
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "closed_at",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "comments",
+            "req": True,
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "comments_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "commit_message",
+            "short": "Extra detail to append to automatic commit message.",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "commit_title",
+            "short": "Title for the automatic commit message.",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "commits",
+            "req": True,
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "commits_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "created_at",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "deletions",
+            "req": True,
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "diff_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "draft",
+            "short": "Indicates whether or not the pull request is a draft.",
+            "type": "`$BOOLEAN`",
+          },
+          {
+            "name": "head",
+            "req": True,
+            "short": "The name of the branch where your changes are implemented.",
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "head_repo",
+            "short": "The name of the repository where the changes in the pull request were made.",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "html_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "id",
+            "req": True,
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "issue",
+            "short": "An issue in the repository to convert to a pull request.",
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "issue_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "labels",
+            "req": True,
+            "type": "`$ARRAY`",
+          },
+          {
+            "name": "links",
+            "req": True,
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "locked",
+            "req": True,
+            "type": "`$BOOLEAN`",
+          },
+          {
+            "name": "maintainer_can_modify",
+            "op": {
+              "create": {
+                "type": "`$BOOLEAN`",
+              },
+              "update": {
+                "type": "`$BOOLEAN`",
+              },
+            },
+            "req": True,
+            "short": "Indicates whether maintainers can modify the pull request.",
+            "type": "`$BOOLEAN`",
+          },
+          {
+            "name": "merge_commit_sha",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "merge_method",
+            "short": "The merge method to use.",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "mergeable",
+            "req": True,
+            "type": "`$BOOLEAN`",
+          },
+          {
+            "name": "mergeable_state",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "merged",
+            "req": True,
+            "type": "`$BOOLEAN`",
+          },
+          {
+            "name": "merged_at",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "merged_by",
+            "req": True,
+            "short": "A GitHub user.",
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "message",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "milestone",
+            "req": True,
+            "short": "A collection of related issues and pull requests.",
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "node_id",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "number",
+            "req": True,
+            "short": "Number uniquely identifying the pull request within its repository.",
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "patch_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "rebaseable",
+            "type": "`$BOOLEAN`",
+          },
+          {
+            "name": "requested_reviewers",
+            "type": "`$ARRAY`",
+          },
+          {
+            "name": "requested_teams",
+            "type": "`$ARRAY`",
+          },
+          {
+            "name": "review_comment_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "review_comments",
+            "req": True,
+            "type": "`$INTEGER`",
+          },
+          {
+            "name": "review_comments_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "sha",
+            "op": {
+              "update": {
+                "type": "`$STRING`",
+              },
+            },
+            "req": True,
+            "short": "SHA that pull request head must match to allow merge.",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "stack",
+            "req": True,
+            "short": "The stack information associated with a pull request.",
+            "type": "`$OBJECT`",
+          },
+          {
+            "name": "state",
+            "op": {
+              "update": {
+                "type": "`$STRING`",
+              },
+            },
+            "req": True,
+            "short": "State of this Pull Request.",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "statuses_url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "title",
+            "op": {
+              "create": {
+                "type": "`$STRING`",
+              },
+              "update": {
+                "type": "`$STRING`",
+              },
+            },
+            "req": True,
+            "short": "The title of the pull request.",
+            "type": "`$STRING`",
+          },
+          {
+            "name": "updated_at",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "url",
+            "req": True,
+            "type": "`$STRING`",
+          },
+          {
+            "name": "user",
+            "req": True,
+            "short": "A GitHub user.",
+            "type": "`$OBJECT`",
+          },
+        ],
+        "name": "pull",
+        "op": {
+          "create": {
+            "input": "data",
+            "name": "create",
+            "points": [
+              {
+                "args": {
+                  "params": [
+                    {
+                      "kind": "param",
+                      "name": "owner",
+                      "orig": "owner",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "kind": "param",
+                      "name": "repo",
+                      "orig": "repo",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "POST",
+                "orig": "/repos/{owner}/{repo}/pulls",
+                "segments": [
+                  {
+                    "lit": "repos",
+                  },
+                  {
+                    "var": "owner",
+                  },
+                  {
+                    "var": "repo",
+                  },
+                  {
+                    "lit": "pulls",
+                  },
+                ],
+                "select": {
+                  "exist": [
+                    "owner",
+                    "repo",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "parts": [
+                  "repos",
+                  "{owner}",
+                  "{repo}",
+                  "pulls",
+                ],
+              },
+            ],
+          },
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "args": {
+                  "params": [
+                    {
+                      "kind": "param",
+                      "name": "owner",
+                      "orig": "owner",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "kind": "param",
+                      "name": "repo",
+                      "orig": "repo",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                  "query": [
+                    {
+                      "kind": "query",
+                      "name": "base",
+                      "orig": "base",
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "kind": "query",
+                      "name": "direction",
+                      "orig": "direction",
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "kind": "query",
+                      "name": "head",
+                      "orig": "head",
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "example": 1,
+                      "kind": "query",
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                    },
+                    {
+                      "example": 30,
+                      "kind": "query",
+                      "name": "per_page",
+                      "orig": "per_page",
+                      "type": "`$INTEGER`",
+                    },
+                    {
+                      "example": "created",
+                      "kind": "query",
+                      "name": "sort",
+                      "orig": "sort",
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "example": "open",
+                      "kind": "query",
+                      "name": "state",
+                      "orig": "state",
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/repos/{owner}/{repo}/pulls",
+                "segments": [
+                  {
+                    "lit": "repos",
+                  },
+                  {
+                    "var": "owner",
+                  },
+                  {
+                    "var": "repo",
+                  },
+                  {
+                    "lit": "pulls",
+                  },
+                ],
+                "select": {
+                  "exist": [
+                    "base",
+                    "direction",
+                    "head",
+                    "owner",
+                    "page",
+                    "per_page",
+                    "repo",
+                    "sort",
+                    "state",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "parts": [
+                  "repos",
+                  "{owner}",
+                  "{repo}",
+                  "pulls",
+                ],
+              },
+            ],
+          },
+          "load": {
+            "input": "data",
+            "name": "load",
+            "points": [
+              {
+                "args": {
+                  "params": [
+                    {
+                      "kind": "param",
+                      "name": "id",
+                      "orig": "pull_number",
+                      "reqd": True,
+                      "type": "`$INTEGER`",
+                    },
+                    {
+                      "kind": "param",
+                      "name": "owner",
+                      "orig": "owner",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "kind": "param",
+                      "name": "repo",
+                      "orig": "repo",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "GET",
+                "orig": "/repos/{owner}/{repo}/pulls/{pull_number}",
+                "rename": {
+                  "param": {
+                    "pull_number": "id",
+                  },
+                },
+                "segments": [
+                  {
+                    "lit": "repos",
+                  },
+                  {
+                    "var": "owner",
+                  },
+                  {
+                    "var": "repo",
+                  },
+                  {
+                    "lit": "pulls",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
+                "select": {
+                  "exist": [
+                    "id",
+                    "owner",
+                    "repo",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "parts": [
+                  "repos",
+                  "{owner}",
+                  "{repo}",
+                  "pulls",
+                  "{id}",
+                ],
+              },
+            ],
+          },
+          "update": {
+            "input": "data",
+            "name": "update",
+            "points": [
+              {
+                "args": {
+                  "params": [
+                    {
+                      "kind": "param",
+                      "name": "id",
+                      "orig": "pull_number",
+                      "reqd": True,
+                      "type": "`$INTEGER`",
+                    },
+                    {
+                      "kind": "param",
+                      "name": "owner",
+                      "orig": "owner",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "kind": "param",
+                      "name": "repo",
+                      "orig": "repo",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "PATCH",
+                "orig": "/repos/{owner}/{repo}/pulls/{pull_number}",
+                "rename": {
+                  "param": {
+                    "pull_number": "id",
+                  },
+                },
+                "segments": [
+                  {
+                    "lit": "repos",
+                  },
+                  {
+                    "var": "owner",
+                  },
+                  {
+                    "var": "repo",
+                  },
+                  {
+                    "lit": "pulls",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
+                "select": {
+                  "exist": [
+                    "id",
+                    "owner",
+                    "repo",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "parts": [
+                  "repos",
+                  "{owner}",
+                  "{repo}",
+                  "pulls",
+                  "{id}",
+                ],
+              },
+              {
+                "args": {
+                  "params": [
+                    {
+                      "kind": "param",
+                      "name": "id",
+                      "orig": "pull_number",
+                      "reqd": True,
+                      "type": "`$INTEGER`",
+                    },
+                    {
+                      "kind": "param",
+                      "name": "owner",
+                      "orig": "owner",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                    {
+                      "kind": "param",
+                      "name": "repo",
+                      "orig": "repo",
+                      "reqd": True,
+                      "type": "`$STRING`",
+                    },
+                  ],
+                },
+                "kind": "http",
+                "method": "PUT",
+                "orig": "/repos/{owner}/{repo}/pulls/{pull_number}/merge",
+                "rename": {
+                  "param": {
+                    "pull_number": "id",
+                  },
+                },
+                "segments": [
+                  {
+                    "lit": "repos",
+                  },
+                  {
+                    "var": "owner",
+                  },
+                  {
+                    "var": "repo",
+                  },
+                  {
+                    "lit": "pulls",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "merge",
+                  },
+                ],
+                "select": {
+                  "$action": "merge",
+                  "exist": [
+                    "id",
+                    "owner",
+                    "repo",
+                  ],
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "parts": [
+                  "repos",
+                  "{owner}",
+                  "{repo}",
+                  "pulls",
+                  "{id}",
+                  "merge",
+                ],
+              },
+            ],
+          },
+        },
+        "relations": {
+          "ancestors": [
+            [
+              "repo",
+            ],
+          ],
+        },
+      },
       "repo": {
         "fields": [
           {
@@ -711,15 +1467,23 @@ def make_config():
                 "kind": "http",
                 "method": "POST",
                 "orig": "/user/repos",
-                "parts": [
-                  "user",
-                  "repos",
+                "segments": [
+                  {
+                    "lit": "user",
+                  },
+                  {
+                    "lit": "repos",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "user",
+                  "repos",
+                ],
               },
             ],
           },
@@ -795,9 +1559,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/user/repos",
-                "parts": [
-                  "user",
-                  "repos",
+                "segments": [
+                  {
+                    "lit": "user",
+                  },
+                  {
+                    "lit": "repos",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -816,6 +1584,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "user",
+                  "repos",
+                ],
               },
             ],
           },
@@ -845,10 +1617,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/repos/{owner}/{repo}",
-                "parts": [
-                  "repos",
-                  "{owner}",
-                  "{repo}",
+                "segments": [
+                  {
+                    "lit": "repos",
+                  },
+                  {
+                    "var": "owner",
+                  },
+                  {
+                    "var": "repo",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -860,6 +1638,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "repos",
+                  "{owner}",
+                  "{repo}",
+                ],
               },
             ],
           },
@@ -889,10 +1672,16 @@ def make_config():
                 "kind": "http",
                 "method": "DELETE",
                 "orig": "/repos/{owner}/{repo}",
-                "parts": [
-                  "repos",
-                  "{owner}",
-                  "{repo}",
+                "segments": [
+                  {
+                    "lit": "repos",
+                  },
+                  {
+                    "var": "owner",
+                  },
+                  {
+                    "var": "repo",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -904,6 +1693,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "repos",
+                  "{owner}",
+                  "{repo}",
+                ],
               },
             ],
           },
@@ -933,10 +1727,16 @@ def make_config():
                 "kind": "http",
                 "method": "PATCH",
                 "orig": "/repos/{owner}/{repo}",
-                "parts": [
-                  "repos",
-                  "{owner}",
-                  "{repo}",
+                "segments": [
+                  {
+                    "lit": "repos",
+                  },
+                  {
+                    "var": "owner",
+                  },
+                  {
+                    "var": "repo",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -948,6 +1748,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "repos",
+                  "{owner}",
+                  "{repo}",
+                ],
               },
             ],
           },

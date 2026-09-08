@@ -20,6 +20,7 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `$options` | `array` | SDK configuration options. |
+| `$options["apikey"]` | `string` | API key for authentication. |
 | `$options["base"]` | `string` | Base URL for API requests. |
 | `$options["prefix"]` | `string` | URL prefix appended after base. |
 | `$options["suffix"]` | `string` | URL suffix appended after path. |
@@ -40,6 +41,10 @@ $client = GithubSDK::test();
 
 
 ### Instance Methods
+
+#### `Pull($data = null)`
+
+Create a new `PullEntity` instance. Pass `null` for no initial data.
 
 #### `Repo($data = null)`
 
@@ -78,6 +83,251 @@ hatch: it does **not** throw. It returns a result array
 
 Prepare a fetch definition without sending the request. Returns the
 `$fetchdef` array. Throws on error.
+
+
+---
+
+## PullEntity
+
+```php
+$pull = $client->Pull();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `active_lock_reason` | `string` | No |  |
+| `additions` | `int` | Yes |  |
+| `assignee` | `array` | Yes | A GitHub user. |
+| `assignees` | `array` | No |  |
+| `author_association` | `string` | Yes | How the author is associated with the repository. |
+| `auto_merge` | `array` | Yes | The status of auto merging a pull request. |
+| `base` | `array` | Yes | The name of the branch you want the changes pulled into. |
+| `body` | `string` | Yes | The contents of the pull request. |
+| `changed_files` | `int` | Yes |  |
+| `closed_at` | `string` | Yes |  |
+| `comments` | `int` | Yes |  |
+| `comments_url` | `string` | Yes |  |
+| `commit_message` | `string` | No | Extra detail to append to automatic commit message. |
+| `commit_title` | `string` | No | Title for the automatic commit message. |
+| `commits` | `int` | Yes |  |
+| `commits_url` | `string` | Yes |  |
+| `created_at` | `string` | Yes |  |
+| `deletions` | `int` | Yes |  |
+| `diff_url` | `string` | Yes |  |
+| `draft` | `bool` | No | Indicates whether or not the pull request is a draft. |
+| `head` | `array` | Yes | The name of the branch where your changes are implemented. |
+| `head_repo` | `string` | No | The name of the repository where the changes in the pull request were made. |
+| `html_url` | `string` | Yes |  |
+| `id` | `int` | Yes |  |
+| `issue` | `int` | No | An issue in the repository to convert to a pull request. |
+| `issue_url` | `string` | Yes |  |
+| `labels` | `array` | Yes |  |
+| `links` | `array` | Yes |  |
+| `locked` | `bool` | Yes |  |
+| `maintainer_can_modify` | `bool` | Yes | Indicates whether maintainers can modify the pull request. |
+| `merge_commit_sha` | `string` | Yes |  |
+| `merge_method` | `string` | No | The merge method to use. |
+| `mergeable` | `bool` | Yes |  |
+| `mergeable_state` | `string` | Yes |  |
+| `merged` | `bool` | Yes |  |
+| `merged_at` | `string` | Yes |  |
+| `merged_by` | `array` | Yes | A GitHub user. |
+| `message` | `string` | Yes |  |
+| `milestone` | `array` | Yes | A collection of related issues and pull requests. |
+| `node_id` | `string` | Yes |  |
+| `number` | `int` | Yes | Number uniquely identifying the pull request within its repository. |
+| `patch_url` | `string` | Yes |  |
+| `rebaseable` | `bool` | No |  |
+| `requested_reviewers` | `array` | No |  |
+| `requested_teams` | `array` | No |  |
+| `review_comment_url` | `string` | Yes |  |
+| `review_comments` | `int` | Yes |  |
+| `review_comments_url` | `string` | Yes |  |
+| `sha` | `string` | Yes | SHA that pull request head must match to allow merge. |
+| `stack` | `array` | Yes | The stack information associated with a pull request. |
+| `state` | `string` | Yes | State of this Pull Request. |
+| `statuses_url` | `string` | Yes |  |
+| `title` | `string` | Yes | The title of the pull request. |
+| `updated_at` | `string` | Yes |  |
+| `url` | `string` | Yes |  |
+| `user` | `array` | Yes | A GitHub user. |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `active_lock_reason` | - | - | - | - |
+| `additions` | - | - | - | - |
+| `assignee` | - | - | - | - |
+| `assignees` | - | - | - | - |
+| `author_association` | - | - | - | - |
+| `auto_merge` | - | - | - | - |
+| `base` | - | - | - | Yes |
+| `body` | - | - | Yes | Yes |
+| `changed_files` | - | - | - | - |
+| `closed_at` | - | - | - | - |
+| `comments` | - | - | - | - |
+| `comments_url` | - | - | - | - |
+| `commit_message` | - | - | - | - |
+| `commit_title` | - | - | - | - |
+| `commits` | - | - | - | - |
+| `commits_url` | - | - | - | - |
+| `created_at` | - | - | - | - |
+| `deletions` | - | - | - | - |
+| `diff_url` | - | - | - | - |
+| `draft` | - | - | - | - |
+| `head` | - | - | - | - |
+| `head_repo` | - | - | - | - |
+| `html_url` | - | - | - | - |
+| `id` | - | - | - | - |
+| `issue` | - | - | - | - |
+| `issue_url` | - | - | - | - |
+| `labels` | - | - | - | - |
+| `links` | - | - | - | - |
+| `locked` | - | - | - | - |
+| `maintainer_can_modify` | - | - | Yes | Yes |
+| `merge_commit_sha` | - | - | - | - |
+| `merge_method` | - | - | - | - |
+| `mergeable` | - | - | - | - |
+| `mergeable_state` | - | - | - | - |
+| `merged` | - | - | - | - |
+| `merged_at` | - | - | - | - |
+| `merged_by` | - | - | - | - |
+| `message` | - | - | - | - |
+| `milestone` | - | - | - | - |
+| `node_id` | - | - | - | - |
+| `number` | - | - | - | - |
+| `patch_url` | - | - | - | - |
+| `rebaseable` | - | - | - | - |
+| `requested_reviewers` | - | - | - | - |
+| `requested_teams` | - | - | - | - |
+| `review_comment_url` | - | - | - | - |
+| `review_comments` | - | - | - | - |
+| `review_comments_url` | - | - | - | - |
+| `sha` | - | - | - | Yes |
+| `stack` | - | - | - | - |
+| `state` | - | - | - | Yes |
+| `statuses_url` | - | - | - | - |
+| `title` | - | - | Yes | Yes |
+| `updated_at` | - | - | - | - |
+| `url` | - | - | - | - |
+| `user` | - | - | - | - |
+
+### Operations
+
+#### `create(array $reqdata, ?array $ctrl = null): mixed`
+
+Create a new entity with the given data. Throws on error.
+
+```php
+$result = $client->Pull()->create([
+  "owner" => null, // string
+  "repo" => null, // string
+  "additions" => null, // int
+  "assignee" => null, // array
+  "author_association" => null, // string
+  "auto_merge" => null, // array
+  "base" => null, // array
+  "body" => null, // string
+  "changed_files" => null, // int
+  "closed_at" => null, // string
+  "comments" => null, // int
+  "comments_url" => null, // string
+  "commits" => null, // int
+  "commits_url" => null, // string
+  "created_at" => null, // string
+  "deletions" => null, // int
+  "diff_url" => null, // string
+  "head" => null, // array
+  "html_url" => null, // string
+  "id" => null, // int
+  "issue_url" => null, // string
+  "labels" => null, // array
+  "links" => null, // array
+  "locked" => null, // bool
+  "maintainer_can_modify" => null, // bool
+  "merge_commit_sha" => null, // string
+  "mergeable" => null, // bool
+  "mergeable_state" => null, // string
+  "merged" => null, // bool
+  "merged_at" => null, // string
+  "merged_by" => null, // array
+  "message" => null, // string
+  "milestone" => null, // array
+  "node_id" => null, // string
+  "number" => null, // int
+  "patch_url" => null, // string
+  "review_comment_url" => null, // string
+  "review_comments" => null, // int
+  "review_comments_url" => null, // string
+  "sha" => null, // string
+  "stack" => null, // array
+  "state" => null, // string
+  "statuses_url" => null, // string
+  "title" => null, // string
+  "updated_at" => null, // string
+  "url" => null, // string
+  "user" => null, // array
+]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->Pull()->list();
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
+
+Load a single entity matching the given criteria. Throws on error.
+
+```php
+$result = $client->Pull()->load(["id" => 1, "owner" => "owner", "repo" => "repo"]);
+```
+
+#### `update(array $reqdata, ?array $ctrl = null): mixed`
+
+Update an existing entity. The data must include the entity `id`. Throws on error.
+
+```php
+$result = $client->Pull()->update([
+  "id" => 1,
+  "owner" => "owner",
+  "repo" => "repo",
+  // Fields to update
+]);
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): PullEntity`
+
+Create a new `PullEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
 
 
 ---
@@ -494,4 +744,42 @@ $client = new GithubSDK([
   ],
 ]);
 ```
+
+
+### Configuring features
+
+Each feature is inactive until switched on, and an SDK with no feature
+configured does no feature work at all. Every option below keeps its default
+unless you name it.
+
+The array form of \`feature\` is significant: several features wrap the
+transport, and the order you list them in is the order they nest.
+
+#### `test`
+
+In-memory mock transport for testing without a live server.
+
+**Configuration**
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Options above are those the model carries a default for. A feature may
+also accept callback options — a `sink` to receive each record, for
+instance — which have no default and are covered in the full feature
+reference.
+
+**Usage**
+
+Set `feature.test.active` to true in the client options, and override any option above in the same entry. Every option keeps
+its default unless you name it.
+
+**Considerations**
+
+- Attaches to pipeline hooks, not the transport, so activation order does
+  not change what it observes.
+- Installs the BASE transport that the wrapping features wrap, so it must be
+  activated before them.
+- Inactive by default: leaving it out costs nothing at runtime.
 

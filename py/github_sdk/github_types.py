@@ -16,6 +16,217 @@ from __future__ import annotations
 from typing import TypedDict, Any
 
 
+class PullRequired(TypedDict):
+    additions: int
+    assignee: dict
+    author_association: str
+    auto_merge: dict
+    base: dict
+    body: str
+    changed_files: int
+    closed_at: str
+    comments: int
+    comments_url: str
+    commits: int
+    commits_url: str
+    created_at: str
+    deletions: int
+    diff_url: str
+    head: dict
+    html_url: str
+    id: int
+    issue_url: str
+    labels: list
+    links: dict
+    locked: bool
+    maintainer_can_modify: bool
+    merge_commit_sha: str
+    mergeable: bool
+    mergeable_state: str
+    merged: bool
+    merged_at: str
+    merged_by: dict
+    message: str
+    milestone: dict
+    node_id: str
+    number: int
+    patch_url: str
+    review_comment_url: str
+    review_comments: int
+    review_comments_url: str
+    sha: str
+    stack: dict
+    state: str
+    statuses_url: str
+    title: str
+    updated_at: str
+    url: str
+    user: dict
+
+
+class Pull(PullRequired, total=False):
+    active_lock_reason: str
+    assignees: list
+    commit_message: str
+    commit_title: str
+    draft: bool
+    head_repo: str
+    issue: int
+    merge_method: str
+    rebaseable: bool
+    requested_reviewers: list
+    requested_teams: list
+
+
+class PullLoadMatch(TypedDict):
+    id: int
+    owner: str
+    repo: str
+
+
+class PullListMatchRequired(TypedDict):
+    owner: str
+    repo: str
+
+
+class PullListMatch(PullListMatchRequired, total=False):
+    base: str
+    direction: str
+    head: str
+    page: int
+    per_page: int
+    sort: str
+    state: str
+
+
+class PullCreateDataRequired(TypedDict):
+    owner: str
+    repo: str
+    additions: int
+    assignee: dict
+    author_association: str
+    auto_merge: dict
+    base: dict
+    body: str
+    changed_files: int
+    closed_at: str
+    comments: int
+    comments_url: str
+    commits: int
+    commits_url: str
+    created_at: str
+    deletions: int
+    diff_url: str
+    head: dict
+    html_url: str
+    id: int
+    issue_url: str
+    labels: list
+    links: dict
+    locked: bool
+    maintainer_can_modify: bool
+    merge_commit_sha: str
+    mergeable: bool
+    mergeable_state: str
+    merged: bool
+    merged_at: str
+    merged_by: dict
+    message: str
+    milestone: dict
+    node_id: str
+    number: int
+    patch_url: str
+    review_comment_url: str
+    review_comments: int
+    review_comments_url: str
+    sha: str
+    stack: dict
+    state: str
+    statuses_url: str
+    title: str
+    updated_at: str
+    url: str
+    user: dict
+
+
+class PullCreateData(PullCreateDataRequired, total=False):
+    active_lock_reason: str
+    assignees: list
+    commit_message: str
+    commit_title: str
+    draft: bool
+    head_repo: str
+    issue: int
+    merge_method: str
+    rebaseable: bool
+    requested_reviewers: list
+    requested_teams: list
+
+
+class PullUpdateDataRequired(TypedDict):
+    id: int
+    owner: str
+    repo: str
+
+
+class PullUpdateData(PullUpdateDataRequired, total=False):
+    active_lock_reason: str
+    additions: int
+    assignee: dict
+    assignees: list
+    author_association: str
+    auto_merge: dict
+    base: dict
+    body: str
+    changed_files: int
+    closed_at: str
+    comments: int
+    comments_url: str
+    commit_message: str
+    commit_title: str
+    commits: int
+    commits_url: str
+    created_at: str
+    deletions: int
+    diff_url: str
+    draft: bool
+    head: dict
+    head_repo: str
+    html_url: str
+    issue: int
+    issue_url: str
+    labels: list
+    links: dict
+    locked: bool
+    maintainer_can_modify: bool
+    merge_commit_sha: str
+    merge_method: str
+    mergeable: bool
+    mergeable_state: str
+    merged: bool
+    merged_at: str
+    merged_by: dict
+    message: str
+    milestone: dict
+    node_id: str
+    number: int
+    patch_url: str
+    rebaseable: bool
+    requested_reviewers: list
+    requested_teams: list
+    review_comment_url: str
+    review_comments: int
+    review_comments_url: str
+    sha: str
+    stack: dict
+    state: str
+    statuses_url: str
+    title: str
+    updated_at: str
+    url: str
+    user: dict
+
+
 class RepoRequired(TypedDict):
     archive_url: str
     archived: bool
@@ -139,117 +350,15 @@ class RepoLoadMatch(TypedDict):
 
 
 class RepoListMatch(TypedDict, total=False):
-    allow_auto_merge: bool
-    allow_forking: bool
-    allow_merge_commit: bool
-    allow_rebase_merge: bool
-    allow_squash_merge: bool
-    allow_update_branch: bool
-    anonymous_access_enabled: bool
-    archive_url: str
-    archived: bool
-    assignees_url: str
-    auto_init: bool
-    blobs_url: str
-    branches_url: str
-    clone_url: str
-    code_of_conduct: dict
-    code_search_index_status: dict
-    collaborators_url: str
-    comments_url: str
-    commits_url: str
-    compare_url: str
-    contents_url: str
-    contributors_url: str
-    created_at: str
-    custom_properties: dict
-    default_branch: str
-    delete_branch_on_merge: bool
-    deployments_url: str
-    description: str
-    disabled: bool
-    downloads_url: str
-    events_url: str
-    fork: bool
-    forks: int
-    forks_count: int
-    forks_url: str
-    full_name: str
-    git_commits_url: str
-    git_refs_url: str
-    git_tags_url: str
-    git_url: str
-    gitignore_template: str
-    has_discussions: bool
-    has_downloads: bool
-    has_issues: bool
-    has_pages: bool
-    has_projects: bool
-    has_pull_requests: bool
-    has_wiki: bool
-    homepage: str
-    hooks_url: str
-    html_url: str
-    id: int
-    is_template: bool
-    issue_comment_url: str
-    issue_events_url: str
-    issues_url: str
-    keys_url: str
-    labels_url: str
-    language: str
-    languages_url: str
-    license: dict
-    license_template: str
-    master_branch: str
-    merge_commit_message: str
-    merge_commit_title: str
-    merges_url: str
-    milestones_url: str
-    mirror_url: str
-    name: str
-    network_count: int
-    node_id: str
-    notifications_url: str
-    open_issues: int
-    open_issues_count: int
-    organization: dict
-    owner: dict
-    parent: dict
-    permissions: dict
-    private: bool
-    pull_request_creation_policy: str
-    pulls_url: str
-    pushed_at: str
-    releases_url: str
-    security_and_analysis: dict
-    size: int
-    source: dict
-    squash_merge_commit_message: str
-    squash_merge_commit_title: str
-    ssh_url: str
-    stargazers_count: int
-    stargazers_url: str
-    starred_at: str
-    statuses_url: str
-    subscribers_count: int
-    subscribers_url: str
-    subscription_url: str
-    svn_url: str
-    tags_url: str
-    team_id: int
-    teams_url: str
-    temp_clone_token: str
-    template_repository: dict
-    topics: list
-    trees_url: str
-    updated_at: str
-    url: str
-    use_squash_pr_title_as_default: bool
+    affiliation: str
+    before: str
+    direction: str
+    page: int
+    per_page: int
+    since: str
+    sort: str
+    type: str
     visibility: str
-    watchers: int
-    watchers_count: int
-    web_commit_signoff_required: bool
 
 
 class RepoCreateDataRequired(TypedDict):

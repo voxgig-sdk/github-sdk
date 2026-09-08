@@ -19,6 +19,7 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
+| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -39,6 +40,10 @@ local client = sdk.test()
 
 
 ### Instance Methods
+
+#### `Pull(data)`
+
+Create a new `Pull` entity instance. Pass `nil` for no initial data.
 
 #### `Repo(data)`
 
@@ -76,6 +81,251 @@ Prepare a fetch definition without sending the request. Accepts the
 same parameters as `direct()`.
 
 **Returns:** `table, err`
+
+
+---
+
+## PullEntity
+
+```lua
+local pull = client:Pull(nil)
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `active_lock_reason` | `string` | No |  |
+| `additions` | `number` | Yes |  |
+| `assignee` | `table` | Yes | A GitHub user. |
+| `assignees` | `table` | No |  |
+| `author_association` | `string` | Yes | How the author is associated with the repository. |
+| `auto_merge` | `table` | Yes | The status of auto merging a pull request. |
+| `base` | `table` | Yes | The name of the branch you want the changes pulled into. |
+| `body` | `string` | Yes | The contents of the pull request. |
+| `changed_files` | `number` | Yes |  |
+| `closed_at` | `string` | Yes |  |
+| `comments` | `number` | Yes |  |
+| `comments_url` | `string` | Yes |  |
+| `commit_message` | `string` | No | Extra detail to append to automatic commit message. |
+| `commit_title` | `string` | No | Title for the automatic commit message. |
+| `commits` | `number` | Yes |  |
+| `commits_url` | `string` | Yes |  |
+| `created_at` | `string` | Yes |  |
+| `deletions` | `number` | Yes |  |
+| `diff_url` | `string` | Yes |  |
+| `draft` | `boolean` | No | Indicates whether or not the pull request is a draft. |
+| `head` | `table` | Yes | The name of the branch where your changes are implemented. |
+| `head_repo` | `string` | No | The name of the repository where the changes in the pull request were made. |
+| `html_url` | `string` | Yes |  |
+| `id` | `number` | Yes |  |
+| `issue` | `number` | No | An issue in the repository to convert to a pull request. |
+| `issue_url` | `string` | Yes |  |
+| `labels` | `table` | Yes |  |
+| `links` | `table` | Yes |  |
+| `locked` | `boolean` | Yes |  |
+| `maintainer_can_modify` | `boolean` | Yes | Indicates whether maintainers can modify the pull request. |
+| `merge_commit_sha` | `string` | Yes |  |
+| `merge_method` | `string` | No | The merge method to use. |
+| `mergeable` | `boolean` | Yes |  |
+| `mergeable_state` | `string` | Yes |  |
+| `merged` | `boolean` | Yes |  |
+| `merged_at` | `string` | Yes |  |
+| `merged_by` | `table` | Yes | A GitHub user. |
+| `message` | `string` | Yes |  |
+| `milestone` | `table` | Yes | A collection of related issues and pull requests. |
+| `node_id` | `string` | Yes |  |
+| `number` | `number` | Yes | Number uniquely identifying the pull request within its repository. |
+| `patch_url` | `string` | Yes |  |
+| `rebaseable` | `boolean` | No |  |
+| `requested_reviewers` | `table` | No |  |
+| `requested_teams` | `table` | No |  |
+| `review_comment_url` | `string` | Yes |  |
+| `review_comments` | `number` | Yes |  |
+| `review_comments_url` | `string` | Yes |  |
+| `sha` | `string` | Yes | SHA that pull request head must match to allow merge. |
+| `stack` | `table` | Yes | The stack information associated with a pull request. |
+| `state` | `string` | Yes | State of this Pull Request. |
+| `statuses_url` | `string` | Yes |  |
+| `title` | `string` | Yes | The title of the pull request. |
+| `updated_at` | `string` | Yes |  |
+| `url` | `string` | Yes |  |
+| `user` | `table` | Yes | A GitHub user. |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `active_lock_reason` | - | - | - | - |
+| `additions` | - | - | - | - |
+| `assignee` | - | - | - | - |
+| `assignees` | - | - | - | - |
+| `author_association` | - | - | - | - |
+| `auto_merge` | - | - | - | - |
+| `base` | - | - | - | Yes |
+| `body` | - | - | Yes | Yes |
+| `changed_files` | - | - | - | - |
+| `closed_at` | - | - | - | - |
+| `comments` | - | - | - | - |
+| `comments_url` | - | - | - | - |
+| `commit_message` | - | - | - | - |
+| `commit_title` | - | - | - | - |
+| `commits` | - | - | - | - |
+| `commits_url` | - | - | - | - |
+| `created_at` | - | - | - | - |
+| `deletions` | - | - | - | - |
+| `diff_url` | - | - | - | - |
+| `draft` | - | - | - | - |
+| `head` | - | - | - | - |
+| `head_repo` | - | - | - | - |
+| `html_url` | - | - | - | - |
+| `id` | - | - | - | - |
+| `issue` | - | - | - | - |
+| `issue_url` | - | - | - | - |
+| `labels` | - | - | - | - |
+| `links` | - | - | - | - |
+| `locked` | - | - | - | - |
+| `maintainer_can_modify` | - | - | Yes | Yes |
+| `merge_commit_sha` | - | - | - | - |
+| `merge_method` | - | - | - | - |
+| `mergeable` | - | - | - | - |
+| `mergeable_state` | - | - | - | - |
+| `merged` | - | - | - | - |
+| `merged_at` | - | - | - | - |
+| `merged_by` | - | - | - | - |
+| `message` | - | - | - | - |
+| `milestone` | - | - | - | - |
+| `node_id` | - | - | - | - |
+| `number` | - | - | - | - |
+| `patch_url` | - | - | - | - |
+| `rebaseable` | - | - | - | - |
+| `requested_reviewers` | - | - | - | - |
+| `requested_teams` | - | - | - | - |
+| `review_comment_url` | - | - | - | - |
+| `review_comments` | - | - | - | - |
+| `review_comments_url` | - | - | - | - |
+| `sha` | - | - | - | Yes |
+| `stack` | - | - | - | - |
+| `state` | - | - | - | Yes |
+| `statuses_url` | - | - | - | - |
+| `title` | - | - | Yes | Yes |
+| `updated_at` | - | - | - | - |
+| `url` | - | - | - | - |
+| `user` | - | - | - | - |
+
+### Operations
+
+#### `create(reqdata, ctrl) -> any, err`
+
+Create a new entity with the given data.
+
+```lua
+local result, err = client:Pull():create({
+  owner = --[[ string ]],
+  repo = --[[ string ]],
+  additions = --[[ number ]],
+  assignee = --[[ table ]],
+  author_association = --[[ string ]],
+  auto_merge = --[[ table ]],
+  base = --[[ table ]],
+  body = --[[ string ]],
+  changed_files = --[[ number ]],
+  closed_at = --[[ string ]],
+  comments = --[[ number ]],
+  comments_url = --[[ string ]],
+  commits = --[[ number ]],
+  commits_url = --[[ string ]],
+  created_at = --[[ string ]],
+  deletions = --[[ number ]],
+  diff_url = --[[ string ]],
+  head = --[[ table ]],
+  html_url = --[[ string ]],
+  id = --[[ number ]],
+  issue_url = --[[ string ]],
+  labels = --[[ table ]],
+  links = --[[ table ]],
+  locked = --[[ boolean ]],
+  maintainer_can_modify = --[[ boolean ]],
+  merge_commit_sha = --[[ string ]],
+  mergeable = --[[ boolean ]],
+  mergeable_state = --[[ string ]],
+  merged = --[[ boolean ]],
+  merged_at = --[[ string ]],
+  merged_by = --[[ table ]],
+  message = --[[ string ]],
+  milestone = --[[ table ]],
+  node_id = --[[ string ]],
+  number = --[[ number ]],
+  patch_url = --[[ string ]],
+  review_comment_url = --[[ string ]],
+  review_comments = --[[ number ]],
+  review_comments_url = --[[ string ]],
+  sha = --[[ string ]],
+  stack = --[[ table ]],
+  state = --[[ string ]],
+  statuses_url = --[[ string ]],
+  title = --[[ string ]],
+  updated_at = --[[ string ]],
+  url = --[[ string ]],
+  user = --[[ table ]],
+})
+```
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:Pull():list()
+```
+
+#### `load(reqmatch, ctrl) -> any, err`
+
+Load a single entity matching the given criteria.
+
+```lua
+local result, err = client:Pull():load({ id = 1, owner = "owner", repo = "repo" })
+```
+
+#### `update(reqdata, ctrl) -> any, err`
+
+Update an existing entity. The data must include the entity `id`.
+
+```lua
+local result, err = client:Pull():update({
+  id = 1,
+  owner = "owner",
+  repo = "repo",
+  -- Fields to update
+})
+```
+
+### Common Methods
+
+#### `data_get() -> table`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set(data)`
+
+Set the entity data.
+
+#### `match_get() -> table`
+
+Get the entity match criteria.
+
+#### `match_set(match)`
+
+Set the entity match criteria.
+
+#### `make() -> Entity`
+
+Create a new `PullEntity` instance with the same client and
+options.
+
+#### `get_name() -> string`
+
+Return the entity name.
 
 
 ---
@@ -492,4 +742,42 @@ local client = sdk.new({
   },
 })
 ```
+
+
+### Configuring features
+
+Each feature is inactive until switched on, and an SDK with no feature
+configured does no feature work at all. Every option below keeps its default
+unless you name it.
+
+The array form of \`feature\` is significant: several features wrap the
+transport, and the order you list them in is the order they nest.
+
+#### `test`
+
+In-memory mock transport for testing without a live server.
+
+**Configuration**
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Options above are those the model carries a default for. A feature may
+also accept callback options — a `sink` to receive each record, for
+instance — which have no default and are covered in the full feature
+reference.
+
+**Usage**
+
+Set `feature.test.active` to true in the client options, and override any option above in the same entry. Every option keeps
+its default unless you name it.
+
+**Considerations**
+
+- Attaches to pipeline hooks, not the transport, so activation order does
+  not change what it observes.
+- Installs the BASE transport that the wrapping features wrap, so it must be
+  activated before them.
+- Inactive by default: leaving it out costs nothing at runtime.
 

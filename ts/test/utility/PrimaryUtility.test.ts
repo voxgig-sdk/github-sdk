@@ -5,7 +5,7 @@ import assert from 'node:assert'
 
 import {
   makeRunner,
-} from '../runner'
+} from '../omni'
 
 import {
   SDK,
@@ -32,10 +32,10 @@ describe('PrimaryUtility', async () => {
 
 
   // Sections deliberately left empty in the shared corpus
-  // (.sdk/test/primary/<name>.aontu carries a PENDING header). Everything
+  // (.sdk/test/primary/<name>.aon carries a PENDING header). Everything
   // else MUST contribute cases.
   const PENDING = new Set([
-    'fetcher', 'makeFetchDef', 'makePoint', 'makeResult',
+    'fetcher', 'makeFetchDef', 'makeResult',
     'featureAdd', 'featureHook', 'featureInit',
   ])
 
@@ -70,7 +70,11 @@ describe('PrimaryUtility', async () => {
     spec = run.spec
     runset = run.runset
     runsetflags = run.runsetflags
-    client = run.client
+    // Under the old hand-vendored runner, run.client WAS the SDK; under
+    // omni it is the provider wrapping it. This suite treats the client as
+    // the SDK — including ASSIGNING to client._features, which prototype
+    // delegation cannot forward — so unwrap the real instance.
+    client = (run.client as any).sdk
     utility = client.utility()
     struct = utility.struct
   })
@@ -279,22 +283,15 @@ describe('PrimaryUtility', async () => {
   })
 
 
-  test('makePoint-single', () => {
-    const ctx = makeCtx()
-    const point = {
-      parts: ['items', '{id}'],
-      args: { params: [] },
-      params: [],
-      alias: {},
-      select: {},
-      active: true,
-      transform: { req: undefined, res: undefined },
-    }
-    ctx.op.points = [point]
-
-    const result = utility.makePoint(ctx)
-    ok(!(result instanceof Error))
-    equal(ctx.point, point)
+  // Was one hand-written case (the single-point path) covering one of this
+  // utility's seven branches, which is how the corpus fixture came to be
+  // marked deferred as "needs a real client". It does not: Context rebuilds
+  // `op` from opname + entity + config, and `options` can be supplied
+  // literally, so allow.op, the empty-points error, exist-selection,
+  // $action selection and the invalid-$action error are all expressible.
+  // Driven from the corpus now, so every port asserts the same branches.
+  test('makePoint-basic', async () => {
+    await runsection('makePoint', utility.makePoint)
   })
 
 

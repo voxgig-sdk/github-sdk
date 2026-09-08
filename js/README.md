@@ -5,7 +5,7 @@
 The JavaScript SDK for the Github API — an entity-oriented client with full async/await support.
 
 The API is exposed as capitalised, semantic **Entities** — e.g.
-`client.Repo()` — each with a small set of operations (`list`, `load`, `create`, `update`, `remove`)
+`client.Pull()` — each with a small set of operations (`list`, `load`, `create`, `update`, `remove`)
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
@@ -28,128 +28,91 @@ loading a specific record.
 ```js
 const { GithubSDK } = require('@voxgig-sdk/github-js')
 
-const client = new GithubSDK()
+const client = new GithubSDK({
+  apikey: process.env.GITHUB_APIKEY,
+})
 ```
 
-### Load a Repo
+### Load a Pull
 
 ```js
-const repo = await client.Repo().load({ owner: 'example_owner', repo: 'example_repo' })
-console.log(repo)
+const pull = await client.Pull().load({ id: 1, owner: 'example_owner', repo: 'example_repo' })
+console.log(pull)
 ```
 
-### List Repo Records
+### List Pull Records
 
 ```js
-const repos = await client.Repo().list()
-for (const repo of repos) {
-  console.log(repo)
+const pulls = await client.Pull().list({ owner: "example", repo: "example" })
+for (const pull of pulls) {
+  console.log(pull)
 }
 ```
 
-### Create a Repo
+### Create a Pull
 
 ```js
-const created = await client.Repo().create({
-  archive_url: 'example_archive_url',
-  archived: true,
-  assignees_url: 'example_assignees_url',
-  blobs_url: 'example_blobs_url',
-  branches_url: 'example_branches_url',
-  clone_url: 'example_clone_url',
-  code_of_conduct: {},
-  collaborators_url: 'example_collaborators_url',
+const created = await client.Pull().create({
+  owner: 'example_owner',
+  repo: 'example_repo',
+  additions: 1,
+  assignee: {},
+  author_association: 'example_author_association',
+  auto_merge: {},
+  base: {},
+  body: 'example_body',
+  changed_files: 1,
+  closed_at: 'example_closed_at',
+  comments: 1,
   comments_url: 'example_comments_url',
+  commits: 1,
   commits_url: 'example_commits_url',
-  compare_url: 'example_compare_url',
-  contents_url: 'example_contents_url',
-  contributors_url: 'example_contributors_url',
   created_at: 'example_created_at',
-  default_branch: 'example_default_branch',
-  deployments_url: 'example_deployments_url',
-  description: 'example_description',
-  disabled: true,
-  downloads_url: 'example_downloads_url',
-  events_url: 'example_events_url',
-  fork: true,
-  forks: 1,
-  forks_count: 1,
-  forks_url: 'example_forks_url',
-  full_name: 'example_full_name',
-  git_commits_url: 'example_git_commits_url',
-  git_refs_url: 'example_git_refs_url',
-  git_tags_url: 'example_git_tags_url',
-  git_url: 'example_git_url',
-  has_discussions: true,
-  has_issues: true,
-  has_pages: true,
-  has_projects: true,
-  has_wiki: true,
-  homepage: 'example_homepage',
-  hooks_url: 'example_hooks_url',
+  deletions: 1,
+  diff_url: 'example_diff_url',
+  head: {},
   html_url: 'example_html_url',
   id: 1,
-  issue_comment_url: 'example_issue_comment_url',
-  issue_events_url: 'example_issue_events_url',
-  issues_url: 'example_issues_url',
-  keys_url: 'example_keys_url',
-  labels_url: 'example_labels_url',
-  language: 'example_language',
-  languages_url: 'example_languages_url',
-  license: {},
-  merges_url: 'example_merges_url',
-  milestones_url: 'example_milestones_url',
-  mirror_url: 'example_mirror_url',
-  name: 'example_name',
-  network_count: 1,
+  issue_url: 'example_issue_url',
+  labels: [],
+  links: {},
+  locked: true,
+  maintainer_can_modify: true,
+  merge_commit_sha: 'example_merge_commit_sha',
+  mergeable: true,
+  mergeable_state: 'example_mergeable_state',
+  merged: true,
+  merged_at: 'example_merged_at',
+  merged_by: {},
+  message: 'example_message',
+  milestone: {},
   node_id: 'example_node_id',
-  notifications_url: 'example_notifications_url',
-  open_issues: 1,
-  open_issues_count: 1,
-  organization: {},
-  owner: {},
-  parent: {},
-  permissions: {},
-  private: true,
-  pulls_url: 'example_pulls_url',
-  pushed_at: 'example_pushed_at',
-  releases_url: 'example_releases_url',
-  size: 1,
-  source: {},
-  ssh_url: 'example_ssh_url',
-  stargazers_count: 1,
-  stargazers_url: 'example_stargazers_url',
+  number: 1,
+  patch_url: 'example_patch_url',
+  review_comment_url: 'example_review_comment_url',
+  review_comments: 1,
+  review_comments_url: 'example_review_comments_url',
+  sha: 'example_sha',
+  stack: {},
+  state: 'example_state',
   statuses_url: 'example_statuses_url',
-  subscribers_count: 1,
-  subscribers_url: 'example_subscribers_url',
-  subscription_url: 'example_subscription_url',
-  svn_url: 'example_svn_url',
-  tags_url: 'example_tags_url',
-  teams_url: 'example_teams_url',
-  template_repository: {},
-  trees_url: 'example_trees_url',
+  title: 'example_title',
   updated_at: 'example_updated_at',
   url: 'example_url',
-  watchers: 1,
-  watchers_count: 1,
+  user: {},
 })
 console.log(created)
 ```
 
-### Update a Repo
+### Update a Pull
 
 ```js
-const updated = await client.Repo().update({
+const updated = await client.Pull().update({
+  id: 1,
   owner: 'example_owner',
   repo: 'example_repo',
 })
 console.log(updated)
-```
-
-### Remove a Repo
-
-```js
-await client.Repo().remove({ owner: 'example_owner', repo: 'example_repo' })
 ```
 
 ### Direct API Access
@@ -175,8 +138,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const repos = await client.Repo().list()
-  console.log(repos)
+  const pulls = await client.Pull().list()
+  console.log(pulls)
 } catch (err) {
   console.error('list failed:', err)
 }
@@ -242,16 +205,16 @@ Create a mock client for unit testing — no server required:
 ```js
 const client = GithubSDK.test()
 
-const repo = await client.Repo().list()
-// repo is the entity, populated with mock response data
-// — call repo.data() for the record itself
-console.log(repo)
+const pull = await client.Pull().list()
+// pull is the entity, populated with mock response data
+// — call pull.data() for the record itself
+console.log(pull)
 ```
 
 You can also use the instance method:
 
 ```js
-const client = new GithubSDK()
+const client = new GithubSDK({ apikey: '...' })
 const testClient = client.tester()
 ```
 
@@ -260,7 +223,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```js
-const entity = client.Repo()
+const entity = client.Pull()
 
 // First call runs the operation and stores its result
 await entity.list()
@@ -287,6 +250,7 @@ const logger = {
 }
 
 const client = new GithubSDK({
+  apikey: '...',
   extend: [logger],
 })
 ```
@@ -297,6 +261,7 @@ Create a `.env.local` file at the project root:
 
 ```
 GITHUB_TEST_LIVE=TRUE
+GITHUB_APIKEY=<your-key>
 ```
 
 Then run:
@@ -318,6 +283,7 @@ new GithubSDK(options?)
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -332,6 +298,7 @@ new GithubSDK(options?)
 | `utility()` | `Utility` | Deep copy of the SDK utility object. |
 | `prepare(fetchargs?)` | `Promise<FetchDef>` | Build an HTTP request definition without sending it. |
 | `direct(fetchargs?)` | `Promise<DirectResult>` | Build and send an HTTP request. |
+| `Pull(data?)` | `PullEntity` | Create a Pull entity instance. |
 | `Repo(data?)` | `RepoEntity` | Create a Repo entity instance. |
 | `tester(testopts?, sdkopts?)` | `GithubSDK` | Create a test-mode client instance. |
 
@@ -403,6 +370,71 @@ The `prepare()` method returns:
 ```
 
 ### Entities
+
+#### Pull
+
+| Field | Description |
+| --- | --- |
+| `active_lock_reason` |  |
+| `additions` |  |
+| `assignee` | A GitHub user. |
+| `assignees` |  |
+| `author_association` | How the author is associated with the repository. |
+| `auto_merge` | The status of auto merging a pull request. |
+| `base` | The name of the branch you want the changes pulled into. |
+| `body` | The contents of the pull request. |
+| `changed_files` |  |
+| `closed_at` |  |
+| `comments` |  |
+| `comments_url` |  |
+| `commit_message` | Extra detail to append to automatic commit message. |
+| `commit_title` | Title for the automatic commit message. |
+| `commits` |  |
+| `commits_url` |  |
+| `created_at` |  |
+| `deletions` |  |
+| `diff_url` |  |
+| `draft` | Indicates whether or not the pull request is a draft. |
+| `head` | The name of the branch where your changes are implemented. |
+| `head_repo` | The name of the repository where the changes in the pull request were made. |
+| `html_url` |  |
+| `id` |  |
+| `issue` | An issue in the repository to convert to a pull request. |
+| `issue_url` |  |
+| `labels` |  |
+| `links` |  |
+| `locked` |  |
+| `maintainer_can_modify` | Indicates whether maintainers can modify the pull request. |
+| `merge_commit_sha` |  |
+| `merge_method` | The merge method to use. |
+| `mergeable` |  |
+| `mergeable_state` |  |
+| `merged` |  |
+| `merged_at` |  |
+| `merged_by` | A GitHub user. |
+| `message` |  |
+| `milestone` | A collection of related issues and pull requests. |
+| `node_id` |  |
+| `number` | Number uniquely identifying the pull request within its repository. |
+| `patch_url` |  |
+| `rebaseable` |  |
+| `requested_reviewers` |  |
+| `requested_teams` |  |
+| `review_comment_url` |  |
+| `review_comments` |  |
+| `review_comments_url` |  |
+| `sha` | SHA that pull request head must match to allow merge. |
+| `stack` | The stack information associated with a pull request. |
+| `state` | State of this Pull Request. |
+| `statuses_url` |  |
+| `title` | The title of the pull request. |
+| `updated_at` |  |
+| `url` |  |
+| `user` | A GitHub user. |
+
+Operations: create, list, load, update.
+
+API path: `/repos/{owner}/{repo}/pulls`
 
 #### Repo
 
@@ -527,6 +559,147 @@ API path: `/user/repos`
 
 
 ## Entities
+
+
+### Pull
+
+Create an instance: `const pull = client.Pull()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+| `update(data)` | Update an existing entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `active_lock_reason` | `string` |  |
+| `additions` | `number` |  |
+| `assignee` | `Object` | A GitHub user. |
+| `assignees` | `Array` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `auto_merge` | `Object` | The status of auto merging a pull request. |
+| `base` | `Object` | The name of the branch you want the changes pulled into. |
+| `body` | `string` | The contents of the pull request. |
+| `changed_files` | `number` |  |
+| `closed_at` | `string` |  |
+| `comments` | `number` |  |
+| `comments_url` | `string` |  |
+| `commit_message` | `string` | Extra detail to append to automatic commit message. |
+| `commit_title` | `string` | Title for the automatic commit message. |
+| `commits` | `number` |  |
+| `commits_url` | `string` |  |
+| `created_at` | `string` |  |
+| `deletions` | `number` |  |
+| `diff_url` | `string` |  |
+| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
+| `head` | `Object` | The name of the branch where your changes are implemented. |
+| `head_repo` | `string` | The name of the repository where the changes in the pull request were made. |
+| `html_url` | `string` |  |
+| `id` | `number` |  |
+| `issue` | `number` | An issue in the repository to convert to a pull request. |
+| `issue_url` | `string` |  |
+| `labels` | `Array` |  |
+| `links` | `Object` |  |
+| `locked` | `boolean` |  |
+| `maintainer_can_modify` | `boolean` | Indicates whether maintainers can modify the pull request. |
+| `merge_commit_sha` | `string` |  |
+| `merge_method` | `string` | The merge method to use. |
+| `mergeable` | `boolean` |  |
+| `mergeable_state` | `string` |  |
+| `merged` | `boolean` |  |
+| `merged_at` | `string` |  |
+| `merged_by` | `Object` | A GitHub user. |
+| `message` | `string` |  |
+| `milestone` | `Object` | A collection of related issues and pull requests. |
+| `node_id` | `string` |  |
+| `number` | `number` | Number uniquely identifying the pull request within its repository. |
+| `patch_url` | `string` |  |
+| `rebaseable` | `boolean` |  |
+| `requested_reviewers` | `Array` |  |
+| `requested_teams` | `Array` |  |
+| `review_comment_url` | `string` |  |
+| `review_comments` | `number` |  |
+| `review_comments_url` | `string` |  |
+| `sha` | `string` | SHA that pull request head must match to allow merge. |
+| `stack` | `Object` | The stack information associated with a pull request. |
+| `state` | `string` | State of this Pull Request. |
+| `statuses_url` | `string` |  |
+| `title` | `string` | The title of the pull request. |
+| `updated_at` | `string` |  |
+| `url` | `string` |  |
+| `user` | `Object` | A GitHub user. |
+
+#### Example: Load
+
+```ts
+const pull = await client.Pull().load({ id: 1, owner: 'owner', repo: 'repo' })
+```
+
+#### Example: List
+
+```ts
+const pulls = await client.Pull().list({ owner: "example", repo: "example" })
+```
+
+#### Example: Create
+
+```ts
+const pull = await client.Pull().create({
+  owner: 'example_owner',
+  repo: 'example_repo',
+  additions: 1,
+  assignee: {},
+  author_association: 'example_author_association',
+  auto_merge: {},
+  base: {},
+  body: 'example_body',
+  changed_files: 1,
+  closed_at: 'example_closed_at',
+  comments: 1,
+  comments_url: 'example_comments_url',
+  commits: 1,
+  commits_url: 'example_commits_url',
+  created_at: 'example_created_at',
+  deletions: 1,
+  diff_url: 'example_diff_url',
+  head: {},
+  html_url: 'example_html_url',
+  id: 1,
+  issue_url: 'example_issue_url',
+  labels: [],
+  links: {},
+  locked: true,
+  maintainer_can_modify: true,
+  merge_commit_sha: 'example_merge_commit_sha',
+  mergeable: true,
+  mergeable_state: 'example_mergeable_state',
+  merged: true,
+  merged_at: 'example_merged_at',
+  merged_by: {},
+  message: 'example_message',
+  milestone: {},
+  node_id: 'example_node_id',
+  number: 1,
+  patch_url: 'example_patch_url',
+  review_comment_url: 'example_review_comment_url',
+  review_comments: 1,
+  review_comments_url: 'example_review_comments_url',
+  sha: 'example_sha',
+  stack: {},
+  state: 'example_state',
+  statuses_url: 'example_statuses_url',
+  title: 'example_title',
+  updated_at: 'example_updated_at',
+  url: 'example_url',
+  user: {},
+})
+```
 
 
 ### Repo
@@ -759,6 +932,29 @@ const repo = await client.Repo().create({
 })
 ```
 
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
+
 
 ## Advanced
 
@@ -828,11 +1024,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const repo = client.Repo()
-await repo.list()
+const pull = client.Pull()
+await pull.list()
 
-// repo.data() now returns the repo data from the last `list`
-// repo.match() returns the last match criteria
+// pull.data() now returns the pull data from the last `list`
+// pull.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

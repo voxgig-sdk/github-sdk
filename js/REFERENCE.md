@@ -18,6 +18,7 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
+| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -47,6 +48,18 @@ const client = GithubSDK.test()
 
 
 ### Instance Methods
+
+#### `Pull(data?: object)`
+
+Create a new `Pull` entity instance.
+
+**Parameters:**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `data` | `object` | Initial entity data. |
+
+**Returns:** `PullEntity` instance.
 
 #### `Repo(data?: object)`
 
@@ -102,6 +115,249 @@ same parameters as `direct()`.
 Alias for `GithubSDK.test()`.
 
 **Returns:** `GithubSDK` instance in test mode.
+
+
+---
+
+## PullEntity
+
+```ts
+const pull = client.Pull()
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `active_lock_reason` | `string` | No |  |
+| `additions` | `number` | Yes |  |
+| `assignee` | `Object` | Yes | A GitHub user. |
+| `assignees` | `Array` | No |  |
+| `author_association` | `string` | Yes | How the author is associated with the repository. |
+| `auto_merge` | `Object` | Yes | The status of auto merging a pull request. |
+| `base` | `Object` | Yes | The name of the branch you want the changes pulled into. |
+| `body` | `string` | Yes | The contents of the pull request. |
+| `changed_files` | `number` | Yes |  |
+| `closed_at` | `string` | Yes |  |
+| `comments` | `number` | Yes |  |
+| `comments_url` | `string` | Yes |  |
+| `commit_message` | `string` | No | Extra detail to append to automatic commit message. |
+| `commit_title` | `string` | No | Title for the automatic commit message. |
+| `commits` | `number` | Yes |  |
+| `commits_url` | `string` | Yes |  |
+| `created_at` | `string` | Yes |  |
+| `deletions` | `number` | Yes |  |
+| `diff_url` | `string` | Yes |  |
+| `draft` | `boolean` | No | Indicates whether or not the pull request is a draft. |
+| `head` | `Object` | Yes | The name of the branch where your changes are implemented. |
+| `head_repo` | `string` | No | The name of the repository where the changes in the pull request were made. |
+| `html_url` | `string` | Yes |  |
+| `id` | `number` | Yes |  |
+| `issue` | `number` | No | An issue in the repository to convert to a pull request. |
+| `issue_url` | `string` | Yes |  |
+| `labels` | `Array` | Yes |  |
+| `links` | `Object` | Yes |  |
+| `locked` | `boolean` | Yes |  |
+| `maintainer_can_modify` | `boolean` | Yes | Indicates whether maintainers can modify the pull request. |
+| `merge_commit_sha` | `string` | Yes |  |
+| `merge_method` | `string` | No | The merge method to use. |
+| `mergeable` | `boolean` | Yes |  |
+| `mergeable_state` | `string` | Yes |  |
+| `merged` | `boolean` | Yes |  |
+| `merged_at` | `string` | Yes |  |
+| `merged_by` | `Object` | Yes | A GitHub user. |
+| `message` | `string` | Yes |  |
+| `milestone` | `Object` | Yes | A collection of related issues and pull requests. |
+| `node_id` | `string` | Yes |  |
+| `number` | `number` | Yes | Number uniquely identifying the pull request within its repository. |
+| `patch_url` | `string` | Yes |  |
+| `rebaseable` | `boolean` | No |  |
+| `requested_reviewers` | `Array` | No |  |
+| `requested_teams` | `Array` | No |  |
+| `review_comment_url` | `string` | Yes |  |
+| `review_comments` | `number` | Yes |  |
+| `review_comments_url` | `string` | Yes |  |
+| `sha` | `string` | Yes | SHA that pull request head must match to allow merge. |
+| `stack` | `Object` | Yes | The stack information associated with a pull request. |
+| `state` | `string` | Yes | State of this Pull Request. |
+| `statuses_url` | `string` | Yes |  |
+| `title` | `string` | Yes | The title of the pull request. |
+| `updated_at` | `string` | Yes |  |
+| `url` | `string` | Yes |  |
+| `user` | `Object` | Yes | A GitHub user. |
+
+### Field Usage by Operation
+
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `active_lock_reason` | - | - | - | - |
+| `additions` | - | - | - | - |
+| `assignee` | - | - | - | - |
+| `assignees` | - | - | - | - |
+| `author_association` | - | - | - | - |
+| `auto_merge` | - | - | - | - |
+| `base` | - | - | - | Yes |
+| `body` | - | - | Yes | Yes |
+| `changed_files` | - | - | - | - |
+| `closed_at` | - | - | - | - |
+| `comments` | - | - | - | - |
+| `comments_url` | - | - | - | - |
+| `commit_message` | - | - | - | - |
+| `commit_title` | - | - | - | - |
+| `commits` | - | - | - | - |
+| `commits_url` | - | - | - | - |
+| `created_at` | - | - | - | - |
+| `deletions` | - | - | - | - |
+| `diff_url` | - | - | - | - |
+| `draft` | - | - | - | - |
+| `head` | - | - | - | - |
+| `head_repo` | - | - | - | - |
+| `html_url` | - | - | - | - |
+| `id` | - | - | - | - |
+| `issue` | - | - | - | - |
+| `issue_url` | - | - | - | - |
+| `labels` | - | - | - | - |
+| `links` | - | - | - | - |
+| `locked` | - | - | - | - |
+| `maintainer_can_modify` | - | - | Yes | Yes |
+| `merge_commit_sha` | - | - | - | - |
+| `merge_method` | - | - | - | - |
+| `mergeable` | - | - | - | - |
+| `mergeable_state` | - | - | - | - |
+| `merged` | - | - | - | - |
+| `merged_at` | - | - | - | - |
+| `merged_by` | - | - | - | - |
+| `message` | - | - | - | - |
+| `milestone` | - | - | - | - |
+| `node_id` | - | - | - | - |
+| `number` | - | - | - | - |
+| `patch_url` | - | - | - | - |
+| `rebaseable` | - | - | - | - |
+| `requested_reviewers` | - | - | - | - |
+| `requested_teams` | - | - | - | - |
+| `review_comment_url` | - | - | - | - |
+| `review_comments` | - | - | - | - |
+| `review_comments_url` | - | - | - | - |
+| `sha` | - | - | - | Yes |
+| `stack` | - | - | - | - |
+| `state` | - | - | - | Yes |
+| `statuses_url` | - | - | - | - |
+| `title` | - | - | Yes | Yes |
+| `updated_at` | - | - | - | - |
+| `url` | - | - | - | - |
+| `user` | - | - | - | - |
+
+### Operations
+
+#### `create(data: object, ctrl?: object)`
+
+Create a new entity with the given data.
+
+```ts
+const result = await client.Pull().create({
+  owner: 'example_owner',
+  repo: 'example_repo',
+  additions: 1,
+  assignee: {},
+  author_association: 'example_author_association',
+  auto_merge: {},
+  base: {},
+  body: 'example_body',
+  changed_files: 1,
+  closed_at: 'example_closed_at',
+  comments: 1,
+  comments_url: 'example_comments_url',
+  commits: 1,
+  commits_url: 'example_commits_url',
+  created_at: 'example_created_at',
+  deletions: 1,
+  diff_url: 'example_diff_url',
+  head: {},
+  html_url: 'example_html_url',
+  id: 1,
+  issue_url: 'example_issue_url',
+  labels: [],
+  links: {},
+  locked: true,
+  maintainer_can_modify: true,
+  merge_commit_sha: 'example_merge_commit_sha',
+  mergeable: true,
+  mergeable_state: 'example_mergeable_state',
+  merged: true,
+  merged_at: 'example_merged_at',
+  merged_by: {},
+  message: 'example_message',
+  milestone: {},
+  node_id: 'example_node_id',
+  number: 1,
+  patch_url: 'example_patch_url',
+  review_comment_url: 'example_review_comment_url',
+  review_comments: 1,
+  review_comments_url: 'example_review_comments_url',
+  sha: 'example_sha',
+  stack: {},
+  state: 'example_state',
+  statuses_url: 'example_statuses_url',
+  title: 'example_title',
+  updated_at: 'example_updated_at',
+  url: 'example_url',
+  user: {},
+})
+```
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.Pull().list()
+```
+
+#### `load(match: object, ctrl?: object)`
+
+Load a single entity matching the given criteria.
+
+```ts
+const result = await client.Pull().load({ id: 1, owner: 'owner', repo: 'repo' })
+```
+
+#### `update(data: object, ctrl?: object)`
+
+Update an existing entity. The data must include the entity `id`.
+
+```ts
+const result = await client.Pull().update({
+  id: 1,
+  owner: 'owner',
+  repo: 'repo',
+  // Fields to update
+})
+```
+
+### Common Methods
+
+#### `data(data?: object)`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `match(match?: object)`
+
+Get or set the entity match criteria. Works the same as `data()`.
+
+#### `make()`
+
+Create a new `PullEntity` instance with the same client and
+options.
+
+#### `client()`
+
+Return the parent `GithubSDK` instance.
+
+#### `entopts()`
+
+Return a copy of the entity options.
 
 
 ---
@@ -516,4 +772,42 @@ const client = new GithubSDK({
   }
 })
 ```
+
+
+### Configuring features
+
+Each feature is inactive until switched on, and an SDK with no feature
+configured does no feature work at all. Every option below keeps its default
+unless you name it.
+
+The array form of \`feature\` is significant: several features wrap the
+transport, and the order you list them in is the order they nest.
+
+#### `test`
+
+In-memory mock transport for testing without a live server.
+
+**Configuration**
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Options above are those the model carries a default for. A feature may
+also accept callback options — a `sink` to receive each record, for
+instance — which have no default and are covered in the full feature
+reference.
+
+**Usage**
+
+Set `feature.test.active` to true in the client options, and override any option above in the same entry. Every option keeps
+its default unless you name it.
+
+**Considerations**
+
+- Attaches to pipeline hooks, not the transport, so activation order does
+  not change what it observes.
+- Installs the BASE transport that the wrapping features wrap, so it must be
+  activated before them.
+- Inactive by default: leaving it out costs nothing at runtime.
 

@@ -715,9 +715,13 @@ main: kit: entity: repo: {
         {
           method: "POST"
           orig: "/user/repos"
-          parts: [
-            "user"
-            "repos"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "repos"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -805,9 +809,13 @@ main: kit: entity: repo: {
           }
           method: "GET"
           orig: "/user/repos"
-          parts: [
-            "user"
-            "repos"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "repos"
+            }
           ]
           select: {
             exist: [
@@ -853,10 +861,16 @@ main: kit: entity: repo: {
           }
           method: "GET"
           orig: "/repos/{owner}/{repo}"
-          parts: [
-            "repos"
-            "{owner}"
-            "{repo}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
           ]
           select: {
             exist: [
@@ -895,10 +909,16 @@ main: kit: entity: repo: {
           }
           method: "DELETE"
           orig: "/repos/{owner}/{repo}"
-          parts: [
-            "repos"
-            "{owner}"
-            "{repo}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
           ]
           select: {
             exist: [
@@ -937,10 +957,16 @@ main: kit: entity: repo: {
           }
           method: "PATCH"
           orig: "/repos/{owner}/{repo}"
-          parts: [
-            "repos"
-            "{owner}"
-            "{repo}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
           ]
           select: {
             exist: [

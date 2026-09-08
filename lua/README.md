@@ -4,7 +4,7 @@
 
 The Lua SDK for the Github API — an entity-oriented client using Lua conventions.
 
-It exposes the API as capitalised, semantic **Entities** — e.g. `client:Repo()` — each with the same small set of operations (`list`, `load`, `create`, `update`, `remove`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
+It exposes the API as capitalised, semantic **Entities** — e.g. `client:Pull()` — each with the same small set of operations (`list`, `load`, `create`, `update`, `remove`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
@@ -30,45 +30,45 @@ loading a specific record.
 ```lua
 local sdk = require("github_sdk")
 
-local client = sdk.new()
+local client = sdk.new({
+  apikey = os.getenv("GITHUB_APIKEY"),
+})
 ```
 
-### 2. List repo records
+### 2. List pull records
 
 Entity operations return `(value, err)`. For `list`, `value` is the
 array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local repos, err = client:Repo():list()
+local pulls, err = client:Pull():list()
 if err then error(err) end
 
-for _, item in ipairs(repos) do
-  print(item["id"], item["archive_url"])
+for _, item in ipairs(pulls) do
+  print(item["id"], item["active_lock_reason"])
 end
 ```
 
-### 3. Load a repo
+### 3. Load a pull
 
-Repo is nested under owner, so provide the `owner`.
+Pull is nested under owner, so provide the `owner`.
 
 ```lua
-local repo, err = client:Repo():load({ owner = "example_owner", repo = "example_repo" })
+local pull, err = client:Pull():load({ owner = "example_owner", repo = "example_repo", id = 1 })
 if err then error(err) end
-print(repo)
+print(pull)
 ```
 
 ### 4. Create, update, and remove
 
 ```lua
 -- Create
-local created, err = client:Repo():create({ archive_url = "example_archive_url", archived = true, assignees_url = "example_assignees_url", blobs_url = "example_blobs_url", branches_url = "example_branches_url", clone_url = "example_clone_url", code_of_conduct = {}, collaborators_url = "example_collaborators_url", comments_url = "example_comments_url", commits_url = "example_commits_url", compare_url = "example_compare_url", contents_url = "example_contents_url", contributors_url = "example_contributors_url", created_at = "example_created_at", default_branch = "example_default_branch", deployments_url = "example_deployments_url", description = "example_description", disabled = true, downloads_url = "example_downloads_url", events_url = "example_events_url", fork = true, forks = 1, forks_count = 1, forks_url = "example_forks_url", full_name = "example_full_name", git_commits_url = "example_git_commits_url", git_refs_url = "example_git_refs_url", git_tags_url = "example_git_tags_url", git_url = "example_git_url", has_discussions = true, has_issues = true, has_pages = true, has_projects = true, has_wiki = true, homepage = "example_homepage", hooks_url = "example_hooks_url", html_url = "example_html_url", id = 1, issue_comment_url = "example_issue_comment_url", issue_events_url = "example_issue_events_url", issues_url = "example_issues_url", keys_url = "example_keys_url", labels_url = "example_labels_url", language = "example_language", languages_url = "example_languages_url", license = {}, merges_url = "example_merges_url", milestones_url = "example_milestones_url", mirror_url = "example_mirror_url", name = "example_name", network_count = 1, node_id = "example_node_id", notifications_url = "example_notifications_url", open_issues = 1, open_issues_count = 1, organization = {}, owner = {}, parent = {}, permissions = {}, private = true, pulls_url = "example_pulls_url", pushed_at = "example_pushed_at", releases_url = "example_releases_url", size = 1, source = {}, ssh_url = "example_ssh_url", stargazers_count = 1, stargazers_url = "example_stargazers_url", statuses_url = "example_statuses_url", subscribers_count = 1, subscribers_url = "example_subscribers_url", subscription_url = "example_subscription_url", svn_url = "example_svn_url", tags_url = "example_tags_url", teams_url = "example_teams_url", template_repository = {}, trees_url = "example_trees_url", updated_at = "example_updated_at", url = "example_url", watchers = 1, watchers_count = 1 })
+local created, err = client:Pull():create({ owner = "example_owner", repo = "example_repo", additions = 1, assignee = {}, author_association = "example_author_association", auto_merge = {}, base = {}, body = "example_body", changed_files = 1, closed_at = "example_closed_at", comments = 1, comments_url = "example_comments_url", commits = 1, commits_url = "example_commits_url", created_at = "example_created_at", deletions = 1, diff_url = "example_diff_url", head = {}, html_url = "example_html_url", id = 1, issue_url = "example_issue_url", labels = {}, links = {}, locked = true, maintainer_can_modify = true, merge_commit_sha = "example_merge_commit_sha", mergeable = true, mergeable_state = "example_mergeable_state", merged = true, merged_at = "example_merged_at", merged_by = {}, message = "example_message", milestone = {}, node_id = "example_node_id", number = 1, patch_url = "example_patch_url", review_comment_url = "example_review_comment_url", review_comments = 1, review_comments_url = "example_review_comments_url", sha = "example_sha", stack = {}, state = "example_state", statuses_url = "example_statuses_url", title = "example_title", updated_at = "example_updated_at", url = "example_url", user = {} })
 if err then error(err) end
 
 -- Update
-client:Repo():update({ owner = "example_owner", repo = "example_repo" })
+client:Pull():update({ id = created:data_get()["id"], owner = "example_owner", repo = "example_repo" })
 
--- Remove
-client:Repo():remove({ owner = "example_owner", repo = "example_repo" })
 ```
 
 
@@ -78,7 +78,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local repos, err = client:Repo():list()
+local pulls, err = client:Pull():list()
 if err then error(err) end
 ```
 
@@ -136,7 +136,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Repo():list()
+local result, err = client:Pull():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -170,6 +170,7 @@ Create a `.env.local` file at the project root:
 
 ```
 GITHUB_TEST_LIVE=TRUE
+GITHUB_APIKEY=<your-key>
 ```
 
 Then run:
@@ -192,6 +193,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -215,6 +217,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> table, err` | Build an HTTP request definition without sending. |
 | `direct` | `(fetchargs) -> table, err` | Build and send an HTTP request. |
+| `Pull` | `(data) -> PullEntity` | Create a Pull entity instance. |
 | `Repo` | `(data) -> RepoEntity` | Create a Repo entity instance. |
 
 ### Entity interface
@@ -247,14 +250,79 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local repo, err = client:Repo():load()
+    local pull, err = client:Pull():load({ id = "example_id" })
     if err then error(err) end
-    -- repo is the loaded record
+    -- pull is the loaded record
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
 
 ### Entities
+
+#### Pull
+
+| Field | Description |
+| --- | --- |
+| `active_lock_reason` |  |
+| `additions` |  |
+| `assignee` | A GitHub user. |
+| `assignees` |  |
+| `author_association` | How the author is associated with the repository. |
+| `auto_merge` | The status of auto merging a pull request. |
+| `base` | The name of the branch you want the changes pulled into. |
+| `body` | The contents of the pull request. |
+| `changed_files` |  |
+| `closed_at` |  |
+| `comments` |  |
+| `comments_url` |  |
+| `commit_message` | Extra detail to append to automatic commit message. |
+| `commit_title` | Title for the automatic commit message. |
+| `commits` |  |
+| `commits_url` |  |
+| `created_at` |  |
+| `deletions` |  |
+| `diff_url` |  |
+| `draft` | Indicates whether or not the pull request is a draft. |
+| `head` | The name of the branch where your changes are implemented. |
+| `head_repo` | The name of the repository where the changes in the pull request were made. |
+| `html_url` |  |
+| `id` |  |
+| `issue` | An issue in the repository to convert to a pull request. |
+| `issue_url` |  |
+| `labels` |  |
+| `links` |  |
+| `locked` |  |
+| `maintainer_can_modify` | Indicates whether maintainers can modify the pull request. |
+| `merge_commit_sha` |  |
+| `merge_method` | The merge method to use. |
+| `mergeable` |  |
+| `mergeable_state` |  |
+| `merged` |  |
+| `merged_at` |  |
+| `merged_by` | A GitHub user. |
+| `message` |  |
+| `milestone` | A collection of related issues and pull requests. |
+| `node_id` |  |
+| `number` | Number uniquely identifying the pull request within its repository. |
+| `patch_url` |  |
+| `rebaseable` |  |
+| `requested_reviewers` |  |
+| `requested_teams` |  |
+| `review_comment_url` |  |
+| `review_comments` |  |
+| `review_comments_url` |  |
+| `sha` | SHA that pull request head must match to allow merge. |
+| `stack` | The stack information associated with a pull request. |
+| `state` | State of this Pull Request. |
+| `statuses_url` |  |
+| `title` | The title of the pull request. |
+| `updated_at` |  |
+| `url` |  |
+| `user` | A GitHub user. |
+
+Operations: Create, List, Load, Update.
+
+API path: `/repos/{owner}/{repo}/pulls`
 
 #### Repo
 
@@ -379,6 +447,147 @@ API path: `/user/repos`
 
 
 ## Entities
+
+
+### Pull
+
+Create an instance: `local pull = client:Pull(nil)`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+| `update(data)` | Update an existing entity. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `active_lock_reason` | `string` |  |
+| `additions` | `number` |  |
+| `assignee` | `table` | A GitHub user. |
+| `assignees` | `table` |  |
+| `author_association` | `string` | How the author is associated with the repository. |
+| `auto_merge` | `table` | The status of auto merging a pull request. |
+| `base` | `table` | The name of the branch you want the changes pulled into. |
+| `body` | `string` | The contents of the pull request. |
+| `changed_files` | `number` |  |
+| `closed_at` | `string` |  |
+| `comments` | `number` |  |
+| `comments_url` | `string` |  |
+| `commit_message` | `string` | Extra detail to append to automatic commit message. |
+| `commit_title` | `string` | Title for the automatic commit message. |
+| `commits` | `number` |  |
+| `commits_url` | `string` |  |
+| `created_at` | `string` |  |
+| `deletions` | `number` |  |
+| `diff_url` | `string` |  |
+| `draft` | `boolean` | Indicates whether or not the pull request is a draft. |
+| `head` | `table` | The name of the branch where your changes are implemented. |
+| `head_repo` | `string` | The name of the repository where the changes in the pull request were made. |
+| `html_url` | `string` |  |
+| `id` | `number` |  |
+| `issue` | `number` | An issue in the repository to convert to a pull request. |
+| `issue_url` | `string` |  |
+| `labels` | `table` |  |
+| `links` | `table` |  |
+| `locked` | `boolean` |  |
+| `maintainer_can_modify` | `boolean` | Indicates whether maintainers can modify the pull request. |
+| `merge_commit_sha` | `string` |  |
+| `merge_method` | `string` | The merge method to use. |
+| `mergeable` | `boolean` |  |
+| `mergeable_state` | `string` |  |
+| `merged` | `boolean` |  |
+| `merged_at` | `string` |  |
+| `merged_by` | `table` | A GitHub user. |
+| `message` | `string` |  |
+| `milestone` | `table` | A collection of related issues and pull requests. |
+| `node_id` | `string` |  |
+| `number` | `number` | Number uniquely identifying the pull request within its repository. |
+| `patch_url` | `string` |  |
+| `rebaseable` | `boolean` |  |
+| `requested_reviewers` | `table` |  |
+| `requested_teams` | `table` |  |
+| `review_comment_url` | `string` |  |
+| `review_comments` | `number` |  |
+| `review_comments_url` | `string` |  |
+| `sha` | `string` | SHA that pull request head must match to allow merge. |
+| `stack` | `table` | The stack information associated with a pull request. |
+| `state` | `string` | State of this Pull Request. |
+| `statuses_url` | `string` |  |
+| `title` | `string` | The title of the pull request. |
+| `updated_at` | `string` |  |
+| `url` | `string` |  |
+| `user` | `table` | A GitHub user. |
+
+#### Example: Load
+
+```lua
+local pull, err = client:Pull():load({ id = 1, owner = "owner", repo = "repo" })
+```
+
+#### Example: List
+
+```lua
+local pulls, err = client:Pull():list()
+```
+
+#### Example: Create
+
+```lua
+local pull, err = client:Pull():create({
+  owner = "example_owner", -- string
+  repo = "example_repo", -- string
+  additions = 1, -- number
+  assignee = {}, -- table
+  author_association = "example_author_association", -- string
+  auto_merge = {}, -- table
+  base = {}, -- table
+  body = "example_body", -- string
+  changed_files = 1, -- number
+  closed_at = "example_closed_at", -- string
+  comments = 1, -- number
+  comments_url = "example_comments_url", -- string
+  commits = 1, -- number
+  commits_url = "example_commits_url", -- string
+  created_at = "example_created_at", -- string
+  deletions = 1, -- number
+  diff_url = "example_diff_url", -- string
+  head = {}, -- table
+  html_url = "example_html_url", -- string
+  id = 1, -- number
+  issue_url = "example_issue_url", -- string
+  labels = {}, -- table
+  links = {}, -- table
+  locked = true, -- boolean
+  maintainer_can_modify = true, -- boolean
+  merge_commit_sha = "example_merge_commit_sha", -- string
+  mergeable = true, -- boolean
+  mergeable_state = "example_mergeable_state", -- string
+  merged = true, -- boolean
+  merged_at = "example_merged_at", -- string
+  merged_by = {}, -- table
+  message = "example_message", -- string
+  milestone = {}, -- table
+  node_id = "example_node_id", -- string
+  number = 1, -- number
+  patch_url = "example_patch_url", -- string
+  review_comment_url = "example_review_comment_url", -- string
+  review_comments = 1, -- number
+  review_comments_url = "example_review_comments_url", -- string
+  sha = "example_sha", -- string
+  stack = {}, -- table
+  state = "example_state", -- string
+  statuses_url = "example_statuses_url", -- string
+  title = "example_title", -- string
+  updated_at = "example_updated_at", -- string
+  url = "example_url", -- string
+  user = {}, -- table
+})
+```
 
 
 ### Repo
@@ -611,6 +820,29 @@ local repo, err = client:Repo():create({
 })
 ```
 
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
+
 
 ## Advanced
 
@@ -688,11 +920,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local repo = client:Repo()
-repo:list()
+local pull = client:Pull()
+pull:list()
 
--- repo:data_get() now returns the repo data from the last list
--- repo:match_get() returns the last match criteria
+-- pull:data_get() now returns the pull data from the last list
+-- pull:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

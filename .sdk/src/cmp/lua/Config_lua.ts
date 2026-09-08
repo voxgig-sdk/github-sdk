@@ -15,6 +15,7 @@ import {
   isConfigData,
   resolveAuthPrefix,
   serverVariables,
+  targetFeatures,
 } from '@voxgig/sdkgen'
 
 
@@ -27,7 +28,6 @@ import {
 
 
 import {
-  clean,
   formatLuaTable,
   luaLongString,
 } from './utility_lua'
@@ -40,7 +40,10 @@ const Config = cmp(async function Config(props: any) {
   const model: Model = ctx$.model
 
   const entity = getModelPath(model, `main.${KIT}.entity`)
-  const feature = getModelPath(model, `main.${KIT}.feature`)
+  // Gated by the applicability tags, so this target never imports or
+  // registers a feature it has no source for. One rule, one place:
+  // helpers/applicability.
+  const feature = targetFeatures(model, target)
 
   const headers = getModelPath(model, `main.${KIT}.config.headers`) || {}
 
@@ -133,7 +136,10 @@ local function make_config()
 `)
 
     each(feature, (f: any) => {
-      const fconfig = f.config || {}
+      // From configDefinition's def, not f.config, so the literal carries
+      // the feature's `transport` role (station design §8.4) beside its
+      // options and cannot drift from the data rep.
+      const fconfig = configDef.feature[f.name] || {}
       Content(`      ["${f.name}"] = ${formatLuaTable(fconfig, 3)},
 `)
     })
@@ -153,12 +159,7 @@ ${serverBlock}${authBlock}      headers = ${formatLuaTable(headers, 3)},
     Content(`      },
     },
     entity = ${formatLuaTable(
-      Object.values(entity).reduce((a: any, n: any) => (a[n.name] = clean({
-        fields: n.fields,
-        name: n.name,
-        op: n.op,
-        relations: n.relations,
-      }, true), a), {}), 2)},
+configDef.entity, 2)},
   }
 end
 `)

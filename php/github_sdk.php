@@ -341,6 +341,24 @@ class GithubSDK
     }
 
 
+    private $_pull = null;
+
+    // Canonical facade: $client->Pull()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->pull()
+    // resolves here too.
+    public function Pull($data = null)
+    {
+        require_once __DIR__ . '/entity/pull_entity.php';
+        if ($data === null) {
+            if ($this->_pull === null) {
+                $this->_pull = new PullEntity($this, null);
+            }
+            return $this->_pull;
+        }
+        return new PullEntity($this, $data);
+    }
+
+
     private $_repo = null;
 
     // Canonical facade: $client->Repo()->list() / ->load(["id" => ...]).
