@@ -27,8 +27,8 @@ main: kit: target: 'seneca-provider': {
   ext: ts
   comment: line: "//"
   module: name: 'github'
-  base: 'node_modules/@voxgig/sdkgen/project/.sdk'
-  package: '@voxgig/sdkgen'
+  base: 'node_modules/@voxgig/sdkgen-infrapack/.sdk'
+  package: '@voxgig/sdkgen-infrapack'
   srcfeature: false
 
   # Per-generation-phase activation. Mirrors py-data: every standard phase is
