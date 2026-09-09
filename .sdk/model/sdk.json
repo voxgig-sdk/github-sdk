@@ -2883,7 +2883,7 @@
             "name": "",
             "url": ""
           },
-          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "base": "node_modules/@voxgig/sdkgen-infrapack/.sdk",
           "comment": {
             "line": "//"
           },
@@ -2959,7 +2959,7 @@
             "repo": "",
             "sdkrel": "../../voxgig-sdk/github-sdk"
           },
-          "package": "@voxgig/sdkgen",
+          "package": "@voxgig/sdkgen-infrapack",
           "phase": {
             "agentguide": {
               "active": false
