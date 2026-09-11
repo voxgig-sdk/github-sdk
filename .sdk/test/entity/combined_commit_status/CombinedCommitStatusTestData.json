@@ -1,0 +1,70 @@
+{
+  "existing": {
+    "combined_commit_status": {
+      "COMBINED_COMMIT_STATUS00": {
+        "avatar_url": "s6e",
+        "context": "s6f",
+        "created_at": "s70",
+        "description": "s71",
+        "id": "COMBINED_COMMIT_STATUS00",
+        "node_id": "NODE01",
+        "required": true,
+        "state": "s75",
+        "target_url": "s76",
+        "updated_at": "s77",
+        "url": "s78",
+        "owner": "OWNER01",
+        "ref": "REF01",
+        "repo": "REPO01"
+      },
+      "COMBINED_COMMIT_STATUS01": {
+        "avatar_url": "sdc",
+        "context": "sdd",
+        "created_at": "sde",
+        "description": "sdf",
+        "id": "COMBINED_COMMIT_STATUS01",
+        "node_id": "NODE01",
+        "required": true,
+        "state": "se3",
+        "target_url": "se4",
+        "updated_at": "se5",
+        "url": "se6",
+        "owner": "OWNER01",
+        "ref": "REF01",
+        "repo": "REPO01"
+      },
+      "COMBINED_COMMIT_STATUS02": {
+        "avatar_url": "s14a",
+        "context": "s14b",
+        "created_at": "s14c",
+        "description": "s14d",
+        "id": "COMBINED_COMMIT_STATUS02",
+        "node_id": "NODE01",
+        "required": true,
+        "state": "s151",
+        "target_url": "s152",
+        "updated_at": "s153",
+        "url": "s154",
+        "owner": "OWNER01",
+        "ref": "REF01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "combined_commit_status": {
+      "combined_commit_status_ref01": {
+        "avatar_url": "s1b8",
+        "context": "s1b9",
+        "created_at": "s1ba",
+        "description": "s1bb",
+        "node_id": "NODE01",
+        "required": true,
+        "state": "s1bf",
+        "target_url": "s1c0",
+        "updated_at": "s1c1",
+        "url": "s1c2"
+      }
+    }
+  }
+}

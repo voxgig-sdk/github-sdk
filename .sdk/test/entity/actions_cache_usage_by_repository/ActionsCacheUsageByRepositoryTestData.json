@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "actions_cache_usage_by_repository": {
+      "ACTIONS_CACHE_USAGE_BY_REPOSITORY00": {
+        "active_caches_count": "s1e",
+        "active_caches_size_in_bytes": "s1f",
+        "full_name": "s20",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "ACTIONS_CACHE_USAGE_BY_REPOSITORY00"
+      },
+      "ACTIONS_CACHE_USAGE_BY_REPOSITORY01": {
+        "active_caches_count": "s3c",
+        "active_caches_size_in_bytes": "s3d",
+        "full_name": "s3e",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "ACTIONS_CACHE_USAGE_BY_REPOSITORY01"
+      },
+      "ACTIONS_CACHE_USAGE_BY_REPOSITORY02": {
+        "active_caches_count": "s5a",
+        "active_caches_size_in_bytes": "s5b",
+        "full_name": "s5c",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "ACTIONS_CACHE_USAGE_BY_REPOSITORY02"
+      }
+    }
+  },
+  "new": {
+    "actions_cache_usage_by_repository": {
+      "actions_cache_usage_by_repository_ref01": {
+        "active_caches_count": "s78",
+        "active_caches_size_in_bytes": "s79",
+        "full_name": "s7a"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+# BasicOrganizationProgrammaticAccessGrantFlow
+
+main: kit: flow: BasicOrganizationProgrammaticAccessGrantFlow:
+{
+  entity: "organization_programmatic_access_grant",
+  kind: "basic",
+  name: "BasicOrganizationProgrammaticAccessGrantFlow",
+  step: [
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "organization_programmatic_access_grant_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOrganizationProgrammaticAccessGrantFlow"
+}

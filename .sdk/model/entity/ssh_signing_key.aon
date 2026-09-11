@@ -1,0 +1,226 @@
+# Entity: ssh_signing_key
+
+main: kit: entity: ssh_signing_key: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "key"
+      req: true
+      short: "The public SSH key to add to your GitHub account."
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "A descriptive name for the new key."
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "ssh_signing_key"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/user/ssh_signing_keys"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "ssh_signing_keys"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users/{username}/ssh_signing_keys"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "ssh_signing_keys"
+            }
+          ]
+          select: {
+            exist: [
+              "page"
+              "per_page"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/ssh_signing_keys"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "ssh_signing_keys"
+            }
+          ]
+          select: {
+            exist: [
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "ssh_signing_key_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/ssh_signing_keys/{ssh_signing_key_id}"
+          rename: {
+            param: {
+              ssh_signing_key_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "ssh_signing_keys"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "user"
+      ]
+    ]
+  }
+
+
+
+}

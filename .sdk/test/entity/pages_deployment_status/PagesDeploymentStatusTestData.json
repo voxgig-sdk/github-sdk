@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "pages_deployment_status": {
+      "PAGES_DEPLOYMENT_STATUS00": {
+        "status": "sa",
+        "deployment_id": "DEPLOYMENT01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "pages_deployment_id": "PAGES_DEPLOYMENT01",
+        "id": "PAGES_DEPLOYMENT_STATUS00"
+      },
+      "PAGES_DEPLOYMENT_STATUS01": {
+        "status": "s14",
+        "deployment_id": "DEPLOYMENT01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "pages_deployment_id": "PAGES_DEPLOYMENT01",
+        "id": "PAGES_DEPLOYMENT_STATUS01"
+      },
+      "PAGES_DEPLOYMENT_STATUS02": {
+        "status": "s1e",
+        "deployment_id": "DEPLOYMENT01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "pages_deployment_id": "PAGES_DEPLOYMENT01",
+        "id": "PAGES_DEPLOYMENT_STATUS02"
+      }
+    }
+  },
+  "new": {
+    "pages_deployment_status": {
+      "pages_deployment_status_ref01": {
+        "status": "s28"
+      }
+    }
+  }
+}

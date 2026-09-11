@@ -1,0 +1,71 @@
+# BasicCheckRunFlow
+
+main: kit: flow: BasicCheckRunFlow:
+{
+  entity: "check_run",
+  kind: "basic",
+  name: "BasicCheckRunFlow",
+  step: [
+    {
+      input: {
+        ref: "check_run_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      data: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      input: {
+        ref: "check_run_ref01",
+        srcdatavar: "check_run_ref01_data",
+        suffix: "_up0",
+        textfield: "completed_at"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-check_run_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "check_run_ref01",
+        srcdatavar: "check_run_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "check_run01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-check_run_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCheckRunFlow"
+}

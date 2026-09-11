@@ -1,0 +1,118 @@
+# BasicEnterpriseTeamFlow
+
+main: kit: flow: BasicEnterpriseTeamFlow:
+{
+  entity: "enterprise_team",
+  kind: "basic",
+  name: "BasicEnterpriseTeamFlow",
+  step: [
+    {
+      input: {
+        ref: "enterprise_team_ref01"
+      }
+
+      match: {
+        enterprise: "enterprise01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        enterprise: "enterprise01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "enterprise_team_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        enterprise: "enterprise01"
+      }
+
+      input: {
+        ref: "enterprise_team_ref01",
+        srcdatavar: "enterprise_team_ref01_data",
+        suffix: "_up0",
+        textfield: "created_at"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-enterprise_team_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "enterprise_team_ref01",
+        srcdatavar: "enterprise_team_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        enterprise: "enterprise01",
+        id: "enterprise_team01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-enterprise_team_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "enterprise_team_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        enterprise: "enterprise01",
+        id: "enterprise_team01"
+      }
+
+      op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      match: {
+        enterprise: "enterprise01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "enterprise_team_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEnterpriseTeamFlow"
+}

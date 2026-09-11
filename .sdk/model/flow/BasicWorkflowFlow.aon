@@ -1,0 +1,58 @@
+# BasicWorkflowFlow
+
+main: kit: flow: BasicWorkflowFlow:
+{
+  entity: "workflow",
+  kind: "basic",
+  name: "BasicWorkflowFlow",
+  step: [
+    {
+      data: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      input: {
+        ref: "workflow_ref01",
+        srcdatavar: "workflow_ref01_data",
+        suffix: "_up0",
+        textfield: "badge_url"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workflow_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "workflow_ref01",
+        srcdatavar: "workflow_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "workflow01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workflow_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkflowFlow"
+}

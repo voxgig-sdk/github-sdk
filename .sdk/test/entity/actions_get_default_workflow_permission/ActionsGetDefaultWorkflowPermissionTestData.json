@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "actions_get_default_workflow_permission": {
+      "ACTIONS_GET_DEFAULT_WORKFLOW_PERMISSION00": {
+        "can_approve_pull_request_reviews": true,
+        "default_workflow_permissions": "s15",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "ACTIONS_GET_DEFAULT_WORKFLOW_PERMISSION00"
+      },
+      "ACTIONS_GET_DEFAULT_WORKFLOW_PERMISSION01": {
+        "can_approve_pull_request_reviews": true,
+        "default_workflow_permissions": "s29",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "ACTIONS_GET_DEFAULT_WORKFLOW_PERMISSION01"
+      },
+      "ACTIONS_GET_DEFAULT_WORKFLOW_PERMISSION02": {
+        "can_approve_pull_request_reviews": true,
+        "default_workflow_permissions": "s3d",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "ACTIONS_GET_DEFAULT_WORKFLOW_PERMISSION02"
+      }
+    }
+  },
+  "new": {
+    "actions_get_default_workflow_permission": {
+      "actions_get_default_workflow_permission_ref01": {
+        "can_approve_pull_request_reviews": true,
+        "default_workflow_permissions": "s51"
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "code_scanning_autofix_commit": {
+      "CODE_SCANNING_AUTOFIX_COMMIT00": {
+        "message": "s14",
+        "target_ref": "s15",
+        "alert_id": "ALERT01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CODE_SCANNING_AUTOFIX_COMMIT00"
+      },
+      "CODE_SCANNING_AUTOFIX_COMMIT01": {
+        "message": "s28",
+        "target_ref": "s29",
+        "alert_id": "ALERT01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CODE_SCANNING_AUTOFIX_COMMIT01"
+      },
+      "CODE_SCANNING_AUTOFIX_COMMIT02": {
+        "message": "s3c",
+        "target_ref": "s3d",
+        "alert_id": "ALERT01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CODE_SCANNING_AUTOFIX_COMMIT02"
+      }
+    }
+  },
+  "new": {
+    "code_scanning_autofix_commit": {
+      "code_scanning_autofix_commit_ref01": {
+        "message": "s50",
+        "target_ref": "s51"
+      }
+    }
+  }
+}

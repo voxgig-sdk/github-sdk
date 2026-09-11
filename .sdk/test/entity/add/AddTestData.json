@@ -1,0 +1,31 @@
+{
+  "existing": {
+    "add": {
+      "ADD00": {
+        "usernames": [],
+        "enterprise": "ENTERPRISE01",
+        "team_id": "TEAM01",
+        "id": "ADD00"
+      },
+      "ADD01": {
+        "usernames": [],
+        "enterprise": "ENTERPRISE01",
+        "team_id": "TEAM01",
+        "id": "ADD01"
+      },
+      "ADD02": {
+        "usernames": [],
+        "enterprise": "ENTERPRISE01",
+        "team_id": "TEAM01",
+        "id": "ADD02"
+      }
+    }
+  },
+  "new": {
+    "add": {
+      "add_ref01": {
+        "usernames": []
+      }
+    }
+  }
+}

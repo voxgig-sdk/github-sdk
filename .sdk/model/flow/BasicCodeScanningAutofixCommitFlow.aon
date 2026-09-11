@@ -1,0 +1,24 @@
+# BasicCodeScanningAutofixCommitFlow
+
+main: kit: flow: BasicCodeScanningAutofixCommitFlow:
+{
+  entity: "code_scanning_autofix_commit",
+  kind: "basic",
+  name: "BasicCodeScanningAutofixCommitFlow",
+  step: [
+    {
+      input: {
+        ref: "code_scanning_autofix_commit_ref01"
+      }
+
+      match: {
+        alert_id: "alert01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicCodeScanningAutofixCommitFlow"
+}

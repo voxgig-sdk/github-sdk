@@ -1,0 +1,31 @@
+{
+  "existing": {
+    "branch_with_protection": {
+      "BRANCH_WITH_PROTECTION00": {
+        "id": "BRANCH_WITH_PROTECTION00",
+        "new_name": "s15",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "BRANCH_WITH_PROTECTION01": {
+        "id": "BRANCH_WITH_PROTECTION01",
+        "new_name": "s29",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "BRANCH_WITH_PROTECTION02": {
+        "id": "BRANCH_WITH_PROTECTION02",
+        "new_name": "s3d",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "branch_with_protection": {
+      "branch_with_protection_ref01": {
+        "new_name": "s51"
+      }
+    }
+  }
+}

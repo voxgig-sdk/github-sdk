@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "code_security_configuration_repository": {
+      "CODE_SECURITY_CONFIGURATION_REPOSITORY00": {
+        "repository": {},
+        "status": "s15",
+        "configuration_id": "CONFIGURATION01",
+        "enterprise": "ENTERPRISE01",
+        "org_id": "ORG01"
+      },
+      "CODE_SECURITY_CONFIGURATION_REPOSITORY01": {
+        "repository": {},
+        "status": "s29",
+        "configuration_id": "CONFIGURATION01",
+        "enterprise": "ENTERPRISE01",
+        "org_id": "ORG01"
+      },
+      "CODE_SECURITY_CONFIGURATION_REPOSITORY02": {
+        "repository": {},
+        "status": "s3d",
+        "configuration_id": "CONFIGURATION01",
+        "enterprise": "ENTERPRISE01",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "code_security_configuration_repository": {
+      "code_security_configuration_repository_ref01": {
+        "repository": {},
+        "status": "s51"
+      }
+    }
+  }
+}

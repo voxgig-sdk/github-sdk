@@ -1,0 +1,25 @@
+{
+  "existing": {
+    "oidc_custom_sub": {
+      "OIDC_CUSTOM_SUB00": {
+        "include_claim_keys": [],
+        "org_id": "ORG01"
+      },
+      "OIDC_CUSTOM_SUB01": {
+        "include_claim_keys": [],
+        "org_id": "ORG01"
+      },
+      "OIDC_CUSTOM_SUB02": {
+        "include_claim_keys": [],
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "oidc_custom_sub": {
+      "oidc_custom_sub_ref01": {
+        "include_claim_keys": []
+      }
+    }
+  }
+}

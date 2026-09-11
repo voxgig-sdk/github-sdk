@@ -1,0 +1,22 @@
+# BasicUserMarketplacePurchaseFlow
+
+main: kit: flow: BasicUserMarketplacePurchaseFlow:
+{
+  entity: "user_marketplace_purchase",
+  kind: "basic",
+  name: "BasicUserMarketplacePurchaseFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "user_marketplace_purchase_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicUserMarketplacePurchaseFlow"
+}

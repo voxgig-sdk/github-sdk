@@ -1,0 +1,58 @@
+{
+  "existing": {
+    "label": {
+      "LABEL00": {
+        "color": "s50",
+        "default": false,
+        "description": "s52",
+        "id": "LABEL00",
+        "name": "s54",
+        "new_name": "s55",
+        "node_id": "NODE01",
+        "url": "s57",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "milestone_number": "MILESTONE_NUMBER01"
+      },
+      "LABEL01": {
+        "color": "sa0",
+        "default": false,
+        "description": "sa2",
+        "id": "LABEL01",
+        "name": "sa4",
+        "new_name": "sa5",
+        "node_id": "NODE01",
+        "url": "sa7",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "milestone_number": "MILESTONE_NUMBER01"
+      },
+      "LABEL02": {
+        "color": "sf0",
+        "default": false,
+        "description": "sf2",
+        "id": "LABEL02",
+        "name": "sf4",
+        "new_name": "sf5",
+        "node_id": "NODE01",
+        "url": "sf7",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "milestone_number": "MILESTONE_NUMBER01"
+      }
+    }
+  },
+  "new": {
+    "label": {
+      "label_ref01": {
+        "color": "s140",
+        "default": false,
+        "description": "s142",
+        "name": "s144",
+        "new_name": "s145",
+        "node_id": "NODE01",
+        "url": "s147"
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+# BasicRunnerGroupFlow
+
+main: kit: flow: BasicRunnerGroupFlow:
+{
+  entity: "runner_group",
+  kind: "basic",
+  name: "BasicRunnerGroupFlow",
+  step: [
+    {
+      input: {
+        ref: "runner_group_ref01"
+      }
+
+      match: {
+        org_id: "org01"
+      }
+
+      op: "create"
+    }
+
+    {
+      data: {
+        org_id: "org01"
+      }
+
+      input: {
+        ref: "runner_group_ref01",
+        srcdatavar: "runner_group_ref01_data",
+        suffix: "_up0",
+        textfield: "hosted_runners_url"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-runner_group_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "runner_group_ref01",
+        srcdatavar: "runner_group_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "runner_group01",
+        org_id: "org01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-runner_group_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRunnerGroupFlow"
+}

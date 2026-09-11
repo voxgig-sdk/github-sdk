@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "code_scanning_sarifs_status": {
+      "CODE_SCANNING_SARIFS_STATUS00": {
+        "analyses_url": "s1e",
+        "errors": [],
+        "processing_status": "s20",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "sarif_id": "SARIF01",
+        "id": "CODE_SCANNING_SARIFS_STATUS00"
+      },
+      "CODE_SCANNING_SARIFS_STATUS01": {
+        "analyses_url": "s3c",
+        "errors": [],
+        "processing_status": "s3e",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "sarif_id": "SARIF01",
+        "id": "CODE_SCANNING_SARIFS_STATUS01"
+      },
+      "CODE_SCANNING_SARIFS_STATUS02": {
+        "analyses_url": "s5a",
+        "errors": [],
+        "processing_status": "s5c",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "sarif_id": "SARIF01",
+        "id": "CODE_SCANNING_SARIFS_STATUS02"
+      }
+    }
+  },
+  "new": {
+    "code_scanning_sarifs_status": {
+      "code_scanning_sarifs_status_ref01": {
+        "analyses_url": "s78",
+        "errors": [],
+        "processing_status": "s7a"
+      }
+    }
+  }
+}

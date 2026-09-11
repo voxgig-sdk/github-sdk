@@ -1,0 +1,33 @@
+# BasicApiInsightsUserStatFlow
+
+main: kit: flow: BasicApiInsightsUserStatFlow:
+{
+  entity: "api_insights_user_stat",
+  kind: "basic",
+  name: "BasicApiInsightsUserStatFlow",
+  step: [
+    {
+      input: {
+        ref: "api_insights_user_stat_ref01",
+        srcdatavar: "api_insights_user_stat_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "api_insights_user_stat01",
+        org_id: "org01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-api_insights_user_stat_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicApiInsightsUserStatFlow"
+}

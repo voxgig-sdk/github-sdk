@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "actions_repository_permission": {
+      "ACTIONS_REPOSITORY_PERMISSION00": {
+        "allowed_actions": "s28",
+        "enabled": false,
+        "selected_actions_url": "s2a",
+        "sha_pinning_required": false,
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "ACTIONS_REPOSITORY_PERMISSION00"
+      },
+      "ACTIONS_REPOSITORY_PERMISSION01": {
+        "allowed_actions": "s50",
+        "enabled": false,
+        "selected_actions_url": "s52",
+        "sha_pinning_required": false,
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "ACTIONS_REPOSITORY_PERMISSION01"
+      },
+      "ACTIONS_REPOSITORY_PERMISSION02": {
+        "allowed_actions": "s78",
+        "enabled": false,
+        "selected_actions_url": "s7a",
+        "sha_pinning_required": false,
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "ACTIONS_REPOSITORY_PERMISSION02"
+      }
+    }
+  },
+  "new": {
+    "actions_repository_permission": {
+      "actions_repository_permission_ref01": {
+        "allowed_actions": "sa0",
+        "enabled": false,
+        "selected_actions_url": "sa2",
+        "sha_pinning_required": false
+      }
+    }
+  }
+}

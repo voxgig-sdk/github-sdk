@@ -1,0 +1,89 @@
+{
+  "existing": {
+    "code_scanning_organization_alert_item": {
+      "CODE_SCANNING_ORGANIZATION_ALERT_ITEM00": {
+        "created_at": "saa",
+        "dismissal_approved_by": {},
+        "dismissed_at": "sac",
+        "dismissed_by": {},
+        "dismissed_comment": "sae",
+        "dismissed_reason": "saf",
+        "fixed_at": "sb0",
+        "html_url": "sb1",
+        "instances_url": "sb2",
+        "most_recent_instance": {},
+        "number": "sb4",
+        "repository": {},
+        "rule": {},
+        "state": "sb7",
+        "tool": {},
+        "updated_at": "sb9",
+        "url": "sba",
+        "org_id": "ORG01"
+      },
+      "CODE_SCANNING_ORGANIZATION_ALERT_ITEM01": {
+        "created_at": "s154",
+        "dismissal_approved_by": {},
+        "dismissed_at": "s156",
+        "dismissed_by": {},
+        "dismissed_comment": "s158",
+        "dismissed_reason": "s159",
+        "fixed_at": "s15a",
+        "html_url": "s15b",
+        "instances_url": "s15c",
+        "most_recent_instance": {},
+        "number": "s15e",
+        "repository": {},
+        "rule": {},
+        "state": "s161",
+        "tool": {},
+        "updated_at": "s163",
+        "url": "s164",
+        "org_id": "ORG01"
+      },
+      "CODE_SCANNING_ORGANIZATION_ALERT_ITEM02": {
+        "created_at": "s1fe",
+        "dismissal_approved_by": {},
+        "dismissed_at": "s200",
+        "dismissed_by": {},
+        "dismissed_comment": "s202",
+        "dismissed_reason": "s203",
+        "fixed_at": "s204",
+        "html_url": "s205",
+        "instances_url": "s206",
+        "most_recent_instance": {},
+        "number": "s208",
+        "repository": {},
+        "rule": {},
+        "state": "s20b",
+        "tool": {},
+        "updated_at": "s20d",
+        "url": "s20e",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "code_scanning_organization_alert_item": {
+      "code_scanning_organization_alert_item_ref01": {
+        "created_at": "s2a8",
+        "dismissal_approved_by": {},
+        "dismissed_at": "s2aa",
+        "dismissed_by": {},
+        "dismissed_comment": "s2ac",
+        "dismissed_reason": "s2ad",
+        "fixed_at": "s2ae",
+        "html_url": "s2af",
+        "instances_url": "s2b0",
+        "most_recent_instance": {},
+        "number": "s2b2",
+        "repository": {},
+        "rule": {},
+        "state": "s2b5",
+        "tool": {},
+        "updated_at": "s2b7",
+        "url": "s2b8"
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "existing": {
+    "simple_classroom_assignment": {
+      "SIMPLE_CLASSROOM_ASSIGNMENT00": {
+        "accepted": "sb4",
+        "classroom": {},
+        "deadline": "sb6",
+        "editor": "sb7",
+        "feedback_pull_requests_enabled": true,
+        "id": "SIMPLE_CLASSROOM_ASSIGNMENT00",
+        "invitations_enabled": true,
+        "invite_link": "sbb",
+        "language": "sbc",
+        "max_members": "sbd",
+        "max_teams": "sbe",
+        "passing": "sbf",
+        "public_repo": true,
+        "slug": "sc1",
+        "students_are_repo_admins": true,
+        "submitted": "sc3",
+        "title": "sc4",
+        "type": "sc5",
+        "classroom_id": "CLASSROOM01"
+      },
+      "SIMPLE_CLASSROOM_ASSIGNMENT01": {
+        "accepted": "s168",
+        "classroom": {},
+        "deadline": "s16a",
+        "editor": "s16b",
+        "feedback_pull_requests_enabled": true,
+        "id": "SIMPLE_CLASSROOM_ASSIGNMENT01",
+        "invitations_enabled": true,
+        "invite_link": "s16f",
+        "language": "s170",
+        "max_members": "s171",
+        "max_teams": "s172",
+        "passing": "s173",
+        "public_repo": true,
+        "slug": "s175",
+        "students_are_repo_admins": true,
+        "submitted": "s177",
+        "title": "s178",
+        "type": "s179",
+        "classroom_id": "CLASSROOM01"
+      },
+      "SIMPLE_CLASSROOM_ASSIGNMENT02": {
+        "accepted": "s21c",
+        "classroom": {},
+        "deadline": "s21e",
+        "editor": "s21f",
+        "feedback_pull_requests_enabled": true,
+        "id": "SIMPLE_CLASSROOM_ASSIGNMENT02",
+        "invitations_enabled": true,
+        "invite_link": "s223",
+        "language": "s224",
+        "max_members": "s225",
+        "max_teams": "s226",
+        "passing": "s227",
+        "public_repo": true,
+        "slug": "s229",
+        "students_are_repo_admins": true,
+        "submitted": "s22b",
+        "title": "s22c",
+        "type": "s22d",
+        "classroom_id": "CLASSROOM01"
+      }
+    }
+  },
+  "new": {
+    "simple_classroom_assignment": {
+      "simple_classroom_assignment_ref01": {
+        "accepted": "s2d0",
+        "classroom": {},
+        "deadline": "s2d2",
+        "editor": "s2d3",
+        "feedback_pull_requests_enabled": true,
+        "invitations_enabled": true,
+        "invite_link": "s2d7",
+        "language": "s2d8",
+        "max_members": "s2d9",
+        "max_teams": "s2da",
+        "passing": "s2db",
+        "public_repo": true,
+        "slug": "s2dd",
+        "students_are_repo_admins": true,
+        "submitted": "s2df",
+        "title": "s2e0",
+        "type": "s2e1"
+      }
+    }
+  }
+}

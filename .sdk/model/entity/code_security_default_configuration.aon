@@ -1,0 +1,131 @@
+# Entity: code_security_default_configuration
+
+main: kit: entity: code_security_default_configuration: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "configuration"
+      req: false
+      short: "A code security configuration"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "default_for_new_repos"
+      req: false
+      short: "The visibility of newly created repositories for which the code security configuration will be applied to by default"
+      type: "`$ANY`"
+    }
+  ]
+
+  name: "code_security_default_configuration"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "enterprise"
+                orig: "enterprise"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/enterprises/{enterprise}/code-security/configurations/defaults"
+          segments: [
+            {
+              lit: "enterprises"
+            }
+            {
+              var: "enterprise"
+            }
+            {
+              lit: "code-security"
+            }
+            {
+              lit: "configurations"
+            }
+            {
+              lit: "defaults"
+            }
+          ]
+          select: {
+            exist: [
+              "enterprise"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/code-security/configurations/defaults"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "code-security"
+            }
+            {
+              lit: "configurations"
+            }
+            {
+              lit: "defaults"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "enterpris"
+      ]
+      [
+        "org"
+      ]
+    ]
+  }
+
+
+
+}

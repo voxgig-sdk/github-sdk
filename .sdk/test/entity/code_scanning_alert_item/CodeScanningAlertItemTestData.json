@@ -1,0 +1,88 @@
+{
+  "existing": {
+    "code_scanning_alert_item": {
+      "CODE_SCANNING_ALERT_ITEM00": {
+        "created_at": "sa0",
+        "dismissal_approved_by": {},
+        "dismissed_at": "sa2",
+        "dismissed_by": {},
+        "dismissed_comment": "sa4",
+        "dismissed_reason": "sa5",
+        "fixed_at": "sa6",
+        "html_url": "sa7",
+        "instances_url": "sa8",
+        "most_recent_instance": {},
+        "number": "saa",
+        "rule": {},
+        "state": "sac",
+        "tool": {},
+        "updated_at": "sae",
+        "url": "saf",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CODE_SCANNING_ALERT_ITEM01": {
+        "created_at": "s140",
+        "dismissal_approved_by": {},
+        "dismissed_at": "s142",
+        "dismissed_by": {},
+        "dismissed_comment": "s144",
+        "dismissed_reason": "s145",
+        "fixed_at": "s146",
+        "html_url": "s147",
+        "instances_url": "s148",
+        "most_recent_instance": {},
+        "number": "s14a",
+        "rule": {},
+        "state": "s14c",
+        "tool": {},
+        "updated_at": "s14e",
+        "url": "s14f",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CODE_SCANNING_ALERT_ITEM02": {
+        "created_at": "s1e0",
+        "dismissal_approved_by": {},
+        "dismissed_at": "s1e2",
+        "dismissed_by": {},
+        "dismissed_comment": "s1e4",
+        "dismissed_reason": "s1e5",
+        "fixed_at": "s1e6",
+        "html_url": "s1e7",
+        "instances_url": "s1e8",
+        "most_recent_instance": {},
+        "number": "s1ea",
+        "rule": {},
+        "state": "s1ec",
+        "tool": {},
+        "updated_at": "s1ee",
+        "url": "s1ef",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "code_scanning_alert_item": {
+      "code_scanning_alert_item_ref01": {
+        "created_at": "s280",
+        "dismissal_approved_by": {},
+        "dismissed_at": "s282",
+        "dismissed_by": {},
+        "dismissed_comment": "s284",
+        "dismissed_reason": "s285",
+        "fixed_at": "s286",
+        "html_url": "s287",
+        "instances_url": "s288",
+        "most_recent_instance": {},
+        "number": "s28a",
+        "rule": {},
+        "state": "s28c",
+        "tool": {},
+        "updated_at": "s28e",
+        "url": "s28f"
+      }
+    }
+  }
+}

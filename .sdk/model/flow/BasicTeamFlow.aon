@@ -1,0 +1,114 @@
+# BasicTeamFlow
+
+main: kit: flow: BasicTeamFlow:
+{
+  entity: "team",
+  kind: "basic",
+  name: "BasicTeamFlow",
+  step: [
+    {
+      input: {
+        ref: "team_ref01"
+      }
+
+      match: {
+        branch_id: "branch01",
+        discussion_id: "discussion01",
+        discussion_number: "discussion_number01",
+        invitation_id: "invitation01",
+        org: "org01",
+        org_id: "org01",
+        organization_role_id: "organization_role01",
+        owner: "owner01",
+        repo: "repo01",
+        team_id: "team01",
+        team_slug: "team_slug01"
+      }
+
+      op: "create"
+    }
+
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "team_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "team_ref01",
+        srcdatavar: "team_ref01_data",
+        suffix: "_up0",
+        textfield: "archive_url"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-team_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "team_ref01",
+        srcdatavar: "team_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "team01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-team_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "team_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "team01"
+      }
+
+      op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "team_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTeamFlow"
+}

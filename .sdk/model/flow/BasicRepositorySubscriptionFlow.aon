@@ -1,0 +1,56 @@
+# BasicRepositorySubscriptionFlow
+
+main: kit: flow: BasicRepositorySubscriptionFlow:
+{
+  entity: "repository_subscription",
+  kind: "basic",
+  name: "BasicRepositorySubscriptionFlow",
+  step: [
+    {
+      data: {
+        owner: "owner01"
+      }
+
+      input: {
+        ref: "repository_subscription_ref01",
+        srcdatavar: "repository_subscription_ref01_data",
+        suffix: "_up0",
+        textfield: "created_at"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_subscription_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "repository_subscription_ref01",
+        srcdatavar: "repository_subscription_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "repository_subscription01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_subscription_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositorySubscriptionFlow"
+}

@@ -1,0 +1,68 @@
+# BasicEmptyObjectFlow
+
+main: kit: flow: BasicEmptyObjectFlow:
+{
+  entity: "empty_object",
+  kind: "basic",
+  name: "BasicEmptyObjectFlow",
+  step: [
+    {
+      input: {
+        ref: "empty_object_ref01"
+      }
+
+      match: {
+        environment_id: "environment01",
+        org_id: "org01",
+        owner: "owner01",
+        repo: "repo01",
+        username: "username01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "empty_object_ref01",
+        srcdatavar: "empty_object_ref01_data",
+        suffix: "_up0",
+        textfield: "encrypted_value"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-empty_object_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "empty_object_ref01",
+        srcdatavar: "empty_object_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "empty_object01",
+        username: "username01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-empty_object_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEmptyObjectFlow"
+}

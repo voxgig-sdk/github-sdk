@@ -1,0 +1,26 @@
+# BasicSimpleClassroomAssignmentFlow
+
+main: kit: flow: BasicSimpleClassroomAssignmentFlow:
+{
+  entity: "simple_classroom_assignment",
+  kind: "basic",
+  name: "BasicSimpleClassroomAssignmentFlow",
+  step: [
+    {
+      match: {
+        classroom_id: "classroom01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "simple_classroom_assignment_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSimpleClassroomAssignmentFlow"
+}

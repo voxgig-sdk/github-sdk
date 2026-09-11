@@ -1,0 +1,50 @@
+# BasicImportFlow
+
+main: kit: flow: BasicImportFlow:
+{
+  entity: "import",
+  kind: "basic",
+  name: "BasicImportFlow",
+  step: [
+    {
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "import_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        owner: "owner01"
+      }
+
+      input: {
+        ref: "import_ref01",
+        srcdatavar: "import_ref01_data",
+        suffix: "_up0",
+        textfield: "authors_url"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-import_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicImportFlow"
+}

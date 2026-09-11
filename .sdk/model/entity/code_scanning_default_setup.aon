@@ -1,0 +1,127 @@
+# Entity: code_scanning_default_setup
+
+main: kit: entity: code_scanning_default_setup: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "languages"
+      req: false
+      short: "Languages to be analyzed."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "query_suite"
+      req: false
+      short: "CodeQL query suite to be used."
+      type: "`$STRING`"
+    }
+    {
+      name: "runner_label"
+      req: false
+      short: "Runner label to be used if the runner type is labeled."
+      type: "`$STRING`"
+    }
+    {
+      name: "runner_type"
+      req: false
+      short: "Runner type to be used."
+      type: "`$STRING`"
+    }
+    {
+      name: "schedule"
+      req: false
+      short: "The frequency of the periodic analysis."
+      type: "`$STRING`"
+    }
+    {
+      name: "state"
+      req: false
+      short: "Code scanning default setup has been configured or not."
+      type: "`$STRING`"
+    }
+    {
+      name: "threat_model"
+      req: false
+      short: "Threat model to be used for code scanning analysis."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      req: false
+      short: "Timestamp of latest configuration update."
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "code_scanning_default_setup"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/code-scanning/default-setup"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "code-scanning"
+            }
+            {
+              lit: "default-setup"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.languages`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

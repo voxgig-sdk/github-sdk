@@ -1,0 +1,310 @@
+# Entity: license
+
+main: kit: entity: license: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "body"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "conditions"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "content"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "download_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "encoding"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "featured"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "git_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "implementation"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "key"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "license"
+      req: true
+      short: "License Simple"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "limitations"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "links"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "path"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "permissions"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "sha"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "size"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "spdx_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "license"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "featured"
+                orig: "featured"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/licenses"
+          segments: [
+            {
+              lit: "licenses"
+            }
+          ]
+          select: {
+            exist: [
+              "featured"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "ref"
+                orig: "ref"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/license"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "license"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "ref"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.license`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "license"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/licenses/{license}"
+          rename: {
+            param: {
+              license: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "licenses"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

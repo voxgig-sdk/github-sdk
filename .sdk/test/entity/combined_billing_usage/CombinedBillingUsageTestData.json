@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "combined_billing_usage": {
+      "COMBINED_BILLING_USAGE00": {
+        "days_left_in_billing_cycle": "s1e",
+        "estimated_paid_storage_for_month": "s1f",
+        "estimated_storage_for_month": "s20",
+        "org_id": "ORG01",
+        "username": "USERNAME01",
+        "id": "COMBINED_BILLING_USAGE00"
+      },
+      "COMBINED_BILLING_USAGE01": {
+        "days_left_in_billing_cycle": "s3c",
+        "estimated_paid_storage_for_month": "s3d",
+        "estimated_storage_for_month": "s3e",
+        "org_id": "ORG01",
+        "username": "USERNAME01",
+        "id": "COMBINED_BILLING_USAGE01"
+      },
+      "COMBINED_BILLING_USAGE02": {
+        "days_left_in_billing_cycle": "s5a",
+        "estimated_paid_storage_for_month": "s5b",
+        "estimated_storage_for_month": "s5c",
+        "org_id": "ORG01",
+        "username": "USERNAME01",
+        "id": "COMBINED_BILLING_USAGE02"
+      }
+    }
+  },
+  "new": {
+    "combined_billing_usage": {
+      "combined_billing_usage_ref01": {
+        "days_left_in_billing_cycle": "s78",
+        "estimated_paid_storage_for_month": "s79",
+        "estimated_storage_for_month": "s7a"
+      }
+    }
+  }
+}

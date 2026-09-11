@@ -1,0 +1,116 @@
+# BasicCodespaceFlow
+
+main: kit: flow: BasicCodespaceFlow:
+{
+  entity: "codespace",
+  kind: "basic",
+  name: "BasicCodespaceFlow",
+  step: [
+    {
+      input: {
+        ref: "codespace_ref01"
+      }
+
+      match: {
+        codespace_id: "codespace01",
+        codespace_name: "codespace_name01",
+        member_id: "member01",
+        org_id: "org01",
+        owner: "owner01",
+        repo: "repo01",
+        secret_id: "secret01",
+        secret_name: "secret_name01",
+        username: "username01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        secret_name: "secret_name01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "codespace_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "codespace_ref01",
+        srcdatavar: "codespace_ref01_data",
+        suffix: "_up0",
+        textfield: "archive_url"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-codespace_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "codespace_ref01",
+        srcdatavar: "codespace_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-codespace_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "codespace_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "codespace01"
+      }
+
+      op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      match: {
+        secret_name: "secret_name01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "codespace_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCodespaceFlow"
+}

@@ -1,0 +1,217 @@
+<?php
+declare(strict_types=1);
+
+// User entity test
+
+require_once __DIR__ . '/../github_sdk.php';
+require_once __DIR__ . '/Runner.php';
+
+use PHPUnit\Framework\TestCase;
+use Voxgig\Struct\Struct as Vs;
+
+class UserEntityTest extends TestCase
+{
+    public function test_create_instance(): void
+    {
+        $testsdk = GithubSDK::test(null, null);
+        $ent = $testsdk->User(null);
+        $this->assertNotNull($ent);
+    }
+
+    // Feature #4: the entity stream(action, ...) method runs the op pipeline
+    // and yields result items. With the streaming feature active it yields the
+    // feature's incremental output; otherwise it falls back to the materialised
+    // list so stream always yields.
+    public function test_stream(): void
+    {
+        $seed = [
+            "entity" => [
+                "user" => [
+                    "s1" => ["id" => "s1"],
+                    "s2" => ["id" => "s2"],
+                    "s3" => ["id" => "s3"],
+                ],
+            ],
+        ];
+
+        // Fallback: streaming inactive -> yields the materialised list items.
+        $base = GithubSDK::test($seed, null);
+        $seen = iterator_to_array($base->User(null)->stream("list", null, null), false);
+        $this->assertCount(3, $seen);
+
+        // Inbound: streaming active -> yields each item from the feature.
+        $cfg = GithubConfig::shared_config();
+        if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
+            $sdk = GithubSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
+            $got = [];
+            foreach ($sdk->User(null)->stream("list", null, null) as $item) {
+                if (is_array($item) && array_is_list($item)) {
+                    foreach ($item as $sub) {
+                        $got[] = $sub;
+                    }
+                } else {
+                    $got[] = $item;
+                }
+            }
+            $this->assertCount(3, $got);
+        }
+    }
+
+    public function test_basic_flow(): void
+    {
+        $setup = user_basic_setup(null);
+        // Per-op sdk-test-control.json skip.
+        $_live = !empty($setup["live"]);
+        foreach (["create", "list", "update", "load", "remove"] as $_op) {
+            [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "user." . $_op, $_live ? "live" : "unit");
+            if ($_shouldSkip) {
+                $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
+                return;
+            }
+        }
+        // The basic flow consumes synthetic IDs from the fixture. In live mode
+        // without an *_ENTID env override, those IDs hit the live API and 4xx.
+        if (!empty($setup["synthetic_only"])) {
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set GITHUB_TEST_USER_ENTID JSON to run live");
+            return;
+        }
+        $client = $setup["client"];
+
+        // CREATE
+        $user_ref01_ent = $client->User(null);
+        $user_ref01_data = Helpers::to_map(Vs::getprop(
+            Vs::getpath($setup["data"], "new.user"), "user_ref01"));
+        $user_ref01_data["branch_id"] = $setup["idmap"]["branch01"];
+        $user_ref01_data["org_id"] = $setup["idmap"]["org01"];
+        $user_ref01_data["organization_role_id"] = $setup["idmap"]["organization_role01"];
+        $user_ref01_data["owner"] = $setup["idmap"]["owner01"];
+        $user_ref01_data["repo"] = $setup["idmap"]["repo01"];
+        $user_ref01_data["username"] = $setup["idmap"]["username01"];
+
+        $user_ref01_data_result = $user_ref01_ent->create($user_ref01_data, null);
+        $user_ref01_data = Helpers::to_map(is_object($user_ref01_data_result) && method_exists($user_ref01_data_result, 'data_get') ? $user_ref01_data_result->data_get() : $user_ref01_data_result);
+        $this->assertNotNull($user_ref01_data);
+        $this->assertNotNull($user_ref01_data["id"]);
+
+        // LIST
+        $user_ref01_match = [];
+
+        $user_ref01_list_result = $user_ref01_ent->list($user_ref01_match, null);
+        $this->assertIsArray($user_ref01_list_result);
+
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($user_ref01_list_result),
+            ["id" => $user_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
+        // UPDATE
+        $user_ref01_data_up0_up = [
+            "id" => $user_ref01_data["id"],
+        ];
+
+        $user_ref01_markdef_up0_name = "assignment";
+        $user_ref01_markdef_up0_value = "Mark01-user_ref01_" . $setup["now"];
+        $user_ref01_data_up0_up[$user_ref01_markdef_up0_name] = $user_ref01_markdef_up0_value;
+
+        $user_ref01_resdata_up0_result = $user_ref01_ent->update($user_ref01_data_up0_up, null);
+        $user_ref01_resdata_up0 = Helpers::to_map(is_object($user_ref01_resdata_up0_result) && method_exists($user_ref01_resdata_up0_result, 'data_get') ? $user_ref01_resdata_up0_result->data_get() : $user_ref01_resdata_up0_result);
+        $this->assertNotNull($user_ref01_resdata_up0);
+        $this->assertEquals($user_ref01_resdata_up0["id"], $user_ref01_data_up0_up["id"]);
+        $this->assertEquals($user_ref01_resdata_up0[$user_ref01_markdef_up0_name], $user_ref01_markdef_up0_value);
+
+        // LOAD
+        $user_ref01_match_dt0 = [
+            "id" => $user_ref01_data["id"],
+        ];
+        $user_ref01_data_dt0_loaded = $user_ref01_ent->load($user_ref01_match_dt0, null);
+        $user_ref01_data_dt0_load_result = Helpers::to_map(is_object($user_ref01_data_dt0_loaded) && method_exists($user_ref01_data_dt0_loaded, 'data_get') ? $user_ref01_data_dt0_loaded->data_get() : $user_ref01_data_dt0_loaded);
+        $this->assertNotNull($user_ref01_data_dt0_load_result);
+        $this->assertEquals($user_ref01_data_dt0_load_result["id"], $user_ref01_data["id"]);
+
+        // REMOVE
+        $user_ref01_match_rm0 = [
+            "id" => $user_ref01_data["id"],
+        ];
+        $user_ref01_ent->remove($user_ref01_match_rm0, null);
+
+        // LIST
+        $user_ref01_match_rt0 = [];
+
+        $user_ref01_list_rt0_result = $user_ref01_ent->list($user_ref01_match_rt0, null);
+        $this->assertIsArray($user_ref01_list_rt0_result);
+
+        $not_found_item = sdk_select(
+            Runner::entity_list_to_data($user_ref01_list_rt0_result),
+            ["id" => $user_ref01_data["id"]]);
+        $this->assertEmpty($not_found_item);
+
+    }
+}
+
+function user_basic_setup($extra)
+{
+    Runner::load_env_local();
+
+    $entity_data_file = __DIR__ . '/../../.sdk/test/entity/user/UserTestData.json';
+    $entity_data_source = file_get_contents($entity_data_file);
+    $entity_data = json_decode($entity_data_source, true);
+
+    $options = [];
+    $options["entity"] = $entity_data["existing"];
+
+    $client = GithubSDK::test($options, $extra);
+
+    // Generate idmap.
+    $idmap = [];
+    foreach (["user01", "user02", "user03", "block01", "block02", "block03", "gpg_key01", "gpg_key02", "gpg_key03", "key01", "key02", "key03", "ssh_signing_key01", "ssh_signing_key02", "ssh_signing_key03", "org01", "org02", "org03", "organization_role01", "organization_role02", "organization_role03", "repo01", "repo02", "repo03", "branch01", "branch02", "branch03", "digest01", "digest02", "digest03", "attestation01", "attestation02", "attestation03", "following01", "following02", "following03", "owner01", "username01"] as $k) {
+        $idmap[$k] = strtoupper($k);
+    }
+
+    // Detect ENTID env override before envOverride consumes it. When live
+    // mode is on without a real override, the basic test runs against synthetic
+    // IDs from the fixture and 4xx's. Surface this so the test can skip.
+    $entid_env_raw = getenv("GITHUB_TEST_USER_ENTID");
+    $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
+
+    $env = Runner::env_override([
+        "GITHUB_TEST_USER_ENTID" => $idmap,
+        "GITHUB_TEST_LIVE" => "FALSE",
+        "GITHUB_TEST_EXPLAIN" => "FALSE",
+        "GITHUB_APIKEY" => "",
+    ]);
+
+    $idmap_resolved = Helpers::to_map(
+        $env["GITHUB_TEST_USER_ENTID"]);
+    if ($idmap_resolved === null) {
+        $idmap_resolved = Helpers::to_map($idmap);
+    }
+
+    if ($env["GITHUB_TEST_LIVE"] === "TRUE") {
+        $merged_opts = Vs::merge([
+            // FIRST, so the generated fields below win: sdk-test-control.json's
+            // test.client.options adds to the live client, it does not redirect it.
+            Runner::live_client_options(),
+            [
+                "apikey" => $env["GITHUB_APIKEY"],
+            ],
+            // ismap, not a plain "?? []" default: an empty PHP array is a
+            // LIST, and a non-map later entry REPLACES the accumulated map in
+            // merge - so the no-extras call discarded live_client_options()
+            // and the apikey/server map above it.
+            Vs::ismap($extra) ? $extra : new \stdClass(),
+        ]);
+        $client = new GithubSDK(Helpers::to_map($merged_opts));
+    }
+
+    $live = $env["GITHUB_TEST_LIVE"] === "TRUE";
+    return [
+        "client" => $client,
+        "data" => $entity_data,
+        "idmap" => $idmap_resolved,
+        "env" => $env,
+        "explain" => $env["GITHUB_TEST_EXPLAIN"] === "TRUE",
+        "live" => $live,
+        "synthetic_only" => $live && !$idmap_overridden,
+        "now" => (int)(microtime(true) * 1000),
+    ];
+}

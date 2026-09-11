@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "code_of_conduct": {
+      "CODE_OF_CONDUCT00": {
+        "body": "s32",
+        "html_url": "s33",
+        "key": "s34",
+        "name": "s35",
+        "url": "s36",
+        "id": "CODE_OF_CONDUCT00"
+      },
+      "CODE_OF_CONDUCT01": {
+        "body": "s64",
+        "html_url": "s65",
+        "key": "s66",
+        "name": "s67",
+        "url": "s68",
+        "id": "CODE_OF_CONDUCT01"
+      },
+      "CODE_OF_CONDUCT02": {
+        "body": "s96",
+        "html_url": "s97",
+        "key": "s98",
+        "name": "s99",
+        "url": "s9a",
+        "id": "CODE_OF_CONDUCT02"
+      }
+    }
+  },
+  "new": {
+    "code_of_conduct": {
+      "code_of_conduct_ref01": {
+        "body": "sc8",
+        "html_url": "sc9",
+        "key": "sca",
+        "name": "scb",
+        "url": "scc"
+      }
+    }
+  }
+}

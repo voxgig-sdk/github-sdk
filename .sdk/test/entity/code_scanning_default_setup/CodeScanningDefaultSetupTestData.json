@@ -1,0 +1,56 @@
+{
+  "existing": {
+    "code_scanning_default_setup": {
+      "CODE_SCANNING_DEFAULT_SETUP00": {
+        "languages": [],
+        "query_suite": "s51",
+        "runner_label": "s52",
+        "runner_type": "s53",
+        "schedule": "s54",
+        "state": "s55",
+        "threat_model": "s56",
+        "updated_at": "s57",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CODE_SCANNING_DEFAULT_SETUP01": {
+        "languages": [],
+        "query_suite": "sa1",
+        "runner_label": "sa2",
+        "runner_type": "sa3",
+        "schedule": "sa4",
+        "state": "sa5",
+        "threat_model": "sa6",
+        "updated_at": "sa7",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CODE_SCANNING_DEFAULT_SETUP02": {
+        "languages": [],
+        "query_suite": "sf1",
+        "runner_label": "sf2",
+        "runner_type": "sf3",
+        "schedule": "sf4",
+        "state": "sf5",
+        "threat_model": "sf6",
+        "updated_at": "sf7",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "code_scanning_default_setup": {
+      "code_scanning_default_setup_ref01": {
+        "languages": [],
+        "query_suite": "s141",
+        "runner_label": "s142",
+        "runner_type": "s143",
+        "schedule": "s144",
+        "state": "s145",
+        "threat_model": "s146",
+        "updated_at": "s147"
+      }
+    }
+  }
+}

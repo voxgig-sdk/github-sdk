@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "referrer": {
+      "REFERRER00": {
+        "count": "s1e",
+        "referrer": "s1f",
+        "uniques": "s20",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "REFERRER01": {
+        "count": "s3c",
+        "referrer": "s3d",
+        "uniques": "s3e",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "REFERRER02": {
+        "count": "s5a",
+        "referrer": "s5b",
+        "uniques": "s5c",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "referrer": {
+      "referrer_ref01": {
+        "count": "s78",
+        "referrer": "s79",
+        "uniques": "s7a"
+      }
+    }
+  }
+}

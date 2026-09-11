@@ -1,0 +1,32 @@
+# BasicActionsCacheUsageOrgEnterpriseFlow
+
+main: kit: flow: BasicActionsCacheUsageOrgEnterpriseFlow:
+{
+  entity: "actions_cache_usage_org_enterprise",
+  kind: "basic",
+  name: "BasicActionsCacheUsageOrgEnterpriseFlow",
+  step: [
+    {
+      input: {
+        ref: "actions_cache_usage_org_enterprise_ref01",
+        srcdatavar: "actions_cache_usage_org_enterprise_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "actions_cache_usage_org_enterprise01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-actions_cache_usage_org_enterprise_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicActionsCacheUsageOrgEnterpriseFlow"
+}

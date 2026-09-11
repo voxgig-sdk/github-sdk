@@ -1,0 +1,34 @@
+# BasicRulesetVersionWithStateFlow
+
+main: kit: flow: BasicRulesetVersionWithStateFlow:
+{
+  entity: "ruleset_version_with_state",
+  kind: "basic",
+  name: "BasicRulesetVersionWithStateFlow",
+  step: [
+    {
+      input: {
+        ref: "ruleset_version_with_state_ref01",
+        srcdatavar: "ruleset_version_with_state_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "ruleset_version_with_state01",
+        org_id: "org01",
+        ruleset_id: "ruleset01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-ruleset_version_with_state_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRulesetVersionWithStateFlow"
+}

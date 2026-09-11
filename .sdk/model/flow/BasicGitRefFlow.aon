@@ -1,0 +1,71 @@
+# BasicGitRefFlow
+
+main: kit: flow: BasicGitRefFlow:
+{
+  entity: "git_ref",
+  kind: "basic",
+  name: "BasicGitRefFlow",
+  step: [
+    {
+      input: {
+        ref: "git_ref_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      data: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      input: {
+        ref: "git_ref_ref01",
+        srcdatavar: "git_ref_ref01_data",
+        suffix: "_up0",
+        textfield: "node_id"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-git_ref_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "git_ref_ref01",
+        srcdatavar: "git_ref_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "git_ref01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-git_ref_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGitRefFlow"
+}

@@ -1,0 +1,65 @@
+{
+  "existing": {
+    "classroom_assignment_grade": {
+      "CLASSROOM_ASSIGNMENT_GRADE00": {
+        "assignment_name": "s6e",
+        "assignment_url": "s6f",
+        "github_username": "s70",
+        "group_name": "s71",
+        "points_available": "s72",
+        "points_awarded": "s73",
+        "roster_identifier": "s74",
+        "starter_code_url": "s75",
+        "student_repository_name": "s76",
+        "student_repository_url": "s77",
+        "submission_timestamp": "s78",
+        "assignment_id": "ASSIGNMENT01"
+      },
+      "CLASSROOM_ASSIGNMENT_GRADE01": {
+        "assignment_name": "sdc",
+        "assignment_url": "sdd",
+        "github_username": "sde",
+        "group_name": "sdf",
+        "points_available": "se0",
+        "points_awarded": "se1",
+        "roster_identifier": "se2",
+        "starter_code_url": "se3",
+        "student_repository_name": "se4",
+        "student_repository_url": "se5",
+        "submission_timestamp": "se6",
+        "assignment_id": "ASSIGNMENT01"
+      },
+      "CLASSROOM_ASSIGNMENT_GRADE02": {
+        "assignment_name": "s14a",
+        "assignment_url": "s14b",
+        "github_username": "s14c",
+        "group_name": "s14d",
+        "points_available": "s14e",
+        "points_awarded": "s14f",
+        "roster_identifier": "s150",
+        "starter_code_url": "s151",
+        "student_repository_name": "s152",
+        "student_repository_url": "s153",
+        "submission_timestamp": "s154",
+        "assignment_id": "ASSIGNMENT01"
+      }
+    }
+  },
+  "new": {
+    "classroom_assignment_grade": {
+      "classroom_assignment_grade_ref01": {
+        "assignment_name": "s1b8",
+        "assignment_url": "s1b9",
+        "github_username": "s1ba",
+        "group_name": "s1bb",
+        "points_available": "s1bc",
+        "points_awarded": "s1bd",
+        "roster_identifier": "s1be",
+        "starter_code_url": "s1bf",
+        "student_repository_name": "s1c0",
+        "student_repository_url": "s1c1",
+        "submission_timestamp": "s1c2"
+      }
+    }
+  }
+}

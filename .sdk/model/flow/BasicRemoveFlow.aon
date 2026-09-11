@@ -1,0 +1,23 @@
+# BasicRemoveFlow
+
+main: kit: flow: BasicRemoveFlow:
+{
+  entity: "remove",
+  kind: "basic",
+  name: "BasicRemoveFlow",
+  step: [
+    {
+      input: {
+        ref: "remove_ref01"
+      }
+
+      match: {
+        enterprise: "enterprise01",
+        team_id: "team01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicRemoveFlow"
+}

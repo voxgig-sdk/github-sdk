@@ -1,0 +1,58 @@
+# BasicCodeScanningAlertFlow
+
+main: kit: flow: BasicCodeScanningAlertFlow:
+{
+  entity: "code_scanning_alert",
+  kind: "basic",
+  name: "BasicCodeScanningAlertFlow",
+  step: [
+    {
+      data: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      input: {
+        ref: "code_scanning_alert_ref01",
+        srcdatavar: "code_scanning_alert_ref01_data",
+        suffix: "_up0",
+        textfield: "created_at"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-code_scanning_alert_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "code_scanning_alert_ref01",
+        srcdatavar: "code_scanning_alert_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "code_scanning_alert01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-code_scanning_alert_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCodeScanningAlertFlow"
+}

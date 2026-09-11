@@ -1,0 +1,50 @@
+# BasicDeploymentProtectionRuleFlow
+
+main: kit: flow: BasicDeploymentProtectionRuleFlow:
+{
+  entity: "deployment_protection_rule",
+  kind: "basic",
+  name: "BasicDeploymentProtectionRuleFlow",
+  step: [
+    {
+      input: {
+        ref: "deployment_protection_rule_ref01"
+      }
+
+      match: {
+        environment_id: "environment01",
+        environment_name: "environment_name01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "deployment_protection_rule_ref01",
+        srcdatavar: "deployment_protection_rule_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        environment_id: "environment01",
+        id: "deployment_protection_rule01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-deployment_protection_rule_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDeploymentProtectionRuleFlow"
+}

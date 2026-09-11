@@ -1,0 +1,773 @@
+# Entity: pull_request_review
+
+main: kit: entity: pull_request_review: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "author_association"
+      req: true
+      short: "How the author is associated with the repository."
+      type: "`$STRING`"
+    }
+    {
+      name: "body"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The text of the review."
+      type: "`$STRING`"
+    }
+    {
+      name: "body_html"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "body_text"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "comments"
+      req: false
+      short: "Use the following table to specify the location, destination, and contents of the draft review comment."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "commit_id"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "A commit SHA for the review."
+      type: "`$STRING`"
+    }
+    {
+      name: "event"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The review action you want to perform."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      req: true
+      short: "Unique identifier of the review"
+      type: "`$INTEGER`"
+    }
+    {
+      name: "links"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "message"
+      req: true
+      short: "The message for the pull request review dismissal"
+      type: "`$STRING`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "pull_request_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "state"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "submitted_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "teams"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "user"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "users"
+      req: true
+      type: "`$ARRAY`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "pull_request_review"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pull_id"
+                orig: "pull_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "review_id"
+                orig: "review_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/events"
+          rename: {
+            param: {
+              pull_number: "pull_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              var: "pull_id"
+            }
+            {
+              lit: "reviews"
+            }
+            {
+              var: "review_id"
+            }
+            {
+              lit: "events"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "pull_id"
+              "repo"
+              "review_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pull_number"
+                orig: "pull_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/pulls/{pull_number}/reviews"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              var: "pull_number"
+            }
+            {
+              lit: "reviews"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "pull_number"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pull_number"
+                orig: "pull_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/pulls/{pull_number}/reviews"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              var: "pull_number"
+            }
+            {
+              lit: "reviews"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "page"
+              "per_page"
+              "pull_number"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pull_number"
+                orig: "pull_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              var: "pull_number"
+            }
+            {
+              lit: "requested_reviewers"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "pull_number"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "review_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pull_id"
+                orig: "pull_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}"
+          rename: {
+            param: {
+              pull_number: "pull_id"
+              review_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              var: "pull_id"
+            }
+            {
+              lit: "reviews"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "owner"
+              "pull_id"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "review_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pull_id"
+                orig: "pull_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}"
+          rename: {
+            param: {
+              pull_number: "pull_id"
+              review_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              var: "pull_id"
+            }
+            {
+              lit: "reviews"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "owner"
+              "pull_id"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "review_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pull_id"
+                orig: "pull_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}"
+          rename: {
+            param: {
+              pull_number: "pull_id"
+              review_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              var: "pull_id"
+            }
+            {
+              lit: "reviews"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "owner"
+              "pull_id"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pull_id"
+                orig: "pull_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "review_id"
+                orig: "review_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/dismissals"
+          rename: {
+            param: {
+              pull_number: "pull_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              var: "pull_id"
+            }
+            {
+              lit: "reviews"
+            }
+            {
+              var: "review_id"
+            }
+            {
+              lit: "dismissals"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "pull_id"
+              "repo"
+              "review_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+        "pull"
+      ]
+      [
+        "repo"
+        "pull"
+        "review"
+      ]
+    ]
+  }
+
+
+
+}

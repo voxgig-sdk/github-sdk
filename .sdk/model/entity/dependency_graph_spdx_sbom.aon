@@ -1,0 +1,129 @@
+# Entity: dependency_graph_spdx_sbom
+
+main: kit: entity: dependency_graph_spdx_sbom: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "SPDXID"
+      req: true
+      short: "The SPDX identifier for the SPDX document."
+      type: "`$STRING`"
+    }
+    {
+      name: "comment"
+      req: false
+      short: "An optional comment about the SPDX document."
+      type: "`$STRING`"
+    }
+    {
+      name: "creationInfo"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "dataLicense"
+      req: true
+      short: "The license under which the SPDX document is licensed."
+      type: "`$STRING`"
+    }
+    {
+      name: "documentNamespace"
+      req: true
+      short: "The namespace for the SPDX document."
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      short: "The name of the SPDX document."
+      type: "`$STRING`"
+    }
+    {
+      name: "packages"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "relationships"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "spdxVersion"
+      req: true
+      short: "The version of the SPDX specification that this document conforms to."
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "dependency_graph_spdx_sbom"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/dependency-graph/sbom"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "dependency-graph"
+            }
+            {
+              lit: "sbom"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.sbom`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

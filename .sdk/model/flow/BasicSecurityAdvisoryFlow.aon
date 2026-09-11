@@ -1,0 +1,24 @@
+# BasicSecurityAdvisoryFlow
+
+main: kit: flow: BasicSecurityAdvisoryFlow:
+{
+  entity: "security_advisory",
+  kind: "basic",
+  name: "BasicSecurityAdvisoryFlow",
+  step: [
+    {
+      input: {
+        ref: "security_advisory_ref01"
+      }
+
+      match: {
+        ghsa_id: "ghsa01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicSecurityAdvisoryFlow"
+}

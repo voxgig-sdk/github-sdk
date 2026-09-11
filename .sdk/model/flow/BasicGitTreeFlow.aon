@@ -1,0 +1,47 @@
+# BasicGitTreeFlow
+
+main: kit: flow: BasicGitTreeFlow:
+{
+  entity: "git_tree",
+  kind: "basic",
+  name: "BasicGitTreeFlow",
+  step: [
+    {
+      input: {
+        ref: "git_tree_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "git_tree_ref01",
+        srcdatavar: "git_tree_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "git_tree01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-git_tree_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGitTreeFlow"
+}

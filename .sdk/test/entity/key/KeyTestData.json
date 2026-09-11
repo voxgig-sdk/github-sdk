@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "key": {
+      "KEY00": {
+        "created_at": "s50",
+        "id": "KEY00",
+        "key": "s52",
+        "last_used": "s53",
+        "read_only": true,
+        "title": "s55",
+        "url": "s56",
+        "verified": false,
+        "username": "USERNAME01"
+      },
+      "KEY01": {
+        "created_at": "sa0",
+        "id": "KEY01",
+        "key": "sa2",
+        "last_used": "sa3",
+        "read_only": true,
+        "title": "sa5",
+        "url": "sa6",
+        "verified": false,
+        "username": "USERNAME01"
+      },
+      "KEY02": {
+        "created_at": "sf0",
+        "id": "KEY02",
+        "key": "sf2",
+        "last_used": "sf3",
+        "read_only": true,
+        "title": "sf5",
+        "url": "sf6",
+        "verified": false,
+        "username": "USERNAME01"
+      }
+    }
+  },
+  "new": {
+    "key": {
+      "key_ref01": {
+        "created_at": "s140",
+        "key": "s142",
+        "last_used": "s143",
+        "read_only": true,
+        "title": "s145",
+        "url": "s146",
+        "verified": false
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "existing": {
+    "api_insights_user_stat": {
+      "API_INSIGHTS_USER_STAT00": {
+        "actor_id": "ACTOR01",
+        "actor_name": "s65",
+        "actor_type": "s66",
+        "id": "API_INSIGHTS_USER_STAT00",
+        "integration_id": "INTEGRATION01",
+        "last_rate_limited_timestamp": "s69",
+        "last_request_timestamp": "s6a",
+        "oauth_application_id": "OAUTH_APPLICATION01",
+        "rate_limited_request_count": "s6c",
+        "total_request_count": "s6d",
+        "org_id": "ORG01"
+      },
+      "API_INSIGHTS_USER_STAT01": {
+        "actor_id": "ACTOR01",
+        "actor_name": "sc9",
+        "actor_type": "sca",
+        "id": "API_INSIGHTS_USER_STAT01",
+        "integration_id": "INTEGRATION01",
+        "last_rate_limited_timestamp": "scd",
+        "last_request_timestamp": "sce",
+        "oauth_application_id": "OAUTH_APPLICATION01",
+        "rate_limited_request_count": "sd0",
+        "total_request_count": "sd1",
+        "org_id": "ORG01"
+      },
+      "API_INSIGHTS_USER_STAT02": {
+        "actor_id": "ACTOR01",
+        "actor_name": "s12d",
+        "actor_type": "s12e",
+        "id": "API_INSIGHTS_USER_STAT02",
+        "integration_id": "INTEGRATION01",
+        "last_rate_limited_timestamp": "s131",
+        "last_request_timestamp": "s132",
+        "oauth_application_id": "OAUTH_APPLICATION01",
+        "rate_limited_request_count": "s134",
+        "total_request_count": "s135",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "api_insights_user_stat": {
+      "api_insights_user_stat_ref01": {
+        "actor_id": "ACTOR01",
+        "actor_name": "s191",
+        "actor_type": "s192",
+        "integration_id": "INTEGRATION01",
+        "last_rate_limited_timestamp": "s195",
+        "last_request_timestamp": "s196",
+        "oauth_application_id": "OAUTH_APPLICATION01",
+        "rate_limited_request_count": "s198",
+        "total_request_count": "s199"
+      }
+    }
+  }
+}

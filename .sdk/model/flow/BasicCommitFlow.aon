@@ -1,0 +1,66 @@
+# BasicCommitFlow
+
+main: kit: flow: BasicCommitFlow:
+{
+  entity: "commit",
+  kind: "basic",
+  name: "BasicCommitFlow",
+  step: [
+    {
+      input: {
+        ref: "commit_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        pull_number: "pull_number01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        owner: "owner01",
+        pull_number: "pull_number01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "commit_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "commit_ref01",
+        srcdatavar: "commit_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "commit01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-commit_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCommitFlow"
+}

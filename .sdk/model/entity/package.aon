@@ -1,0 +1,2051 @@
+# Entity: package
+
+main: kit: entity: package: {
+
+  alias: field: {}
+
+  alias: {
+    field: {
+      github_id: "id"
+    }
+  }
+
+  fields: [
+    {
+      name: "container"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "deleted_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "docker"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "github_id"
+      req: true
+      short: "Unique identifier of the package."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "html_url"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      short: "Unique identifier of the package."
+      type: "`$STRING`"
+    }
+    {
+      name: "included_gigabytes_bandwidth"
+      req: true
+      short: "Free storage space (GB) for GitHub Packages."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "license"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "metadata"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "name"
+      req: true
+      short: "The name of the package."
+      type: "`$STRING`"
+    }
+    {
+      name: "owner"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "package_html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "package_type"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "repository"
+      req: true
+      short: "Minimal Repository"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "total_gigabytes_bandwidth_used"
+      req: true
+      short: "Sum of the free and paid storage space (GB) for GitHuub Packages."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "total_paid_gigabytes_bandwidth_used"
+      req: true
+      short: "Total paid storage space (GB) for GitHuub Packages."
+      type: "`$INTEGER`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "version_count"
+      req: true
+      short: "The number of versions of the package."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "visibility"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    from: {
+      package_type: "package_type"
+    }
+    name: "id"
+    parts: [
+      "package_type"
+      "package_name"
+    ]
+    sep: "/"
+  }
+
+  name: "package"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_id"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/packages/{package_type}/{package_name}/restore"
+          rename: {
+            param: {
+              org: "org_id"
+              package_type: "package_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_id"
+            }
+            {
+              var: "package_name"
+            }
+            {
+              lit: "restore"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "package_id"
+              "package_name"
+              "token"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_id"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version_id"
+                orig: "package_version_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/packages/{package_type}/{package_name}/versions/{package_version_id}/restore"
+          rename: {
+            param: {
+              org: "org_id"
+              package_type: "package_id"
+              package_version_id: "version_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_id"
+            }
+            {
+              var: "package_name"
+            }
+            {
+              lit: "versions"
+            }
+            {
+              var: "version_id"
+            }
+            {
+              lit: "restore"
+            }
+          ]
+          select: {
+            "$action": "restore"
+            exist: [
+              "org_id"
+              "package_id"
+              "package_name"
+              "version_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "package_id"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/users/{username}/packages/{package_type}/{package_name}/restore"
+          rename: {
+            param: {
+              package_type: "package_id"
+            }
+          }
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_id"
+            }
+            {
+              var: "package_name"
+            }
+            {
+              lit: "restore"
+            }
+          ]
+          select: {
+            exist: [
+              "package_id"
+              "package_name"
+              "token"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "package_id"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version_id"
+                orig: "package_version_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/users/{username}/packages/{package_type}/{package_name}/versions/{package_version_id}/restore"
+          rename: {
+            param: {
+              package_type: "package_id"
+              package_version_id: "version_id"
+            }
+          }
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_id"
+            }
+            {
+              var: "package_name"
+            }
+            {
+              lit: "versions"
+            }
+            {
+              var: "version_id"
+            }
+            {
+              lit: "restore"
+            }
+          ]
+          select: {
+            "$action": "restore"
+            exist: [
+              "package_id"
+              "package_name"
+              "username"
+              "version_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "package_id"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/user/packages/{package_type}/{package_name}/restore"
+          rename: {
+            param: {
+              package_type: "package_id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_id"
+            }
+            {
+              var: "package_name"
+            }
+            {
+              lit: "restore"
+            }
+          ]
+          select: {
+            exist: [
+              "package_id"
+              "package_name"
+              "token"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "package_id"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version_id"
+                orig: "package_version_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/user/packages/{package_type}/{package_name}/versions/{package_version_id}/restore"
+          rename: {
+            param: {
+              package_type: "package_id"
+              package_version_id: "version_id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_id"
+            }
+            {
+              var: "package_name"
+            }
+            {
+              lit: "versions"
+            }
+            {
+              var: "version_id"
+            }
+            {
+              lit: "restore"
+            }
+          ]
+          select: {
+            "$action": "restore"
+            exist: [
+              "package_id"
+              "package_name"
+              "version_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_id"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "active"
+                kind: "query"
+                name: "state"
+                orig: "state"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/packages/{package_type}/{package_name}/versions"
+          rename: {
+            param: {
+              org: "org_id"
+              package_type: "package_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_id"
+            }
+            {
+              var: "package_name"
+            }
+            {
+              lit: "versions"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "package_id"
+              "package_name"
+              "page"
+              "per_page"
+              "state"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "package_type"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "visibility"
+                orig: "visibility"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/packages"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "packages"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "package_type"
+              "page"
+              "per_page"
+              "visibility"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "package_id"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "active"
+                kind: "query"
+                name: "state"
+                orig: "state"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/packages/{package_type}/{package_name}/versions"
+          rename: {
+            param: {
+              package_type: "package_id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_id"
+            }
+            {
+              var: "package_name"
+            }
+            {
+              lit: "versions"
+            }
+          ]
+          select: {
+            exist: [
+              "package_id"
+              "package_name"
+              "page"
+              "per_page"
+              "state"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "package_type"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "visibility"
+                orig: "visibility"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users/{username}/packages"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "packages"
+            }
+          ]
+          select: {
+            exist: [
+              "package_type"
+              "page"
+              "per_page"
+              "username"
+              "visibility"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "package_type"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "visibility"
+                orig: "visibility"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/packages"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "packages"
+            }
+          ]
+          select: {
+            exist: [
+              "package_type"
+              "page"
+              "per_page"
+              "visibility"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "package_id"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users/{username}/packages/{package_type}/{package_name}/versions"
+          rename: {
+            param: {
+              package_type: "package_id"
+            }
+          }
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_id"
+            }
+            {
+              var: "package_name"
+            }
+            {
+              lit: "versions"
+            }
+          ]
+          select: {
+            exist: [
+              "package_id"
+              "package_name"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/docker/conflicts"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "docker"
+            }
+            {
+              lit: "conflicts"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users/{username}/docker/conflicts"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "docker"
+            }
+            {
+              lit: "conflicts"
+            }
+          ]
+          select: {
+            exist: [
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/user/docker/conflicts"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "docker"
+            }
+            {
+              lit: "conflicts"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_id"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_version_id"
+                orig: "package_version_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/packages/{package_type}/{package_name}/versions/{package_version_id}"
+          rename: {
+            param: {
+              org: "org_id"
+              package_type: "package_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_id"
+            }
+            {
+              var: "package_name"
+            }
+            {
+              lit: "versions"
+            }
+            {
+              var: "package_version_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "package_id"
+              "package_name"
+              "package_version_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.metadata`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "package_id"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_version_id"
+                orig: "package_version_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users/{username}/packages/{package_type}/{package_name}/versions/{package_version_id}"
+          rename: {
+            param: {
+              package_type: "package_id"
+            }
+          }
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_id"
+            }
+            {
+              var: "package_name"
+            }
+            {
+              lit: "versions"
+            }
+            {
+              var: "package_version_id"
+            }
+          ]
+          select: {
+            exist: [
+              "package_id"
+              "package_name"
+              "package_version_id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.metadata`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_type"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/packages/{package_type}/{package_name}"
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_type"
+            }
+            {
+              var: "package_name"
+            }
+          ]
+          select: {
+            exist: [
+              "org"
+              "package_name"
+              "package_type"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "package_id"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_version_id"
+                orig: "package_version_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/packages/{package_type}/{package_name}/versions/{package_version_id}"
+          rename: {
+            param: {
+              package_type: "package_id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_id"
+            }
+            {
+              var: "package_name"
+            }
+            {
+              lit: "versions"
+            }
+            {
+              var: "package_version_id"
+            }
+          ]
+          select: {
+            exist: [
+              "package_id"
+              "package_name"
+              "package_version_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.metadata`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_type"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users/{username}/packages/{package_type}/{package_name}"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_type"
+            }
+            {
+              var: "package_name"
+            }
+          ]
+          select: {
+            exist: [
+              "package_name"
+              "package_type"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_type"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/packages/{package_type}/{package_name}"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_type"
+            }
+            {
+              var: "package_name"
+            }
+          ]
+          select: {
+            exist: [
+              "package_name"
+              "package_type"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/settings/billing/packages"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "billing"
+            }
+            {
+              lit: "packages"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users/{username}/settings/billing/packages"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "billing"
+            }
+            {
+              lit: "packages"
+            }
+          ]
+          select: {
+            exist: [
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_id"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_version_id"
+                orig: "package_version_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/packages/{package_type}/{package_name}/versions/{package_version_id}"
+          rename: {
+            param: {
+              org: "org_id"
+              package_type: "package_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_id"
+            }
+            {
+              var: "package_name"
+            }
+            {
+              lit: "versions"
+            }
+            {
+              var: "package_version_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "package_id"
+              "package_name"
+              "package_version_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "package_id"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_version_id"
+                orig: "package_version_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/users/{username}/packages/{package_type}/{package_name}/versions/{package_version_id}"
+          rename: {
+            param: {
+              package_type: "package_id"
+            }
+          }
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_id"
+            }
+            {
+              var: "package_name"
+            }
+            {
+              lit: "versions"
+            }
+            {
+              var: "package_version_id"
+            }
+          ]
+          select: {
+            exist: [
+              "package_id"
+              "package_name"
+              "package_version_id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_type"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/packages/{package_type}/{package_name}"
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_type"
+            }
+            {
+              var: "package_name"
+            }
+          ]
+          select: {
+            exist: [
+              "org"
+              "package_name"
+              "package_type"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "package_id"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_version_id"
+                orig: "package_version_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/user/packages/{package_type}/{package_name}/versions/{package_version_id}"
+          rename: {
+            param: {
+              package_type: "package_id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_id"
+            }
+            {
+              var: "package_name"
+            }
+            {
+              lit: "versions"
+            }
+            {
+              var: "package_version_id"
+            }
+          ]
+          select: {
+            exist: [
+              "package_id"
+              "package_name"
+              "package_version_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_type"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/users/{username}/packages/{package_type}/{package_name}"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_type"
+            }
+            {
+              var: "package_name"
+            }
+          ]
+          select: {
+            exist: [
+              "package_name"
+              "package_type"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "package_name"
+                orig: "package_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "package_type"
+                orig: "package_type"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/user/packages/{package_type}/{package_name}"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "packages"
+            }
+            {
+              var: "package_type"
+            }
+            {
+              var: "package_name"
+            }
+          ]
+          select: {
+            exist: [
+              "package_name"
+              "package_type"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+      [
+        "user"
+      ]
+      [
+        "org"
+        "package"
+      ]
+      [
+        "user"
+        "package"
+      ]
+      [
+        "org"
+        "package"
+        "version"
+      ]
+      [
+        "user"
+        "package"
+        "version"
+      ]
+    ]
+  }
+
+
+
+}

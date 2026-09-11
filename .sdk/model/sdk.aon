@@ -7,7 +7,7 @@
 # SDK Details.
 name: 'github'
 origin: 'voxgig-sdk'
-def: 'github-repo-only.json'
+def: 'github-full.yaml'
 
 
 # API Information
@@ -34,13 +34,7 @@ def: 'github-repo-only.json'
 @"flow/flow-index.aon"
 
 
-# Seneca provider plugin generates out-of-tree into the sibling repo.
-# `adopt` writes into that checkout when it is there; `create: false` skips
-# the target when it is not, so a fresh clone never fabricates a sibling.
-main: kit: target: 'seneca-provider': output: {
-  path: '../../seneca/github-provider'
-  sdkrel: '../../voxgig-sdk/github-sdk'
-  adopt: true
-  create: false
-}
-
+# Project overlay — LAST, so it can refine targets the index above defines.
+# Carries this project's own decisions: where the Seneca provider is
+# generated, and the release version its manifest declares.
+@"project.aon"

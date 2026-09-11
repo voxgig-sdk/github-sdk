@@ -45,7 +45,7 @@ describe('RepoDirect', async () => {
   test('direct-load-repo', async (t: any) => {
     const setup = directSetup({ id: 'direct01' })
     if (maybeSkipControl(t, 'direct', 'direct-load-repo', setup.live)) return
-    if (skipIfMissingIds(t, setup, ["owner01","repo01"])) return
+    if (skipIfMissingIds(t, setup, ["owner01","repo01","subject_digest01"])) return
     const { client, calls } = setup
 
     const params: any = {}
@@ -72,13 +72,15 @@ describe('RepoDirect', async () => {
       params.owner = candidateId
       params.owner = setup.idmap['owner01']
       params.repo = setup.idmap['repo01']
+      params.subject_digest = setup.idmap['subject_digest01']
     } else {
       params.owner = 'direct01'
       params.repo = 'direct02'
+      params.subject_digest = 'direct03'
     }
 
     const result: any = await client.direct({
-      path: 'repos/{owner}/{repo}',
+      path: 'repos/{owner}/{repo}/attestations/{subject_digest}',
       method: 'GET',
       params,
       query,
@@ -100,6 +102,7 @@ describe('RepoDirect', async () => {
       assert(calls[0].init.method === 'GET')
       assert(calls[0].url.includes('direct01'))
       assert(calls[0].url.includes('direct02'))
+      assert(calls[0].url.includes('direct03'))
     }
   })
 

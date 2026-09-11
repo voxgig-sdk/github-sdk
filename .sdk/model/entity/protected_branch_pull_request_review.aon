@@ -1,0 +1,235 @@
+# Entity: protected_branch_pull_request_review
+
+main: kit: entity: protected_branch_pull_request_review: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "bypass_pull_request_allowances"
+      req: false
+      short: "Allow specific users, teams, or apps to bypass pull request requirements."
+      type: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 5
+      }
+    }
+    {
+      name: "dismiss_stale_reviews"
+      op: {
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Set to `true` if you want to automatically dismiss approving reviews when someone pushes a new commit."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "dismissal_restrictions"
+      req: false
+      short: "Specify which users, teams, and apps can dismiss pull request reviews."
+      type: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 5
+      }
+    }
+    {
+      name: "require_code_owner_reviews"
+      op: {
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Blocks merging pull requests until [code owners](https://docs.github.com/articles/about-code-owners/) have reviewed."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "require_last_push_approval"
+      req: false
+      short: "Whether the most recent push must be approved by someone other than the person who pushed it."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "required_approving_review_count"
+      req: false
+      short: "Specifies the number of reviewers required to approve pull requests."
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "protected_branch_pull_request_review"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection/required_pull_request_reviews"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              lit: "required_pull_request_reviews"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection/required_pull_request_reviews"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              lit: "required_pull_request_reviews"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+        "branch"
+      ]
+    ]
+  }
+
+
+
+}

@@ -1,0 +1,92 @@
+# Entity: hovercard
+
+main: kit: entity: hovercard: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "message"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "octicon"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "hovercard"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "subject_id"
+                orig: "subject_id"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "subject_type"
+                orig: "subject_type"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users/{username}/hovercard"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "hovercard"
+            }
+          ]
+          select: {
+            exist: [
+              "subject_id"
+              "subject_type"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.contexts`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "user"
+      ]
+    ]
+  }
+
+
+
+}

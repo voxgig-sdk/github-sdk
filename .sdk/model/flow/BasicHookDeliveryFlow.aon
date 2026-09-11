@@ -1,0 +1,32 @@
+# BasicHookDeliveryFlow
+
+main: kit: flow: BasicHookDeliveryFlow:
+{
+  entity: "hook_delivery",
+  kind: "basic",
+  name: "BasicHookDeliveryFlow",
+  step: [
+    {
+      input: {
+        ref: "hook_delivery_ref01",
+        srcdatavar: "hook_delivery_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "hook_delivery01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-hook_delivery_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicHookDeliveryFlow"
+}

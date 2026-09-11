@@ -1,0 +1,950 @@
+# Entity: full_repository
+
+main: kit: entity: full_repository: {
+
+  alias: field: {}
+
+  alias: {
+    field: {
+      github_id: "id"
+    }
+  }
+
+  fields: [
+    {
+      name: "allow_auto_merge"
+      req: false
+      short: "Either `true` to allow auto-merge on pull requests, or `false` to disallow auto-merge."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "allow_forking"
+      req: false
+      short: "Either `true` to allow private forks, or `false` to prevent private forks."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "allow_merge_commit"
+      req: false
+      short: "Either `true` to allow merging pull requests with a merge commit, or `false` to prevent merging pull requests with merge commits."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "allow_rebase_merge"
+      req: false
+      short: "Either `true` to allow rebase-merging pull requests, or `false` to prevent rebase-merging."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "allow_squash_merge"
+      req: false
+      short: "Either `true` to allow squash-merging pull requests, or `false` to prevent squash-merging."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "allow_update_branch"
+      req: false
+      short: "Either `true` to always allow a pull request head branch that is behind its base branch to be updated even if it is not required to be up to date before merging, or false otherwise."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "anonymous_access_enabled"
+      req: false
+      short: "Whether anonymous git access is allowed."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "archive_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "archived"
+      op: {
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Whether to archive this repository."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "assignees_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "auto_init"
+      req: false
+      short: "Pass `true` to create an initial commit with empty README."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "blobs_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "branches_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "clone_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "code_of_conduct"
+      req: true
+      short: "Code of Conduct Simple"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "collaborators_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "comments_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "commits_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "compare_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "contents_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "contributors_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "custom_properties"
+      req: false
+      short: "The custom properties that were defined for the repository."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "default_branch"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "Updates the default branch for this repository."
+      type: "`$STRING`"
+    }
+    {
+      name: "delete_branch_on_merge"
+      req: false
+      short: "Either `true` to allow automatically deleting head branches when pull requests are merged, or `false` to prevent automatic deletion."
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "deployments_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "A short description of the new repository."
+      type: "`$STRING`"
+    }
+    {
+      name: "disabled"
+      req: true
+      short: "Returns whether or not this repository disabled."
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "downloads_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "fork"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "forks"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "forks_count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "forks_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "full_name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_commits_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_refs_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_tags_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "github_id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "gitignore_template"
+      req: false
+      short: "Desired language or platform [.gitignore template](https://github.com/github/gitignore) to apply."
+      type: "`$STRING`"
+    }
+    {
+      name: "has_discussions"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Whether discussions are enabled."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_downloads"
+      req: false
+      short: "Whether downloads are enabled."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_issues"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Either `true` to enable issues for this repository or `false` to disable them."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_pages"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_projects"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Either `true` to enable projects for this repository or `false` to disable them."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_wiki"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Either `true` to enable the wiki for this repository or `false` to disable it."
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "homepage"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "A URL with more information about the repository."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "hooks_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "include_all_branches"
+      req: false
+      short: "Set to `true` to include the directory structure and files from all branches in the template repository, and not just the default branch."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_template"
+      req: false
+      short: "Either `true` to make this repo available as a template repository or `false` to prevent it."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "issue_comment_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "issue_events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "issues_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "keys_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "labels_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "language"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "languages_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "license"
+      req: true
+      short: "License Simple"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "license_template"
+      req: false
+      short: "Choose an [open source license template](https://choosealicense.com/) that best suits your needs, and then use the [license keyword](https://docs.github.com/articles/licensing-a-repository/#searching-github-by-license-type) as the `license…"
+      type: "`$STRING`"
+    }
+    {
+      name: "master_branch"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merge_commit_message"
+      req: false
+      short: "The default value for a merge commit message."
+      type: "`$STRING`"
+    }
+    {
+      name: "merge_commit_title"
+      req: false
+      short: "The default value for a merge commit title."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "merges_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "milestones_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "mirror_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The name of the new repository."
+      type: "`$STRING`"
+    }
+    {
+      name: "network_count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "notifications_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "open_issues"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "open_issues_count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "organization"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "owner"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "parent"
+      req: true
+      short: "A repository on GitHub."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "permissions"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "private"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Either `true` to create a new private repository or `false` to create a new public one."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "pulls_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "pushed_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "releases_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "security_and_analysis"
+      req: false
+      short: "Specify which security and analysis features to enable or disable for the repository."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "size"
+      req: true
+      short: "The size of the repository, in kilobytes."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "source"
+      req: true
+      short: "A repository on GitHub."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "squash_merge_commit_message"
+      req: false
+      short: "The default value for a squash merge commit message: - `PR_BODY` - default to the pull request's body."
+      type: "`$STRING`"
+    }
+    {
+      name: "squash_merge_commit_title"
+      req: false
+      short: "The default value for a squash merge commit title: - `PR_TITLE` - default to the pull request's title."
+      type: "`$STRING`"
+    }
+    {
+      name: "ssh_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "stargazers_count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "stargazers_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "statuses_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "subscribers_count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "subscribers_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "subscription_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "svn_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "tags_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "team_id"
+      req: false
+      short: "The id of the team that will be granted access to this repository."
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "teams_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "temp_clone_token"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "template_repository"
+      req: true
+      short: "A repository on GitHub."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "topics"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "trees_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      deprecated: true
+      name: "use_squash_pr_title_as_default"
+      req: false
+      short: "Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "visibility"
+      req: false
+      short: "The repository visibility: public, private, or internal."
+      type: "`$STRING`"
+    }
+    {
+      name: "watchers"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "watchers_count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "web_commit_signoff_required"
+      req: false
+      short: "Either `true` to require contributors to sign off on web-based commits, or `false` to not require contributors to sign off on web-based commits."
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    from: {
+      owner: "owner.login"
+    }
+    name: "id"
+    parts: [
+      "owner"
+      "repo"
+    ]
+    sep: "/"
+  }
+
+  name: "full_repository"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "template_owner"
+                orig: "template_owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "template_repo"
+                orig: "template_repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{template_owner}/{template_repo}/generate"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "template_owner"
+            }
+            {
+              var: "template_repo"
+            }
+            {
+              lit: "generate"
+            }
+          ]
+          select: {
+            exist: [
+              "template_owner"
+              "template_repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/repos"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "repos"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/user/repos"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "repos"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/repos/{owner}/{repo}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

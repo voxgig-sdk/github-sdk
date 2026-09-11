@@ -1,0 +1,296 @@
+# Entity: review_comment
+
+main: kit: entity: review_comment: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "author_association"
+      req: true
+      short: "How the author is associated with the repository."
+      type: "`$STRING`"
+    }
+    {
+      name: "body"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "body_html"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "body_text"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "commit_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "diff_hunk"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "in_reply_to_id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "line"
+      req: false
+      short: "The line of the blob to which the comment applies."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "links"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "original_commit_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "original_line"
+      req: false
+      short: "The original line of the blob to which the comment applies."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "original_position"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "original_start_line"
+      req: false
+      short: "The original first line of the range for a multi-line comment."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "path"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "position"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      format: "int64"
+      name: "pull_request_review_id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "pull_request_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "reactions"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "side"
+      req: false
+      short: "The side of the first line of the range for a multi-line comment."
+      type: "`$STRING`"
+    }
+    {
+      name: "start_line"
+      req: false
+      short: "The first line of the range for a multi-line comment."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "start_side"
+      req: false
+      short: "The side of the first line of the range for a multi-line comment."
+      type: "`$STRING`"
+    }
+    {
+      name: "subject_type"
+      req: false
+      short: "The level at which the comment is targeted, can be a diff line or a file."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "user"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "review_comment"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "review_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pull_id"
+                orig: "pull_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments"
+          rename: {
+            param: {
+              pull_number: "pull_id"
+              review_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              var: "pull_id"
+            }
+            {
+              lit: "reviews"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "comments"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "owner"
+              "page"
+              "per_page"
+              "pull_id"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+        "pull"
+      ]
+    ]
+  }
+
+
+
+}

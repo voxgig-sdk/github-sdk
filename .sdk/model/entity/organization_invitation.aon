@@ -1,0 +1,305 @@
+# Entity: organization_invitation
+
+main: kit: entity: organization_invitation: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "email"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "**Required unless you provide `invitee_id`**."
+      type: "`$STRING`"
+    }
+    {
+      name: "failed_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "failed_reason"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "invitation_source"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "invitation_teams_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "invitee_id"
+      req: false
+      short: "**Required unless you provide `email`**."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "inviter"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "login"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "role"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "The role for the new member."
+      type: "`$STRING`"
+    }
+    {
+      name: "team_count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "team_ids"
+      req: false
+      short: "Specify IDs for the teams you want to invite new members to."
+      type: "`$ARRAY`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "organization_invitation"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/invitations"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "invitations"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.inviter`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: "all"
+                kind: "query"
+                name: "invitation_source"
+                orig: "invitation_source"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "all"
+                kind: "query"
+                name: "role"
+                orig: "role"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/invitations"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "invitations"
+            }
+          ]
+          select: {
+            exist: [
+              "invitation_source"
+              "org_id"
+              "page"
+              "per_page"
+              "role"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/failed_invitations"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "failed_invitations"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+    ]
+  }
+
+
+
+}

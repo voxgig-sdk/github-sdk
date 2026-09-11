@@ -1,0 +1,75 @@
+{
+  "existing": {
+    "page": {
+      "PAGE00": {
+        "build_type": "s78",
+        "cname": "s79",
+        "custom_404": true,
+        "html_url": "s7b",
+        "https_certificate": {},
+        "https_enforced": false,
+        "pending_domain_unverified_at": "s7e",
+        "protected_domain_state": "s7f",
+        "public": true,
+        "source": {},
+        "status": "s82",
+        "url": "s83",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PAGE00"
+      },
+      "PAGE01": {
+        "build_type": "sf0",
+        "cname": "sf1",
+        "custom_404": true,
+        "html_url": "sf3",
+        "https_certificate": {},
+        "https_enforced": false,
+        "pending_domain_unverified_at": "sf6",
+        "protected_domain_state": "sf7",
+        "public": true,
+        "source": {},
+        "status": "sfa",
+        "url": "sfb",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PAGE01"
+      },
+      "PAGE02": {
+        "build_type": "s168",
+        "cname": "s169",
+        "custom_404": true,
+        "html_url": "s16b",
+        "https_certificate": {},
+        "https_enforced": false,
+        "pending_domain_unverified_at": "s16e",
+        "protected_domain_state": "s16f",
+        "public": true,
+        "source": {},
+        "status": "s172",
+        "url": "s173",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PAGE02"
+      }
+    }
+  },
+  "new": {
+    "page": {
+      "page_ref01": {
+        "build_type": "s1e0",
+        "cname": "s1e1",
+        "custom_404": true,
+        "html_url": "s1e3",
+        "https_certificate": {},
+        "https_enforced": false,
+        "pending_domain_unverified_at": "s1e6",
+        "protected_domain_state": "s1e7",
+        "public": true,
+        "source": {},
+        "status": "s1ea",
+        "url": "s1eb"
+      }
+    }
+  }
+}

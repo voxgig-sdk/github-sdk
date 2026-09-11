@@ -1,0 +1,38 @@
+# BasicCodeScanningFlow
+
+main: kit: flow: BasicCodeScanningFlow:
+{
+  entity: "code_scanning",
+  kind: "basic",
+  name: "BasicCodeScanningFlow",
+  step: [
+    {
+      input: {
+        ref: "code_scanning_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "code_scanning_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "code_scanning01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "remove"
+    }
+  ],
+  "key$": "BasicCodeScanningFlow"
+}

@@ -1,0 +1,294 @@
+# Entity: code_scanning_alert
+
+main: kit: entity: code_scanning_alert: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "create_request"
+      req: false
+      short: "If `true`, attempt to create an alert dismissal request."
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      readOnly: true
+      req: true
+      short: "The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`."
+      type: "`$STRING`"
+    }
+    {
+      name: "dismissal_approved_by"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      format: "date-time"
+      name: "dismissed_at"
+      readOnly: true
+      req: true
+      short: "The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`."
+      type: "`$STRING`"
+    }
+    {
+      name: "dismissed_by"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "dismissed_comment"
+      req: false
+      short: "The dismissal comment associated with the dismissal of the alert."
+      type: "`$STRING`"
+    }
+    {
+      name: "dismissed_reason"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "**Required when the state is dismissed.** The reason for dismissing or closing the alert."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "fixed_at"
+      readOnly: true
+      req: false
+      short: "The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      readOnly: true
+      req: true
+      short: "The GitHub URL of the alert resource."
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "instances_url"
+      readOnly: true
+      req: true
+      short: "The REST API URL for fetching the list of instances for an alert."
+      type: "`$STRING`"
+    }
+    {
+      name: "most_recent_instance"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "number"
+      readOnly: true
+      req: true
+      short: "The security alert number."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "rule"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "state"
+      req: true
+      short: "State of a code scanning alert."
+      type: "`$STRING`"
+    }
+    {
+      name: "tool"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      readOnly: true
+      req: false
+      short: "The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      readOnly: true
+      req: true
+      short: "The REST API URL of the alert resource."
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "code_scanning_alert"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "alert_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}"
+          rename: {
+            param: {
+              alert_number: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "code-scanning"
+            }
+            {
+              lit: "alerts"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "alert_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}"
+          rename: {
+            param: {
+              alert_number: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "code-scanning"
+            }
+            {
+              lit: "alerts"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

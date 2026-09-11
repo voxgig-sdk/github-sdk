@@ -1,0 +1,74 @@
+{
+  "existing": {
+    "hook_delivery_item": {
+      "HOOK_DELIVERY_ITEM00": {
+        "action": "s78",
+        "delivered_at": "s79",
+        "duration": 122,
+        "event": "s7b",
+        "guid": "s7c",
+        "id": "HOOK_DELIVERY_ITEM00",
+        "installation_id": "INSTALLATION01",
+        "redelivery": false,
+        "repository_id": "REPOSITORY01",
+        "status": "s81",
+        "status_code": "s82",
+        "throttled_at": "s83",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      },
+      "HOOK_DELIVERY_ITEM01": {
+        "action": "sf0",
+        "delivered_at": "sf1",
+        "duration": 242,
+        "event": "sf3",
+        "guid": "sf4",
+        "id": "HOOK_DELIVERY_ITEM01",
+        "installation_id": "INSTALLATION01",
+        "redelivery": false,
+        "repository_id": "REPOSITORY01",
+        "status": "sf9",
+        "status_code": "sfa",
+        "throttled_at": "sfb",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      },
+      "HOOK_DELIVERY_ITEM02": {
+        "action": "s168",
+        "delivered_at": "s169",
+        "duration": 362,
+        "event": "s16b",
+        "guid": "s16c",
+        "id": "HOOK_DELIVERY_ITEM02",
+        "installation_id": "INSTALLATION01",
+        "redelivery": false,
+        "repository_id": "REPOSITORY01",
+        "status": "s171",
+        "status_code": "s172",
+        "throttled_at": "s173",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "hook_delivery_item": {
+      "hook_delivery_item_ref01": {
+        "action": "s1e0",
+        "delivered_at": "s1e1",
+        "duration": 482,
+        "event": "s1e3",
+        "guid": "s1e4",
+        "installation_id": "INSTALLATION01",
+        "redelivery": false,
+        "repository_id": "REPOSITORY01",
+        "status": "s1e9",
+        "status_code": "s1ea",
+        "throttled_at": "s1eb"
+      }
+    }
+  }
+}

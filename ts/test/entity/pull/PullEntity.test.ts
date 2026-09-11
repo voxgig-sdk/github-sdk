@@ -46,7 +46,7 @@ describe('PullEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.GITHUB_TEST_LIVE
-    for (const op of ['create', 'list', 'update', 'load']) {
+    for (const op of ['create', 'list', 'update', 'load', 'remove']) {
       if (maybeSkipControl(t, 'entityOp', 'pull.' + op, live)) return
     }
 
@@ -68,6 +68,7 @@ describe('PullEntity', async () => {
     // CREATE
     const pull_ref01_ent = client.Pull()
     let pull_ref01_data = setup.data.new.pull['pull_ref01']
+    pull_ref01_data['commit_sha'] = setup.idmap['commit_sha01']
     pull_ref01_data['owner'] = setup.idmap['owner01']
     pull_ref01_data['repo'] = setup.idmap['repo01']
 
@@ -77,6 +78,7 @@ describe('PullEntity', async () => {
 
     // LIST
     const pull_ref01_match: any = {}
+    pull_ref01_match['commit_sha'] = setup.idmap['commit_sha01']
     pull_ref01_match['owner'] = setup.idmap['owner01']
     pull_ref01_match['repo'] = setup.idmap['repo01']
 
@@ -107,6 +109,22 @@ describe('PullEntity', async () => {
     assert(pull_ref01_data_dt0.id === pull_ref01_data.id)
 
 
+    // REMOVE
+    const pull_ref01_match_rm0: any = { id: pull_ref01_data.id }
+    await pull_ref01_ent.remove(pull_ref01_match_rm0)
+  
+
+    // LIST
+    const pull_ref01_match_rt0: any = {}
+    pull_ref01_match_rt0['commit_sha'] = setup.idmap['commit_sha01']
+    pull_ref01_match_rt0['owner'] = setup.idmap['owner01']
+    pull_ref01_match_rt0['repo'] = setup.idmap['repo01']
+
+    const pull_ref01_list_rt0 = (await pull_ref01_ent.list(pull_ref01_match_rt0)).map((e: any) => e.data())
+
+    assert(isempty(select(pull_ref01_list_rt0, { id: pull_ref01_data.id })))
+
+
   })
 })
 
@@ -135,7 +153,7 @@ function basicSetup(extra?: any) {
   const transform = struct.transform
 
   let idmap = transform(
-    ['pull01','pull02','pull03','repo01','repo02','repo03'],
+    ['pull01','pull02','pull03','repo01','repo02','repo03','repo01','repo02','repo03','commit01','commit02','commit03','repo01','repo02','repo03','comment01','comment02','comment03'],
     {
       '`$PACK`': ['', {
         '`$KEY`': '`$COPY`',

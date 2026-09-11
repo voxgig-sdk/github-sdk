@@ -1,0 +1,170 @@
+# Entity: pages_deployment_status
+
+main: kit: entity: pages_deployment_status: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "status"
+      req: false
+      short: "The current status of the deployment."
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "pages_deployment_status"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "deployment_id"
+                orig: "pages_deployment_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}/cancel"
+          rename: {
+            param: {
+              pages_deployment_id: "deployment_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pages"
+            }
+            {
+              lit: "deployments"
+            }
+            {
+              var: "deployment_id"
+            }
+            {
+              lit: "cancel"
+            }
+          ]
+          select: {
+            "$action": "cancel"
+            exist: [
+              "deployment_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pages_deployment_id"
+                orig: "pages_deployment_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pages"
+            }
+            {
+              lit: "deployments"
+            }
+            {
+              var: "pages_deployment_id"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "pages_deployment_id"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+        "deployment"
+      ]
+    ]
+  }
+
+
+
+}

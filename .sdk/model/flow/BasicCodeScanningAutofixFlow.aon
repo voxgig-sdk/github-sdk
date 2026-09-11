@@ -1,0 +1,48 @@
+# BasicCodeScanningAutofixFlow
+
+main: kit: flow: BasicCodeScanningAutofixFlow:
+{
+  entity: "code_scanning_autofix",
+  kind: "basic",
+  name: "BasicCodeScanningAutofixFlow",
+  step: [
+    {
+      input: {
+        ref: "code_scanning_autofix_ref01"
+      }
+
+      match: {
+        alert_number: "alert_number01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "code_scanning_autofix_ref01",
+        srcdatavar: "code_scanning_autofix_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "code_scanning_autofix01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-code_scanning_autofix_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCodeScanningAutofixFlow"
+}

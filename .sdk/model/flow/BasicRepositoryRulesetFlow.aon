@@ -1,0 +1,86 @@
+# BasicRepositoryRulesetFlow
+
+main: kit: flow: BasicRepositoryRulesetFlow:
+{
+  entity: "repository_ruleset",
+  kind: "basic",
+  name: "BasicRepositoryRulesetFlow",
+  step: [
+    {
+      input: {
+        ref: "repository_ruleset_ref01"
+      }
+
+      match: {
+        org_id: "org01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "repository_ruleset_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        org_id: "org01"
+      }
+
+      input: {
+        ref: "repository_ruleset_ref01",
+        srcdatavar: "repository_ruleset_ref01_data",
+        suffix: "_up0",
+        textfield: "created_at"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_ruleset_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "repository_ruleset_ref01",
+        srcdatavar: "repository_ruleset_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "repository_ruleset01",
+        org_id: "org01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_ruleset_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryRulesetFlow"
+}

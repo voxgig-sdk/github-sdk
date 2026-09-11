@@ -1,0 +1,51 @@
+# BasicCodeScanningAnalysiFlow
+
+main: kit: flow: BasicCodeScanningAnalysiFlow:
+{
+  entity: "code_scanning_analysi",
+  kind: "basic",
+  name: "BasicCodeScanningAnalysiFlow",
+  step: [
+    {
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "code_scanning_analysi_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "code_scanning_analysi_ref01",
+        srcdatavar: "code_scanning_analysi_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "code_scanning_analysi01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-code_scanning_analysi_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCodeScanningAnalysiFlow"
+}

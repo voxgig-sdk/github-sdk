@@ -81,7 +81,12 @@ class RepoEntityTest extends TestCase
         $repo_ref01_ent = $client->Repo(null);
         $repo_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.repo"), "repo_ref01"));
+        $repo_ref01_data["branch_id"] = $setup["idmap"]["branch01"];
+        $repo_ref01_data["environment_id"] = $setup["idmap"]["environment01"];
+        $repo_ref01_data["environment_name"] = $setup["idmap"]["environment_name01"];
+        $repo_ref01_data["org_id"] = $setup["idmap"]["org01"];
         $repo_ref01_data["owner"] = $setup["idmap"]["owner01"];
+        $repo_ref01_data["repo"] = $setup["idmap"]["repo01"];
 
         $repo_ref01_data_result = $repo_ref01_ent->create($repo_ref01_data, null);
         $repo_ref01_data = Helpers::to_map(is_object($repo_ref01_data_result) && method_exists($repo_ref01_data_result, 'data_get') ? $repo_ref01_data_result->data_get() : $repo_ref01_data_result);
@@ -89,7 +94,11 @@ class RepoEntityTest extends TestCase
         $this->assertNotNull($repo_ref01_data["id"]);
 
         // LIST
-        $repo_ref01_match = [];
+        $repo_ref01_match = [
+            "environment_name" => $setup["idmap"]["environment_name01"],
+            "owner" => $setup["idmap"]["owner01"],
+            "repo" => $setup["idmap"]["repo01"],
+        ];
 
         $repo_ref01_list_result = $repo_ref01_ent->list($repo_ref01_match, null);
         $this->assertIsArray($repo_ref01_list_result);
@@ -131,7 +140,11 @@ class RepoEntityTest extends TestCase
         $repo_ref01_ent->remove($repo_ref01_match_rm0, null);
 
         // LIST
-        $repo_ref01_match_rt0 = [];
+        $repo_ref01_match_rt0 = [
+            "environment_name" => $setup["idmap"]["environment_name01"],
+            "owner" => $setup["idmap"]["owner01"],
+            "repo" => $setup["idmap"]["repo01"],
+        ];
 
         $repo_ref01_list_rt0_result = $repo_ref01_ent->list($repo_ref01_match_rt0, null);
         $this->assertIsArray($repo_ref01_list_rt0_result);
@@ -159,7 +172,7 @@ function repo_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["repo01", "repo02", "repo03", "owner01"] as $k) {
+    foreach (["repo01", "repo02", "repo03", "repository_invitation01", "repository_invitation02", "repository_invitation03", "org01", "org02", "org03", "ruleset01", "ruleset02", "ruleset03", "attestation01", "attestation02", "attestation03", "autolink01", "autolink02", "autolink03", "branch01", "branch02", "branch03", "collaborator01", "collaborator02", "collaborator03", "comment01", "comment02", "comment03", "content01", "content02", "content03", "deployment01", "deployment02", "deployment03", "environment01", "environment02", "environment03", "hook01", "hook02", "hook03", "invitation01", "invitation02", "invitation03", "key01", "key02", "key03", "asset01", "asset02", "asset03", "release01", "release02", "release03", "protection01", "protection02", "protection03", "tarball01", "tarball02", "tarball03", "zipball01", "zipball02", "zipball03", "deployment_branch_policy01", "deployment_branch_policy02", "deployment_branch_policy03", "deployment_protection_rule01", "deployment_protection_rule02", "deployment_protection_rule03", "delivery01", "delivery02", "delivery03", "environment_name01", "owner01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

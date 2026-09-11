@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "git": {
+      "GIT00": {
+        "owner": "OWNER01",
+        "ref": "REF01",
+        "repo": "REPO01",
+        "id": "GIT00"
+      },
+      "GIT01": {
+        "owner": "OWNER01",
+        "ref": "REF01",
+        "repo": "REPO01",
+        "id": "GIT01"
+      },
+      "GIT02": {
+        "owner": "OWNER01",
+        "ref": "REF01",
+        "repo": "REPO01",
+        "id": "GIT02"
+      }
+    }
+  },
+  "new": {
+    "git": {
+      "git_ref01": {}
+    }
+  }
+}

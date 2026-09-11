@@ -1,0 +1,400 @@
+# Entity: gist_comment
+
+main: kit: entity: gist_comment: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "author_association"
+      req: true
+      short: "How the author is associated with the repository."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "avatar_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "body"
+      req: true
+      short: "The comment text."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "email"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "followers_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "following_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "gists_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "gravatar_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "login"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "organizations_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "received_events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "repos_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "site_admin"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "starred_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "starred_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "subscriptions_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "user"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "user_view_type"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "gist_comment"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "gist_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/gists/{gist_id}/comments"
+          rename: {
+            param: {
+              gist_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "gists"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "comments"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.user`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "gist_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/gists/{gist_id}/comments"
+          rename: {
+            param: {
+              gist_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "gists"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "comments"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "gist_id"
+                orig: "gist_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "comment_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/gists/{gist_id}/comments/{comment_id}"
+          rename: {
+            param: {
+              comment_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "gists"
+            }
+            {
+              var: "gist_id"
+            }
+            {
+              lit: "comments"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "gist_id"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.user`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "gist_id"
+                orig: "gist_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "comment_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/gists/{gist_id}/comments/{comment_id}"
+          rename: {
+            param: {
+              comment_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "gists"
+            }
+            {
+              var: "gist_id"
+            }
+            {
+              lit: "comments"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "gist_id"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.user`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "gist"
+      ]
+    ]
+  }
+
+
+
+}

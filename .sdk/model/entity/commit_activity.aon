@@ -1,0 +1,93 @@
+# Entity: commit_activity
+
+main: kit: entity: commit_activity: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "days"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "total"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "week"
+      req: true
+      type: "`$INTEGER`"
+    }
+  ]
+
+  name: "commit_activity"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/stats/commit_activity"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "stats"
+            }
+            {
+              lit: "commit_activity"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "code_scanning_autofix": {
+      "CODE_SCANNING_AUTOFIX00": {
+        "description": "s1e",
+        "started_at": "s1f",
+        "status": "s20",
+        "alert_number": "ALERT_NUMBER01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CODE_SCANNING_AUTOFIX00"
+      },
+      "CODE_SCANNING_AUTOFIX01": {
+        "description": "s3c",
+        "started_at": "s3d",
+        "status": "s3e",
+        "alert_number": "ALERT_NUMBER01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CODE_SCANNING_AUTOFIX01"
+      },
+      "CODE_SCANNING_AUTOFIX02": {
+        "description": "s5a",
+        "started_at": "s5b",
+        "status": "s5c",
+        "alert_number": "ALERT_NUMBER01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CODE_SCANNING_AUTOFIX02"
+      }
+    }
+  },
+  "new": {
+    "code_scanning_autofix": {
+      "code_scanning_autofix_ref01": {
+        "description": "s78",
+        "started_at": "s79",
+        "status": "s7a"
+      }
+    }
+  }
+}

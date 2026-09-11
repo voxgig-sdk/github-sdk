@@ -1,0 +1,610 @@
+# Entity: workflow_run
+
+main: kit: entity: workflow_run: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "actor"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "artifacts_url"
+      req: true
+      short: "The URL to the artifacts for the workflow run."
+      type: "`$STRING`"
+    }
+    {
+      name: "cancel_url"
+      req: true
+      short: "The URL to cancel the workflow run."
+      type: "`$STRING`"
+    }
+    {
+      name: "check_suite_id"
+      req: false
+      short: "The ID of the associated check suite."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "check_suite_node_id"
+      req: false
+      short: "The node ID of the associated check suite."
+      type: "`$STRING`"
+    }
+    {
+      name: "check_suite_url"
+      req: true
+      short: "The URL to the associated check suite."
+      type: "`$STRING`"
+    }
+    {
+      name: "conclusion"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "display_title"
+      req: true
+      short: "The event-specific title associated with the run or the run-name if set, or the value of `run-name` if it is set in the workflow."
+      type: "`$STRING`"
+    }
+    {
+      name: "event"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "head_branch"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "head_commit"
+      req: true
+      short: "A commit."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "head_repository"
+      req: true
+      short: "Minimal Repository"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "head_repository_id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "head_sha"
+      req: true
+      short: "The SHA of the head commit that points to the version of the workflow being run."
+      type: "`$STRING`"
+    }
+    {
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      short: "The ID of the workflow run."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "jobs_url"
+      req: true
+      short: "The URL to the jobs for the workflow run."
+      type: "`$STRING`"
+    }
+    {
+      name: "logs_url"
+      req: true
+      short: "The URL to download the logs for the workflow run."
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      short: "The name of the workflow run."
+      type: "`$STRING`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "path"
+      req: true
+      short: "The full path of the workflow"
+      type: "`$STRING`"
+    }
+    {
+      name: "previous_attempt_url"
+      req: false
+      short: "The URL to the previous attempted run of this workflow, if one exists."
+      type: "`$STRING`"
+    }
+    {
+      name: "pull_requests"
+      req: true
+      short: "Pull requests that are open with a `head_sha` or `head_branch` that matches the workflow run."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "referenced_workflows"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "repository"
+      req: true
+      short: "Minimal Repository"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "rerun_url"
+      req: true
+      short: "The URL to rerun the workflow run."
+      type: "`$STRING`"
+    }
+    {
+      name: "run_attempt"
+      req: false
+      short: "Attempt number of the run, 1 for first attempt and higher if the workflow was re-run."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "run_number"
+      req: true
+      short: "The auto incrementing run number for the workflow run."
+      type: "`$INTEGER`"
+    }
+    {
+      format: "date-time"
+      name: "run_started_at"
+      req: false
+      short: "The start time of the latest run."
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "triggering_actor"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "url"
+      req: true
+      short: "The URL to the workflow run."
+      type: "`$STRING`"
+    }
+    {
+      name: "workflow_id"
+      req: true
+      short: "The ID of the parent workflow."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "workflow_url"
+      req: true
+      short: "The URL to the workflow."
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "workflow_run"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "run_id"
+                orig: "run_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/actions/runs/{run_id}/cancel"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runs"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "cancel"
+            }
+          ]
+          select: {
+            "$action": "cancel"
+            exist: [
+              "owner"
+              "repo"
+              "run_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "run_id"
+                orig: "run_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/actions/runs/{run_id}/deployment_protection_rule"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runs"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "deployment_protection_rule"
+            }
+          ]
+          select: {
+            "$action": "deployment_protection_rule"
+            exist: [
+              "owner"
+              "repo"
+              "run_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "run_id"
+                orig: "run_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/actions/runs/{run_id}/force-cancel"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runs"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "force-cancel"
+            }
+          ]
+          select: {
+            "$action": "force_cancel"
+            exist: [
+              "owner"
+              "repo"
+              "run_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "attempt_number"
+                orig: "attempt_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "run_id"
+                orig: "run_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                example: false
+                kind: "query"
+                name: "exclude_pull_request"
+                orig: "exclude_pull_request"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runs"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "attempts"
+            }
+            {
+              var: "attempt_number"
+            }
+          ]
+          select: {
+            exist: [
+              "attempt_number"
+              "exclude_pull_request"
+              "owner"
+              "repo"
+              "run_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "run_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: false
+                kind: "query"
+                name: "exclude_pull_request"
+                orig: "exclude_pull_request"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/runs/{run_id}"
+          rename: {
+            param: {
+              run_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "exclude_pull_request"
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+      [
+        "repo"
+        "run"
+      ]
+      [
+        "repo"
+        "run"
+        "attempt"
+      ]
+    ]
+  }
+
+
+
+}

@@ -1,0 +1,117 @@
+# Entity: environment_approval
+
+main: kit: entity: environment_approval: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "comment"
+      req: true
+      short: "The comment submitted with the deployment review"
+      type: "`$STRING`"
+    }
+    {
+      name: "environments"
+      req: true
+      short: "The list of environments that were approved or rejected"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "state"
+      req: true
+      short: "Whether deployment to the environment(s) was approved or rejected or pending (with comments)"
+      type: "`$STRING`"
+    }
+    {
+      name: "user"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "environment_approval"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "run_id"
+                orig: "run_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/runs/{run_id}/approvals"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runs"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "approvals"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "run_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+        "run"
+      ]
+    ]
+  }
+
+
+
+}

@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "network_setting": {
+      "NETWORK_SETTING00": {
+        "id": "NETWORK_SETTING00",
+        "name": "s33",
+        "network_configuration_id": "NETWORK_CONFIGURATION01",
+        "region": "s35",
+        "subnet_id": "SUBNET01",
+        "org_id": "ORG01"
+      },
+      "NETWORK_SETTING01": {
+        "id": "NETWORK_SETTING01",
+        "name": "s65",
+        "network_configuration_id": "NETWORK_CONFIGURATION01",
+        "region": "s67",
+        "subnet_id": "SUBNET01",
+        "org_id": "ORG01"
+      },
+      "NETWORK_SETTING02": {
+        "id": "NETWORK_SETTING02",
+        "name": "s97",
+        "network_configuration_id": "NETWORK_CONFIGURATION01",
+        "region": "s99",
+        "subnet_id": "SUBNET01",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "network_setting": {
+      "network_setting_ref01": {
+        "name": "sc9",
+        "network_configuration_id": "NETWORK_CONFIGURATION01",
+        "region": "scb",
+        "subnet_id": "SUBNET01"
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "existing": {
+    "custom_property": {
+      "CUSTOM_PROPERTY00": {
+        "allowed_values": [],
+        "default_value": "s65",
+        "description": "s66",
+        "properties": [],
+        "property_name": "s68",
+        "required": false,
+        "source_type": "s6a",
+        "url": "s6b",
+        "value_type": "s6c",
+        "values_editable_by": "s6d",
+        "org_id": "ORG01",
+        "custom_property_name": "CUSTOM_PROPERTY_NAME01",
+        "id": "CUSTOM_PROPERTY00"
+      },
+      "CUSTOM_PROPERTY01": {
+        "allowed_values": [],
+        "default_value": "sc9",
+        "description": "sca",
+        "properties": [],
+        "property_name": "scc",
+        "required": false,
+        "source_type": "sce",
+        "url": "scf",
+        "value_type": "sd0",
+        "values_editable_by": "sd1",
+        "org_id": "ORG01",
+        "custom_property_name": "CUSTOM_PROPERTY_NAME01",
+        "id": "CUSTOM_PROPERTY01"
+      },
+      "CUSTOM_PROPERTY02": {
+        "allowed_values": [],
+        "default_value": "s12d",
+        "description": "s12e",
+        "properties": [],
+        "property_name": "s130",
+        "required": false,
+        "source_type": "s132",
+        "url": "s133",
+        "value_type": "s134",
+        "values_editable_by": "s135",
+        "org_id": "ORG01",
+        "custom_property_name": "CUSTOM_PROPERTY_NAME01",
+        "id": "CUSTOM_PROPERTY02"
+      }
+    }
+  },
+  "new": {
+    "custom_property": {
+      "custom_property_ref01": {
+        "allowed_values": [],
+        "default_value": "s191",
+        "description": "s192",
+        "properties": [],
+        "property_name": "s194",
+        "required": false,
+        "source_type": "s196",
+        "url": "s197",
+        "value_type": "s198",
+        "values_editable_by": "s199"
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "existing": {
+    "protected_branch": {
+      "PROTECTED_BRANCH00": {
+        "allow_deletions": {},
+        "allow_force_pushes": {},
+        "allow_fork_syncing": {},
+        "block_creations": {},
+        "enforce_admins": {},
+        "lock_branch": {},
+        "required_conversation_resolution": {},
+        "required_linear_history": {},
+        "required_pull_request_reviews": {},
+        "required_signatures": {},
+        "required_status_checks": {},
+        "restrictions": {},
+        "url": "s8e",
+        "branch_id": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PROTECTED_BRANCH00"
+      },
+      "PROTECTED_BRANCH01": {
+        "allow_deletions": {},
+        "allow_force_pushes": {},
+        "allow_fork_syncing": {},
+        "block_creations": {},
+        "enforce_admins": {},
+        "lock_branch": {},
+        "required_conversation_resolution": {},
+        "required_linear_history": {},
+        "required_pull_request_reviews": {},
+        "required_signatures": {},
+        "required_status_checks": {},
+        "restrictions": {},
+        "url": "s110",
+        "branch_id": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PROTECTED_BRANCH01"
+      },
+      "PROTECTED_BRANCH02": {
+        "allow_deletions": {},
+        "allow_force_pushes": {},
+        "allow_fork_syncing": {},
+        "block_creations": {},
+        "enforce_admins": {},
+        "lock_branch": {},
+        "required_conversation_resolution": {},
+        "required_linear_history": {},
+        "required_pull_request_reviews": {},
+        "required_signatures": {},
+        "required_status_checks": {},
+        "restrictions": {},
+        "url": "s192",
+        "branch_id": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PROTECTED_BRANCH02"
+      }
+    }
+  },
+  "new": {
+    "protected_branch": {
+      "protected_branch_ref01": {
+        "allow_deletions": {},
+        "allow_force_pushes": {},
+        "allow_fork_syncing": {},
+        "block_creations": {},
+        "enforce_admins": {},
+        "lock_branch": {},
+        "required_conversation_resolution": {},
+        "required_linear_history": {},
+        "required_pull_request_reviews": {},
+        "required_signatures": {},
+        "required_status_checks": {},
+        "restrictions": {},
+        "url": "s214"
+      }
+    }
+  }
+}

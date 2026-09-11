@@ -1,0 +1,201 @@
+# Entity: protected_branch
+
+main: kit: entity: protected_branch: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "allow_deletions"
+      op: {
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Allows deletion of the protected branch by anyone with write access to the repository."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "allow_force_pushes"
+      op: {
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Permits force pushes to the protected branch by anyone with write access to the repository."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "allow_fork_syncing"
+      req: false
+      short: "Whether users can pull changes from upstream when the branch is locked."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "block_creations"
+      op: {
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "If set to `true`, the `restrictions` branch protection settings which limits who can push will also block pushes which create new branches, unless the push is initiated by a user, team, or app which has the ability to push."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "enforce_admins"
+      req: true
+      short: "Enforce all configured restrictions for administrators."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "lock_branch"
+      req: false
+      short: "Whether to set the branch as read-only."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "required_conversation_resolution"
+      req: false
+      short: "Requires all conversations on code to be resolved before a pull request can be merged into a branch that matches this rule."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "required_linear_history"
+      op: {
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "required_pull_request_reviews"
+      req: true
+      short: "Require at least one approving review on a pull request, before merging."
+      type: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 7
+      }
+    }
+    {
+      name: "required_signatures"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "required_status_checks"
+      req: true
+      short: "Status Check Policy"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "restrictions"
+      req: true
+      short: "Branch Restriction Policy"
+      type: "`$OBJECT`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "protected_branch"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+        "branch"
+      ]
+    ]
+  }
+
+
+
+}

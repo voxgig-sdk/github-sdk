@@ -1,0 +1,31 @@
+{
+  "existing": {
+    "actions_workflow_access_to_repository": {
+      "ACTIONS_WORKFLOW_ACCESS_TO_REPOSITORY00": {
+        "access_level": "sa",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "ACTIONS_WORKFLOW_ACCESS_TO_REPOSITORY00"
+      },
+      "ACTIONS_WORKFLOW_ACCESS_TO_REPOSITORY01": {
+        "access_level": "s14",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "ACTIONS_WORKFLOW_ACCESS_TO_REPOSITORY01"
+      },
+      "ACTIONS_WORKFLOW_ACCESS_TO_REPOSITORY02": {
+        "access_level": "s1e",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "ACTIONS_WORKFLOW_ACCESS_TO_REPOSITORY02"
+      }
+    }
+  },
+  "new": {
+    "actions_workflow_access_to_repository": {
+      "actions_workflow_access_to_repository_ref01": {
+        "access_level": "s28"
+      }
+    }
+  }
+}

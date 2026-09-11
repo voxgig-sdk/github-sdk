@@ -1,0 +1,33 @@
+# BasicCodeSecurityFlow
+
+main: kit: flow: BasicCodeSecurityFlow:
+{
+  entity: "code_security",
+  kind: "basic",
+  name: "BasicCodeSecurityFlow",
+  step: [
+    {
+      data: {
+        org_id: "org01"
+      }
+
+      input: {
+        ref: "code_security_ref01",
+        srcdatavar: "code_security_ref01_data",
+        suffix: "_up0",
+        textfield: "advanced_security"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-code_security_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCodeSecurityFlow"
+}

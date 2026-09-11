@@ -1,0 +1,59 @@
+{
+  "existing": {
+    "dependency_graph": {
+      "DEPENDENCY_GRAPH00": {
+        "detector": {},
+        "job": {},
+        "manifests": {},
+        "metadata": {},
+        "ref": "s54",
+        "scanned": "s55",
+        "sha": "s56",
+        "version": "s57",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "DEPENDENCY_GRAPH00"
+      },
+      "DEPENDENCY_GRAPH01": {
+        "detector": {},
+        "job": {},
+        "manifests": {},
+        "metadata": {},
+        "ref": "sa4",
+        "scanned": "sa5",
+        "sha": "sa6",
+        "version": "sa7",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "DEPENDENCY_GRAPH01"
+      },
+      "DEPENDENCY_GRAPH02": {
+        "detector": {},
+        "job": {},
+        "manifests": {},
+        "metadata": {},
+        "ref": "sf4",
+        "scanned": "sf5",
+        "sha": "sf6",
+        "version": "sf7",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "DEPENDENCY_GRAPH02"
+      }
+    }
+  },
+  "new": {
+    "dependency_graph": {
+      "dependency_graph_ref01": {
+        "detector": {},
+        "job": {},
+        "manifests": {},
+        "metadata": {},
+        "ref": "s144",
+        "scanned": "s145",
+        "sha": "s146",
+        "version": "s147"
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "artifact": {
+      "ARTIFACT00": {
+        "head_branch": "s32",
+        "head_repository_id": "HEAD_REPOSITORY01",
+        "head_sha": "s34",
+        "id": "ARTIFACT00",
+        "repository_id": "REPOSITORY01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "ARTIFACT01": {
+        "head_branch": "s64",
+        "head_repository_id": "HEAD_REPOSITORY01",
+        "head_sha": "s66",
+        "id": "ARTIFACT01",
+        "repository_id": "REPOSITORY01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "ARTIFACT02": {
+        "head_branch": "s96",
+        "head_repository_id": "HEAD_REPOSITORY01",
+        "head_sha": "s98",
+        "id": "ARTIFACT02",
+        "repository_id": "REPOSITORY01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "artifact": {
+      "artifact_ref01": {
+        "head_branch": "sc8",
+        "head_repository_id": "HEAD_REPOSITORY01",
+        "head_sha": "sca",
+        "repository_id": "REPOSITORY01"
+      }
+    }
+  }
+}

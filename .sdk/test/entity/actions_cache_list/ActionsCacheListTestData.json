@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "actions_cache_list": {
+      "ACTIONS_CACHE_LIST00": {
+        "created_at": "s46",
+        "id": "ACTIONS_CACHE_LIST00",
+        "key": "s48",
+        "last_accessed_at": "s49",
+        "ref": "s4a",
+        "size_in_bytes": "s4b",
+        "version": "s4c",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "ACTIONS_CACHE_LIST01": {
+        "created_at": "s8c",
+        "id": "ACTIONS_CACHE_LIST01",
+        "key": "s8e",
+        "last_accessed_at": "s8f",
+        "ref": "s90",
+        "size_in_bytes": "s91",
+        "version": "s92",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "ACTIONS_CACHE_LIST02": {
+        "created_at": "sd2",
+        "id": "ACTIONS_CACHE_LIST02",
+        "key": "sd4",
+        "last_accessed_at": "sd5",
+        "ref": "sd6",
+        "size_in_bytes": "sd7",
+        "version": "sd8",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "actions_cache_list": {
+      "actions_cache_list_ref01": {
+        "created_at": "s118",
+        "key": "s11a",
+        "last_accessed_at": "s11b",
+        "ref": "s11c",
+        "size_in_bytes": "s11d",
+        "version": "s11e"
+      }
+    }
+  }
+}

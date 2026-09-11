@@ -1,0 +1,191 @@
+# Entity: hosted_compute
+
+main: kit: entity: hosted_compute: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "compute_service"
+      req: false
+      short: "The hosted compute service the network configuration supports."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_on"
+      req: true
+      short: "The time at which the network configuration was created, in ISO 8601 format."
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      short: "The unique identifier of the network configuration."
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      short: "The name of the network configuration."
+      type: "`$STRING`"
+    }
+    {
+      name: "network_settings_ids"
+      req: false
+      short: "The unique identifier of each network settings in the configuration."
+      type: "`$ARRAY`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "hosted_compute"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/settings/network-configurations"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "network-configurations"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.network_configurations`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "network_configuration_id"
+                orig: "network_configuration_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/settings/network-configurations/{network_configuration_id}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "network-configurations"
+            }
+            {
+              var: "network_configuration_id"
+            }
+          ]
+          select: {
+            exist: [
+              "network_configuration_id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+      [
+        "org"
+        "network_configuration"
+      ]
+    ]
+  }
+
+
+
+}

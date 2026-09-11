@@ -1,0 +1,94 @@
+# Entity: installation_token
+
+main: kit: entity: installation_token: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "permissions"
+      req: false
+      short: "The permissions granted to the user access token."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "repositories"
+      req: false
+      short: "List of repository names that the token should have access to"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "repository_ids"
+      req: false
+      short: "List of repository IDs that the token should have access to"
+      type: "`$ARRAY`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "installation_token"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 1
+                kind: "param"
+                name: "id"
+                orig: "installation_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/app/installations/{installation_id}/access_tokens"
+          rename: {
+            param: {
+              installation_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "app"
+            }
+            {
+              lit: "installations"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "access_tokens"
+            }
+          ]
+          select: {
+            "$action": "access_tokens"
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

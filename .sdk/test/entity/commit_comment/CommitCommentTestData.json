@@ -1,0 +1,82 @@
+{
+  "existing": {
+    "commit_comment": {
+      "COMMIT_COMMENT00": {
+        "author_association": "s8c",
+        "body": "s8d",
+        "commit_id": "COMMIT01",
+        "created_at": "s8f",
+        "html_url": "s90",
+        "id": "COMMIT_COMMENT00",
+        "line": "s92",
+        "node_id": "NODE01",
+        "path": "s94",
+        "position": "s95",
+        "reactions": {},
+        "updated_at": "s97",
+        "url": "s98",
+        "user": {},
+        "commit_sha": "COMMIT_SHA01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "COMMIT_COMMENT01": {
+        "author_association": "s118",
+        "body": "s119",
+        "commit_id": "COMMIT01",
+        "created_at": "s11b",
+        "html_url": "s11c",
+        "id": "COMMIT_COMMENT01",
+        "line": "s11e",
+        "node_id": "NODE01",
+        "path": "s120",
+        "position": "s121",
+        "reactions": {},
+        "updated_at": "s123",
+        "url": "s124",
+        "user": {},
+        "commit_sha": "COMMIT_SHA01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "COMMIT_COMMENT02": {
+        "author_association": "s1a4",
+        "body": "s1a5",
+        "commit_id": "COMMIT01",
+        "created_at": "s1a7",
+        "html_url": "s1a8",
+        "id": "COMMIT_COMMENT02",
+        "line": "s1aa",
+        "node_id": "NODE01",
+        "path": "s1ac",
+        "position": "s1ad",
+        "reactions": {},
+        "updated_at": "s1af",
+        "url": "s1b0",
+        "user": {},
+        "commit_sha": "COMMIT_SHA01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "commit_comment": {
+      "commit_comment_ref01": {
+        "author_association": "s230",
+        "body": "s231",
+        "commit_id": "COMMIT01",
+        "created_at": "s233",
+        "html_url": "s234",
+        "line": "s236",
+        "node_id": "NODE01",
+        "path": "s238",
+        "position": "s239",
+        "reactions": {},
+        "updated_at": "s23b",
+        "url": "s23c",
+        "user": {}
+      }
+    }
+  }
+}

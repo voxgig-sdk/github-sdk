@@ -1,0 +1,67 @@
+# BasicInstallationFlow
+
+main: kit: flow: BasicInstallationFlow:
+{
+  entity: "installation",
+  kind: "basic",
+  name: "BasicInstallationFlow",
+  step: [
+    {
+      match: {
+        username: "username01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "installation_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "installation_ref01",
+        srcdatavar: "installation_ref01_data",
+        suffix: "_up0",
+        textfield: "access_tokens_url"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-installation_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "installation_ref01",
+        srcdatavar: "installation_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "installation01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-installation_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicInstallationFlow"
+}

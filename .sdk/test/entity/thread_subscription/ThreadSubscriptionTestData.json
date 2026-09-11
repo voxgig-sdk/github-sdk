@@ -1,0 +1,49 @@
+{
+  "existing": {
+    "thread_subscription": {
+      "THREAD_SUBSCRIPTION00": {
+        "created_at": "s50",
+        "id": "THREAD_SUBSCRIPTION00",
+        "ignored": true,
+        "reason": "s53",
+        "repository_url": "s54",
+        "subscribed": false,
+        "thread_url": "s56",
+        "url": "s57"
+      },
+      "THREAD_SUBSCRIPTION01": {
+        "created_at": "sa0",
+        "id": "THREAD_SUBSCRIPTION01",
+        "ignored": true,
+        "reason": "sa3",
+        "repository_url": "sa4",
+        "subscribed": false,
+        "thread_url": "sa6",
+        "url": "sa7"
+      },
+      "THREAD_SUBSCRIPTION02": {
+        "created_at": "sf0",
+        "id": "THREAD_SUBSCRIPTION02",
+        "ignored": true,
+        "reason": "sf3",
+        "repository_url": "sf4",
+        "subscribed": false,
+        "thread_url": "sf6",
+        "url": "sf7"
+      }
+    }
+  },
+  "new": {
+    "thread_subscription": {
+      "thread_subscription_ref01": {
+        "created_at": "s140",
+        "ignored": true,
+        "reason": "s143",
+        "repository_url": "s144",
+        "subscribed": false,
+        "thread_url": "s146",
+        "url": "s147"
+      }
+    }
+  }
+}

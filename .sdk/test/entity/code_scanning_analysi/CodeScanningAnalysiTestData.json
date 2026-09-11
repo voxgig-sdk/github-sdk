@@ -1,0 +1,98 @@
+{
+  "existing": {
+    "code_scanning_analysi": {
+      "CODE_SCANNING_ANALYSI00": {
+        "analysis_key": "sb4",
+        "category": "sb5",
+        "commit_sha": "sb6",
+        "created_at": "sb7",
+        "deletable": true,
+        "environment": "sb9",
+        "error": "sba",
+        "guid": "sbb",
+        "id": "CODE_SCANNING_ANALYSI00",
+        "name": "sbd",
+        "ref": "sbe",
+        "results_count": "sbf",
+        "rules_count": "sc0",
+        "sarif_id": "SARIF01",
+        "tool": {},
+        "url": "sc3",
+        "version": "sc4",
+        "warning": "sc5",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "analysis_id": "ANALYSIS01"
+      },
+      "CODE_SCANNING_ANALYSI01": {
+        "analysis_key": "s168",
+        "category": "s169",
+        "commit_sha": "s16a",
+        "created_at": "s16b",
+        "deletable": true,
+        "environment": "s16d",
+        "error": "s16e",
+        "guid": "s16f",
+        "id": "CODE_SCANNING_ANALYSI01",
+        "name": "s171",
+        "ref": "s172",
+        "results_count": "s173",
+        "rules_count": "s174",
+        "sarif_id": "SARIF01",
+        "tool": {},
+        "url": "s177",
+        "version": "s178",
+        "warning": "s179",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "analysis_id": "ANALYSIS01"
+      },
+      "CODE_SCANNING_ANALYSI02": {
+        "analysis_key": "s21c",
+        "category": "s21d",
+        "commit_sha": "s21e",
+        "created_at": "s21f",
+        "deletable": true,
+        "environment": "s221",
+        "error": "s222",
+        "guid": "s223",
+        "id": "CODE_SCANNING_ANALYSI02",
+        "name": "s225",
+        "ref": "s226",
+        "results_count": "s227",
+        "rules_count": "s228",
+        "sarif_id": "SARIF01",
+        "tool": {},
+        "url": "s22b",
+        "version": "s22c",
+        "warning": "s22d",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "analysis_id": "ANALYSIS01"
+      }
+    }
+  },
+  "new": {
+    "code_scanning_analysi": {
+      "code_scanning_analysi_ref01": {
+        "analysis_key": "s2d0",
+        "category": "s2d1",
+        "commit_sha": "s2d2",
+        "created_at": "s2d3",
+        "deletable": true,
+        "environment": "s2d5",
+        "error": "s2d6",
+        "guid": "s2d7",
+        "name": "s2d9",
+        "ref": "s2da",
+        "results_count": "s2db",
+        "rules_count": "s2dc",
+        "sarif_id": "SARIF01",
+        "tool": {},
+        "url": "s2df",
+        "version": "s2e0",
+        "warning": "s2e1"
+      }
+    }
+  }
+}

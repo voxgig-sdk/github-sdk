@@ -1,0 +1,32 @@
+# BasicCombinedBillingUsageFlow
+
+main: kit: flow: BasicCombinedBillingUsageFlow:
+{
+  entity: "combined_billing_usage",
+  kind: "basic",
+  name: "BasicCombinedBillingUsageFlow",
+  step: [
+    {
+      input: {
+        ref: "combined_billing_usage_ref01",
+        srcdatavar: "combined_billing_usage_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "combined_billing_usage01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-combined_billing_usage_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCombinedBillingUsageFlow"
+}

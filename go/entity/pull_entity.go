@@ -402,9 +402,43 @@ func (e *PullEntity) UpdateTyped(reqdata PullUpdateData, ctrl map[string]any) (P
 
 
 
-func (e *PullEntity) Remove(_ map[string]any, _ map[string]any) (any, error) {
-	return core.UnsupportedOp("remove", e.name)
+
+func (e *PullEntity) Remove(reqmatch map[string]any, ctrl map[string]any) (any, error) {
+	utility := e.utility
+	ctx := utility.MakeContext(map[string]any{
+		"opname":   "remove",
+		"ctrl":     ctrl,
+		"match":    e.match,
+		"data":     e.data,
+		"reqmatch": reqmatch,
+	}, e.entctx)
+
+	return e.runOp(ctx, func() {
+		if ctx.Result != nil {
+			if ctx.Result.Resmatch != nil {
+				e.match = ctx.Result.Resmatch
+			}
+			if ctx.Result.Resdata != nil {
+				e.data = core.ToMapAny(vs.Clone(ctx.Result.Resdata))
+				if e.data == nil {
+					e.data = map[string]any{}
+				}
+			}
+		}
+	})
 }
+
+// RemoveTyped is the statically-typed variant of Remove: it takes an
+// PullRemoveMatch and returns an Pull. It delegates to the untyped
+// Remove (identical runtime) and converts at the typed boundary.
+func (e *PullEntity) RemoveTyped(reqmatch PullRemoveMatch, ctrl map[string]any) (Pull, error) {
+	res, err := e.Remove(asMap(reqmatch), ctrl)
+	if err != nil {
+		return Pull{}, err
+	}
+	return typedFrom[Pull](res), nil
+}
+
 
 
 func (e *PullEntity) runOp(ctx *core.Context, postDone func()) (any, error) {

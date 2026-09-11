@@ -1,0 +1,37 @@
+# Entity: gitignore
+
+main: kit: entity: gitignore: {
+
+  alias: field: {}
+
+  name: "gitignore"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/gitignore/templates"
+          segments: [
+            {
+              lit: "gitignore"
+            }
+            {
+              lit: "templates"
+            }
+          ]
+          select: {
+            "$action": "template"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

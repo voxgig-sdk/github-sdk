@@ -1,0 +1,26 @@
+# BasicBillingUsageReportFlow
+
+main: kit: flow: BasicBillingUsageReportFlow:
+{
+  entity: "billing_usage_report",
+  kind: "basic",
+  name: "BasicBillingUsageReportFlow",
+  step: [
+    {
+      match: {
+        org: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "billing_usage_report_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBillingUsageReportFlow"
+}

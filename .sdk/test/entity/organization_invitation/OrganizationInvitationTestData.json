@@ -1,0 +1,76 @@
+{
+  "existing": {
+    "organization_invitation": {
+      "ORGANIZATION_INVITATION00": {
+        "created_at": "s8c",
+        "email": "s8d",
+        "failed_at": "s8e",
+        "failed_reason": "s8f",
+        "id": "ORGANIZATION_INVITATION00",
+        "invitation_source": "s91",
+        "invitation_teams_url": "s92",
+        "invitee_id": "INVITEE01",
+        "inviter": {},
+        "login": "s95",
+        "node_id": "NODE01",
+        "role": "s97",
+        "team_count": "s98",
+        "team_ids": [],
+        "org_id": "ORG01"
+      },
+      "ORGANIZATION_INVITATION01": {
+        "created_at": "s118",
+        "email": "s119",
+        "failed_at": "s11a",
+        "failed_reason": "s11b",
+        "id": "ORGANIZATION_INVITATION01",
+        "invitation_source": "s11d",
+        "invitation_teams_url": "s11e",
+        "invitee_id": "INVITEE01",
+        "inviter": {},
+        "login": "s121",
+        "node_id": "NODE01",
+        "role": "s123",
+        "team_count": "s124",
+        "team_ids": [],
+        "org_id": "ORG01"
+      },
+      "ORGANIZATION_INVITATION02": {
+        "created_at": "s1a4",
+        "email": "s1a5",
+        "failed_at": "s1a6",
+        "failed_reason": "s1a7",
+        "id": "ORGANIZATION_INVITATION02",
+        "invitation_source": "s1a9",
+        "invitation_teams_url": "s1aa",
+        "invitee_id": "INVITEE01",
+        "inviter": {},
+        "login": "s1ad",
+        "node_id": "NODE01",
+        "role": "s1af",
+        "team_count": "s1b0",
+        "team_ids": [],
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "organization_invitation": {
+      "organization_invitation_ref01": {
+        "created_at": "s230",
+        "email": "s231",
+        "failed_at": "s232",
+        "failed_reason": "s233",
+        "invitation_source": "s235",
+        "invitation_teams_url": "s236",
+        "invitee_id": "INVITEE01",
+        "inviter": {},
+        "login": "s239",
+        "node_id": "NODE01",
+        "role": "s23b",
+        "team_count": "s23c",
+        "team_ids": []
+      }
+    }
+  }
+}

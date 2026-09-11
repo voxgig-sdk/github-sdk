@@ -62,7 +62,7 @@ class PullEntityTest extends TestCase
         $setup = pull_basic_setup(null);
         // Per-op sdk-test-control.json skip.
         $_live = !empty($setup["live"]);
-        foreach (["create", "list", "update", "load"] as $_op) {
+        foreach (["create", "list", "update", "load", "remove"] as $_op) {
             [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "pull." . $_op, $_live ? "live" : "unit");
             if ($_shouldSkip) {
                 $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
@@ -81,6 +81,7 @@ class PullEntityTest extends TestCase
         $pull_ref01_ent = $client->Pull(null);
         $pull_ref01_data = Helpers::to_map(Vs::getprop(
             Vs::getpath($setup["data"], "new.pull"), "pull_ref01"));
+        $pull_ref01_data["commit_sha"] = $setup["idmap"]["commit_sha01"];
         $pull_ref01_data["owner"] = $setup["idmap"]["owner01"];
         $pull_ref01_data["repo"] = $setup["idmap"]["repo01"];
 
@@ -91,6 +92,7 @@ class PullEntityTest extends TestCase
 
         // LIST
         $pull_ref01_match = [
+            "commit_sha" => $setup["idmap"]["commit_sha01"],
             "owner" => $setup["idmap"]["owner01"],
             "repo" => $setup["idmap"]["repo01"],
         ];
@@ -129,6 +131,27 @@ class PullEntityTest extends TestCase
         $this->assertNotNull($pull_ref01_data_dt0_load_result);
         $this->assertEquals($pull_ref01_data_dt0_load_result["id"], $pull_ref01_data["id"]);
 
+        // REMOVE
+        $pull_ref01_match_rm0 = [
+            "id" => $pull_ref01_data["id"],
+        ];
+        $pull_ref01_ent->remove($pull_ref01_match_rm0, null);
+
+        // LIST
+        $pull_ref01_match_rt0 = [
+            "commit_sha" => $setup["idmap"]["commit_sha01"],
+            "owner" => $setup["idmap"]["owner01"],
+            "repo" => $setup["idmap"]["repo01"],
+        ];
+
+        $pull_ref01_list_rt0_result = $pull_ref01_ent->list($pull_ref01_match_rt0, null);
+        $this->assertIsArray($pull_ref01_list_rt0_result);
+
+        $not_found_item = sdk_select(
+            Runner::entity_list_to_data($pull_ref01_list_rt0_result),
+            ["id" => $pull_ref01_data["id"]]);
+        $this->assertEmpty($not_found_item);
+
     }
 }
 
@@ -147,7 +170,7 @@ function pull_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["pull01", "pull02", "pull03", "repo01", "repo02", "repo03", "owner01"] as $k) {
+    foreach (["pull01", "pull02", "pull03", "repo01", "repo02", "repo03", "commit01", "commit02", "commit03", "comment01", "comment02", "comment03", "commit_sha01", "owner01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

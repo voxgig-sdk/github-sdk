@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "autolink": {
+      "AUTOLINK00": {
+        "id": "AUTOLINK00",
+        "is_alphanumeric": false,
+        "key_prefix": "s34",
+        "updated_at": "s35",
+        "url_template": "s36",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "AUTOLINK01": {
+        "id": "AUTOLINK01",
+        "is_alphanumeric": false,
+        "key_prefix": "s66",
+        "updated_at": "s67",
+        "url_template": "s68",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "AUTOLINK02": {
+        "id": "AUTOLINK02",
+        "is_alphanumeric": false,
+        "key_prefix": "s98",
+        "updated_at": "s99",
+        "url_template": "s9a",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "autolink": {
+      "autolink_ref01": {
+        "is_alphanumeric": false,
+        "key_prefix": "sca",
+        "updated_at": "scb",
+        "url_template": "scc"
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+# BasicInteractionFlow
+
+main: kit: flow: BasicInteractionFlow:
+{
+  entity: "interaction",
+  kind: "basic",
+  name: "BasicInteractionFlow",
+  step: [
+    {
+      input: {
+        ref: "interaction_ref01",
+        srcdatavar: "interaction_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-interaction_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicInteractionFlow"
+}

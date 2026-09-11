@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "short_blob": {
+      "SHORT_BLOB00": {
+        "content": "s14",
+        "encoding": "s15",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "SHORT_BLOB00"
+      },
+      "SHORT_BLOB01": {
+        "content": "s28",
+        "encoding": "s29",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "SHORT_BLOB01"
+      },
+      "SHORT_BLOB02": {
+        "content": "s3c",
+        "encoding": "s3d",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "SHORT_BLOB02"
+      }
+    }
+  },
+  "new": {
+    "short_blob": {
+      "short_blob_ref01": {
+        "content": "s50",
+        "encoding": "s51"
+      }
+    }
+  }
+}

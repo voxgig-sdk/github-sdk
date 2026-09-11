@@ -1,0 +1,526 @@
+# Entity: milestone
+
+main: kit: entity: milestone: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      format: "uri"
+      name: "avatar_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "closed_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "closed_issues"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "creator"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "description"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "A description of the milestone."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "due_on"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "The milestone due date."
+      type: "`$STRING`"
+    }
+    {
+      name: "email"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "followers_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "following_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "gists_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "gravatar_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "labels_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "login"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "number"
+      req: true
+      short: "The number of the milestone."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "open_issues"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "organizations_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "received_events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "repos_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "site_admin"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "starred_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "starred_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "state"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "The state of the milestone."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "subscriptions_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The title of the milestone."
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "user_view_type"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "milestone"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/milestones"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "milestones"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.creator`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: "asc"
+                kind: "query"
+                name: "direction"
+                orig: "direction"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "due_on"
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "open"
+                kind: "query"
+                name: "state"
+                orig: "state"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/milestones"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "milestones"
+            }
+          ]
+          select: {
+            exist: [
+              "direction"
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+              "sort"
+              "state"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "milestone_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/milestones/{milestone_number}"
+          rename: {
+            param: {
+              milestone_number: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "milestones"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.creator`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "milestone_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/repos/{owner}/{repo}/milestones/{milestone_number}"
+          rename: {
+            param: {
+              milestone_number: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "milestones"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.creator`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

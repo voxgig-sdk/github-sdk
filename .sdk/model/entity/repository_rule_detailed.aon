@@ -1,0 +1,135 @@
+# Entity: repository_rule_detailed
+
+main: kit: entity: repository_rule_detailed: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "parameters"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "ruleset_id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ruleset_source"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ruleset_source_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "repository_rule_detailed"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/rules/branches/{branch}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "rules"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch"
+            }
+          ]
+          select: {
+            exist: [
+              "branch"
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+        "branch"
+      ]
+    ]
+  }
+
+
+
+}

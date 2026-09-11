@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "hovercard": {
+      "HOVERCARD00": {
+        "message": "s14",
+        "octicon": "s15",
+        "username": "USERNAME01"
+      },
+      "HOVERCARD01": {
+        "message": "s28",
+        "octicon": "s29",
+        "username": "USERNAME01"
+      },
+      "HOVERCARD02": {
+        "message": "s3c",
+        "octicon": "s3d",
+        "username": "USERNAME01"
+      }
+    }
+  },
+  "new": {
+    "hovercard": {
+      "hovercard_ref01": {
+        "message": "s50",
+        "octicon": "s51"
+      }
+    }
+  }
+}

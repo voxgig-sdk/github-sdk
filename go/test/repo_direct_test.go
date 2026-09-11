@@ -117,13 +117,15 @@ func TestRepoDirect(t *testing.T) {
 			params["id"] = firstEnt["id"]
 			params["owner"] = setup.idmap["owner01"]
 			params["repo"] = setup.idmap["repo01"]
+			params["subject_digest"] = setup.idmap["subject_digest01"]
 		} else {
 			params["owner"] = "direct01"
 			params["repo"] = "direct02"
+			params["subject_digest"] = "direct03"
 		}
 
 		result, err := client.Direct(map[string]any{
-			"path":   "repos/{owner}/{repo}",
+			"path":   "repos/{owner}/{repo}/attestations/{subject_digest}",
 			"method": "GET",
 			"params": params,
 			"query":  query,
@@ -180,6 +182,9 @@ func TestRepoDirect(t *testing.T) {
 				}
 				if !strings.Contains(url, "direct02") {
 					t.Fatalf("expected url to contain direct02, got %v", url)
+				}
+				if !strings.Contains(url, "direct03") {
+					t.Fatalf("expected url to contain direct03, got %v", url)
 				}
 			}
 		}

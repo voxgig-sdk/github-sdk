@@ -1,0 +1,49 @@
+{
+  "existing": {
+    "deployment_protection_rule": {
+      "DEPLOYMENT_PROTECTION_RULE00": {
+        "id": "DEPLOYMENT_PROTECTION_RULE00",
+        "integration_id": "INTEGRATION01",
+        "integration_url": "s34",
+        "node_id": "NODE01",
+        "slug": "s36",
+        "environment_name": "ENVIRONMENT_NAME01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "environment_id": "ENVIRONMENT01"
+      },
+      "DEPLOYMENT_PROTECTION_RULE01": {
+        "id": "DEPLOYMENT_PROTECTION_RULE01",
+        "integration_id": "INTEGRATION01",
+        "integration_url": "s66",
+        "node_id": "NODE01",
+        "slug": "s68",
+        "environment_name": "ENVIRONMENT_NAME01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "environment_id": "ENVIRONMENT01"
+      },
+      "DEPLOYMENT_PROTECTION_RULE02": {
+        "id": "DEPLOYMENT_PROTECTION_RULE02",
+        "integration_id": "INTEGRATION01",
+        "integration_url": "s98",
+        "node_id": "NODE01",
+        "slug": "s9a",
+        "environment_name": "ENVIRONMENT_NAME01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "environment_id": "ENVIRONMENT01"
+      }
+    }
+  },
+  "new": {
+    "deployment_protection_rule": {
+      "deployment_protection_rule_ref01": {
+        "integration_id": "INTEGRATION01",
+        "integration_url": "sca",
+        "node_id": "NODE01",
+        "slug": "scc"
+      }
+    }
+  }
+}

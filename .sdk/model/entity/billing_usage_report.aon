@@ -1,0 +1,170 @@
+# Entity: billing_usage_report
+
+main: kit: entity: billing_usage_report: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "date"
+      req: true
+      short: "Date of the usage line item."
+      type: "`$STRING`"
+    }
+    {
+      name: "discountAmount"
+      req: true
+      short: "Discount amount of the usage line item."
+      type: "`$NUMBER`"
+    }
+    {
+      name: "grossAmount"
+      req: true
+      short: "Gross amount of the usage line item."
+      type: "`$NUMBER`"
+    }
+    {
+      name: "netAmount"
+      req: true
+      short: "Net amount of the usage line item."
+      type: "`$NUMBER`"
+    }
+    {
+      name: "organizationName"
+      req: true
+      short: "Name of the organization."
+      type: "`$STRING`"
+    }
+    {
+      name: "pricePerUnit"
+      req: true
+      short: "Price per unit of the usage line item."
+      type: "`$NUMBER`"
+    }
+    {
+      name: "product"
+      req: true
+      short: "Product name."
+      type: "`$STRING`"
+    }
+    {
+      name: "quantity"
+      req: true
+      short: "Quantity of the usage line item."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "repositoryName"
+      req: false
+      short: "Name of the repository."
+      type: "`$STRING`"
+    }
+    {
+      name: "sku"
+      req: true
+      short: "SKU name."
+      type: "`$STRING`"
+    }
+    {
+      name: "unitType"
+      req: true
+      short: "Unit type of the usage line item."
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "billing_usage_report"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "day"
+                orig: "day"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "hour"
+                orig: "hour"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "month"
+                orig: "month"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "year"
+                orig: "year"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/organizations/{org}/settings/billing/usage"
+          segments: [
+            {
+              lit: "organizations"
+            }
+            {
+              var: "org"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "billing"
+            }
+            {
+              lit: "usage"
+            }
+          ]
+          select: {
+            exist: [
+              "day"
+              "hour"
+              "month"
+              "org"
+              "year"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.usageItems`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "organization"
+      ]
+    ]
+  }
+
+
+
+}

@@ -1,0 +1,198 @@
+# Entity: simple_classroom_assignment
+
+main: kit: entity: simple_classroom_assignment: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "accepted"
+      req: true
+      short: "The number of students that have accepted the assignment."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "classroom"
+      req: true
+      short: "A GitHub Classroom classroom"
+      type: "`$OBJECT`"
+    }
+    {
+      format: "date-time"
+      name: "deadline"
+      req: true
+      short: "The time at which the assignment is due."
+      type: "`$STRING`"
+    }
+    {
+      name: "editor"
+      req: true
+      short: "The selected editor for the assignment."
+      type: "`$STRING`"
+    }
+    {
+      name: "feedback_pull_requests_enabled"
+      req: true
+      short: "Whether feedback pull request will be created on assignment acceptance."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "id"
+      req: true
+      short: "Unique identifier of the repository."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "invitations_enabled"
+      req: true
+      short: "Whether the invitation link is enabled."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "invite_link"
+      req: true
+      short: "The link that a student can use to accept the assignment."
+      type: "`$STRING`"
+    }
+    {
+      name: "language"
+      req: true
+      short: "The programming language used in the assignment."
+      type: "`$STRING`"
+    }
+    {
+      name: "max_members"
+      req: false
+      short: "The maximum allowable members per team."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "max_teams"
+      req: false
+      short: "The maximum allowable teams for the assignment."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "passing"
+      req: true
+      short: "The number of students that have passed the assignment."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "public_repo"
+      req: true
+      short: "Whether an accepted assignment creates a public repository."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "slug"
+      req: true
+      short: "Sluggified name of the assignment."
+      type: "`$STRING`"
+    }
+    {
+      name: "students_are_repo_admins"
+      req: true
+      short: "Whether students are admins on created repository on accepted assignment."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "submitted"
+      req: true
+      short: "The number of students that have submitted the assignment."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "title"
+      req: true
+      short: "Assignment title."
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: true
+      short: "Whether it's a Group Assignment or Individual Assignment."
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "simple_classroom_assignment"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "classroom_id"
+                orig: "classroom_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/classrooms/{classroom_id}/assignments"
+          segments: [
+            {
+              lit: "classrooms"
+            }
+            {
+              var: "classroom_id"
+            }
+            {
+              lit: "assignments"
+            }
+          ]
+          select: {
+            exist: [
+              "classroom_id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "classroom"
+      ]
+    ]
+  }
+
+
+
+}

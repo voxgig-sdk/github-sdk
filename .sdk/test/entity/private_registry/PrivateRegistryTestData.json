@@ -1,0 +1,68 @@
+{
+  "existing": {
+    "private_registry": {
+      "PRIVATE_REGISTRY00": {
+        "created_at": "s78",
+        "encrypted_value": "s79",
+        "id": "PRIVATE_REGISTRY00",
+        "key": "s7b",
+        "key_id": "KEY01",
+        "name": "s7d",
+        "registry_type": "s7e",
+        "selected_repository_ids": [],
+        "updated_at": "s80",
+        "url": "s81",
+        "username": "s82",
+        "visibility": "s83",
+        "org_id": "ORG01"
+      },
+      "PRIVATE_REGISTRY01": {
+        "created_at": "sf0",
+        "encrypted_value": "sf1",
+        "id": "PRIVATE_REGISTRY01",
+        "key": "sf3",
+        "key_id": "KEY01",
+        "name": "sf5",
+        "registry_type": "sf6",
+        "selected_repository_ids": [],
+        "updated_at": "sf8",
+        "url": "sf9",
+        "username": "sfa",
+        "visibility": "sfb",
+        "org_id": "ORG01"
+      },
+      "PRIVATE_REGISTRY02": {
+        "created_at": "s168",
+        "encrypted_value": "s169",
+        "id": "PRIVATE_REGISTRY02",
+        "key": "s16b",
+        "key_id": "KEY01",
+        "name": "s16d",
+        "registry_type": "s16e",
+        "selected_repository_ids": [],
+        "updated_at": "s170",
+        "url": "s171",
+        "username": "s172",
+        "visibility": "s173",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "private_registry": {
+      "private_registry_ref01": {
+        "created_at": "s1e0",
+        "encrypted_value": "s1e1",
+        "key": "s1e3",
+        "key_id": "KEY01",
+        "name": "s1e5",
+        "registry_type": "s1e6",
+        "selected_repository_ids": [],
+        "updated_at": "s1e8",
+        "url": "s1e9",
+        "username": "s1ea",
+        "visibility": "s1eb"
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "api_insights_route_stat": {
+      "API_INSIGHTS_ROUTE_STAT00": {
+        "api_route": "s3c",
+        "http_method": "s3d",
+        "last_rate_limited_timestamp": "s3e",
+        "last_request_timestamp": "s3f",
+        "rate_limited_request_count": "s40",
+        "total_request_count": "s41",
+        "actor_id": "ACTOR01",
+        "actor_type": "ACTOR_TYPE01",
+        "org": "ORG01"
+      },
+      "API_INSIGHTS_ROUTE_STAT01": {
+        "api_route": "s78",
+        "http_method": "s79",
+        "last_rate_limited_timestamp": "s7a",
+        "last_request_timestamp": "s7b",
+        "rate_limited_request_count": "s7c",
+        "total_request_count": "s7d",
+        "actor_id": "ACTOR01",
+        "actor_type": "ACTOR_TYPE01",
+        "org": "ORG01"
+      },
+      "API_INSIGHTS_ROUTE_STAT02": {
+        "api_route": "sb4",
+        "http_method": "sb5",
+        "last_rate_limited_timestamp": "sb6",
+        "last_request_timestamp": "sb7",
+        "rate_limited_request_count": "sb8",
+        "total_request_count": "sb9",
+        "actor_id": "ACTOR01",
+        "actor_type": "ACTOR_TYPE01",
+        "org": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "api_insights_route_stat": {
+      "api_insights_route_stat_ref01": {
+        "api_route": "sf0",
+        "http_method": "sf1",
+        "last_rate_limited_timestamp": "sf2",
+        "last_request_timestamp": "sf3",
+        "rate_limited_request_count": "sf4",
+        "total_request_count": "sf5"
+      }
+    }
+  }
+}

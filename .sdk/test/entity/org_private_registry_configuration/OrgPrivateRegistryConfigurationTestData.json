@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "org_private_registry_configuration": {
+      "ORG_PRIVATE_REGISTRY_CONFIGURATION00": {
+        "created_at": "s3c",
+        "name": "s3d",
+        "registry_type": "s3e",
+        "updated_at": "s3f",
+        "username": "s40",
+        "visibility": "s41",
+        "org_id": "ORG01",
+        "secret_name": "SECRET_NAME01",
+        "id": "ORG_PRIVATE_REGISTRY_CONFIGURATION00"
+      },
+      "ORG_PRIVATE_REGISTRY_CONFIGURATION01": {
+        "created_at": "s78",
+        "name": "s79",
+        "registry_type": "s7a",
+        "updated_at": "s7b",
+        "username": "s7c",
+        "visibility": "s7d",
+        "org_id": "ORG01",
+        "secret_name": "SECRET_NAME01",
+        "id": "ORG_PRIVATE_REGISTRY_CONFIGURATION01"
+      },
+      "ORG_PRIVATE_REGISTRY_CONFIGURATION02": {
+        "created_at": "sb4",
+        "name": "sb5",
+        "registry_type": "sb6",
+        "updated_at": "sb7",
+        "username": "sb8",
+        "visibility": "sb9",
+        "org_id": "ORG01",
+        "secret_name": "SECRET_NAME01",
+        "id": "ORG_PRIVATE_REGISTRY_CONFIGURATION02"
+      }
+    }
+  },
+  "new": {
+    "org_private_registry_configuration": {
+      "org_private_registry_configuration_ref01": {
+        "created_at": "sf0",
+        "name": "sf1",
+        "registry_type": "sf2",
+        "updated_at": "sf3",
+        "username": "sf4",
+        "visibility": "sf5"
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "workflow_usage": {
+      "WORKFLOW_USAGE00": {
+        "MACOS": {},
+        "UBUNTU": {},
+        "WINDOWS": {},
+        "id": "WORKFLOW_USAGE00",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "WORKFLOW_USAGE01": {
+        "MACOS": {},
+        "UBUNTU": {},
+        "WINDOWS": {},
+        "id": "WORKFLOW_USAGE01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "WORKFLOW_USAGE02": {
+        "MACOS": {},
+        "UBUNTU": {},
+        "WINDOWS": {},
+        "id": "WORKFLOW_USAGE02",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "workflow_usage": {
+      "workflow_usage_ref01": {
+        "MACOS": {},
+        "UBUNTU": {},
+        "WINDOWS": {}
+      }
+    }
+  }
+}

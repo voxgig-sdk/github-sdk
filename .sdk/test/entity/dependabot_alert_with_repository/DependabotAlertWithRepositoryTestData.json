@@ -1,0 +1,88 @@
+{
+  "existing": {
+    "dependabot_alert_with_repository": {
+      "DEPENDABOT_ALERT_WITH_REPOSITORY00": {
+        "auto_dismissed_at": "sa0",
+        "created_at": "sa1",
+        "dependency": {},
+        "dismissed_at": "sa3",
+        "dismissed_by": {},
+        "dismissed_comment": "sa5",
+        "dismissed_reason": "sa6",
+        "fixed_at": "sa7",
+        "html_url": "sa8",
+        "number": "sa9",
+        "repository": {},
+        "security_advisory": {},
+        "security_vulnerability": {},
+        "state": "sad",
+        "updated_at": "sae",
+        "url": "saf",
+        "org_id": "ORG01",
+        "enterprise": "ENTERPRISE01"
+      },
+      "DEPENDABOT_ALERT_WITH_REPOSITORY01": {
+        "auto_dismissed_at": "s140",
+        "created_at": "s141",
+        "dependency": {},
+        "dismissed_at": "s143",
+        "dismissed_by": {},
+        "dismissed_comment": "s145",
+        "dismissed_reason": "s146",
+        "fixed_at": "s147",
+        "html_url": "s148",
+        "number": "s149",
+        "repository": {},
+        "security_advisory": {},
+        "security_vulnerability": {},
+        "state": "s14d",
+        "updated_at": "s14e",
+        "url": "s14f",
+        "org_id": "ORG01",
+        "enterprise": "ENTERPRISE01"
+      },
+      "DEPENDABOT_ALERT_WITH_REPOSITORY02": {
+        "auto_dismissed_at": "s1e0",
+        "created_at": "s1e1",
+        "dependency": {},
+        "dismissed_at": "s1e3",
+        "dismissed_by": {},
+        "dismissed_comment": "s1e5",
+        "dismissed_reason": "s1e6",
+        "fixed_at": "s1e7",
+        "html_url": "s1e8",
+        "number": "s1e9",
+        "repository": {},
+        "security_advisory": {},
+        "security_vulnerability": {},
+        "state": "s1ed",
+        "updated_at": "s1ee",
+        "url": "s1ef",
+        "org_id": "ORG01",
+        "enterprise": "ENTERPRISE01"
+      }
+    }
+  },
+  "new": {
+    "dependabot_alert_with_repository": {
+      "dependabot_alert_with_repository_ref01": {
+        "auto_dismissed_at": "s280",
+        "created_at": "s281",
+        "dependency": {},
+        "dismissed_at": "s283",
+        "dismissed_by": {},
+        "dismissed_comment": "s285",
+        "dismissed_reason": "s286",
+        "fixed_at": "s287",
+        "html_url": "s288",
+        "number": "s289",
+        "repository": {},
+        "security_advisory": {},
+        "security_vulnerability": {},
+        "state": "s28d",
+        "updated_at": "s28e",
+        "url": "s28f"
+      }
+    }
+  }
+}

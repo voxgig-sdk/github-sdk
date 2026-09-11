@@ -1,0 +1,48 @@
+# BasicProtectedBranchAdminEnforcedFlow
+
+main: kit: flow: BasicProtectedBranchAdminEnforcedFlow:
+{
+  entity: "protected_branch_admin_enforced",
+  kind: "basic",
+  name: "BasicProtectedBranchAdminEnforcedFlow",
+  step: [
+    {
+      input: {
+        ref: "protected_branch_admin_enforced_ref01"
+      }
+
+      match: {
+        branch_id: "branch01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "protected_branch_admin_enforced_ref01",
+        srcdatavar: "protected_branch_admin_enforced_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "protected_branch_admin_enforced01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-protected_branch_admin_enforced_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicProtectedBranchAdminEnforcedFlow"
+}

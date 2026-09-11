@@ -1,0 +1,152 @@
+# Entity: user_marketplace_purchase
+
+main: kit: entity: user_marketplace_purchase: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "account"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "billing_cycle"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "free_trial_ends_on"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "next_billing_date"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "on_free_trial"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "plan"
+      req: true
+      short: "Marketplace Listing Plan"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "unit_count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "user_marketplace_purchase"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/marketplace_purchases"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "marketplace_purchases"
+            }
+          ]
+          select: {
+            exist: [
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/marketplace_purchases/stubbed"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "marketplace_purchases"
+            }
+            {
+              lit: "stubbed"
+            }
+          ]
+          select: {
+            exist: [
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,33 @@
+# BasicCheckAutomatedSecurityFixFlow
+
+main: kit: flow: BasicCheckAutomatedSecurityFixFlow:
+{
+  entity: "check_automated_security_fix",
+  kind: "basic",
+  name: "BasicCheckAutomatedSecurityFixFlow",
+  step: [
+    {
+      input: {
+        ref: "check_automated_security_fix_ref01",
+        srcdatavar: "check_automated_security_fix_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "check_automated_security_fix01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-check_automated_security_fix_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCheckAutomatedSecurityFixFlow"
+}

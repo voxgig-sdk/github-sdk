@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "organization": {
+      "ORGANIZATION00": {},
+      "ORGANIZATION01": {},
+      "ORGANIZATION02": {}
+    }
+  },
+  "new": {
+    "organization": {
+      "organization_ref01": {}
+    }
+  }
+}

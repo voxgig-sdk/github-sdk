@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "environment_approval": {
+      "ENVIRONMENT_APPROVAL00": {
+        "comment": "s28",
+        "environments": [],
+        "state": "s2a",
+        "user": {},
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "run_id": "RUN01"
+      },
+      "ENVIRONMENT_APPROVAL01": {
+        "comment": "s50",
+        "environments": [],
+        "state": "s52",
+        "user": {},
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "run_id": "RUN01"
+      },
+      "ENVIRONMENT_APPROVAL02": {
+        "comment": "s78",
+        "environments": [],
+        "state": "s7a",
+        "user": {},
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "run_id": "RUN01"
+      }
+    }
+  },
+  "new": {
+    "environment_approval": {
+      "environment_approval_ref01": {
+        "comment": "sa0",
+        "environments": [],
+        "state": "sa2",
+        "user": {}
+      }
+    }
+  }
+}

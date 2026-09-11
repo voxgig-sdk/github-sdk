@@ -1,0 +1,227 @@
+# Entity: code_security_configuration_repository
+
+main: kit: entity: code_security_configuration_repository: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "repository"
+      req: true
+      short: "A GitHub repository."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "status"
+      req: false
+      short: "The attachment status of the code security configuration on the repository."
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "code_security_configuration_repository"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "configuration_id"
+                orig: "configuration_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "enterprise"
+                orig: "enterprise"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "after"
+                orig: "after"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "before"
+                orig: "before"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "all"
+                kind: "query"
+                name: "status"
+                orig: "status"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/enterprises/{enterprise}/code-security/configurations/{configuration_id}/repositories"
+          segments: [
+            {
+              lit: "enterprises"
+            }
+            {
+              var: "enterprise"
+            }
+            {
+              lit: "code-security"
+            }
+            {
+              lit: "configurations"
+            }
+            {
+              var: "configuration_id"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            exist: [
+              "after"
+              "before"
+              "configuration_id"
+              "enterprise"
+              "per_page"
+              "status"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "configuration_id"
+                orig: "configuration_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "after"
+                orig: "after"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "before"
+                orig: "before"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "all"
+                kind: "query"
+                name: "status"
+                orig: "status"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/code-security/configurations/{configuration_id}/repositories"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "code-security"
+            }
+            {
+              lit: "configurations"
+            }
+            {
+              var: "configuration_id"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            exist: [
+              "after"
+              "before"
+              "configuration_id"
+              "org_id"
+              "per_page"
+              "status"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "enterpris"
+        "configuration"
+      ]
+      [
+        "org"
+        "configuration"
+      ]
+    ]
+  }
+
+
+
+}

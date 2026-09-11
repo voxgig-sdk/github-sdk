@@ -1,0 +1,79 @@
+# Project overlay — YOURS. The scaffold creates this file once and never
+# overwrites it, unlike every other file it writes.
+#
+# Everything else under model/ is toolchain-derived and is deliberately
+# regenerated so that toolchain fixes propagate. Put anything here that is a
+# decision about THIS project rather than a fact about the API.
+#
+# Included LAST by sdk.aon, after target/target-index.aon, because a key
+# under main.kit.target.<t> can only refine a target that has already been
+# defined. Declared earlier, the model build fails with "Cannot unify value:
+# nil with value: string / key ext value was: nil", which names nothing that
+# would lead you here.
+
+
+# WHERE THE SENECA PROVIDER IS GENERATED.
+#
+# This lives here rather than in sdk.aon because create-sdkgen rewrites
+# sdk.aon from its template on every scaffold, and this path is a fact about
+# one developer's checkout layout, not about the API. `target add` overwrites
+# model/target/seneca-provider.aon, so it cannot live there either.
+#
+# THE DIRECTORY NAME IS THE REPOSITORY NAME. The repo is
+# senecajs/seneca-github-provider, so a default `git clone` produces
+# `seneca-github-provider`. The previous value here said
+# `../../seneca/github-provider`, which matches no clone anyone would make,
+# and because `create: false` skips a target whose output folder is absent,
+# the result was a GREEN generate run that emitted no provider at all — one
+# INFO line, `generate-external-skip`, and exit 0. Getting this wrong is
+# silent, so it is worth checking that the provider tree actually changed
+# after a run that was supposed to change it.
+#
+# `adopt` writes into that checkout when it is there; `create: false` keeps a
+# fresh clone from fabricating a sibling directory.
+main: kit: target: 'seneca-provider': output: {
+  path: '../../seneca/seneca-github-provider'
+  sdkrel: '../../voxgig-sdk/github-sdk'
+  adopt: true
+  create: false
+}
+
+
+# THE PROVIDER'S RELEASE VERSION.
+#
+# npm already carries @seneca/github-provider at 0.0.2 and 0.2.0. The
+# generated manifest declared the schema default of 0.0.1, which is BELOW
+# what is published: no existing install could resolve this work as an
+# upgrade, and releasing it would have meant tagging v0.0.1 for a package
+# that has shipped twice already.
+#
+# 0.3.0, not 0.2.1: under 0.x a minor bump is how a breaking change is
+# spelt, and this release is breaking twice over — the entity set narrowed
+# from 15 to 2 (senecajs/seneca-github-provider#31) and the credential key
+# was renamed (#32, now accepted as an alias, so that half no longer
+# breaks). The narrowing still wants a release note; a version number cannot
+# say it on its own.
+main: kit: target: 'seneca-provider': publish: version: '0.3.0'
+
+
+# HOW THE PROVIDER DEPENDS ON THIS SDK.
+#
+# @voxgig-sdk/github is NOT published — `npm view` returns a 404 — so the
+# default published-and-pinned dependency cannot resolve. That is not a
+# cosmetic problem: the provider cannot be installed, built, tested or
+# released at all, and it is why @seneca/github-provider sat unreleasable
+# while this SDK was being regenerated.
+#
+# A GIT TAG needs no registry. npm resolves a git dependency against the
+# repository ROOT and this SDK's package.json is in `ts/`, so the dependency
+# carries the subdirectory too — `::path:ts`, which is the default because it
+# is the layout sdkgen generates.
+#
+# THE REF IS A TAG, deliberately: a git dependency with no ref follows the
+# default branch, so an install today and an install tomorrow can differ.
+# Move it when this SDK is tagged again; delete this block entirely once the
+# package is published, and the default pin takes over.
+main: kit: target: 'seneca-provider': sdk: dep: {
+  kind: 'git'
+  ref: 'v0.0.1'
+}

@@ -1,0 +1,41 @@
+# BasicAuthorizationFlow
+
+main: kit: flow: BasicAuthorizationFlow:
+{
+  entity: "authorization",
+  kind: "basic",
+  name: "BasicAuthorizationFlow",
+  step: [
+    {
+      input: {
+        ref: "authorization_ref01"
+      }
+
+      match: {
+        application_id: "application01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "authorization_ref01",
+        srcdatavar: "authorization_ref01_data",
+        suffix: "_up0",
+        textfield: "access_token"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-authorization_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAuthorizationFlow"
+}

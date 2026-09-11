@@ -1,0 +1,58 @@
+{
+  "existing": {
+    "protected_branch_pull_request_review": {
+      "PROTECTED_BRANCH_PULL_REQUEST_REVIEW00": {
+        "bypass_pull_request_allowances": {},
+        "dismiss_stale_reviews": false,
+        "dismissal_restrictions": {},
+        "require_code_owner_reviews": false,
+        "require_last_push_approval": true,
+        "required_approving_review_count": "s4b",
+        "url": "s4c",
+        "branch_id": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PROTECTED_BRANCH_PULL_REQUEST_REVIEW00"
+      },
+      "PROTECTED_BRANCH_PULL_REQUEST_REVIEW01": {
+        "bypass_pull_request_allowances": {},
+        "dismiss_stale_reviews": false,
+        "dismissal_restrictions": {},
+        "require_code_owner_reviews": false,
+        "require_last_push_approval": true,
+        "required_approving_review_count": "s91",
+        "url": "s92",
+        "branch_id": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PROTECTED_BRANCH_PULL_REQUEST_REVIEW01"
+      },
+      "PROTECTED_BRANCH_PULL_REQUEST_REVIEW02": {
+        "bypass_pull_request_allowances": {},
+        "dismiss_stale_reviews": false,
+        "dismissal_restrictions": {},
+        "require_code_owner_reviews": false,
+        "require_last_push_approval": true,
+        "required_approving_review_count": "sd7",
+        "url": "sd8",
+        "branch_id": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PROTECTED_BRANCH_PULL_REQUEST_REVIEW02"
+      }
+    }
+  },
+  "new": {
+    "protected_branch_pull_request_review": {
+      "protected_branch_pull_request_review_ref01": {
+        "bypass_pull_request_allowances": {},
+        "dismiss_stale_reviews": false,
+        "dismissal_restrictions": {},
+        "require_code_owner_reviews": false,
+        "require_last_push_approval": true,
+        "required_approving_review_count": "s11d",
+        "url": "s11e"
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+# BasicApiInsightsRouteStatFlow
+
+main: kit: flow: BasicApiInsightsRouteStatFlow:
+{
+  entity: "api_insights_route_stat",
+  kind: "basic",
+  name: "BasicApiInsightsRouteStatFlow",
+  step: [
+    {
+      match: {
+        actor_id: "actor01",
+        actor_type: "actor_type01",
+        org: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "api_insights_route_stat_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicApiInsightsRouteStatFlow"
+}

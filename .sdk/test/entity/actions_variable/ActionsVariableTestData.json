@@ -1,0 +1,46 @@
+{
+  "existing": {
+    "actions_variable": {
+      "ACTIONS_VARIABLE00": {
+        "created_at": "s32",
+        "id": "ACTIONS_VARIABLE00",
+        "name": "s34",
+        "updated_at": "s35",
+        "value": "s36",
+        "environment_id": "ENVIRONMENT01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "ACTIONS_VARIABLE01": {
+        "created_at": "s64",
+        "id": "ACTIONS_VARIABLE01",
+        "name": "s66",
+        "updated_at": "s67",
+        "value": "s68",
+        "environment_id": "ENVIRONMENT01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "ACTIONS_VARIABLE02": {
+        "created_at": "s96",
+        "id": "ACTIONS_VARIABLE02",
+        "name": "s98",
+        "updated_at": "s99",
+        "value": "s9a",
+        "environment_id": "ENVIRONMENT01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "actions_variable": {
+      "actions_variable_ref01": {
+        "created_at": "sc8",
+        "name": "sca",
+        "updated_at": "scb",
+        "value": "scc"
+      }
+    }
+  }
+}

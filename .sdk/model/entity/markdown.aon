@@ -1,0 +1,71 @@
+# Entity: markdown
+
+main: kit: entity: markdown: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "context"
+      req: false
+      short: "The repository context to use when creating references in `gfm` mode."
+      type: "`$STRING`"
+    }
+    {
+      name: "mode"
+      req: false
+      short: "The rendering mode."
+      type: "`$STRING`"
+    }
+    {
+      name: "text"
+      req: true
+      short: "The Markdown text to render in HTML."
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "markdown"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/markdown"
+          segments: [
+            {
+              lit: "markdown"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/markdown/raw"
+          segments: [
+            {
+              lit: "markdown"
+            }
+            {
+              lit: "raw"
+            }
+          ]
+          select: {
+            "$action": "raw"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

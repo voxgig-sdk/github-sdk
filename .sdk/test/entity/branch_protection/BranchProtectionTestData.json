@@ -1,0 +1,91 @@
+{
+  "existing": {
+    "branch_protection": {
+      "BRANCH_PROTECTION00": {
+        "allow_deletions": {},
+        "allow_force_pushes": {},
+        "allow_fork_syncing": {},
+        "block_creations": {},
+        "enabled": true,
+        "enforce_admins": {},
+        "id": "BRANCH_PROTECTION00",
+        "lock_branch": {},
+        "name": "sb2",
+        "protection_url": "sb3",
+        "required_conversation_resolution": {},
+        "required_linear_history": {},
+        "required_pull_request_reviews": {},
+        "required_signatures": {},
+        "required_status_checks": {},
+        "restrictions": {},
+        "url": "sba",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "BRANCH_PROTECTION01": {
+        "allow_deletions": {},
+        "allow_force_pushes": {},
+        "allow_fork_syncing": {},
+        "block_creations": {},
+        "enabled": true,
+        "enforce_admins": {},
+        "id": "BRANCH_PROTECTION01",
+        "lock_branch": {},
+        "name": "s15c",
+        "protection_url": "s15d",
+        "required_conversation_resolution": {},
+        "required_linear_history": {},
+        "required_pull_request_reviews": {},
+        "required_signatures": {},
+        "required_status_checks": {},
+        "restrictions": {},
+        "url": "s164",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "BRANCH_PROTECTION02": {
+        "allow_deletions": {},
+        "allow_force_pushes": {},
+        "allow_fork_syncing": {},
+        "block_creations": {},
+        "enabled": true,
+        "enforce_admins": {},
+        "id": "BRANCH_PROTECTION02",
+        "lock_branch": {},
+        "name": "s206",
+        "protection_url": "s207",
+        "required_conversation_resolution": {},
+        "required_linear_history": {},
+        "required_pull_request_reviews": {},
+        "required_signatures": {},
+        "required_status_checks": {},
+        "restrictions": {},
+        "url": "s20e",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "branch_protection": {
+      "branch_protection_ref01": {
+        "allow_deletions": {},
+        "allow_force_pushes": {},
+        "allow_fork_syncing": {},
+        "block_creations": {},
+        "enabled": true,
+        "enforce_admins": {},
+        "lock_branch": {},
+        "name": "s2b0",
+        "protection_url": "s2b1",
+        "required_conversation_resolution": {},
+        "required_linear_history": {},
+        "required_pull_request_reviews": {},
+        "required_signatures": {},
+        "required_status_checks": {},
+        "restrictions": {},
+        "url": "s2b8"
+      }
+    }
+  }
+}

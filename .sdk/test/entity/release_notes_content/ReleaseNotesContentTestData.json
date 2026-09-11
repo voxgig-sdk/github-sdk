@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "release_notes_content": {
+      "RELEASE_NOTES_CONTENT00": {
+        "body": "s3c",
+        "configuration_file_path": "s3d",
+        "name": "s3e",
+        "previous_tag_name": "s3f",
+        "tag_name": "s40",
+        "target_commitish": "s41",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "RELEASE_NOTES_CONTENT00"
+      },
+      "RELEASE_NOTES_CONTENT01": {
+        "body": "s78",
+        "configuration_file_path": "s79",
+        "name": "s7a",
+        "previous_tag_name": "s7b",
+        "tag_name": "s7c",
+        "target_commitish": "s7d",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "RELEASE_NOTES_CONTENT01"
+      },
+      "RELEASE_NOTES_CONTENT02": {
+        "body": "sb4",
+        "configuration_file_path": "sb5",
+        "name": "sb6",
+        "previous_tag_name": "sb7",
+        "tag_name": "sb8",
+        "target_commitish": "sb9",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "RELEASE_NOTES_CONTENT02"
+      }
+    }
+  },
+  "new": {
+    "release_notes_content": {
+      "release_notes_content_ref01": {
+        "body": "sf0",
+        "configuration_file_path": "sf1",
+        "name": "sf2",
+        "previous_tag_name": "sf3",
+        "tag_name": "sf4",
+        "target_commitish": "sf5"
+      }
+    }
+  }
+}

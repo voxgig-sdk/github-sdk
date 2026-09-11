@@ -1,0 +1,307 @@
+# Entity: runner_group
+
+main: kit: entity: runner_group: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "allows_public_repositories"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Whether the runner group can be used by `public` repositories."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "default"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "hosted_runners_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      type: "`$NUMBER`"
+    }
+    {
+      name: "inherited"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "inherited_allows_public_repositories"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "name"
+      req: true
+      short: "Name of the runner group."
+      type: "`$STRING`"
+    }
+    {
+      name: "network_configuration_id"
+      req: false
+      short: "The identifier of a hosted compute network configuration."
+      type: "`$STRING`"
+    }
+    {
+      name: "restricted_to_workflows"
+      req: false
+      short: "If `true`, the runner group will be restricted to running only the workflows specified in the `selected_workflows` array."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "runners"
+      req: false
+      short: "List of runner IDs to add to the runner group."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "runners_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "selected_repositories_url"
+      req: false
+      short: "Link to the selected repositories resource for this runner group."
+      type: "`$STRING`"
+    }
+    {
+      name: "selected_repository_ids"
+      req: false
+      short: "List of repository IDs that can access the runner group."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "selected_workflows"
+      req: false
+      short: "List of workflows the runner group should be allowed to run."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "visibility"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "Visibility of a runner group."
+      type: "`$STRING`"
+    }
+    {
+      name: "workflow_restrictions_read_only"
+      req: false
+      short: "If `true`, the `restricted_to_workflows` and `selected_workflows` fields cannot be modified."
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "runner_group"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/actions/runner-groups"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runner-groups"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "runner_group_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/runner-groups/{runner_group_id}"
+          rename: {
+            param: {
+              org: "org_id"
+              runner_group_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runner-groups"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "runner_group_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/orgs/{org}/actions/runner-groups/{runner_group_id}"
+          rename: {
+            param: {
+              org: "org_id"
+              runner_group_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runner-groups"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+    ]
+  }
+
+
+
+}

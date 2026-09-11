@@ -1,0 +1,151 @@
+# Entity: dependency_graph_diff
+
+main: kit: entity: dependency_graph_diff: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "change_type"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "ecosystem"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "license"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "manifest"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "package_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "scope"
+      req: true
+      short: "Where the dependency is utilized."
+      type: "`$STRING`"
+    }
+    {
+      name: "source_repository_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "version"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "vulnerabilities"
+      req: true
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "dependency_graph_diff"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "basehead"
+                orig: "basehead"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/dependency-graph/compare/{basehead}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "dependency-graph"
+            }
+            {
+              lit: "compare"
+            }
+            {
+              var: "basehead"
+            }
+          ]
+          select: {
+            exist: [
+              "basehead"
+              "name"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+        "compare"
+      ]
+    ]
+  }
+
+
+
+}

@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "markdown": {
+      "MARKDOWN00": {
+        "context": "s1e",
+        "mode": "s1f",
+        "text": "s20",
+        "id": "MARKDOWN00"
+      },
+      "MARKDOWN01": {
+        "context": "s3c",
+        "mode": "s3d",
+        "text": "s3e",
+        "id": "MARKDOWN01"
+      },
+      "MARKDOWN02": {
+        "context": "s5a",
+        "mode": "s5b",
+        "text": "s5c",
+        "id": "MARKDOWN02"
+      }
+    }
+  },
+  "new": {
+    "markdown": {
+      "markdown_ref01": {
+        "context": "s78",
+        "mode": "s79",
+        "text": "s7a"
+      }
+    }
+  }
+}

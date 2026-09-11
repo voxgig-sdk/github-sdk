@@ -1,0 +1,55 @@
+{
+  "existing": {
+    "community_profile": {
+      "COMMUNITY_PROFILE00": {
+        "code_of_conduct": {},
+        "code_of_conduct_file": {},
+        "contributing": {},
+        "issue_template": {},
+        "license": {},
+        "pull_request_template": {},
+        "readme": {},
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "COMMUNITY_PROFILE00"
+      },
+      "COMMUNITY_PROFILE01": {
+        "code_of_conduct": {},
+        "code_of_conduct_file": {},
+        "contributing": {},
+        "issue_template": {},
+        "license": {},
+        "pull_request_template": {},
+        "readme": {},
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "COMMUNITY_PROFILE01"
+      },
+      "COMMUNITY_PROFILE02": {
+        "code_of_conduct": {},
+        "code_of_conduct_file": {},
+        "contributing": {},
+        "issue_template": {},
+        "license": {},
+        "pull_request_template": {},
+        "readme": {},
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "COMMUNITY_PROFILE02"
+      }
+    }
+  },
+  "new": {
+    "community_profile": {
+      "community_profile_ref01": {
+        "code_of_conduct": {},
+        "code_of_conduct_file": {},
+        "contributing": {},
+        "issue_template": {},
+        "license": {},
+        "pull_request_template": {},
+        "readme": {}
+      }
+    }
+  }
+}

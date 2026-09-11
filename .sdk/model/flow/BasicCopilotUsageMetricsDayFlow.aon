@@ -1,0 +1,26 @@
+# BasicCopilotUsageMetricsDayFlow
+
+main: kit: flow: BasicCopilotUsageMetricsDayFlow:
+{
+  entity: "copilot_usage_metrics_day",
+  kind: "basic",
+  name: "BasicCopilotUsageMetricsDayFlow",
+  step: [
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "copilot_usage_metrics_day_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCopilotUsageMetricsDayFlow"
+}

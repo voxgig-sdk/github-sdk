@@ -1,0 +1,32 @@
+# BasicGitignoreTemplateFlow
+
+main: kit: flow: BasicGitignoreTemplateFlow:
+{
+  entity: "gitignore_template",
+  kind: "basic",
+  name: "BasicGitignoreTemplateFlow",
+  step: [
+    {
+      input: {
+        ref: "gitignore_template_ref01",
+        srcdatavar: "gitignore_template_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "gitignore_template01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-gitignore_template_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGitignoreTemplateFlow"
+}

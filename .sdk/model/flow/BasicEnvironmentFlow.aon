@@ -1,0 +1,58 @@
+# BasicEnvironmentFlow
+
+main: kit: flow: BasicEnvironmentFlow:
+{
+  entity: "environment",
+  kind: "basic",
+  name: "BasicEnvironmentFlow",
+  step: [
+    {
+      data: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      input: {
+        ref: "environment_ref01",
+        srcdatavar: "environment_ref01_data",
+        suffix: "_up0",
+        textfield: "created_at"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-environment_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "environment_ref01",
+        srcdatavar: "environment_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "environment01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-environment_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEnvironmentFlow"
+}

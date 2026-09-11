@@ -1,0 +1,76 @@
+{
+  "existing": {
+    "actions_hosted_runner": {
+      "ACTIONS_HOSTED_RUNNER00": {
+        "enable_static_ip": true,
+        "id": "ACTIONS_HOSTED_RUNNER00",
+        "image": {},
+        "image_details": {},
+        "last_active_on": "s90",
+        "machine_size_details": {},
+        "maximum_runners": "s92",
+        "name": "s93",
+        "platform": "s94",
+        "public_ip_enabled": false,
+        "public_ips": [],
+        "runner_group_id": "RUNNER_GROUP01",
+        "size": "s98",
+        "status": "s99",
+        "org_id": "ORG01"
+      },
+      "ACTIONS_HOSTED_RUNNER01": {
+        "enable_static_ip": true,
+        "id": "ACTIONS_HOSTED_RUNNER01",
+        "image": {},
+        "image_details": {},
+        "last_active_on": "s11c",
+        "machine_size_details": {},
+        "maximum_runners": "s11e",
+        "name": "s11f",
+        "platform": "s120",
+        "public_ip_enabled": false,
+        "public_ips": [],
+        "runner_group_id": "RUNNER_GROUP01",
+        "size": "s124",
+        "status": "s125",
+        "org_id": "ORG01"
+      },
+      "ACTIONS_HOSTED_RUNNER02": {
+        "enable_static_ip": true,
+        "id": "ACTIONS_HOSTED_RUNNER02",
+        "image": {},
+        "image_details": {},
+        "last_active_on": "s1a8",
+        "machine_size_details": {},
+        "maximum_runners": "s1aa",
+        "name": "s1ab",
+        "platform": "s1ac",
+        "public_ip_enabled": false,
+        "public_ips": [],
+        "runner_group_id": "RUNNER_GROUP01",
+        "size": "s1b0",
+        "status": "s1b1",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "actions_hosted_runner": {
+      "actions_hosted_runner_ref01": {
+        "enable_static_ip": true,
+        "image": {},
+        "image_details": {},
+        "last_active_on": "s234",
+        "machine_size_details": {},
+        "maximum_runners": "s236",
+        "name": "s237",
+        "platform": "s238",
+        "public_ip_enabled": false,
+        "public_ips": [],
+        "runner_group_id": "RUNNER_GROUP01",
+        "size": "s23c",
+        "status": "s23d"
+      }
+    }
+  }
+}

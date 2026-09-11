@@ -102,7 +102,12 @@ func TestRepoEntity(t *testing.T) {
 		repoRef01Ent := client.Repo(nil)
 		repoRef01Data := core.ToMapAny(vs.GetProp(
 			vs.GetPath(setup.data, []any{"new", "repo"}), "repo_ref01"))
+		repoRef01Data["branch_id"] = setup.idmap["branch01"]
+		repoRef01Data["environment_id"] = setup.idmap["environment01"]
+		repoRef01Data["environment_name"] = setup.idmap["environment_name01"]
+		repoRef01Data["org_id"] = setup.idmap["org01"]
 		repoRef01Data["owner"] = setup.idmap["owner01"]
+		repoRef01Data["repo"] = setup.idmap["repo01"]
 
 		repoRef01DataResult, err := repoRef01Ent.Create(repoRef01Data, nil)
 		if err != nil {
@@ -117,7 +122,11 @@ func TestRepoEntity(t *testing.T) {
 		}
 
 		// LIST
-		repoRef01Match := map[string]any{}
+		repoRef01Match := map[string]any{
+			"environment_name": setup.idmap["environment_name01"],
+			"owner": setup.idmap["owner01"],
+			"repo": setup.idmap["repo01"],
+		}
 
 		repoRef01ListResult, err := repoRef01Ent.List(repoRef01Match, nil)
 		if err != nil {
@@ -184,7 +193,11 @@ func TestRepoEntity(t *testing.T) {
 		}
 
 		// LIST
-		repoRef01MatchRt0 := map[string]any{}
+		repoRef01MatchRt0 := map[string]any{
+			"environment_name": setup.idmap["environment_name01"],
+			"owner": setup.idmap["owner01"],
+			"repo": setup.idmap["repo01"],
+		}
 
 		repoRef01ListRt0Result, err := repoRef01Ent.List(repoRef01MatchRt0, nil)
 		if err != nil {
@@ -228,7 +241,7 @@ func repoBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"repo01", "repo02", "repo03", "owner01"},
+		[]any{"repo01", "repo02", "repo03", "repository_invitation01", "repository_invitation02", "repository_invitation03", "org01", "org02", "org03", "ruleset01", "ruleset02", "ruleset03", "attestation01", "attestation02", "attestation03", "autolink01", "autolink02", "autolink03", "branch01", "branch02", "branch03", "collaborator01", "collaborator02", "collaborator03", "comment01", "comment02", "comment03", "content01", "content02", "content03", "deployment01", "deployment02", "deployment03", "environment01", "environment02", "environment03", "hook01", "hook02", "hook03", "invitation01", "invitation02", "invitation03", "key01", "key02", "key03", "asset01", "asset02", "asset03", "release01", "release02", "release03", "protection01", "protection02", "protection03", "tarball01", "tarball02", "tarball03", "zipball01", "zipball02", "zipball03", "deployment_branch_policy01", "deployment_branch_policy02", "deployment_branch_policy03", "deployment_protection_rule01", "deployment_protection_rule02", "deployment_protection_rule03", "delivery01", "delivery02", "delivery03", "environment_name01", "owner01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

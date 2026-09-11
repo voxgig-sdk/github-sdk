@@ -1,0 +1,98 @@
+{
+  "existing": {
+    "code_scanning_variant_analysi": {
+      "CODE_SCANNING_VARIANT_ANALYSI00": {
+        "actions_workflow_run_id": "ACTIONS_WORKFLOW_RUN01",
+        "actor": {},
+        "completed_at": "sb6",
+        "controller_repo": {},
+        "created_at": "sb8",
+        "failure_reason": "sb9",
+        "id": "CODE_SCANNING_VARIANT_ANALYSI00",
+        "language": "sbb",
+        "query_language": "sbc",
+        "query_pack": "sbd",
+        "query_pack_url": "sbe",
+        "repositories": [],
+        "repository_lists": [],
+        "repository_owners": [],
+        "scanned_repositories": [],
+        "skipped_repositories": {},
+        "status": "sc4",
+        "updated_at": "sc5",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "codeql_variant_analysis_id": "CODEQL_VARIANT_ANALYSIS01"
+      },
+      "CODE_SCANNING_VARIANT_ANALYSI01": {
+        "actions_workflow_run_id": "ACTIONS_WORKFLOW_RUN01",
+        "actor": {},
+        "completed_at": "s16a",
+        "controller_repo": {},
+        "created_at": "s16c",
+        "failure_reason": "s16d",
+        "id": "CODE_SCANNING_VARIANT_ANALYSI01",
+        "language": "s16f",
+        "query_language": "s170",
+        "query_pack": "s171",
+        "query_pack_url": "s172",
+        "repositories": [],
+        "repository_lists": [],
+        "repository_owners": [],
+        "scanned_repositories": [],
+        "skipped_repositories": {},
+        "status": "s178",
+        "updated_at": "s179",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "codeql_variant_analysis_id": "CODEQL_VARIANT_ANALYSIS01"
+      },
+      "CODE_SCANNING_VARIANT_ANALYSI02": {
+        "actions_workflow_run_id": "ACTIONS_WORKFLOW_RUN01",
+        "actor": {},
+        "completed_at": "s21e",
+        "controller_repo": {},
+        "created_at": "s220",
+        "failure_reason": "s221",
+        "id": "CODE_SCANNING_VARIANT_ANALYSI02",
+        "language": "s223",
+        "query_language": "s224",
+        "query_pack": "s225",
+        "query_pack_url": "s226",
+        "repositories": [],
+        "repository_lists": [],
+        "repository_owners": [],
+        "scanned_repositories": [],
+        "skipped_repositories": {},
+        "status": "s22c",
+        "updated_at": "s22d",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "codeql_variant_analysis_id": "CODEQL_VARIANT_ANALYSIS01"
+      }
+    }
+  },
+  "new": {
+    "code_scanning_variant_analysi": {
+      "code_scanning_variant_analysi_ref01": {
+        "actions_workflow_run_id": "ACTIONS_WORKFLOW_RUN01",
+        "actor": {},
+        "completed_at": "s2d2",
+        "controller_repo": {},
+        "created_at": "s2d4",
+        "failure_reason": "s2d5",
+        "language": "s2d7",
+        "query_language": "s2d8",
+        "query_pack": "s2d9",
+        "query_pack_url": "s2da",
+        "repositories": [],
+        "repository_lists": [],
+        "repository_owners": [],
+        "scanned_repositories": [],
+        "skipped_repositories": {},
+        "status": "s2e0",
+        "updated_at": "s2e1"
+      }
+    }
+  }
+}

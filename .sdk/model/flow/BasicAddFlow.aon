@@ -1,0 +1,23 @@
+# BasicAddFlow
+
+main: kit: flow: BasicAddFlow:
+{
+  entity: "add",
+  kind: "basic",
+  name: "BasicAddFlow",
+  step: [
+    {
+      input: {
+        ref: "add_ref01"
+      }
+
+      match: {
+        enterprise: "enterprise01",
+        team_id: "team01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicAddFlow"
+}

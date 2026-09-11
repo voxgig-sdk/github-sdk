@@ -1,0 +1,59 @@
+{
+  "existing": {
+    "branch": {
+      "BRANCH00": {
+        "commit": {},
+        "id": "BRANCH00",
+        "links": {},
+        "name": "s5d",
+        "pattern": "s5e",
+        "protected": false,
+        "protection": {},
+        "protection_url": "s61",
+        "required_approving_review_count": "s62",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "BRANCH01": {
+        "commit": {},
+        "id": "BRANCH01",
+        "links": {},
+        "name": "sb7",
+        "pattern": "sb8",
+        "protected": false,
+        "protection": {},
+        "protection_url": "sbb",
+        "required_approving_review_count": "sbc",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "BRANCH02": {
+        "commit": {},
+        "id": "BRANCH02",
+        "links": {},
+        "name": "s111",
+        "pattern": "s112",
+        "protected": false,
+        "protection": {},
+        "protection_url": "s115",
+        "required_approving_review_count": "s116",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "branch": {
+      "branch_ref01": {
+        "commit": {},
+        "links": {},
+        "name": "s16b",
+        "pattern": "s16c",
+        "protected": false,
+        "protection": {},
+        "protection_url": "s16f",
+        "required_approving_review_count": "s170"
+      }
+    }
+  }
+}

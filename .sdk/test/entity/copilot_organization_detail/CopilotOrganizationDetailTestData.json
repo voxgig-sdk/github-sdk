@@ -1,0 +1,48 @@
+{
+  "existing": {
+    "copilot_organization_detail": {
+      "COPILOT_ORGANIZATION_DETAIL00": {
+        "active_this_cycle": "s3c",
+        "added_this_cycle": "s3d",
+        "inactive_this_cycle": "s3e",
+        "pending_cancellation": "s3f",
+        "pending_invitation": "s40",
+        "total": "s41",
+        "org_id": "ORG01",
+        "id": "COPILOT_ORGANIZATION_DETAIL00"
+      },
+      "COPILOT_ORGANIZATION_DETAIL01": {
+        "active_this_cycle": "s78",
+        "added_this_cycle": "s79",
+        "inactive_this_cycle": "s7a",
+        "pending_cancellation": "s7b",
+        "pending_invitation": "s7c",
+        "total": "s7d",
+        "org_id": "ORG01",
+        "id": "COPILOT_ORGANIZATION_DETAIL01"
+      },
+      "COPILOT_ORGANIZATION_DETAIL02": {
+        "active_this_cycle": "sb4",
+        "added_this_cycle": "sb5",
+        "inactive_this_cycle": "sb6",
+        "pending_cancellation": "sb7",
+        "pending_invitation": "sb8",
+        "total": "sb9",
+        "org_id": "ORG01",
+        "id": "COPILOT_ORGANIZATION_DETAIL02"
+      }
+    }
+  },
+  "new": {
+    "copilot_organization_detail": {
+      "copilot_organization_detail_ref01": {
+        "active_this_cycle": "sf0",
+        "added_this_cycle": "sf1",
+        "inactive_this_cycle": "sf2",
+        "pending_cancellation": "sf3",
+        "pending_invitation": "sf4",
+        "total": "sf5"
+      }
+    }
+  }
+}

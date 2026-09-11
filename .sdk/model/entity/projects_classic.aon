@@ -1,0 +1,220 @@
+# Entity: projects_classic
+
+main: kit: entity: projects_classic: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "permission"
+      req: false
+      short: "The permission to grant the collaborator."
+      type: "`$STRING`"
+    }
+    {
+      name: "position"
+      req: true
+      short: "The position of the column in a project."
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "projects_classic"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "column_id"
+                orig: "column_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/projects/columns/{column_id}/moves"
+          segments: [
+            {
+              lit: "projects"
+            }
+            {
+              lit: "columns"
+            }
+            {
+              var: "column_id"
+            }
+            {
+              lit: "moves"
+            }
+          ]
+          select: {
+            exist: [
+              "column_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "project_id"
+                orig: "project_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/projects/{project_id}/collaborators/{username}"
+          segments: [
+            {
+              lit: "projects"
+            }
+            {
+              var: "project_id"
+            }
+            {
+              lit: "collaborators"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "project_id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "column_id"
+                orig: "column_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/projects/columns/{column_id}"
+          segments: [
+            {
+              lit: "projects"
+            }
+            {
+              lit: "columns"
+            }
+            {
+              var: "column_id"
+            }
+          ]
+          select: {
+            exist: [
+              "column_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "project_id"
+                orig: "project_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/projects/{project_id}/collaborators/{username}"
+          segments: [
+            {
+              lit: "projects"
+            }
+            {
+              var: "project_id"
+            }
+            {
+              lit: "collaborators"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "project_id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "column"
+      ]
+      [
+        "project"
+        "collaborator"
+      ]
+    ]
+  }
+
+
+
+}

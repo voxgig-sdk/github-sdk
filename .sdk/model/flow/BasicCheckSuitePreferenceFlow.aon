@@ -1,0 +1,32 @@
+# BasicCheckSuitePreferenceFlow
+
+main: kit: flow: BasicCheckSuitePreferenceFlow:
+{
+  entity: "check_suite_preference",
+  kind: "basic",
+  name: "BasicCheckSuitePreferenceFlow",
+  step: [
+    {
+      data: {
+        owner: "owner01"
+      }
+
+      input: {
+        ref: "check_suite_preference_ref01",
+        srcdatavar: "check_suite_preference_ref01_data",
+        suffix: "_up0"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-check_suite_preference_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCheckSuitePreferenceFlow"
+}

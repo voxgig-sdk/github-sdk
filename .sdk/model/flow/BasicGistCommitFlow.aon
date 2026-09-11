@@ -1,0 +1,26 @@
+# BasicGistCommitFlow
+
+main: kit: flow: BasicGistCommitFlow:
+{
+  entity: "gist_commit",
+  kind: "basic",
+  name: "BasicGistCommitFlow",
+  step: [
+    {
+      match: {
+        gist_id: "gist01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "gist_commit_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGistCommitFlow"
+}

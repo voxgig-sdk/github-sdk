@@ -6,6 +6,12138 @@
 -- @voxgig/apidef VALID_CANON). Annotations only — no runtime effect. Do not
 -- edit by hand.
 
+---@class Action
+---@field MACOS? number
+---@field UBUNTU? number
+---@field WINDOWS? number
+---@field access_level string
+---@field active_caches_count number
+---@field active_caches_size_in_bytes number
+---@field actor table
+---@field allow_auto_merge? boolean
+---@field allow_forking? boolean
+---@field allow_merge_commit? boolean
+---@field allow_rebase_merge? boolean
+---@field allow_squash_merge? boolean
+---@field allow_update_branch? boolean
+---@field allowed_actions? string
+---@field allows_public_repositories boolean
+---@field anonymous_access_enabled? boolean
+---@field approval_policy string
+---@field archive_download_url string
+---@field archive_url string
+---@field archived? boolean
+---@field artifacts_url string
+---@field assignees_url string
+---@field badge_url string
+---@field blobs_url string
+---@field branches_url string
+---@field busy boolean
+---@field can_approve_pull_request_reviews? boolean
+---@field cancel_url string
+---@field check_run_url string
+---@field check_suite_id? number
+---@field check_suite_node_id? string
+---@field check_suite_url string
+---@field clone_url? string
+---@field code_of_conduct table
+---@field code_search_index_status? table
+---@field collaborators_url string
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field completed_at string
+---@field conclusion string
+---@field contents_url string
+---@field contributors_url string
+---@field cpu_cores number
+---@field created_at string
+---@field custom_properties? table
+---@field days number
+---@field default boolean
+---@field default_branch? string
+---@field default_workflow_permissions? string
+---@field delete_branch_on_merge? boolean
+---@field deleted_at? string
+---@field deployments_url string
+---@field description string
+---@field digest? string
+---@field disabled? boolean
+---@field display_name string
+---@field display_title string
+---@field downloads_url string
+---@field enabled boolean
+---@field enabled_repositories string
+---@field ephemeral? boolean
+---@field event string
+---@field events_url string
+---@field expired boolean
+---@field expires_at string
+---@field fork boolean
+---@field forks? number
+---@field forks_count? number
+---@field forks_url string
+---@field full_name string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_tags_url string
+---@field git_url? string
+---@field github_owned_allowed? boolean
+---@field has_discussions? boolean
+---@field has_downloads? boolean
+---@field has_issues? boolean
+---@field has_pages? boolean
+---@field has_projects? boolean
+---@field has_wiki? boolean
+---@field head_branch string
+---@field head_commit table
+---@field head_repository table
+---@field head_repository_id? number
+---@field head_sha string
+---@field homepage? string
+---@field hooks_url string
+---@field hosted_runners_url? string
+---@field html_url string
+---@field id number
+---@field image_details table
+---@field inherited boolean
+---@field inherited_allows_public_repositories? boolean
+---@field inputs? table
+---@field is_template? boolean
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field jobs_url string
+---@field keys_url string
+---@field labels table
+---@field labels_url string
+---@field language? string
+---@field languages_url string
+---@field last_active_on? string
+---@field license? table
+---@field logs_url string
+---@field machine_size_details table
+---@field macos_12_core? number
+---@field master_branch? string
+---@field maximum_runners? number
+---@field memory_gb number
+---@field merge_commit_message? string
+---@field merge_commit_title? string
+---@field merges_url string
+---@field milestones_url string
+---@field mirror_url? string
+---@field name string
+---@field network_configuration_id? string
+---@field network_count? number
+---@field node_id string
+---@field notifications_url string
+---@field open_issues? number
+---@field open_issues_count? number
+---@field os string
+---@field owner table
+---@field path string
+---@field patterns_allowed? table
+---@field permissions? table
+---@field platform string
+---@field platforms table
+---@field previous_attempt_url? string
+---@field private boolean
+---@field public_ip_enabled boolean
+---@field public_ips? table
+---@field pull_requests table
+---@field pulls_url string
+---@field pushed_at? string
+---@field ref string
+---@field referenced_workflows? table
+---@field releases_url string
+---@field repository table
+---@field require_approval_for_fork_pr_workflows? boolean
+---@field rerun_url string
+---@field restricted_to_workflows? boolean
+---@field role_name? string
+---@field run_attempt? number
+---@field run_id number
+---@field run_number number
+---@field run_started_at? string
+---@field run_url string
+---@field run_workflows_from_fork_pull_requests boolean
+---@field runner_group_id number
+---@field runner_group_name string
+---@field runner_id number
+---@field runner_name string
+---@field runners table
+---@field runners_url string
+---@field security_and_analysis? table
+---@field selected_repositories_url? string
+---@field selected_repository_ids table
+---@field selected_workflows? table
+---@field send_secrets_and_variables? boolean
+---@field send_write_tokens_to_workflows? boolean
+---@field sha_pinning_required? boolean
+---@field size? number
+---@field size_gb number
+---@field size_in_bytes number
+---@field source string
+---@field squash_merge_commit_message? string
+---@field squash_merge_commit_title? string
+---@field ssh_url? string
+---@field stargazers_count? number
+---@field stargazers_url string
+---@field starred_at? string
+---@field started_at string
+---@field state string
+---@field status string
+---@field statuses_url string
+---@field steps? table
+---@field storage_gb number
+---@field subscribers_count? number
+---@field subscribers_url string
+---@field subscription_url string
+---@field svn_url? string
+---@field tags_url string
+---@field teams_url string
+---@field temp_clone_token? string
+---@field topics? table
+---@field total? number
+---@field total_count number
+---@field trees_url string
+---@field triggering_actor table
+---@field type? string
+---@field ubuntu_16_core? number
+---@field ubuntu_32_core? number
+---@field ubuntu_4_core? number
+---@field ubuntu_64_core? number
+---@field ubuntu_8_core? number
+---@field updated_at string
+---@field url string
+---@field use_squash_pr_title_as_default? boolean
+---@field value? string
+---@field verified_allowed? boolean
+---@field visibility? string
+---@field watchers? number
+---@field watchers_count? number
+---@field web_commit_signoff_required? boolean
+---@field windows_16_core? number
+---@field windows_32_core? number
+---@field windows_4_core? number
+---@field windows_64_core? number
+---@field windows_8_core? number
+---@field work_folder? string
+---@field workflow_id number
+---@field workflow_name string
+---@field workflow_restrictions_read_only? boolean
+---@field workflow_run? table
+---@field workflow_url string
+
+---@class ActionLoadMatch
+---@field archive_format string
+---@field artifact_id number
+---@field owner string
+---@field repo string
+
+---@class ActionListMatch
+---@field org_id string
+---@field page? number
+---@field per_page? number
+
+---@class ActionCreateData
+---@field org_id string
+---@field MACOS? number
+---@field UBUNTU? number
+---@field WINDOWS? number
+---@field access_level string
+---@field active_caches_count number
+---@field active_caches_size_in_bytes number
+---@field actor table
+---@field allow_auto_merge? boolean
+---@field allow_forking? boolean
+---@field allow_merge_commit? boolean
+---@field allow_rebase_merge? boolean
+---@field allow_squash_merge? boolean
+---@field allow_update_branch? boolean
+---@field allowed_actions? string
+---@field allows_public_repositories boolean
+---@field anonymous_access_enabled? boolean
+---@field approval_policy string
+---@field archive_download_url string
+---@field archive_url string
+---@field archived? boolean
+---@field artifacts_url string
+---@field assignees_url string
+---@field badge_url string
+---@field blobs_url string
+---@field branches_url string
+---@field busy boolean
+---@field can_approve_pull_request_reviews? boolean
+---@field cancel_url string
+---@field check_run_url string
+---@field check_suite_id? number
+---@field check_suite_node_id? string
+---@field check_suite_url string
+---@field clone_url? string
+---@field code_of_conduct table
+---@field code_search_index_status? table
+---@field collaborators_url string
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field completed_at string
+---@field conclusion string
+---@field contents_url string
+---@field contributors_url string
+---@field cpu_cores number
+---@field created_at string
+---@field custom_properties? table
+---@field days number
+---@field default boolean
+---@field default_branch? string
+---@field default_workflow_permissions? string
+---@field delete_branch_on_merge? boolean
+---@field deleted_at? string
+---@field deployments_url string
+---@field description string
+---@field digest? string
+---@field disabled? boolean
+---@field display_name string
+---@field display_title string
+---@field downloads_url string
+---@field enabled boolean
+---@field enabled_repositories string
+---@field ephemeral? boolean
+---@field event string
+---@field events_url string
+---@field expired boolean
+---@field expires_at string
+---@field fork boolean
+---@field forks? number
+---@field forks_count? number
+---@field forks_url string
+---@field full_name string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_tags_url string
+---@field git_url? string
+---@field github_owned_allowed? boolean
+---@field has_discussions? boolean
+---@field has_downloads? boolean
+---@field has_issues? boolean
+---@field has_pages? boolean
+---@field has_projects? boolean
+---@field has_wiki? boolean
+---@field head_branch string
+---@field head_commit table
+---@field head_repository table
+---@field head_repository_id? number
+---@field head_sha string
+---@field homepage? string
+---@field hooks_url string
+---@field hosted_runners_url? string
+---@field html_url string
+---@field id number
+---@field image_details table
+---@field inherited boolean
+---@field inherited_allows_public_repositories? boolean
+---@field inputs? table
+---@field is_template? boolean
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field jobs_url string
+---@field keys_url string
+---@field labels table
+---@field labels_url string
+---@field language? string
+---@field languages_url string
+---@field last_active_on? string
+---@field license? table
+---@field logs_url string
+---@field machine_size_details table
+---@field macos_12_core? number
+---@field master_branch? string
+---@field maximum_runners? number
+---@field memory_gb number
+---@field merge_commit_message? string
+---@field merge_commit_title? string
+---@field merges_url string
+---@field milestones_url string
+---@field mirror_url? string
+---@field name string
+---@field network_configuration_id? string
+---@field network_count? number
+---@field node_id string
+---@field notifications_url string
+---@field open_issues? number
+---@field open_issues_count? number
+---@field os string
+---@field owner table
+---@field path string
+---@field patterns_allowed? table
+---@field permissions? table
+---@field platform string
+---@field platforms table
+---@field previous_attempt_url? string
+---@field private boolean
+---@field public_ip_enabled boolean
+---@field public_ips? table
+---@field pull_requests table
+---@field pulls_url string
+---@field pushed_at? string
+---@field ref string
+---@field referenced_workflows? table
+---@field releases_url string
+---@field repository table
+---@field require_approval_for_fork_pr_workflows? boolean
+---@field rerun_url string
+---@field restricted_to_workflows? boolean
+---@field role_name? string
+---@field run_attempt? number
+---@field run_id number
+---@field run_number number
+---@field run_started_at? string
+---@field run_url string
+---@field run_workflows_from_fork_pull_requests boolean
+---@field runner_group_id number
+---@field runner_group_name string
+---@field runner_id number
+---@field runner_name string
+---@field runners table
+---@field runners_url string
+---@field security_and_analysis? table
+---@field selected_repositories_url? string
+---@field selected_repository_ids table
+---@field selected_workflows? table
+---@field send_secrets_and_variables? boolean
+---@field send_write_tokens_to_workflows? boolean
+---@field sha_pinning_required? boolean
+---@field size? number
+---@field size_gb number
+---@field size_in_bytes number
+---@field source string
+---@field squash_merge_commit_message? string
+---@field squash_merge_commit_title? string
+---@field ssh_url? string
+---@field stargazers_count? number
+---@field stargazers_url string
+---@field starred_at? string
+---@field started_at string
+---@field state string
+---@field status string
+---@field statuses_url string
+---@field steps? table
+---@field storage_gb number
+---@field subscribers_count? number
+---@field subscribers_url string
+---@field subscription_url string
+---@field svn_url? string
+---@field tags_url string
+---@field teams_url string
+---@field temp_clone_token? string
+---@field topics? table
+---@field total? number
+---@field total_count number
+---@field trees_url string
+---@field triggering_actor table
+---@field type? string
+---@field ubuntu_16_core? number
+---@field ubuntu_32_core? number
+---@field ubuntu_4_core? number
+---@field ubuntu_64_core? number
+---@field ubuntu_8_core? number
+---@field updated_at string
+---@field url string
+---@field use_squash_pr_title_as_default? boolean
+---@field value? string
+---@field verified_allowed? boolean
+---@field visibility? string
+---@field watchers? number
+---@field watchers_count? number
+---@field web_commit_signoff_required? boolean
+---@field windows_16_core? number
+---@field windows_32_core? number
+---@field windows_4_core? number
+---@field windows_64_core? number
+---@field windows_8_core? number
+---@field work_folder? string
+---@field workflow_id number
+---@field workflow_name string
+---@field workflow_restrictions_read_only? boolean
+---@field workflow_run? table
+---@field workflow_url string
+
+---@class ActionUpdateData
+---@field org_id string
+---@field repository_id number
+---@field MACOS? number
+---@field UBUNTU? number
+---@field WINDOWS? number
+---@field access_level? string
+---@field active_caches_count? number
+---@field active_caches_size_in_bytes? number
+---@field actor? table
+---@field allow_auto_merge? boolean
+---@field allow_forking? boolean
+---@field allow_merge_commit? boolean
+---@field allow_rebase_merge? boolean
+---@field allow_squash_merge? boolean
+---@field allow_update_branch? boolean
+---@field allowed_actions? string
+---@field allows_public_repositories? boolean
+---@field anonymous_access_enabled? boolean
+---@field approval_policy? string
+---@field archive_download_url? string
+---@field archive_url? string
+---@field archived? boolean
+---@field artifacts_url? string
+---@field assignees_url? string
+---@field badge_url? string
+---@field blobs_url? string
+---@field branches_url? string
+---@field busy? boolean
+---@field can_approve_pull_request_reviews? boolean
+---@field cancel_url? string
+---@field check_run_url? string
+---@field check_suite_id? number
+---@field check_suite_node_id? string
+---@field check_suite_url? string
+---@field clone_url? string
+---@field code_of_conduct? table
+---@field code_search_index_status? table
+---@field collaborators_url? string
+---@field comments_url? string
+---@field commits_url? string
+---@field compare_url? string
+---@field completed_at? string
+---@field conclusion? string
+---@field contents_url? string
+---@field contributors_url? string
+---@field cpu_cores? number
+---@field created_at? string
+---@field custom_properties? table
+---@field days? number
+---@field default? boolean
+---@field default_branch? string
+---@field default_workflow_permissions? string
+---@field delete_branch_on_merge? boolean
+---@field deleted_at? string
+---@field deployments_url? string
+---@field description? string
+---@field digest? string
+---@field disabled? boolean
+---@field display_name? string
+---@field display_title? string
+---@field downloads_url? string
+---@field enabled? boolean
+---@field enabled_repositories? string
+---@field ephemeral? boolean
+---@field event? string
+---@field events_url? string
+---@field expired? boolean
+---@field expires_at? string
+---@field fork? boolean
+---@field forks? number
+---@field forks_count? number
+---@field forks_url? string
+---@field full_name? string
+---@field git_commits_url? string
+---@field git_refs_url? string
+---@field git_tags_url? string
+---@field git_url? string
+---@field github_owned_allowed? boolean
+---@field has_discussions? boolean
+---@field has_downloads? boolean
+---@field has_issues? boolean
+---@field has_pages? boolean
+---@field has_projects? boolean
+---@field has_wiki? boolean
+---@field head_branch? string
+---@field head_commit? table
+---@field head_repository? table
+---@field head_repository_id? number
+---@field head_sha? string
+---@field homepage? string
+---@field hooks_url? string
+---@field hosted_runners_url? string
+---@field html_url? string
+---@field id? number
+---@field image_details? table
+---@field inherited? boolean
+---@field inherited_allows_public_repositories? boolean
+---@field inputs? table
+---@field is_template? boolean
+---@field issue_comment_url? string
+---@field issue_events_url? string
+---@field issues_url? string
+---@field jobs_url? string
+---@field keys_url? string
+---@field labels? table
+---@field labels_url? string
+---@field language? string
+---@field languages_url? string
+---@field last_active_on? string
+---@field license? table
+---@field logs_url? string
+---@field machine_size_details? table
+---@field macos_12_core? number
+---@field master_branch? string
+---@field maximum_runners? number
+---@field memory_gb? number
+---@field merge_commit_message? string
+---@field merge_commit_title? string
+---@field merges_url? string
+---@field milestones_url? string
+---@field mirror_url? string
+---@field name? string
+---@field network_configuration_id? string
+---@field network_count? number
+---@field node_id? string
+---@field notifications_url? string
+---@field open_issues? number
+---@field open_issues_count? number
+---@field os? string
+---@field owner? table
+---@field path? string
+---@field patterns_allowed? table
+---@field permissions? table
+---@field platform? string
+---@field platforms? table
+---@field previous_attempt_url? string
+---@field private? boolean
+---@field public_ip_enabled? boolean
+---@field public_ips? table
+---@field pull_requests? table
+---@field pulls_url? string
+---@field pushed_at? string
+---@field ref? string
+---@field referenced_workflows? table
+---@field releases_url? string
+---@field repository? table
+---@field require_approval_for_fork_pr_workflows? boolean
+---@field rerun_url? string
+---@field restricted_to_workflows? boolean
+---@field role_name? string
+---@field run_attempt? number
+---@field run_id? number
+---@field run_number? number
+---@field run_started_at? string
+---@field run_url? string
+---@field run_workflows_from_fork_pull_requests? boolean
+---@field runner_group_id? number
+---@field runner_group_name? string
+---@field runner_id? number
+---@field runner_name? string
+---@field runners? table
+---@field runners_url? string
+---@field security_and_analysis? table
+---@field selected_repositories_url? string
+---@field selected_repository_ids? table
+---@field selected_workflows? table
+---@field send_secrets_and_variables? boolean
+---@field send_write_tokens_to_workflows? boolean
+---@field sha_pinning_required? boolean
+---@field size? number
+---@field size_gb? number
+---@field size_in_bytes? number
+---@field source? string
+---@field squash_merge_commit_message? string
+---@field squash_merge_commit_title? string
+---@field ssh_url? string
+---@field stargazers_count? number
+---@field stargazers_url? string
+---@field starred_at? string
+---@field started_at? string
+---@field state? string
+---@field status? string
+---@field statuses_url? string
+---@field steps? table
+---@field storage_gb? number
+---@field subscribers_count? number
+---@field subscribers_url? string
+---@field subscription_url? string
+---@field svn_url? string
+---@field tags_url? string
+---@field teams_url? string
+---@field temp_clone_token? string
+---@field topics? table
+---@field total? number
+---@field total_count? number
+---@field trees_url? string
+---@field triggering_actor? table
+---@field type? string
+---@field ubuntu_16_core? number
+---@field ubuntu_32_core? number
+---@field ubuntu_4_core? number
+---@field ubuntu_64_core? number
+---@field ubuntu_8_core? number
+---@field updated_at? string
+---@field url? string
+---@field use_squash_pr_title_as_default? boolean
+---@field value? string
+---@field verified_allowed? boolean
+---@field visibility? string
+---@field watchers? number
+---@field watchers_count? number
+---@field web_commit_signoff_required? boolean
+---@field windows_16_core? number
+---@field windows_32_core? number
+---@field windows_4_core? number
+---@field windows_64_core? number
+---@field windows_8_core? number
+---@field work_folder? string
+---@field workflow_id? number
+---@field workflow_name? string
+---@field workflow_restrictions_read_only? boolean
+---@field workflow_run? table
+---@field workflow_url? string
+
+---@class ActionRemoveMatch
+---@field hosted_runner_id number
+---@field org_id string
+
+---@class ActionsArtifactAndLogRetention
+---@field days number
+---@field maximum_allowed_days number
+
+---@class ActionsArtifactAndLogRetentionLoadMatch
+---@field org_id string
+
+---@class ActionsCacheList
+---@field created_at? string
+---@field id? number
+---@field key? string
+---@field last_accessed_at? string
+---@field ref? string
+---@field size_in_bytes? number
+---@field version? string
+
+---@class ActionsCacheListListMatch
+---@field owner string
+---@field repo string
+---@field direction? string
+---@field key? string
+---@field page? number
+---@field per_page? number
+---@field ref? string
+---@field sort? string
+
+---@class ActionsCacheListRemoveMatch
+---@field owner string
+---@field repo string
+---@field key string
+---@field ref? string
+
+---@class ActionsCacheUsageByRepository
+---@field active_caches_count number
+---@field active_caches_size_in_bytes number
+---@field full_name string
+
+---@class ActionsCacheUsageByRepositoryLoadMatch
+---@field owner string
+---@field repo string
+
+---@class ActionsCacheUsageOrgEnterprise
+---@field total_active_caches_count number
+---@field total_active_caches_size_in_bytes number
+
+---@class ActionsCacheUsageOrgEnterpriseLoadMatch
+---@field org_id string
+
+---@class ActionsForkPrContributorApproval
+---@field approval_policy string
+
+---@class ActionsForkPrContributorApprovalLoadMatch
+---@field org_id string
+
+---@class ActionsForkPrWorkflowsPrivateRepo
+---@field require_approval_for_fork_pr_workflows boolean
+---@field run_workflows_from_fork_pull_requests boolean
+---@field send_secrets_and_variables boolean
+---@field send_write_tokens_to_workflows boolean
+
+---@class ActionsForkPrWorkflowsPrivateRepoLoadMatch
+---@field org_id string
+
+---@class ActionsGetDefaultWorkflowPermission
+---@field can_approve_pull_request_reviews boolean
+---@field default_workflow_permissions string
+
+---@class ActionsGetDefaultWorkflowPermissionLoadMatch
+---@field org_id string
+
+---@class ActionsHostedRunner
+---@field enable_static_ip? boolean
+---@field id number
+---@field image table
+---@field image_details table
+---@field last_active_on? string
+---@field machine_size_details table
+---@field maximum_runners? number
+---@field name string
+---@field platform string
+---@field public_ip_enabled boolean
+---@field public_ips? table
+---@field runner_group_id? number
+---@field size string
+---@field status string
+
+---@class ActionsHostedRunnerLoadMatch
+---@field id number
+---@field org_id string
+
+---@class ActionsHostedRunnerCreateData
+---@field org_id string
+---@field enable_static_ip? boolean
+---@field id number
+---@field image table
+---@field image_details table
+---@field last_active_on? string
+---@field machine_size_details table
+---@field maximum_runners? number
+---@field name string
+---@field platform string
+---@field public_ip_enabled boolean
+---@field public_ips? table
+---@field runner_group_id? number
+---@field size string
+---@field status string
+
+---@class ActionsHostedRunnerUpdateData
+---@field id number
+---@field org_id string
+---@field enable_static_ip? boolean
+---@field image? table
+---@field image_details? table
+---@field last_active_on? string
+---@field machine_size_details? table
+---@field maximum_runners? number
+---@field name? string
+---@field platform? string
+---@field public_ip_enabled? boolean
+---@field public_ips? table
+---@field runner_group_id? number
+---@field size? string
+---@field status? string
+
+---@class ActionsHostedRunnerLimit
+---@field current_usage number
+---@field maximum number
+
+---@class ActionsHostedRunnerLimitLoadMatch
+---@field org_id string
+
+---@class ActionsOrganizationPermission
+---@field allowed_actions? string
+---@field enabled_repositories string
+---@field selected_actions_url? string
+---@field selected_repositories_url? string
+---@field sha_pinning_required? boolean
+
+---@class ActionsOrganizationPermissionLoadMatch
+---@field org_id string
+
+---@class ActionsPublicKey
+---@field created_at? string
+---@field id? number
+---@field key string
+---@field key_id string
+---@field title? string
+---@field url? string
+
+---@class ActionsPublicKeyLoadMatch
+---@field org_id string
+
+---@class ActionsRepositoryPermission
+---@field allowed_actions? string
+---@field enabled boolean
+---@field selected_actions_url? string
+---@field sha_pinning_required? boolean
+
+---@class ActionsRepositoryPermissionLoadMatch
+---@field owner string
+---@field repo string
+
+---@class ActionsSecret
+---@field created_at string
+---@field id? string
+---@field name string
+---@field updated_at string
+
+---@class ActionsSecretLoadMatch
+---@field environment_id? string
+---@field id string
+---@field owner string
+---@field repo string
+
+---@class ActionsVariable
+---@field created_at string
+---@field id? string
+---@field name string
+---@field updated_at string
+---@field value string
+
+---@class ActionsVariableLoadMatch
+---@field environment_id? string
+---@field id string
+---@field owner string
+---@field repo string
+
+---@class ActionsWorkflowAccessToRepository
+---@field access_level string
+
+---@class ActionsWorkflowAccessToRepositoryLoadMatch
+---@field owner string
+---@field repo string
+
+---@class Activity
+---@field activity_type string
+---@field actor table
+---@field after string
+---@field archive_url? string
+---@field assignees_url? string
+---@field avatar_url? string
+---@field before string
+---@field blobs_url? string
+---@field branches_url? string
+---@field clone_url? string
+---@field collaborators_url? string
+---@field comments_url? string
+---@field commits_url? string
+---@field compare_url? string
+---@field contents_url? string
+---@field contributors_url? string
+---@field deployments_url? string
+---@field description? string
+---@field downloads_url? string
+---@field events_url? string
+---@field followers_url? string
+---@field following_url? string
+---@field fork? boolean
+---@field forks_url? string
+---@field full_name? string
+---@field gists_url? string
+---@field git_commits_url? string
+---@field git_refs_url? string
+---@field git_tags_url? string
+---@field git_url? string
+---@field github_id? number
+---@field gravatar_id? string
+---@field homepage? string
+---@field hooks_url? string
+---@field html_url? string
+---@field id? string
+---@field issue_comment_url? string
+---@field issue_events_url? string
+---@field issues_url? string
+---@field keys_url? string
+---@field labels_url? string
+---@field language? table
+---@field languages_url? string
+---@field last_read_at? string
+---@field login? string
+---@field merges_url? string
+---@field milestones_url? string
+---@field mirror_url? string
+---@field name? string
+---@field node_id? string
+---@field notifications_url? string
+---@field organizations_url? string
+---@field owner? table
+---@field private? boolean
+---@field pulls_url? string
+---@field read? boolean
+---@field received_events_url? string
+---@field ref string
+---@field releases_url? string
+---@field repos_url? string
+---@field site_admin? boolean
+---@field ssh_url? string
+---@field stargazers_url? string
+---@field starred_url? string
+---@field statuses_url? string
+---@field subscribers_url? string
+---@field subscription_url? string
+---@field subscriptions_url? string
+---@field svn_url? string
+---@field tags_url? string
+---@field teams_url? string
+---@field timestamp string
+---@field trees_url? string
+---@field type? string
+---@field url? string
+
+---@class ActivityLoadMatch
+---@field owner string
+---@field repo string
+
+---@class ActivityListMatch
+---@field owner string
+---@field repo string
+---@field activity_type? string
+---@field actor? string
+---@field after? string
+---@field before? string
+---@field direction? string
+---@field per_page? number
+---@field ref? string
+---@field time_period? string
+
+---@class ActivityUpdateData
+---@field owner string
+---@field repo string
+---@field activity_type? string
+---@field actor? table
+---@field after? string
+---@field archive_url? string
+---@field assignees_url? string
+---@field avatar_url? string
+---@field before? string
+---@field blobs_url? string
+---@field branches_url? string
+---@field clone_url? string
+---@field collaborators_url? string
+---@field comments_url? string
+---@field commits_url? string
+---@field compare_url? string
+---@field contents_url? string
+---@field contributors_url? string
+---@field deployments_url? string
+---@field description? string
+---@field downloads_url? string
+---@field events_url? string
+---@field followers_url? string
+---@field following_url? string
+---@field fork? boolean
+---@field forks_url? string
+---@field full_name? string
+---@field gists_url? string
+---@field git_commits_url? string
+---@field git_refs_url? string
+---@field git_tags_url? string
+---@field git_url? string
+---@field github_id? number
+---@field gravatar_id? string
+---@field homepage? string
+---@field hooks_url? string
+---@field html_url? string
+---@field id? string
+---@field issue_comment_url? string
+---@field issue_events_url? string
+---@field issues_url? string
+---@field keys_url? string
+---@field labels_url? string
+---@field language? table
+---@field languages_url? string
+---@field last_read_at? string
+---@field login? string
+---@field merges_url? string
+---@field milestones_url? string
+---@field mirror_url? string
+---@field name? string
+---@field node_id? string
+---@field notifications_url? string
+---@field organizations_url? string
+---@field private? boolean
+---@field pulls_url? string
+---@field read? boolean
+---@field received_events_url? string
+---@field ref? string
+---@field releases_url? string
+---@field repos_url? string
+---@field site_admin? boolean
+---@field ssh_url? string
+---@field stargazers_url? string
+---@field starred_url? string
+---@field statuses_url? string
+---@field subscribers_url? string
+---@field subscription_url? string
+---@field subscriptions_url? string
+---@field svn_url? string
+---@field tags_url? string
+---@field teams_url? string
+---@field timestamp? string
+---@field trees_url? string
+---@field type? string
+---@field url? string
+
+---@class ActivityRemoveMatch
+---@field thread_id number
+
+---@class Add
+---@field usernames table
+
+---@class AddCreateData
+---@field enterprise string
+---@field team_id string
+---@field usernames table
+
+---@class ApiInsightsRouteStat
+---@field api_route? string
+---@field http_method? string
+---@field last_rate_limited_timestamp? string
+---@field last_request_timestamp? string
+---@field rate_limited_request_count? number
+---@field total_request_count? number
+
+---@class ApiInsightsRouteStatListMatch
+---@field actor_id number
+---@field actor_type string
+---@field org string
+---@field api_route_substring? string
+---@field direction? string
+---@field max_timestamp? string
+---@field min_timestamp string
+---@field page? number
+---@field per_page? number
+---@field sort? table
+
+---@class ApiInsightsSubjectStat
+---@field last_rate_limited_timestamp? string
+---@field last_request_timestamp? string
+---@field rate_limited_request_count? number
+---@field subject_id? number
+---@field subject_name? string
+---@field subject_type? string
+---@field total_request_count? number
+
+---@class ApiInsightsSubjectStatListMatch
+---@field org_id string
+---@field direction? string
+---@field max_timestamp? string
+---@field min_timestamp string
+---@field page? number
+---@field per_page? number
+---@field sort? table
+---@field subject_name_substring? string
+
+---@class ApiInsightsSummaryStat
+---@field id? string
+---@field rate_limited_request_count? number
+---@field total_request_count? number
+
+---@class ApiInsightsSummaryStatLoadMatch
+---@field actor_id? number
+---@field actor_type? string
+---@field org? string
+---@field max_timestamp? string
+---@field min_timestamp string
+---@field org_id? string
+---@field user_id? string
+
+---@class ApiInsightsTimeStat
+---@field rate_limited_request_count? number
+---@field timestamp? string
+---@field total_request_count? number
+
+---@class ApiInsightsTimeStatLoadMatch
+---@field org_id string
+---@field user_id string
+---@field max_timestamp? string
+---@field min_timestamp string
+---@field timestamp_increment string
+
+---@class ApiInsightsTimeStatListMatch
+---@field actor_id? number
+---@field actor_type? string
+---@field org? string
+---@field max_timestamp? string
+---@field min_timestamp string
+---@field timestamp_increment string
+---@field org_id? string
+
+---@class ApiInsightsUserStat
+---@field actor_id? number
+---@field actor_name? string
+---@field actor_type? string
+---@field id? string
+---@field integration_id? number
+---@field last_rate_limited_timestamp? string
+---@field last_request_timestamp? string
+---@field oauth_application_id? number
+---@field rate_limited_request_count? number
+---@field total_request_count? number
+
+---@class ApiInsightsUserStatLoadMatch
+---@field id string
+---@field org_id string
+---@field actor_name_substring? string
+---@field direction? string
+---@field max_timestamp? string
+---@field min_timestamp string
+---@field page? number
+---@field per_page? number
+---@field sort? table
+
+---@class ApiOverview
+---@field actions? table
+---@field actions_macos? table
+---@field api? table
+---@field codespaces? table
+---@field copilot? table
+---@field dependabot? table
+---@field domains? table
+---@field git? table
+---@field github_enterprise_importer? table
+---@field hooks? table
+---@field importer? table
+---@field packages? table
+---@field pages? table
+---@field ssh_key_fingerprints? table
+---@field ssh_keys? table
+---@field verifiable_password_authentication boolean
+---@field web? table
+
+---@class ApiOverviewListMatch
+---@field actions? table
+---@field actions_macos? table
+---@field api? table
+---@field codespaces? table
+---@field copilot? table
+---@field dependabot? table
+---@field domains? table
+---@field git? table
+---@field github_enterprise_importer? table
+---@field hooks? table
+---@field importer? table
+---@field packages? table
+---@field pages? table
+---@field ssh_key_fingerprints? table
+---@field ssh_keys? table
+---@field verifiable_password_authentication? boolean
+---@field web? table
+
+---@class App
+---@field access_tokens_url string
+---@field account any
+---@field allow_auto_merge? boolean
+---@field allow_forking? boolean
+---@field allow_merge_commit? boolean
+---@field allow_rebase_merge? boolean
+---@field allow_squash_merge? boolean
+---@field allow_update_branch? boolean
+---@field anonymous_access_enabled? boolean
+---@field app_id number
+---@field app_slug string
+---@field archive_url string
+---@field archived boolean
+---@field assignees_url string
+---@field blobs_url string
+---@field branches_url string
+---@field client_id? string
+---@field client_secret? string
+---@field clone_url string
+---@field code_search_index_status? table
+---@field collaborators_url string
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field contact_email? string
+---@field contents_url string
+---@field contributors_url string
+---@field created_at? string
+---@field default_branch string
+---@field delete_branch_on_merge? boolean
+---@field deployments_url string
+---@field description? string
+---@field disabled boolean
+---@field downloads_url string
+---@field events? table
+---@field events_url string
+---@field external_url? string
+---@field fork boolean
+---@field forks number
+---@field forks_count number
+---@field forks_url string
+---@field full_name string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_tags_url string
+---@field git_url string
+---@field has_discussions? boolean
+---@field has_downloads boolean
+---@field has_issues boolean
+---@field has_multiple_single_files? boolean
+---@field has_pages boolean
+---@field has_projects boolean
+---@field has_wiki boolean
+---@field homepage string
+---@field hooks_url string
+---@field html_url? string
+---@field id? number
+---@field is_template? boolean
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field keys_url string
+---@field labels_url string
+---@field language string
+---@field languages_url string
+---@field license table
+---@field master_branch? string
+---@field merge_commit_message? string
+---@field merge_commit_title? string
+---@field merges_url string
+---@field milestones_url string
+---@field mirror_url string
+---@field name? string
+---@field node_id? string
+---@field notifications_url string
+---@field open_issues number
+---@field open_issues_count number
+---@field owner? table
+---@field pem? string
+---@field permissions? table
+---@field private boolean
+---@field pulls_url string
+---@field pushed_at string
+---@field releases_url string
+---@field repositories_url string
+---@field repository_selection string
+---@field single_file_name string
+---@field single_file_paths? table
+---@field size number
+---@field slug? string
+---@field squash_merge_commit_message? string
+---@field squash_merge_commit_title? string
+---@field ssh_url string
+---@field stargazers_count number
+---@field stargazers_url string
+---@field starred_at? string
+---@field statuses_url string
+---@field subscribers_url string
+---@field subscription_url string
+---@field suspended_at string
+---@field suspended_by table
+---@field svn_url string
+---@field tags_url string
+---@field target_id number
+---@field target_type string
+---@field teams_url string
+---@field temp_clone_token? string
+---@field topics? table
+---@field trees_url string
+---@field updated_at? string
+---@field url string
+---@field use_squash_pr_title_as_default? boolean
+---@field visibility? string
+---@field watchers number
+---@field watchers_count number
+---@field web_commit_signoff_required? boolean
+---@field webhook_secret? string
+
+---@class AppListMatch
+---@field page? number
+---@field per_page? number
+
+---@class AppCreateData
+---@field code string
+---@field access_tokens_url string
+---@field account any
+---@field allow_auto_merge? boolean
+---@field allow_forking? boolean
+---@field allow_merge_commit? boolean
+---@field allow_rebase_merge? boolean
+---@field allow_squash_merge? boolean
+---@field allow_update_branch? boolean
+---@field anonymous_access_enabled? boolean
+---@field app_id number
+---@field app_slug string
+---@field archive_url string
+---@field archived boolean
+---@field assignees_url string
+---@field blobs_url string
+---@field branches_url string
+---@field client_id? string
+---@field client_secret? string
+---@field clone_url string
+---@field code_search_index_status? table
+---@field collaborators_url string
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field contact_email? string
+---@field contents_url string
+---@field contributors_url string
+---@field created_at? string
+---@field default_branch string
+---@field delete_branch_on_merge? boolean
+---@field deployments_url string
+---@field description? string
+---@field disabled boolean
+---@field downloads_url string
+---@field events? table
+---@field events_url string
+---@field external_url? string
+---@field fork boolean
+---@field forks number
+---@field forks_count number
+---@field forks_url string
+---@field full_name string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_tags_url string
+---@field git_url string
+---@field has_discussions? boolean
+---@field has_downloads boolean
+---@field has_issues boolean
+---@field has_multiple_single_files? boolean
+---@field has_pages boolean
+---@field has_projects boolean
+---@field has_wiki boolean
+---@field homepage string
+---@field hooks_url string
+---@field html_url? string
+---@field id? number
+---@field is_template? boolean
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field keys_url string
+---@field labels_url string
+---@field language string
+---@field languages_url string
+---@field license table
+---@field master_branch? string
+---@field merge_commit_message? string
+---@field merge_commit_title? string
+---@field merges_url string
+---@field milestones_url string
+---@field mirror_url string
+---@field name? string
+---@field node_id? string
+---@field notifications_url string
+---@field open_issues number
+---@field open_issues_count number
+---@field owner? table
+---@field pem? string
+---@field permissions? table
+---@field private boolean
+---@field pulls_url string
+---@field pushed_at string
+---@field releases_url string
+---@field repositories_url string
+---@field repository_selection string
+---@field single_file_name string
+---@field single_file_paths? table
+---@field size number
+---@field slug? string
+---@field squash_merge_commit_message? string
+---@field squash_merge_commit_title? string
+---@field ssh_url string
+---@field stargazers_count number
+---@field stargazers_url string
+---@field starred_at? string
+---@field statuses_url string
+---@field subscribers_url string
+---@field subscription_url string
+---@field suspended_at string
+---@field suspended_by table
+---@field svn_url string
+---@field tags_url string
+---@field target_id number
+---@field target_type string
+---@field teams_url string
+---@field temp_clone_token? string
+---@field topics? table
+---@field trees_url string
+---@field updated_at? string
+---@field url string
+---@field use_squash_pr_title_as_default? boolean
+---@field visibility? string
+---@field watchers number
+---@field watchers_count number
+---@field web_commit_signoff_required? boolean
+---@field webhook_secret? string
+
+---@class AppUpdateData
+---@field installation_id number
+---@field repository_id number
+---@field access_tokens_url? string
+---@field account? any
+---@field allow_auto_merge? boolean
+---@field allow_forking? boolean
+---@field allow_merge_commit? boolean
+---@field allow_rebase_merge? boolean
+---@field allow_squash_merge? boolean
+---@field allow_update_branch? boolean
+---@field anonymous_access_enabled? boolean
+---@field app_id? number
+---@field app_slug? string
+---@field archive_url? string
+---@field archived? boolean
+---@field assignees_url? string
+---@field blobs_url? string
+---@field branches_url? string
+---@field client_id? string
+---@field client_secret? string
+---@field clone_url? string
+---@field code_search_index_status? table
+---@field collaborators_url? string
+---@field comments_url? string
+---@field commits_url? string
+---@field compare_url? string
+---@field contact_email? string
+---@field contents_url? string
+---@field contributors_url? string
+---@field created_at? string
+---@field default_branch? string
+---@field delete_branch_on_merge? boolean
+---@field deployments_url? string
+---@field description? string
+---@field disabled? boolean
+---@field downloads_url? string
+---@field events? table
+---@field events_url? string
+---@field external_url? string
+---@field fork? boolean
+---@field forks? number
+---@field forks_count? number
+---@field forks_url? string
+---@field full_name? string
+---@field git_commits_url? string
+---@field git_refs_url? string
+---@field git_tags_url? string
+---@field git_url? string
+---@field has_discussions? boolean
+---@field has_downloads? boolean
+---@field has_issues? boolean
+---@field has_multiple_single_files? boolean
+---@field has_pages? boolean
+---@field has_projects? boolean
+---@field has_wiki? boolean
+---@field homepage? string
+---@field hooks_url? string
+---@field html_url? string
+---@field id? number
+---@field is_template? boolean
+---@field issue_comment_url? string
+---@field issue_events_url? string
+---@field issues_url? string
+---@field keys_url? string
+---@field labels_url? string
+---@field language? string
+---@field languages_url? string
+---@field license? table
+---@field master_branch? string
+---@field merge_commit_message? string
+---@field merge_commit_title? string
+---@field merges_url? string
+---@field milestones_url? string
+---@field mirror_url? string
+---@field name? string
+---@field node_id? string
+---@field notifications_url? string
+---@field open_issues? number
+---@field open_issues_count? number
+---@field owner? table
+---@field pem? string
+---@field permissions? table
+---@field private? boolean
+---@field pulls_url? string
+---@field pushed_at? string
+---@field releases_url? string
+---@field repositories_url? string
+---@field repository_selection? string
+---@field single_file_name? string
+---@field single_file_paths? table
+---@field size? number
+---@field slug? string
+---@field squash_merge_commit_message? string
+---@field squash_merge_commit_title? string
+---@field ssh_url? string
+---@field stargazers_count? number
+---@field stargazers_url? string
+---@field starred_at? string
+---@field statuses_url? string
+---@field subscribers_url? string
+---@field subscription_url? string
+---@field suspended_at? string
+---@field suspended_by? table
+---@field svn_url? string
+---@field tags_url? string
+---@field target_id? number
+---@field target_type? string
+---@field teams_url? string
+---@field temp_clone_token? string
+---@field topics? table
+---@field trees_url? string
+---@field updated_at? string
+---@field url? string
+---@field use_squash_pr_title_as_default? boolean
+---@field visibility? string
+---@field watchers? number
+---@field watchers_count? number
+---@field web_commit_signoff_required? boolean
+---@field webhook_secret? string
+
+---@class AppRemoveMatch
+---@field installation_id number
+
+---@class Artifact
+---@field head_branch? string
+---@field head_repository_id? number
+---@field head_sha? string
+---@field id? number
+---@field repository_id? number
+
+---@class ArtifactLoadMatch
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class Assignee
+---@field avatar_url string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field url string
+---@field user_view_type? string
+
+---@class AssigneeListMatch
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class AuthenticationToken
+---@field expires_at? string
+---@field token? string
+
+---@class AuthenticationTokenCreateData
+---@field org_id string
+---@field expires_at? string
+---@field token? string
+
+---@class Authorization
+---@field access_token string
+---@field app table
+---@field created_at string
+---@field expires_at string
+---@field fingerprint string
+---@field hashed_token string
+---@field id number
+---@field installation table
+---@field note string
+---@field note_url string
+---@field permissions? table
+---@field repositories? table
+---@field repository_ids? table
+---@field scopes table
+---@field target? string
+---@field target_id? number
+---@field token string
+---@field token_last_eight string
+---@field updated_at string
+---@field url string
+---@field user table
+
+---@class AuthorizationCreateData
+---@field application_id string
+---@field access_token string
+---@field app table
+---@field created_at string
+---@field expires_at string
+---@field fingerprint string
+---@field hashed_token string
+---@field id number
+---@field installation table
+---@field note string
+---@field note_url string
+---@field permissions? table
+---@field repositories? table
+---@field repository_ids? table
+---@field scopes table
+---@field target? string
+---@field target_id? number
+---@field token string
+---@field token_last_eight string
+---@field updated_at string
+---@field url string
+---@field user table
+
+---@class AuthorizationUpdateData
+---@field application_id string
+---@field access_token? string
+---@field app? table
+---@field created_at? string
+---@field expires_at? string
+---@field fingerprint? string
+---@field hashed_token? string
+---@field id? number
+---@field installation? table
+---@field note? string
+---@field note_url? string
+---@field permissions? table
+---@field repositories? table
+---@field repository_ids? table
+---@field scopes? table
+---@field target? string
+---@field target_id? number
+---@field token? string
+---@field token_last_eight? string
+---@field updated_at? string
+---@field url? string
+---@field user? table
+
+---@class Autolink
+---@field id number
+---@field is_alphanumeric boolean
+---@field key_prefix string
+---@field updated_at? string
+---@field url_template string
+
+---@class AutolinkLoadMatch
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class AutolinkListMatch
+---@field owner string
+---@field repo string
+
+---@class AutolinkCreateData
+---@field owner string
+---@field repo string
+---@field id number
+---@field is_alphanumeric boolean
+---@field key_prefix string
+---@field updated_at? string
+---@field url_template string
+
+---@class BaseGist
+---@field comments? number
+---@field comments_enabled? boolean
+---@field comments_url? string
+---@field commits_url? string
+---@field created_at? string
+---@field description? string
+---@field files? table
+---@field forks? table
+---@field forks_url? string
+---@field git_pull_url? string
+---@field git_push_url? string
+---@field history? table
+---@field html_url? string
+---@field id? string
+---@field node_id? string
+---@field owner? table
+---@field public? boolean
+---@field truncated? boolean
+---@field updated_at? string
+---@field url? string
+---@field user? string
+
+---@class BaseGistListMatch
+---@field page? number
+---@field per_page? number
+---@field since? string
+
+---@class BaseGistCreateData
+---@field gist_id string
+---@field comments? number
+---@field comments_enabled? boolean
+---@field comments_url? string
+---@field commits_url? string
+---@field created_at? string
+---@field description? string
+---@field files? table
+---@field forks? table
+---@field forks_url? string
+---@field git_pull_url? string
+---@field git_push_url? string
+---@field history? table
+---@field html_url? string
+---@field id? string
+---@field node_id? string
+---@field owner? table
+---@field public? boolean
+---@field truncated? boolean
+---@field updated_at? string
+---@field url? string
+---@field user? string
+
+---@class BillingUsageReport
+---@field date string
+---@field discountAmount number
+---@field grossAmount number
+---@field netAmount number
+---@field organizationName string
+---@field pricePerUnit number
+---@field product string
+---@field quantity number
+---@field repositoryName? string
+---@field sku string
+---@field unitType string
+
+---@class BillingUsageReportListMatch
+---@field org string
+---@field day? number
+---@field hour? number
+---@field month? number
+---@field year? number
+
+---@class BillingUsageReportUser
+---@field date string
+---@field discountAmount number
+---@field grossAmount number
+---@field netAmount number
+---@field pricePerUnit number
+---@field product string
+---@field quantity number
+---@field repositoryName? string
+---@field sku string
+---@field unitType string
+
+---@class BillingUsageReportUserListMatch
+---@field username string
+---@field day? number
+---@field hour? number
+---@field month? number
+---@field year? number
+
+---@class Blob
+---@field content string
+---@field encoding string
+---@field highlighted_content? string
+---@field id? string
+---@field node_id string
+---@field sha string
+---@field size number
+---@field url string
+
+---@class BlobLoadMatch
+---@field id string
+---@field owner string
+---@field repo string
+
+---@class Block
+---@field avatar_url string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field url string
+---@field user_view_type? string
+
+---@class BlockListMatch
+---@field page? number
+---@field per_page? number
+
+---@class Branch
+---@field commit table
+---@field id? string
+---@field links table
+---@field name string
+---@field pattern? string
+---@field protected boolean
+---@field protection table
+---@field protection_url string
+---@field required_approving_review_count? number
+
+---@class BranchLoadMatch
+---@field id string
+---@field owner string
+---@field repo string
+
+---@class BranchProtection
+---@field allow_deletions? table
+---@field allow_force_pushes? table
+---@field allow_fork_syncing? table
+---@field block_creations? table
+---@field enabled? boolean
+---@field enforce_admins table
+---@field id? string
+---@field lock_branch? table
+---@field name? string
+---@field protection_url? string
+---@field required_conversation_resolution? table
+---@field required_linear_history? table
+---@field required_pull_request_reviews table
+---@field required_signatures table
+---@field required_status_checks table
+---@field restrictions table
+---@field url? string
+
+---@class BranchProtectionLoadMatch
+---@field id string
+---@field owner string
+---@field repo string
+
+---@class BranchRestrictionPolicy
+---@field apps table
+---@field apps_url string
+---@field teams table
+---@field teams_url string
+---@field url string
+---@field users table
+---@field users_url string
+
+---@class BranchRestrictionPolicyListMatch
+---@field branch_id string
+---@field owner string
+---@field repo string
+
+---@class BranchShort
+---@field commit table
+---@field name string
+---@field protected boolean
+
+---@class BranchShortListMatch
+---@field commit_sha string
+---@field owner string
+---@field repo string
+
+---@class BranchWithProtection
+---@field id? string
+---@field new_name string
+
+---@class BranchWithProtectionCreateData
+---@field id string
+---@field owner string
+---@field repo string
+---@field new_name string
+
+---@class Campaign
+---@field alert_stats table
+---@field closed_at? string
+---@field code_scanning_alerts table
+---@field contact_link string
+---@field created_at string
+---@field description string
+---@field ends_at string
+---@field generate_issues? boolean
+---@field id? string
+---@field managers table
+---@field name? string
+---@field number number
+---@field published_at? string
+---@field state string
+---@field team_managers? table
+---@field updated_at string
+
+---@class CampaignLoadMatch
+---@field id number
+---@field org_id string
+
+---@class CampaignListMatch
+---@field org_id string
+---@field direction? string
+---@field page? number
+---@field per_page? number
+---@field sort? string
+---@field state? string
+
+---@class CampaignCreateData
+---@field org_id string
+---@field alert_stats table
+---@field closed_at? string
+---@field code_scanning_alerts table
+---@field contact_link string
+---@field created_at string
+---@field description string
+---@field ends_at string
+---@field generate_issues? boolean
+---@field id? string
+---@field managers table
+---@field name? string
+---@field number number
+---@field published_at? string
+---@field state string
+---@field team_managers? table
+---@field updated_at string
+
+---@class CampaignUpdateData
+---@field id number
+---@field org_id string
+---@field alert_stats? table
+---@field closed_at? string
+---@field code_scanning_alerts? table
+---@field contact_link? string
+---@field created_at? string
+---@field description? string
+---@field ends_at? string
+---@field generate_issues? boolean
+---@field managers? table
+---@field name? string
+---@field number? number
+---@field published_at? string
+---@field state? string
+---@field team_managers? table
+---@field updated_at? string
+
+---@class CampaignRemoveMatch
+---@field id number
+---@field org_id string
+
+---@class Check
+---@field after string
+---@field app table
+---@field before string
+---@field check_runs_url string
+---@field check_suite table
+---@field completed_at string
+---@field conclusion string
+---@field created_at string
+---@field deployment table
+---@field details_url string
+---@field external_id string
+---@field head_branch string
+---@field head_commit table
+---@field head_sha string
+---@field html_url string
+---@field id number
+---@field latest_check_runs_count number
+---@field name string
+---@field node_id string
+---@field output table
+---@field pull_requests table
+---@field repository table
+---@field rerequestable? boolean
+---@field runs_rerequestable? boolean
+---@field started_at string
+---@field status string
+---@field updated_at string
+---@field url string
+
+---@class CheckListMatch
+---@field owner string
+---@field ref? string
+---@field repo string
+---@field app_id? number
+---@field check_name? string
+---@field filter? string
+---@field page? number
+---@field per_page? number
+---@field status? string
+---@field check_suite_id? number
+
+---@class CheckAnnotation
+---@field annotation_level string
+---@field blob_href string
+---@field end_column number
+---@field end_line number
+---@field message string
+---@field path string
+---@field raw_details string
+---@field start_column number
+---@field start_line number
+---@field title string
+
+---@class CheckAnnotationListMatch
+---@field check_run_id number
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class CheckAutomatedSecurityFix
+---@field enabled boolean
+---@field paused boolean
+
+---@class CheckAutomatedSecurityFixLoadMatch
+---@field owner string
+---@field repo string
+
+---@class CheckRun
+---@field actions? table
+---@field app table
+---@field check_suite table
+---@field completed_at string
+---@field conclusion string
+---@field deployment table
+---@field details_url string
+---@field external_id string
+---@field head_sha string
+---@field html_url string
+---@field id number
+---@field name string
+---@field node_id string
+---@field output table
+---@field pull_requests table
+---@field started_at string
+---@field status string
+---@field url string
+
+---@class CheckRunLoadMatch
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class CheckRunCreateData
+---@field owner string
+---@field repo string
+---@field actions? table
+---@field app table
+---@field check_suite table
+---@field completed_at string
+---@field conclusion string
+---@field deployment table
+---@field details_url string
+---@field external_id string
+---@field head_sha string
+---@field html_url string
+---@field id number
+---@field name string
+---@field node_id string
+---@field output table
+---@field pull_requests table
+---@field started_at string
+---@field status string
+---@field url string
+
+---@class CheckRunUpdateData
+---@field id number
+---@field owner string
+---@field repo string
+---@field actions? table
+---@field app? table
+---@field check_suite? table
+---@field completed_at? string
+---@field conclusion? string
+---@field deployment? table
+---@field details_url? string
+---@field external_id? string
+---@field head_sha? string
+---@field html_url? string
+---@field name? string
+---@field node_id? string
+---@field output? table
+---@field pull_requests? table
+---@field started_at? string
+---@field status? string
+---@field url? string
+
+---@class CheckSuite
+---@field after string
+---@field app table
+---@field before string
+---@field check_runs_url string
+---@field conclusion string
+---@field created_at string
+---@field head_branch string
+---@field head_commit table
+---@field head_sha string
+---@field id number
+---@field latest_check_runs_count number
+---@field node_id string
+---@field pull_requests table
+---@field repository table
+---@field rerequestable? boolean
+---@field runs_rerequestable? boolean
+---@field status string
+---@field updated_at string
+---@field url string
+
+---@class CheckSuiteLoadMatch
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class CheckSuiteCreateData
+---@field owner string
+---@field repo string
+---@field after string
+---@field app table
+---@field before string
+---@field check_runs_url string
+---@field conclusion string
+---@field created_at string
+---@field head_branch string
+---@field head_commit table
+---@field head_sha string
+---@field id number
+---@field latest_check_runs_count number
+---@field node_id string
+---@field pull_requests table
+---@field repository table
+---@field rerequestable? boolean
+---@field runs_rerequestable? boolean
+---@field status string
+---@field updated_at string
+---@field url string
+
+---@class CheckSuitePreference
+---@field auto_trigger_checks? table
+---@field preferences table
+---@field repository table
+
+---@class CheckSuitePreferenceUpdateData
+---@field owner string
+---@field repo string
+---@field auto_trigger_checks? table
+---@field preferences? table
+---@field repository? table
+
+---@class Classroom
+---@field archived boolean
+---@field avatar_url string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name string
+---@field node_id string
+---@field url string
+
+---@class ClassroomLoadMatch
+---@field id number
+
+---@class ClassroomListMatch
+---@field page? number
+---@field per_page? number
+
+---@class ClassroomAcceptedAssignment
+---@field assignment table
+---@field commit_count number
+---@field grade string
+---@field id number
+---@field passing boolean
+---@field repository table
+---@field students table
+---@field submitted boolean
+
+---@class ClassroomAcceptedAssignmentListMatch
+---@field assignment_id number
+---@field page? number
+---@field per_page? number
+
+---@class ClassroomAssignment
+---@field accepted number
+---@field classroom table
+---@field deadline string
+---@field editor string
+---@field feedback_pull_requests_enabled boolean
+---@field id number
+---@field invitations_enabled boolean
+---@field invite_link string
+---@field language string
+---@field max_members number
+---@field max_teams number
+---@field passing number
+---@field public_repo boolean
+---@field slug string
+---@field starter_code_repository table
+---@field students_are_repo_admins boolean
+---@field submitted number
+---@field title string
+---@field type string
+
+---@class ClassroomAssignmentLoadMatch
+---@field id number
+
+---@class ClassroomAssignmentGrade
+---@field assignment_name string
+---@field assignment_url string
+---@field github_username string
+---@field group_name? string
+---@field points_available number
+---@field points_awarded number
+---@field roster_identifier string
+---@field starter_code_url string
+---@field student_repository_name string
+---@field student_repository_url string
+---@field submission_timestamp string
+
+---@class ClassroomAssignmentGradeListMatch
+---@field assignment_id number
+
+---@class Clone
+---@field count number
+---@field timestamp string
+---@field uniques number
+
+---@class CloneListMatch
+---@field owner string
+---@field repo string
+---@field per? string
+
+---@class CodeFrequency
+
+---@class CodeFrequencyListMatch
+---@field owner string
+---@field repo string
+
+---@class CodeFrequencyStat
+
+---@class CodeFrequencyStatListMatch
+---@field owner string
+---@field repo string
+
+---@class CodeOfConduct
+---@field body? string
+---@field html_url string
+---@field key string
+---@field name string
+---@field url string
+
+---@class CodeOfConductLoadMatch
+---@field key string
+
+---@class CodeOfConductListMatch
+---@field body? string
+---@field html_url? string
+---@field key? string
+---@field name? string
+---@field url? string
+
+---@class CodeScanning
+---@field checkout_uri? string
+---@field commit_sha string
+---@field ref string
+---@field sarif string
+---@field started_at? string
+---@field tool_name? string
+---@field validate? boolean
+
+---@class CodeScanningCreateData
+---@field owner string
+---@field repo string
+---@field checkout_uri? string
+---@field commit_sha string
+---@field ref string
+---@field sarif string
+---@field started_at? string
+---@field tool_name? string
+---@field validate? boolean
+
+---@class CodeScanningRemoveMatch
+---@field language string
+---@field owner string
+---@field repo string
+
+---@class CodeScanningAlert
+---@field create_request? boolean
+---@field created_at string
+---@field dismissal_approved_by table
+---@field dismissed_at string
+---@field dismissed_by table
+---@field dismissed_comment? string
+---@field dismissed_reason string
+---@field fixed_at? string
+---@field html_url string
+---@field id? string
+---@field instances_url string
+---@field most_recent_instance table
+---@field number number
+---@field rule table
+---@field state string
+---@field tool table
+---@field updated_at? string
+---@field url string
+
+---@class CodeScanningAlertLoadMatch
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class CodeScanningAlertUpdateData
+---@field id number
+---@field owner string
+---@field repo string
+---@field create_request? boolean
+---@field created_at? string
+---@field dismissal_approved_by? table
+---@field dismissed_at? string
+---@field dismissed_by? table
+---@field dismissed_comment? string
+---@field dismissed_reason? string
+---@field fixed_at? string
+---@field html_url? string
+---@field instances_url? string
+---@field most_recent_instance? table
+---@field number? number
+---@field rule? table
+---@field state? string
+---@field tool? table
+---@field updated_at? string
+---@field url? string
+
+---@class CodeScanningAlertInstance
+---@field analysis_key? string
+---@field category? string
+---@field classifications? table
+---@field commit_sha? string
+---@field environment? string
+---@field html_url? string
+---@field location? table
+---@field message? table
+---@field ref? string
+---@field state? string
+
+---@class CodeScanningAlertInstanceListMatch
+---@field alert_number number
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+---@field pr? number
+---@field ref? string
+
+---@class CodeScanningAlertItem
+---@field created_at string
+---@field dismissal_approved_by table
+---@field dismissed_at string
+---@field dismissed_by table
+---@field dismissed_comment? string
+---@field dismissed_reason string
+---@field fixed_at? string
+---@field html_url string
+---@field instances_url string
+---@field most_recent_instance table
+---@field number number
+---@field rule table
+---@field state string
+---@field tool table
+---@field updated_at? string
+---@field url string
+
+---@class CodeScanningAlertItemListMatch
+---@field owner string
+---@field repo string
+---@field after? string
+---@field before? string
+---@field direction? string
+---@field page? number
+---@field per_page? number
+---@field pr? number
+---@field ref? string
+---@field severity? string
+---@field sort? string
+---@field state? string
+---@field tool_guid? string
+---@field tool_name? string
+
+---@class CodeScanningAnalysi
+---@field analysis_key string
+---@field category? string
+---@field commit_sha string
+---@field created_at string
+---@field deletable boolean
+---@field environment string
+---@field error string
+---@field guid? string
+---@field id number
+---@field name? string
+---@field ref string
+---@field results_count number
+---@field rules_count number
+---@field sarif_id string
+---@field tool table
+---@field url string
+---@field version? string
+---@field warning string
+
+---@class CodeScanningAnalysiLoadMatch
+---@field analysis_id number
+---@field owner string
+---@field repo string
+
+---@class CodeScanningAnalysiListMatch
+---@field owner string
+---@field repo string
+---@field direction? string
+---@field page? number
+---@field per_page? number
+---@field pr? number
+---@field ref? string
+---@field sarif_id? string
+---@field sort? string
+---@field tool_guid? string
+---@field tool_name? string
+
+---@class CodeScanningAnalysisDeletion
+
+---@class CodeScanningAnalysisDeletionRemoveMatch
+---@field analysis_id number
+---@field owner string
+---@field repo string
+---@field confirm_delete? string
+
+---@class CodeScanningAutofix
+---@field description string
+---@field started_at string
+---@field status string
+
+---@class CodeScanningAutofixLoadMatch
+---@field alert_number number
+---@field owner string
+---@field repo string
+
+---@class CodeScanningAutofixCreateData
+---@field alert_number number
+---@field owner string
+---@field repo string
+---@field description string
+---@field started_at string
+---@field status string
+
+---@class CodeScanningAutofixCommit
+---@field message? string
+---@field target_ref? string
+
+---@class CodeScanningAutofixCommitCreateData
+---@field alert_id number
+---@field owner string
+---@field repo string
+---@field message? string
+---@field target_ref? string
+
+---@class CodeScanningCodeqlDatabase
+---@field avatar_url string
+---@field commit_oid? string
+---@field content_type string
+---@field created_at string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field language string
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field size number
+---@field starred_at? string
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field updated_at string
+---@field uploader table
+---@field url string
+---@field user_view_type? string
+
+---@class CodeScanningCodeqlDatabaseLoadMatch
+---@field language string
+---@field owner string
+---@field repo string
+
+---@class CodeScanningCodeqlDatabaseListMatch
+---@field owner string
+---@field repo string
+
+---@class CodeScanningDefaultSetup
+---@field languages? table
+---@field query_suite? string
+---@field runner_label? string
+---@field runner_type? string
+---@field schedule? string
+---@field state? string
+---@field threat_model? string
+---@field updated_at? string
+
+---@class CodeScanningDefaultSetupListMatch
+---@field owner string
+---@field repo string
+
+---@class CodeScanningOrganizationAlertItem
+---@field created_at string
+---@field dismissal_approved_by table
+---@field dismissed_at string
+---@field dismissed_by table
+---@field dismissed_comment? string
+---@field dismissed_reason string
+---@field fixed_at? string
+---@field html_url string
+---@field instances_url string
+---@field most_recent_instance table
+---@field number number
+---@field repository table
+---@field rule table
+---@field state string
+---@field tool table
+---@field updated_at? string
+---@field url string
+
+---@class CodeScanningOrganizationAlertItemListMatch
+---@field org_id string
+---@field after? string
+---@field before? string
+---@field direction? string
+---@field page? number
+---@field per_page? number
+---@field severity? string
+---@field sort? string
+---@field state? string
+---@field tool_guid? string
+---@field tool_name? string
+
+---@class CodeScanningSarifsStatus
+---@field analyses_url? string
+---@field errors? table
+---@field processing_status? string
+
+---@class CodeScanningSarifsStatusLoadMatch
+---@field owner string
+---@field repo string
+---@field sarif_id string
+
+---@class CodeScanningVariantAnalysi
+---@field actions_workflow_run_id? number
+---@field actor table
+---@field completed_at? string
+---@field controller_repo table
+---@field created_at? string
+---@field failure_reason? string
+---@field id number
+---@field language string
+---@field query_language string
+---@field query_pack string
+---@field query_pack_url string
+---@field repositories? table
+---@field repository_lists? table
+---@field repository_owners? table
+---@field scanned_repositories? table
+---@field skipped_repositories table
+---@field status string
+---@field updated_at? string
+
+---@class CodeScanningVariantAnalysiLoadMatch
+---@field codeql_variant_analysis_id number
+---@field owner string
+---@field repo string
+
+---@class CodeScanningVariantAnalysiCreateData
+---@field owner string
+---@field repo string
+---@field actions_workflow_run_id? number
+---@field actor table
+---@field completed_at? string
+---@field controller_repo table
+---@field created_at? string
+---@field failure_reason? string
+---@field id number
+---@field language string
+---@field query_language string
+---@field query_pack string
+---@field query_pack_url string
+---@field repositories? table
+---@field repository_lists? table
+---@field repository_owners? table
+---@field scanned_repositories? table
+---@field skipped_repositories table
+---@field status string
+---@field updated_at? string
+
+---@class CodeScanningVariantAnalysisRepoTask
+---@field archive_url string
+---@field assignees_url string
+---@field blobs_url string
+---@field branches_url string
+---@field collaborators_url string
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field contents_url string
+---@field contributors_url string
+---@field deployments_url string
+---@field description string
+---@field downloads_url string
+---@field events_url string
+---@field fork boolean
+---@field forks_url string
+---@field full_name string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_tags_url string
+---@field github_id number
+---@field hooks_url string
+---@field html_url string
+---@field id string
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field keys_url string
+---@field labels_url string
+---@field languages_url string
+---@field merges_url string
+---@field milestones_url string
+---@field name string
+---@field node_id string
+---@field notifications_url string
+---@field owner table
+---@field private boolean
+---@field pulls_url string
+---@field releases_url string
+---@field stargazers_url string
+---@field statuses_url string
+---@field subscribers_url string
+---@field subscription_url string
+---@field tags_url string
+---@field teams_url string
+---@field trees_url string
+---@field url string
+
+---@class CodeScanningVariantAnalysisRepoTaskLoadMatch
+---@field codeql_variant_analysis_id number
+---@field owner string
+---@field repo string
+---@field repo_name string
+---@field repo_owner string
+
+---@class CodeSecurity
+---@field advanced_security? string
+---@field code_scanning_default_setup? string
+---@field code_scanning_default_setup_options? table
+---@field code_scanning_delegated_alert_dismissal? string
+---@field code_scanning_options? table
+---@field created_at? string
+---@field default_for_new_repos? string
+---@field dependabot_alerts? string
+---@field dependabot_security_updates? string
+---@field dependency_graph? string
+---@field dependency_graph_autosubmit_action? string
+---@field dependency_graph_autosubmit_action_options? table
+---@field description? string
+---@field enforcement? string
+---@field html_url? string
+---@field id? number
+---@field name? string
+---@field private_vulnerability_reporting? string
+---@field secret_scanning? string
+---@field secret_scanning_delegated_alert_dismissal? string
+---@field secret_scanning_delegated_bypass? string
+---@field secret_scanning_delegated_bypass_options? table
+---@field secret_scanning_generic_secrets? string
+---@field secret_scanning_non_provider_patterns? string
+---@field secret_scanning_push_protection? string
+---@field secret_scanning_validity_checks? string
+---@field target_type? string
+---@field updated_at? string
+---@field url? string
+
+---@class CodeSecurityUpdateData
+---@field configuration_id number
+---@field enterprise? string
+---@field org_id? string
+---@field advanced_security? string
+---@field code_scanning_default_setup? string
+---@field code_scanning_default_setup_options? table
+---@field code_scanning_delegated_alert_dismissal? string
+---@field code_scanning_options? table
+---@field created_at? string
+---@field default_for_new_repos? string
+---@field dependabot_alerts? string
+---@field dependabot_security_updates? string
+---@field dependency_graph? string
+---@field dependency_graph_autosubmit_action? string
+---@field dependency_graph_autosubmit_action_options? table
+---@field description? string
+---@field enforcement? string
+---@field html_url? string
+---@field id? number
+---@field name? string
+---@field private_vulnerability_reporting? string
+---@field secret_scanning? string
+---@field secret_scanning_delegated_alert_dismissal? string
+---@field secret_scanning_delegated_bypass? string
+---@field secret_scanning_delegated_bypass_options? table
+---@field secret_scanning_generic_secrets? string
+---@field secret_scanning_non_provider_patterns? string
+---@field secret_scanning_push_protection? string
+---@field secret_scanning_validity_checks? string
+---@field target_type? string
+---@field updated_at? string
+---@field url? string
+
+---@class CodeSecurityRemoveMatch
+---@field configuration_id number
+---@field enterprise string
+
+---@class CodeSecurityConfiguration
+---@field advanced_security? string
+---@field code_scanning_default_setup? string
+---@field code_scanning_default_setup_options? table
+---@field code_scanning_delegated_alert_dismissal? string
+---@field code_scanning_options? table
+---@field code_security? string
+---@field created_at? string
+---@field dependabot_alerts? string
+---@field dependabot_security_updates? string
+---@field dependency_graph? string
+---@field dependency_graph_autosubmit_action? string
+---@field dependency_graph_autosubmit_action_options? table
+---@field description? string
+---@field enforcement? string
+---@field html_url? string
+---@field id? number
+---@field name? string
+---@field private_vulnerability_reporting? string
+---@field scope string
+---@field secret_protection? string
+---@field secret_scanning? string
+---@field secret_scanning_delegated_alert_dismissal? string
+---@field secret_scanning_delegated_bypass? string
+---@field secret_scanning_delegated_bypass_options? table
+---@field secret_scanning_generic_secrets? string
+---@field secret_scanning_non_provider_patterns? string
+---@field secret_scanning_push_protection? string
+---@field secret_scanning_validity_checks? string
+---@field selected_repository_ids? table
+---@field target_type? string
+---@field updated_at? string
+---@field url? string
+
+---@class CodeSecurityConfigurationLoadMatch
+---@field enterprise string
+---@field id number
+
+---@class CodeSecurityConfigurationListMatch
+---@field org_id string
+---@field after? string
+---@field before? string
+---@field per_page? number
+---@field target_type? string
+
+---@class CodeSecurityConfigurationCreateData
+---@field enterprise string
+---@field advanced_security? string
+---@field code_scanning_default_setup? string
+---@field code_scanning_default_setup_options? table
+---@field code_scanning_delegated_alert_dismissal? string
+---@field code_scanning_options? table
+---@field code_security? string
+---@field created_at? string
+---@field dependabot_alerts? string
+---@field dependabot_security_updates? string
+---@field dependency_graph? string
+---@field dependency_graph_autosubmit_action? string
+---@field dependency_graph_autosubmit_action_options? table
+---@field description? string
+---@field enforcement? string
+---@field html_url? string
+---@field id? number
+---@field name? string
+---@field private_vulnerability_reporting? string
+---@field scope string
+---@field secret_protection? string
+---@field secret_scanning? string
+---@field secret_scanning_delegated_alert_dismissal? string
+---@field secret_scanning_delegated_bypass? string
+---@field secret_scanning_delegated_bypass_options? table
+---@field secret_scanning_generic_secrets? string
+---@field secret_scanning_non_provider_patterns? string
+---@field secret_scanning_push_protection? string
+---@field secret_scanning_validity_checks? string
+---@field selected_repository_ids? table
+---@field target_type? string
+---@field updated_at? string
+---@field url? string
+
+---@class CodeSecurityConfigurationUpdateData
+---@field enterprise? string
+---@field id number
+---@field org_id? string
+---@field advanced_security? string
+---@field code_scanning_default_setup? string
+---@field code_scanning_default_setup_options? table
+---@field code_scanning_delegated_alert_dismissal? string
+---@field code_scanning_options? table
+---@field code_security? string
+---@field created_at? string
+---@field dependabot_alerts? string
+---@field dependabot_security_updates? string
+---@field dependency_graph? string
+---@field dependency_graph_autosubmit_action? string
+---@field dependency_graph_autosubmit_action_options? table
+---@field description? string
+---@field enforcement? string
+---@field html_url? string
+---@field name? string
+---@field private_vulnerability_reporting? string
+---@field scope? string
+---@field secret_protection? string
+---@field secret_scanning? string
+---@field secret_scanning_delegated_alert_dismissal? string
+---@field secret_scanning_delegated_bypass? string
+---@field secret_scanning_delegated_bypass_options? table
+---@field secret_scanning_generic_secrets? string
+---@field secret_scanning_non_provider_patterns? string
+---@field secret_scanning_push_protection? string
+---@field secret_scanning_validity_checks? string
+---@field selected_repository_ids? table
+---@field target_type? string
+---@field updated_at? string
+---@field url? string
+
+---@class CodeSecurityConfigurationRepository
+---@field repository table
+---@field status? string
+
+---@class CodeSecurityConfigurationRepositoryListMatch
+---@field configuration_id number
+---@field enterprise? string
+---@field after? string
+---@field before? string
+---@field per_page? number
+---@field status? string
+---@field org_id? string
+
+---@class CodeSecurityDefaultConfiguration
+---@field configuration? table
+---@field default_for_new_repos? any
+
+---@class CodeSecurityDefaultConfigurationListMatch
+---@field enterprise string
+
+---@class CodeownersError
+---@field column number
+---@field kind string
+---@field line number
+---@field message string
+---@field path string
+---@field source? string
+---@field suggestion? string
+
+---@class CodeownersErrorListMatch
+---@field owner string
+---@field repo string
+---@field ref? string
+
+---@class Codespace
+---@field accepted boolean
+---@field allow_forking? boolean
+---@field archive_url string
+---@field archived? boolean
+---@field assignees_url string
+---@field billable_owner table
+---@field blobs_url string
+---@field branch? string
+---@field branches_url string
+---@field client_ip? string
+---@field clone_url? string
+---@field code_of_conduct table
+---@field collaborators_url string
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field completed_at? string
+---@field contents_url string
+---@field contributors_url string
+---@field cpus number
+---@field created_at string
+---@field custom_properties? table
+---@field default_branch? string
+---@field defaults table
+---@field delete_branch_on_merge? boolean
+---@field deployments_url string
+---@field description string
+---@field devcontainer_path? string
+---@field disabled? boolean
+---@field display_name? string
+---@field downloads_url string
+---@field encrypted_value? string
+---@field environment_id string
+---@field events_url string
+---@field export_url? string
+---@field fork boolean
+---@field forks? number
+---@field forks_count? number
+---@field forks_url string
+---@field full_name string
+---@field geo? string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_status table
+---@field git_tags_url string
+---@field git_url? string
+---@field has_discussions? boolean
+---@field has_downloads? boolean
+---@field has_issues? boolean
+---@field has_pages? boolean
+---@field has_projects? boolean
+---@field has_wiki? boolean
+---@field homepage? string
+---@field hooks_url string
+---@field html_url? string
+---@field id? string
+---@field idle_timeout_minutes number
+---@field idle_timeout_notice? string
+---@field is_template? boolean
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field key string
+---@field key_id string
+---@field keys_url string
+---@field labels_url string
+---@field language? string
+---@field languages_url string
+---@field last_known_stop_notice? string
+---@field last_used_at string
+---@field license? table
+---@field location string
+---@field machine table
+---@field machines_url string
+---@field memory_in_bytes number
+---@field merges_url string
+---@field milestones_url string
+---@field mirror_url? string
+---@field multi_repo_permissions_opt_out? boolean
+---@field name string
+---@field network_count? number
+---@field node_id string
+---@field notifications_url string
+---@field open_issues? number
+---@field open_issues_count? number
+---@field operating_system string
+---@field owner table
+---@field path string
+---@field pending_operation? boolean
+---@field pending_operation_disabled_reason? string
+---@field permissions? table
+---@field prebuild boolean
+---@field prebuild_availability string
+---@field private? boolean
+---@field publish_url? string
+---@field pulls_url string
+---@field pushed_at? string
+---@field recent_folders table
+---@field ref? string
+---@field releases_url string
+---@field repository table
+---@field retention_expires_at? string
+---@field retention_period_minutes? number
+---@field role_name? string
+---@field runtime_constraints? table
+---@field security_and_analysis? table
+---@field selected_repositories_url? string
+---@field selected_repository_ids? table
+---@field selected_usernames table
+---@field sha? string
+---@field size? number
+---@field ssh_url? string
+---@field stargazers_count? number
+---@field stargazers_url string
+---@field start_url string
+---@field state? string
+---@field statuses_url string
+---@field stop_url string
+---@field storage_in_bytes number
+---@field subscribers_count? number
+---@field subscribers_url string
+---@field subscription_url string
+---@field svn_url? string
+---@field tags_url string
+---@field teams_url string
+---@field temp_clone_token? string
+---@field template? string
+---@field title? string
+---@field topics? table
+---@field trees_url string
+---@field updated_at string
+---@field url? string
+---@field visibility string
+---@field watchers? number
+---@field watchers_count? number
+---@field web_commit_signoff_required? boolean
+---@field web_url string
+---@field working_directory? string
+
+---@class CodespaceLoadMatch
+---@field id string
+
+---@class CodespaceListMatch
+---@field page? number
+---@field per_page? number
+---@field repository_id? number
+
+---@class CodespaceCreateData
+---@field accepted boolean
+---@field allow_forking? boolean
+---@field archive_url string
+---@field archived? boolean
+---@field assignees_url string
+---@field billable_owner table
+---@field blobs_url string
+---@field branch? string
+---@field branches_url string
+---@field client_ip? string
+---@field clone_url? string
+---@field code_of_conduct table
+---@field collaborators_url string
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field completed_at? string
+---@field contents_url string
+---@field contributors_url string
+---@field cpus number
+---@field created_at string
+---@field custom_properties? table
+---@field default_branch? string
+---@field defaults table
+---@field delete_branch_on_merge? boolean
+---@field deployments_url string
+---@field description string
+---@field devcontainer_path? string
+---@field disabled? boolean
+---@field display_name? string
+---@field downloads_url string
+---@field encrypted_value? string
+---@field environment_id string
+---@field events_url string
+---@field export_url? string
+---@field fork boolean
+---@field forks? number
+---@field forks_count? number
+---@field forks_url string
+---@field full_name string
+---@field geo? string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_status table
+---@field git_tags_url string
+---@field git_url? string
+---@field has_discussions? boolean
+---@field has_downloads? boolean
+---@field has_issues? boolean
+---@field has_pages? boolean
+---@field has_projects? boolean
+---@field has_wiki? boolean
+---@field homepage? string
+---@field hooks_url string
+---@field html_url? string
+---@field id? string
+---@field idle_timeout_minutes number
+---@field idle_timeout_notice? string
+---@field is_template? boolean
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field key string
+---@field key_id string
+---@field keys_url string
+---@field labels_url string
+---@field language? string
+---@field languages_url string
+---@field last_known_stop_notice? string
+---@field last_used_at string
+---@field license? table
+---@field location string
+---@field machine table
+---@field machines_url string
+---@field memory_in_bytes number
+---@field merges_url string
+---@field milestones_url string
+---@field mirror_url? string
+---@field multi_repo_permissions_opt_out? boolean
+---@field name string
+---@field network_count? number
+---@field node_id string
+---@field notifications_url string
+---@field open_issues? number
+---@field open_issues_count? number
+---@field operating_system string
+---@field owner table
+---@field path string
+---@field pending_operation? boolean
+---@field pending_operation_disabled_reason? string
+---@field permissions? table
+---@field prebuild boolean
+---@field prebuild_availability string
+---@field private? boolean
+---@field publish_url? string
+---@field pulls_url string
+---@field pushed_at? string
+---@field recent_folders table
+---@field ref? string
+---@field releases_url string
+---@field repository table
+---@field retention_expires_at? string
+---@field retention_period_minutes? number
+---@field role_name? string
+---@field runtime_constraints? table
+---@field security_and_analysis? table
+---@field selected_repositories_url? string
+---@field selected_repository_ids? table
+---@field selected_usernames table
+---@field sha? string
+---@field size? number
+---@field ssh_url? string
+---@field stargazers_count? number
+---@field stargazers_url string
+---@field start_url string
+---@field state? string
+---@field statuses_url string
+---@field stop_url string
+---@field storage_in_bytes number
+---@field subscribers_count? number
+---@field subscribers_url string
+---@field subscription_url string
+---@field svn_url? string
+---@field tags_url string
+---@field teams_url string
+---@field temp_clone_token? string
+---@field template? string
+---@field title? string
+---@field topics? table
+---@field trees_url string
+---@field updated_at string
+---@field url? string
+---@field visibility string
+---@field watchers? number
+---@field watchers_count? number
+---@field web_commit_signoff_required? boolean
+---@field web_url string
+---@field working_directory? string
+
+---@class CodespaceUpdateData
+---@field secret_name string
+---@field accepted? boolean
+---@field allow_forking? boolean
+---@field archive_url? string
+---@field archived? boolean
+---@field assignees_url? string
+---@field billable_owner? table
+---@field blobs_url? string
+---@field branch? string
+---@field branches_url? string
+---@field client_ip? string
+---@field clone_url? string
+---@field code_of_conduct? table
+---@field collaborators_url? string
+---@field comments_url? string
+---@field commits_url? string
+---@field compare_url? string
+---@field completed_at? string
+---@field contents_url? string
+---@field contributors_url? string
+---@field cpus? number
+---@field created_at? string
+---@field custom_properties? table
+---@field default_branch? string
+---@field defaults? table
+---@field delete_branch_on_merge? boolean
+---@field deployments_url? string
+---@field description? string
+---@field devcontainer_path? string
+---@field disabled? boolean
+---@field display_name? string
+---@field downloads_url? string
+---@field encrypted_value? string
+---@field environment_id? string
+---@field events_url? string
+---@field export_url? string
+---@field fork? boolean
+---@field forks? number
+---@field forks_count? number
+---@field forks_url? string
+---@field full_name? string
+---@field geo? string
+---@field git_commits_url? string
+---@field git_refs_url? string
+---@field git_status? table
+---@field git_tags_url? string
+---@field git_url? string
+---@field has_discussions? boolean
+---@field has_downloads? boolean
+---@field has_issues? boolean
+---@field has_pages? boolean
+---@field has_projects? boolean
+---@field has_wiki? boolean
+---@field homepage? string
+---@field hooks_url? string
+---@field html_url? string
+---@field id? string
+---@field idle_timeout_minutes? number
+---@field idle_timeout_notice? string
+---@field is_template? boolean
+---@field issue_comment_url? string
+---@field issue_events_url? string
+---@field issues_url? string
+---@field key? string
+---@field key_id? string
+---@field keys_url? string
+---@field labels_url? string
+---@field language? string
+---@field languages_url? string
+---@field last_known_stop_notice? string
+---@field last_used_at? string
+---@field license? table
+---@field location? string
+---@field machine? table
+---@field machines_url? string
+---@field memory_in_bytes? number
+---@field merges_url? string
+---@field milestones_url? string
+---@field mirror_url? string
+---@field multi_repo_permissions_opt_out? boolean
+---@field name? string
+---@field network_count? number
+---@field node_id? string
+---@field notifications_url? string
+---@field open_issues? number
+---@field open_issues_count? number
+---@field operating_system? string
+---@field owner? table
+---@field path? string
+---@field pending_operation? boolean
+---@field pending_operation_disabled_reason? string
+---@field permissions? table
+---@field prebuild? boolean
+---@field prebuild_availability? string
+---@field private? boolean
+---@field publish_url? string
+---@field pulls_url? string
+---@field pushed_at? string
+---@field recent_folders? table
+---@field ref? string
+---@field releases_url? string
+---@field repository? table
+---@field retention_expires_at? string
+---@field retention_period_minutes? number
+---@field role_name? string
+---@field runtime_constraints? table
+---@field security_and_analysis? table
+---@field selected_repositories_url? string
+---@field selected_repository_ids? table
+---@field selected_usernames? table
+---@field sha? string
+---@field size? number
+---@field ssh_url? string
+---@field stargazers_count? number
+---@field stargazers_url? string
+---@field start_url? string
+---@field state? string
+---@field statuses_url? string
+---@field stop_url? string
+---@field storage_in_bytes? number
+---@field subscribers_count? number
+---@field subscribers_url? string
+---@field subscription_url? string
+---@field svn_url? string
+---@field tags_url? string
+---@field teams_url? string
+---@field temp_clone_token? string
+---@field template? string
+---@field title? string
+---@field topics? table
+---@field trees_url? string
+---@field updated_at? string
+---@field url? string
+---@field visibility? string
+---@field watchers? number
+---@field watchers_count? number
+---@field web_commit_signoff_required? boolean
+---@field web_url? string
+---@field working_directory? string
+
+---@class CodespaceRemoveMatch
+---@field id string
+
+---@class Collaborator
+---@field avatar_url string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field permissions table
+---@field received_events_url string
+---@field repos_url string
+---@field role_name string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field url string
+---@field user_view_type? string
+
+---@class CollaboratorListMatch
+---@field project_id number
+---@field affiliation? string
+---@field page? number
+---@field per_page? number
+
+---@class CombinedBillingUsage
+---@field days_left_in_billing_cycle number
+---@field estimated_paid_storage_for_month number
+---@field estimated_storage_for_month number
+
+---@class CombinedBillingUsageLoadMatch
+---@field org_id string
+
+---@class CombinedCommitStatus
+---@field avatar_url string
+---@field context string
+---@field created_at string
+---@field description string
+---@field id number
+---@field node_id string
+---@field required? boolean
+---@field state string
+---@field target_url string
+---@field updated_at string
+---@field url string
+
+---@class CombinedCommitStatusListMatch
+---@field owner string
+---@field ref string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class Commit
+---@field author any
+---@field base string
+---@field comments_url string
+---@field commit table
+---@field commit_message? string
+---@field committer any
+---@field files? table
+---@field head string
+---@field html_url string
+---@field id? string
+---@field node_id string
+---@field parents table
+---@field sha string
+---@field stats? table
+---@field url string
+
+---@class CommitLoadMatch
+---@field id string
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class CommitListMatch
+---@field owner string
+---@field repo string
+---@field author? string
+---@field committer? string
+---@field page? number
+---@field path? string
+---@field per_page? number
+---@field sha? string
+---@field since? string
+---@field until? string
+---@field pull_number? number
+
+---@class CommitCreateData
+---@field owner string
+---@field repo string
+---@field author any
+---@field base string
+---@field comments_url string
+---@field commit table
+---@field commit_message? string
+---@field committer any
+---@field files? table
+---@field head string
+---@field html_url string
+---@field id? string
+---@field node_id string
+---@field parents table
+---@field sha string
+---@field stats? table
+---@field url string
+
+---@class CommitActivity
+---@field days table
+---@field total number
+---@field week number
+
+---@class CommitActivityListMatch
+---@field owner string
+---@field repo string
+
+---@class CommitComment
+---@field author_association string
+---@field body string
+---@field commit_id string
+---@field created_at string
+---@field html_url string
+---@field id number
+---@field line number
+---@field node_id string
+---@field path string
+---@field position number
+---@field reactions table
+---@field updated_at string
+---@field url string
+---@field user table
+
+---@class CommitCommentLoadMatch
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class CommitCommentListMatch
+---@field commit_sha? string
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class CommitCommentCreateData
+---@field commit_sha string
+---@field owner string
+---@field repo string
+---@field author_association string
+---@field body string
+---@field commit_id string
+---@field created_at string
+---@field html_url string
+---@field id number
+---@field line number
+---@field node_id string
+---@field path string
+---@field position number
+---@field reactions table
+---@field updated_at string
+---@field url string
+---@field user table
+
+---@class CommitCommentUpdateData
+---@field id number
+---@field owner string
+---@field repo string
+---@field author_association? string
+---@field body? string
+---@field commit_id? string
+---@field created_at? string
+---@field html_url? string
+---@field line? number
+---@field node_id? string
+---@field path? string
+---@field position? number
+---@field reactions? table
+---@field updated_at? string
+---@field url? string
+---@field user? table
+
+---@class CommitComparison
+---@field ahead_by number
+---@field base_commit table
+---@field behind_by number
+---@field commits table
+---@field diff_url string
+---@field files? table
+---@field html_url string
+---@field merge_base_commit table
+---@field patch_url string
+---@field permalink_url string
+---@field status string
+---@field total_commits number
+---@field url string
+
+---@class CommitComparisonLoadMatch
+---@field basehead string
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class CommunityProfile
+---@field code_of_conduct table
+---@field code_of_conduct_file table
+---@field contributing table
+---@field issue_template table
+---@field license table
+---@field pull_request_template table
+---@field readme table
+
+---@class CommunityProfileLoadMatch
+---@field owner string
+---@field repo string
+
+---@class ContentFile
+---@field git string
+---@field html string
+---@field self string
+
+---@class ContentFileLoadMatch
+---@field dir? string
+---@field owner string
+---@field repo string
+---@field ref? string
+
+---@class ContentTraffic
+---@field count number
+---@field path string
+---@field title string
+---@field uniques number
+
+---@class ContentTrafficListMatch
+---@field owner string
+---@field repo string
+
+---@class Contributor
+---@field author table
+---@field avatar_url? string
+---@field contributions number
+---@field email? string
+---@field events_url? string
+---@field followers_url? string
+---@field following_url? string
+---@field gists_url? string
+---@field gravatar_id? string
+---@field html_url? string
+---@field id? number
+---@field login? string
+---@field name? string
+---@field node_id? string
+---@field organizations_url? string
+---@field received_events_url? string
+---@field repos_url? string
+---@field site_admin? boolean
+---@field starred_url? string
+---@field subscriptions_url? string
+---@field total number
+---@field type string
+---@field url? string
+---@field user_view_type? string
+---@field weeks table
+
+---@class ContributorListMatch
+---@field owner string
+---@field repo string
+---@field anon? string
+---@field page? number
+---@field per_page? number
+
+---@class Copilot
+---@field assignee table
+---@field assigning_team? any
+---@field created_at string
+---@field last_activity_at? string
+---@field last_activity_editor? string
+---@field last_authenticated_at? string
+---@field organization table
+---@field pending_cancellation_date? string
+---@field plan_type? string
+---@field selected_teams table
+---@field selected_usernames table
+---@field updated_at? string
+
+---@class CopilotLoadMatch
+---@field org_id string
+---@field username string
+
+---@class CopilotListMatch
+---@field org_id string
+---@field page? number
+---@field per_page? number
+
+---@class CopilotCreateData
+---@field org_id string
+---@field assignee table
+---@field assigning_team? any
+---@field created_at string
+---@field last_activity_at? string
+---@field last_activity_editor? string
+---@field last_authenticated_at? string
+---@field organization table
+---@field pending_cancellation_date? string
+---@field plan_type? string
+---@field selected_teams table
+---@field selected_usernames table
+---@field updated_at? string
+
+---@class CopilotRemoveMatch
+---@field org_id string
+
+---@class CopilotOrganizationDetail
+---@field active_this_cycle? number
+---@field added_this_cycle? number
+---@field inactive_this_cycle? number
+---@field pending_cancellation? number
+---@field pending_invitation? number
+---@field total? number
+
+---@class CopilotOrganizationDetailLoadMatch
+---@field org_id string
+
+---@class CopilotUsageMetricsDay
+---@field copilot_dotcom_chat? table
+---@field copilot_dotcom_pull_requests? table
+---@field copilot_ide_chat? table
+---@field copilot_ide_code_completions? table
+---@field date string
+---@field total_active_users? number
+---@field total_engaged_users? number
+
+---@class CopilotUsageMetricsDayListMatch
+---@field org_id string
+---@field team_id? string
+---@field page? number
+---@field per_page? number
+---@field since? string
+---@field until? string
+
+---@class Credential
+---@field credentials table
+
+---@class CredentialCreateData
+---@field credentials table
+
+---@class CustomProperty
+---@field allowed_values? table
+---@field default_value? any
+---@field description? string
+---@field properties table
+---@field property_name string
+---@field required? boolean
+---@field source_type? string
+---@field url? string
+---@field value_type string
+---@field values_editable_by? string
+
+---@class CustomPropertyLoadMatch
+---@field custom_property_name string
+---@field org_id string
+
+---@class CustomPropertyListMatch
+---@field org_id string
+
+---@class CustomPropertyUpdateData
+---@field custom_property_name string
+---@field org_id string
+---@field allowed_values? table
+---@field default_value? any
+---@field description? string
+---@field properties? table
+---@field property_name? string
+---@field required? boolean
+---@field source_type? string
+---@field url? string
+---@field value_type? string
+---@field values_editable_by? string
+
+---@class CustomPropertyValue
+---@field property_name string
+---@field value any
+
+---@class CustomPropertyValueListMatch
+---@field owner string
+---@field repo string
+
+---@class Dependabot
+---@field allow_forking? boolean
+---@field archive_url string
+---@field archived? boolean
+---@field assignees_url string
+---@field avatar_url string
+---@field blobs_url string
+---@field branches_url string
+---@field clone_url? string
+---@field code_of_conduct table
+---@field collaborators_url string
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field contents_url string
+---@field contributors_url string
+---@field created_at? string
+---@field custom_properties? table
+---@field default_branch? string
+---@field default_level string
+---@field delete_branch_on_merge? boolean
+---@field deployments_url string
+---@field description string
+---@field disabled? boolean
+---@field downloads_url string
+---@field events_url string
+---@field fork boolean
+---@field forks? number
+---@field forks_count? number
+---@field forks_url string
+---@field full_name string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_tags_url string
+---@field git_url? string
+---@field has_discussions? boolean
+---@field has_downloads? boolean
+---@field has_issues? boolean
+---@field has_pages? boolean
+---@field has_projects? boolean
+---@field has_wiki? boolean
+---@field homepage? string
+---@field hooks_url string
+---@field html_url string
+---@field id number
+---@field is_template? boolean
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field keys_url string
+---@field labels_url string
+---@field language? string
+---@field languages_url string
+---@field license? table
+---@field login string
+---@field members_url string
+---@field merges_url string
+---@field milestones_url string
+---@field mirror_url? string
+---@field name string
+---@field network_count? number
+---@field node_id string
+---@field notifications_url string
+---@field open_issues? number
+---@field open_issues_count? number
+---@field owner table
+---@field permissions? table
+---@field private boolean
+---@field public_members_url string
+---@field pulls_url string
+---@field pushed_at? string
+---@field releases_url string
+---@field repos_url string
+---@field repository_ids_to_add? table
+---@field repository_ids_to_remove? table
+---@field role_name? string
+---@field security_and_analysis? table
+---@field selected_repositories_url? string
+---@field selected_repository_ids table
+---@field size? number
+---@field ssh_url? string
+---@field stargazers_count? number
+---@field stargazers_url string
+---@field statuses_url string
+---@field subscribers_count? number
+---@field subscribers_url string
+---@field subscription_url string
+---@field svn_url? string
+---@field tags_url string
+---@field teams_url string
+---@field temp_clone_token? string
+---@field topics? table
+---@field trees_url string
+---@field updated_at? string
+---@field url string
+---@field visibility? string
+---@field watchers? number
+---@field watchers_count? number
+---@field web_commit_signoff_required? boolean
+
+---@class DependabotListMatch
+---@field per_page? number
+---@field since? number
+
+---@class DependabotUpdateData
+---@field org_id string
+---@field repository_id number
+---@field secret_id string
+---@field allow_forking? boolean
+---@field archive_url? string
+---@field archived? boolean
+---@field assignees_url? string
+---@field avatar_url? string
+---@field blobs_url? string
+---@field branches_url? string
+---@field clone_url? string
+---@field code_of_conduct? table
+---@field collaborators_url? string
+---@field comments_url? string
+---@field commits_url? string
+---@field compare_url? string
+---@field contents_url? string
+---@field contributors_url? string
+---@field created_at? string
+---@field custom_properties? table
+---@field default_branch? string
+---@field default_level? string
+---@field delete_branch_on_merge? boolean
+---@field deployments_url? string
+---@field description? string
+---@field disabled? boolean
+---@field downloads_url? string
+---@field events_url? string
+---@field fork? boolean
+---@field forks? number
+---@field forks_count? number
+---@field forks_url? string
+---@field full_name? string
+---@field git_commits_url? string
+---@field git_refs_url? string
+---@field git_tags_url? string
+---@field git_url? string
+---@field has_discussions? boolean
+---@field has_downloads? boolean
+---@field has_issues? boolean
+---@field has_pages? boolean
+---@field has_projects? boolean
+---@field has_wiki? boolean
+---@field homepage? string
+---@field hooks_url? string
+---@field html_url? string
+---@field id? number
+---@field is_template? boolean
+---@field issue_comment_url? string
+---@field issue_events_url? string
+---@field issues_url? string
+---@field keys_url? string
+---@field labels_url? string
+---@field language? string
+---@field languages_url? string
+---@field license? table
+---@field login? string
+---@field members_url? string
+---@field merges_url? string
+---@field milestones_url? string
+---@field mirror_url? string
+---@field name? string
+---@field network_count? number
+---@field node_id? string
+---@field notifications_url? string
+---@field open_issues? number
+---@field open_issues_count? number
+---@field owner? table
+---@field permissions? table
+---@field private? boolean
+---@field public_members_url? string
+---@field pulls_url? string
+---@field pushed_at? string
+---@field releases_url? string
+---@field repos_url? string
+---@field repository_ids_to_add? table
+---@field repository_ids_to_remove? table
+---@field role_name? string
+---@field security_and_analysis? table
+---@field selected_repositories_url? string
+---@field selected_repository_ids? table
+---@field size? number
+---@field ssh_url? string
+---@field stargazers_count? number
+---@field stargazers_url? string
+---@field statuses_url? string
+---@field subscribers_count? number
+---@field subscribers_url? string
+---@field subscription_url? string
+---@field svn_url? string
+---@field tags_url? string
+---@field teams_url? string
+---@field temp_clone_token? string
+---@field topics? table
+---@field trees_url? string
+---@field updated_at? string
+---@field url? string
+---@field visibility? string
+---@field watchers? number
+---@field watchers_count? number
+---@field web_commit_signoff_required? boolean
+
+---@class DependabotRemoveMatch
+---@field org_id string
+---@field secret_name string
+
+---@class DependabotAlert
+---@field auto_dismissed_at? string
+---@field created_at string
+---@field dependency table
+---@field dismissed_at string
+---@field dismissed_by table
+---@field dismissed_comment string
+---@field dismissed_reason string
+---@field fixed_at string
+---@field html_url string
+---@field id? string
+---@field number number
+---@field security_advisory table
+---@field security_vulnerability table
+---@field state string
+---@field updated_at string
+---@field url string
+
+---@class DependabotAlertLoadMatch
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class DependabotAlertListMatch
+---@field owner string
+---@field repo string
+---@field after? string
+---@field before? string
+---@field direction? string
+---@field ecosystem? string
+---@field epss_percentage? string
+---@field first? number
+---@field has? any
+---@field last? number
+---@field manifest? string
+---@field package? string
+---@field page? number
+---@field per_page? number
+---@field scope? string
+---@field severity? string
+---@field sort? string
+---@field state? string
+
+---@class DependabotAlertUpdateData
+---@field id number
+---@field owner string
+---@field repo string
+---@field auto_dismissed_at? string
+---@field created_at? string
+---@field dependency? table
+---@field dismissed_at? string
+---@field dismissed_by? table
+---@field dismissed_comment? string
+---@field dismissed_reason? string
+---@field fixed_at? string
+---@field html_url? string
+---@field number? number
+---@field security_advisory? table
+---@field security_vulnerability? table
+---@field state? string
+---@field updated_at? string
+---@field url? string
+
+---@class DependabotAlertWithRepository
+---@field auto_dismissed_at? string
+---@field created_at string
+---@field dependency table
+---@field dismissed_at string
+---@field dismissed_by table
+---@field dismissed_comment string
+---@field dismissed_reason string
+---@field fixed_at string
+---@field html_url string
+---@field number number
+---@field repository table
+---@field security_advisory table
+---@field security_vulnerability table
+---@field state string
+---@field updated_at string
+---@field url string
+
+---@class DependabotAlertWithRepositoryListMatch
+---@field org_id string
+---@field after? string
+---@field artifact_registry? string
+---@field artifact_registry_url? string
+---@field before? string
+---@field direction? string
+---@field ecosystem? string
+---@field epss_percentage? string
+---@field first? number
+---@field has? any
+---@field last? number
+---@field package? string
+---@field per_page? number
+---@field scope? string
+---@field severity? string
+---@field sort? string
+---@field state? string
+
+---@class DependabotPublicKey
+---@field key string
+---@field key_id string
+
+---@class DependabotPublicKeyLoadMatch
+---@field org_id string
+
+---@class DependabotRepositoryAccessDetail
+---@field archive_url string
+---@field assignees_url string
+---@field blobs_url string
+---@field branches_url string
+---@field collaborators_url string
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field contents_url string
+---@field contributors_url string
+---@field deployments_url string
+---@field description string
+---@field downloads_url string
+---@field events_url string
+---@field fork boolean
+---@field forks_url string
+---@field full_name string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_tags_url string
+---@field hooks_url string
+---@field html_url string
+---@field id number
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field keys_url string
+---@field labels_url string
+---@field languages_url string
+---@field merges_url string
+---@field milestones_url string
+---@field name string
+---@field node_id string
+---@field notifications_url string
+---@field owner table
+---@field private boolean
+---@field pulls_url string
+---@field releases_url string
+---@field stargazers_url string
+---@field statuses_url string
+---@field subscribers_url string
+---@field subscription_url string
+---@field tags_url string
+---@field teams_url string
+---@field trees_url string
+---@field url string
+
+---@class DependabotRepositoryAccessDetailListMatch
+---@field org string
+---@field page? number
+---@field per_page? number
+
+---@class DependabotSecret
+---@field created_at string
+---@field id? string
+---@field name string
+---@field updated_at string
+
+---@class DependabotSecretLoadMatch
+---@field id string
+---@field owner string
+---@field repo string
+
+---@class DependencyGraph
+---@field detector table
+---@field job table
+---@field manifests? table
+---@field metadata? table
+---@field ref string
+---@field scanned string
+---@field sha string
+---@field version number
+
+---@class DependencyGraphCreateData
+---@field owner string
+---@field repo string
+---@field detector table
+---@field job table
+---@field manifests? table
+---@field metadata? table
+---@field ref string
+---@field scanned string
+---@field sha string
+---@field version number
+
+---@class DependencyGraphDiff
+---@field change_type string
+---@field ecosystem string
+---@field license string
+---@field manifest string
+---@field name string
+---@field package_url string
+---@field scope string
+---@field source_repository_url string
+---@field version string
+---@field vulnerabilities table
+
+---@class DependencyGraphDiffLoadMatch
+---@field basehead string
+---@field owner string
+---@field repo string
+---@field name? string
+
+---@class DependencyGraphSpdxSbom
+---@field SPDXID string
+---@field comment? string
+---@field creationInfo table
+---@field dataLicense string
+---@field documentNamespace string
+---@field name string
+---@field packages table
+---@field relationships table
+---@field spdxVersion string
+
+---@class DependencyGraphSpdxSbomLoadMatch
+---@field owner string
+---@field repo string
+
+---@class DeployKey
+---@field added_by? string
+---@field created_at string
+---@field enabled? boolean
+---@field id number
+---@field key string
+---@field last_used? string
+---@field read_only boolean
+---@field title string
+---@field url string
+---@field verified boolean
+
+---@class DeployKeyLoadMatch
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class DeployKeyListMatch
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class DeployKeyCreateData
+---@field owner string
+---@field repo string
+---@field added_by? string
+---@field created_at string
+---@field enabled? boolean
+---@field id number
+---@field key string
+---@field last_used? string
+---@field read_only boolean
+---@field title string
+---@field url string
+---@field verified boolean
+
+---@class Deployment
+---@field auto_merge? boolean
+---@field comment string
+---@field created_at string
+---@field creator table
+---@field description string
+---@field environment string
+---@field environment_ids table
+---@field id number
+---@field node_id string
+---@field original_environment? string
+---@field payload any
+---@field performed_via_github_app table
+---@field production_environment? boolean
+---@field ref string
+---@field repository_url string
+---@field required_contexts? table
+---@field sha string
+---@field state string
+---@field statuses_url string
+---@field task string
+---@field transient_environment? boolean
+---@field updated_at string
+---@field url string
+
+---@class DeploymentLoadMatch
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class DeploymentListMatch
+---@field owner string
+---@field repo string
+---@field environment? string
+---@field page? number
+---@field per_page? number
+---@field ref? string
+---@field sha? string
+---@field task? string
+
+---@class DeploymentCreateData
+---@field owner string
+---@field repo string
+---@field run_id? number
+---@field auto_merge? boolean
+---@field comment string
+---@field created_at string
+---@field creator table
+---@field description string
+---@field environment string
+---@field environment_ids table
+---@field id number
+---@field node_id string
+---@field original_environment? string
+---@field payload any
+---@field performed_via_github_app table
+---@field production_environment? boolean
+---@field ref string
+---@field repository_url string
+---@field required_contexts? table
+---@field sha string
+---@field state string
+---@field statuses_url string
+---@field task string
+---@field transient_environment? boolean
+---@field updated_at string
+---@field url string
+
+---@class DeploymentBranchPolicy
+---@field id? number
+---@field name? string
+---@field node_id? string
+---@field type? string
+
+---@class DeploymentBranchPolicyLoadMatch
+---@field environment_id string
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class DeploymentBranchPolicyCreateData
+---@field environment_name string
+---@field owner string
+---@field repo string
+---@field id? number
+---@field name? string
+---@field node_id? string
+---@field type? string
+
+---@class DeploymentBranchPolicyUpdateData
+---@field environment_id string
+---@field id number
+---@field owner string
+---@field repo string
+---@field name? string
+---@field node_id? string
+---@field type? string
+
+---@class DeploymentProtectionRule
+---@field id number
+---@field integration_id? number
+---@field integration_url string
+---@field node_id string
+---@field slug string
+
+---@class DeploymentProtectionRuleLoadMatch
+---@field environment_id string
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class DeploymentProtectionRuleCreateData
+---@field environment_name string
+---@field owner string
+---@field repo string
+---@field id number
+---@field integration_id? number
+---@field integration_url string
+---@field node_id string
+---@field slug string
+
+---@class DeploymentStatus
+---@field auto_inactive? boolean
+---@field created_at string
+---@field creator table
+---@field deployment_url string
+---@field description string
+---@field environment? string
+---@field environment_url? string
+---@field id number
+---@field log_url? string
+---@field node_id string
+---@field performed_via_github_app table
+---@field repository_url string
+---@field state string
+---@field target_url string
+---@field updated_at string
+---@field url string
+
+---@class DeploymentStatusLoadMatch
+---@field deployment_id number
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class DeploymentStatusListMatch
+---@field id number
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class DeploymentStatusCreateData
+---@field id number
+---@field owner string
+---@field repo string
+---@field auto_inactive? boolean
+---@field created_at string
+---@field creator table
+---@field deployment_url string
+---@field description string
+---@field environment? string
+---@field environment_url? string
+---@field log_url? string
+---@field node_id string
+---@field performed_via_github_app table
+---@field repository_url string
+---@field state string
+---@field target_url string
+---@field updated_at string
+---@field url string
+
+---@class DiffEntry
+---@field additions number
+---@field blob_url string
+---@field changes number
+---@field contents_url string
+---@field deletions number
+---@field filename string
+---@field patch? string
+---@field previous_filename? string
+---@field raw_url string
+---@field sha string
+---@field status string
+
+---@class DiffEntryListMatch
+---@field owner string
+---@field pull_number number
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class Email
+---@field email? string
+---@field primary? boolean
+---@field verified? boolean
+---@field visibility? string
+
+---@class EmailListMatch
+---@field page? number
+---@field per_page? number
+
+---@class EmailCreateData
+---@field email? string
+---@field primary? boolean
+---@field verified? boolean
+---@field visibility? string
+
+---@class EmailUpdateData
+---@field email? string
+---@field primary? boolean
+---@field verified? boolean
+---@field visibility? string
+
+---@class Emoji
+---@field ["1"]? string
+---@field ["100"]? string
+---@field ["1234"]? string
+---@field ["1st_place_medal"]? string
+---@field ["2nd_place_medal"]? string
+---@field ["3rd_place_medal"]? string
+---@field ["8ball"]? string
+---@field a? string
+---@field ab? string
+---@field abacus? string
+---@field abc? string
+---@field abcd? string
+---@field accept? string
+---@field accessibility? string
+---@field accordion? string
+---@field adhesive_bandage? string
+---@field adult? string
+---@field aerial_tramway? string
+---@field afghanistan? string
+---@field airplane? string
+---@field aland_islands? string
+---@field alarm_clock? string
+---@field albania? string
+---@field alembic? string
+---@field algeria? string
+---@field alien? string
+---@field ambulance? string
+---@field american_samoa? string
+---@field amphora? string
+---@field anatomical_heart? string
+---@field anchor? string
+---@field andorra? string
+---@field angel? string
+---@field anger? string
+---@field angola? string
+---@field angry? string
+---@field anguilla? string
+---@field anguished? string
+---@field ant? string
+---@field antarctica? string
+---@field antigua_barbuda? string
+---@field apple? string
+---@field aquarius? string
+---@field argentina? string
+---@field aries? string
+---@field armenia? string
+---@field arrow_backward? string
+---@field arrow_double_down? string
+---@field arrow_double_up? string
+---@field arrow_down? string
+---@field arrow_down_small? string
+---@field arrow_forward? string
+---@field arrow_heading_down? string
+---@field arrow_heading_up? string
+---@field arrow_left? string
+---@field arrow_lower_left? string
+---@field arrow_lower_right? string
+---@field arrow_right? string
+---@field arrow_right_hook? string
+---@field arrow_up? string
+---@field arrow_up_down? string
+---@field arrow_up_small? string
+---@field arrow_upper_left? string
+---@field arrow_upper_right? string
+---@field arrows_clockwise? string
+---@field arrows_counterclockwise? string
+---@field art? string
+---@field articulated_lorry? string
+---@field artificial_satellite? string
+---@field artist? string
+---@field aruba? string
+---@field ascension_island? string
+---@field asterisk? string
+---@field astonished? string
+---@field astronaut? string
+---@field athletic_shoe? string
+---@field atm? string
+---@field atom? string
+---@field atom_symbol? string
+---@field australia? string
+---@field austria? string
+---@field auto_rickshaw? string
+---@field avocado? string
+---@field axe? string
+---@field azerbaijan? string
+---@field b? string
+---@field baby? string
+---@field baby_bottle? string
+---@field baby_chick? string
+---@field baby_symbol? string
+---@field back? string
+---@field bacon? string
+---@field badger? string
+---@field badminton? string
+---@field bagel? string
+---@field baggage_claim? string
+---@field baguette_bread? string
+---@field bahamas? string
+---@field bahrain? string
+---@field balance_scale? string
+---@field bald_man? string
+---@field bald_woman? string
+---@field ballet_shoes? string
+---@field balloon? string
+---@field ballot_box? string
+---@field ballot_box_with_check? string
+---@field bamboo? string
+---@field banana? string
+---@field bangbang? string
+---@field bangladesh? string
+---@field banjo? string
+---@field bank? string
+---@field bar_chart? string
+---@field barbados? string
+---@field barber? string
+---@field baseball? string
+---@field basecamp? string
+---@field basecampy? string
+---@field basket? string
+---@field basketball? string
+---@field basketball_man? string
+---@field basketball_woman? string
+---@field bat? string
+---@field bath? string
+---@field bathtub? string
+---@field battery? string
+---@field beach_umbrella? string
+---@field bear? string
+---@field bearded_person? string
+---@field beaver? string
+---@field bed? string
+---@field bee? string
+---@field beer? string
+---@field beers? string
+---@field beetle? string
+---@field beginner? string
+---@field belarus? string
+---@field belgium? string
+---@field belize? string
+---@field bell? string
+---@field bell_pepper? string
+---@field bellhop_bell? string
+---@field benin? string
+---@field bento? string
+---@field bermuda? string
+---@field beverage_box? string
+---@field bhutan? string
+---@field bicyclist? string
+---@field bike? string
+---@field biking_man? string
+---@field biking_woman? string
+---@field bikini? string
+---@field billed_cap? string
+---@field biohazard? string
+---@field bird? string
+---@field birthday? string
+---@field bison? string
+---@field black_cat? string
+---@field black_circle? string
+---@field black_flag? string
+---@field black_heart? string
+---@field black_joker? string
+---@field black_large_square? string
+---@field black_medium_small_square? string
+---@field black_medium_square? string
+---@field black_nib? string
+---@field black_small_square? string
+---@field black_square_button? string
+---@field blond_haired_man? string
+---@field blond_haired_person? string
+---@field blond_haired_woman? string
+---@field blonde_woman? string
+---@field blossom? string
+---@field blowfish? string
+---@field blue_book? string
+---@field blue_car? string
+---@field blue_heart? string
+---@field blue_square? string
+---@field blueberries? string
+---@field blush? string
+---@field boar? string
+---@field boat? string
+---@field bolivia? string
+---@field bomb? string
+---@field bone? string
+---@field book? string
+---@field bookmark? string
+---@field bookmark_tabs? string
+---@field books? string
+---@field boom? string
+---@field boomerang? string
+---@field boot? string
+---@field bosnia_herzegovina? string
+---@field botswana? string
+---@field bouncing_ball_man? string
+---@field bouncing_ball_person? string
+---@field bouncing_ball_woman? string
+---@field bouquet? string
+---@field bouvet_island? string
+---@field bow? string
+---@field bow_and_arrow? string
+---@field bowing_man? string
+---@field bowing_woman? string
+---@field bowl_with_spoon? string
+---@field bowling? string
+---@field bowtie? string
+---@field boxing_glove? string
+---@field boy? string
+---@field brain? string
+---@field brazil? string
+---@field bread? string
+---@field breast_feeding? string
+---@field bricks? string
+---@field bride_with_veil? string
+---@field bridge_at_night? string
+---@field briefcase? string
+---@field british_indian_ocean_territory? string
+---@field british_virgin_islands? string
+---@field broccoli? string
+---@field broken_heart? string
+---@field broom? string
+---@field brown_circle? string
+---@field brown_heart? string
+---@field brown_square? string
+---@field brunei? string
+---@field bubble_tea? string
+---@field bucket? string
+---@field bug? string
+---@field building_construction? string
+---@field bulb? string
+---@field bulgaria? string
+---@field bullettrain_front? string
+---@field bullettrain_side? string
+---@field burkina_faso? string
+---@field burrito? string
+---@field burundi? string
+---@field bus? string
+---@field business_suit_levitating? string
+---@field busstop? string
+---@field bust_in_silhouette? string
+---@field busts_in_silhouette? string
+---@field butter? string
+---@field butterfly? string
+---@field cactus? string
+---@field cake? string
+---@field calendar? string
+---@field call_me_hand? string
+---@field calling? string
+---@field cambodia? string
+---@field camel? string
+---@field camera? string
+---@field camera_flash? string
+---@field cameroon? string
+---@field camping? string
+---@field canada? string
+---@field canary_islands? string
+---@field cancer? string
+---@field candle? string
+---@field candy? string
+---@field canned_food? string
+---@field canoe? string
+---@field cape_verde? string
+---@field capital_abcd? string
+---@field capricorn? string
+---@field car? string
+---@field card_file_box? string
+---@field card_index? string
+---@field card_index_dividers? string
+---@field caribbean_netherlands? string
+---@field carousel_horse? string
+---@field carpentry_saw? string
+---@field carrot? string
+---@field cartwheeling? string
+---@field cat? string
+---@field cat2? string
+---@field cayman_islands? string
+---@field cd? string
+---@field central_african_republic? string
+---@field ceuta_melilla? string
+---@field chad? string
+---@field chains? string
+---@field chair? string
+---@field champagne? string
+---@field chart? string
+---@field chart_with_downwards_trend? string
+---@field chart_with_upwards_trend? string
+---@field checkered_flag? string
+---@field cheese? string
+---@field cherries? string
+---@field cherry_blossom? string
+---@field chess_pawn? string
+---@field chestnut? string
+---@field chicken? string
+---@field child? string
+---@field children_crossing? string
+---@field chile? string
+---@field chipmunk? string
+---@field chocolate_bar? string
+---@field chopsticks? string
+---@field christmas_island? string
+---@field christmas_tree? string
+---@field church? string
+---@field cinema? string
+---@field circus_tent? string
+---@field city_sunrise? string
+---@field city_sunset? string
+---@field cityscape? string
+---@field cl? string
+---@field clamp? string
+---@field clap? string
+---@field clapper? string
+---@field classical_building? string
+---@field climbing? string
+---@field climbing_man? string
+---@field climbing_woman? string
+---@field clinking_glasses? string
+---@field clipboard? string
+---@field clipperton_island? string
+---@field clock1? string
+---@field clock10? string
+---@field clock1030? string
+---@field clock11? string
+---@field clock1130? string
+---@field clock12? string
+---@field clock1230? string
+---@field clock130? string
+---@field clock2? string
+---@field clock230? string
+---@field clock3? string
+---@field clock330? string
+---@field clock4? string
+---@field clock430? string
+---@field clock5? string
+---@field clock530? string
+---@field clock6? string
+---@field clock630? string
+---@field clock7? string
+---@field clock730? string
+---@field clock8? string
+---@field clock830? string
+---@field clock9? string
+---@field clock930? string
+---@field closed_book? string
+---@field closed_lock_with_key? string
+---@field closed_umbrella? string
+---@field cloud? string
+---@field cloud_with_lightning? string
+---@field cloud_with_lightning_and_rain? string
+---@field cloud_with_rain? string
+---@field cloud_with_snow? string
+---@field clown_face? string
+---@field clubs? string
+---@field cn? string
+---@field coat? string
+---@field cockroach? string
+---@field cocktail? string
+---@field coconut? string
+---@field cocos_islands? string
+---@field coffee? string
+---@field coffin? string
+---@field coin? string
+---@field cold_face? string
+---@field cold_sweat? string
+---@field collision? string
+---@field colombia? string
+---@field comet? string
+---@field comoros? string
+---@field compass? string
+---@field computer? string
+---@field computer_mouse? string
+---@field confetti_ball? string
+---@field confounded? string
+---@field confused? string
+---@field congo_brazzaville? string
+---@field congo_kinshasa? string
+---@field congratulations? string
+---@field construction? string
+---@field construction_worker? string
+---@field construction_worker_man? string
+---@field construction_worker_woman? string
+---@field control_knobs? string
+---@field convenience_store? string
+---@field cook? string
+---@field cook_islands? string
+---@field cookie? string
+---@field cool? string
+---@field cop? string
+---@field copilot? string
+---@field copyright? string
+---@field corn? string
+---@field costa_rica? string
+---@field cote_divoire? string
+---@field couch_and_lamp? string
+---@field couple? string
+---@field couple_with_heart? string
+---@field couple_with_heart_man_man? string
+---@field couple_with_heart_woman_man? string
+---@field couple_with_heart_woman_woman? string
+---@field couplekiss? string
+---@field couplekiss_man_man? string
+---@field couplekiss_man_woman? string
+---@field couplekiss_woman_woman? string
+---@field cow? string
+---@field cow2? string
+---@field cowboy_hat_face? string
+---@field crab? string
+---@field crayon? string
+---@field credit_card? string
+---@field crescent_moon? string
+---@field cricket? string
+---@field cricket_game? string
+---@field croatia? string
+---@field crocodile? string
+---@field croissant? string
+---@field crossed_fingers? string
+---@field crossed_flags? string
+---@field crossed_swords? string
+---@field crown? string
+---@field cry? string
+---@field crying_cat_face? string
+---@field crystal_ball? string
+---@field cuba? string
+---@field cucumber? string
+---@field cup_with_straw? string
+---@field cupcake? string
+---@field cupid? string
+---@field curacao? string
+---@field curling_stone? string
+---@field curly_haired_man? string
+---@field curly_haired_woman? string
+---@field curly_loop? string
+---@field currency_exchange? string
+---@field curry? string
+---@field cursing_face? string
+---@field custard? string
+---@field customs? string
+---@field cut_of_meat? string
+---@field cyclone? string
+---@field cyprus? string
+---@field czech_republic? string
+---@field dagger? string
+---@field dancer? string
+---@field dancers? string
+---@field dancing_men? string
+---@field dancing_women? string
+---@field dango? string
+---@field dark_sunglasses? string
+---@field dart? string
+---@field dash? string
+---@field date? string
+---@field de? string
+---@field deaf_man? string
+---@field deaf_person? string
+---@field deaf_woman? string
+---@field deciduous_tree? string
+---@field deer? string
+---@field denmark? string
+---@field department_store? string
+---@field dependabot? string
+---@field derelict_house? string
+---@field desert? string
+---@field desert_island? string
+---@field desktop_computer? string
+---@field detective? string
+---@field diamond_shape_with_a_dot_inside? string
+---@field diamonds? string
+---@field diego_garcia? string
+---@field disappointed? string
+---@field disappointed_relieved? string
+---@field disguised_face? string
+---@field diving_mask? string
+---@field diya_lamp? string
+---@field dizzy? string
+---@field dizzy_face? string
+---@field djibouti? string
+---@field dna? string
+---@field do_not_litter? string
+---@field dodo? string
+---@field dog? string
+---@field dog2? string
+---@field dollar? string
+---@field dolls? string
+---@field dolphin? string
+---@field dominica? string
+---@field dominican_republic? string
+---@field door? string
+---@field doughnut? string
+---@field dove? string
+---@field dragon? string
+---@field dragon_face? string
+---@field dress? string
+---@field dromedary_camel? string
+---@field drooling_face? string
+---@field drop_of_blood? string
+---@field droplet? string
+---@field drum? string
+---@field duck? string
+---@field dumpling? string
+---@field dvd? string
+---@field eagle? string
+---@field ear? string
+---@field ear_of_rice? string
+---@field ear_with_hearing_aid? string
+---@field earth_africa? string
+---@field earth_americas? string
+---@field earth_asia? string
+---@field ecuador? string
+---@field egg? string
+---@field eggplant? string
+---@field egypt? string
+---@field eight? string
+---@field eight_pointed_black_star? string
+---@field eight_spoked_asterisk? string
+---@field eject_button? string
+---@field el_salvador? string
+---@field electric_plug? string
+---@field electron? string
+---@field elephant? string
+---@field elevator? string
+---@field elf? string
+---@field elf_man? string
+---@field elf_woman? string
+---@field email? string
+---@field end? string
+---@field england? string
+---@field envelope? string
+---@field envelope_with_arrow? string
+---@field equatorial_guinea? string
+---@field eritrea? string
+---@field es? string
+---@field estonia? string
+---@field ethiopia? string
+---@field eu? string
+---@field euro? string
+---@field european_castle? string
+---@field european_post_office? string
+---@field european_union? string
+---@field evergreen_tree? string
+---@field exclamation? string
+---@field exploding_head? string
+---@field expressionless? string
+---@field eye? string
+---@field eye_speech_bubble? string
+---@field eyeglasses? string
+---@field eyes? string
+---@field face_exhaling? string
+---@field face_in_clouds? string
+---@field face_with_head_bandage? string
+---@field face_with_spiral_eyes? string
+---@field face_with_thermometer? string
+---@field facepalm? string
+---@field facepunch? string
+---@field factory? string
+---@field factory_worker? string
+---@field fairy? string
+---@field fairy_man? string
+---@field fairy_woman? string
+---@field falafel? string
+---@field falkland_islands? string
+---@field fallen_leaf? string
+---@field family? string
+---@field family_man_boy? string
+---@field family_man_boy_boy? string
+---@field family_man_girl? string
+---@field family_man_girl_boy? string
+---@field family_man_girl_girl? string
+---@field family_man_man_boy? string
+---@field family_man_man_boy_boy? string
+---@field family_man_man_girl? string
+---@field family_man_man_girl_boy? string
+---@field family_man_man_girl_girl? string
+---@field family_man_woman_boy? string
+---@field family_man_woman_boy_boy? string
+---@field family_man_woman_girl? string
+---@field family_man_woman_girl_boy? string
+---@field family_man_woman_girl_girl? string
+---@field family_woman_boy? string
+---@field family_woman_boy_boy? string
+---@field family_woman_girl? string
+---@field family_woman_girl_boy? string
+---@field family_woman_girl_girl? string
+---@field family_woman_woman_boy? string
+---@field family_woman_woman_boy_boy? string
+---@field family_woman_woman_girl? string
+---@field family_woman_woman_girl_boy? string
+---@field family_woman_woman_girl_girl? string
+---@field farmer? string
+---@field faroe_islands? string
+---@field fast_forward? string
+---@field fax? string
+---@field fearful? string
+---@field feather? string
+---@field feelsgood? string
+---@field feet? string
+---@field female_detective? string
+---@field female_sign? string
+---@field ferris_wheel? string
+---@field ferry? string
+---@field field_hockey? string
+---@field fiji? string
+---@field file_cabinet? string
+---@field file_folder? string
+---@field film_projector? string
+---@field film_strip? string
+---@field finland? string
+---@field finnadie? string
+---@field fire? string
+---@field fire_engine? string
+---@field fire_extinguisher? string
+---@field firecracker? string
+---@field firefighter? string
+---@field fireworks? string
+---@field first_quarter_moon? string
+---@field first_quarter_moon_with_face? string
+---@field fish? string
+---@field fish_cake? string
+---@field fishing_pole_and_fish? string
+---@field fishsticks? string
+---@field fist? string
+---@field fist_left? string
+---@field fist_oncoming? string
+---@field fist_raised? string
+---@field fist_right? string
+---@field five? string
+---@field flags? string
+---@field flamingo? string
+---@field flashlight? string
+---@field flat_shoe? string
+---@field flatbread? string
+---@field fleur_de_lis? string
+---@field flight_arrival? string
+---@field flight_departure? string
+---@field flipper? string
+---@field floppy_disk? string
+---@field flower_playing_cards? string
+---@field flushed? string
+---@field fly? string
+---@field flying_disc? string
+---@field flying_saucer? string
+---@field fog? string
+---@field foggy? string
+---@field fondue? string
+---@field foot? string
+---@field football? string
+---@field footprints? string
+---@field fork_and_knife? string
+---@field fortune_cookie? string
+---@field fountain? string
+---@field fountain_pen? string
+---@field four? string
+---@field four_leaf_clover? string
+---@field fox_face? string
+---@field fr? string
+---@field framed_picture? string
+---@field free? string
+---@field french_guiana? string
+---@field french_polynesia? string
+---@field french_southern_territories? string
+---@field fried_egg? string
+---@field fried_shrimp? string
+---@field fries? string
+---@field frog? string
+---@field frowning? string
+---@field frowning_face? string
+---@field frowning_man? string
+---@field frowning_person? string
+---@field frowning_woman? string
+---@field fu? string
+---@field fuelpump? string
+---@field full_moon? string
+---@field full_moon_with_face? string
+---@field funeral_urn? string
+---@field gabon? string
+---@field gambia? string
+---@field game_die? string
+---@field garlic? string
+---@field gb? string
+---@field gear? string
+---@field gem? string
+---@field gemini? string
+---@field genie? string
+---@field genie_man? string
+---@field genie_woman? string
+---@field georgia? string
+---@field ghana? string
+---@field ghost? string
+---@field gibraltar? string
+---@field gift? string
+---@field gift_heart? string
+---@field giraffe? string
+---@field girl? string
+---@field globe_with_meridians? string
+---@field gloves? string
+---@field goal_net? string
+---@field goat? string
+---@field goberserk? string
+---@field godmode? string
+---@field goggles? string
+---@field golf? string
+---@field golfing? string
+---@field golfing_man? string
+---@field golfing_woman? string
+---@field gorilla? string
+---@field grapes? string
+---@field greece? string
+---@field green_apple? string
+---@field green_book? string
+---@field green_circle? string
+---@field green_heart? string
+---@field green_salad? string
+---@field green_square? string
+---@field greenland? string
+---@field grenada? string
+---@field grey_exclamation? string
+---@field grey_question? string
+---@field grimacing? string
+---@field grin? string
+---@field grinning? string
+---@field guadeloupe? string
+---@field guam? string
+---@field guard? string
+---@field guardsman? string
+---@field guardswoman? string
+---@field guatemala? string
+---@field guernsey? string
+---@field guide_dog? string
+---@field guinea? string
+---@field guinea_bissau? string
+---@field guitar? string
+---@field gun? string
+---@field guyana? string
+---@field haircut? string
+---@field haircut_man? string
+---@field haircut_woman? string
+---@field haiti? string
+---@field hamburger? string
+---@field hammer? string
+---@field hammer_and_pick? string
+---@field hammer_and_wrench? string
+---@field hamster? string
+---@field hand? string
+---@field hand_over_mouth? string
+---@field handbag? string
+---@field handball_person? string
+---@field handshake? string
+---@field hankey? string
+---@field hash? string
+---@field hatched_chick? string
+---@field hatching_chick? string
+---@field headphones? string
+---@field headstone? string
+---@field health_worker? string
+---@field hear_no_evil? string
+---@field heard_mcdonald_islands? string
+---@field heart? string
+---@field heart_decoration? string
+---@field heart_eyes? string
+---@field heart_eyes_cat? string
+---@field heart_on_fire? string
+---@field heartbeat? string
+---@field heartpulse? string
+---@field hearts? string
+---@field heavy_check_mark? string
+---@field heavy_division_sign? string
+---@field heavy_dollar_sign? string
+---@field heavy_exclamation_mark? string
+---@field heavy_heart_exclamation? string
+---@field heavy_minus_sign? string
+---@field heavy_multiplication_x? string
+---@field heavy_plus_sign? string
+---@field hedgehog? string
+---@field helicopter? string
+---@field herb? string
+---@field hibiscus? string
+---@field high_brightness? string
+---@field high_heel? string
+---@field hiking_boot? string
+---@field hindu_temple? string
+---@field hippopotamus? string
+---@field hocho? string
+---@field hole? string
+---@field honduras? string
+---@field honey_pot? string
+---@field honeybee? string
+---@field hong_kong? string
+---@field hook? string
+---@field horse? string
+---@field horse_racing? string
+---@field hospital? string
+---@field hot_face? string
+---@field hot_pepper? string
+---@field hotdog? string
+---@field hotel? string
+---@field hotsprings? string
+---@field hourglass? string
+---@field hourglass_flowing_sand? string
+---@field house? string
+---@field house_with_garden? string
+---@field houses? string
+---@field hugs? string
+---@field hungary? string
+---@field hurtrealbad? string
+---@field hushed? string
+---@field hut? string
+---@field ice_cream? string
+---@field ice_cube? string
+---@field ice_hockey? string
+---@field ice_skate? string
+---@field icecream? string
+---@field iceland? string
+---@field id? string
+---@field ideograph_advantage? string
+---@field imp? string
+---@field inbox_tray? string
+---@field incoming_envelope? string
+---@field india? string
+---@field indonesia? string
+---@field infinity? string
+---@field information_desk_person? string
+---@field information_source? string
+---@field innocent? string
+---@field interrobang? string
+---@field iphone? string
+---@field iran? string
+---@field iraq? string
+---@field ireland? string
+---@field isle_of_man? string
+---@field israel? string
+---@field it? string
+---@field izakaya_lantern? string
+---@field jack_o_lantern? string
+---@field jamaica? string
+---@field japan? string
+---@field japanese_castle? string
+---@field japanese_goblin? string
+---@field japanese_ogre? string
+---@field jeans? string
+---@field jersey? string
+---@field jigsaw? string
+---@field jordan? string
+---@field joy? string
+---@field joy_cat? string
+---@field joystick? string
+---@field jp? string
+---@field judge? string
+---@field juggling_person? string
+---@field kangaroo? string
+---@field kazakhstan? string
+---@field kenya? string
+---@field key? string
+---@field keyboard? string
+---@field keycap_ten? string
+---@field kick_scooter? string
+---@field kimono? string
+---@field kiribati? string
+---@field kiss? string
+---@field kissing? string
+---@field kissing_cat? string
+---@field kissing_closed_eyes? string
+---@field kissing_heart? string
+---@field kissing_smiling_eyes? string
+---@field kite? string
+---@field kiwi_fruit? string
+---@field kneeling_man? string
+---@field kneeling_person? string
+---@field kneeling_woman? string
+---@field knife? string
+---@field knot? string
+---@field koala? string
+---@field koko? string
+---@field kosovo? string
+---@field kr? string
+---@field kuwait? string
+---@field kyrgyzstan? string
+---@field lab_coat? string
+---@field label? string
+---@field lacrosse? string
+---@field ladder? string
+---@field lady_beetle? string
+---@field lantern? string
+---@field laos? string
+---@field large_blue_circle? string
+---@field large_blue_diamond? string
+---@field large_orange_diamond? string
+---@field last_quarter_moon? string
+---@field last_quarter_moon_with_face? string
+---@field latin_cross? string
+---@field latvia? string
+---@field laughing? string
+---@field leafy_green? string
+---@field leaves? string
+---@field lebanon? string
+---@field ledger? string
+---@field left_luggage? string
+---@field left_right_arrow? string
+---@field left_speech_bubble? string
+---@field leftwards_arrow_with_hook? string
+---@field leg? string
+---@field lemon? string
+---@field leo? string
+---@field leopard? string
+---@field lesotho? string
+---@field level_slider? string
+---@field liberia? string
+---@field libra? string
+---@field libya? string
+---@field liechtenstein? string
+---@field light_rail? string
+---@field link? string
+---@field lion? string
+---@field lips? string
+---@field lipstick? string
+---@field lithuania? string
+---@field lizard? string
+---@field llama? string
+---@field lobster? string
+---@field lock? string
+---@field lock_with_ink_pen? string
+---@field lollipop? string
+---@field long_drum? string
+---@field loop? string
+---@field lotion_bottle? string
+---@field lotus_position? string
+---@field lotus_position_man? string
+---@field lotus_position_woman? string
+---@field loud_sound? string
+---@field loudspeaker? string
+---@field love_hotel? string
+---@field love_letter? string
+---@field love_you_gesture? string
+---@field low_brightness? string
+---@field luggage? string
+---@field lungs? string
+---@field luxembourg? string
+---@field lying_face? string
+---@field m? string
+---@field macau? string
+---@field macedonia? string
+---@field madagascar? string
+---@field mag? string
+---@field mag_right? string
+---@field mage? string
+---@field mage_man? string
+---@field mage_woman? string
+---@field magic_wand? string
+---@field magnet? string
+---@field mahjong? string
+---@field mailbox? string
+---@field mailbox_closed? string
+---@field mailbox_with_mail? string
+---@field mailbox_with_no_mail? string
+---@field malawi? string
+---@field malaysia? string
+---@field maldives? string
+---@field male_detective? string
+---@field male_sign? string
+---@field mali? string
+---@field malta? string
+---@field mammoth? string
+---@field man? string
+---@field man_artist? string
+---@field man_astronaut? string
+---@field man_beard? string
+---@field man_cartwheeling? string
+---@field man_cook? string
+---@field man_dancing? string
+---@field man_facepalming? string
+---@field man_factory_worker? string
+---@field man_farmer? string
+---@field man_feeding_baby? string
+---@field man_firefighter? string
+---@field man_health_worker? string
+---@field man_in_manual_wheelchair? string
+---@field man_in_motorized_wheelchair? string
+---@field man_in_tuxedo? string
+---@field man_judge? string
+---@field man_juggling? string
+---@field man_mechanic? string
+---@field man_office_worker? string
+---@field man_pilot? string
+---@field man_playing_handball? string
+---@field man_playing_water_polo? string
+---@field man_scientist? string
+---@field man_shrugging? string
+---@field man_singer? string
+---@field man_student? string
+---@field man_teacher? string
+---@field man_technologist? string
+---@field man_with_gua_pi_mao? string
+---@field man_with_probing_cane? string
+---@field man_with_turban? string
+---@field man_with_veil? string
+---@field mandarin? string
+---@field mango? string
+---@field mans_shoe? string
+---@field mantelpiece_clock? string
+---@field manual_wheelchair? string
+---@field maple_leaf? string
+---@field marshall_islands? string
+---@field martial_arts_uniform? string
+---@field martinique? string
+---@field mask? string
+---@field massage? string
+---@field massage_man? string
+---@field massage_woman? string
+---@field mate? string
+---@field mauritania? string
+---@field mauritius? string
+---@field mayotte? string
+---@field meat_on_bone? string
+---@field mechanic? string
+---@field mechanical_arm? string
+---@field mechanical_leg? string
+---@field medal_military? string
+---@field medal_sports? string
+---@field medical_symbol? string
+---@field mega? string
+---@field melon? string
+---@field memo? string
+---@field men_wrestling? string
+---@field mending_heart? string
+---@field menorah? string
+---@field mens? string
+---@field mermaid? string
+---@field merman? string
+---@field merperson? string
+---@field metal? string
+---@field metro? string
+---@field mexico? string
+---@field microbe? string
+---@field micronesia? string
+---@field microphone? string
+---@field microscope? string
+---@field middle_finger? string
+---@field military_helmet? string
+---@field milk_glass? string
+---@field milky_way? string
+---@field minibus? string
+---@field minidisc? string
+---@field mirror? string
+---@field mobile_phone_off? string
+---@field moldova? string
+---@field monaco? string
+---@field money_mouth_face? string
+---@field money_with_wings? string
+---@field moneybag? string
+---@field mongolia? string
+---@field monkey? string
+---@field monkey_face? string
+---@field monocle_face? string
+---@field monorail? string
+---@field montenegro? string
+---@field montserrat? string
+---@field moon? string
+---@field moon_cake? string
+---@field morocco? string
+---@field mortar_board? string
+---@field mosque? string
+---@field mosquito? string
+---@field motor_boat? string
+---@field motor_scooter? string
+---@field motorcycle? string
+---@field motorized_wheelchair? string
+---@field motorway? string
+---@field mount_fuji? string
+---@field mountain? string
+---@field mountain_bicyclist? string
+---@field mountain_biking_man? string
+---@field mountain_biking_woman? string
+---@field mountain_cableway? string
+---@field mountain_railway? string
+---@field mountain_snow? string
+---@field mouse? string
+---@field mouse2? string
+---@field mouse_trap? string
+---@field movie_camera? string
+---@field moyai? string
+---@field mozambique? string
+---@field mrs_claus? string
+---@field muscle? string
+---@field mushroom? string
+---@field musical_keyboard? string
+---@field musical_note? string
+---@field musical_score? string
+---@field mute? string
+---@field mx_claus? string
+---@field myanmar? string
+---@field nail_care? string
+---@field name_badge? string
+---@field namibia? string
+---@field national_park? string
+---@field nauru? string
+---@field nauseated_face? string
+---@field nazar_amulet? string
+---@field neckbeard? string
+---@field necktie? string
+---@field negative_squared_cross_mark? string
+---@field nepal? string
+---@field nerd_face? string
+---@field nesting_dolls? string
+---@field netherlands? string
+---@field neutral_face? string
+---@field new? string
+---@field new_caledonia? string
+---@field new_moon? string
+---@field new_moon_with_face? string
+---@field new_zealand? string
+---@field newspaper? string
+---@field newspaper_roll? string
+---@field next_track_button? string
+---@field ng? string
+---@field ng_man? string
+---@field ng_woman? string
+---@field nicaragua? string
+---@field niger? string
+---@field nigeria? string
+---@field night_with_stars? string
+---@field nine? string
+---@field ninja? string
+---@field niue? string
+---@field no_bell? string
+---@field no_bicycles? string
+---@field no_entry? string
+---@field no_entry_sign? string
+---@field no_good? string
+---@field no_good_man? string
+---@field no_good_woman? string
+---@field no_mobile_phones? string
+---@field no_mouth? string
+---@field no_pedestrians? string
+---@field no_smoking? string
+---@field nonpotable_water? string
+---@field norfolk_island? string
+---@field north_korea? string
+---@field northern_mariana_islands? string
+---@field norway? string
+---@field nose? string
+---@field notebook? string
+---@field notebook_with_decorative_cover? string
+---@field notes? string
+---@field nut_and_bolt? string
+---@field o? string
+---@field o2? string
+---@field ocean? string
+---@field octocat? string
+---@field octopus? string
+---@field oden? string
+---@field office? string
+---@field office_worker? string
+---@field oil_drum? string
+---@field ok? string
+---@field ok_hand? string
+---@field ok_man? string
+---@field ok_person? string
+---@field ok_woman? string
+---@field old_key? string
+---@field older_adult? string
+---@field older_man? string
+---@field older_woman? string
+---@field olive? string
+---@field om? string
+---@field oman? string
+---@field on? string
+---@field oncoming_automobile? string
+---@field oncoming_bus? string
+---@field oncoming_police_car? string
+---@field oncoming_taxi? string
+---@field one? string
+---@field one_piece_swimsuit? string
+---@field onion? string
+---@field open_book? string
+---@field open_file_folder? string
+---@field open_hands? string
+---@field open_mouth? string
+---@field open_umbrella? string
+---@field ophiuchus? string
+---@field orange? string
+---@field orange_book? string
+---@field orange_circle? string
+---@field orange_heart? string
+---@field orange_square? string
+---@field orangutan? string
+---@field orthodox_cross? string
+---@field otter? string
+---@field outbox_tray? string
+---@field owl? string
+---@field ox? string
+---@field oyster? string
+---@field package? string
+---@field page_facing_up? string
+---@field page_with_curl? string
+---@field pager? string
+---@field paintbrush? string
+---@field pakistan? string
+---@field palau? string
+---@field palestinian_territories? string
+---@field palm_tree? string
+---@field palms_up_together? string
+---@field panama? string
+---@field pancakes? string
+---@field panda_face? string
+---@field paperclip? string
+---@field paperclips? string
+---@field papua_new_guinea? string
+---@field parachute? string
+---@field paraguay? string
+---@field parasol_on_ground? string
+---@field parking? string
+---@field parrot? string
+---@field part_alternation_mark? string
+---@field partly_sunny? string
+---@field partying_face? string
+---@field passenger_ship? string
+---@field passport_control? string
+---@field pause_button? string
+---@field paw_prints? string
+---@field peace_symbol? string
+---@field peach? string
+---@field peacock? string
+---@field peanuts? string
+---@field pear? string
+---@field pen? string
+---@field pencil? string
+---@field pencil2? string
+---@field penguin? string
+---@field pensive? string
+---@field people_holding_hands? string
+---@field people_hugging? string
+---@field performing_arts? string
+---@field persevere? string
+---@field person_bald? string
+---@field person_curly_hair? string
+---@field person_feeding_baby? string
+---@field person_fencing? string
+---@field person_in_manual_wheelchair? string
+---@field person_in_motorized_wheelchair? string
+---@field person_in_tuxedo? string
+---@field person_red_hair? string
+---@field person_white_hair? string
+---@field person_with_probing_cane? string
+---@field person_with_turban? string
+---@field person_with_veil? string
+---@field peru? string
+---@field petri_dish? string
+---@field philippines? string
+---@field phone? string
+---@field pick? string
+---@field pickup_truck? string
+---@field pie? string
+---@field pig? string
+---@field pig2? string
+---@field pig_nose? string
+---@field pill? string
+---@field pilot? string
+---@field pinata? string
+---@field pinched_fingers? string
+---@field pinching_hand? string
+---@field pineapple? string
+---@field ping_pong? string
+---@field pirate_flag? string
+---@field pisces? string
+---@field pitcairn_islands? string
+---@field pizza? string
+---@field placard? string
+---@field place_of_worship? string
+---@field plate_with_cutlery? string
+---@field play_or_pause_button? string
+---@field pleading_face? string
+---@field plunger? string
+---@field point_down? string
+---@field point_left? string
+---@field point_right? string
+---@field point_up? string
+---@field point_up_2? string
+---@field poland? string
+---@field polar_bear? string
+---@field police_car? string
+---@field police_officer? string
+---@field policeman? string
+---@field policewoman? string
+---@field poodle? string
+---@field poop? string
+---@field popcorn? string
+---@field portugal? string
+---@field post_office? string
+---@field postal_horn? string
+---@field postbox? string
+---@field potable_water? string
+---@field potato? string
+---@field potted_plant? string
+---@field pouch? string
+---@field poultry_leg? string
+---@field pound? string
+---@field pout? string
+---@field pouting_cat? string
+---@field pouting_face? string
+---@field pouting_man? string
+---@field pouting_woman? string
+---@field pray? string
+---@field prayer_beads? string
+---@field pregnant_woman? string
+---@field pretzel? string
+---@field previous_track_button? string
+---@field prince? string
+---@field princess? string
+---@field printer? string
+---@field probing_cane? string
+---@field puerto_rico? string
+---@field punch? string
+---@field purple_circle? string
+---@field purple_heart? string
+---@field purple_square? string
+---@field purse? string
+---@field pushpin? string
+---@field put_litter_in_its_place? string
+---@field qatar? string
+---@field question? string
+---@field rabbit? string
+---@field rabbit2? string
+---@field raccoon? string
+---@field racehorse? string
+---@field racing_car? string
+---@field radio? string
+---@field radio_button? string
+---@field radioactive? string
+---@field rage? string
+---@field rage1? string
+---@field rage2? string
+---@field rage3? string
+---@field rage4? string
+---@field railway_car? string
+---@field railway_track? string
+---@field rainbow? string
+---@field rainbow_flag? string
+---@field raised_back_of_hand? string
+---@field raised_eyebrow? string
+---@field raised_hand? string
+---@field raised_hand_with_fingers_splayed? string
+---@field raised_hands? string
+---@field raising_hand? string
+---@field raising_hand_man? string
+---@field raising_hand_woman? string
+---@field ram? string
+---@field ramen? string
+---@field rat? string
+---@field razor? string
+---@field receipt? string
+---@field record_button? string
+---@field recycle? string
+---@field red_car? string
+---@field red_circle? string
+---@field red_envelope? string
+---@field red_haired_man? string
+---@field red_haired_woman? string
+---@field red_square? string
+---@field registered? string
+---@field relaxed? string
+---@field relieved? string
+---@field reminder_ribbon? string
+---@field repeat? string
+---@field repeat_one? string
+---@field rescue_worker_helmet? string
+---@field restroom? string
+---@field reunion? string
+---@field revolving_hearts? string
+---@field rewind? string
+---@field rhinoceros? string
+---@field ribbon? string
+---@field rice? string
+---@field rice_ball? string
+---@field rice_cracker? string
+---@field rice_scene? string
+---@field right_anger_bubble? string
+---@field ring? string
+---@field ringed_planet? string
+---@field robot? string
+---@field rock? string
+---@field rocket? string
+---@field rofl? string
+---@field roll_eyes? string
+---@field roll_of_paper? string
+---@field roller_coaster? string
+---@field roller_skate? string
+---@field romania? string
+---@field rooster? string
+---@field rose? string
+---@field rosette? string
+---@field rotating_light? string
+---@field round_pushpin? string
+---@field rowboat? string
+---@field rowing_man? string
+---@field rowing_woman? string
+---@field ru? string
+---@field rugby_football? string
+---@field runner? string
+---@field running? string
+---@field running_man? string
+---@field running_shirt_with_sash? string
+---@field running_woman? string
+---@field rwanda? string
+---@field sa? string
+---@field safety_pin? string
+---@field safety_vest? string
+---@field sagittarius? string
+---@field sailboat? string
+---@field sake? string
+---@field salt? string
+---@field samoa? string
+---@field san_marino? string
+---@field sandal? string
+---@field sandwich? string
+---@field santa? string
+---@field sao_tome_principe? string
+---@field sari? string
+---@field sassy_man? string
+---@field sassy_woman? string
+---@field satellite? string
+---@field satisfied? string
+---@field saudi_arabia? string
+---@field sauna_man? string
+---@field sauna_person? string
+---@field sauna_woman? string
+---@field sauropod? string
+---@field saxophone? string
+---@field scarf? string
+---@field school? string
+---@field school_satchel? string
+---@field scientist? string
+---@field scissors? string
+---@field scorpion? string
+---@field scorpius? string
+---@field scotland? string
+---@field scream? string
+---@field scream_cat? string
+---@field screwdriver? string
+---@field scroll? string
+---@field seal? string
+---@field seat? string
+---@field secret? string
+---@field see_no_evil? string
+---@field seedling? string
+---@field selfie? string
+---@field senegal? string
+---@field serbia? string
+---@field service_dog? string
+---@field seven? string
+---@field sewing_needle? string
+---@field seychelles? string
+---@field shallow_pan_of_food? string
+---@field shamrock? string
+---@field shark? string
+---@field shaved_ice? string
+---@field sheep? string
+---@field shell? string
+---@field shield? string
+---@field shinto_shrine? string
+---@field ship? string
+---@field shipit? string
+---@field shirt? string
+---@field shoe? string
+---@field shopping? string
+---@field shopping_cart? string
+---@field shorts? string
+---@field shower? string
+---@field shrimp? string
+---@field shrug? string
+---@field shushing_face? string
+---@field sierra_leone? string
+---@field signal_strength? string
+---@field singapore? string
+---@field singer? string
+---@field sint_maarten? string
+---@field six? string
+---@field six_pointed_star? string
+---@field skateboard? string
+---@field ski? string
+---@field skier? string
+---@field skull? string
+---@field skull_and_crossbones? string
+---@field skunk? string
+---@field sled? string
+---@field sleeping? string
+---@field sleeping_bed? string
+---@field sleepy? string
+---@field slightly_frowning_face? string
+---@field slightly_smiling_face? string
+---@field slot_machine? string
+---@field sloth? string
+---@field slovakia? string
+---@field slovenia? string
+---@field small_airplane? string
+---@field small_blue_diamond? string
+---@field small_orange_diamond? string
+---@field small_red_triangle? string
+---@field small_red_triangle_down? string
+---@field smile? string
+---@field smile_cat? string
+---@field smiley? string
+---@field smiley_cat? string
+---@field smiling_face_with_tear? string
+---@field smiling_face_with_three_hearts? string
+---@field smiling_imp? string
+---@field smirk? string
+---@field smirk_cat? string
+---@field smoking? string
+---@field snail? string
+---@field snake? string
+---@field sneezing_face? string
+---@field snowboarder? string
+---@field snowflake? string
+---@field snowman? string
+---@field snowman_with_snow? string
+---@field soap? string
+---@field sob? string
+---@field soccer? string
+---@field socks? string
+---@field softball? string
+---@field solomon_islands? string
+---@field somalia? string
+---@field soon? string
+---@field sos? string
+---@field sound? string
+---@field south_africa? string
+---@field south_georgia_south_sandwich_islands? string
+---@field south_sudan? string
+---@field space_invader? string
+---@field spades? string
+---@field spaghetti? string
+---@field sparkle? string
+---@field sparkler? string
+---@field sparkles? string
+---@field sparkling_heart? string
+---@field speak_no_evil? string
+---@field speaker? string
+---@field speaking_head? string
+---@field speech_balloon? string
+---@field speedboat? string
+---@field spider? string
+---@field spider_web? string
+---@field spiral_calendar? string
+---@field spiral_notepad? string
+---@field sponge? string
+---@field spoon? string
+---@field squid? string
+---@field sri_lanka? string
+---@field st_barthelemy? string
+---@field st_helena? string
+---@field st_kitts_nevis? string
+---@field st_lucia? string
+---@field st_martin? string
+---@field st_pierre_miquelon? string
+---@field st_vincent_grenadines? string
+---@field stadium? string
+---@field standing_man? string
+---@field standing_person? string
+---@field standing_woman? string
+---@field star? string
+---@field star2? string
+---@field star_and_crescent? string
+---@field star_of_david? string
+---@field star_struck? string
+---@field stars? string
+---@field station? string
+---@field statue_of_liberty? string
+---@field steam_locomotive? string
+---@field stethoscope? string
+---@field stew? string
+---@field stop_button? string
+---@field stop_sign? string
+---@field stopwatch? string
+---@field straight_ruler? string
+---@field strawberry? string
+---@field stuck_out_tongue? string
+---@field stuck_out_tongue_closed_eyes? string
+---@field stuck_out_tongue_winking_eye? string
+---@field student? string
+---@field studio_microphone? string
+---@field stuffed_flatbread? string
+---@field sudan? string
+---@field sun_behind_large_cloud? string
+---@field sun_behind_rain_cloud? string
+---@field sun_behind_small_cloud? string
+---@field sun_with_face? string
+---@field sunflower? string
+---@field sunglasses? string
+---@field sunny? string
+---@field sunrise? string
+---@field sunrise_over_mountains? string
+---@field superhero? string
+---@field superhero_man? string
+---@field superhero_woman? string
+---@field supervillain? string
+---@field supervillain_man? string
+---@field supervillain_woman? string
+---@field surfer? string
+---@field surfing_man? string
+---@field surfing_woman? string
+---@field suriname? string
+---@field sushi? string
+---@field suspect? string
+---@field suspension_railway? string
+---@field svalbard_jan_mayen? string
+---@field swan? string
+---@field swaziland? string
+---@field sweat? string
+---@field sweat_drops? string
+---@field sweat_smile? string
+---@field sweden? string
+---@field sweet_potato? string
+---@field swim_brief? string
+---@field swimmer? string
+---@field swimming_man? string
+---@field swimming_woman? string
+---@field switzerland? string
+---@field symbols? string
+---@field synagogue? string
+---@field syria? string
+---@field syringe? string
+---@field taco? string
+---@field tada? string
+---@field taiwan? string
+---@field tajikistan? string
+---@field takeout_box? string
+---@field tamale? string
+---@field tanabata_tree? string
+---@field tangerine? string
+---@field tanzania? string
+---@field taurus? string
+---@field taxi? string
+---@field tea? string
+---@field teacher? string
+---@field teapot? string
+---@field technologist? string
+---@field teddy_bear? string
+---@field telephone? string
+---@field telephone_receiver? string
+---@field telescope? string
+---@field tennis? string
+---@field tent? string
+---@field test_tube? string
+---@field thailand? string
+---@field thermometer? string
+---@field thinking? string
+---@field thong_sandal? string
+---@field thought_balloon? string
+---@field thread? string
+---@field three? string
+---@field thumbsdown? string
+---@field thumbsup? string
+---@field ticket? string
+---@field tickets? string
+---@field tiger? string
+---@field tiger2? string
+---@field timer_clock? string
+---@field timor_leste? string
+---@field tipping_hand_man? string
+---@field tipping_hand_person? string
+---@field tipping_hand_woman? string
+---@field tired_face? string
+---@field tm? string
+---@field togo? string
+---@field toilet? string
+---@field tokelau? string
+---@field tokyo_tower? string
+---@field tomato? string
+---@field tonga? string
+---@field tongue? string
+---@field toolbox? string
+---@field tooth? string
+---@field toothbrush? string
+---@field top? string
+---@field tophat? string
+---@field tornado? string
+---@field tr? string
+---@field trackball? string
+---@field tractor? string
+---@field traffic_light? string
+---@field train? string
+---@field train2? string
+---@field tram? string
+---@field transgender_flag? string
+---@field transgender_symbol? string
+---@field trex? string
+---@field triangular_flag_on_post? string
+---@field triangular_ruler? string
+---@field trident? string
+---@field trinidad_tobago? string
+---@field tristan_da_cunha? string
+---@field triumph? string
+---@field trolleybus? string
+---@field trollface? string
+---@field trophy? string
+---@field tropical_drink? string
+---@field tropical_fish? string
+---@field truck? string
+---@field trumpet? string
+---@field tshirt? string
+---@field tulip? string
+---@field tumbler_glass? string
+---@field tunisia? string
+---@field turkey? string
+---@field turkmenistan? string
+---@field turks_caicos_islands? string
+---@field turtle? string
+---@field tuvalu? string
+---@field tv? string
+---@field twisted_rightwards_arrows? string
+---@field two? string
+---@field two_hearts? string
+---@field two_men_holding_hands? string
+---@field two_women_holding_hands? string
+---@field u5272? string
+---@field u5408? string
+---@field u55b6? string
+---@field u6307? string
+---@field u6708? string
+---@field u6709? string
+---@field u6e80? string
+---@field u7121? string
+---@field u7533? string
+---@field u7981? string
+---@field u7a7a? string
+---@field uganda? string
+---@field uk? string
+---@field ukraine? string
+---@field umbrella? string
+---@field unamused? string
+---@field underage? string
+---@field unicorn? string
+---@field united_arab_emirates? string
+---@field united_nations? string
+---@field unlock? string
+---@field up? string
+---@field upside_down_face? string
+---@field uruguay? string
+---@field us? string
+---@field us_outlying_islands? string
+---@field us_virgin_islands? string
+---@field uzbekistan? string
+---@field v? string
+---@field vampire? string
+---@field vampire_man? string
+---@field vampire_woman? string
+---@field vanuatu? string
+---@field vatican_city? string
+---@field venezuela? string
+---@field vertical_traffic_light? string
+---@field vhs? string
+---@field vibration_mode? string
+---@field video_camera? string
+---@field video_game? string
+---@field vietnam? string
+---@field violin? string
+---@field virgo? string
+---@field volcano? string
+---@field volleyball? string
+---@field vomiting_face? string
+---@field vs? string
+---@field vulcan_salute? string
+---@field waffle? string
+---@field wales? string
+---@field walking? string
+---@field walking_man? string
+---@field walking_woman? string
+---@field wallis_futuna? string
+---@field waning_crescent_moon? string
+---@field waning_gibbous_moon? string
+---@field warning? string
+---@field wastebasket? string
+---@field watch? string
+---@field water_buffalo? string
+---@field water_polo? string
+---@field watermelon? string
+---@field wave? string
+---@field wavy_dash? string
+---@field waxing_crescent_moon? string
+---@field waxing_gibbous_moon? string
+---@field wc? string
+---@field weary? string
+---@field wedding? string
+---@field weight_lifting? string
+---@field weight_lifting_man? string
+---@field weight_lifting_woman? string
+---@field western_sahara? string
+---@field whale? string
+---@field whale2? string
+---@field wheel_of_dharma? string
+---@field wheelchair? string
+---@field white_check_mark? string
+---@field white_circle? string
+---@field white_flag? string
+---@field white_flower? string
+---@field white_haired_man? string
+---@field white_haired_woman? string
+---@field white_heart? string
+---@field white_large_square? string
+---@field white_medium_small_square? string
+---@field white_medium_square? string
+---@field white_small_square? string
+---@field white_square_button? string
+---@field wilted_flower? string
+---@field wind_chime? string
+---@field wind_face? string
+---@field window? string
+---@field wine_glass? string
+---@field wink? string
+---@field wolf? string
+---@field woman? string
+---@field woman_artist? string
+---@field woman_astronaut? string
+---@field woman_beard? string
+---@field woman_cartwheeling? string
+---@field woman_cook? string
+---@field woman_dancing? string
+---@field woman_facepalming? string
+---@field woman_factory_worker? string
+---@field woman_farmer? string
+---@field woman_feeding_baby? string
+---@field woman_firefighter? string
+---@field woman_health_worker? string
+---@field woman_in_manual_wheelchair? string
+---@field woman_in_motorized_wheelchair? string
+---@field woman_in_tuxedo? string
+---@field woman_judge? string
+---@field woman_juggling? string
+---@field woman_mechanic? string
+---@field woman_office_worker? string
+---@field woman_pilot? string
+---@field woman_playing_handball? string
+---@field woman_playing_water_polo? string
+---@field woman_scientist? string
+---@field woman_shrugging? string
+---@field woman_singer? string
+---@field woman_student? string
+---@field woman_teacher? string
+---@field woman_technologist? string
+---@field woman_with_headscarf? string
+---@field woman_with_probing_cane? string
+---@field woman_with_turban? string
+---@field woman_with_veil? string
+---@field womans_clothes? string
+---@field womans_hat? string
+---@field women_wrestling? string
+---@field womens? string
+---@field wood? string
+---@field woozy_face? string
+---@field world_map? string
+---@field worm? string
+---@field worried? string
+---@field wrench? string
+---@field wrestling? string
+---@field writing_hand? string
+---@field x? string
+---@field yarn? string
+---@field yawning_face? string
+---@field yellow_circle? string
+---@field yellow_heart? string
+---@field yellow_square? string
+---@field yemen? string
+---@field yen? string
+---@field yin_yang? string
+---@field yo_yo? string
+---@field yum? string
+---@field zambia? string
+---@field zany_face? string
+---@field zap? string
+---@field zebra? string
+---@field zero? string
+---@field zimbabwe? string
+---@field zipper_mouth_face? string
+---@field zombie? string
+---@field zombie_man? string
+---@field zombie_woman? string
+---@field zzz? string
+
+---@class EmojiLoadMatch
+---@field ["1"]? string
+---@field ["100"]? string
+---@field ["1234"]? string
+---@field ["1st_place_medal"]? string
+---@field ["2nd_place_medal"]? string
+---@field ["3rd_place_medal"]? string
+---@field ["8ball"]? string
+---@field a? string
+---@field ab? string
+---@field abacus? string
+---@field abc? string
+---@field abcd? string
+---@field accept? string
+---@field accessibility? string
+---@field accordion? string
+---@field adhesive_bandage? string
+---@field adult? string
+---@field aerial_tramway? string
+---@field afghanistan? string
+---@field airplane? string
+---@field aland_islands? string
+---@field alarm_clock? string
+---@field albania? string
+---@field alembic? string
+---@field algeria? string
+---@field alien? string
+---@field ambulance? string
+---@field american_samoa? string
+---@field amphora? string
+---@field anatomical_heart? string
+---@field anchor? string
+---@field andorra? string
+---@field angel? string
+---@field anger? string
+---@field angola? string
+---@field angry? string
+---@field anguilla? string
+---@field anguished? string
+---@field ant? string
+---@field antarctica? string
+---@field antigua_barbuda? string
+---@field apple? string
+---@field aquarius? string
+---@field argentina? string
+---@field aries? string
+---@field armenia? string
+---@field arrow_backward? string
+---@field arrow_double_down? string
+---@field arrow_double_up? string
+---@field arrow_down? string
+---@field arrow_down_small? string
+---@field arrow_forward? string
+---@field arrow_heading_down? string
+---@field arrow_heading_up? string
+---@field arrow_left? string
+---@field arrow_lower_left? string
+---@field arrow_lower_right? string
+---@field arrow_right? string
+---@field arrow_right_hook? string
+---@field arrow_up? string
+---@field arrow_up_down? string
+---@field arrow_up_small? string
+---@field arrow_upper_left? string
+---@field arrow_upper_right? string
+---@field arrows_clockwise? string
+---@field arrows_counterclockwise? string
+---@field art? string
+---@field articulated_lorry? string
+---@field artificial_satellite? string
+---@field artist? string
+---@field aruba? string
+---@field ascension_island? string
+---@field asterisk? string
+---@field astonished? string
+---@field astronaut? string
+---@field athletic_shoe? string
+---@field atm? string
+---@field atom? string
+---@field atom_symbol? string
+---@field australia? string
+---@field austria? string
+---@field auto_rickshaw? string
+---@field avocado? string
+---@field axe? string
+---@field azerbaijan? string
+---@field b? string
+---@field baby? string
+---@field baby_bottle? string
+---@field baby_chick? string
+---@field baby_symbol? string
+---@field back? string
+---@field bacon? string
+---@field badger? string
+---@field badminton? string
+---@field bagel? string
+---@field baggage_claim? string
+---@field baguette_bread? string
+---@field bahamas? string
+---@field bahrain? string
+---@field balance_scale? string
+---@field bald_man? string
+---@field bald_woman? string
+---@field ballet_shoes? string
+---@field balloon? string
+---@field ballot_box? string
+---@field ballot_box_with_check? string
+---@field bamboo? string
+---@field banana? string
+---@field bangbang? string
+---@field bangladesh? string
+---@field banjo? string
+---@field bank? string
+---@field bar_chart? string
+---@field barbados? string
+---@field barber? string
+---@field baseball? string
+---@field basecamp? string
+---@field basecampy? string
+---@field basket? string
+---@field basketball? string
+---@field basketball_man? string
+---@field basketball_woman? string
+---@field bat? string
+---@field bath? string
+---@field bathtub? string
+---@field battery? string
+---@field beach_umbrella? string
+---@field bear? string
+---@field bearded_person? string
+---@field beaver? string
+---@field bed? string
+---@field bee? string
+---@field beer? string
+---@field beers? string
+---@field beetle? string
+---@field beginner? string
+---@field belarus? string
+---@field belgium? string
+---@field belize? string
+---@field bell? string
+---@field bell_pepper? string
+---@field bellhop_bell? string
+---@field benin? string
+---@field bento? string
+---@field bermuda? string
+---@field beverage_box? string
+---@field bhutan? string
+---@field bicyclist? string
+---@field bike? string
+---@field biking_man? string
+---@field biking_woman? string
+---@field bikini? string
+---@field billed_cap? string
+---@field biohazard? string
+---@field bird? string
+---@field birthday? string
+---@field bison? string
+---@field black_cat? string
+---@field black_circle? string
+---@field black_flag? string
+---@field black_heart? string
+---@field black_joker? string
+---@field black_large_square? string
+---@field black_medium_small_square? string
+---@field black_medium_square? string
+---@field black_nib? string
+---@field black_small_square? string
+---@field black_square_button? string
+---@field blond_haired_man? string
+---@field blond_haired_person? string
+---@field blond_haired_woman? string
+---@field blonde_woman? string
+---@field blossom? string
+---@field blowfish? string
+---@field blue_book? string
+---@field blue_car? string
+---@field blue_heart? string
+---@field blue_square? string
+---@field blueberries? string
+---@field blush? string
+---@field boar? string
+---@field boat? string
+---@field bolivia? string
+---@field bomb? string
+---@field bone? string
+---@field book? string
+---@field bookmark? string
+---@field bookmark_tabs? string
+---@field books? string
+---@field boom? string
+---@field boomerang? string
+---@field boot? string
+---@field bosnia_herzegovina? string
+---@field botswana? string
+---@field bouncing_ball_man? string
+---@field bouncing_ball_person? string
+---@field bouncing_ball_woman? string
+---@field bouquet? string
+---@field bouvet_island? string
+---@field bow? string
+---@field bow_and_arrow? string
+---@field bowing_man? string
+---@field bowing_woman? string
+---@field bowl_with_spoon? string
+---@field bowling? string
+---@field bowtie? string
+---@field boxing_glove? string
+---@field boy? string
+---@field brain? string
+---@field brazil? string
+---@field bread? string
+---@field breast_feeding? string
+---@field bricks? string
+---@field bride_with_veil? string
+---@field bridge_at_night? string
+---@field briefcase? string
+---@field british_indian_ocean_territory? string
+---@field british_virgin_islands? string
+---@field broccoli? string
+---@field broken_heart? string
+---@field broom? string
+---@field brown_circle? string
+---@field brown_heart? string
+---@field brown_square? string
+---@field brunei? string
+---@field bubble_tea? string
+---@field bucket? string
+---@field bug? string
+---@field building_construction? string
+---@field bulb? string
+---@field bulgaria? string
+---@field bullettrain_front? string
+---@field bullettrain_side? string
+---@field burkina_faso? string
+---@field burrito? string
+---@field burundi? string
+---@field bus? string
+---@field business_suit_levitating? string
+---@field busstop? string
+---@field bust_in_silhouette? string
+---@field busts_in_silhouette? string
+---@field butter? string
+---@field butterfly? string
+---@field cactus? string
+---@field cake? string
+---@field calendar? string
+---@field call_me_hand? string
+---@field calling? string
+---@field cambodia? string
+---@field camel? string
+---@field camera? string
+---@field camera_flash? string
+---@field cameroon? string
+---@field camping? string
+---@field canada? string
+---@field canary_islands? string
+---@field cancer? string
+---@field candle? string
+---@field candy? string
+---@field canned_food? string
+---@field canoe? string
+---@field cape_verde? string
+---@field capital_abcd? string
+---@field capricorn? string
+---@field car? string
+---@field card_file_box? string
+---@field card_index? string
+---@field card_index_dividers? string
+---@field caribbean_netherlands? string
+---@field carousel_horse? string
+---@field carpentry_saw? string
+---@field carrot? string
+---@field cartwheeling? string
+---@field cat? string
+---@field cat2? string
+---@field cayman_islands? string
+---@field cd? string
+---@field central_african_republic? string
+---@field ceuta_melilla? string
+---@field chad? string
+---@field chains? string
+---@field chair? string
+---@field champagne? string
+---@field chart? string
+---@field chart_with_downwards_trend? string
+---@field chart_with_upwards_trend? string
+---@field checkered_flag? string
+---@field cheese? string
+---@field cherries? string
+---@field cherry_blossom? string
+---@field chess_pawn? string
+---@field chestnut? string
+---@field chicken? string
+---@field child? string
+---@field children_crossing? string
+---@field chile? string
+---@field chipmunk? string
+---@field chocolate_bar? string
+---@field chopsticks? string
+---@field christmas_island? string
+---@field christmas_tree? string
+---@field church? string
+---@field cinema? string
+---@field circus_tent? string
+---@field city_sunrise? string
+---@field city_sunset? string
+---@field cityscape? string
+---@field cl? string
+---@field clamp? string
+---@field clap? string
+---@field clapper? string
+---@field classical_building? string
+---@field climbing? string
+---@field climbing_man? string
+---@field climbing_woman? string
+---@field clinking_glasses? string
+---@field clipboard? string
+---@field clipperton_island? string
+---@field clock1? string
+---@field clock10? string
+---@field clock1030? string
+---@field clock11? string
+---@field clock1130? string
+---@field clock12? string
+---@field clock1230? string
+---@field clock130? string
+---@field clock2? string
+---@field clock230? string
+---@field clock3? string
+---@field clock330? string
+---@field clock4? string
+---@field clock430? string
+---@field clock5? string
+---@field clock530? string
+---@field clock6? string
+---@field clock630? string
+---@field clock7? string
+---@field clock730? string
+---@field clock8? string
+---@field clock830? string
+---@field clock9? string
+---@field clock930? string
+---@field closed_book? string
+---@field closed_lock_with_key? string
+---@field closed_umbrella? string
+---@field cloud? string
+---@field cloud_with_lightning? string
+---@field cloud_with_lightning_and_rain? string
+---@field cloud_with_rain? string
+---@field cloud_with_snow? string
+---@field clown_face? string
+---@field clubs? string
+---@field cn? string
+---@field coat? string
+---@field cockroach? string
+---@field cocktail? string
+---@field coconut? string
+---@field cocos_islands? string
+---@field coffee? string
+---@field coffin? string
+---@field coin? string
+---@field cold_face? string
+---@field cold_sweat? string
+---@field collision? string
+---@field colombia? string
+---@field comet? string
+---@field comoros? string
+---@field compass? string
+---@field computer? string
+---@field computer_mouse? string
+---@field confetti_ball? string
+---@field confounded? string
+---@field confused? string
+---@field congo_brazzaville? string
+---@field congo_kinshasa? string
+---@field congratulations? string
+---@field construction? string
+---@field construction_worker? string
+---@field construction_worker_man? string
+---@field construction_worker_woman? string
+---@field control_knobs? string
+---@field convenience_store? string
+---@field cook? string
+---@field cook_islands? string
+---@field cookie? string
+---@field cool? string
+---@field cop? string
+---@field copilot? string
+---@field copyright? string
+---@field corn? string
+---@field costa_rica? string
+---@field cote_divoire? string
+---@field couch_and_lamp? string
+---@field couple? string
+---@field couple_with_heart? string
+---@field couple_with_heart_man_man? string
+---@field couple_with_heart_woman_man? string
+---@field couple_with_heart_woman_woman? string
+---@field couplekiss? string
+---@field couplekiss_man_man? string
+---@field couplekiss_man_woman? string
+---@field couplekiss_woman_woman? string
+---@field cow? string
+---@field cow2? string
+---@field cowboy_hat_face? string
+---@field crab? string
+---@field crayon? string
+---@field credit_card? string
+---@field crescent_moon? string
+---@field cricket? string
+---@field cricket_game? string
+---@field croatia? string
+---@field crocodile? string
+---@field croissant? string
+---@field crossed_fingers? string
+---@field crossed_flags? string
+---@field crossed_swords? string
+---@field crown? string
+---@field cry? string
+---@field crying_cat_face? string
+---@field crystal_ball? string
+---@field cuba? string
+---@field cucumber? string
+---@field cup_with_straw? string
+---@field cupcake? string
+---@field cupid? string
+---@field curacao? string
+---@field curling_stone? string
+---@field curly_haired_man? string
+---@field curly_haired_woman? string
+---@field curly_loop? string
+---@field currency_exchange? string
+---@field curry? string
+---@field cursing_face? string
+---@field custard? string
+---@field customs? string
+---@field cut_of_meat? string
+---@field cyclone? string
+---@field cyprus? string
+---@field czech_republic? string
+---@field dagger? string
+---@field dancer? string
+---@field dancers? string
+---@field dancing_men? string
+---@field dancing_women? string
+---@field dango? string
+---@field dark_sunglasses? string
+---@field dart? string
+---@field dash? string
+---@field date? string
+---@field de? string
+---@field deaf_man? string
+---@field deaf_person? string
+---@field deaf_woman? string
+---@field deciduous_tree? string
+---@field deer? string
+---@field denmark? string
+---@field department_store? string
+---@field dependabot? string
+---@field derelict_house? string
+---@field desert? string
+---@field desert_island? string
+---@field desktop_computer? string
+---@field detective? string
+---@field diamond_shape_with_a_dot_inside? string
+---@field diamonds? string
+---@field diego_garcia? string
+---@field disappointed? string
+---@field disappointed_relieved? string
+---@field disguised_face? string
+---@field diving_mask? string
+---@field diya_lamp? string
+---@field dizzy? string
+---@field dizzy_face? string
+---@field djibouti? string
+---@field dna? string
+---@field do_not_litter? string
+---@field dodo? string
+---@field dog? string
+---@field dog2? string
+---@field dollar? string
+---@field dolls? string
+---@field dolphin? string
+---@field dominica? string
+---@field dominican_republic? string
+---@field door? string
+---@field doughnut? string
+---@field dove? string
+---@field dragon? string
+---@field dragon_face? string
+---@field dress? string
+---@field dromedary_camel? string
+---@field drooling_face? string
+---@field drop_of_blood? string
+---@field droplet? string
+---@field drum? string
+---@field duck? string
+---@field dumpling? string
+---@field dvd? string
+---@field eagle? string
+---@field ear? string
+---@field ear_of_rice? string
+---@field ear_with_hearing_aid? string
+---@field earth_africa? string
+---@field earth_americas? string
+---@field earth_asia? string
+---@field ecuador? string
+---@field egg? string
+---@field eggplant? string
+---@field egypt? string
+---@field eight? string
+---@field eight_pointed_black_star? string
+---@field eight_spoked_asterisk? string
+---@field eject_button? string
+---@field el_salvador? string
+---@field electric_plug? string
+---@field electron? string
+---@field elephant? string
+---@field elevator? string
+---@field elf? string
+---@field elf_man? string
+---@field elf_woman? string
+---@field email? string
+---@field end? string
+---@field england? string
+---@field envelope? string
+---@field envelope_with_arrow? string
+---@field equatorial_guinea? string
+---@field eritrea? string
+---@field es? string
+---@field estonia? string
+---@field ethiopia? string
+---@field eu? string
+---@field euro? string
+---@field european_castle? string
+---@field european_post_office? string
+---@field european_union? string
+---@field evergreen_tree? string
+---@field exclamation? string
+---@field exploding_head? string
+---@field expressionless? string
+---@field eye? string
+---@field eye_speech_bubble? string
+---@field eyeglasses? string
+---@field eyes? string
+---@field face_exhaling? string
+---@field face_in_clouds? string
+---@field face_with_head_bandage? string
+---@field face_with_spiral_eyes? string
+---@field face_with_thermometer? string
+---@field facepalm? string
+---@field facepunch? string
+---@field factory? string
+---@field factory_worker? string
+---@field fairy? string
+---@field fairy_man? string
+---@field fairy_woman? string
+---@field falafel? string
+---@field falkland_islands? string
+---@field fallen_leaf? string
+---@field family? string
+---@field family_man_boy? string
+---@field family_man_boy_boy? string
+---@field family_man_girl? string
+---@field family_man_girl_boy? string
+---@field family_man_girl_girl? string
+---@field family_man_man_boy? string
+---@field family_man_man_boy_boy? string
+---@field family_man_man_girl? string
+---@field family_man_man_girl_boy? string
+---@field family_man_man_girl_girl? string
+---@field family_man_woman_boy? string
+---@field family_man_woman_boy_boy? string
+---@field family_man_woman_girl? string
+---@field family_man_woman_girl_boy? string
+---@field family_man_woman_girl_girl? string
+---@field family_woman_boy? string
+---@field family_woman_boy_boy? string
+---@field family_woman_girl? string
+---@field family_woman_girl_boy? string
+---@field family_woman_girl_girl? string
+---@field family_woman_woman_boy? string
+---@field family_woman_woman_boy_boy? string
+---@field family_woman_woman_girl? string
+---@field family_woman_woman_girl_boy? string
+---@field family_woman_woman_girl_girl? string
+---@field farmer? string
+---@field faroe_islands? string
+---@field fast_forward? string
+---@field fax? string
+---@field fearful? string
+---@field feather? string
+---@field feelsgood? string
+---@field feet? string
+---@field female_detective? string
+---@field female_sign? string
+---@field ferris_wheel? string
+---@field ferry? string
+---@field field_hockey? string
+---@field fiji? string
+---@field file_cabinet? string
+---@field file_folder? string
+---@field film_projector? string
+---@field film_strip? string
+---@field finland? string
+---@field finnadie? string
+---@field fire? string
+---@field fire_engine? string
+---@field fire_extinguisher? string
+---@field firecracker? string
+---@field firefighter? string
+---@field fireworks? string
+---@field first_quarter_moon? string
+---@field first_quarter_moon_with_face? string
+---@field fish? string
+---@field fish_cake? string
+---@field fishing_pole_and_fish? string
+---@field fishsticks? string
+---@field fist? string
+---@field fist_left? string
+---@field fist_oncoming? string
+---@field fist_raised? string
+---@field fist_right? string
+---@field five? string
+---@field flags? string
+---@field flamingo? string
+---@field flashlight? string
+---@field flat_shoe? string
+---@field flatbread? string
+---@field fleur_de_lis? string
+---@field flight_arrival? string
+---@field flight_departure? string
+---@field flipper? string
+---@field floppy_disk? string
+---@field flower_playing_cards? string
+---@field flushed? string
+---@field fly? string
+---@field flying_disc? string
+---@field flying_saucer? string
+---@field fog? string
+---@field foggy? string
+---@field fondue? string
+---@field foot? string
+---@field football? string
+---@field footprints? string
+---@field fork_and_knife? string
+---@field fortune_cookie? string
+---@field fountain? string
+---@field fountain_pen? string
+---@field four? string
+---@field four_leaf_clover? string
+---@field fox_face? string
+---@field fr? string
+---@field framed_picture? string
+---@field free? string
+---@field french_guiana? string
+---@field french_polynesia? string
+---@field french_southern_territories? string
+---@field fried_egg? string
+---@field fried_shrimp? string
+---@field fries? string
+---@field frog? string
+---@field frowning? string
+---@field frowning_face? string
+---@field frowning_man? string
+---@field frowning_person? string
+---@field frowning_woman? string
+---@field fu? string
+---@field fuelpump? string
+---@field full_moon? string
+---@field full_moon_with_face? string
+---@field funeral_urn? string
+---@field gabon? string
+---@field gambia? string
+---@field game_die? string
+---@field garlic? string
+---@field gb? string
+---@field gear? string
+---@field gem? string
+---@field gemini? string
+---@field genie? string
+---@field genie_man? string
+---@field genie_woman? string
+---@field georgia? string
+---@field ghana? string
+---@field ghost? string
+---@field gibraltar? string
+---@field gift? string
+---@field gift_heart? string
+---@field giraffe? string
+---@field girl? string
+---@field globe_with_meridians? string
+---@field gloves? string
+---@field goal_net? string
+---@field goat? string
+---@field goberserk? string
+---@field godmode? string
+---@field goggles? string
+---@field golf? string
+---@field golfing? string
+---@field golfing_man? string
+---@field golfing_woman? string
+---@field gorilla? string
+---@field grapes? string
+---@field greece? string
+---@field green_apple? string
+---@field green_book? string
+---@field green_circle? string
+---@field green_heart? string
+---@field green_salad? string
+---@field green_square? string
+---@field greenland? string
+---@field grenada? string
+---@field grey_exclamation? string
+---@field grey_question? string
+---@field grimacing? string
+---@field grin? string
+---@field grinning? string
+---@field guadeloupe? string
+---@field guam? string
+---@field guard? string
+---@field guardsman? string
+---@field guardswoman? string
+---@field guatemala? string
+---@field guernsey? string
+---@field guide_dog? string
+---@field guinea? string
+---@field guinea_bissau? string
+---@field guitar? string
+---@field gun? string
+---@field guyana? string
+---@field haircut? string
+---@field haircut_man? string
+---@field haircut_woman? string
+---@field haiti? string
+---@field hamburger? string
+---@field hammer? string
+---@field hammer_and_pick? string
+---@field hammer_and_wrench? string
+---@field hamster? string
+---@field hand? string
+---@field hand_over_mouth? string
+---@field handbag? string
+---@field handball_person? string
+---@field handshake? string
+---@field hankey? string
+---@field hash? string
+---@field hatched_chick? string
+---@field hatching_chick? string
+---@field headphones? string
+---@field headstone? string
+---@field health_worker? string
+---@field hear_no_evil? string
+---@field heard_mcdonald_islands? string
+---@field heart? string
+---@field heart_decoration? string
+---@field heart_eyes? string
+---@field heart_eyes_cat? string
+---@field heart_on_fire? string
+---@field heartbeat? string
+---@field heartpulse? string
+---@field hearts? string
+---@field heavy_check_mark? string
+---@field heavy_division_sign? string
+---@field heavy_dollar_sign? string
+---@field heavy_exclamation_mark? string
+---@field heavy_heart_exclamation? string
+---@field heavy_minus_sign? string
+---@field heavy_multiplication_x? string
+---@field heavy_plus_sign? string
+---@field hedgehog? string
+---@field helicopter? string
+---@field herb? string
+---@field hibiscus? string
+---@field high_brightness? string
+---@field high_heel? string
+---@field hiking_boot? string
+---@field hindu_temple? string
+---@field hippopotamus? string
+---@field hocho? string
+---@field hole? string
+---@field honduras? string
+---@field honey_pot? string
+---@field honeybee? string
+---@field hong_kong? string
+---@field hook? string
+---@field horse? string
+---@field horse_racing? string
+---@field hospital? string
+---@field hot_face? string
+---@field hot_pepper? string
+---@field hotdog? string
+---@field hotel? string
+---@field hotsprings? string
+---@field hourglass? string
+---@field hourglass_flowing_sand? string
+---@field house? string
+---@field house_with_garden? string
+---@field houses? string
+---@field hugs? string
+---@field hungary? string
+---@field hurtrealbad? string
+---@field hushed? string
+---@field hut? string
+---@field ice_cream? string
+---@field ice_cube? string
+---@field ice_hockey? string
+---@field ice_skate? string
+---@field icecream? string
+---@field iceland? string
+---@field id string
+---@field ideograph_advantage? string
+---@field imp? string
+---@field inbox_tray? string
+---@field incoming_envelope? string
+---@field india? string
+---@field indonesia? string
+---@field infinity? string
+---@field information_desk_person? string
+---@field information_source? string
+---@field innocent? string
+---@field interrobang? string
+---@field iphone? string
+---@field iran? string
+---@field iraq? string
+---@field ireland? string
+---@field isle_of_man? string
+---@field israel? string
+---@field it? string
+---@field izakaya_lantern? string
+---@field jack_o_lantern? string
+---@field jamaica? string
+---@field japan? string
+---@field japanese_castle? string
+---@field japanese_goblin? string
+---@field japanese_ogre? string
+---@field jeans? string
+---@field jersey? string
+---@field jigsaw? string
+---@field jordan? string
+---@field joy? string
+---@field joy_cat? string
+---@field joystick? string
+---@field jp? string
+---@field judge? string
+---@field juggling_person? string
+---@field kangaroo? string
+---@field kazakhstan? string
+---@field kenya? string
+---@field key? string
+---@field keyboard? string
+---@field keycap_ten? string
+---@field kick_scooter? string
+---@field kimono? string
+---@field kiribati? string
+---@field kiss? string
+---@field kissing? string
+---@field kissing_cat? string
+---@field kissing_closed_eyes? string
+---@field kissing_heart? string
+---@field kissing_smiling_eyes? string
+---@field kite? string
+---@field kiwi_fruit? string
+---@field kneeling_man? string
+---@field kneeling_person? string
+---@field kneeling_woman? string
+---@field knife? string
+---@field knot? string
+---@field koala? string
+---@field koko? string
+---@field kosovo? string
+---@field kr? string
+---@field kuwait? string
+---@field kyrgyzstan? string
+---@field lab_coat? string
+---@field label? string
+---@field lacrosse? string
+---@field ladder? string
+---@field lady_beetle? string
+---@field lantern? string
+---@field laos? string
+---@field large_blue_circle? string
+---@field large_blue_diamond? string
+---@field large_orange_diamond? string
+---@field last_quarter_moon? string
+---@field last_quarter_moon_with_face? string
+---@field latin_cross? string
+---@field latvia? string
+---@field laughing? string
+---@field leafy_green? string
+---@field leaves? string
+---@field lebanon? string
+---@field ledger? string
+---@field left_luggage? string
+---@field left_right_arrow? string
+---@field left_speech_bubble? string
+---@field leftwards_arrow_with_hook? string
+---@field leg? string
+---@field lemon? string
+---@field leo? string
+---@field leopard? string
+---@field lesotho? string
+---@field level_slider? string
+---@field liberia? string
+---@field libra? string
+---@field libya? string
+---@field liechtenstein? string
+---@field light_rail? string
+---@field link? string
+---@field lion? string
+---@field lips? string
+---@field lipstick? string
+---@field lithuania? string
+---@field lizard? string
+---@field llama? string
+---@field lobster? string
+---@field lock? string
+---@field lock_with_ink_pen? string
+---@field lollipop? string
+---@field long_drum? string
+---@field loop? string
+---@field lotion_bottle? string
+---@field lotus_position? string
+---@field lotus_position_man? string
+---@field lotus_position_woman? string
+---@field loud_sound? string
+---@field loudspeaker? string
+---@field love_hotel? string
+---@field love_letter? string
+---@field love_you_gesture? string
+---@field low_brightness? string
+---@field luggage? string
+---@field lungs? string
+---@field luxembourg? string
+---@field lying_face? string
+---@field m? string
+---@field macau? string
+---@field macedonia? string
+---@field madagascar? string
+---@field mag? string
+---@field mag_right? string
+---@field mage? string
+---@field mage_man? string
+---@field mage_woman? string
+---@field magic_wand? string
+---@field magnet? string
+---@field mahjong? string
+---@field mailbox? string
+---@field mailbox_closed? string
+---@field mailbox_with_mail? string
+---@field mailbox_with_no_mail? string
+---@field malawi? string
+---@field malaysia? string
+---@field maldives? string
+---@field male_detective? string
+---@field male_sign? string
+---@field mali? string
+---@field malta? string
+---@field mammoth? string
+---@field man? string
+---@field man_artist? string
+---@field man_astronaut? string
+---@field man_beard? string
+---@field man_cartwheeling? string
+---@field man_cook? string
+---@field man_dancing? string
+---@field man_facepalming? string
+---@field man_factory_worker? string
+---@field man_farmer? string
+---@field man_feeding_baby? string
+---@field man_firefighter? string
+---@field man_health_worker? string
+---@field man_in_manual_wheelchair? string
+---@field man_in_motorized_wheelchair? string
+---@field man_in_tuxedo? string
+---@field man_judge? string
+---@field man_juggling? string
+---@field man_mechanic? string
+---@field man_office_worker? string
+---@field man_pilot? string
+---@field man_playing_handball? string
+---@field man_playing_water_polo? string
+---@field man_scientist? string
+---@field man_shrugging? string
+---@field man_singer? string
+---@field man_student? string
+---@field man_teacher? string
+---@field man_technologist? string
+---@field man_with_gua_pi_mao? string
+---@field man_with_probing_cane? string
+---@field man_with_turban? string
+---@field man_with_veil? string
+---@field mandarin? string
+---@field mango? string
+---@field mans_shoe? string
+---@field mantelpiece_clock? string
+---@field manual_wheelchair? string
+---@field maple_leaf? string
+---@field marshall_islands? string
+---@field martial_arts_uniform? string
+---@field martinique? string
+---@field mask? string
+---@field massage? string
+---@field massage_man? string
+---@field massage_woman? string
+---@field mate? string
+---@field mauritania? string
+---@field mauritius? string
+---@field mayotte? string
+---@field meat_on_bone? string
+---@field mechanic? string
+---@field mechanical_arm? string
+---@field mechanical_leg? string
+---@field medal_military? string
+---@field medal_sports? string
+---@field medical_symbol? string
+---@field mega? string
+---@field melon? string
+---@field memo? string
+---@field men_wrestling? string
+---@field mending_heart? string
+---@field menorah? string
+---@field mens? string
+---@field mermaid? string
+---@field merman? string
+---@field merperson? string
+---@field metal? string
+---@field metro? string
+---@field mexico? string
+---@field microbe? string
+---@field micronesia? string
+---@field microphone? string
+---@field microscope? string
+---@field middle_finger? string
+---@field military_helmet? string
+---@field milk_glass? string
+---@field milky_way? string
+---@field minibus? string
+---@field minidisc? string
+---@field mirror? string
+---@field mobile_phone_off? string
+---@field moldova? string
+---@field monaco? string
+---@field money_mouth_face? string
+---@field money_with_wings? string
+---@field moneybag? string
+---@field mongolia? string
+---@field monkey? string
+---@field monkey_face? string
+---@field monocle_face? string
+---@field monorail? string
+---@field montenegro? string
+---@field montserrat? string
+---@field moon? string
+---@field moon_cake? string
+---@field morocco? string
+---@field mortar_board? string
+---@field mosque? string
+---@field mosquito? string
+---@field motor_boat? string
+---@field motor_scooter? string
+---@field motorcycle? string
+---@field motorized_wheelchair? string
+---@field motorway? string
+---@field mount_fuji? string
+---@field mountain? string
+---@field mountain_bicyclist? string
+---@field mountain_biking_man? string
+---@field mountain_biking_woman? string
+---@field mountain_cableway? string
+---@field mountain_railway? string
+---@field mountain_snow? string
+---@field mouse? string
+---@field mouse2? string
+---@field mouse_trap? string
+---@field movie_camera? string
+---@field moyai? string
+---@field mozambique? string
+---@field mrs_claus? string
+---@field muscle? string
+---@field mushroom? string
+---@field musical_keyboard? string
+---@field musical_note? string
+---@field musical_score? string
+---@field mute? string
+---@field mx_claus? string
+---@field myanmar? string
+---@field nail_care? string
+---@field name_badge? string
+---@field namibia? string
+---@field national_park? string
+---@field nauru? string
+---@field nauseated_face? string
+---@field nazar_amulet? string
+---@field neckbeard? string
+---@field necktie? string
+---@field negative_squared_cross_mark? string
+---@field nepal? string
+---@field nerd_face? string
+---@field nesting_dolls? string
+---@field netherlands? string
+---@field neutral_face? string
+---@field new? string
+---@field new_caledonia? string
+---@field new_moon? string
+---@field new_moon_with_face? string
+---@field new_zealand? string
+---@field newspaper? string
+---@field newspaper_roll? string
+---@field next_track_button? string
+---@field ng? string
+---@field ng_man? string
+---@field ng_woman? string
+---@field nicaragua? string
+---@field niger? string
+---@field nigeria? string
+---@field night_with_stars? string
+---@field nine? string
+---@field ninja? string
+---@field niue? string
+---@field no_bell? string
+---@field no_bicycles? string
+---@field no_entry? string
+---@field no_entry_sign? string
+---@field no_good? string
+---@field no_good_man? string
+---@field no_good_woman? string
+---@field no_mobile_phones? string
+---@field no_mouth? string
+---@field no_pedestrians? string
+---@field no_smoking? string
+---@field nonpotable_water? string
+---@field norfolk_island? string
+---@field north_korea? string
+---@field northern_mariana_islands? string
+---@field norway? string
+---@field nose? string
+---@field notebook? string
+---@field notebook_with_decorative_cover? string
+---@field notes? string
+---@field nut_and_bolt? string
+---@field o? string
+---@field o2? string
+---@field ocean? string
+---@field octocat? string
+---@field octopus? string
+---@field oden? string
+---@field office? string
+---@field office_worker? string
+---@field oil_drum? string
+---@field ok? string
+---@field ok_hand? string
+---@field ok_man? string
+---@field ok_person? string
+---@field ok_woman? string
+---@field old_key? string
+---@field older_adult? string
+---@field older_man? string
+---@field older_woman? string
+---@field olive? string
+---@field om? string
+---@field oman? string
+---@field on? string
+---@field oncoming_automobile? string
+---@field oncoming_bus? string
+---@field oncoming_police_car? string
+---@field oncoming_taxi? string
+---@field one? string
+---@field one_piece_swimsuit? string
+---@field onion? string
+---@field open_book? string
+---@field open_file_folder? string
+---@field open_hands? string
+---@field open_mouth? string
+---@field open_umbrella? string
+---@field ophiuchus? string
+---@field orange? string
+---@field orange_book? string
+---@field orange_circle? string
+---@field orange_heart? string
+---@field orange_square? string
+---@field orangutan? string
+---@field orthodox_cross? string
+---@field otter? string
+---@field outbox_tray? string
+---@field owl? string
+---@field ox? string
+---@field oyster? string
+---@field package? string
+---@field page_facing_up? string
+---@field page_with_curl? string
+---@field pager? string
+---@field paintbrush? string
+---@field pakistan? string
+---@field palau? string
+---@field palestinian_territories? string
+---@field palm_tree? string
+---@field palms_up_together? string
+---@field panama? string
+---@field pancakes? string
+---@field panda_face? string
+---@field paperclip? string
+---@field paperclips? string
+---@field papua_new_guinea? string
+---@field parachute? string
+---@field paraguay? string
+---@field parasol_on_ground? string
+---@field parking? string
+---@field parrot? string
+---@field part_alternation_mark? string
+---@field partly_sunny? string
+---@field partying_face? string
+---@field passenger_ship? string
+---@field passport_control? string
+---@field pause_button? string
+---@field paw_prints? string
+---@field peace_symbol? string
+---@field peach? string
+---@field peacock? string
+---@field peanuts? string
+---@field pear? string
+---@field pen? string
+---@field pencil? string
+---@field pencil2? string
+---@field penguin? string
+---@field pensive? string
+---@field people_holding_hands? string
+---@field people_hugging? string
+---@field performing_arts? string
+---@field persevere? string
+---@field person_bald? string
+---@field person_curly_hair? string
+---@field person_feeding_baby? string
+---@field person_fencing? string
+---@field person_in_manual_wheelchair? string
+---@field person_in_motorized_wheelchair? string
+---@field person_in_tuxedo? string
+---@field person_red_hair? string
+---@field person_white_hair? string
+---@field person_with_probing_cane? string
+---@field person_with_turban? string
+---@field person_with_veil? string
+---@field peru? string
+---@field petri_dish? string
+---@field philippines? string
+---@field phone? string
+---@field pick? string
+---@field pickup_truck? string
+---@field pie? string
+---@field pig? string
+---@field pig2? string
+---@field pig_nose? string
+---@field pill? string
+---@field pilot? string
+---@field pinata? string
+---@field pinched_fingers? string
+---@field pinching_hand? string
+---@field pineapple? string
+---@field ping_pong? string
+---@field pirate_flag? string
+---@field pisces? string
+---@field pitcairn_islands? string
+---@field pizza? string
+---@field placard? string
+---@field place_of_worship? string
+---@field plate_with_cutlery? string
+---@field play_or_pause_button? string
+---@field pleading_face? string
+---@field plunger? string
+---@field point_down? string
+---@field point_left? string
+---@field point_right? string
+---@field point_up? string
+---@field point_up_2? string
+---@field poland? string
+---@field polar_bear? string
+---@field police_car? string
+---@field police_officer? string
+---@field policeman? string
+---@field policewoman? string
+---@field poodle? string
+---@field poop? string
+---@field popcorn? string
+---@field portugal? string
+---@field post_office? string
+---@field postal_horn? string
+---@field postbox? string
+---@field potable_water? string
+---@field potato? string
+---@field potted_plant? string
+---@field pouch? string
+---@field poultry_leg? string
+---@field pound? string
+---@field pout? string
+---@field pouting_cat? string
+---@field pouting_face? string
+---@field pouting_man? string
+---@field pouting_woman? string
+---@field pray? string
+---@field prayer_beads? string
+---@field pregnant_woman? string
+---@field pretzel? string
+---@field previous_track_button? string
+---@field prince? string
+---@field princess? string
+---@field printer? string
+---@field probing_cane? string
+---@field puerto_rico? string
+---@field punch? string
+---@field purple_circle? string
+---@field purple_heart? string
+---@field purple_square? string
+---@field purse? string
+---@field pushpin? string
+---@field put_litter_in_its_place? string
+---@field qatar? string
+---@field question? string
+---@field rabbit? string
+---@field rabbit2? string
+---@field raccoon? string
+---@field racehorse? string
+---@field racing_car? string
+---@field radio? string
+---@field radio_button? string
+---@field radioactive? string
+---@field rage? string
+---@field rage1? string
+---@field rage2? string
+---@field rage3? string
+---@field rage4? string
+---@field railway_car? string
+---@field railway_track? string
+---@field rainbow? string
+---@field rainbow_flag? string
+---@field raised_back_of_hand? string
+---@field raised_eyebrow? string
+---@field raised_hand? string
+---@field raised_hand_with_fingers_splayed? string
+---@field raised_hands? string
+---@field raising_hand? string
+---@field raising_hand_man? string
+---@field raising_hand_woman? string
+---@field ram? string
+---@field ramen? string
+---@field rat? string
+---@field razor? string
+---@field receipt? string
+---@field record_button? string
+---@field recycle? string
+---@field red_car? string
+---@field red_circle? string
+---@field red_envelope? string
+---@field red_haired_man? string
+---@field red_haired_woman? string
+---@field red_square? string
+---@field registered? string
+---@field relaxed? string
+---@field relieved? string
+---@field reminder_ribbon? string
+---@field repeat? string
+---@field repeat_one? string
+---@field rescue_worker_helmet? string
+---@field restroom? string
+---@field reunion? string
+---@field revolving_hearts? string
+---@field rewind? string
+---@field rhinoceros? string
+---@field ribbon? string
+---@field rice? string
+---@field rice_ball? string
+---@field rice_cracker? string
+---@field rice_scene? string
+---@field right_anger_bubble? string
+---@field ring? string
+---@field ringed_planet? string
+---@field robot? string
+---@field rock? string
+---@field rocket? string
+---@field rofl? string
+---@field roll_eyes? string
+---@field roll_of_paper? string
+---@field roller_coaster? string
+---@field roller_skate? string
+---@field romania? string
+---@field rooster? string
+---@field rose? string
+---@field rosette? string
+---@field rotating_light? string
+---@field round_pushpin? string
+---@field rowboat? string
+---@field rowing_man? string
+---@field rowing_woman? string
+---@field ru? string
+---@field rugby_football? string
+---@field runner? string
+---@field running? string
+---@field running_man? string
+---@field running_shirt_with_sash? string
+---@field running_woman? string
+---@field rwanda? string
+---@field sa? string
+---@field safety_pin? string
+---@field safety_vest? string
+---@field sagittarius? string
+---@field sailboat? string
+---@field sake? string
+---@field salt? string
+---@field samoa? string
+---@field san_marino? string
+---@field sandal? string
+---@field sandwich? string
+---@field santa? string
+---@field sao_tome_principe? string
+---@field sari? string
+---@field sassy_man? string
+---@field sassy_woman? string
+---@field satellite? string
+---@field satisfied? string
+---@field saudi_arabia? string
+---@field sauna_man? string
+---@field sauna_person? string
+---@field sauna_woman? string
+---@field sauropod? string
+---@field saxophone? string
+---@field scarf? string
+---@field school? string
+---@field school_satchel? string
+---@field scientist? string
+---@field scissors? string
+---@field scorpion? string
+---@field scorpius? string
+---@field scotland? string
+---@field scream? string
+---@field scream_cat? string
+---@field screwdriver? string
+---@field scroll? string
+---@field seal? string
+---@field seat? string
+---@field secret? string
+---@field see_no_evil? string
+---@field seedling? string
+---@field selfie? string
+---@field senegal? string
+---@field serbia? string
+---@field service_dog? string
+---@field seven? string
+---@field sewing_needle? string
+---@field seychelles? string
+---@field shallow_pan_of_food? string
+---@field shamrock? string
+---@field shark? string
+---@field shaved_ice? string
+---@field sheep? string
+---@field shell? string
+---@field shield? string
+---@field shinto_shrine? string
+---@field ship? string
+---@field shipit? string
+---@field shirt? string
+---@field shoe? string
+---@field shopping? string
+---@field shopping_cart? string
+---@field shorts? string
+---@field shower? string
+---@field shrimp? string
+---@field shrug? string
+---@field shushing_face? string
+---@field sierra_leone? string
+---@field signal_strength? string
+---@field singapore? string
+---@field singer? string
+---@field sint_maarten? string
+---@field six? string
+---@field six_pointed_star? string
+---@field skateboard? string
+---@field ski? string
+---@field skier? string
+---@field skull? string
+---@field skull_and_crossbones? string
+---@field skunk? string
+---@field sled? string
+---@field sleeping? string
+---@field sleeping_bed? string
+---@field sleepy? string
+---@field slightly_frowning_face? string
+---@field slightly_smiling_face? string
+---@field slot_machine? string
+---@field sloth? string
+---@field slovakia? string
+---@field slovenia? string
+---@field small_airplane? string
+---@field small_blue_diamond? string
+---@field small_orange_diamond? string
+---@field small_red_triangle? string
+---@field small_red_triangle_down? string
+---@field smile? string
+---@field smile_cat? string
+---@field smiley? string
+---@field smiley_cat? string
+---@field smiling_face_with_tear? string
+---@field smiling_face_with_three_hearts? string
+---@field smiling_imp? string
+---@field smirk? string
+---@field smirk_cat? string
+---@field smoking? string
+---@field snail? string
+---@field snake? string
+---@field sneezing_face? string
+---@field snowboarder? string
+---@field snowflake? string
+---@field snowman? string
+---@field snowman_with_snow? string
+---@field soap? string
+---@field sob? string
+---@field soccer? string
+---@field socks? string
+---@field softball? string
+---@field solomon_islands? string
+---@field somalia? string
+---@field soon? string
+---@field sos? string
+---@field sound? string
+---@field south_africa? string
+---@field south_georgia_south_sandwich_islands? string
+---@field south_sudan? string
+---@field space_invader? string
+---@field spades? string
+---@field spaghetti? string
+---@field sparkle? string
+---@field sparkler? string
+---@field sparkles? string
+---@field sparkling_heart? string
+---@field speak_no_evil? string
+---@field speaker? string
+---@field speaking_head? string
+---@field speech_balloon? string
+---@field speedboat? string
+---@field spider? string
+---@field spider_web? string
+---@field spiral_calendar? string
+---@field spiral_notepad? string
+---@field sponge? string
+---@field spoon? string
+---@field squid? string
+---@field sri_lanka? string
+---@field st_barthelemy? string
+---@field st_helena? string
+---@field st_kitts_nevis? string
+---@field st_lucia? string
+---@field st_martin? string
+---@field st_pierre_miquelon? string
+---@field st_vincent_grenadines? string
+---@field stadium? string
+---@field standing_man? string
+---@field standing_person? string
+---@field standing_woman? string
+---@field star? string
+---@field star2? string
+---@field star_and_crescent? string
+---@field star_of_david? string
+---@field star_struck? string
+---@field stars? string
+---@field station? string
+---@field statue_of_liberty? string
+---@field steam_locomotive? string
+---@field stethoscope? string
+---@field stew? string
+---@field stop_button? string
+---@field stop_sign? string
+---@field stopwatch? string
+---@field straight_ruler? string
+---@field strawberry? string
+---@field stuck_out_tongue? string
+---@field stuck_out_tongue_closed_eyes? string
+---@field stuck_out_tongue_winking_eye? string
+---@field student? string
+---@field studio_microphone? string
+---@field stuffed_flatbread? string
+---@field sudan? string
+---@field sun_behind_large_cloud? string
+---@field sun_behind_rain_cloud? string
+---@field sun_behind_small_cloud? string
+---@field sun_with_face? string
+---@field sunflower? string
+---@field sunglasses? string
+---@field sunny? string
+---@field sunrise? string
+---@field sunrise_over_mountains? string
+---@field superhero? string
+---@field superhero_man? string
+---@field superhero_woman? string
+---@field supervillain? string
+---@field supervillain_man? string
+---@field supervillain_woman? string
+---@field surfer? string
+---@field surfing_man? string
+---@field surfing_woman? string
+---@field suriname? string
+---@field sushi? string
+---@field suspect? string
+---@field suspension_railway? string
+---@field svalbard_jan_mayen? string
+---@field swan? string
+---@field swaziland? string
+---@field sweat? string
+---@field sweat_drops? string
+---@field sweat_smile? string
+---@field sweden? string
+---@field sweet_potato? string
+---@field swim_brief? string
+---@field swimmer? string
+---@field swimming_man? string
+---@field swimming_woman? string
+---@field switzerland? string
+---@field symbols? string
+---@field synagogue? string
+---@field syria? string
+---@field syringe? string
+---@field taco? string
+---@field tada? string
+---@field taiwan? string
+---@field tajikistan? string
+---@field takeout_box? string
+---@field tamale? string
+---@field tanabata_tree? string
+---@field tangerine? string
+---@field tanzania? string
+---@field taurus? string
+---@field taxi? string
+---@field tea? string
+---@field teacher? string
+---@field teapot? string
+---@field technologist? string
+---@field teddy_bear? string
+---@field telephone? string
+---@field telephone_receiver? string
+---@field telescope? string
+---@field tennis? string
+---@field tent? string
+---@field test_tube? string
+---@field thailand? string
+---@field thermometer? string
+---@field thinking? string
+---@field thong_sandal? string
+---@field thought_balloon? string
+---@field thread? string
+---@field three? string
+---@field thumbsdown? string
+---@field thumbsup? string
+---@field ticket? string
+---@field tickets? string
+---@field tiger? string
+---@field tiger2? string
+---@field timer_clock? string
+---@field timor_leste? string
+---@field tipping_hand_man? string
+---@field tipping_hand_person? string
+---@field tipping_hand_woman? string
+---@field tired_face? string
+---@field tm? string
+---@field togo? string
+---@field toilet? string
+---@field tokelau? string
+---@field tokyo_tower? string
+---@field tomato? string
+---@field tonga? string
+---@field tongue? string
+---@field toolbox? string
+---@field tooth? string
+---@field toothbrush? string
+---@field top? string
+---@field tophat? string
+---@field tornado? string
+---@field tr? string
+---@field trackball? string
+---@field tractor? string
+---@field traffic_light? string
+---@field train? string
+---@field train2? string
+---@field tram? string
+---@field transgender_flag? string
+---@field transgender_symbol? string
+---@field trex? string
+---@field triangular_flag_on_post? string
+---@field triangular_ruler? string
+---@field trident? string
+---@field trinidad_tobago? string
+---@field tristan_da_cunha? string
+---@field triumph? string
+---@field trolleybus? string
+---@field trollface? string
+---@field trophy? string
+---@field tropical_drink? string
+---@field tropical_fish? string
+---@field truck? string
+---@field trumpet? string
+---@field tshirt? string
+---@field tulip? string
+---@field tumbler_glass? string
+---@field tunisia? string
+---@field turkey? string
+---@field turkmenistan? string
+---@field turks_caicos_islands? string
+---@field turtle? string
+---@field tuvalu? string
+---@field tv? string
+---@field twisted_rightwards_arrows? string
+---@field two? string
+---@field two_hearts? string
+---@field two_men_holding_hands? string
+---@field two_women_holding_hands? string
+---@field u5272? string
+---@field u5408? string
+---@field u55b6? string
+---@field u6307? string
+---@field u6708? string
+---@field u6709? string
+---@field u6e80? string
+---@field u7121? string
+---@field u7533? string
+---@field u7981? string
+---@field u7a7a? string
+---@field uganda? string
+---@field uk? string
+---@field ukraine? string
+---@field umbrella? string
+---@field unamused? string
+---@field underage? string
+---@field unicorn? string
+---@field united_arab_emirates? string
+---@field united_nations? string
+---@field unlock? string
+---@field up? string
+---@field upside_down_face? string
+---@field uruguay? string
+---@field us? string
+---@field us_outlying_islands? string
+---@field us_virgin_islands? string
+---@field uzbekistan? string
+---@field v? string
+---@field vampire? string
+---@field vampire_man? string
+---@field vampire_woman? string
+---@field vanuatu? string
+---@field vatican_city? string
+---@field venezuela? string
+---@field vertical_traffic_light? string
+---@field vhs? string
+---@field vibration_mode? string
+---@field video_camera? string
+---@field video_game? string
+---@field vietnam? string
+---@field violin? string
+---@field virgo? string
+---@field volcano? string
+---@field volleyball? string
+---@field vomiting_face? string
+---@field vs? string
+---@field vulcan_salute? string
+---@field waffle? string
+---@field wales? string
+---@field walking? string
+---@field walking_man? string
+---@field walking_woman? string
+---@field wallis_futuna? string
+---@field waning_crescent_moon? string
+---@field waning_gibbous_moon? string
+---@field warning? string
+---@field wastebasket? string
+---@field watch? string
+---@field water_buffalo? string
+---@field water_polo? string
+---@field watermelon? string
+---@field wave? string
+---@field wavy_dash? string
+---@field waxing_crescent_moon? string
+---@field waxing_gibbous_moon? string
+---@field wc? string
+---@field weary? string
+---@field wedding? string
+---@field weight_lifting? string
+---@field weight_lifting_man? string
+---@field weight_lifting_woman? string
+---@field western_sahara? string
+---@field whale? string
+---@field whale2? string
+---@field wheel_of_dharma? string
+---@field wheelchair? string
+---@field white_check_mark? string
+---@field white_circle? string
+---@field white_flag? string
+---@field white_flower? string
+---@field white_haired_man? string
+---@field white_haired_woman? string
+---@field white_heart? string
+---@field white_large_square? string
+---@field white_medium_small_square? string
+---@field white_medium_square? string
+---@field white_small_square? string
+---@field white_square_button? string
+---@field wilted_flower? string
+---@field wind_chime? string
+---@field wind_face? string
+---@field window? string
+---@field wine_glass? string
+---@field wink? string
+---@field wolf? string
+---@field woman? string
+---@field woman_artist? string
+---@field woman_astronaut? string
+---@field woman_beard? string
+---@field woman_cartwheeling? string
+---@field woman_cook? string
+---@field woman_dancing? string
+---@field woman_facepalming? string
+---@field woman_factory_worker? string
+---@field woman_farmer? string
+---@field woman_feeding_baby? string
+---@field woman_firefighter? string
+---@field woman_health_worker? string
+---@field woman_in_manual_wheelchair? string
+---@field woman_in_motorized_wheelchair? string
+---@field woman_in_tuxedo? string
+---@field woman_judge? string
+---@field woman_juggling? string
+---@field woman_mechanic? string
+---@field woman_office_worker? string
+---@field woman_pilot? string
+---@field woman_playing_handball? string
+---@field woman_playing_water_polo? string
+---@field woman_scientist? string
+---@field woman_shrugging? string
+---@field woman_singer? string
+---@field woman_student? string
+---@field woman_teacher? string
+---@field woman_technologist? string
+---@field woman_with_headscarf? string
+---@field woman_with_probing_cane? string
+---@field woman_with_turban? string
+---@field woman_with_veil? string
+---@field womans_clothes? string
+---@field womans_hat? string
+---@field women_wrestling? string
+---@field womens? string
+---@field wood? string
+---@field woozy_face? string
+---@field world_map? string
+---@field worm? string
+---@field worried? string
+---@field wrench? string
+---@field wrestling? string
+---@field writing_hand? string
+---@field x? string
+---@field yarn? string
+---@field yawning_face? string
+---@field yellow_circle? string
+---@field yellow_heart? string
+---@field yellow_square? string
+---@field yemen? string
+---@field yen? string
+---@field yin_yang? string
+---@field yo_yo? string
+---@field yum? string
+---@field zambia? string
+---@field zany_face? string
+---@field zap? string
+---@field zebra? string
+---@field zero? string
+---@field zimbabwe? string
+---@field zipper_mouth_face? string
+---@field zombie? string
+---@field zombie_man? string
+---@field zombie_woman? string
+---@field zzz? string
+
+---@class EmptyObject
+---@field attestations? table
+---@field enable_debug_logging? boolean
+---@field encrypted_value string
+---@field include_claim_keys? table
+---@field key_id string
+---@field languages? table
+---@field name string
+---@field query_suite? string
+---@field runner_label? string
+---@field runner_type? string
+---@field selected_repository_ids? table
+---@field state? string
+---@field threat_model? string
+---@field use_default boolean
+---@field value string
+---@field visibility string
+
+---@class EmptyObjectLoadMatch
+---@field subject_digest string
+---@field username string
+---@field after? string
+---@field before? string
+---@field per_page? number
+---@field predicate_type? string
+
+---@class EmptyObjectCreateData
+---@field org_id string
+---@field attestations? table
+---@field enable_debug_logging? boolean
+---@field encrypted_value string
+---@field include_claim_keys? table
+---@field key_id string
+---@field languages? table
+---@field name string
+---@field query_suite? string
+---@field runner_label? string
+---@field runner_type? string
+---@field selected_repository_ids? table
+---@field state? string
+---@field threat_model? string
+---@field use_default boolean
+---@field value string
+---@field visibility string
+
+---@class EmptyObjectUpdateData
+---@field org_id string
+---@field secret_name string
+---@field attestations? table
+---@field enable_debug_logging? boolean
+---@field encrypted_value? string
+---@field include_claim_keys? table
+---@field key_id? string
+---@field languages? table
+---@field name? string
+---@field query_suite? string
+---@field runner_label? string
+---@field runner_type? string
+---@field selected_repository_ids? table
+---@field state? string
+---@field threat_model? string
+---@field use_default? boolean
+---@field value? string
+---@field visibility? string
+
+---@class EnterpriseTeam
+---@field created_at string
+---@field description? string
+---@field group_id string
+---@field group_name? string
+---@field html_url string
+---@field id number
+---@field members_url string
+---@field name string
+---@field organization_selection_type? string
+---@field slug string
+---@field sync_to_organizations? string
+---@field updated_at string
+---@field url string
+
+---@class EnterpriseTeamLoadMatch
+---@field enterprise string
+---@field id string
+
+---@class EnterpriseTeamListMatch
+---@field enterprise string
+---@field page? number
+---@field per_page? number
+
+---@class EnterpriseTeamCreateData
+---@field enterprise string
+---@field created_at string
+---@field description? string
+---@field group_id string
+---@field group_name? string
+---@field html_url string
+---@field id number
+---@field members_url string
+---@field name string
+---@field organization_selection_type? string
+---@field slug string
+---@field sync_to_organizations? string
+---@field updated_at string
+---@field url string
+
+---@class EnterpriseTeamUpdateData
+---@field enterprise string
+---@field id string
+---@field created_at? string
+---@field description? string
+---@field group_id? string
+---@field group_name? string
+---@field html_url? string
+---@field members_url? string
+---@field name? string
+---@field organization_selection_type? string
+---@field slug? string
+---@field sync_to_organizations? string
+---@field updated_at? string
+---@field url? string
+
+---@class EnterpriseTeamRemoveMatch
+---@field enterprise string
+---@field id string
+
+---@class EnterpriseTeamMembership
+---@field id? string
+
+---@class EnterpriseTeamMembershipRemoveMatch
+---@field enterprise string
+---@field id string
+---@field team_id string
+
+---@class Environment
+---@field created_at string
+---@field deployment_branch_policy table
+---@field html_url string
+---@field id number
+---@field name string
+---@field node_id string
+---@field prevent_self_review? boolean
+---@field protection_rules? table
+---@field reviewers? table
+---@field updated_at string
+---@field url string
+---@field wait_timer? number
+
+---@class EnvironmentLoadMatch
+---@field id string
+---@field owner string
+---@field repo string
+
+---@class EnvironmentUpdateData
+---@field id string
+---@field owner string
+---@field repo string
+---@field created_at? string
+---@field deployment_branch_policy? table
+---@field html_url? string
+---@field name? string
+---@field node_id? string
+---@field prevent_self_review? boolean
+---@field protection_rules? table
+---@field reviewers? table
+---@field updated_at? string
+---@field url? string
+---@field wait_timer? number
+
+---@class EnvironmentApproval
+---@field comment string
+---@field environments table
+---@field state string
+---@field user table
+
+---@class EnvironmentApprovalListMatch
+---@field owner string
+---@field repo string
+---@field run_id number
+
+---@class Event
+---@field actor table
+---@field created_at string
+---@field id string
+---@field org table
+---@field payload table
+---@field public boolean
+---@field repo table
+---@field type string
+
+---@class EventLoadMatch
+---@field org string
+---@field username string
+---@field page? number
+---@field per_page? number
+
+---@class EventListMatch
+---@field page? number
+---@field per_page? number
+
+---@class Feed
+---@field current_user_actor_url? string
+---@field current_user_organization_url? string
+---@field current_user_organization_urls? table
+---@field current_user_public_url? string
+---@field current_user_url? string
+---@field links table
+---@field repository_discussions_category_url? string
+---@field repository_discussions_url? string
+---@field security_advisories_url? string
+---@field timeline_url string
+---@field user_url string
+
+---@class FeedListMatch
+---@field current_user_actor_url? string
+---@field current_user_organization_url? string
+---@field current_user_organization_urls? table
+---@field current_user_public_url? string
+---@field current_user_url? string
+---@field links? table
+---@field repository_discussions_category_url? string
+---@field repository_discussions_url? string
+---@field security_advisories_url? string
+---@field timeline_url? string
+---@field user_url? string
+
+---@class FileCommit
+---@field author table
+---@field branch? string
+---@field commit table
+---@field committer table
+---@field content table
+---@field message string
+---@field sha? string
+
+---@class FileCommitUpdateData
+---@field owner string
+---@field path string
+---@field repo string
+---@field author? table
+---@field branch? string
+---@field commit? table
+---@field committer? table
+---@field content? table
+---@field message? string
+---@field sha? string
+
+---@class FileCommitRemoveMatch
+---@field owner string
+---@field path string
+---@field repo string
+
+---@class Follower
+---@field avatar_url string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field url string
+---@field user_view_type? string
+
+---@class FollowerListMatch
+---@field page? number
+---@field per_page? number
+
+---@class Following
+---@field avatar_url string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field url string
+---@field user_view_type? string
+
+---@class FollowingListMatch
+---@field page? number
+---@field per_page? number
+
+---@class FullRepository
+---@field allow_auto_merge? boolean
+---@field allow_forking? boolean
+---@field allow_merge_commit? boolean
+---@field allow_rebase_merge? boolean
+---@field allow_squash_merge? boolean
+---@field allow_update_branch? boolean
+---@field anonymous_access_enabled? boolean
+---@field archive_url string
+---@field archived boolean
+---@field assignees_url string
+---@field auto_init? boolean
+---@field blobs_url string
+---@field branches_url string
+---@field clone_url string
+---@field code_of_conduct table
+---@field collaborators_url string
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field contents_url string
+---@field contributors_url string
+---@field created_at string
+---@field custom_properties? table
+---@field default_branch string
+---@field delete_branch_on_merge? boolean
+---@field deployments_url string
+---@field description string
+---@field disabled boolean
+---@field downloads_url string
+---@field events_url string
+---@field fork boolean
+---@field forks number
+---@field forks_count number
+---@field forks_url string
+---@field full_name string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_tags_url string
+---@field git_url string
+---@field github_id number
+---@field gitignore_template? string
+---@field has_discussions boolean
+---@field has_downloads? boolean
+---@field has_issues boolean
+---@field has_pages boolean
+---@field has_projects boolean
+---@field has_wiki boolean
+---@field homepage string
+---@field hooks_url string
+---@field html_url string
+---@field id string
+---@field include_all_branches? boolean
+---@field is_template? boolean
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field keys_url string
+---@field labels_url string
+---@field language string
+---@field languages_url string
+---@field license table
+---@field license_template? string
+---@field master_branch? string
+---@field merge_commit_message? string
+---@field merge_commit_title? string
+---@field merges_url string
+---@field milestones_url string
+---@field mirror_url string
+---@field name string
+---@field network_count number
+---@field node_id string
+---@field notifications_url string
+---@field open_issues number
+---@field open_issues_count number
+---@field organization table
+---@field owner table
+---@field parent table
+---@field permissions table
+---@field private boolean
+---@field pulls_url string
+---@field pushed_at string
+---@field releases_url string
+---@field security_and_analysis? table
+---@field size number
+---@field source table
+---@field squash_merge_commit_message? string
+---@field squash_merge_commit_title? string
+---@field ssh_url string
+---@field stargazers_count number
+---@field stargazers_url string
+---@field statuses_url string
+---@field subscribers_count number
+---@field subscribers_url string
+---@field subscription_url string
+---@field svn_url string
+---@field tags_url string
+---@field team_id? number
+---@field teams_url string
+---@field temp_clone_token? string
+---@field template_repository table
+---@field topics? table
+---@field trees_url string
+---@field updated_at string
+---@field url string
+---@field use_squash_pr_title_as_default? boolean
+---@field visibility? string
+---@field watchers number
+---@field watchers_count number
+---@field web_commit_signoff_required? boolean
+
+---@class FullRepositoryLoadMatch
+---@field owner string
+---@field repo string
+
+---@class FullRepositoryCreateData
+---@field allow_auto_merge? boolean
+---@field allow_forking? boolean
+---@field allow_merge_commit? boolean
+---@field allow_rebase_merge? boolean
+---@field allow_squash_merge? boolean
+---@field allow_update_branch? boolean
+---@field anonymous_access_enabled? boolean
+---@field archive_url string
+---@field archived boolean
+---@field assignees_url string
+---@field auto_init? boolean
+---@field blobs_url string
+---@field branches_url string
+---@field clone_url string
+---@field code_of_conduct table
+---@field collaborators_url string
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field contents_url string
+---@field contributors_url string
+---@field created_at string
+---@field custom_properties? table
+---@field default_branch string
+---@field delete_branch_on_merge? boolean
+---@field deployments_url string
+---@field description string
+---@field disabled boolean
+---@field downloads_url string
+---@field events_url string
+---@field fork boolean
+---@field forks number
+---@field forks_count number
+---@field forks_url string
+---@field full_name string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_tags_url string
+---@field git_url string
+---@field github_id number
+---@field gitignore_template? string
+---@field has_discussions boolean
+---@field has_downloads? boolean
+---@field has_issues boolean
+---@field has_pages boolean
+---@field has_projects boolean
+---@field has_wiki boolean
+---@field homepage string
+---@field hooks_url string
+---@field html_url string
+---@field id string
+---@field include_all_branches? boolean
+---@field is_template? boolean
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field keys_url string
+---@field labels_url string
+---@field language string
+---@field languages_url string
+---@field license table
+---@field license_template? string
+---@field master_branch? string
+---@field merge_commit_message? string
+---@field merge_commit_title? string
+---@field merges_url string
+---@field milestones_url string
+---@field mirror_url string
+---@field name string
+---@field network_count number
+---@field node_id string
+---@field notifications_url string
+---@field open_issues number
+---@field open_issues_count number
+---@field organization table
+---@field owner table
+---@field parent table
+---@field permissions table
+---@field private boolean
+---@field pulls_url string
+---@field pushed_at string
+---@field releases_url string
+---@field security_and_analysis? table
+---@field size number
+---@field source table
+---@field squash_merge_commit_message? string
+---@field squash_merge_commit_title? string
+---@field ssh_url string
+---@field stargazers_count number
+---@field stargazers_url string
+---@field statuses_url string
+---@field subscribers_count number
+---@field subscribers_url string
+---@field subscription_url string
+---@field svn_url string
+---@field tags_url string
+---@field team_id? number
+---@field teams_url string
+---@field temp_clone_token? string
+---@field template_repository table
+---@field topics? table
+---@field trees_url string
+---@field updated_at string
+---@field url string
+---@field use_squash_pr_title_as_default? boolean
+---@field visibility? string
+---@field watchers number
+---@field watchers_count number
+---@field web_commit_signoff_required? boolean
+
+---@class FullRepositoryUpdateData
+---@field owner string
+---@field repo string
+---@field allow_auto_merge? boolean
+---@field allow_forking? boolean
+---@field allow_merge_commit? boolean
+---@field allow_rebase_merge? boolean
+---@field allow_squash_merge? boolean
+---@field allow_update_branch? boolean
+---@field anonymous_access_enabled? boolean
+---@field archive_url? string
+---@field archived? boolean
+---@field assignees_url? string
+---@field auto_init? boolean
+---@field blobs_url? string
+---@field branches_url? string
+---@field clone_url? string
+---@field code_of_conduct? table
+---@field collaborators_url? string
+---@field comments_url? string
+---@field commits_url? string
+---@field compare_url? string
+---@field contents_url? string
+---@field contributors_url? string
+---@field created_at? string
+---@field custom_properties? table
+---@field default_branch? string
+---@field delete_branch_on_merge? boolean
+---@field deployments_url? string
+---@field description? string
+---@field disabled? boolean
+---@field downloads_url? string
+---@field events_url? string
+---@field fork? boolean
+---@field forks? number
+---@field forks_count? number
+---@field forks_url? string
+---@field full_name? string
+---@field git_commits_url? string
+---@field git_refs_url? string
+---@field git_tags_url? string
+---@field git_url? string
+---@field github_id? number
+---@field gitignore_template? string
+---@field has_discussions? boolean
+---@field has_downloads? boolean
+---@field has_issues? boolean
+---@field has_pages? boolean
+---@field has_projects? boolean
+---@field has_wiki? boolean
+---@field homepage? string
+---@field hooks_url? string
+---@field html_url? string
+---@field id? string
+---@field include_all_branches? boolean
+---@field is_template? boolean
+---@field issue_comment_url? string
+---@field issue_events_url? string
+---@field issues_url? string
+---@field keys_url? string
+---@field labels_url? string
+---@field language? string
+---@field languages_url? string
+---@field license? table
+---@field license_template? string
+---@field master_branch? string
+---@field merge_commit_message? string
+---@field merge_commit_title? string
+---@field merges_url? string
+---@field milestones_url? string
+---@field mirror_url? string
+---@field name? string
+---@field network_count? number
+---@field node_id? string
+---@field notifications_url? string
+---@field open_issues? number
+---@field open_issues_count? number
+---@field organization? table
+---@field parent? table
+---@field permissions? table
+---@field private? boolean
+---@field pulls_url? string
+---@field pushed_at? string
+---@field releases_url? string
+---@field security_and_analysis? table
+---@field size? number
+---@field source? table
+---@field squash_merge_commit_message? string
+---@field squash_merge_commit_title? string
+---@field ssh_url? string
+---@field stargazers_count? number
+---@field stargazers_url? string
+---@field statuses_url? string
+---@field subscribers_count? number
+---@field subscribers_url? string
+---@field subscription_url? string
+---@field svn_url? string
+---@field tags_url? string
+---@field team_id? number
+---@field teams_url? string
+---@field temp_clone_token? string
+---@field template_repository? table
+---@field topics? table
+---@field trees_url? string
+---@field updated_at? string
+---@field url? string
+---@field use_squash_pr_title_as_default? boolean
+---@field visibility? string
+---@field watchers? number
+---@field watchers_count? number
+---@field web_commit_signoff_required? boolean
+
+---@class Gist
+---@field comments? number
+---@field comments_enabled? boolean
+---@field comments_url? string
+---@field commits_url? string
+---@field created_at? string
+---@field description? string
+---@field files? table
+---@field fork_of table
+---@field forks? table
+---@field forks_url? string
+---@field git_pull_url? string
+---@field git_push_url? string
+---@field history? table
+---@field html_url? string
+---@field id? string
+---@field node_id? string
+---@field owner table
+---@field public? boolean
+---@field truncated? boolean
+---@field updated_at? string
+---@field url? string
+---@field user? string
+
+---@class GistLoadMatch
+---@field id string
+
+---@class GistListMatch
+---@field page? number
+---@field per_page? number
+---@field since? string
+
+---@class GistCreateData
+---@field comments? number
+---@field comments_enabled? boolean
+---@field comments_url? string
+---@field commits_url? string
+---@field created_at? string
+---@field description? string
+---@field files? table
+---@field fork_of table
+---@field forks? table
+---@field forks_url? string
+---@field git_pull_url? string
+---@field git_push_url? string
+---@field history? table
+---@field html_url? string
+---@field id? string
+---@field node_id? string
+---@field owner table
+---@field public? boolean
+---@field truncated? boolean
+---@field updated_at? string
+---@field url? string
+---@field user? string
+
+---@class GistUpdateData
+---@field id string
+---@field comments? number
+---@field comments_enabled? boolean
+---@field comments_url? string
+---@field commits_url? string
+---@field created_at? string
+---@field description? string
+---@field files? table
+---@field fork_of? table
+---@field forks? table
+---@field forks_url? string
+---@field git_pull_url? string
+---@field git_push_url? string
+---@field history? table
+---@field html_url? string
+---@field node_id? string
+---@field owner? table
+---@field public? boolean
+---@field truncated? boolean
+---@field updated_at? string
+---@field url? string
+---@field user? string
+
+---@class GistRemoveMatch
+---@field comment_id? number
+---@field id string
+
+---@class GistComment
+---@field author_association string
+---@field avatar_url string
+---@field body string
+---@field created_at string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field updated_at string
+---@field url string
+---@field user table
+---@field user_view_type? string
+
+---@class GistCommentLoadMatch
+---@field gist_id string
+---@field id number
+
+---@class GistCommentListMatch
+---@field id string
+---@field page? number
+---@field per_page? number
+
+---@class GistCommentCreateData
+---@field id string
+---@field author_association string
+---@field avatar_url string
+---@field body string
+---@field created_at string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field updated_at string
+---@field url string
+---@field user table
+---@field user_view_type? string
+
+---@class GistCommentUpdateData
+---@field gist_id string
+---@field id number
+---@field author_association? string
+---@field avatar_url? string
+---@field body? string
+---@field created_at? string
+---@field email? string
+---@field events_url? string
+---@field followers_url? string
+---@field following_url? string
+---@field gists_url? string
+---@field gravatar_id? string
+---@field html_url? string
+---@field login? string
+---@field name? string
+---@field node_id? string
+---@field organizations_url? string
+---@field received_events_url? string
+---@field repos_url? string
+---@field site_admin? boolean
+---@field starred_at? string
+---@field starred_url? string
+---@field subscriptions_url? string
+---@field type? string
+---@field updated_at? string
+---@field url? string
+---@field user? table
+---@field user_view_type? string
+
+---@class GistCommit
+---@field change_status table
+---@field committed_at string
+---@field id? string
+---@field url string
+---@field user table
+---@field version string
+
+---@class GistCommitListMatch
+---@field id string
+---@field page? number
+---@field per_page? number
+
+---@class GistSimple
+---@field comments? number
+---@field comments_enabled? boolean
+---@field comments_url? string
+---@field commits_url? string
+---@field created_at? string
+---@field description? string
+---@field files? table
+---@field fork_of table
+---@field forks? table
+---@field forks_url? string
+---@field git_pull_url? string
+---@field git_push_url? string
+---@field history? table
+---@field html_url? string
+---@field id? string
+---@field node_id? string
+---@field owner table
+---@field public? boolean
+---@field truncated? boolean
+---@field updated_at? string
+---@field url? string
+---@field user? string
+
+---@class GistSimpleListMatch
+---@field id string
+---@field page? number
+---@field per_page? number
+
+---@class Git
+
+---@class GitRemoveMatch
+---@field owner string
+---@field ref string
+---@field repo string
+
+---@class GitCommit
+---@field author table
+---@field committer table
+---@field html_url string
+---@field id? string
+---@field message string
+---@field node_id string
+---@field parents table
+---@field sha string
+---@field signature? string
+---@field tree table
+---@field url string
+---@field verification table
+
+---@class GitCommitLoadMatch
+---@field id string
+---@field owner string
+---@field repo string
+
+---@class GitCommitCreateData
+---@field owner string
+---@field repo string
+---@field author table
+---@field committer table
+---@field html_url string
+---@field id? string
+---@field message string
+---@field node_id string
+---@field parents table
+---@field sha string
+---@field signature? string
+---@field tree table
+---@field url string
+---@field verification table
+
+---@class GitRef
+---@field force? boolean
+---@field id? string
+---@field node_id string
+---@field object table
+---@field ref string
+---@field sha string
+---@field type string
+---@field url string
+
+---@class GitRefLoadMatch
+---@field id? string
+---@field owner string
+---@field repo string
+---@field ref? string
+
+---@class GitRefCreateData
+---@field owner string
+---@field repo string
+---@field force? boolean
+---@field id? string
+---@field node_id string
+---@field object table
+---@field ref string
+---@field sha string
+---@field type string
+---@field url string
+
+---@class GitRefUpdateData
+---@field id string
+---@field owner string
+---@field repo string
+---@field force? boolean
+---@field node_id? string
+---@field object? table
+---@field ref? string
+---@field sha? string
+---@field type? string
+---@field url? string
+
+---@class GitTag
+---@field id? string
+---@field message string
+---@field node_id string
+---@field object table
+---@field sha string
+---@field tag string
+---@field tagger table
+---@field type string
+---@field url string
+---@field verification table
+
+---@class GitTagLoadMatch
+---@field id string
+---@field owner string
+---@field repo string
+
+---@class GitTagCreateData
+---@field owner string
+---@field repo string
+---@field id? string
+---@field message string
+---@field node_id string
+---@field object table
+---@field sha string
+---@field tag string
+---@field tagger table
+---@field type string
+---@field url string
+---@field verification table
+
+---@class GitTree
+---@field base_tree? string
+---@field id? string
+---@field sha string
+---@field tree table
+---@field truncated boolean
+---@field url? string
+
+---@class GitTreeLoadMatch
+---@field id string
+---@field owner string
+---@field repo string
+---@field recursive? string
+
+---@class GitTreeCreateData
+---@field owner string
+---@field repo string
+---@field base_tree? string
+---@field id? string
+---@field sha string
+---@field tree table
+---@field truncated boolean
+---@field url? string
+
+---@class Gitignore
+
+---@class GitignoreListMatch
+
+---@class GitignoreTemplate
+---@field id? string
+---@field name string
+---@field source string
+
+---@class GitignoreTemplateLoadMatch
+---@field id string
+
+---@class GlobalAdvisory
+---@field credits table
+---@field cve_id string
+---@field cvss table
+---@field cvss_severities? table
+---@field cwes table
+---@field description string
+---@field epss? table
+---@field ghsa_id string
+---@field github_reviewed_at string
+---@field html_url string
+---@field id? string
+---@field identifiers table
+---@field nvd_published_at string
+---@field published_at string
+---@field references table
+---@field repository_advisory_url string
+---@field severity string
+---@field source_code_location string
+---@field summary string
+---@field type string
+---@field updated_at string
+---@field url string
+---@field vulnerabilities table
+---@field withdrawn_at string
+
+---@class GlobalAdvisoryLoadMatch
+---@field id string
+
+---@class GlobalAdvisoryListMatch
+---@field affect? any
+---@field after? string
+---@field before? string
+---@field cve_id? string
+---@field cwe? any
+---@field direction? string
+---@field ecosystem? string
+---@field epss_percentage? string
+---@field epss_percentile? string
+---@field ghsa_id? string
+---@field is_withdrawn? boolean
+---@field modified? string
+---@field per_page? number
+---@field published? string
+---@field severity? string
+---@field sort? string
+---@field type? string
+---@field updated? string
+
+---@class GpgKey
+---@field armored_public_key string
+---@field can_certify boolean
+---@field can_encrypt_comms boolean
+---@field can_encrypt_storage boolean
+---@field can_sign boolean
+---@field created_at string
+---@field emails table
+---@field expires_at string
+---@field id number
+---@field key_id string
+---@field name? string
+---@field primary_key_id number
+---@field public_key string
+---@field raw_key string
+---@field revoked boolean
+---@field subkeys table
+
+---@class GpgKeyLoadMatch
+---@field id number
+
+---@class GpgKeyListMatch
+---@field page? number
+---@field per_page? number
+
+---@class GpgKeyCreateData
+---@field armored_public_key string
+---@field can_certify boolean
+---@field can_encrypt_comms boolean
+---@field can_encrypt_storage boolean
+---@field can_sign boolean
+---@field created_at string
+---@field emails table
+---@field expires_at string
+---@field id number
+---@field key_id string
+---@field name? string
+---@field primary_key_id number
+---@field public_key string
+---@field raw_key string
+---@field revoked boolean
+---@field subkeys table
+
+---@class Hook
+---@field active boolean
+---@field add_events? table
+---@field config table
+---@field created_at string
+---@field deliveries_url? string
+---@field events table
+---@field id number
+---@field last_response table
+---@field name string
+---@field ping_url string
+---@field remove_events? table
+---@field test_url string
+---@field type string
+---@field updated_at string
+---@field url string
+
+---@class HookLoadMatch
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class HookListMatch
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class HookCreateData
+---@field owner string
+---@field repo string
+---@field active boolean
+---@field add_events? table
+---@field config table
+---@field created_at string
+---@field deliveries_url? string
+---@field events table
+---@field id number
+---@field last_response table
+---@field name string
+---@field ping_url string
+---@field remove_events? table
+---@field test_url string
+---@field type string
+---@field updated_at string
+---@field url string
+
+---@class HookUpdateData
+---@field id number
+---@field owner string
+---@field repo string
+---@field active? boolean
+---@field add_events? table
+---@field config? table
+---@field created_at? string
+---@field deliveries_url? string
+---@field events? table
+---@field last_response? table
+---@field name? string
+---@field ping_url? string
+---@field remove_events? table
+---@field test_url? string
+---@field type? string
+---@field updated_at? string
+---@field url? string
+
+---@class HookDelivery
+---@field action string
+---@field delivered_at string
+---@field duration number
+---@field event string
+---@field guid string
+---@field id number
+---@field installation_id number
+---@field redelivery boolean
+---@field repository_id number
+---@field request table
+---@field response table
+---@field status string
+---@field status_code number
+---@field throttled_at? string
+---@field url? string
+
+---@class HookDeliveryLoadMatch
+---@field hook_id? number
+---@field id number
+---@field owner? string
+---@field repo? string
+---@field org_id? string
+
+---@class HookDeliveryItem
+---@field action string
+---@field delivered_at string
+---@field duration number
+---@field event string
+---@field guid string
+---@field id number
+---@field installation_id number
+---@field redelivery boolean
+---@field repository_id number
+---@field status string
+---@field status_code number
+---@field throttled_at? string
+
+---@class HookDeliveryItemListMatch
+---@field cursor? string
+---@field per_page? number
+
+---@class HostedCompute
+---@field compute_service? string
+---@field created_on string
+---@field id string
+---@field name string
+---@field network_settings_ids? table
+
+---@class HostedComputeListMatch
+---@field org_id string
+---@field page? number
+---@field per_page? number
+
+---@class HostedComputeRemoveMatch
+---@field network_configuration_id string
+---@field org_id string
+
+---@class Hovercard
+---@field message string
+---@field octicon string
+
+---@class HovercardListMatch
+---@field username string
+---@field subject_id? string
+---@field subject_type? string
+
+---@class Import
+---@field authors_count? number
+---@field authors_url string
+---@field commit_count? number
+---@field error_message? string
+---@field failed_step? string
+---@field has_large_files? boolean
+---@field html_url string
+---@field human_name? string
+---@field import_percent? number
+---@field large_files_count? number
+---@field large_files_size? number
+---@field message? string
+---@field project_choices? table
+---@field push_percent? number
+---@field repository_url string
+---@field status string
+---@field status_text? string
+---@field svc_root? string
+---@field svn_root? string
+---@field tfvc_project? string
+---@field url string
+---@field use_lfs? boolean
+---@field vcs string
+---@field vcs_password? string
+---@field vcs_url string
+---@field vcs_username? string
+
+---@class ImportListMatch
+---@field owner string
+---@field repo string
+
+---@class ImportUpdateData
+---@field owner string
+---@field repo string
+---@field authors_count? number
+---@field authors_url? string
+---@field commit_count? number
+---@field error_message? string
+---@field failed_step? string
+---@field has_large_files? boolean
+---@field html_url? string
+---@field human_name? string
+---@field import_percent? number
+---@field large_files_count? number
+---@field large_files_size? number
+---@field message? string
+---@field project_choices? table
+---@field push_percent? number
+---@field repository_url? string
+---@field status? string
+---@field status_text? string
+---@field svc_root? string
+---@field svn_root? string
+---@field tfvc_project? string
+---@field url? string
+---@field use_lfs? boolean
+---@field vcs? string
+---@field vcs_password? string
+---@field vcs_url? string
+---@field vcs_username? string
+
+---@class Installation
+---@field access_tokens_url string
+---@field account any
+---@field app_id number
+---@field app_slug string
+---@field client_id? string
+---@field contact_email? string
+---@field created_at string
+---@field events table
+---@field has_multiple_single_files? boolean
+---@field html_url string
+---@field id number
+---@field permissions table
+---@field repositories_url string
+---@field repository_selection string
+---@field single_file_name string
+---@field single_file_paths? table
+---@field suspended_at string
+---@field suspended_by table
+---@field target_id number
+---@field target_type string
+---@field updated_at string
+
+---@class InstallationLoadMatch
+---@field id number
+
+---@class InstallationListMatch
+---@field outdated? string
+---@field page? number
+---@field per_page? number
+---@field since? string
+
+---@class InstallationUpdateData
+---@field id number
+---@field access_tokens_url? string
+---@field account? any
+---@field app_id? number
+---@field app_slug? string
+---@field client_id? string
+---@field contact_email? string
+---@field created_at? string
+---@field events? table
+---@field has_multiple_single_files? boolean
+---@field html_url? string
+---@field permissions? table
+---@field repositories_url? string
+---@field repository_selection? string
+---@field single_file_name? string
+---@field single_file_paths? table
+---@field suspended_at? string
+---@field suspended_by? table
+---@field target_id? number
+---@field target_type? string
+---@field updated_at? string
+
+---@class InstallationRemoveMatch
+---@field id number
+
+---@class InstallationToken
+---@field id? string
+---@field permissions? table
+---@field repositories? table
+---@field repository_ids? table
+
+---@class InstallationTokenCreateData
+---@field id number
+---@field permissions? table
+---@field repositories? table
+---@field repository_ids? table
+
+---@class Integration
+---@field apps table
+---@field client_id? string
+---@field created_at string
+---@field description string
+---@field events table
+---@field external_url string
+---@field html_url string
+---@field id number
+---@field installations_count? number
+---@field name string
+---@field node_id string
+---@field owner any
+---@field permissions table
+---@field slug? string
+---@field updated_at string
+
+---@class IntegrationLoadMatch
+---@field app_slug string
+
+---@class IntegrationListMatch
+---@field apps? table
+---@field client_id? string
+---@field created_at? string
+---@field description? string
+---@field events? table
+---@field external_url? string
+---@field html_url? string
+---@field id? number
+---@field installations_count? number
+---@field name? string
+---@field node_id? string
+---@field owner? any
+---@field permissions? table
+---@field slug? string
+---@field updated_at? string
+
+---@class IntegrationCreateData
+---@field branch_id string
+---@field owner string
+---@field repo string
+---@field apps table
+---@field client_id? string
+---@field created_at string
+---@field description string
+---@field events table
+---@field external_url string
+---@field html_url string
+---@field id number
+---@field installations_count? number
+---@field name string
+---@field node_id string
+---@field permissions table
+---@field slug? string
+---@field updated_at string
+
+---@class IntegrationUpdateData
+---@field branch_id string
+---@field owner string
+---@field repo string
+---@field apps? table
+---@field client_id? string
+---@field created_at? string
+---@field description? string
+---@field events? table
+---@field external_url? string
+---@field html_url? string
+---@field id? number
+---@field installations_count? number
+---@field name? string
+---@field node_id? string
+---@field permissions? table
+---@field slug? string
+---@field updated_at? string
+
+---@class IntegrationRemoveMatch
+---@field branch_id string
+---@field owner string
+---@field repo string
+
+---@class IntegrationInstallation
+---@field account any
+---@field created_at string
+---@field id number
+---@field node_id? string
+---@field requester table
+
+---@class IntegrationInstallationListMatch
+---@field page? number
+---@field per_page? number
+
+---@class Interaction
+---@field expires_at? string
+---@field limit? string
+---@field origin? string
+
+---@class InteractionLoadMatch
+---@field expires_at? string
+---@field limit? string
+---@field origin? string
+
+---@class InteractionRemoveMatch
+---@field expires_at? string
+---@field limit? string
+---@field origin? string
+
+---@class InteractionLimit
+---@field expires_at string
+---@field expiry? string
+---@field limit string
+---@field origin string
+
+---@class InteractionLimitUpdateData
+---@field expires_at? string
+---@field expiry? string
+---@field limit? string
+---@field origin? string
+
+---@class Issue
+---@field active_lock_reason? string
+---@field actor table
+---@field after_id? number
+---@field assignee table
+---@field assignees? table
+---@field assigner table
+---@field author_association string
+---@field before_id? number
+---@field body? string
+---@field body_html? string
+---@field body_text? string
+---@field closed_at string
+---@field closed_by table
+---@field color? string
+---@field comments number
+---@field comments_url string
+---@field commit_id string
+---@field commit_url string
+---@field created_at string
+---@field default? boolean
+---@field description? string
+---@field dismissed_review table
+---@field draft? boolean
+---@field event string
+---@field events_url string
+---@field html_url string
+---@field id number
+---@field issue table
+---@field issue_dependencies_summary table
+---@field issue_field_values? table
+---@field issue_id number
+---@field issue_url string
+---@field label table
+---@field labels table
+---@field labels_url string
+---@field lock_reason? string
+---@field locked boolean
+---@field milestone table
+---@field name? string
+---@field node_id string
+---@field number number
+---@field parent_issue_url? string
+---@field performed_via_github_app table
+---@field project_card table
+---@field pull_request table
+---@field reactions table
+---@field rename table
+---@field replace_parent? boolean
+---@field repository table
+---@field repository_url string
+---@field requested_reviewer table
+---@field requested_team table
+---@field review_requester table
+---@field state string
+---@field state_reason? string
+---@field sub_issue_id number
+---@field sub_issues_summary table
+---@field timeline_url? string
+---@field title string
+---@field type table
+---@field updated_at string
+---@field url string
+---@field user table
+
+---@class IssueLoadMatch
+---@field assignee? string
+---@field id? number
+---@field owner string
+---@field repo string
+---@field comment_id? number
+---@field event_id? number
+
+---@class IssueListMatch
+---@field collab? boolean
+---@field direction? string
+---@field filter? string
+---@field label? string
+---@field org? boolean
+---@field owned? boolean
+---@field page? number
+---@field per_page? number
+---@field pull? boolean
+---@field since? string
+---@field sort? string
+---@field state? string
+
+---@class IssueCreateData
+---@field owner string
+---@field repo string
+---@field active_lock_reason? string
+---@field actor table
+---@field after_id? number
+---@field assignee table
+---@field assignees? table
+---@field assigner table
+---@field author_association string
+---@field before_id? number
+---@field body? string
+---@field body_html? string
+---@field body_text? string
+---@field closed_at string
+---@field closed_by table
+---@field color? string
+---@field comments number
+---@field comments_url string
+---@field commit_id string
+---@field commit_url string
+---@field created_at string
+---@field default? boolean
+---@field description? string
+---@field dismissed_review table
+---@field draft? boolean
+---@field event string
+---@field events_url string
+---@field html_url string
+---@field id number
+---@field issue table
+---@field issue_dependencies_summary table
+---@field issue_field_values? table
+---@field issue_id number
+---@field issue_url string
+---@field label table
+---@field labels table
+---@field labels_url string
+---@field lock_reason? string
+---@field locked boolean
+---@field milestone table
+---@field name? string
+---@field node_id string
+---@field number number
+---@field parent_issue_url? string
+---@field performed_via_github_app table
+---@field project_card table
+---@field pull_request table
+---@field reactions table
+---@field rename table
+---@field replace_parent? boolean
+---@field repository table
+---@field repository_url string
+---@field requested_reviewer table
+---@field requested_team table
+---@field review_requester table
+---@field state string
+---@field state_reason? string
+---@field sub_issue_id number
+---@field sub_issues_summary table
+---@field timeline_url? string
+---@field title string
+---@field type table
+---@field updated_at string
+---@field url string
+---@field user table
+
+---@class IssueUpdateData
+---@field comment_id? number
+---@field owner string
+---@field repo string
+---@field id? number
+---@field active_lock_reason? string
+---@field actor? table
+---@field after_id? number
+---@field assignee? table
+---@field assignees? table
+---@field assigner? table
+---@field author_association? string
+---@field before_id? number
+---@field body? string
+---@field body_html? string
+---@field body_text? string
+---@field closed_at? string
+---@field closed_by? table
+---@field color? string
+---@field comments? number
+---@field comments_url? string
+---@field commit_id? string
+---@field commit_url? string
+---@field created_at? string
+---@field default? boolean
+---@field description? string
+---@field dismissed_review? table
+---@field draft? boolean
+---@field event? string
+---@field events_url? string
+---@field html_url? string
+---@field issue? table
+---@field issue_dependencies_summary? table
+---@field issue_field_values? table
+---@field issue_id? number
+---@field issue_url? string
+---@field label? table
+---@field labels? table
+---@field labels_url? string
+---@field lock_reason? string
+---@field locked? boolean
+---@field milestone? table
+---@field name? string
+---@field node_id? string
+---@field number? number
+---@field parent_issue_url? string
+---@field performed_via_github_app? table
+---@field project_card? table
+---@field pull_request? table
+---@field reactions? table
+---@field rename? table
+---@field replace_parent? boolean
+---@field repository? table
+---@field repository_url? string
+---@field requested_reviewer? table
+---@field requested_team? table
+---@field review_requester? table
+---@field state? string
+---@field state_reason? string
+---@field sub_issue_id? number
+---@field sub_issues_summary? table
+---@field timeline_url? string
+---@field title? string
+---@field type? table
+---@field updated_at? string
+---@field url? string
+---@field user? table
+
+---@class IssueRemoveMatch
+---@field id? number
+---@field issue_id? number
+---@field owner string
+---@field repo string
+---@field name? string
+---@field comment_id? number
+---@field milestone_number? number
+
+---@class IssueType
+---@field color? string
+---@field created_at? string
+---@field description string
+---@field id number
+---@field is_enabled? boolean
+---@field name string
+---@field node_id string
+---@field updated_at? string
+
+---@class IssueTypeListMatch
+---@field org_id string
+
+---@class IssueTypeCreateData
+---@field org_id string
+---@field color? string
+---@field created_at? string
+---@field description string
+---@field id number
+---@field is_enabled? boolean
+---@field name string
+---@field node_id string
+---@field updated_at? string
+
+---@class IssueTypeUpdateData
+---@field id number
+---@field org_id string
+---@field color? string
+---@field created_at? string
+---@field description? string
+---@field is_enabled? boolean
+---@field name? string
+---@field node_id? string
+---@field updated_at? string
+
+---@class Job
+---@field check_run_url string
+---@field completed_at string
+---@field conclusion string
+---@field created_at string
+---@field head_branch string
+---@field head_sha string
+---@field html_url string
+---@field id number
+---@field labels table
+---@field name string
+---@field node_id string
+---@field run_attempt? number
+---@field run_id number
+---@field run_url string
+---@field runner_group_id number
+---@field runner_group_name string
+---@field runner_id number
+---@field runner_name string
+---@field started_at string
+---@field status string
+---@field steps? table
+---@field url string
+---@field workflow_name string
+
+---@class JobLoadMatch
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class Key
+---@field created_at string
+---@field id number
+---@field key string
+---@field last_used? string
+---@field read_only boolean
+---@field title string
+---@field url string
+---@field verified boolean
+
+---@class KeyLoadMatch
+---@field id number
+
+---@class KeyListMatch
+---@field page? number
+---@field per_page? number
+
+---@class KeyCreateData
+---@field created_at string
+---@field id number
+---@field key string
+---@field last_used? string
+---@field read_only boolean
+---@field title string
+---@field url string
+---@field verified boolean
+
+---@class Label
+---@field color string
+---@field default boolean
+---@field description string
+---@field id number
+---@field name string
+---@field new_name? string
+---@field node_id string
+---@field url string
+
+---@class LabelLoadMatch
+---@field id string
+---@field owner string
+---@field repo string
+
+---@class LabelListMatch
+---@field milestone_number? number
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class LabelCreateData
+---@field owner string
+---@field repo string
+---@field color string
+---@field default boolean
+---@field description string
+---@field id number
+---@field name string
+---@field new_name? string
+---@field node_id string
+---@field url string
+
+---@class LabelUpdateData
+---@field id string
+---@field owner string
+---@field repo string
+---@field color? string
+---@field default? boolean
+---@field description? string
+---@field name? string
+---@field new_name? string
+---@field node_id? string
+---@field url? string
+
+---@class Language
+---@field C? number
+---@field Python? number
+
+---@class LanguageLoadMatch
+---@field owner string
+---@field repo string
+
+---@class License
+---@field body string
+---@field conditions table
+---@field content string
+---@field description string
+---@field download_url string
+---@field encoding string
+---@field featured boolean
+---@field git_url string
+---@field html_url string
+---@field id? string
+---@field implementation string
+---@field key string
+---@field license table
+---@field limitations table
+---@field links table
+---@field name string
+---@field node_id string
+---@field path string
+---@field permissions table
+---@field sha string
+---@field size number
+---@field spdx_id string
+---@field type string
+---@field url string
+
+---@class LicenseLoadMatch
+---@field id string
+
+---@class LicenseListMatch
+---@field featured? boolean
+---@field page? number
+---@field per_page? number
+
+---@class Markdown
+---@field context? string
+---@field mode? string
+---@field text string
+
+---@class MarkdownCreateData
+---@field context? string
+---@field mode? string
+---@field text string
+
+---@class MarketplaceListingPlan
+---@field accounts_url string
+---@field bullets table
+---@field description string
+---@field has_free_trial boolean
+---@field id number
+---@field monthly_price_in_cents number
+---@field name string
+---@field number number
+---@field price_model string
+---@field state string
+---@field unit_name string
+---@field url string
+---@field yearly_price_in_cents number
+
+---@class MarketplaceListingPlanListMatch
+---@field page? number
+---@field per_page? number
+
+---@class MarketplacePurchase
+---@field email? string
+---@field id number
+---@field login string
+---@field marketplace_pending_change? table
+---@field marketplace_purchase table
+---@field organization_billing_email? string
+---@field type string
+---@field url string
+
+---@class MarketplacePurchaseLoadMatch
+---@field account_id number
+
+---@class MarketplacePurchaseListMatch
+---@field plan_id number
+---@field direction? string
+---@field page? number
+---@field per_page? number
+---@field sort? string
+
+---@class Member
+---@field avatar_url string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field url string
+---@field user_view_type? string
+
+---@class MemberListMatch
+---@field org_id string
+---@field filter? string
+---@field page? number
+---@field per_page? number
+---@field role? string
+
+---@class Membership
+---@field avatar_url string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field url string
+---@field user_view_type? string
+
+---@class MembershipLoadMatch
+---@field enterprise string
+---@field id string
+---@field team_id string
+
+---@class MembershipListMatch
+---@field enterprise string
+---@field enterprise_team string
+---@field page? number
+---@field per_page? number
+
+---@class MembershipUpdateData
+---@field enterprise string
+---@field id string
+---@field team_id string
+---@field avatar_url? string
+---@field email? string
+---@field events_url? string
+---@field followers_url? string
+---@field following_url? string
+---@field gists_url? string
+---@field gravatar_id? string
+---@field html_url? string
+---@field login? string
+---@field name? string
+---@field node_id? string
+---@field organizations_url? string
+---@field received_events_url? string
+---@field repos_url? string
+---@field site_admin? boolean
+---@field starred_at? string
+---@field starred_url? string
+---@field subscriptions_url? string
+---@field type? string
+---@field url? string
+---@field user_view_type? string
+
+---@class MergedUpstream
+---@field base_branch? string
+---@field branch string
+---@field merge_type? string
+---@field message? string
+
+---@class MergedUpstreamCreateData
+---@field owner string
+---@field repo string
+---@field base_branch? string
+---@field branch string
+---@field merge_type? string
+---@field message? string
+
+---@class Meta
+
+---@class MetaLoadMatch
+---@field s? string
+
+---@class MetaListMatch
+
+---@class Metaroot
+---@field authorizations_url string
+---@field code_search_url string
+---@field commit_search_url string
+---@field current_user_authorizations_html_url string
+---@field current_user_repositories_url string
+---@field current_user_url string
+---@field emails_url string
+---@field emojis_url string
+---@field events_url string
+---@field feeds_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field hub_url? string
+---@field issue_search_url string
+---@field issues_url string
+---@field keys_url string
+---@field label_search_url string
+---@field notifications_url string
+---@field organization_repositories_url string
+---@field organization_teams_url string
+---@field organization_url string
+---@field public_gists_url string
+---@field rate_limit_url string
+---@field repository_search_url string
+---@field repository_url string
+---@field starred_gists_url string
+---@field starred_url string
+---@field topic_search_url? string
+---@field user_organizations_url string
+---@field user_repositories_url string
+---@field user_search_url string
+---@field user_url string
+
+---@class MetarootLoadMatch
+---@field authorizations_url? string
+---@field code_search_url? string
+---@field commit_search_url? string
+---@field current_user_authorizations_html_url? string
+---@field current_user_repositories_url? string
+---@field current_user_url? string
+---@field emails_url? string
+---@field emojis_url? string
+---@field events_url? string
+---@field feeds_url? string
+---@field followers_url? string
+---@field following_url? string
+---@field gists_url? string
+---@field hub_url? string
+---@field issue_search_url? string
+---@field issues_url? string
+---@field keys_url? string
+---@field label_search_url? string
+---@field notifications_url? string
+---@field organization_repositories_url? string
+---@field organization_teams_url? string
+---@field organization_url? string
+---@field public_gists_url? string
+---@field rate_limit_url? string
+---@field repository_search_url? string
+---@field repository_url? string
+---@field starred_gists_url? string
+---@field starred_url? string
+---@field topic_search_url? string
+---@field user_organizations_url? string
+---@field user_repositories_url? string
+---@field user_search_url? string
+---@field user_url? string
+
+---@class Migration
+---@field allow_forking? boolean
+---@field archive_url? string
+---@field archived? boolean
+---@field assignees_url string
+---@field blobs_url string
+---@field branches_url string
+---@field clone_url? string
+---@field code_of_conduct table
+---@field collaborators_url string
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field contents_url string
+---@field contributors_url string
+---@field created_at string
+---@field custom_properties? table
+---@field default_branch? string
+---@field delete_branch_on_merge? boolean
+---@field deployments_url string
+---@field description string
+---@field disabled? boolean
+---@field downloads_url string
+---@field events_url string
+---@field exclude? table
+---@field exclude_attachments boolean
+---@field exclude_git_data boolean
+---@field exclude_metadata boolean
+---@field exclude_owner_projects boolean
+---@field exclude_releases boolean
+---@field fork boolean
+---@field forks? number
+---@field forks_count? number
+---@field forks_url string
+---@field full_name string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_tags_url string
+---@field git_url? string
+---@field guid string
+---@field has_discussions? boolean
+---@field has_downloads? boolean
+---@field has_issues? boolean
+---@field has_pages? boolean
+---@field has_projects? boolean
+---@field has_wiki? boolean
+---@field homepage? string
+---@field hooks_url string
+---@field html_url string
+---@field id number
+---@field is_template? boolean
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field keys_url string
+---@field labels_url string
+---@field language? string
+---@field languages_url string
+---@field license? table
+---@field lock_repositories boolean
+---@field merges_url string
+---@field milestones_url string
+---@field mirror_url? string
+---@field name string
+---@field network_count? number
+---@field node_id string
+---@field notifications_url string
+---@field open_issues? number
+---@field open_issues_count? number
+---@field org_metadata_only boolean
+---@field owner table
+---@field permissions? table
+---@field private boolean
+---@field pulls_url string
+---@field pushed_at? string
+---@field releases_url string
+---@field repositories table
+---@field role_name? string
+---@field security_and_analysis? table
+---@field size? number
+---@field ssh_url? string
+---@field stargazers_count? number
+---@field stargazers_url string
+---@field state string
+---@field statuses_url string
+---@field subscribers_count? number
+---@field subscribers_url string
+---@field subscription_url string
+---@field svn_url? string
+---@field tags_url string
+---@field teams_url string
+---@field temp_clone_token? string
+---@field topics? table
+---@field trees_url string
+---@field updated_at string
+---@field url string
+---@field visibility? string
+---@field watchers? number
+---@field watchers_count? number
+---@field web_commit_signoff_required? boolean
+
+---@class MigrationLoadMatch
+---@field id number
+---@field org_id? string
+---@field exclude? table
+
+---@class MigrationListMatch
+---@field page? number
+---@field per_page? number
+
+---@class MigrationCreateData
+---@field allow_forking? boolean
+---@field archive_url? string
+---@field archived? boolean
+---@field assignees_url string
+---@field blobs_url string
+---@field branches_url string
+---@field clone_url? string
+---@field code_of_conduct table
+---@field collaborators_url string
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field contents_url string
+---@field contributors_url string
+---@field created_at string
+---@field custom_properties? table
+---@field default_branch? string
+---@field delete_branch_on_merge? boolean
+---@field deployments_url string
+---@field description string
+---@field disabled? boolean
+---@field downloads_url string
+---@field events_url string
+---@field exclude? table
+---@field exclude_attachments boolean
+---@field exclude_git_data boolean
+---@field exclude_metadata boolean
+---@field exclude_owner_projects boolean
+---@field exclude_releases boolean
+---@field fork boolean
+---@field forks? number
+---@field forks_count? number
+---@field forks_url string
+---@field full_name string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_tags_url string
+---@field git_url? string
+---@field guid string
+---@field has_discussions? boolean
+---@field has_downloads? boolean
+---@field has_issues? boolean
+---@field has_pages? boolean
+---@field has_projects? boolean
+---@field has_wiki? boolean
+---@field homepage? string
+---@field hooks_url string
+---@field html_url string
+---@field id number
+---@field is_template? boolean
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field keys_url string
+---@field labels_url string
+---@field language? string
+---@field languages_url string
+---@field license? table
+---@field lock_repositories boolean
+---@field merges_url string
+---@field milestones_url string
+---@field mirror_url? string
+---@field name string
+---@field network_count? number
+---@field node_id string
+---@field notifications_url string
+---@field open_issues? number
+---@field open_issues_count? number
+---@field org_metadata_only boolean
+---@field owner table
+---@field permissions? table
+---@field private boolean
+---@field pulls_url string
+---@field pushed_at? string
+---@field releases_url string
+---@field repositories table
+---@field role_name? string
+---@field security_and_analysis? table
+---@field size? number
+---@field ssh_url? string
+---@field stargazers_count? number
+---@field stargazers_url string
+---@field state string
+---@field statuses_url string
+---@field subscribers_count? number
+---@field subscribers_url string
+---@field subscription_url string
+---@field svn_url? string
+---@field tags_url string
+---@field teams_url string
+---@field temp_clone_token? string
+---@field topics? table
+---@field trees_url string
+---@field updated_at string
+---@field url string
+---@field visibility? string
+---@field watchers? number
+---@field watchers_count? number
+---@field web_commit_signoff_required? boolean
+
+---@class MigrationRemoveMatch
+---@field owner string
+---@field repo string
+
+---@class Milestone
+---@field avatar_url string
+---@field closed_at string
+---@field closed_issues number
+---@field created_at string
+---@field creator table
+---@field description? string
+---@field due_on? string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field labels_url string
+---@field login string
+---@field name? string
+---@field node_id string
+---@field number number
+---@field open_issues number
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field state? string
+---@field subscriptions_url string
+---@field title string
+---@field type string
+---@field updated_at string
+---@field url string
+---@field user_view_type? string
+
+---@class MilestoneLoadMatch
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class MilestoneListMatch
+---@field owner string
+---@field repo string
+---@field direction? string
+---@field page? number
+---@field per_page? number
+---@field sort? string
+---@field state? string
+
+---@class MilestoneCreateData
+---@field owner string
+---@field repo string
+---@field avatar_url string
+---@field closed_at string
+---@field closed_issues number
+---@field created_at string
+---@field creator table
+---@field description? string
+---@field due_on? string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field labels_url string
+---@field login string
+---@field name? string
+---@field node_id string
+---@field number number
+---@field open_issues number
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field state? string
+---@field subscriptions_url string
+---@field title string
+---@field type string
+---@field updated_at string
+---@field url string
+---@field user_view_type? string
+
+---@class MilestoneUpdateData
+---@field id number
+---@field owner string
+---@field repo string
+---@field avatar_url? string
+---@field closed_at? string
+---@field closed_issues? number
+---@field created_at? string
+---@field creator? table
+---@field description? string
+---@field due_on? string
+---@field email? string
+---@field events_url? string
+---@field followers_url? string
+---@field following_url? string
+---@field gists_url? string
+---@field gravatar_id? string
+---@field html_url? string
+---@field labels_url? string
+---@field login? string
+---@field name? string
+---@field node_id? string
+---@field number? number
+---@field open_issues? number
+---@field organizations_url? string
+---@field received_events_url? string
+---@field repos_url? string
+---@field site_admin? boolean
+---@field starred_at? string
+---@field starred_url? string
+---@field state? string
+---@field subscriptions_url? string
+---@field title? string
+---@field type? string
+---@field updated_at? string
+---@field url? string
+---@field user_view_type? string
+
+---@class MinimalRepository
+---@field allow_forking? boolean
+---@field archive_url string
+---@field archived? boolean
+---@field assignees_url string
+---@field blobs_url string
+---@field branches_url string
+---@field clone_url? string
+---@field code_of_conduct table
+---@field collaborators_url string
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field contents_url string
+---@field contributors_url string
+---@field created_at? string
+---@field custom_properties? table
+---@field default_branch? string
+---@field delete_branch_on_merge? boolean
+---@field deployments_url string
+---@field description string
+---@field disabled? boolean
+---@field downloads_url string
+---@field events_url string
+---@field fork boolean
+---@field forks? number
+---@field forks_count? number
+---@field forks_url string
+---@field full_name string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_tags_url string
+---@field git_url? string
+---@field has_discussions? boolean
+---@field has_downloads? boolean
+---@field has_issues? boolean
+---@field has_pages? boolean
+---@field has_projects? boolean
+---@field has_wiki? boolean
+---@field homepage? string
+---@field hooks_url string
+---@field html_url string
+---@field id number
+---@field is_template? boolean
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field keys_url string
+---@field labels_url string
+---@field language? string
+---@field languages_url string
+---@field license? table
+---@field merges_url string
+---@field milestones_url string
+---@field mirror_url? string
+---@field name string
+---@field network_count? number
+---@field node_id string
+---@field notifications_url string
+---@field open_issues? number
+---@field open_issues_count? number
+---@field owner table
+---@field permissions? table
+---@field private boolean
+---@field pulls_url string
+---@field pushed_at? string
+---@field releases_url string
+---@field role_name? string
+---@field security_and_analysis? table
+---@field size? number
+---@field ssh_url? string
+---@field stargazers_count? number
+---@field stargazers_url string
+---@field statuses_url string
+---@field subscribers_count? number
+---@field subscribers_url string
+---@field subscription_url string
+---@field svn_url? string
+---@field tags_url string
+---@field teams_url string
+---@field temp_clone_token? string
+---@field topics? table
+---@field trees_url string
+---@field updated_at? string
+---@field url string
+---@field visibility? string
+---@field watchers? number
+---@field watchers_count? number
+---@field web_commit_signoff_required? boolean
+
+---@class MinimalRepositoryListMatch
+---@field since? number
+
+---@class NetworkConfiguration
+---@field compute_service? string
+---@field created_on string
+---@field id string
+---@field name string
+---@field network_settings_ids? table
+
+---@class NetworkConfigurationLoadMatch
+---@field id string
+---@field org_id string
+
+---@class NetworkConfigurationCreateData
+---@field org_id string
+---@field compute_service? string
+---@field created_on string
+---@field id string
+---@field name string
+---@field network_settings_ids? table
+
+---@class NetworkConfigurationUpdateData
+---@field id string
+---@field org_id string
+---@field compute_service? string
+---@field created_on? string
+---@field name? string
+---@field network_settings_ids? table
+
+---@class NetworkSetting
+---@field id string
+---@field name string
+---@field network_configuration_id? string
+---@field region string
+---@field subnet_id string
+
+---@class NetworkSettingLoadMatch
+---@field id string
+---@field org_id string
+
+---@class OidcCustomSub
+---@field include_claim_keys table
+
+---@class OidcCustomSubListMatch
+---@field org_id string
+
+---@class OidcCustomSubRepo
+---@field include_claim_keys? table
+---@field use_default boolean
+
+---@class OidcCustomSubRepoListMatch
+---@field owner string
+---@field repo string
+
+---@class Org
+---@field access_tokens_url string
+---@field account any
+---@field action string
+---@field advanced_security_enabled_for_new_repositories? boolean
+---@field app_id number
+---@field app_slug string
+---@field artifact_url? string
+---@field async? boolean
+---@field attestations? table
+---@field attestations_subject_digests? table
+---@field avatar_url string
+---@field base_role? string
+---@field billing_email? string
+---@field blog? string
+---@field client_id? string
+---@field company? string
+---@field contact_email? string
+---@field created_at string
+---@field default_repository_permission? string
+---@field dependabot_alerts_enabled_for_new_repositories? boolean
+---@field dependabot_security_updates_enabled_for_new_repositories? boolean
+---@field dependency_graph_enabled_for_new_repositories? boolean
+---@field deploy_keys_enabled_for_repositories? boolean
+---@field description? string
+---@field digest string
+---@field direct_membership? boolean
+---@field email? string
+---@field enterprise_teams_providing_indirect_membership? table
+---@field events table
+---@field events_url string
+---@field filled_seats? number
+---@field has_multiple_single_files? boolean
+---@field has_organization_projects? boolean
+---@field has_repository_projects? boolean
+---@field hooks_url string
+---@field html_url string
+---@field id number
+---@field issues_url string
+---@field location? string
+---@field login string
+---@field members_allowed_repository_creation_type? string
+---@field members_can_create_internal_repositories? boolean
+---@field members_can_create_pages? boolean
+---@field members_can_create_private_pages? boolean
+---@field members_can_create_private_repositories? boolean
+---@field members_can_create_public_pages? boolean
+---@field members_can_create_public_repositories? boolean
+---@field members_can_create_repositories? boolean
+---@field members_can_fork_private_repositories? boolean
+---@field members_url string
+---@field name string
+---@field node_id string
+---@field organization table
+---@field organization_url string
+---@field page_info? table
+---@field pat_ids table
+---@field pat_request_ids? table
+---@field path? string
+---@field permissions table
+---@field predicate_type? string
+---@field private_repos number
+---@field properties table
+---@field public_members_url string
+---@field query_suite? string
+---@field reason? string
+---@field registry_url string
+---@field repos_url string
+---@field repositories_url string
+---@field repository? string
+---@field repository_names table
+---@field repository_selection string
+---@field role string
+---@field seats? number
+---@field secret_scanning_enabled_for_new_repositories? boolean
+---@field secret_scanning_push_protection_custom_link? string
+---@field secret_scanning_push_protection_custom_link_enabled? boolean
+---@field secret_scanning_push_protection_enabled_for_new_repositories? boolean
+---@field single_file_name string
+---@field single_file_paths? table
+---@field source? string
+---@field space number
+---@field state string
+---@field status? string
+---@field storage_records? table
+---@field subject_digests table
+---@field suspended_at string
+---@field suspended_by table
+---@field target_id number
+---@field target_type string
+---@field total_count? number
+---@field twitter_username? string
+---@field updated_at string
+---@field url string
+---@field user table
+---@field web_commit_signoff_required? boolean
+
+---@class OrgLoadMatch
+---@field id string
+---@field subject_digest? string
+---@field after? string
+---@field before? string
+---@field per_page? number
+---@field predicate_type? string
+---@field username? string
+
+---@class OrgListMatch
+---@field page? number
+---@field per_page? number
+
+---@class OrgCreateData
+---@field enablement string
+---@field org string
+---@field security_product string
+---@field access_tokens_url string
+---@field account any
+---@field action string
+---@field advanced_security_enabled_for_new_repositories? boolean
+---@field app_id number
+---@field app_slug string
+---@field artifact_url? string
+---@field async? boolean
+---@field attestations? table
+---@field attestations_subject_digests? table
+---@field avatar_url string
+---@field base_role? string
+---@field billing_email? string
+---@field blog? string
+---@field client_id? string
+---@field company? string
+---@field contact_email? string
+---@field created_at string
+---@field default_repository_permission? string
+---@field dependabot_alerts_enabled_for_new_repositories? boolean
+---@field dependabot_security_updates_enabled_for_new_repositories? boolean
+---@field dependency_graph_enabled_for_new_repositories? boolean
+---@field deploy_keys_enabled_for_repositories? boolean
+---@field description? string
+---@field digest string
+---@field direct_membership? boolean
+---@field email? string
+---@field enterprise_teams_providing_indirect_membership? table
+---@field events table
+---@field events_url string
+---@field filled_seats? number
+---@field has_multiple_single_files? boolean
+---@field has_organization_projects? boolean
+---@field has_repository_projects? boolean
+---@field hooks_url string
+---@field html_url string
+---@field id number
+---@field issues_url string
+---@field location? string
+---@field login string
+---@field members_allowed_repository_creation_type? string
+---@field members_can_create_internal_repositories? boolean
+---@field members_can_create_pages? boolean
+---@field members_can_create_private_pages? boolean
+---@field members_can_create_private_repositories? boolean
+---@field members_can_create_public_pages? boolean
+---@field members_can_create_public_repositories? boolean
+---@field members_can_create_repositories? boolean
+---@field members_can_fork_private_repositories? boolean
+---@field members_url string
+---@field name string
+---@field node_id string
+---@field organization table
+---@field organization_url string
+---@field page_info? table
+---@field pat_ids table
+---@field pat_request_ids? table
+---@field path? string
+---@field permissions table
+---@field predicate_type? string
+---@field private_repos number
+---@field properties table
+---@field public_members_url string
+---@field query_suite? string
+---@field reason? string
+---@field registry_url string
+---@field repos_url string
+---@field repositories_url string
+---@field repository? string
+---@field repository_names table
+---@field repository_selection string
+---@field role string
+---@field seats? number
+---@field secret_scanning_enabled_for_new_repositories? boolean
+---@field secret_scanning_push_protection_custom_link? string
+---@field secret_scanning_push_protection_custom_link_enabled? boolean
+---@field secret_scanning_push_protection_enabled_for_new_repositories? boolean
+---@field single_file_name string
+---@field single_file_paths? table
+---@field source? string
+---@field space number
+---@field state string
+---@field status? string
+---@field storage_records? table
+---@field subject_digests table
+---@field suspended_at string
+---@field suspended_by table
+---@field target_id number
+---@field target_type string
+---@field total_count? number
+---@field twitter_username? string
+---@field updated_at string
+---@field url string
+---@field user table
+---@field web_commit_signoff_required? boolean
+
+---@class OrgUpdateData
+---@field id string
+---@field username string
+---@field access_tokens_url? string
+---@field account? any
+---@field action? string
+---@field advanced_security_enabled_for_new_repositories? boolean
+---@field app_id? number
+---@field app_slug? string
+---@field artifact_url? string
+---@field async? boolean
+---@field attestations? table
+---@field attestations_subject_digests? table
+---@field avatar_url? string
+---@field base_role? string
+---@field billing_email? string
+---@field blog? string
+---@field client_id? string
+---@field company? string
+---@field contact_email? string
+---@field created_at? string
+---@field default_repository_permission? string
+---@field dependabot_alerts_enabled_for_new_repositories? boolean
+---@field dependabot_security_updates_enabled_for_new_repositories? boolean
+---@field dependency_graph_enabled_for_new_repositories? boolean
+---@field deploy_keys_enabled_for_repositories? boolean
+---@field description? string
+---@field digest? string
+---@field direct_membership? boolean
+---@field email? string
+---@field enterprise_teams_providing_indirect_membership? table
+---@field events? table
+---@field events_url? string
+---@field filled_seats? number
+---@field has_multiple_single_files? boolean
+---@field has_organization_projects? boolean
+---@field has_repository_projects? boolean
+---@field hooks_url? string
+---@field html_url? string
+---@field issues_url? string
+---@field location? string
+---@field login? string
+---@field members_allowed_repository_creation_type? string
+---@field members_can_create_internal_repositories? boolean
+---@field members_can_create_pages? boolean
+---@field members_can_create_private_pages? boolean
+---@field members_can_create_private_repositories? boolean
+---@field members_can_create_public_pages? boolean
+---@field members_can_create_public_repositories? boolean
+---@field members_can_create_repositories? boolean
+---@field members_can_fork_private_repositories? boolean
+---@field members_url? string
+---@field name? string
+---@field node_id? string
+---@field organization? table
+---@field organization_url? string
+---@field page_info? table
+---@field pat_ids? table
+---@field pat_request_ids? table
+---@field path? string
+---@field permissions? table
+---@field predicate_type? string
+---@field private_repos? number
+---@field properties? table
+---@field public_members_url? string
+---@field query_suite? string
+---@field reason? string
+---@field registry_url? string
+---@field repos_url? string
+---@field repositories_url? string
+---@field repository? string
+---@field repository_names? table
+---@field repository_selection? string
+---@field role? string
+---@field seats? number
+---@field secret_scanning_enabled_for_new_repositories? boolean
+---@field secret_scanning_push_protection_custom_link? string
+---@field secret_scanning_push_protection_custom_link_enabled? boolean
+---@field secret_scanning_push_protection_enabled_for_new_repositories? boolean
+---@field single_file_name? string
+---@field single_file_paths? table
+---@field source? string
+---@field space? number
+---@field state? string
+---@field status? string
+---@field storage_records? table
+---@field subject_digests? table
+---@field suspended_at? string
+---@field suspended_by? table
+---@field target_id? number
+---@field target_type? string
+---@field total_count? number
+---@field twitter_username? string
+---@field updated_at? string
+---@field url? string
+---@field user? table
+---@field web_commit_signoff_required? boolean
+
+---@class OrgRemoveMatch
+---@field id string
+
+---@class OrgHook
+---@field active boolean
+---@field config table
+---@field created_at string
+---@field deliveries_url? string
+---@field events table
+---@field id number
+---@field name string
+---@field ping_url string
+---@field type string
+---@field updated_at string
+---@field url string
+
+---@class OrgHookLoadMatch
+---@field id number
+---@field org_id string
+
+---@class OrgHookListMatch
+---@field id string
+---@field page? number
+---@field per_page? number
+
+---@class OrgHookCreateData
+---@field id string
+---@field active boolean
+---@field config table
+---@field created_at string
+---@field deliveries_url? string
+---@field events table
+---@field name string
+---@field ping_url string
+---@field type string
+---@field updated_at string
+---@field url string
+
+---@class OrgHookUpdateData
+---@field id number
+---@field org_id string
+---@field active? boolean
+---@field config? table
+---@field created_at? string
+---@field deliveries_url? string
+---@field events? table
+---@field name? string
+---@field ping_url? string
+---@field type? string
+---@field updated_at? string
+---@field url? string
+
+---@class OrgMembership
+---@field direct_membership? boolean
+---@field enterprise_teams_providing_indirect_membership? table
+---@field id? string
+---@field organization table
+---@field organization_url string
+---@field permissions table
+---@field role string
+---@field state string
+---@field url string
+---@field user table
+
+---@class OrgMembershipLoadMatch
+---@field id string
+---@field org_id string
+
+---@class OrgMembershipUpdateData
+---@field id string
+---@field org_id string
+---@field direct_membership? boolean
+---@field enterprise_teams_providing_indirect_membership? table
+---@field organization? table
+---@field organization_url? string
+---@field permissions? table
+---@field role? string
+---@field state? string
+---@field url? string
+---@field user? table
+
+---@class OrgPrivateRegistryConfiguration
+---@field created_at string
+---@field name string
+---@field registry_type string
+---@field updated_at string
+---@field username? string
+---@field visibility string
+
+---@class OrgPrivateRegistryConfigurationLoadMatch
+---@field org_id string
+---@field secret_name string
+
+---@class OrgPrivateRegistryConfigurationWithSelectedRepository
+---@field encrypted_value string
+---@field id? string
+---@field key_id string
+---@field registry_type string
+---@field selected_repository_ids? table
+---@field url string
+---@field username? string
+---@field visibility string
+
+---@class OrgPrivateRegistryConfigurationWithSelectedRepositoryCreateData
+---@field id string
+---@field encrypted_value string
+---@field key_id string
+---@field registry_type string
+---@field selected_repository_ids? table
+---@field url string
+---@field username? string
+---@field visibility string
+
+---@class OrgRepoCustomPropertyValue
+---@field properties table
+---@field repository_full_name string
+---@field repository_id number
+---@field repository_name string
+
+---@class OrgRepoCustomPropertyValueListMatch
+---@field org_id string
+---@field page? number
+---@field per_page? number
+---@field repository_query? string
+
+---@class Organization
+
+---@class OrganizationActionsSecret
+---@field created_at string
+---@field id? string
+---@field name string
+---@field selected_repositories_url? string
+---@field updated_at string
+---@field visibility string
+
+---@class OrganizationActionsSecretLoadMatch
+---@field id string
+---@field org_id string
+
+---@class OrganizationActionsVariable
+---@field created_at string
+---@field id? string
+---@field name string
+---@field selected_repositories_url? string
+---@field updated_at string
+---@field value string
+---@field visibility string
+
+---@class OrganizationActionsVariableLoadMatch
+---@field id string
+---@field org_id string
+
+---@class OrganizationDependabotSecret
+---@field created_at string
+---@field id? string
+---@field name string
+---@field selected_repositories_url? string
+---@field updated_at string
+---@field visibility string
+
+---@class OrganizationDependabotSecretLoadMatch
+---@field id string
+---@field org_id string
+
+---@class OrganizationInvitation
+---@field created_at string
+---@field email? string
+---@field failed_at? string
+---@field failed_reason? string
+---@field id number
+---@field invitation_source? string
+---@field invitation_teams_url string
+---@field invitee_id? number
+---@field inviter table
+---@field login string
+---@field node_id string
+---@field role? string
+---@field team_count number
+---@field team_ids? table
+
+---@class OrganizationInvitationListMatch
+---@field org_id string
+---@field invitation_source? string
+---@field page? number
+---@field per_page? number
+---@field role? string
+
+---@class OrganizationInvitationCreateData
+---@field org_id string
+---@field created_at string
+---@field email? string
+---@field failed_at? string
+---@field failed_reason? string
+---@field id number
+---@field invitation_source? string
+---@field invitation_teams_url string
+---@field invitee_id? number
+---@field inviter table
+---@field login string
+---@field node_id string
+---@field role? string
+---@field team_count number
+---@field team_ids? table
+
+---@class OrganizationProgrammaticAccessGrant
+---@field access_granted_at string
+---@field created_at string
+---@field id number
+---@field owner table
+---@field permissions table
+---@field reason string
+---@field repositories_url string
+---@field repository_selection string
+---@field token_expired boolean
+---@field token_expires_at string
+---@field token_id number
+---@field token_last_used_at string
+---@field token_name string
+
+---@class OrganizationProgrammaticAccessGrantListMatch
+---@field org_id string
+---@field direction? string
+---@field last_used_after? string
+---@field last_used_before? string
+---@field owner? table
+---@field page? number
+---@field per_page? number
+---@field permission? string
+---@field repository? string
+---@field sort? string
+---@field token_id? table
+
+---@class OrganizationRole
+---@field base_role? string
+---@field created_at string
+---@field description? string
+---@field id number
+---@field name string
+---@field organization table
+---@field permissions table
+---@field source? string
+---@field updated_at string
+
+---@class OrganizationRoleLoadMatch
+---@field id number
+---@field org_id string
+
+---@class OrganizationSecretScanningAlert
+---@field created_at? string
+---@field first_location_detected? any
+---@field has_more_locations? boolean
+---@field html_url? string
+---@field is_base64_encoded? boolean
+---@field locations_url? string
+---@field multi_repo? boolean
+---@field number? number
+---@field publicly_leaked? boolean
+---@field push_protection_bypass_request_comment? string
+---@field push_protection_bypass_request_html_url? string
+---@field push_protection_bypass_request_reviewer table
+---@field push_protection_bypass_request_reviewer_comment? string
+---@field push_protection_bypassed? boolean
+---@field push_protection_bypassed_at? string
+---@field push_protection_bypassed_by table
+---@field repository table
+---@field resolution? string
+---@field resolution_comment? string
+---@field resolved_at? string
+---@field resolved_by table
+---@field secret? string
+---@field secret_type? string
+---@field secret_type_display_name? string
+---@field state? string
+---@field updated_at? string
+---@field url? string
+---@field validity? string
+
+---@class OrganizationSecretScanningAlertListMatch
+---@field org_id string
+---@field after? string
+---@field before? string
+---@field direction? string
+---@field hide_secret? boolean
+---@field is_multi_repo? boolean
+---@field is_publicly_leaked? boolean
+---@field page? number
+---@field per_page? number
+---@field resolution? string
+---@field secret_type? string
+---@field sort? string
+---@field state? string
+---@field validity? string
+
+---@class OutsideCollaborator
+---@field avatar_url string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field url string
+---@field user_view_type? string
+
+---@class OutsideCollaboratorListMatch
+---@field org_id string
+---@field filter? string
+---@field page? number
+---@field per_page? number
+
+---@class Package
+---@field container table
+---@field created_at string
+---@field deleted_at? string
+---@field description? string
+---@field docker table
+---@field github_id number
+---@field html_url string
+---@field id string
+---@field included_gigabytes_bandwidth number
+---@field license? string
+---@field metadata table
+---@field name string
+---@field owner table
+---@field package_html_url string
+---@field package_type string
+---@field repository table
+---@field total_gigabytes_bandwidth_used number
+---@field total_paid_gigabytes_bandwidth_used number
+---@field updated_at string
+---@field url string
+---@field version_count number
+---@field visibility string
+
+---@class PackageLoadMatch
+---@field package_name string
+---@field package_type string
+
+---@class PackageListMatch
+---@field package_type string
+---@field page? number
+---@field per_page? number
+---@field visibility? string
+
+---@class PackageCreateData
+---@field org_id? string
+---@field package_id string
+---@field package_name string
+---@field token? string
+---@field username? string
+---@field container table
+---@field created_at string
+---@field deleted_at? string
+---@field description? string
+---@field docker table
+---@field github_id number
+---@field html_url string
+---@field id string
+---@field included_gigabytes_bandwidth number
+---@field license? string
+---@field metadata table
+---@field name string
+---@field owner table
+---@field package_html_url string
+---@field package_type string
+---@field repository table
+---@field total_gigabytes_bandwidth_used number
+---@field total_paid_gigabytes_bandwidth_used number
+---@field updated_at string
+---@field url string
+---@field version_count number
+---@field visibility string
+
+---@class PackageRemoveMatch
+---@field org_id? string
+---@field package_id? string
+---@field package_name string
+---@field package_version_id? number
+---@field username? string
+---@field org? string
+---@field package_type? string
+
+---@class Page
+---@field build_type? string
+---@field cname string
+---@field custom_404 boolean
+---@field html_url? string
+---@field https_certificate table
+---@field https_enforced? boolean
+---@field pending_domain_unverified_at? string
+---@field protected_domain_state? string
+---@field public boolean
+---@field source table
+---@field status string
+---@field url string
+
+---@class PageLoadMatch
+---@field owner string
+---@field repo string
+
+---@class PageCreateData
+---@field owner string
+---@field repo string
+---@field build_type? string
+---@field cname string
+---@field custom_404 boolean
+---@field html_url? string
+---@field https_certificate table
+---@field https_enforced? boolean
+---@field pending_domain_unverified_at? string
+---@field protected_domain_state? string
+---@field public boolean
+---@field source table
+---@field status string
+---@field url string
+
+---@class PageBuild
+---@field commit string
+---@field created_at string
+---@field duration number
+---@field error table
+---@field id? string
+---@field pusher table
+---@field status string
+---@field updated_at string
+---@field url string
+
+---@class PageBuildLoadMatch
+---@field id? number
+---@field owner string
+---@field repo string
+
+---@class PageBuildListMatch
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class PageBuildStatus
+---@field status? string
+---@field url? string
+
+---@class PageBuildStatusCreateData
+---@field owner string
+---@field repo string
+---@field status? string
+---@field url? string
+
+---@class PageDeployment
+---@field artifact_id? number
+---@field artifact_url? string
+---@field environment? string
+---@field oidc_token string
+---@field pages_build_version string
+
+---@class PageDeploymentCreateData
+---@field owner string
+---@field repo string
+---@field artifact_id? number
+---@field artifact_url? string
+---@field environment? string
+---@field oidc_token string
+---@field pages_build_version string
+
+---@class PagesDeploymentStatus
+---@field status? string
+
+---@class PagesDeploymentStatusLoadMatch
+---@field owner string
+---@field pages_deployment_id string
+---@field repo string
+
+---@class PagesDeploymentStatusCreateData
+---@field deployment_id string
+---@field owner string
+---@field repo string
+---@field status? string
+
+---@class PagesHealthCheck
+---@field alt_domain? table
+---@field domain? table
+
+---@class PagesHealthCheckLoadMatch
+---@field owner string
+---@field repo string
+
+---@class Participation
+---@field all table
+---@field owner table
+
+---@class ParticipationListMatch
+---@field owner string
+---@field repo string
+
+---@class PendingDeployment
+---@field current_user_can_approve boolean
+---@field environment table
+---@field reviewers table
+---@field wait_timer number
+---@field wait_timer_started_at string
+
+---@class PendingDeploymentListMatch
+---@field owner string
+---@field repo string
+---@field run_id number
+
+---@class PorterAuthor
+---@field email string
+---@field id number
+---@field import_url string
+---@field name string
+---@field remote_id string
+---@field remote_name string
+---@field url string
+
+---@class PorterAuthorListMatch
+---@field owner string
+---@field repo string
+---@field since? number
+
+---@class PorterAuthorUpdateData
+---@field id number
+---@field owner string
+---@field repo string
+---@field email? string
+---@field import_url? string
+---@field name? string
+---@field remote_id? string
+---@field remote_name? string
+---@field url? string
+
+---@class PorterLargeFile
+---@field oid string
+---@field path string
+---@field ref_name string
+---@field size number
+
+---@class PorterLargeFileListMatch
+---@field owner string
+---@field repo string
+
+---@class PrivateRegistry
+---@field created_at string
+---@field encrypted_value? string
+---@field id? string
+---@field key string
+---@field key_id string
+---@field name string
+---@field registry_type? string
+---@field selected_repository_ids? table
+---@field updated_at string
+---@field url? string
+---@field username? string
+---@field visibility? string
+
+---@class PrivateRegistryLoadMatch
+---@field org_id string
+
+---@class PrivateRegistryListMatch
+---@field org_id string
+---@field page? number
+---@field per_page? number
+
+---@class PrivateRegistryUpdateData
+---@field id string
+---@field org_id string
+---@field created_at? string
+---@field encrypted_value? string
+---@field key? string
+---@field key_id? string
+---@field name? string
+---@field registry_type? string
+---@field selected_repository_ids? table
+---@field updated_at? string
+---@field url? string
+---@field username? string
+---@field visibility? string
+
+---@class PrivateRegistryRemoveMatch
+---@field id string
+---@field org_id string
+
+---@class PrivateUser
+
+---@class Project
+---@field avatar_url string
+---@field body? string
+---@field columns_url string
+---@field created_at string
+---@field creator table
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field number number
+---@field organization_permission? string
+---@field organizations_url string
+---@field owner_url string
+---@field private? boolean
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field state? string
+---@field subscriptions_url string
+---@field type string
+---@field updated_at string
+---@field url string
+---@field user_view_type? string
+
+---@class ProjectLoadMatch
+---@field id number
+
+---@class ProjectListMatch
+---@field org_id string
+---@field page? number
+---@field per_page? number
+---@field state? string
+
+---@class ProjectCreateData
+---@field avatar_url string
+---@field body? string
+---@field columns_url string
+---@field created_at string
+---@field creator table
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field number number
+---@field organization_permission? string
+---@field organizations_url string
+---@field owner_url string
+---@field private? boolean
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field state? string
+---@field subscriptions_url string
+---@field type string
+---@field updated_at string
+---@field url string
+---@field user_view_type? string
+
+---@class ProjectUpdateData
+---@field id number
+---@field avatar_url? string
+---@field body? string
+---@field columns_url? string
+---@field created_at? string
+---@field creator? table
+---@field email? string
+---@field events_url? string
+---@field followers_url? string
+---@field following_url? string
+---@field gists_url? string
+---@field gravatar_id? string
+---@field html_url? string
+---@field login? string
+---@field name? string
+---@field node_id? string
+---@field number? number
+---@field organization_permission? string
+---@field organizations_url? string
+---@field owner_url? string
+---@field private? boolean
+---@field received_events_url? string
+---@field repos_url? string
+---@field site_admin? boolean
+---@field starred_at? string
+---@field starred_url? string
+---@field state? string
+---@field subscriptions_url? string
+---@field type? string
+---@field updated_at? string
+---@field url? string
+---@field user_view_type? string
+
+---@class ProjectRemoveMatch
+---@field id number
+
+---@class ProjectCollaboratorPermission
+---@field avatar_url string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field url string
+---@field user_view_type? string
+
+---@class ProjectCollaboratorPermissionLoadMatch
+---@field project_id number
+---@field username string
+
+---@class ProjectColumn
+---@field cards_url string
+---@field created_at string
+---@field id number
+---@field name string
+---@field node_id string
+---@field project_url string
+---@field updated_at string
+---@field url string
+
+---@class ProjectColumnLoadMatch
+---@field id number
+
+---@class ProjectColumnListMatch
+---@field id number
+---@field page? number
+---@field per_page? number
+
+---@class ProjectColumnCreateData
+---@field id number
+---@field cards_url string
+---@field created_at string
+---@field name string
+---@field node_id string
+---@field project_url string
+---@field updated_at string
+---@field url string
+
+---@class ProjectColumnUpdateData
+---@field id number
+---@field cards_url? string
+---@field created_at? string
+---@field name? string
+---@field node_id? string
+---@field project_url? string
+---@field updated_at? string
+---@field url? string
+
+---@class ProjectsClassic
+---@field permission? string
+---@field position string
+
+---@class ProjectsClassicCreateData
+---@field column_id number
+---@field permission? string
+---@field position string
+
+---@class ProjectsClassicUpdateData
+---@field project_id number
+---@field username string
+---@field permission? string
+---@field position? string
+
+---@class ProjectsClassicRemoveMatch
+---@field column_id number
+
+---@class ProjectsV2
+---@field closed_at string
+---@field created_at string
+---@field creator table
+---@field deleted_at string
+---@field deleted_by table
+---@field description string
+---@field id number
+---@field is_template? boolean
+---@field latest_status_update table
+---@field node_id string
+---@field number number
+---@field owner table
+---@field public boolean
+---@field short_description string
+---@field state? string
+---@field title string
+---@field updated_at string
+
+---@class ProjectsV2LoadMatch
+---@field id number
+---@field org_id? string
+---@field username? string
+
+---@class ProjectsV2ListMatch
+---@field org_id string
+---@field after? string
+---@field before? string
+---@field per_page? number
+---@field q? string
+
+---@class ProjectsV2Field
+---@field configuration? table
+---@field created_at string
+---@field data_type string
+---@field id number
+---@field name string
+---@field node_id? string
+---@field options? table
+---@field project_url string
+---@field updated_at string
+
+---@class ProjectsV2FieldLoadMatch
+---@field id number
+---@field org_id? string
+---@field projects_v2_id number
+---@field username? string
+
+---@class ProjectsV2FieldListMatch
+---@field org_id? string
+---@field project_number number
+---@field after? string
+---@field before? string
+---@field per_page? number
+---@field username? string
+
+---@class ProjectsV2ItemSimple
+---@field id number
+---@field type string
+
+---@class ProjectsV2ItemSimpleCreateData
+---@field org_id? string
+---@field project_number number
+---@field username? string
+---@field id number
+---@field type string
+
+---@class ProjectsV2ItemWithContent
+---@field archived_at string
+---@field content? table
+---@field content_type string
+---@field created_at string
+---@field creator table
+---@field fields? table
+---@field id number
+---@field item_url? string
+---@field node_id? string
+---@field project_url? string
+---@field updated_at string
+
+---@class ProjectsV2ItemWithContentLoadMatch
+---@field item_id number
+---@field org_id? string
+---@field projects_v2_id number
+---@field field? table
+---@field username? string
+
+---@class ProjectsV2ItemWithContentListMatch
+---@field org_id? string
+---@field project_number number
+---@field after? string
+---@field before? string
+---@field field? table
+---@field per_page? number
+---@field q? string
+---@field username? string
+
+---@class ProjectsV2ItemWithContentUpdateData
+---@field item_id number
+---@field org_id? string
+---@field projects_v2_id number
+---@field username? string
+---@field archived_at? string
+---@field content? table
+---@field content_type? string
+---@field created_at? string
+---@field creator? table
+---@field fields? table
+---@field id? number
+---@field item_url? string
+---@field node_id? string
+---@field project_url? string
+---@field updated_at? string
+
+---@class ProtectedBranch
+---@field allow_deletions table
+---@field allow_force_pushes table
+---@field allow_fork_syncing? table
+---@field block_creations table
+---@field enforce_admins table
+---@field lock_branch? table
+---@field required_conversation_resolution? table
+---@field required_linear_history table
+---@field required_pull_request_reviews table
+---@field required_signatures table
+---@field required_status_checks table
+---@field restrictions table
+---@field url string
+
+---@class ProtectedBranchUpdateData
+---@field branch_id string
+---@field owner string
+---@field repo string
+---@field allow_deletions? table
+---@field allow_force_pushes? table
+---@field allow_fork_syncing? table
+---@field block_creations? table
+---@field enforce_admins? table
+---@field lock_branch? table
+---@field required_conversation_resolution? table
+---@field required_linear_history? table
+---@field required_pull_request_reviews? table
+---@field required_signatures? table
+---@field required_status_checks? table
+---@field restrictions? table
+---@field url? string
+
+---@class ProtectedBranchAdminEnforced
+---@field enabled boolean
+---@field url string
+
+---@class ProtectedBranchAdminEnforcedLoadMatch
+---@field branch_id string
+---@field owner string
+---@field repo string
+
+---@class ProtectedBranchAdminEnforcedCreateData
+---@field branch_id string
+---@field owner string
+---@field repo string
+---@field enabled boolean
+---@field url string
+
+---@class ProtectedBranchPullRequestReview
+---@field bypass_pull_request_allowances? table
+---@field dismiss_stale_reviews boolean
+---@field dismissal_restrictions? table
+---@field require_code_owner_reviews boolean
+---@field require_last_push_approval? boolean
+---@field required_approving_review_count? number
+---@field url? string
+
+---@class ProtectedBranchPullRequestReviewLoadMatch
+---@field branch_id string
+---@field owner string
+---@field repo string
+
+---@class ProtectedBranchPullRequestReviewUpdateData
+---@field branch_id string
+---@field owner string
+---@field repo string
+---@field bypass_pull_request_allowances? table
+---@field dismiss_stale_reviews? boolean
+---@field dismissal_restrictions? table
+---@field require_code_owner_reviews? boolean
+---@field require_last_push_approval? boolean
+---@field required_approving_review_count? number
+---@field url? string
+
+---@class PublicMember
+---@field avatar_url string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field url string
+---@field user_view_type? string
+
+---@class PublicMemberListMatch
+---@field org_id string
+---@field page? number
+---@field per_page? number
+
 ---@class Pull
 ---@field active_lock_reason? string
 ---@field additions number
@@ -27,6 +12159,7 @@
 ---@field deletions number
 ---@field diff_url string
 ---@field draft? boolean
+---@field expected_head_sha? string
 ---@field head table
 ---@field head_repo? string
 ---@field html_url string
@@ -56,7 +12189,6 @@
 ---@field review_comments number
 ---@field review_comments_url string
 ---@field sha string
----@field stack table
 ---@field state string
 ---@field statuses_url string
 ---@field title string
@@ -79,6 +12211,7 @@
 ---@field per_page? number
 ---@field sort? string
 ---@field state? string
+---@field commit_sha? string
 
 ---@class PullCreateData
 ---@field owner string
@@ -103,6 +12236,7 @@
 ---@field deletions number
 ---@field diff_url string
 ---@field draft? boolean
+---@field expected_head_sha? string
 ---@field head table
 ---@field head_repo? string
 ---@field html_url string
@@ -132,7 +12266,6 @@
 ---@field review_comments number
 ---@field review_comments_url string
 ---@field sha string
----@field stack table
 ---@field state string
 ---@field statuses_url string
 ---@field title string
@@ -164,6 +12297,7 @@
 ---@field deletions? number
 ---@field diff_url? string
 ---@field draft? boolean
+---@field expected_head_sha? string
 ---@field head? table
 ---@field head_repo? string
 ---@field html_url? string
@@ -192,13 +12326,604 @@
 ---@field review_comments? number
 ---@field review_comments_url? string
 ---@field sha? string
----@field stack? table
 ---@field state? string
 ---@field statuses_url? string
 ---@field title? string
 ---@field updated_at? string
 ---@field url? string
 ---@field user? table
+
+---@class PullRemoveMatch
+---@field comment_id number
+---@field owner string
+---@field repo string
+
+---@class PullRequestReview
+---@field author_association string
+---@field body string
+---@field body_html? string
+---@field body_text? string
+---@field comments? table
+---@field commit_id string
+---@field event string
+---@field html_url string
+---@field id number
+---@field links table
+---@field message string
+---@field node_id string
+---@field pull_request_url string
+---@field state string
+---@field submitted_at? string
+---@field teams table
+---@field user table
+---@field users table
+
+---@class PullRequestReviewLoadMatch
+---@field id number
+---@field owner string
+---@field pull_id number
+---@field repo string
+
+---@class PullRequestReviewListMatch
+---@field owner string
+---@field pull_number number
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class PullRequestReviewCreateData
+---@field owner string
+---@field pull_id? number
+---@field repo string
+---@field review_id? number
+---@field pull_number? number
+---@field author_association string
+---@field body string
+---@field body_html? string
+---@field body_text? string
+---@field comments? table
+---@field commit_id string
+---@field event string
+---@field html_url string
+---@field id number
+---@field links table
+---@field message string
+---@field node_id string
+---@field pull_request_url string
+---@field state string
+---@field submitted_at? string
+---@field teams table
+---@field user table
+---@field users table
+
+---@class PullRequestReviewUpdateData
+---@field id? number
+---@field owner string
+---@field pull_id number
+---@field repo string
+---@field review_id? number
+---@field author_association? string
+---@field body? string
+---@field body_html? string
+---@field body_text? string
+---@field comments? table
+---@field commit_id? string
+---@field event? string
+---@field html_url? string
+---@field links? table
+---@field message? string
+---@field node_id? string
+---@field pull_request_url? string
+---@field state? string
+---@field submitted_at? string
+---@field teams? table
+---@field user? table
+---@field users? table
+
+---@class PullRequestReviewRemoveMatch
+---@field id number
+---@field owner string
+---@field pull_id number
+---@field repo string
+
+---@class PullRequestReviewComment
+---@field author_association string
+---@field body string
+---@field body_html? string
+---@field body_text? string
+---@field commit_id string
+---@field created_at string
+---@field diff_hunk string
+---@field html_url string
+---@field id number
+---@field in_reply_to? number
+---@field in_reply_to_id? number
+---@field line? number
+---@field links table
+---@field node_id string
+---@field original_commit_id string
+---@field original_line? number
+---@field original_position? number
+---@field original_start_line? number
+---@field path string
+---@field position? number
+---@field pull_request_review_id number
+---@field pull_request_url string
+---@field reactions table
+---@field side? string
+---@field start_line? number
+---@field start_side? string
+---@field subject_type? string
+---@field updated_at string
+---@field url string
+---@field user table
+
+---@class PullRequestReviewCommentLoadMatch
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class PullRequestReviewCommentListMatch
+---@field owner string
+---@field pull_number? number
+---@field repo string
+---@field direction? string
+---@field page? number
+---@field per_page? number
+---@field since? string
+---@field sort? string
+
+---@class PullRequestReviewCommentCreateData
+---@field comment_id? number
+---@field owner string
+---@field pull_id? number
+---@field repo string
+---@field pull_number? number
+---@field author_association string
+---@field body string
+---@field body_html? string
+---@field body_text? string
+---@field commit_id string
+---@field created_at string
+---@field diff_hunk string
+---@field html_url string
+---@field id number
+---@field in_reply_to? number
+---@field in_reply_to_id? number
+---@field line? number
+---@field links table
+---@field node_id string
+---@field original_commit_id string
+---@field original_line? number
+---@field original_position? number
+---@field original_start_line? number
+---@field path string
+---@field position? number
+---@field pull_request_review_id number
+---@field pull_request_url string
+---@field reactions table
+---@field side? string
+---@field start_line? number
+---@field start_side? string
+---@field subject_type? string
+---@field updated_at string
+---@field url string
+---@field user table
+
+---@class PullRequestReviewCommentUpdateData
+---@field id number
+---@field owner string
+---@field repo string
+---@field author_association? string
+---@field body? string
+---@field body_html? string
+---@field body_text? string
+---@field commit_id? string
+---@field created_at? string
+---@field diff_hunk? string
+---@field html_url? string
+---@field in_reply_to? number
+---@field in_reply_to_id? number
+---@field line? number
+---@field links? table
+---@field node_id? string
+---@field original_commit_id? string
+---@field original_line? number
+---@field original_position? number
+---@field original_start_line? number
+---@field path? string
+---@field position? number
+---@field pull_request_review_id? number
+---@field pull_request_url? string
+---@field reactions? table
+---@field side? string
+---@field start_line? number
+---@field start_side? string
+---@field subject_type? string
+---@field updated_at? string
+---@field url? string
+---@field user? table
+
+---@class PullRequestSimple
+---@field reviewers? table
+---@field team_reviewers? table
+
+---@class PullRequestSimpleCreateData
+---@field owner string
+---@field pull_number number
+---@field repo string
+---@field reviewers? table
+---@field team_reviewers? table
+
+---@class PullRequestSimpleRemoveMatch
+---@field owner string
+---@field pull_number number
+---@field repo string
+
+---@class RateLimit
+---@field rate table
+---@field resources table
+
+---@class RateLimitLoadMatch
+---@field rate? table
+---@field resources? table
+
+---@class Reaction
+---@field avatar_url string
+---@field content string
+---@field created_at string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field url string
+---@field user table
+---@field user_view_type? string
+
+---@class ReactionListMatch
+---@field discussion_number number
+---@field team_id number
+---@field content? string
+---@field page? number
+---@field per_page? number
+
+---@class ReactionCreateData
+---@field discussion_number number
+---@field team_id number
+---@field avatar_url string
+---@field content string
+---@field created_at string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field url string
+---@field user table
+---@field user_view_type? string
+
+---@class ReactionRemoveMatch
+---@field comment_id? number
+---@field discussion_id? number
+---@field id number
+---@field org_id? string
+---@field team_id? string
+---@field owner? string
+---@field repo? string
+---@field issue_id? number
+---@field release_id? number
+
+---@class Referrer
+---@field count number
+---@field referrer string
+---@field uniques number
+
+---@class ReferrerListMatch
+---@field owner string
+---@field repo string
+
+---@class Release
+---@field assets table
+---@field assets_url string
+---@field author table
+---@field body? string
+---@field body_html? string
+---@field body_text? string
+---@field browser_download_url string
+---@field content_type string
+---@field created_at string
+---@field digest string
+---@field discussion_category_name? string
+---@field discussion_url? string
+---@field download_count number
+---@field draft boolean
+---@field generate_release_notes? boolean
+---@field html_url string
+---@field id number
+---@field immutable? boolean
+---@field label string
+---@field make_latest? string
+---@field mentions_count? number
+---@field name string
+---@field node_id string
+---@field prerelease boolean
+---@field published_at string
+---@field reactions table
+---@field size number
+---@field state string
+---@field tag_name string
+---@field tarball_url string
+---@field target_commitish string
+---@field updated_at? string
+---@field upload_url string
+---@field uploader table
+---@field url string
+---@field zipball_url string
+
+---@class ReleaseLoadMatch
+---@field id? number
+---@field owner string
+---@field repo string
+---@field tag? string
+
+---@class ReleaseListMatch
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class ReleaseCreateData
+---@field owner string
+---@field repo string
+---@field assets table
+---@field assets_url string
+---@field author table
+---@field body? string
+---@field body_html? string
+---@field body_text? string
+---@field browser_download_url string
+---@field content_type string
+---@field created_at string
+---@field digest string
+---@field discussion_category_name? string
+---@field discussion_url? string
+---@field download_count number
+---@field draft boolean
+---@field generate_release_notes? boolean
+---@field html_url string
+---@field id number
+---@field immutable? boolean
+---@field label string
+---@field make_latest? string
+---@field mentions_count? number
+---@field name string
+---@field node_id string
+---@field prerelease boolean
+---@field published_at string
+---@field reactions table
+---@field size number
+---@field state string
+---@field tag_name string
+---@field tarball_url string
+---@field target_commitish string
+---@field updated_at? string
+---@field upload_url string
+---@field uploader table
+---@field url string
+---@field zipball_url string
+
+---@class ReleaseUpdateData
+---@field id number
+---@field owner string
+---@field repo string
+---@field assets? table
+---@field assets_url? string
+---@field author? table
+---@field body? string
+---@field body_html? string
+---@field body_text? string
+---@field browser_download_url? string
+---@field content_type? string
+---@field created_at? string
+---@field digest? string
+---@field discussion_category_name? string
+---@field discussion_url? string
+---@field download_count? number
+---@field draft? boolean
+---@field generate_release_notes? boolean
+---@field html_url? string
+---@field immutable? boolean
+---@field label? string
+---@field make_latest? string
+---@field mentions_count? number
+---@field name? string
+---@field node_id? string
+---@field prerelease? boolean
+---@field published_at? string
+---@field reactions? table
+---@field size? number
+---@field state? string
+---@field tag_name? string
+---@field tarball_url? string
+---@field target_commitish? string
+---@field updated_at? string
+---@field upload_url? string
+---@field uploader? table
+---@field url? string
+---@field zipball_url? string
+
+---@class ReleaseAsset
+---@field avatar_url string
+---@field browser_download_url? string
+---@field content_type? string
+---@field created_at? string
+---@field digest? string
+---@field download_count? number
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field label? string
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field size? number
+---@field starred_at? string
+---@field starred_url string
+---@field state? string
+---@field subscriptions_url string
+---@field type string
+---@field updated_at? string
+---@field uploader? table
+---@field url string
+---@field user_view_type? string
+
+---@class ReleaseAssetLoadMatch
+---@field id number
+---@field owner string
+---@field repo string
+
+---@class ReleaseAssetListMatch
+---@field id number
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class ReleaseAssetCreateData
+---@field id number
+---@field owner string
+---@field repo string
+---@field label? string
+---@field name string
+---@field avatar_url string
+---@field browser_download_url? string
+---@field content_type? string
+---@field created_at? string
+---@field digest? string
+---@field download_count? number
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field login string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field size? number
+---@field starred_at? string
+---@field starred_url string
+---@field state? string
+---@field subscriptions_url string
+---@field type string
+---@field updated_at? string
+---@field uploader? table
+---@field url string
+---@field user_view_type? string
+
+---@class ReleaseAssetUpdateData
+---@field id number
+---@field owner string
+---@field repo string
+---@field avatar_url? string
+---@field browser_download_url? string
+---@field content_type? string
+---@field created_at? string
+---@field digest? string
+---@field download_count? number
+---@field email? string
+---@field events_url? string
+---@field followers_url? string
+---@field following_url? string
+---@field gists_url? string
+---@field gravatar_id? string
+---@field html_url? string
+---@field label? string
+---@field login? string
+---@field name? string
+---@field node_id? string
+---@field organizations_url? string
+---@field received_events_url? string
+---@field repos_url? string
+---@field site_admin? boolean
+---@field size? number
+---@field starred_at? string
+---@field starred_url? string
+---@field state? string
+---@field subscriptions_url? string
+---@field type? string
+---@field updated_at? string
+---@field uploader? table
+---@field url? string
+---@field user_view_type? string
+
+---@class ReleaseNotesContent
+---@field body string
+---@field configuration_file_path? string
+---@field name string
+---@field previous_tag_name? string
+---@field tag_name string
+---@field target_commitish? string
+
+---@class ReleaseNotesContentCreateData
+---@field owner string
+---@field repo string
+---@field body string
+---@field configuration_file_path? string
+---@field name string
+---@field previous_tag_name? string
+---@field tag_name string
+---@field target_commitish? string
+
+---@class Remove
+---@field usernames table
+
+---@class RemoveCreateData
+---@field enterprise string
+---@field team_id string
+---@field usernames table
 
 ---@class Repo
 ---@field allow_auto_merge? boolean
@@ -208,29 +12933,39 @@
 ---@field allow_squash_merge? boolean
 ---@field allow_update_branch? boolean
 ---@field anonymous_access_enabled? boolean
+---@field app table
 ---@field archive_url string
 ---@field archived boolean
 ---@field assignees_url string
----@field auto_init? boolean
+---@field attestations? table
 ---@field blobs_url string
 ---@field branches_url string
+---@field build_type? string
+---@field bundle table
+---@field client_payload? table
 ---@field clone_url string
----@field code_of_conduct table
+---@field cname? string
 ---@field code_search_index_status? table
 ---@field collaborators_url string
 ---@field comments_url string
 ---@field commits_url string
 ---@field compare_url string
+---@field content? string
 ---@field contents_url string
 ---@field contributors_url string
 ---@field created_at string
----@field custom_properties? table
 ---@field default_branch string
+---@field default_branch_only? boolean
 ---@field delete_branch_on_merge? boolean
+---@field deployment_branch_policy table
 ---@field deployments_url string
 ---@field description string
 ---@field disabled boolean
+---@field download_url? string
 ---@field downloads_url string
+---@field enabled boolean
+---@field encoding? string
+---@field event_type string
 ---@field events_url string
 ---@field fork boolean
 ---@field forks number
@@ -240,19 +12975,20 @@
 ---@field git_commits_url string
 ---@field git_refs_url string
 ---@field git_tags_url string
----@field git_url string
----@field gitignore_template? string
----@field has_discussions boolean
----@field has_downloads? boolean
+---@field git_url? string
+---@field github_id number
+---@field has_discussions? boolean
+---@field has_downloads boolean
 ---@field has_issues boolean
 ---@field has_pages boolean
 ---@field has_projects boolean
----@field has_pull_requests? boolean
 ---@field has_wiki boolean
 ---@field homepage string
 ---@field hooks_url string
----@field html_url string
----@field id number
+---@field html_url? string
+---@field https_enforced? boolean
+---@field id string
+---@field integration_url string
 ---@field is_template? boolean
 ---@field issue_comment_url string
 ---@field issue_events_url string
@@ -262,31 +12998,34 @@
 ---@field language string
 ---@field languages_url string
 ---@field license table
----@field license_template? string
+---@field links? table
 ---@field master_branch? string
 ---@field merge_commit_message? string
 ---@field merge_commit_title? string
 ---@field merges_url string
 ---@field milestones_url string
 ---@field mirror_url string
----@field name string
----@field network_count number
+---@field name? string
+---@field new_name? string
+---@field new_owner string
 ---@field node_id string
 ---@field notifications_url string
 ---@field open_issues number
 ---@field open_issues_count number
----@field organization table
+---@field organization? string
 ---@field owner table
----@field parent table
+---@field path? string
 ---@field permissions table
 ---@field private boolean
----@field pull_request_creation_policy? string
+---@field properties table
+---@field protection_rules? table
 ---@field pulls_url string
 ---@field pushed_at string
 ---@field releases_url string
----@field security_and_analysis? table
----@field size number
----@field source table
+---@field sha? string
+---@field size? number
+---@field slug string
+---@field source? any
 ---@field squash_merge_commit_message? string
 ---@field squash_merge_commit_title? string
 ---@field ssh_url string
@@ -294,19 +13033,18 @@
 ---@field stargazers_url string
 ---@field starred_at? string
 ---@field statuses_url string
----@field subscribers_count number
 ---@field subscribers_url string
 ---@field subscription_url string
 ---@field svn_url string
 ---@field tags_url string
----@field team_id? number
+---@field team_ids? table
 ---@field teams_url string
 ---@field temp_clone_token? string
----@field template_repository table
 ---@field topics? table
 ---@field trees_url string
+---@field type? string
 ---@field updated_at string
----@field url string
+---@field url? string
 ---@field use_squash_pr_title_as_default? boolean
 ---@field visibility? string
 ---@field watchers number
@@ -316,6 +13054,14 @@
 ---@class RepoLoadMatch
 ---@field owner string
 ---@field repo string
+---@field subject_digest? string
+---@field after? string
+---@field before? string
+---@field per_page? number
+---@field predicate_type? string
+---@field path? string
+---@field ref? string
+---@field username? string
 
 ---@class RepoListMatch
 ---@field affiliation? string
@@ -329,6 +13075,268 @@
 ---@field visibility? string
 
 ---@class RepoCreateData
+---@field delivery_id? number
+---@field hook_id? number
+---@field owner string
+---@field repo string
+---@field branch_id? string
+---@field allow_auto_merge? boolean
+---@field allow_forking? boolean
+---@field allow_merge_commit? boolean
+---@field allow_rebase_merge? boolean
+---@field allow_squash_merge? boolean
+---@field allow_update_branch? boolean
+---@field anonymous_access_enabled? boolean
+---@field app table
+---@field archive_url string
+---@field archived boolean
+---@field assignees_url string
+---@field attestations? table
+---@field blobs_url string
+---@field branches_url string
+---@field build_type? string
+---@field bundle table
+---@field client_payload? table
+---@field clone_url string
+---@field cname? string
+---@field code_search_index_status? table
+---@field collaborators_url string
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field content? string
+---@field contents_url string
+---@field contributors_url string
+---@field created_at string
+---@field default_branch string
+---@field default_branch_only? boolean
+---@field delete_branch_on_merge? boolean
+---@field deployment_branch_policy table
+---@field deployments_url string
+---@field description string
+---@field disabled boolean
+---@field download_url? string
+---@field downloads_url string
+---@field enabled boolean
+---@field encoding? string
+---@field event_type string
+---@field events_url string
+---@field fork boolean
+---@field forks number
+---@field forks_count number
+---@field forks_url string
+---@field full_name string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_tags_url string
+---@field git_url? string
+---@field github_id number
+---@field has_discussions? boolean
+---@field has_downloads boolean
+---@field has_issues boolean
+---@field has_pages boolean
+---@field has_projects boolean
+---@field has_wiki boolean
+---@field homepage string
+---@field hooks_url string
+---@field html_url? string
+---@field https_enforced? boolean
+---@field id string
+---@field integration_url string
+---@field is_template? boolean
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field keys_url string
+---@field labels_url string
+---@field language string
+---@field languages_url string
+---@field license table
+---@field links? table
+---@field master_branch? string
+---@field merge_commit_message? string
+---@field merge_commit_title? string
+---@field merges_url string
+---@field milestones_url string
+---@field mirror_url string
+---@field name? string
+---@field new_name? string
+---@field new_owner string
+---@field node_id string
+---@field notifications_url string
+---@field open_issues number
+---@field open_issues_count number
+---@field organization? string
+---@field path? string
+---@field permissions table
+---@field private boolean
+---@field properties table
+---@field protection_rules? table
+---@field pulls_url string
+---@field pushed_at string
+---@field releases_url string
+---@field sha? string
+---@field size? number
+---@field slug string
+---@field source? any
+---@field squash_merge_commit_message? string
+---@field squash_merge_commit_title? string
+---@field ssh_url string
+---@field stargazers_count number
+---@field stargazers_url string
+---@field starred_at? string
+---@field statuses_url string
+---@field subscribers_url string
+---@field subscription_url string
+---@field svn_url string
+---@field tags_url string
+---@field team_ids? table
+---@field teams_url string
+---@field temp_clone_token? string
+---@field topics? table
+---@field trees_url string
+---@field type? string
+---@field updated_at string
+---@field url? string
+---@field use_squash_pr_title_as_default? boolean
+---@field visibility? string
+---@field watchers number
+---@field watchers_count number
+---@field web_commit_signoff_required? boolean
+
+---@class RepoUpdateData
+---@field branch_id string
+---@field owner string
+---@field repo string
+---@field allow_auto_merge? boolean
+---@field allow_forking? boolean
+---@field allow_merge_commit? boolean
+---@field allow_rebase_merge? boolean
+---@field allow_squash_merge? boolean
+---@field allow_update_branch? boolean
+---@field anonymous_access_enabled? boolean
+---@field app? table
+---@field archive_url? string
+---@field archived? boolean
+---@field assignees_url? string
+---@field attestations? table
+---@field blobs_url? string
+---@field branches_url? string
+---@field build_type? string
+---@field bundle? table
+---@field client_payload? table
+---@field clone_url? string
+---@field cname? string
+---@field code_search_index_status? table
+---@field collaborators_url? string
+---@field comments_url? string
+---@field commits_url? string
+---@field compare_url? string
+---@field content? string
+---@field contents_url? string
+---@field contributors_url? string
+---@field created_at? string
+---@field default_branch? string
+---@field default_branch_only? boolean
+---@field delete_branch_on_merge? boolean
+---@field deployment_branch_policy? table
+---@field deployments_url? string
+---@field description? string
+---@field disabled? boolean
+---@field download_url? string
+---@field downloads_url? string
+---@field enabled? boolean
+---@field encoding? string
+---@field event_type? string
+---@field events_url? string
+---@field fork? boolean
+---@field forks? number
+---@field forks_count? number
+---@field forks_url? string
+---@field full_name? string
+---@field git_commits_url? string
+---@field git_refs_url? string
+---@field git_tags_url? string
+---@field git_url? string
+---@field github_id? number
+---@field has_discussions? boolean
+---@field has_downloads? boolean
+---@field has_issues? boolean
+---@field has_pages? boolean
+---@field has_projects? boolean
+---@field has_wiki? boolean
+---@field homepage? string
+---@field hooks_url? string
+---@field html_url? string
+---@field https_enforced? boolean
+---@field id? string
+---@field integration_url? string
+---@field is_template? boolean
+---@field issue_comment_url? string
+---@field issue_events_url? string
+---@field issues_url? string
+---@field keys_url? string
+---@field labels_url? string
+---@field language? string
+---@field languages_url? string
+---@field license? table
+---@field links? table
+---@field master_branch? string
+---@field merge_commit_message? string
+---@field merge_commit_title? string
+---@field merges_url? string
+---@field milestones_url? string
+---@field mirror_url? string
+---@field name? string
+---@field new_name? string
+---@field new_owner? string
+---@field node_id? string
+---@field notifications_url? string
+---@field open_issues? number
+---@field open_issues_count? number
+---@field organization? string
+---@field path? string
+---@field permissions? table
+---@field private? boolean
+---@field properties? table
+---@field protection_rules? table
+---@field pulls_url? string
+---@field pushed_at? string
+---@field releases_url? string
+---@field sha? string
+---@field size? number
+---@field slug? string
+---@field source? any
+---@field squash_merge_commit_message? string
+---@field squash_merge_commit_title? string
+---@field ssh_url? string
+---@field stargazers_count? number
+---@field stargazers_url? string
+---@field starred_at? string
+---@field statuses_url? string
+---@field subscribers_url? string
+---@field subscription_url? string
+---@field svn_url? string
+---@field tags_url? string
+---@field team_ids? table
+---@field teams_url? string
+---@field temp_clone_token? string
+---@field topics? table
+---@field trees_url? string
+---@field type? string
+---@field updated_at? string
+---@field url? string
+---@field use_squash_pr_title_as_default? boolean
+---@field visibility? string
+---@field watchers? number
+---@field watchers_count? number
+---@field web_commit_signoff_required? boolean
+
+---@class RepoRemoveMatch
+---@field owner string
+---@field repo string
+
+---@class Repository
 ---@field allow_auto_merge? boolean
 ---@field allow_forking? boolean
 ---@field allow_merge_commit? boolean
@@ -339,11 +13347,9 @@
 ---@field archive_url string
 ---@field archived boolean
 ---@field assignees_url string
----@field auto_init? boolean
 ---@field blobs_url string
 ---@field branches_url string
 ---@field clone_url string
----@field code_of_conduct table
 ---@field code_search_index_status? table
 ---@field collaborators_url string
 ---@field comments_url string
@@ -352,7 +13358,6 @@
 ---@field contents_url string
 ---@field contributors_url string
 ---@field created_at string
----@field custom_properties? table
 ---@field default_branch string
 ---@field delete_branch_on_merge? boolean
 ---@field deployments_url string
@@ -369,13 +13374,11 @@
 ---@field git_refs_url string
 ---@field git_tags_url string
 ---@field git_url string
----@field gitignore_template? string
----@field has_discussions boolean
----@field has_downloads? boolean
+---@field has_discussions? boolean
+---@field has_downloads boolean
 ---@field has_issues boolean
 ---@field has_pages boolean
 ---@field has_projects boolean
----@field has_pull_requests? boolean
 ---@field has_wiki boolean
 ---@field homepage string
 ---@field hooks_url string
@@ -390,7 +13393,6 @@
 ---@field language string
 ---@field languages_url string
 ---@field license table
----@field license_template? string
 ---@field master_branch? string
 ---@field merge_commit_message? string
 ---@field merge_commit_title? string
@@ -398,23 +13400,17 @@
 ---@field milestones_url string
 ---@field mirror_url string
 ---@field name string
----@field network_count number
 ---@field node_id string
 ---@field notifications_url string
 ---@field open_issues number
 ---@field open_issues_count number
----@field organization table
 ---@field owner table
----@field parent table
 ---@field permissions table
 ---@field private boolean
----@field pull_request_creation_policy? string
 ---@field pulls_url string
 ---@field pushed_at string
 ---@field releases_url string
----@field security_and_analysis? table
 ---@field size number
----@field source table
 ---@field squash_merge_commit_message? string
 ---@field squash_merge_commit_title? string
 ---@field ssh_url string
@@ -422,15 +13418,12 @@
 ---@field stargazers_url string
 ---@field starred_at? string
 ---@field statuses_url string
----@field subscribers_count number
 ---@field subscribers_url string
 ---@field subscription_url string
 ---@field svn_url string
 ---@field tags_url string
----@field team_id? number
 ---@field teams_url string
 ---@field temp_clone_token? string
----@field template_repository table
 ---@field topics? table
 ---@field trees_url string
 ---@field updated_at string
@@ -441,61 +13434,1390 @@
 ---@field watchers_count number
 ---@field web_commit_signoff_required? boolean
 
----@class RepoUpdateData
+---@class RepositoryListMatch
+---@field direction? string
+---@field page? number
+---@field per_page? number
+---@field sort? string
+
+---@class RepositoryAdvisory
+---@field author any
+---@field closed_at string
+---@field collaborating_teams table
+---@field collaborating_users table
+---@field created_at string
+---@field credits table
+---@field credits_detailed table
+---@field cve_id string
+---@field cvss table
+---@field cvss_severities? table
+---@field cvss_vector_string? string
+---@field cwe_ids table
+---@field cwes table
+---@field description string
+---@field ghsa_id string
+---@field html_url string
+---@field identifiers table
+---@field private_fork any
+---@field published_at string
+---@field publisher any
+---@field severity string
+---@field start_private_fork? boolean
+---@field state string
+---@field submission table
+---@field summary string
+---@field updated_at string
+---@field url string
+---@field vulnerabilities table
+---@field withdrawn_at string
+
+---@class RepositoryAdvisoryLoadMatch
+---@field ghsa_id string
 ---@field owner string
 ---@field repo string
+
+---@class RepositoryAdvisoryListMatch
+---@field org_id string
+---@field after? string
+---@field before? string
+---@field direction? string
+---@field per_page? number
+---@field sort? string
+---@field state? string
+
+---@class RepositoryAdvisoryCreateData
+---@field owner string
+---@field repo string
+---@field author any
+---@field closed_at string
+---@field collaborating_teams table
+---@field collaborating_users table
+---@field created_at string
+---@field credits table
+---@field credits_detailed table
+---@field cve_id string
+---@field cvss table
+---@field cvss_severities? table
+---@field cvss_vector_string? string
+---@field cwe_ids table
+---@field cwes table
+---@field description string
+---@field ghsa_id string
+---@field html_url string
+---@field identifiers table
+---@field private_fork any
+---@field published_at string
+---@field publisher any
+---@field severity string
+---@field start_private_fork? boolean
+---@field state string
+---@field submission table
+---@field summary string
+---@field updated_at string
+---@field url string
+---@field vulnerabilities table
+---@field withdrawn_at string
+
+---@class RepositoryAdvisoryUpdateData
+---@field ghsa_id string
+---@field owner string
+---@field repo string
+---@field author? any
+---@field closed_at? string
+---@field collaborating_teams? table
+---@field collaborating_users? table
+---@field created_at? string
+---@field credits? table
+---@field credits_detailed? table
+---@field cve_id? string
+---@field cvss? table
+---@field cvss_severities? table
+---@field cvss_vector_string? string
+---@field cwe_ids? table
+---@field cwes? table
+---@field description? string
+---@field html_url? string
+---@field identifiers? table
+---@field private_fork? any
+---@field published_at? string
+---@field publisher? any
+---@field severity? string
+---@field start_private_fork? boolean
+---@field state? string
+---@field submission? table
+---@field summary? string
+---@field updated_at? string
+---@field url? string
+---@field vulnerabilities? table
+---@field withdrawn_at? string
+
+---@class RepositoryCollaboratorPermission
+---@field avatar_url string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field permissions table
+---@field received_events_url string
+---@field repos_url string
+---@field role_name string
+---@field site_admin boolean
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field url string
+---@field user_view_type? string
+
+---@class RepositoryCollaboratorPermissionLoadMatch
+---@field owner string
+---@field repo string
+---@field username string
+
+---@class RepositoryInvitation
+---@field created_at string
+---@field expired? boolean
+---@field html_url string
+---@field id number
+---@field invitee table
+---@field inviter table
+---@field node_id string
+---@field permission? string
+---@field permissions string
+---@field repository table
+---@field url string
+
+---@class RepositoryInvitationListMatch
+---@field page? number
+---@field per_page? number
+
+---@class RepositoryInvitationUpdateData
+---@field owner string
+---@field repo string
+---@field username string
+---@field created_at? string
+---@field expired? boolean
+---@field html_url? string
+---@field id? number
+---@field invitee? table
+---@field inviter? table
+---@field node_id? string
+---@field permission? string
+---@field permissions? string
+---@field repository? table
+---@field url? string
+
+---@class RepositoryRuleDetailed
+---@field parameters? table
+---@field ruleset_id? number
+---@field ruleset_source? string
+---@field ruleset_source_type? string
+---@field type? string
+
+---@class RepositoryRuleDetailedLoadMatch
+---@field branch string
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class RepositoryRuleset
+---@field bypass_actors? table
+---@field conditions? any
+---@field created_at? string
+---@field current_user_can_bypass? string
+---@field enforcement string
+---@field id number
+---@field links? table
+---@field name string
+---@field node_id? string
+---@field rules? table
+---@field source string
+---@field source_type? string
+---@field target? string
+---@field updated_at? string
+
+---@class RepositoryRulesetLoadMatch
+---@field id number
+---@field owner? string
+---@field repo? string
+---@field includes_parent? boolean
+---@field org_id? string
+
+---@class RepositoryRulesetListMatch
+---@field org_id string
+---@field page? number
+---@field per_page? number
+---@field target? string
+
+---@class RepositoryRulesetCreateData
+---@field org_id string
+---@field bypass_actors? table
+---@field conditions? any
+---@field created_at? string
+---@field current_user_can_bypass? string
+---@field enforcement string
+---@field id number
+---@field links? table
+---@field name string
+---@field node_id? string
+---@field rules? table
+---@field source string
+---@field source_type? string
+---@field target? string
+---@field updated_at? string
+
+---@class RepositoryRulesetUpdateData
+---@field id number
+---@field owner? string
+---@field repo? string
+---@field org_id? string
+---@field bypass_actors? table
+---@field conditions? any
+---@field created_at? string
+---@field current_user_can_bypass? string
+---@field enforcement? string
+---@field links? table
+---@field name? string
+---@field node_id? string
+---@field rules? table
+---@field source? string
+---@field source_type? string
+---@field target? string
+---@field updated_at? string
+
+---@class RepositorySubscription
+---@field created_at string
+---@field ignored boolean
+---@field reason string
+---@field repository_url string
+---@field subscribed boolean
+---@field url string
+
+---@class RepositorySubscriptionLoadMatch
+---@field owner string
+---@field repo string
+
+---@class RepositorySubscriptionUpdateData
+---@field owner string
+---@field repo string
+---@field created_at? string
+---@field ignored? boolean
+---@field reason? string
+---@field repository_url? string
+---@field subscribed? boolean
+---@field url? string
+
+---@class ReviewComment
+---@field author_association string
+---@field body string
+---@field body_html? string
+---@field body_text? string
+---@field commit_id string
+---@field created_at string
+---@field diff_hunk string
+---@field html_url string
+---@field id number
+---@field in_reply_to_id? number
+---@field line? number
+---@field links table
+---@field node_id string
+---@field original_commit_id string
+---@field original_line? number
+---@field original_position number
+---@field original_start_line? number
+---@field path string
+---@field position number
+---@field pull_request_review_id number
+---@field pull_request_url string
+---@field reactions table
+---@field side? string
+---@field start_line? number
+---@field start_side? string
+---@field subject_type? string
+---@field updated_at string
+---@field url string
+---@field user table
+
+---@class ReviewCommentListMatch
+---@field id number
+---@field owner string
+---@field pull_id number
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class RuleSuite
+---@field actor_id? number
+---@field actor_name? string
+---@field after_sha? string
+---@field before_sha? string
+---@field evaluation_result? string
+---@field id? number
+---@field pushed_at? string
+---@field ref? string
+---@field repository_id? number
+---@field repository_name? string
+---@field result? string
+---@field rule_evaluations? table
+
+---@class RuleSuiteLoadMatch
+---@field id number
+---@field owner? string
+---@field repo? string
+---@field org_id? string
+
+---@class RuleSuiteListMatch
+---@field org_id string
+---@field actor_name? string
+---@field page? number
+---@field per_page? number
+---@field ref? string
+---@field repository_name? string
+---@field rule_suite_result? string
+---@field time_period? string
+
+---@class RulesetVersion
+---@field actor table
+---@field id? string
+---@field updated_at string
+---@field version_id number
+
+---@class RulesetVersionListMatch
+---@field id number
+---@field owner? string
+---@field repo? string
+---@field page? number
+---@field per_page? number
+---@field org_id? string
+
+---@class RulesetVersionWithState
+---@field actor table
+---@field state table
+---@field updated_at string
+---@field version_id number
+
+---@class RulesetVersionWithStateLoadMatch
+---@field owner? string
+---@field repo? string
+---@field ruleset_id number
+---@field version_id number
+---@field org_id? string
+
+---@class Runner
+---@field busy boolean
+---@field ephemeral? boolean
+---@field id number
+---@field labels table
+---@field name string
+---@field os string
+---@field runner_group_id? number
+---@field status string
+
+---@class RunnerLoadMatch
+---@field id number
+---@field owner? string
+---@field repo? string
+---@field org_id? string
+
+---@class RunnerApplication
+---@field architecture string
+---@field download_url string
+---@field filename string
+---@field os string
+---@field sha256_checksum? string
+---@field temp_download_token? string
+
+---@class RunnerApplicationListMatch
+---@field org_id string
+
+---@class RunnerGroup
+---@field allows_public_repositories boolean
+---@field default boolean
+---@field hosted_runners_url? string
+---@field id number
+---@field inherited boolean
+---@field inherited_allows_public_repositories? boolean
+---@field name string
+---@field network_configuration_id? string
+---@field restricted_to_workflows? boolean
+---@field runners? table
+---@field runners_url string
+---@field selected_repositories_url? string
+---@field selected_repository_ids? table
+---@field selected_workflows? table
+---@field visibility string
+---@field workflow_restrictions_read_only? boolean
+
+---@class RunnerGroupLoadMatch
+---@field id number
+---@field org_id string
+
+---@class RunnerGroupCreateData
+---@field org_id string
+---@field allows_public_repositories boolean
+---@field default boolean
+---@field hosted_runners_url? string
+---@field id number
+---@field inherited boolean
+---@field inherited_allows_public_repositories? boolean
+---@field name string
+---@field network_configuration_id? string
+---@field restricted_to_workflows? boolean
+---@field runners? table
+---@field runners_url string
+---@field selected_repositories_url? string
+---@field selected_repository_ids? table
+---@field selected_workflows? table
+---@field visibility string
+---@field workflow_restrictions_read_only? boolean
+
+---@class RunnerGroupUpdateData
+---@field id number
+---@field org_id string
+---@field allows_public_repositories? boolean
+---@field default? boolean
+---@field hosted_runners_url? string
+---@field inherited? boolean
+---@field inherited_allows_public_repositories? boolean
+---@field name? string
+---@field network_configuration_id? string
+---@field restricted_to_workflows? boolean
+---@field runners? table
+---@field runners_url? string
+---@field selected_repositories_url? string
+---@field selected_repository_ids? table
+---@field selected_workflows? table
+---@field visibility? string
+---@field workflow_restrictions_read_only? boolean
+
+---@class Search
+---@field active_lock_reason? string
+---@field aliases? table
 ---@field allow_auto_merge? boolean
 ---@field allow_forking? boolean
 ---@field allow_merge_commit? boolean
 ---@field allow_rebase_merge? boolean
 ---@field allow_squash_merge? boolean
----@field allow_update_branch? boolean
----@field anonymous_access_enabled? boolean
+---@field archive_url string
+---@field archived boolean
+---@field assignee table
+---@field assignees? table
+---@field assignees_url string
+---@field author table
+---@field author_association string
+---@field avatar_url string
+---@field bio? string
+---@field blobs_url string
+---@field blog? string
+---@field body? string
+---@field body_html? string
+---@field body_text? string
+---@field branches_url string
+---@field clone_url string
+---@field closed_at string
+---@field collaborators_url string
+---@field color string
+---@field comments number
+---@field comments_url string
+---@field commit table
+---@field commits_url string
+---@field committer table
+---@field company? string
+---@field compare_url string
+---@field contents_url string
+---@field contributors_url string
+---@field created_at string
+---@field created_by string
+---@field curated boolean
+---@field default boolean
+---@field default_branch string
+---@field delete_branch_on_merge? boolean
+---@field deployments_url string
+---@field description string
+---@field disabled boolean
+---@field display_name string
+---@field downloads_url string
+---@field draft? boolean
+---@field email? string
+---@field events_url string
+---@field featured boolean
+---@field file_size? number
+---@field followers? number
+---@field followers_url string
+---@field following? number
+---@field following_url string
+---@field fork boolean
+---@field forks number
+---@field forks_count number
+---@field forks_url string
+---@field full_name string
+---@field gists_url string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_tags_url string
+---@field git_url string
+---@field gravatar_id string
+---@field has_discussions? boolean
+---@field has_downloads boolean
+---@field has_issues boolean
+---@field has_pages boolean
+---@field has_projects boolean
+---@field has_wiki boolean
+---@field hireable? boolean
+---@field homepage string
+---@field hooks_url string
+---@field html_url string
+---@field id number
+---@field is_template? boolean
+---@field issue_comment_url string
+---@field issue_dependencies_summary table
+---@field issue_events_url string
+---@field issue_field_values? table
+---@field issues_url string
+---@field keys_url string
+---@field labels table
+---@field labels_url string
+---@field language? string
+---@field languages_url string
+---@field last_modified_at? string
+---@field license table
+---@field line_numbers? table
+---@field location? string
+---@field locked boolean
+---@field login string
+---@field logo_url? string
+---@field master_branch? string
+---@field merges_url string
+---@field milestone table
+---@field milestones_url string
+---@field mirror_url string
+---@field name string
+---@field node_id string
+---@field notifications_url string
+---@field number number
+---@field open_issues number
+---@field open_issues_count number
+---@field organizations_url string
+---@field owner table
+---@field parents table
+---@field path string
+---@field performed_via_github_app table
+---@field permissions table
+---@field private boolean
+---@field public_gists? number
+---@field public_repos? number
+---@field pull_request table
+---@field pulls_url string
+---@field pushed_at string
+---@field reactions table
+---@field received_events_url string
+---@field related? table
+---@field released string
+---@field releases_url string
+---@field repos_url string
+---@field repository table
+---@field repository_count? number
+---@field repository_url string
+---@field score number
+---@field sha string
+---@field short_description string
+---@field site_admin boolean
+---@field size number
+---@field ssh_url string
+---@field stargazers_count number
+---@field stargazers_url string
+---@field starred_url string
+---@field state string
+---@field state_reason? string
+---@field statuses_url string
+---@field sub_issues_summary table
+---@field subscribers_url string
+---@field subscription_url string
+---@field subscriptions_url string
+---@field suspended_at? string
+---@field svn_url string
+---@field tags_url string
+---@field teams_url string
+---@field temp_clone_token? string
+---@field text_matches? table
+---@field timeline_url? string
+---@field title string
+---@field topics? table
+---@field trees_url string
+---@field type table
+---@field updated_at string
+---@field url string
+---@field user table
+---@field user_view_type? string
+---@field visibility? string
+---@field watchers number
+---@field watchers_count number
+---@field web_commit_signoff_required? boolean
+
+---@class SearchListMatch
+---@field advanced_search? string
+---@field order? string
+---@field page? number
+---@field per_page? number
+---@field q string
+---@field search_type? string
+---@field sort? string
+---@field repository_id? number
+
+---@class SecretScanning
+---@field custom_pattern_settings? table
+---@field pattern_config_version? string
+---@field provider_pattern_settings? table
+
+---@class SecretScanningUpdateData
+---@field org_id string
+---@field custom_pattern_settings? table
+---@field pattern_config_version? string
+---@field provider_pattern_settings? table
+
+---@class SecretScanningAlert
+---@field created_at? string
+---@field first_location_detected? any
+---@field has_more_locations? boolean
+---@field html_url? string
+---@field id? string
+---@field is_base64_encoded? boolean
+---@field locations_url? string
+---@field multi_repo? boolean
+---@field number? number
+---@field publicly_leaked? boolean
+---@field push_protection_bypass_request_comment? string
+---@field push_protection_bypass_request_html_url? string
+---@field push_protection_bypass_request_reviewer table
+---@field push_protection_bypass_request_reviewer_comment? string
+---@field push_protection_bypassed? boolean
+---@field push_protection_bypassed_at? string
+---@field push_protection_bypassed_by table
+---@field resolution? string
+---@field resolution_comment? string
+---@field resolved_at? string
+---@field resolved_by table
+---@field secret? string
+---@field secret_type? string
+---@field secret_type_display_name? string
+---@field state? string
+---@field updated_at? string
+---@field url? string
+---@field validity? string
+
+---@class SecretScanningAlertLoadMatch
+---@field id number
+---@field owner string
+---@field repo string
+---@field hide_secret? boolean
+
+---@class SecretScanningAlertListMatch
+---@field owner string
+---@field repo string
+---@field after? string
+---@field before? string
+---@field direction? string
+---@field hide_secret? boolean
+---@field is_multi_repo? boolean
+---@field is_publicly_leaked? boolean
+---@field page? number
+---@field per_page? number
+---@field resolution? string
+---@field secret_type? string
+---@field sort? string
+---@field state? string
+---@field validity? string
+
+---@class SecretScanningAlertUpdateData
+---@field id number
+---@field owner string
+---@field repo string
+---@field created_at? string
+---@field first_location_detected? any
+---@field has_more_locations? boolean
+---@field html_url? string
+---@field is_base64_encoded? boolean
+---@field locations_url? string
+---@field multi_repo? boolean
+---@field number? number
+---@field publicly_leaked? boolean
+---@field push_protection_bypass_request_comment? string
+---@field push_protection_bypass_request_html_url? string
+---@field push_protection_bypass_request_reviewer? table
+---@field push_protection_bypass_request_reviewer_comment? string
+---@field push_protection_bypassed? boolean
+---@field push_protection_bypassed_at? string
+---@field push_protection_bypassed_by? table
+---@field resolution? string
+---@field resolution_comment? string
+---@field resolved_at? string
+---@field resolved_by? table
+---@field secret? string
+---@field secret_type? string
+---@field secret_type_display_name? string
+---@field state? string
+---@field updated_at? string
+---@field url? string
+---@field validity? string
+
+---@class SecretScanningLocation
+---@field details? any
+---@field type? string
+
+---@class SecretScanningLocationListMatch
+---@field alert_number number
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class SecretScanningPatternConfiguration
+---@field custom_pattern_overrides? table
+---@field pattern_config_version? string
+---@field provider_pattern_overrides? table
+
+---@class SecretScanningPatternConfigurationListMatch
+---@field org_id string
+
+---@class SecretScanningPushProtectionBypass
+---@field expire_at? string
+---@field placeholder_id string
+---@field reason? string
+---@field token_type? string
+
+---@class SecretScanningPushProtectionBypassCreateData
+---@field owner string
+---@field repo string
+---@field expire_at? string
+---@field placeholder_id string
+---@field reason? string
+---@field token_type? string
+
+---@class SecretScanningScanHistory
+---@field backfill_scans? table
+---@field custom_pattern_backfill_scans? table
+---@field incremental_scans? table
+---@field pattern_update_scans? table
+
+---@class SecretScanningScanHistoryListMatch
+---@field owner string
+---@field repo string
+
+---@class SecurityAdvisory
+---@field id? string
+
+---@class SecurityAdvisoryCreateData
+---@field id string
+---@field owner string
+---@field repo string
+
+---@class SelectedAction
+---@field github_owned_allowed? boolean
+---@field patterns_allowed? table
+---@field verified_allowed? boolean
+
+---@class SelectedActionListMatch
+---@field org_id string
+
+---@class SelfHostedRunner
+---@field enabled_repositories string
+---@field selected_repositories_url? string
+
+---@class SelfHostedRunnerLoadMatch
+---@field org_id string
+
+---@class ShortBlob
+---@field content string
+---@field encoding? string
+
+---@class ShortBlobCreateData
+---@field owner string
+---@field repo string
+---@field content string
+---@field encoding? string
+
+---@class ShortBranch
+---@field commit table
+---@field name string
+---@field protected boolean
+---@field protection? table
+---@field protection_url? string
+
+---@class ShortBranchListMatch
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+---@field protected? boolean
+
+---@class SimpleClassroom
+
+---@class SimpleClassroomAssignment
+---@field accepted number
+---@field classroom table
+---@field deadline string
+---@field editor string
+---@field feedback_pull_requests_enabled boolean
+---@field id number
+---@field invitations_enabled boolean
+---@field invite_link string
+---@field language string
+---@field max_members? number
+---@field max_teams? number
+---@field passing number
+---@field public_repo boolean
+---@field slug string
+---@field students_are_repo_admins boolean
+---@field submitted number
+---@field title string
+---@field type string
+
+---@class SimpleClassroomAssignmentListMatch
+---@field classroom_id number
+---@field page? number
+---@field per_page? number
+
+---@class SocialAccount
+---@field account_urls table
+---@field provider string
+---@field url string
+
+---@class SocialAccountListMatch
+---@field page? number
+---@field per_page? number
+
+---@class SocialAccountCreateData
+---@field account_urls table
+---@field provider string
+---@field url string
+
+---@class SshSigningKey
+---@field created_at string
+---@field id number
+---@field key string
+---@field title string
+
+---@class SshSigningKeyLoadMatch
+---@field id number
+
+---@class SshSigningKeyListMatch
+---@field page? number
+---@field per_page? number
+
+---@class SshSigningKeyCreateData
+---@field created_at string
+---@field id number
+---@field key string
+---@field title string
+
+---@class Status
+---@field avatar_url string
+---@field context? string
+---@field created_at string
+---@field creator table
+---@field description? string
+---@field id number
+---@field node_id string
+---@field state string
+---@field target_url? string
+---@field updated_at string
+---@field url string
+
+---@class StatusListMatch
+---@field owner string
+---@field ref string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class StatusCreateData
+---@field id string
+---@field owner string
+---@field repo string
+---@field avatar_url string
+---@field context? string
+---@field created_at string
+---@field creator table
+---@field description? string
+---@field node_id string
+---@field state string
+---@field target_url? string
+---@field updated_at string
+---@field url string
+
+---@class StatusCheckPolicy
+---@field app_id number
+---@field checks table
+---@field context string
+---@field contexts table
+---@field contexts_url string
+---@field strict boolean
+---@field url string
+
+---@class StatusCheckPolicyListMatch
+---@field branch_id string
+---@field owner string
+---@field repo string
+
+---@class StatusCheckPolicyUpdateData
+---@field branch_id string
+---@field owner string
+---@field repo string
+---@field app_id? number
+---@field checks? table
+---@field context? string
+---@field contexts? table
+---@field contexts_url? string
+---@field strict? boolean
+---@field url? string
+
+---@class Subscriber
+---@field avatar_url string
+---@field email? string
+---@field events_url string
+---@field followers_url string
+---@field following_url string
+---@field gists_url string
+---@field gravatar_id string
+---@field html_url string
+---@field id number
+---@field login string
+---@field name? string
+---@field node_id string
+---@field organizations_url string
+---@field received_events_url string
+---@field repos_url string
+---@field site_admin boolean
+---@field starred_at? string
+---@field starred_url string
+---@field subscriptions_url string
+---@field type string
+---@field url string
+---@field user_view_type? string
+
+---@class SubscriberListMatch
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class Tag
+---@field commit table
+---@field name string
+---@field node_id string
+---@field tarball_url string
+---@field zipball_url string
+
+---@class TagListMatch
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class TagProtection
+---@field created_at? string
+---@field enabled? boolean
+---@field id? number
+---@field pattern string
+---@field updated_at? string
+
+---@class TagProtectionListMatch
+---@field owner string
+---@field repo string
+
+---@class TagProtectionCreateData
+---@field owner string
+---@field repo string
+---@field created_at? string
+---@field enabled? boolean
+---@field id? number
+---@field pattern string
+---@field updated_at? string
+
+---@class Team
+---@field allow_auto_merge? boolean
+---@field allow_forking? boolean
+---@field allow_merge_commit? boolean
+---@field allow_rebase_merge? boolean
+---@field allow_squash_merge? boolean
+---@field archive_url string
+---@field archived boolean
+---@field assignees_url string
+---@field assignment? string
+---@field author table
+---@field avatar_url string
+---@field blobs_url string
+---@field body string
+---@field body_html string
+---@field body_version string
+---@field branches_url string
+---@field clone_url string
+---@field code_of_conduct table
+---@field collaborators_url string
+---@field columns_url string
+---@field comments_count number
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field contents_url string
+---@field contributors_url string
+---@field created_at string
+---@field creator table
+---@field custom_properties? table
+---@field default_branch string
+---@field delete_branch_on_merge? boolean
+---@field deployments_url string
+---@field description string
+---@field disabled boolean
+---@field discussion_url string
+---@field downloads_url string
+---@field email? string
+---@field events_url string
+---@field failed_at? string
+---@field failed_reason? string
+---@field followers_url string
+---@field following_url string
+---@field fork boolean
+---@field forks number
+---@field forks_count number
+---@field forks_url string
+---@field full_name string
+---@field gists_url string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_tags_url string
+---@field git_url string
+---@field gravatar_id string
+---@field has_discussions? boolean
+---@field has_downloads boolean
+---@field has_issues boolean
+---@field has_pages boolean
+---@field has_projects boolean
+---@field has_wiki boolean
+---@field homepage string
+---@field hooks_url string
+---@field html_url string
+---@field id number
+---@field invitation_source? string
+---@field invitation_teams_url string
+---@field inviter table
+---@field is_template? boolean
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field keys_url string
+---@field labels_url string
+---@field language string
+---@field languages_url string
+---@field last_edited_at string
+---@field ldap_dn? string
+---@field license table
+---@field login string
+---@field maintainers? table
+---@field master_branch? string
+---@field members_count number
+---@field members_url string
+---@field merges_url string
+---@field milestones_url string
+---@field mirror_url string
+---@field name string
+---@field network_count? number
+---@field node_id string
+---@field notification_setting? string
+---@field notifications_url string
+---@field number number
+---@field open_issues number
+---@field open_issues_count number
+---@field organization table
+---@field organization_permission? string
+---@field organizations_url string
+---@field owner table
+---@field owner_url string
+---@field parent table
+---@field parent_team_id? number
+---@field permission string
+---@field permissions table
+---@field pinned boolean
+---@field privacy? string
+---@field private boolean
+---@field pulls_url string
+---@field pushed_at string
+---@field reactions table
+---@field received_events_url string
+---@field releases_url string
+---@field repo_names? table
+---@field repos_count number
+---@field repos_url string
+---@field repositories_url string
+---@field role string
+---@field role_name? string
+---@field security_and_analysis? table
+---@field site_admin boolean
+---@field size number
+---@field slug string
+---@field ssh_url string
+---@field stargazers_count number
+---@field stargazers_url string
+---@field starred_at? string
+---@field starred_url string
+---@field state string
+---@field statuses_url string
+---@field subscribers_count? number
+---@field subscribers_url string
+---@field subscription_url string
+---@field subscriptions_url string
+---@field svn_url string
+---@field tags_url string
+---@field team_count number
+---@field team_url string
+---@field teams_url string
+---@field temp_clone_token? string
+---@field title string
+---@field topics? table
+---@field trees_url string
+---@field type string
+---@field updated_at string
+---@field url string
+---@field user_view_type? string
+---@field visibility? string
+---@field watchers number
+---@field watchers_count number
+---@field web_commit_signoff_required? boolean
+
+---@class TeamLoadMatch
+---@field id number
+
+---@class TeamListMatch
+---@field page? number
+---@field per_page? number
+
+---@class TeamCreateData
+---@field org_id string
+---@field allow_auto_merge? boolean
+---@field allow_forking? boolean
+---@field allow_merge_commit? boolean
+---@field allow_rebase_merge? boolean
+---@field allow_squash_merge? boolean
+---@field archive_url string
+---@field archived boolean
+---@field assignees_url string
+---@field assignment? string
+---@field author table
+---@field avatar_url string
+---@field blobs_url string
+---@field body string
+---@field body_html string
+---@field body_version string
+---@field branches_url string
+---@field clone_url string
+---@field code_of_conduct table
+---@field collaborators_url string
+---@field columns_url string
+---@field comments_count number
+---@field comments_url string
+---@field commits_url string
+---@field compare_url string
+---@field contents_url string
+---@field contributors_url string
+---@field created_at string
+---@field creator table
+---@field custom_properties? table
+---@field default_branch string
+---@field delete_branch_on_merge? boolean
+---@field deployments_url string
+---@field description string
+---@field disabled boolean
+---@field discussion_url string
+---@field downloads_url string
+---@field email? string
+---@field events_url string
+---@field failed_at? string
+---@field failed_reason? string
+---@field followers_url string
+---@field following_url string
+---@field fork boolean
+---@field forks number
+---@field forks_count number
+---@field forks_url string
+---@field full_name string
+---@field gists_url string
+---@field git_commits_url string
+---@field git_refs_url string
+---@field git_tags_url string
+---@field git_url string
+---@field gravatar_id string
+---@field has_discussions? boolean
+---@field has_downloads boolean
+---@field has_issues boolean
+---@field has_pages boolean
+---@field has_projects boolean
+---@field has_wiki boolean
+---@field homepage string
+---@field hooks_url string
+---@field html_url string
+---@field id number
+---@field invitation_source? string
+---@field invitation_teams_url string
+---@field inviter table
+---@field is_template? boolean
+---@field issue_comment_url string
+---@field issue_events_url string
+---@field issues_url string
+---@field keys_url string
+---@field labels_url string
+---@field language string
+---@field languages_url string
+---@field last_edited_at string
+---@field ldap_dn? string
+---@field license table
+---@field login string
+---@field maintainers? table
+---@field master_branch? string
+---@field members_count number
+---@field members_url string
+---@field merges_url string
+---@field milestones_url string
+---@field mirror_url string
+---@field name string
+---@field network_count? number
+---@field node_id string
+---@field notification_setting? string
+---@field notifications_url string
+---@field number number
+---@field open_issues number
+---@field open_issues_count number
+---@field organization table
+---@field organization_permission? string
+---@field organizations_url string
+---@field owner table
+---@field owner_url string
+---@field parent table
+---@field parent_team_id? number
+---@field permission string
+---@field permissions table
+---@field pinned boolean
+---@field privacy? string
+---@field private boolean
+---@field pulls_url string
+---@field pushed_at string
+---@field reactions table
+---@field received_events_url string
+---@field releases_url string
+---@field repo_names? table
+---@field repos_count number
+---@field repos_url string
+---@field repositories_url string
+---@field role string
+---@field role_name? string
+---@field security_and_analysis? table
+---@field site_admin boolean
+---@field size number
+---@field slug string
+---@field ssh_url string
+---@field stargazers_count number
+---@field stargazers_url string
+---@field starred_at? string
+---@field starred_url string
+---@field state string
+---@field statuses_url string
+---@field subscribers_count? number
+---@field subscribers_url string
+---@field subscription_url string
+---@field subscriptions_url string
+---@field svn_url string
+---@field tags_url string
+---@field team_count number
+---@field team_url string
+---@field teams_url string
+---@field temp_clone_token? string
+---@field title string
+---@field topics? table
+---@field trees_url string
+---@field type string
+---@field updated_at string
+---@field url string
+---@field user_view_type? string
+---@field visibility? string
+---@field watchers number
+---@field watchers_count number
+---@field web_commit_signoff_required? boolean
+
+---@class TeamUpdateData
+---@field id number
+---@field project_id number
+---@field allow_auto_merge? boolean
+---@field allow_forking? boolean
+---@field allow_merge_commit? boolean
+---@field allow_rebase_merge? boolean
+---@field allow_squash_merge? boolean
 ---@field archive_url? string
 ---@field archived? boolean
 ---@field assignees_url? string
----@field auto_init? boolean
+---@field assignment? string
+---@field author? table
+---@field avatar_url? string
 ---@field blobs_url? string
+---@field body? string
+---@field body_html? string
+---@field body_version? string
 ---@field branches_url? string
 ---@field clone_url? string
 ---@field code_of_conduct? table
----@field code_search_index_status? table
 ---@field collaborators_url? string
+---@field columns_url? string
+---@field comments_count? number
 ---@field comments_url? string
 ---@field commits_url? string
 ---@field compare_url? string
 ---@field contents_url? string
 ---@field contributors_url? string
 ---@field created_at? string
+---@field creator? table
 ---@field custom_properties? table
 ---@field default_branch? string
 ---@field delete_branch_on_merge? boolean
 ---@field deployments_url? string
 ---@field description? string
 ---@field disabled? boolean
+---@field discussion_url? string
 ---@field downloads_url? string
+---@field email? string
 ---@field events_url? string
+---@field failed_at? string
+---@field failed_reason? string
+---@field followers_url? string
+---@field following_url? string
 ---@field fork? boolean
 ---@field forks? number
 ---@field forks_count? number
 ---@field forks_url? string
 ---@field full_name? string
+---@field gists_url? string
 ---@field git_commits_url? string
 ---@field git_refs_url? string
 ---@field git_tags_url? string
 ---@field git_url? string
----@field gitignore_template? string
+---@field gravatar_id? string
 ---@field has_discussions? boolean
 ---@field has_downloads? boolean
 ---@field has_issues? boolean
 ---@field has_pages? boolean
 ---@field has_projects? boolean
----@field has_pull_requests? boolean
 ---@field has_wiki? boolean
 ---@field homepage? string
 ---@field hooks_url? string
 ---@field html_url? string
----@field id? number
+---@field invitation_source? string
+---@field invitation_teams_url? string
+---@field inviter? table
 ---@field is_template? boolean
 ---@field issue_comment_url? string
 ---@field issue_events_url? string
@@ -504,58 +14826,514 @@
 ---@field labels_url? string
 ---@field language? string
 ---@field languages_url? string
+---@field last_edited_at? string
+---@field ldap_dn? string
 ---@field license? table
----@field license_template? string
+---@field login? string
+---@field maintainers? table
 ---@field master_branch? string
----@field merge_commit_message? string
----@field merge_commit_title? string
+---@field members_count? number
+---@field members_url? string
 ---@field merges_url? string
 ---@field milestones_url? string
 ---@field mirror_url? string
 ---@field name? string
 ---@field network_count? number
 ---@field node_id? string
+---@field notification_setting? string
 ---@field notifications_url? string
+---@field number? number
 ---@field open_issues? number
 ---@field open_issues_count? number
 ---@field organization? table
+---@field organization_permission? string
+---@field organizations_url? string
+---@field owner? table
+---@field owner_url? string
 ---@field parent? table
+---@field parent_team_id? number
+---@field permission? string
 ---@field permissions? table
+---@field pinned? boolean
+---@field privacy? string
 ---@field private? boolean
----@field pull_request_creation_policy? string
 ---@field pulls_url? string
 ---@field pushed_at? string
+---@field reactions? table
+---@field received_events_url? string
 ---@field releases_url? string
+---@field repo_names? table
+---@field repos_count? number
+---@field repos_url? string
+---@field repositories_url? string
+---@field role? string
+---@field role_name? string
 ---@field security_and_analysis? table
+---@field site_admin? boolean
 ---@field size? number
----@field source? table
----@field squash_merge_commit_message? string
----@field squash_merge_commit_title? string
+---@field slug? string
 ---@field ssh_url? string
 ---@field stargazers_count? number
 ---@field stargazers_url? string
 ---@field starred_at? string
+---@field starred_url? string
+---@field state? string
 ---@field statuses_url? string
 ---@field subscribers_count? number
 ---@field subscribers_url? string
 ---@field subscription_url? string
+---@field subscriptions_url? string
 ---@field svn_url? string
 ---@field tags_url? string
----@field team_id? number
+---@field team_count? number
+---@field team_url? string
 ---@field teams_url? string
 ---@field temp_clone_token? string
----@field template_repository? table
+---@field title? string
 ---@field topics? table
 ---@field trees_url? string
+---@field type? string
 ---@field updated_at? string
 ---@field url? string
----@field use_squash_pr_title_as_default? boolean
+---@field user_view_type? string
 ---@field visibility? string
 ---@field watchers? number
 ---@field watchers_count? number
 ---@field web_commit_signoff_required? boolean
 
----@class RepoRemoveMatch
+---@class TeamRemoveMatch
+---@field id number
+
+---@class TeamSimple
+---@field description string
+---@field html_url string
+---@field id number
+---@field ldap_dn? string
+---@field members_url string
+---@field name string
+---@field node_id string
+---@field notification_setting? string
+---@field permission string
+---@field privacy? string
+---@field repositories_url string
+---@field slug string
+---@field url string
+
+---@class TeamSimpleListMatch
+---@field org_id string
+
+---@class Thread
+---@field id string
+---@field last_read_at string
+---@field reason string
+---@field repository table
+---@field subject table
+---@field subscription_url string
+---@field unread boolean
+---@field updated_at string
+---@field url string
+
+---@class ThreadLoadMatch
+---@field id number
+
+---@class ThreadListMatch
+---@field all? boolean
+---@field before? string
+---@field page? number
+---@field participating? boolean
+---@field per_page? number
+---@field since? string
+
+---@class ThreadRemoveMatch
+---@field id number
+
+---@class ThreadSubscription
+---@field created_at string
+---@field id? string
+---@field ignored boolean
+---@field reason string
+---@field repository_url? string
+---@field subscribed boolean
+---@field thread_url? string
+---@field url string
+
+---@class ThreadSubscriptionLoadMatch
+---@field id number
+
+---@class ThreadSubscriptionUpdateData
+---@field id number
+---@field created_at? string
+---@field ignored? boolean
+---@field reason? string
+---@field repository_url? string
+---@field subscribed? boolean
+---@field thread_url? string
+---@field url? string
+
+---@class Topic
+---@field names table
+
+---@class TopicListMatch
+---@field owner string
+---@field repo string
+---@field page? number
+---@field per_page? number
+
+---@class TopicUpdateData
+---@field owner string
+---@field repo string
+---@field names? table
+
+---@class User
+---@field assignment? string
+---@field attestations_subject_digests? table
+---@field avatar_url? string
+---@field bio? string
+---@field blog? string
+---@field collaborators? number
+---@field company? string
+---@field created_at? string
+---@field disk_usage? number
+---@field email? string
+---@field events_url? string
+---@field followers? number
+---@field followers_url? string
+---@field following? number
+---@field following_url? string
+---@field gists_url? string
+---@field gravatar_id? string
+---@field hireable? boolean
+---@field html_url? string
+---@field id? number
+---@field inherited_from? table
+---@field location? string
+---@field login? string
+---@field name? string
+---@field node_id? string
+---@field organizations_url? string
+---@field owned_private_repos? number
+---@field page_info? table
+---@field plan? table
+---@field predicate_type? string
+---@field private_gists? number
+---@field private_repos number
+---@field public_gists? number
+---@field public_repos? number
+---@field received_events_url? string
+---@field repos_url? string
+---@field site_admin? boolean
+---@field space number
+---@field starred_at? string
+---@field starred_url? string
+---@field subject_digests table
+---@field subscriptions_url? string
+---@field total_private_repos? number
+---@field twitter_username? string
+---@field two_factor_authentication? boolean
+---@field type? string
+---@field updated_at? string
+---@field url? string
+---@field user_view_type? string
+---@field users table
+
+---@class UserLoadMatch
+---@field id number
+
+---@class UserListMatch
+---@field per_page? number
+---@field since? number
+
+---@class UserCreateData
+---@field branch_id string
+---@field owner string
+---@field repo string
+---@field assignment? string
+---@field attestations_subject_digests? table
+---@field avatar_url? string
+---@field bio? string
+---@field blog? string
+---@field collaborators? number
+---@field company? string
+---@field created_at? string
+---@field disk_usage? number
+---@field email? string
+---@field events_url? string
+---@field followers? number
+---@field followers_url? string
+---@field following? number
+---@field following_url? string
+---@field gists_url? string
+---@field gravatar_id? string
+---@field hireable? boolean
+---@field html_url? string
+---@field id? number
+---@field inherited_from? table
+---@field location? string
+---@field login? string
+---@field name? string
+---@field node_id? string
+---@field organizations_url? string
+---@field owned_private_repos? number
+---@field page_info? table
+---@field plan? table
+---@field predicate_type? string
+---@field private_gists? number
+---@field private_repos number
+---@field public_gists? number
+---@field public_repos? number
+---@field received_events_url? string
+---@field repos_url? string
+---@field site_admin? boolean
+---@field space number
+---@field starred_at? string
+---@field starred_url? string
+---@field subject_digests table
+---@field subscriptions_url? string
+---@field total_private_repos? number
+---@field twitter_username? string
+---@field two_factor_authentication? boolean
+---@field type? string
+---@field updated_at? string
+---@field url? string
+---@field user_view_type? string
+---@field users table
+
+---@class UserUpdateData
+---@field username string
+---@field assignment? string
+---@field attestations_subject_digests? table
+---@field avatar_url? string
+---@field bio? string
+---@field blog? string
+---@field collaborators? number
+---@field company? string
+---@field created_at? string
+---@field disk_usage? number
+---@field email? string
+---@field events_url? string
+---@field followers? number
+---@field followers_url? string
+---@field following? number
+---@field following_url? string
+---@field gists_url? string
+---@field gravatar_id? string
+---@field hireable? boolean
+---@field html_url? string
+---@field id? number
+---@field inherited_from? table
+---@field location? string
+---@field login? string
+---@field name? string
+---@field node_id? string
+---@field organizations_url? string
+---@field owned_private_repos? number
+---@field page_info? table
+---@field plan? table
+---@field predicate_type? string
+---@field private_gists? number
+---@field private_repos? number
+---@field public_gists? number
+---@field public_repos? number
+---@field received_events_url? string
+---@field repos_url? string
+---@field site_admin? boolean
+---@field space? number
+---@field starred_at? string
+---@field starred_url? string
+---@field subject_digests? table
+---@field subscriptions_url? string
+---@field total_private_repos? number
+---@field twitter_username? string
+---@field two_factor_authentication? boolean
+---@field type? string
+---@field updated_at? string
+---@field url? string
+---@field user_view_type? string
+---@field users? table
+
+---@class UserRemoveMatch
+---@field gpg_key_id number
+
+---@class UserMarketplacePurchase
+---@field account table
+---@field billing_cycle string
+---@field free_trial_ends_on string
+---@field next_billing_date string
+---@field on_free_trial boolean
+---@field plan table
+---@field unit_count number
+---@field updated_at string
+
+---@class UserMarketplacePurchaseListMatch
+---@field page? number
+---@field per_page? number
+
+---@class View
+---@field count number
+---@field timestamp string
+---@field uniques number
+
+---@class ViewListMatch
+---@field owner string
+---@field repo string
+---@field per? string
+
+---@class WebhookConfig
+---@field content_type? string
+---@field insecure_ssl? string
+---@field secret? string
+---@field url? string
+
+---@class WebhookConfigLoadMatch
+---@field content_type? string
+---@field insecure_ssl? string
+---@field secret? string
+---@field url? string
+
+---@class WebhookConfigUpdateData
+---@field content_type? string
+---@field insecure_ssl? string
+---@field secret? string
+---@field url? string
+
+---@class Workflow
+---@field badge_url string
+---@field created_at string
+---@field deleted_at? string
+---@field html_url string
+---@field id number
+---@field name string
+---@field node_id string
+---@field path string
+---@field state string
+---@field updated_at string
+---@field url string
+
+---@class WorkflowLoadMatch
+---@field id string
+---@field owner string
+---@field repo string
+
+---@class WorkflowUpdateData
+---@field id string
+---@field owner string
+---@field repo string
+---@field badge_url? string
+---@field created_at? string
+---@field deleted_at? string
+---@field html_url? string
+---@field name? string
+---@field node_id? string
+---@field path? string
+---@field state? string
+---@field updated_at? string
+---@field url? string
+
+---@class WorkflowRun
+---@field actor table
+---@field artifacts_url string
+---@field cancel_url string
+---@field check_suite_id? number
+---@field check_suite_node_id? string
+---@field check_suite_url string
+---@field conclusion string
+---@field created_at string
+---@field display_title string
+---@field event string
+---@field head_branch string
+---@field head_commit table
+---@field head_repository table
+---@field head_repository_id? number
+---@field head_sha string
+---@field html_url string
+---@field id number
+---@field jobs_url string
+---@field logs_url string
+---@field name? string
+---@field node_id string
+---@field path string
+---@field previous_attempt_url? string
+---@field pull_requests table
+---@field referenced_workflows? table
+---@field repository table
+---@field rerun_url string
+---@field run_attempt? number
+---@field run_number number
+---@field run_started_at? string
+---@field status string
+---@field triggering_actor table
+---@field updated_at string
+---@field url string
+---@field workflow_id number
+---@field workflow_url string
+
+---@class WorkflowRunLoadMatch
+---@field attempt_number? number
+---@field owner string
+---@field repo string
+---@field run_id? number
+---@field exclude_pull_request? boolean
+---@field id? number
+
+---@class WorkflowRunCreateData
+---@field owner string
+---@field repo string
+---@field run_id number
+---@field actor table
+---@field artifacts_url string
+---@field cancel_url string
+---@field check_suite_id? number
+---@field check_suite_node_id? string
+---@field check_suite_url string
+---@field conclusion string
+---@field created_at string
+---@field display_title string
+---@field event string
+---@field head_branch string
+---@field head_commit table
+---@field head_repository table
+---@field head_repository_id? number
+---@field head_sha string
+---@field html_url string
+---@field id number
+---@field jobs_url string
+---@field logs_url string
+---@field name? string
+---@field node_id string
+---@field path string
+---@field previous_attempt_url? string
+---@field pull_requests table
+---@field referenced_workflows? table
+---@field repository table
+---@field rerun_url string
+---@field run_attempt? number
+---@field run_number number
+---@field run_started_at? string
+---@field status string
+---@field triggering_actor table
+---@field updated_at string
+---@field url string
+---@field workflow_id number
+---@field workflow_url string
+
+---@class WorkflowRunUsage
+---@field MACOS table
+---@field UBUNTU table
+---@field WINDOWS table
+
+---@class WorkflowRunUsageLoadMatch
+---@field owner string
+---@field repo string
+---@field run_id number
+
+---@class WorkflowUsage
+---@field MACOS? table
+---@field UBUNTU? table
+---@field WINDOWS? table
+---@field id? string
+
+---@class WorkflowUsageLoadMatch
+---@field id string
 ---@field owner string
 ---@field repo string
 

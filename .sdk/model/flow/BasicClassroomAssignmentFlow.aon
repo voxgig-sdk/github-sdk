@@ -1,0 +1,32 @@
+# BasicClassroomAssignmentFlow
+
+main: kit: flow: BasicClassroomAssignmentFlow:
+{
+  entity: "classroom_assignment",
+  kind: "basic",
+  name: "BasicClassroomAssignmentFlow",
+  step: [
+    {
+      input: {
+        ref: "classroom_assignment_ref01",
+        srcdatavar: "classroom_assignment_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "classroom_assignment01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-classroom_assignment_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicClassroomAssignmentFlow"
+}

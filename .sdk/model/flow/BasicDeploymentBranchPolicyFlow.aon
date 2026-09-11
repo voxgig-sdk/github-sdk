@@ -1,0 +1,75 @@
+# BasicDeploymentBranchPolicyFlow
+
+main: kit: flow: BasicDeploymentBranchPolicyFlow:
+{
+  entity: "deployment_branch_policy",
+  kind: "basic",
+  name: "BasicDeploymentBranchPolicyFlow",
+  step: [
+    {
+      input: {
+        ref: "deployment_branch_policy_ref01"
+      }
+
+      match: {
+        environment_id: "environment01",
+        environment_name: "environment_name01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      data: {
+        environment_id: "environment01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      input: {
+        ref: "deployment_branch_policy_ref01",
+        srcdatavar: "deployment_branch_policy_ref01_data",
+        suffix: "_up0",
+        textfield: "name"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-deployment_branch_policy_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "deployment_branch_policy_ref01",
+        srcdatavar: "deployment_branch_policy_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        environment_id: "environment01",
+        id: "deployment_branch_policy01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-deployment_branch_policy_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDeploymentBranchPolicyFlow"
+}

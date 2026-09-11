@@ -1,0 +1,68 @@
+# BasicNetworkConfigurationFlow
+
+main: kit: flow: BasicNetworkConfigurationFlow:
+{
+  entity: "network_configuration",
+  kind: "basic",
+  name: "BasicNetworkConfigurationFlow",
+  step: [
+    {
+      input: {
+        ref: "network_configuration_ref01"
+      }
+
+      match: {
+        org_id: "org01"
+      }
+
+      op: "create"
+    }
+
+    {
+      data: {
+        org_id: "org01"
+      }
+
+      input: {
+        ref: "network_configuration_ref01",
+        srcdatavar: "network_configuration_ref01_data",
+        suffix: "_up0",
+        textfield: "compute_service"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-network_configuration_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "network_configuration_ref01",
+        srcdatavar: "network_configuration_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "network_configuration01",
+        org_id: "org01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-network_configuration_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNetworkConfigurationFlow"
+}

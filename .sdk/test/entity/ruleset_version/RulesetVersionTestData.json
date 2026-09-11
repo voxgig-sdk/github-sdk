@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "ruleset_version": {
+      "RULESET_VERSION00": {
+        "actor": {},
+        "id": "RULESET_VERSION00",
+        "updated_at": "s2a",
+        "version_id": "VERSION01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      },
+      "RULESET_VERSION01": {
+        "actor": {},
+        "id": "RULESET_VERSION01",
+        "updated_at": "s52",
+        "version_id": "VERSION01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      },
+      "RULESET_VERSION02": {
+        "actor": {},
+        "id": "RULESET_VERSION02",
+        "updated_at": "s7a",
+        "version_id": "VERSION01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "ruleset_version": {
+      "ruleset_version_ref01": {
+        "actor": {},
+        "updated_at": "sa2",
+        "version_id": "VERSION01"
+      }
+    }
+  }
+}

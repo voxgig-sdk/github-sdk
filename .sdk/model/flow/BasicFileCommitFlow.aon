@@ -1,0 +1,34 @@
+# BasicFileCommitFlow
+
+main: kit: flow: BasicFileCommitFlow:
+{
+  entity: "file_commit",
+  kind: "basic",
+  name: "BasicFileCommitFlow",
+  step: [
+    {
+      data: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      input: {
+        ref: "file_commit_ref01",
+        srcdatavar: "file_commit_ref01_data",
+        suffix: "_up0",
+        textfield: "branch"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-file_commit_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFileCommitFlow"
+}

@@ -1,0 +1,68 @@
+# BasicFullRepositoryFlow
+
+main: kit: flow: BasicFullRepositoryFlow:
+{
+  entity: "full_repository",
+  kind: "basic",
+  name: "BasicFullRepositoryFlow",
+  step: [
+    {
+      input: {
+        ref: "full_repository_ref01"
+      }
+
+      match: {
+        owner: "owner01"
+      }
+
+      op: "create"
+    }
+
+    {
+      data: {
+        owner: "owner01"
+      }
+
+      input: {
+        ref: "full_repository_ref01",
+        srcdatavar: "full_repository_ref01_data",
+        suffix: "_up0",
+        textfield: "archive_url"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-full_repository_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "full_repository_ref01",
+        srcdatavar: "full_repository_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "full_repository01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-full_repository_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFullRepositoryFlow"
+}

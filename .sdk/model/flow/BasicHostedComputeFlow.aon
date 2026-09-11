@@ -1,0 +1,26 @@
+# BasicHostedComputeFlow
+
+main: kit: flow: BasicHostedComputeFlow:
+{
+  entity: "hosted_compute",
+  kind: "basic",
+  name: "BasicHostedComputeFlow",
+  step: [
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "hosted_compute_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicHostedComputeFlow"
+}

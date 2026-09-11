@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "check_automated_security_fix": {
+      "CHECK_AUTOMATED_SECURITY_FIX00": {
+        "enabled": true,
+        "paused": false,
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CHECK_AUTOMATED_SECURITY_FIX00"
+      },
+      "CHECK_AUTOMATED_SECURITY_FIX01": {
+        "enabled": true,
+        "paused": false,
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CHECK_AUTOMATED_SECURITY_FIX01"
+      },
+      "CHECK_AUTOMATED_SECURITY_FIX02": {
+        "enabled": true,
+        "paused": false,
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CHECK_AUTOMATED_SECURITY_FIX02"
+      }
+    }
+  },
+  "new": {
+    "check_automated_security_fix": {
+      "check_automated_security_fix_ref01": {
+        "enabled": true,
+        "paused": false
+      }
+    }
+  }
+}

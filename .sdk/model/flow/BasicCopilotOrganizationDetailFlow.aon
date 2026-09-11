@@ -1,0 +1,32 @@
+# BasicCopilotOrganizationDetailFlow
+
+main: kit: flow: BasicCopilotOrganizationDetailFlow:
+{
+  entity: "copilot_organization_detail",
+  kind: "basic",
+  name: "BasicCopilotOrganizationDetailFlow",
+  step: [
+    {
+      input: {
+        ref: "copilot_organization_detail_ref01",
+        srcdatavar: "copilot_organization_detail_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "copilot_organization_detail01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-copilot_organization_detail_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCopilotOrganizationDetailFlow"
+}

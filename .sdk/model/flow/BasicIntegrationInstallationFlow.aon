@@ -1,0 +1,22 @@
+# BasicIntegrationInstallationFlow
+
+main: kit: flow: BasicIntegrationInstallationFlow:
+{
+  entity: "integration_installation",
+  kind: "basic",
+  name: "BasicIntegrationInstallationFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "integration_installation_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicIntegrationInstallationFlow"
+}

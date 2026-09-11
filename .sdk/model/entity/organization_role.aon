@@ -1,0 +1,143 @@
+# Entity: organization_role
+
+main: kit: entity: organization_role: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "base_role"
+      req: false
+      short: "The system role from which this role inherits permissions."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      short: "The date and time the role was created."
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      short: "A short description about who this role is for or what permissions it grants."
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      req: true
+      short: "The unique identifier of the role."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "name"
+      req: true
+      short: "The name of the role."
+      type: "`$STRING`"
+    }
+    {
+      name: "organization"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "permissions"
+      req: true
+      short: "A list of permissions included in this role."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "source"
+      req: false
+      short: "Source answers the question, \"where did this role come from?\""
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      req: true
+      short: "The date and time the role was last updated."
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "organization_role"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "role_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/organization-roles/{role_id}"
+          rename: {
+            param: {
+              org: "org_id"
+              role_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "organization-roles"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+    ]
+  }
+
+
+
+}

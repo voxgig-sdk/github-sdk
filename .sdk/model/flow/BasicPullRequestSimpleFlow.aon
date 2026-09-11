@@ -1,0 +1,39 @@
+# BasicPullRequestSimpleFlow
+
+main: kit: flow: BasicPullRequestSimpleFlow:
+{
+  entity: "pull_request_simple",
+  kind: "basic",
+  name: "BasicPullRequestSimpleFlow",
+  step: [
+    {
+      input: {
+        ref: "pull_request_simple_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        pull_number: "pull_number01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "pull_request_simple_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "pull_request_simple01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "remove"
+    }
+  ],
+  "key$": "BasicPullRequestSimpleFlow"
+}

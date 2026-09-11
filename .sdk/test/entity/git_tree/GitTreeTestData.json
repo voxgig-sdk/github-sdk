@@ -1,0 +1,47 @@
+{
+  "existing": {
+    "git_tree": {
+      "GIT_TREE00": {
+        "base_tree": "s3c",
+        "id": "GIT_TREE00",
+        "sha": "s3e",
+        "tree": [],
+        "truncated": true,
+        "url": "s41",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "GIT_TREE01": {
+        "base_tree": "s78",
+        "id": "GIT_TREE01",
+        "sha": "s7a",
+        "tree": [],
+        "truncated": true,
+        "url": "s7d",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "GIT_TREE02": {
+        "base_tree": "sb4",
+        "id": "GIT_TREE02",
+        "sha": "sb6",
+        "tree": [],
+        "truncated": true,
+        "url": "sb9",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "git_tree": {
+      "git_tree_ref01": {
+        "base_tree": "sf0",
+        "sha": "sf2",
+        "tree": [],
+        "truncated": true,
+        "url": "sf5"
+      }
+    }
+  }
+}

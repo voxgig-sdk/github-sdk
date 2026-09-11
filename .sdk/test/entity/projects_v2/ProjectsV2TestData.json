@@ -1,0 +1,91 @@
+{
+  "existing": {
+    "projects_v2": {
+      "PROJECTS_V200": {
+        "closed_at": "saa",
+        "created_at": "sab",
+        "creator": {},
+        "deleted_at": "sad",
+        "deleted_by": {},
+        "description": "saf",
+        "id": "PROJECTS_V200",
+        "is_template": false,
+        "latest_status_update": {},
+        "node_id": "NODE01",
+        "number": "sb4",
+        "owner": {},
+        "public": true,
+        "short_description": "sb7",
+        "state": "sb8",
+        "title": "sb9",
+        "updated_at": "sba",
+        "org_id": "ORG01",
+        "username": "USERNAME01"
+      },
+      "PROJECTS_V201": {
+        "closed_at": "s154",
+        "created_at": "s155",
+        "creator": {},
+        "deleted_at": "s157",
+        "deleted_by": {},
+        "description": "s159",
+        "id": "PROJECTS_V201",
+        "is_template": false,
+        "latest_status_update": {},
+        "node_id": "NODE01",
+        "number": "s15e",
+        "owner": {},
+        "public": true,
+        "short_description": "s161",
+        "state": "s162",
+        "title": "s163",
+        "updated_at": "s164",
+        "org_id": "ORG01",
+        "username": "USERNAME01"
+      },
+      "PROJECTS_V202": {
+        "closed_at": "s1fe",
+        "created_at": "s1ff",
+        "creator": {},
+        "deleted_at": "s201",
+        "deleted_by": {},
+        "description": "s203",
+        "id": "PROJECTS_V202",
+        "is_template": false,
+        "latest_status_update": {},
+        "node_id": "NODE01",
+        "number": "s208",
+        "owner": {},
+        "public": true,
+        "short_description": "s20b",
+        "state": "s20c",
+        "title": "s20d",
+        "updated_at": "s20e",
+        "org_id": "ORG01",
+        "username": "USERNAME01"
+      }
+    }
+  },
+  "new": {
+    "projects_v2": {
+      "projects_v2_ref01": {
+        "closed_at": "s2a8",
+        "created_at": "s2a9",
+        "creator": {},
+        "deleted_at": "s2ab",
+        "deleted_by": {},
+        "description": "s2ad",
+        "is_template": false,
+        "latest_status_update": {},
+        "node_id": "NODE01",
+        "number": "s2b2",
+        "owner": {},
+        "public": true,
+        "short_description": "s2b5",
+        "state": "s2b6",
+        "title": "s2b7",
+        "updated_at": "s2b8"
+      }
+    }
+  }
+}

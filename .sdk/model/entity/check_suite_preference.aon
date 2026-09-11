@@ -1,0 +1,95 @@
+# Entity: check_suite_preference
+
+main: kit: entity: check_suite_preference: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "auto_trigger_checks"
+      req: false
+      short: "Enables or disables automatic creation of CheckSuite events upon pushes to the repository."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "preferences"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "repository"
+      req: true
+      short: "Minimal Repository"
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "check_suite_preference"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/repos/{owner}/{repo}/check-suites/preferences"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "check-suites"
+            }
+            {
+              lit: "preferences"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

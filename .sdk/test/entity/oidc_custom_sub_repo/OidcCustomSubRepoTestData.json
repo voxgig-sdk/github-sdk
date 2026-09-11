@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "oidc_custom_sub_repo": {
+      "OIDC_CUSTOM_SUB_REPO00": {
+        "include_claim_keys": [],
+        "use_default": false,
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "OIDC_CUSTOM_SUB_REPO01": {
+        "include_claim_keys": [],
+        "use_default": false,
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "OIDC_CUSTOM_SUB_REPO02": {
+        "include_claim_keys": [],
+        "use_default": false,
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "oidc_custom_sub_repo": {
+      "oidc_custom_sub_repo_ref01": {
+        "include_claim_keys": [],
+        "use_default": false
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# BasicSimpleClassroomFlow
+
+main: kit: flow: BasicSimpleClassroomFlow:
+{
+  entity: "simple_classroom",
+  kind: "basic",
+  name: "BasicSimpleClassroomFlow",
+  "key$": "BasicSimpleClassroomFlow"
+}

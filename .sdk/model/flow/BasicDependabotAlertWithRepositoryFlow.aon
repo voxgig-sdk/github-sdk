@@ -1,0 +1,26 @@
+# BasicDependabotAlertWithRepositoryFlow
+
+main: kit: flow: BasicDependabotAlertWithRepositoryFlow:
+{
+  entity: "dependabot_alert_with_repository",
+  kind: "basic",
+  name: "BasicDependabotAlertWithRepositoryFlow",
+  step: [
+    {
+      match: {
+        enterprise: "enterprise01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "dependabot_alert_with_repository_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDependabotAlertWithRepositoryFlow"
+}

@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "tag": {
+      "TAG00": {
+        "commit": {},
+        "name": "s33",
+        "node_id": "NODE01",
+        "tarball_url": "s35",
+        "zipball_url": "s36",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "TAG01": {
+        "commit": {},
+        "name": "s65",
+        "node_id": "NODE01",
+        "tarball_url": "s67",
+        "zipball_url": "s68",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "TAG02": {
+        "commit": {},
+        "name": "s97",
+        "node_id": "NODE01",
+        "tarball_url": "s99",
+        "zipball_url": "s9a",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "tag": {
+      "tag_ref01": {
+        "commit": {},
+        "name": "sc9",
+        "node_id": "NODE01",
+        "tarball_url": "scb",
+        "zipball_url": "scc"
+      }
+    }
+  }
+}

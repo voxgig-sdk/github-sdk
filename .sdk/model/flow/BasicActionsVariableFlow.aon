@@ -1,0 +1,34 @@
+# BasicActionsVariableFlow
+
+main: kit: flow: BasicActionsVariableFlow:
+{
+  entity: "actions_variable",
+  kind: "basic",
+  name: "BasicActionsVariableFlow",
+  step: [
+    {
+      input: {
+        ref: "actions_variable_ref01",
+        srcdatavar: "actions_variable_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "actions_variable01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-actions_variable_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicActionsVariableFlow"
+}

@@ -1,0 +1,34 @@
+# BasicBlobFlow
+
+main: kit: flow: BasicBlobFlow:
+{
+  entity: "blob",
+  kind: "basic",
+  name: "BasicBlobFlow",
+  step: [
+    {
+      input: {
+        ref: "blob_ref01",
+        srcdatavar: "blob_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "blob01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-blob_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBlobFlow"
+}

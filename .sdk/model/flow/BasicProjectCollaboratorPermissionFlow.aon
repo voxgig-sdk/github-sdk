@@ -1,0 +1,33 @@
+# BasicProjectCollaboratorPermissionFlow
+
+main: kit: flow: BasicProjectCollaboratorPermissionFlow:
+{
+  entity: "project_collaborator_permission",
+  kind: "basic",
+  name: "BasicProjectCollaboratorPermissionFlow",
+  step: [
+    {
+      input: {
+        ref: "project_collaborator_permission_ref01",
+        srcdatavar: "project_collaborator_permission_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "project_collaborator_permission01",
+        project_id: "project01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-project_collaborator_permission_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicProjectCollaboratorPermissionFlow"
+}

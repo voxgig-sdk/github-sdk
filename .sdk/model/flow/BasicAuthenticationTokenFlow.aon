@@ -1,0 +1,22 @@
+# BasicAuthenticationTokenFlow
+
+main: kit: flow: BasicAuthenticationTokenFlow:
+{
+  entity: "authentication_token",
+  kind: "basic",
+  name: "BasicAuthenticationTokenFlow",
+  step: [
+    {
+      input: {
+        ref: "authentication_token_ref01"
+      }
+
+      match: {
+        org_id: "org01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicAuthenticationTokenFlow"
+}

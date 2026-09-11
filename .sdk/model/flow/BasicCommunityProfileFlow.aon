@@ -1,0 +1,33 @@
+# BasicCommunityProfileFlow
+
+main: kit: flow: BasicCommunityProfileFlow:
+{
+  entity: "community_profile",
+  kind: "basic",
+  name: "BasicCommunityProfileFlow",
+  step: [
+    {
+      input: {
+        ref: "community_profile_ref01",
+        srcdatavar: "community_profile_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "community_profile01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-community_profile_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCommunityProfileFlow"
+}

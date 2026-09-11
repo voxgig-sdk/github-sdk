@@ -1,0 +1,33 @@
+# BasicActionsRepositoryPermissionFlow
+
+main: kit: flow: BasicActionsRepositoryPermissionFlow:
+{
+  entity: "actions_repository_permission",
+  kind: "basic",
+  name: "BasicActionsRepositoryPermissionFlow",
+  step: [
+    {
+      input: {
+        ref: "actions_repository_permission_ref01",
+        srcdatavar: "actions_repository_permission_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "actions_repository_permission01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-actions_repository_permission_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicActionsRepositoryPermissionFlow"
+}

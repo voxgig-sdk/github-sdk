@@ -1,0 +1,56 @@
+# BasicOrgMembershipFlow
+
+main: kit: flow: BasicOrgMembershipFlow:
+{
+  entity: "org_membership",
+  kind: "basic",
+  name: "BasicOrgMembershipFlow",
+  step: [
+    {
+      data: {
+        org_id: "org01"
+      }
+
+      input: {
+        ref: "org_membership_ref01",
+        srcdatavar: "org_membership_ref01_data",
+        suffix: "_up0",
+        textfield: "organization_url"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-org_membership_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "org_membership_ref01",
+        srcdatavar: "org_membership_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "org_membership01",
+        org_id: "org01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-org_membership_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOrgMembershipFlow"
+}

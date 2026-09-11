@@ -1,0 +1,518 @@
+# Entity: check
+
+main: kit: entity: check: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "after"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "app"
+      req: true
+      short: "GitHub apps are a new way to extend GitHub."
+      type: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    {
+      name: "before"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "check_runs_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "check_suite"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      format: "date-time"
+      name: "completed_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "conclusion"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "deployment"
+      req: true
+      short: "A deployment created as the result of an Actions check run from a workflow that references an environment"
+      type: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 4
+      }
+    }
+    {
+      name: "details_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "external_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "head_branch"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "head_commit"
+      req: true
+      short: "A commit."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "head_sha"
+      req: true
+      short: "The SHA of the commit that is being checked."
+      type: "`$STRING`"
+    }
+    {
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      req: true
+      short: "The id of the check."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "latest_check_runs_count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "name"
+      req: true
+      short: "The name of the check."
+      type: "`$STRING`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "output"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "pull_requests"
+      req: true
+      short: "Pull requests that are open with a `head_sha` or `head_branch` that matches the check."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "repository"
+      req: true
+      short: "Minimal Repository"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "rerequestable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "runs_rerequestable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "date-time"
+      name: "started_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: true
+      short: "The phase of the lifecycle that the check is currently in."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "check"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "ref"
+                orig: "ref"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "app_id"
+                orig: "app_id"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "check_name"
+                orig: "check_name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "latest"
+                kind: "query"
+                name: "filter"
+                orig: "filter"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "status"
+                orig: "status"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/commits/{ref}/check-runs"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "commits"
+            }
+            {
+              var: "ref"
+            }
+            {
+              lit: "check-runs"
+            }
+          ]
+          select: {
+            exist: [
+              "app_id"
+              "check_name"
+              "filter"
+              "owner"
+              "page"
+              "per_page"
+              "ref"
+              "repo"
+              "status"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.check_runs`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "check_suite_id"
+                orig: "check_suite_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "check_name"
+                orig: "check_name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "latest"
+                kind: "query"
+                name: "filter"
+                orig: "filter"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "status"
+                orig: "status"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "check-suites"
+            }
+            {
+              var: "check_suite_id"
+            }
+            {
+              lit: "check-runs"
+            }
+          ]
+          select: {
+            exist: [
+              "check_name"
+              "check_suite_id"
+              "filter"
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+              "status"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.check_runs`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "ref"
+                orig: "ref"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "app_id"
+                orig: "app_id"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "check_name"
+                orig: "check_name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/commits/{ref}/check-suites"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "commits"
+            }
+            {
+              var: "ref"
+            }
+            {
+              lit: "check-suites"
+            }
+          ]
+          select: {
+            exist: [
+              "app_id"
+              "check_name"
+              "owner"
+              "page"
+              "per_page"
+              "ref"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.check_suites`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+        "check_suite"
+      ]
+      [
+        "repo"
+        "commit"
+      ]
+    ]
+  }
+
+
+
+}

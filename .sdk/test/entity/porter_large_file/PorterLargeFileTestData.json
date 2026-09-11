@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "porter_large_file": {
+      "PORTER_LARGE_FILE00": {
+        "oid": "s28",
+        "path": "s29",
+        "ref_name": "s2a",
+        "size": "s2b",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "PORTER_LARGE_FILE01": {
+        "oid": "s50",
+        "path": "s51",
+        "ref_name": "s52",
+        "size": "s53",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "PORTER_LARGE_FILE02": {
+        "oid": "s78",
+        "path": "s79",
+        "ref_name": "s7a",
+        "size": "s7b",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "porter_large_file": {
+      "porter_large_file_ref01": {
+        "oid": "sa0",
+        "path": "sa1",
+        "ref_name": "sa2",
+        "size": "sa3"
+      }
+    }
+  }
+}

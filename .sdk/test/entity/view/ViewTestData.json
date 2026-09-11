@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "view": {
+      "VIEW00": {
+        "count": "s1e",
+        "timestamp": "s1f",
+        "uniques": "s20",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "VIEW01": {
+        "count": "s3c",
+        "timestamp": "s3d",
+        "uniques": "s3e",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "VIEW02": {
+        "count": "s5a",
+        "timestamp": "s5b",
+        "uniques": "s5c",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "view": {
+      "view_ref01": {
+        "count": "s78",
+        "timestamp": "s79",
+        "uniques": "s7a"
+      }
+    }
+  }
+}

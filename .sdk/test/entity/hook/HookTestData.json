@@ -1,0 +1,83 @@
+{
+  "existing": {
+    "hook": {
+      "HOOK00": {
+        "active": true,
+        "add_events": [],
+        "config": {},
+        "created_at": "s99",
+        "deliveries_url": "s9a",
+        "events": [],
+        "id": "HOOK00",
+        "last_response": {},
+        "name": "s9e",
+        "ping_url": "s9f",
+        "remove_events": [],
+        "test_url": "sa1",
+        "type": "sa2",
+        "updated_at": "sa3",
+        "url": "sa4",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "HOOK01": {
+        "active": true,
+        "add_events": [],
+        "config": {},
+        "created_at": "s12f",
+        "deliveries_url": "s130",
+        "events": [],
+        "id": "HOOK01",
+        "last_response": {},
+        "name": "s134",
+        "ping_url": "s135",
+        "remove_events": [],
+        "test_url": "s137",
+        "type": "s138",
+        "updated_at": "s139",
+        "url": "s13a",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "HOOK02": {
+        "active": true,
+        "add_events": [],
+        "config": {},
+        "created_at": "s1c5",
+        "deliveries_url": "s1c6",
+        "events": [],
+        "id": "HOOK02",
+        "last_response": {},
+        "name": "s1ca",
+        "ping_url": "s1cb",
+        "remove_events": [],
+        "test_url": "s1cd",
+        "type": "s1ce",
+        "updated_at": "s1cf",
+        "url": "s1d0",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "hook": {
+      "hook_ref01": {
+        "active": true,
+        "add_events": [],
+        "config": {},
+        "created_at": "s25b",
+        "deliveries_url": "s25c",
+        "events": [],
+        "last_response": {},
+        "name": "s260",
+        "ping_url": "s261",
+        "remove_events": [],
+        "test_url": "s263",
+        "type": "s264",
+        "updated_at": "s265",
+        "url": "s266"
+      }
+    }
+  }
+}

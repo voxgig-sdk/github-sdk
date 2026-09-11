@@ -1,0 +1,655 @@
+# Entity: release
+
+main: kit: entity: release: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "assets"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      format: "uri"
+      name: "assets_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "author"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "body"
+      req: false
+      short: "Text describing the contents of the tag."
+      type: "`$STRING`"
+    }
+    {
+      name: "body_html"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "body_text"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "browser_download_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "content_type"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "digest"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "discussion_category_name"
+      req: false
+      short: "If specified, a discussion of the specified category is created and linked to the release."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "discussion_url"
+      req: false
+      short: "The URL of the release discussion."
+      type: "`$STRING`"
+    }
+    {
+      name: "download_count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "draft"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "true to create a draft (unpublished) release, false to create a published one."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "generate_release_notes"
+      req: false
+      short: "Whether to automatically generate the name and body for this release."
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "immutable"
+      req: false
+      short: "Whether or not the release is immutable."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "label"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "make_latest"
+      req: false
+      short: "Specifies whether this release should be set as the latest release for the repository."
+      type: "`$STRING`"
+    }
+    {
+      name: "mentions_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "name"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The name of the release."
+      type: "`$STRING`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "prerelease"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+        update: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Whether to identify the release as a prerelease or a full release."
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "date-time"
+      name: "published_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "reactions"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "size"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "state"
+      req: true
+      short: "State of the release asset."
+      type: "`$STRING`"
+    }
+    {
+      name: "tag_name"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The name of the tag."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "tarball_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "target_commitish"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "Specifies the commitish value that determines where the Git tag is created from."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "upload_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "uploader"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "zipball_url"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "release"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/releases"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "releases"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/releases"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "releases"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/releases/latest"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "releases"
+            }
+            {
+              lit: "latest"
+            }
+          ]
+          select: {
+            "$action": "latest"
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "release_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/releases/{release_id}"
+          rename: {
+            param: {
+              release_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "releases"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "tag"
+                orig: "tag"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/releases/tags/{tag}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "releases"
+            }
+            {
+              lit: "tags"
+            }
+            {
+              var: "tag"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "tag"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "release_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/repos/{owner}/{repo}/releases/{release_id}"
+          rename: {
+            param: {
+              release_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "releases"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+      [
+        "repo"
+        "tag"
+      ]
+    ]
+  }
+
+
+
+}

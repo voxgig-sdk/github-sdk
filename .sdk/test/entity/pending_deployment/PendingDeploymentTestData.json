@@ -1,0 +1,47 @@
+{
+  "existing": {
+    "pending_deployment": {
+      "PENDING_DEPLOYMENT00": {
+        "current_user_can_approve": true,
+        "environment": {},
+        "reviewers": [],
+        "wait_timer": "s35",
+        "wait_timer_started_at": "s36",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "run_id": "RUN01"
+      },
+      "PENDING_DEPLOYMENT01": {
+        "current_user_can_approve": true,
+        "environment": {},
+        "reviewers": [],
+        "wait_timer": "s67",
+        "wait_timer_started_at": "s68",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "run_id": "RUN01"
+      },
+      "PENDING_DEPLOYMENT02": {
+        "current_user_can_approve": true,
+        "environment": {},
+        "reviewers": [],
+        "wait_timer": "s99",
+        "wait_timer_started_at": "s9a",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "run_id": "RUN01"
+      }
+    }
+  },
+  "new": {
+    "pending_deployment": {
+      "pending_deployment_ref01": {
+        "current_user_can_approve": true,
+        "environment": {},
+        "reviewers": [],
+        "wait_timer": "scb",
+        "wait_timer_started_at": "scc"
+      }
+    }
+  }
+}

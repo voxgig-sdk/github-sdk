@@ -1,0 +1,33 @@
+# BasicOrganizationActionsVariableFlow
+
+main: kit: flow: BasicOrganizationActionsVariableFlow:
+{
+  entity: "organization_actions_variable",
+  kind: "basic",
+  name: "BasicOrganizationActionsVariableFlow",
+  step: [
+    {
+      input: {
+        ref: "organization_actions_variable_ref01",
+        srcdatavar: "organization_actions_variable_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "organization_actions_variable01",
+        org_id: "org01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-organization_actions_variable_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOrganizationActionsVariableFlow"
+}

@@ -1,0 +1,52 @@
+# BasicStatusCheckPolicyFlow
+
+main: kit: flow: BasicStatusCheckPolicyFlow:
+{
+  entity: "status_check_policy",
+  kind: "basic",
+  name: "BasicStatusCheckPolicyFlow",
+  step: [
+    {
+      match: {
+        branch_id: "branch01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "status_check_policy_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      input: {
+        ref: "status_check_policy_ref01",
+        srcdatavar: "status_check_policy_ref01_data",
+        suffix: "_up0",
+        textfield: "context"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-status_check_policy_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicStatusCheckPolicyFlow"
+}

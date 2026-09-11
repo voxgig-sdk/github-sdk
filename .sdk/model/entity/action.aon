@@ -1,0 +1,7956 @@
+# Entity: action
+
+main: kit: entity: action: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "MACOS"
+      req: false
+      short: "Total minutes used on macOS runner machines."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "UBUNTU"
+      req: false
+      short: "Total minutes used on Ubuntu runner machines."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "WINDOWS"
+      req: false
+      short: "Total minutes used on Windows runner machines."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "access_level"
+      req: true
+      short: "Defines the level of access that workflows outside of the repository have to actions and reusable workflows within the repository."
+      type: "`$STRING`"
+    }
+    {
+      name: "active_caches_count"
+      req: true
+      short: "The number of active caches in the repository."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "active_caches_size_in_bytes"
+      req: true
+      short: "The sum of the size in bytes of all the active cache items in the repository."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "actor"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "allow_auto_merge"
+      req: false
+      short: "Whether to allow Auto-merge to be used on pull requests."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "allow_forking"
+      req: false
+      short: "Whether to allow forking this repo"
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "allow_merge_commit"
+      req: false
+      short: "Whether to allow merge commits for pull requests."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "allow_rebase_merge"
+      req: false
+      short: "Whether to allow rebase merges for pull requests."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "allow_squash_merge"
+      req: false
+      short: "Whether to allow squash merges for pull requests."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "allow_update_branch"
+      req: false
+      short: "Whether or not a pull request head branch that is behind its base branch can always be updated even if it is not required to be up to date before merging."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "allowed_actions"
+      req: false
+      short: "The permissions policy that controls the actions and reusable workflows that are allowed to run."
+      type: "`$STRING`"
+    }
+    {
+      name: "allows_public_repositories"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "anonymous_access_enabled"
+      req: false
+      short: "Whether anonymous git access is enabled for this repository"
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "approval_policy"
+      req: true
+      short: "The policy that controls when fork PR workflows require approval from a maintainer."
+      type: "`$STRING`"
+    }
+    {
+      name: "archive_download_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "archive_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "archived"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: false
+      short: "Whether the repository is archived."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "artifacts_url"
+      req: true
+      short: "The URL to the artifacts for the workflow run."
+      type: "`$STRING`"
+    }
+    {
+      name: "assignees_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "badge_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "blobs_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "branches_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "busy"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_approve_pull_request_reviews"
+      req: false
+      short: "Whether GitHub Actions can approve pull requests."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "cancel_url"
+      req: true
+      short: "The URL to cancel the workflow run."
+      type: "`$STRING`"
+    }
+    {
+      name: "check_run_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "check_suite_id"
+      req: false
+      short: "The ID of the associated check suite."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "check_suite_node_id"
+      req: false
+      short: "The node ID of the associated check suite."
+      type: "`$STRING`"
+    }
+    {
+      name: "check_suite_url"
+      req: true
+      short: "The URL to the associated check suite."
+      type: "`$STRING`"
+    }
+    {
+      name: "clone_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "code_of_conduct"
+      req: true
+      short: "Code Of Conduct"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "code_search_index_status"
+      req: false
+      short: "The status of the code search index for this repository"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "collaborators_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "comments_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "commits_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "compare_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "completed_at"
+      req: true
+      short: "The time that the job finished, in ISO 8601 format."
+      type: "`$STRING`"
+    }
+    {
+      name: "conclusion"
+      req: true
+      short: "The outcome of the job."
+      type: "`$STRING`"
+    }
+    {
+      name: "contents_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "contributors_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "cpu_cores"
+      req: true
+      short: "The number of cores."
+      type: "`$INTEGER`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The time that the job created, in ISO 8601 format."
+      type: "`$STRING`"
+    }
+    {
+      name: "custom_properties"
+      req: false
+      short: "The custom properties that were defined for the repository."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "days"
+      req: true
+      short: "The number of days to retain artifacts and logs"
+      type: "`$INTEGER`"
+    }
+    {
+      name: "default"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "default_branch"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "The default branch of the repository."
+      type: "`$STRING`"
+    }
+    {
+      name: "default_workflow_permissions"
+      req: false
+      short: "The default workflow permissions granted to the GITHUB_TOKEN when running workflows."
+      type: "`$STRING`"
+    }
+    {
+      name: "delete_branch_on_merge"
+      req: false
+      short: "Whether to delete head branches when pull requests are merged"
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "date-time"
+      name: "deleted_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "deployments_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "digest"
+      req: false
+      short: "The SHA256 digest of the artifact."
+      type: "`$STRING`"
+    }
+    {
+      name: "disabled"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: false
+      short: "Returns whether or not this repository disabled."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "display_name"
+      req: true
+      short: "Display name for this image."
+      type: "`$STRING`"
+    }
+    {
+      name: "display_title"
+      req: true
+      short: "The event-specific title associated with the run or the run-name if set, or the value of `run-name` if it is set in the workflow."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "downloads_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "enabled"
+      req: true
+      short: "Whether GitHub Actions is enabled on the repository."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "enabled_repositories"
+      req: true
+      short: "The policy that controls the repositories in the organization that are allowed to run GitHub Actions."
+      type: "`$STRING`"
+    }
+    {
+      name: "ephemeral"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "event"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "expired"
+      req: true
+      short: "Whether or not the artifact has expired."
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "date-time"
+      name: "expires_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "fork"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "forks"
+      op: {
+        list: {
+          req: true
+          type: "`$INTEGER`"
+        }
+      }
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "forks_count"
+      op: {
+        list: {
+          req: true
+          type: "`$INTEGER`"
+        }
+      }
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "forks_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "full_name"
+      req: true
+      short: "The repository owner and name for the cache usage being shown."
+      type: "`$STRING`"
+    }
+    {
+      name: "git_commits_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_refs_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_tags_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "github_owned_allowed"
+      req: false
+      short: "Whether GitHub-owned actions are allowed."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_discussions"
+      req: false
+      short: "Whether discussions are enabled."
+      type: "`$BOOLEAN`"
+    }
+    {
+      deprecated: true
+      name: "has_downloads"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: false
+      short: "Whether downloads are enabled."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_issues"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: false
+      short: "Whether issues are enabled."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_pages"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_projects"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: false
+      short: "Whether projects are enabled."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_wiki"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: false
+      short: "Whether the wiki is enabled."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "head_branch"
+      req: true
+      short: "The name of the current branch."
+      type: "`$STRING`"
+    }
+    {
+      name: "head_commit"
+      req: true
+      short: "A commit."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "head_repository"
+      req: true
+      short: "Minimal Repository"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "head_repository_id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "head_sha"
+      req: true
+      short: "The SHA of the head commit that points to the version of the workflow being run."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "homepage"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "hooks_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "hosted_runners_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      op: {
+        list: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      req: true
+      short: "The ID of the workflow run."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "image_details"
+      req: true
+      short: "Provides details of a hosted runner image"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "inherited"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "inherited_allows_public_repositories"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "inputs"
+      req: false
+      short: "Input keys and values configured in the workflow file."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "is_template"
+      req: false
+      short: "Whether this repository acts as a template that can be used to generate new repositories."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "issue_comment_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "issue_events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "issues_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "jobs_url"
+      req: true
+      short: "The URL to the jobs for the workflow run."
+      type: "`$STRING`"
+    }
+    {
+      name: "keys_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "labels"
+      req: true
+      short: "The names of the custom labels to add to the runner."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "labels_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "language"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "languages_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "last_active_on"
+      req: false
+      short: "The time at which the runner was last used, in ISO 8601 format."
+      type: "`$STRING`"
+    }
+    {
+      name: "license"
+      op: {
+        list: {
+          req: true
+          type: "`$OBJECT`"
+        }
+      }
+      req: false
+      short: "License Simple"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "logs_url"
+      req: true
+      short: "The URL to download the logs for the workflow run."
+      type: "`$STRING`"
+    }
+    {
+      name: "machine_size_details"
+      req: true
+      short: "Provides details of a particular machine spec."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "macos_12_core"
+      req: false
+      short: "Total minutes used on macOS 12 core runner machines."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "master_branch"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "maximum_runners"
+      req: false
+      short: "The maximum amount of hosted runners."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "memory_gb"
+      req: true
+      short: "The available RAM for the machine spec."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "merge_commit_message"
+      req: false
+      short: "The default value for a merge commit message."
+      type: "`$STRING`"
+    }
+    {
+      name: "merge_commit_title"
+      req: false
+      short: "The default value for a merge commit title."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "merges_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "milestones_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "mirror_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+        patch: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The name of the new runner."
+      type: "`$STRING`"
+    }
+    {
+      name: "network_configuration_id"
+      req: false
+      short: "The identifier of a hosted compute network configuration."
+      type: "`$STRING`"
+    }
+    {
+      name: "network_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "notifications_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "open_issues"
+      op: {
+        list: {
+          req: true
+          type: "`$INTEGER`"
+        }
+      }
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "open_issues_count"
+      op: {
+        list: {
+          req: true
+          type: "`$INTEGER`"
+        }
+      }
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "os"
+      req: true
+      short: "The Operating System of the runner."
+      type: "`$STRING`"
+    }
+    {
+      name: "owner"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "path"
+      req: true
+      short: "The full path of the workflow"
+      type: "`$STRING`"
+    }
+    {
+      name: "patterns_allowed"
+      req: false
+      short: "Specifies a list of string-matching patterns to allow specific action(s) and reusable workflow(s)."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "permissions"
+      op: {
+        list: {
+          req: true
+          type: "`$OBJECT`"
+        }
+      }
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "platform"
+      req: true
+      short: "The operating system of the image."
+      type: "`$STRING`"
+    }
+    {
+      name: "platforms"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "previous_attempt_url"
+      req: false
+      short: "The URL to the previous attempted run of this workflow, if one exists."
+      type: "`$STRING`"
+    }
+    {
+      name: "private"
+      req: true
+      short: "Whether the repository is private or public."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "public_ip_enabled"
+      req: true
+      short: "Whether public IP is enabled for the hosted runners."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "public_ips"
+      req: false
+      short: "The public IP ranges when public IP is enabled for the hosted runners."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "pull_requests"
+      req: true
+      short: "Pull requests that are open with a `head_sha` or `head_branch` that matches the workflow run."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "pulls_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "pushed_at"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ref"
+      req: true
+      short: "The git reference for the workflow."
+      type: "`$STRING`"
+    }
+    {
+      name: "referenced_workflows"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "releases_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "repository"
+      req: true
+      short: "Minimal Repository"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "require_approval_for_fork_pr_workflows"
+      req: false
+      short: "Whether workflows triggered by pull requests from forks require approval from a repository administrator to run."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "rerun_url"
+      req: true
+      short: "The URL to rerun the workflow run."
+      type: "`$STRING`"
+    }
+    {
+      name: "restricted_to_workflows"
+      req: false
+      short: "If `true`, the runner group will be restricted to running only the workflows specified in the `selected_workflows` array."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "role_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "run_attempt"
+      req: false
+      short: "Attempt number of the run, 1 for first attempt and higher if the workflow was re-run."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "run_id"
+      req: true
+      short: "The id of the associated workflow run."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "run_number"
+      req: true
+      short: "The auto incrementing run number for the workflow run."
+      type: "`$INTEGER`"
+    }
+    {
+      format: "date-time"
+      name: "run_started_at"
+      req: false
+      short: "The start time of the latest run."
+      type: "`$STRING`"
+    }
+    {
+      name: "run_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "run_workflows_from_fork_pull_requests"
+      req: true
+      short: "Whether workflows triggered by pull requests from forks are allowed to run on private repositories."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "runner_group_id"
+      op: {
+        list: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      req: true
+      short: "The ID of the runner group to register the runner to."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "runner_group_name"
+      req: true
+      short: "The name of the runner group to which this job has been assigned."
+      type: "`$STRING`"
+    }
+    {
+      name: "runner_id"
+      req: true
+      short: "The ID of the runner to which this job has been assigned."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "runner_name"
+      req: true
+      short: "The name of the runner to which this job has been assigned."
+      type: "`$STRING`"
+    }
+    {
+      name: "runners"
+      req: true
+      short: "List of runner IDs to add to the runner group."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "runners_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "security_and_analysis"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      format: "uri"
+      name: "selected_repositories_url"
+      req: false
+      short: "Link to the selected repositories resource for this runner group."
+      type: "`$STRING`"
+    }
+    {
+      name: "selected_repository_ids"
+      op: {
+        patch: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      req: true
+      short: "The IDs of the repositories that can access the organization variable."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "selected_workflows"
+      req: false
+      short: "List of workflows the runner group should be allowed to run."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "send_secrets_and_variables"
+      req: false
+      short: "Whether to make secrets and variables available to workflows triggered by pull requests from forks."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "send_write_tokens_to_workflows"
+      req: false
+      short: "Whether GitHub Actions can create pull requests or submit approving pull request reviews from a workflow triggered by a fork pull request."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "sha_pinning_required"
+      req: false
+      short: "Whether actions must be pinned to a full-length commit SHA."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "size"
+      op: {
+        list: {
+          req: true
+          type: "`$INTEGER`"
+        }
+      }
+      req: false
+      short: "The size of the repository, in kilobytes."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "size_gb"
+      req: true
+      short: "Image size in GB."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "size_in_bytes"
+      req: true
+      short: "The size in bytes of the artifact."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "source"
+      req: true
+      short: "The image provider."
+      type: "`$STRING`"
+    }
+    {
+      name: "squash_merge_commit_message"
+      req: false
+      short: "The default value for a squash merge commit message: - `PR_BODY` - default to the pull request's body."
+      type: "`$STRING`"
+    }
+    {
+      name: "squash_merge_commit_title"
+      req: false
+      short: "The default value for a squash merge commit title: - `PR_TITLE` - default to the pull request's title."
+      type: "`$STRING`"
+    }
+    {
+      name: "ssh_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "stargazers_count"
+      op: {
+        list: {
+          req: true
+          type: "`$INTEGER`"
+        }
+      }
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "stargazers_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "starred_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "started_at"
+      req: true
+      short: "The time that the job started, in ISO 8601 format."
+      type: "`$STRING`"
+    }
+    {
+      name: "state"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: true
+      short: "The phase of the lifecycle that the job is currently in."
+      type: "`$STRING`"
+    }
+    {
+      name: "statuses_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "steps"
+      req: false
+      short: "Steps in this job."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "storage_gb"
+      req: true
+      short: "The available SSD storage for the machine spec."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "subscribers_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "subscribers_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "subscription_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "svn_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "tags_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "teams_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "temp_clone_token"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "topics"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "total"
+      req: false
+      short: "Total minutes used on all runner machines."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "total_count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "trees_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "triggering_actor"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "type"
+      req: false
+      short: "The type of label."
+      type: "`$STRING`"
+    }
+    {
+      name: "ubuntu_16_core"
+      req: false
+      short: "Total minutes used on Ubuntu 16 core runner machines."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ubuntu_32_core"
+      req: false
+      short: "Total minutes used on Ubuntu 32 core runner machines."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ubuntu_4_core"
+      req: false
+      short: "Total minutes used on Ubuntu 4 core runner machines."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ubuntu_64_core"
+      req: false
+      short: "Total minutes used on Ubuntu 64 core runner machines."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ubuntu_8_core"
+      req: false
+      short: "Total minutes used on Ubuntu 8 core runner machines."
+      type: "`$INTEGER`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The date and time at which the variable was last updated, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      short: "The URL to the workflow run."
+      type: "`$STRING`"
+    }
+    {
+      deprecated: true
+      name: "use_squash_pr_title_as_default"
+      req: false
+      short: "Whether a squash merge commit can use the pull request title as default."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "value"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "The value of the variable."
+      type: "`$STRING`"
+    }
+    {
+      name: "verified_allowed"
+      req: false
+      short: "Whether actions from GitHub Marketplace verified creators are allowed."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "visibility"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "The type of repositories in the organization that can access the variable."
+      type: "`$STRING`"
+    }
+    {
+      name: "watchers"
+      op: {
+        list: {
+          req: true
+          type: "`$INTEGER`"
+        }
+      }
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "watchers_count"
+      op: {
+        list: {
+          req: true
+          type: "`$INTEGER`"
+        }
+      }
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "web_commit_signoff_required"
+      req: false
+      short: "Whether to require contributors to sign off on web-based commits"
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "windows_16_core"
+      req: false
+      short: "Total minutes used on Windows 16 core runner machines."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "windows_32_core"
+      req: false
+      short: "Total minutes used on Windows 32 core runner machines."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "windows_4_core"
+      req: false
+      short: "Total minutes used on Windows 4 core runner machines."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "windows_64_core"
+      req: false
+      short: "Total minutes used on Windows 64 core runner machines."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "windows_8_core"
+      req: false
+      short: "Total minutes used on Windows 8 core runner machines."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "work_folder"
+      req: false
+      short: "The working directory to be used for job execution, relative to the runner install directory."
+      type: "`$STRING`"
+    }
+    {
+      name: "workflow_id"
+      req: true
+      short: "The ID of the parent workflow."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "workflow_name"
+      req: true
+      short: "The name of the workflow."
+      type: "`$STRING`"
+    }
+    {
+      name: "workflow_restrictions_read_only"
+      req: false
+      short: "If `true`, the `restricted_to_workflows` and `selected_workflows` fields cannot be modified."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "workflow_run"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "workflow_url"
+      req: true
+      short: "The URL to the workflow."
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "action"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_id"
+                orig: "runner_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/actions/runners/{runner_id}/labels"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runners"
+            }
+            {
+              var: "runner_id"
+            }
+            {
+              lit: "labels"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "runner_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "workflow_id"
+                orig: "workflow_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "workflows"
+            }
+            {
+              var: "workflow_id"
+            }
+            {
+              lit: "dispatches"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "workflow_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_id"
+                orig: "runner_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/actions/runners/{runner_id}/labels"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runners"
+            }
+            {
+              var: "runner_id"
+            }
+            {
+              lit: "labels"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "runner_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/actions/runners/generate-jitconfig"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runners"
+            }
+            {
+              lit: "generate-jitconfig"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.runner`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/actions/runners/generate-jitconfig"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runners"
+            }
+            {
+              lit: "generate-jitconfig"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.runner`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "workflow_id"
+                orig: "workflow_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "actor"
+                orig: "actor"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "branch"
+                orig: "branch"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "check_suite_id"
+                orig: "check_suite_id"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "created"
+                orig: "created"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "event"
+                orig: "event"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "exclude_pull_request"
+                orig: "exclude_pull_request"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "head_sha"
+                orig: "head_sha"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "status"
+                orig: "status"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "workflows"
+            }
+            {
+              var: "workflow_id"
+            }
+            {
+              lit: "runs"
+            }
+          ]
+          select: {
+            exist: [
+              "actor"
+              "branch"
+              "check_suite_id"
+              "created"
+              "event"
+              "exclude_pull_request"
+              "head_sha"
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+              "status"
+              "workflow_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.workflow_runs`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "actor"
+                orig: "actor"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "branch"
+                orig: "branch"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "check_suite_id"
+                orig: "check_suite_id"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "created"
+                orig: "created"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "event"
+                orig: "event"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "exclude_pull_request"
+                orig: "exclude_pull_request"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "head_sha"
+                orig: "head_sha"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "status"
+                orig: "status"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/runs"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runs"
+            }
+          ]
+          select: {
+            "$action": "run"
+            exist: [
+              "actor"
+              "branch"
+              "check_suite_id"
+              "created"
+              "event"
+              "exclude_pull_request"
+              "head_sha"
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+              "status"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.workflow_runs`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "attempt_number"
+                orig: "attempt_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "run_id"
+                orig: "run_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/jobs"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runs"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "attempts"
+            }
+            {
+              var: "attempt_number"
+            }
+            {
+              lit: "jobs"
+            }
+          ]
+          select: {
+            exist: [
+              "attempt_number"
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+              "run_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.jobs`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "run_id"
+                orig: "run_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                example: "latest"
+                kind: "query"
+                name: "filter"
+                orig: "filter"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/runs/{run_id}/jobs"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runs"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "jobs"
+            }
+          ]
+          select: {
+            exist: [
+              "filter"
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+              "run_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.jobs`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "run_id"
+                orig: "run_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/runs/{run_id}/artifacts"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runs"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "artifacts"
+            }
+          ]
+          select: {
+            exist: [
+              "name"
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+              "run_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.artifacts`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "environment_name"
+                orig: "environment_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/environments/{environment_name}/secrets"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "environments"
+            }
+            {
+              var: "environment_name"
+            }
+            {
+              lit: "secrets"
+            }
+          ]
+          select: {
+            exist: [
+              "environment_name"
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.secrets`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "environment_name"
+                orig: "environment_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 10
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/environments/{environment_name}/variables"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "environments"
+            }
+            {
+              var: "environment_name"
+            }
+            {
+              lit: "variables"
+            }
+          ]
+          select: {
+            exist: [
+              "environment_name"
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.variables`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/artifacts"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "artifacts"
+            }
+          ]
+          select: {
+            "$action": "artifact"
+            exist: [
+              "name"
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.artifacts`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/runners"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runners"
+            }
+          ]
+          select: {
+            "$action": "runner"
+            exist: [
+              "name"
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.runners`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/runners"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runners"
+            }
+          ]
+          select: {
+            "$action": "runner"
+            exist: [
+              "name"
+              "org_id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.runners`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "name"
+                orig: "name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/variables/{name}/repositories"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "variables"
+            }
+            {
+              var: "name"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            exist: [
+              "name"
+              "org_id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.repositories`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_group_id"
+                orig: "runner_group_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/runner-groups/{runner_group_id}/hosted-runners"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runner-groups"
+            }
+            {
+              var: "runner_group_id"
+            }
+            {
+              lit: "hosted-runners"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+              "runner_group_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.runners`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_group_id"
+                orig: "runner_group_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runner-groups"
+            }
+            {
+              var: "runner_group_id"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+              "runner_group_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.repositories`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_group_id"
+                orig: "runner_group_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runner-groups"
+            }
+            {
+              var: "runner_group_id"
+            }
+            {
+              lit: "runners"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+              "runner_group_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.runners`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/secrets/{secret_name}/repositories"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.repositories`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/organization-secrets"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "organization-secrets"
+            }
+          ]
+          select: {
+            "$action": "organization_secret"
+            exist: [
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.secrets`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 10
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/organization-variables"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "organization-variables"
+            }
+          ]
+          select: {
+            "$action": "organization_variable"
+            exist: [
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.variables`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "visible_to_repository"
+                orig: "visible_to_repository"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/runner-groups"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runner-groups"
+            }
+          ]
+          select: {
+            "$action": "runner_group"
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+              "visible_to_repository"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.runner_groups`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/secrets"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "secrets"
+            }
+          ]
+          select: {
+            "$action": "secret"
+            exist: [
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.secrets`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 10
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/variables"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "variables"
+            }
+          ]
+          select: {
+            "$action": "variable"
+            exist: [
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.variables`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/workflows"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "workflows"
+            }
+          ]
+          select: {
+            "$action": "workflow"
+            exist: [
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.workflows`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/cache/usage-by-repository"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "cache"
+            }
+            {
+              lit: "usage-by-repository"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.repository_cache_usages`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/hosted-runners"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "hosted-runners"
+            }
+          ]
+          select: {
+            "$action": "hosted_runner"
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.runners`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/permissions/repositories"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.repositories`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/permissions/self-hosted-runners/repositories"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "self-hosted-runners"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.repositories`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/secrets"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "secrets"
+            }
+          ]
+          select: {
+            "$action": "secret"
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.secrets`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 10
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/variables"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "variables"
+            }
+          ]
+          select: {
+            "$action": "variable"
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.variables`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_id"
+                orig: "runner_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/runners/{runner_id}/labels"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runners"
+            }
+            {
+              var: "runner_id"
+            }
+            {
+              lit: "labels"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "runner_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.labels`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_id"
+                orig: "runner_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/runners/{runner_id}/labels"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runners"
+            }
+            {
+              var: "runner_id"
+            }
+            {
+              lit: "labels"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "runner_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.labels`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/hosted-runners/images/github-owned"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "hosted-runners"
+            }
+            {
+              lit: "images"
+            }
+            {
+              lit: "github-owned"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.images`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/hosted-runners/images/partner"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "hosted-runners"
+            }
+            {
+              lit: "images"
+            }
+            {
+              lit: "partner"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.images`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/hosted-runners/machine-sizes"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "hosted-runners"
+            }
+            {
+              lit: "machine-sizes"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.machine_specs`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/hosted-runners/platforms"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "hosted-runners"
+            }
+            {
+              lit: "platforms"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.platforms`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "archive_format"
+                orig: "archive_format"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "artifact_id"
+                orig: "artifact_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              var: "artifact_id"
+            }
+            {
+              var: "archive_format"
+            }
+          ]
+          select: {
+            exist: [
+              "archive_format"
+              "artifact_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "attempt_number"
+                orig: "attempt_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "run_id"
+                orig: "run_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/logs"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runs"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "attempts"
+            }
+            {
+              var: "attempt_number"
+            }
+            {
+              lit: "logs"
+            }
+          ]
+          select: {
+            exist: [
+              "attempt_number"
+              "owner"
+              "repo"
+              "run_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "job_id"
+                orig: "job_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/jobs/{job_id}/logs"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "jobs"
+            }
+            {
+              var: "job_id"
+            }
+            {
+              lit: "logs"
+            }
+          ]
+          select: {
+            exist: [
+              "job_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "run_id"
+                orig: "run_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/runs/{run_id}/logs"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runs"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "logs"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "run_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/settings/billing/actions"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "billing"
+            }
+            {
+              lit: "actions"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.minutes_used_breakdown`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users/{username}/settings/billing/actions"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "billing"
+            }
+            {
+              lit: "actions"
+            }
+          ]
+          select: {
+            exist: [
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.minutes_used_breakdown`"
+          }
+        }
+      ]
+    }
+    patch: {
+      name: "patch"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "environment_id"
+                orig: "environment_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "name"
+                orig: "name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}"
+          rename: {
+            param: {
+              environment_name: "environment_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "environments"
+            }
+            {
+              var: "environment_id"
+            }
+            {
+              lit: "variables"
+            }
+            {
+              var: "name"
+            }
+          ]
+          select: {
+            exist: [
+              "environment_id"
+              "name"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "name"
+                orig: "name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/repos/{owner}/{repo}/actions/variables/{name}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "variables"
+            }
+            {
+              var: "name"
+            }
+          ]
+          select: {
+            exist: [
+              "name"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "name"
+                orig: "name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/orgs/{org}/actions/variables/{name}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "variables"
+            }
+            {
+              var: "name"
+            }
+          ]
+          select: {
+            exist: [
+              "name"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "environment_id"
+                orig: "environment_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "name"
+                orig: "name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}"
+          rename: {
+            param: {
+              environment_name: "environment_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "environments"
+            }
+            {
+              var: "environment_id"
+            }
+            {
+              lit: "variables"
+            }
+            {
+              var: "name"
+            }
+          ]
+          select: {
+            exist: [
+              "environment_id"
+              "name"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "environment_id"
+                orig: "environment_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}"
+          rename: {
+            param: {
+              environment_name: "environment_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "environments"
+            }
+            {
+              var: "environment_id"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+          ]
+          select: {
+            exist: [
+              "environment_id"
+              "owner"
+              "repo"
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "name"
+                orig: "name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_id"
+                orig: "runner_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/actions/runners/{runner_id}/labels/{name}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runners"
+            }
+            {
+              var: "runner_id"
+            }
+            {
+              lit: "labels"
+            }
+            {
+              var: "name"
+            }
+          ]
+          select: {
+            exist: [
+              "name"
+              "owner"
+              "repo"
+              "runner_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "artifact_id"
+                orig: "artifact_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/actions/artifacts/{artifact_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              var: "artifact_id"
+            }
+          ]
+          select: {
+            exist: [
+              "artifact_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "cache_id"
+                orig: "cache_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/actions/caches/{cache_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "caches"
+            }
+            {
+              var: "cache_id"
+            }
+          ]
+          select: {
+            exist: [
+              "cache_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "name"
+                orig: "name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_id"
+                orig: "runner_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/actions/runners/{runner_id}/labels/{name}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runners"
+            }
+            {
+              var: "runner_id"
+            }
+            {
+              lit: "labels"
+            }
+            {
+              var: "name"
+            }
+          ]
+          select: {
+            exist: [
+              "name"
+              "org_id"
+              "runner_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "name"
+                orig: "name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/actions/variables/{name}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "variables"
+            }
+            {
+              var: "name"
+            }
+          ]
+          select: {
+            exist: [
+              "name"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repository_id"
+                orig: "repository_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "runner_group_id"
+                orig: "runner_group_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runner-groups"
+            }
+            {
+              var: "runner_group_id"
+            }
+            {
+              lit: "repositories"
+            }
+            {
+              var: "repository_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "repository_id"
+              "runner_group_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repository_id"
+                orig: "repository_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "secret_id"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}"
+          rename: {
+            param: {
+              org: "org_id"
+              secret_name: "secret_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_id"
+            }
+            {
+              lit: "repositories"
+            }
+            {
+              var: "repository_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "repository_id"
+              "secret_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repository_id"
+                orig: "repository_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "variable_id"
+                orig: "name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
+          rename: {
+            param: {
+              name: "variable_id"
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "variables"
+            }
+            {
+              var: "variable_id"
+            }
+            {
+              lit: "repositories"
+            }
+            {
+              var: "repository_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "repository_id"
+              "variable_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_group_id"
+                orig: "runner_group_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "runner_id"
+                orig: "runner_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runner-groups"
+            }
+            {
+              var: "runner_group_id"
+            }
+            {
+              lit: "runners"
+            }
+            {
+              var: "runner_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "runner_group_id"
+              "runner_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "run_id"
+                orig: "run_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/actions/runs/{run_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runs"
+            }
+            {
+              var: "run_id"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "run_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "run_id"
+                orig: "run_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/actions/runs/{run_id}/logs"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runs"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "logs"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "run_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_id"
+                orig: "runner_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/actions/runners/{runner_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runners"
+            }
+            {
+              var: "runner_id"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "runner_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_id"
+                orig: "runner_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/actions/runners/{runner_id}/labels"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runners"
+            }
+            {
+              var: "runner_id"
+            }
+            {
+              lit: "labels"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "runner_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/actions/secrets/{secret_name}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "hosted_runner_id"
+                orig: "hosted_runner_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/actions/hosted-runners/{hosted_runner_id}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "hosted-runners"
+            }
+            {
+              var: "hosted_runner_id"
+            }
+          ]
+          select: {
+            exist: [
+              "hosted_runner_id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "name"
+                orig: "name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/actions/variables/{name}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "variables"
+            }
+            {
+              var: "name"
+            }
+          ]
+          select: {
+            exist: [
+              "name"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repository_id"
+                orig: "repository_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/actions/permissions/repositories/{repository_id}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "repositories"
+            }
+            {
+              var: "repository_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "repository_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repository_id"
+                orig: "repository_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/actions/permissions/self-hosted-runners/repositories/{repository_id}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "self-hosted-runners"
+            }
+            {
+              lit: "repositories"
+            }
+            {
+              var: "repository_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "repository_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_group_id"
+                orig: "runner_group_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/actions/runner-groups/{runner_group_id}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runner-groups"
+            }
+            {
+              var: "runner_group_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "runner_group_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_id"
+                orig: "runner_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/actions/runners/{runner_id}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runners"
+            }
+            {
+              var: "runner_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "runner_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_id"
+                orig: "runner_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/actions/runners/{runner_id}/labels"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runners"
+            }
+            {
+              var: "runner_id"
+            }
+            {
+              lit: "labels"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "runner_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/actions/secrets/{secret_name}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repository_id"
+                orig: "repository_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "runner_group_id"
+                orig: "runner_group_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runner-groups"
+            }
+            {
+              var: "runner_group_id"
+            }
+            {
+              lit: "repositories"
+            }
+            {
+              var: "repository_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "repository_id"
+              "runner_group_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repository_id"
+                orig: "repository_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "secret_id"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}"
+          rename: {
+            param: {
+              org: "org_id"
+              secret_name: "secret_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_id"
+            }
+            {
+              lit: "repositories"
+            }
+            {
+              var: "repository_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "repository_id"
+              "secret_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repository_id"
+                orig: "repository_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "variable_id"
+                orig: "name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
+          rename: {
+            param: {
+              name: "variable_id"
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "variables"
+            }
+            {
+              var: "variable_id"
+            }
+            {
+              lit: "repositories"
+            }
+            {
+              var: "repository_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "repository_id"
+              "variable_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_group_id"
+                orig: "runner_group_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "runner_id"
+                orig: "runner_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runner-groups"
+            }
+            {
+              var: "runner_group_id"
+            }
+            {
+              lit: "runners"
+            }
+            {
+              var: "runner_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "runner_group_id"
+              "runner_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_id"
+                orig: "runner_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/actions/runners/{runner_id}/labels"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runners"
+            }
+            {
+              var: "runner_id"
+            }
+            {
+              lit: "labels"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "runner_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "name"
+                orig: "name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/variables/{name}/repositories"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "variables"
+            }
+            {
+              var: "name"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            exist: [
+              "name"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repository_id"
+                orig: "repository_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/permissions/repositories/{repository_id}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "repositories"
+            }
+            {
+              var: "repository_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "repository_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repository_id"
+                orig: "repository_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/permissions/self-hosted-runners/repositories/{repository_id}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "self-hosted-runners"
+            }
+            {
+              lit: "repositories"
+            }
+            {
+              var: "repository_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "repository_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_group_id"
+                orig: "runner_group_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runner-groups"
+            }
+            {
+              var: "runner_group_id"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "runner_group_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_group_id"
+                orig: "runner_group_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runner-groups"
+            }
+            {
+              var: "runner_group_id"
+            }
+            {
+              lit: "runners"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "runner_group_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "runner_id"
+                orig: "runner_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/runners/{runner_id}/labels"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runners"
+            }
+            {
+              var: "runner_id"
+            }
+            {
+              lit: "labels"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "runner_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/secrets/{secret_name}/repositories"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/actions/permissions"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+          ]
+          select: {
+            "$action": "permission"
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/actions/permissions/access"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "access"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/actions/permissions/artifact-and-log-retention"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "artifact-and-log-retention"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/actions/permissions/fork-pr-contributor-approval"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "fork-pr-contributor-approval"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/actions/permissions/fork-pr-workflows-private-repos"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "fork-pr-workflows-private-repos"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/actions/permissions/selected-actions"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "selected-actions"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/actions/permissions/workflow"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "workflow"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/permissions"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+          ]
+          select: {
+            "$action": "permission"
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/permissions/artifact-and-log-retention"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "artifact-and-log-retention"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/permissions/fork-pr-contributor-approval"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "fork-pr-contributor-approval"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/permissions/fork-pr-workflows-private-repos"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "fork-pr-workflows-private-repos"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/permissions/repositories"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/permissions/selected-actions"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "selected-actions"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/permissions/self-hosted-runners"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "self-hosted-runners"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/permissions/self-hosted-runners/repositories"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "self-hosted-runners"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/actions/permissions/workflow"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "workflow"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+      [
+        "repo"
+      ]
+      [
+        "user"
+      ]
+      [
+        "org"
+        "hosted_runner"
+      ]
+      [
+        "org"
+        "repository"
+      ]
+      [
+        "org"
+        "runner_group"
+      ]
+      [
+        "org"
+        "runner"
+      ]
+      [
+        "org"
+        "secret"
+      ]
+      [
+        "org"
+        "variable"
+      ]
+      [
+        "repo"
+        "artifact"
+      ]
+      [
+        "repo"
+        "cache"
+      ]
+      [
+        "repo"
+        "job"
+      ]
+      [
+        "repo"
+        "runner"
+      ]
+      [
+        "repo"
+        "run"
+      ]
+      [
+        "repo"
+        "secret"
+      ]
+      [
+        "repo"
+        "variable"
+      ]
+      [
+        "repo"
+        "workflow"
+      ]
+      [
+        "repo"
+        "environment"
+      ]
+      [
+        "org"
+        "runner_group"
+        "repository"
+      ]
+      [
+        "org"
+        "runner_group"
+        "runner"
+      ]
+      [
+        "org"
+        "runner"
+        "label"
+      ]
+      [
+        "org"
+        "secret"
+        "repository"
+      ]
+      [
+        "org"
+        "variable"
+        "repository"
+      ]
+      [
+        "repo"
+        "runner"
+        "label"
+      ]
+      [
+        "repo"
+        "run"
+        "attempt"
+      ]
+      [
+        "repo"
+        "environment"
+        "secret"
+      ]
+      [
+        "repo"
+        "environment"
+        "variable"
+      ]
+    ]
+  }
+
+
+
+}

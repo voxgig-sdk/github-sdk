@@ -1,0 +1,76 @@
+{
+  "existing": {
+    "projects_v2_item_with_content": {
+      "PROJECTS_V2_ITEM_WITH_CONTENT00": {
+        "archived_at": "s6e",
+        "content": {},
+        "content_type": "s70",
+        "created_at": "s71",
+        "creator": {},
+        "fields": [],
+        "id": "PROJECTS_V2_ITEM_WITH_CONTENT00",
+        "item_url": "s75",
+        "node_id": "NODE01",
+        "project_url": "s77",
+        "updated_at": "s78",
+        "org_id": "ORG01",
+        "project_number": "PROJECT_NUMBER01",
+        "username": "USERNAME01",
+        "item_id": "ITEM01",
+        "projects_v2_id": "PROJECTS_V201"
+      },
+      "PROJECTS_V2_ITEM_WITH_CONTENT01": {
+        "archived_at": "sdc",
+        "content": {},
+        "content_type": "sde",
+        "created_at": "sdf",
+        "creator": {},
+        "fields": [],
+        "id": "PROJECTS_V2_ITEM_WITH_CONTENT01",
+        "item_url": "se3",
+        "node_id": "NODE01",
+        "project_url": "se5",
+        "updated_at": "se6",
+        "org_id": "ORG01",
+        "project_number": "PROJECT_NUMBER01",
+        "username": "USERNAME01",
+        "item_id": "ITEM01",
+        "projects_v2_id": "PROJECTS_V201"
+      },
+      "PROJECTS_V2_ITEM_WITH_CONTENT02": {
+        "archived_at": "s14a",
+        "content": {},
+        "content_type": "s14c",
+        "created_at": "s14d",
+        "creator": {},
+        "fields": [],
+        "id": "PROJECTS_V2_ITEM_WITH_CONTENT02",
+        "item_url": "s151",
+        "node_id": "NODE01",
+        "project_url": "s153",
+        "updated_at": "s154",
+        "org_id": "ORG01",
+        "project_number": "PROJECT_NUMBER01",
+        "username": "USERNAME01",
+        "item_id": "ITEM01",
+        "projects_v2_id": "PROJECTS_V201"
+      }
+    }
+  },
+  "new": {
+    "projects_v2_item_with_content": {
+      "projects_v2_item_with_content_ref01": {
+        "archived_at": "s1b8",
+        "content": {},
+        "content_type": "s1ba",
+        "created_at": "s1bb",
+        "creator": {},
+        "fields": [],
+        "item_url": "s1bf",
+        "node_id": "NODE01",
+        "project_url": "s1c1",
+        "updated_at": "s1c2"
+      }
+    }
+  }
+}

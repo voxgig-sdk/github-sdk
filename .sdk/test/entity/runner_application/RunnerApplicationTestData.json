@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "runner_application": {
+      "RUNNER_APPLICATION00": {
+        "architecture": "s3c",
+        "download_url": "s3d",
+        "filename": "s3e",
+        "os": "s3f",
+        "sha256_checksum": "s40",
+        "temp_download_token": "s41",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      },
+      "RUNNER_APPLICATION01": {
+        "architecture": "s78",
+        "download_url": "s79",
+        "filename": "s7a",
+        "os": "s7b",
+        "sha256_checksum": "s7c",
+        "temp_download_token": "s7d",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      },
+      "RUNNER_APPLICATION02": {
+        "architecture": "sb4",
+        "download_url": "sb5",
+        "filename": "sb6",
+        "os": "sb7",
+        "sha256_checksum": "sb8",
+        "temp_download_token": "sb9",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "runner_application": {
+      "runner_application_ref01": {
+        "architecture": "sf0",
+        "download_url": "sf1",
+        "filename": "sf2",
+        "os": "sf3",
+        "sha256_checksum": "sf4",
+        "temp_download_token": "sf5"
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "copilot_usage_metrics_day": {
+      "COPILOT_USAGE_METRICS_DAY00": {
+        "copilot_dotcom_chat": {},
+        "copilot_dotcom_pull_requests": {},
+        "copilot_ide_chat": {},
+        "copilot_ide_code_completions": {},
+        "date": "s4a",
+        "total_active_users": "s4b",
+        "total_engaged_users": "s4c",
+        "org_id": "ORG01",
+        "team_id": "TEAM01"
+      },
+      "COPILOT_USAGE_METRICS_DAY01": {
+        "copilot_dotcom_chat": {},
+        "copilot_dotcom_pull_requests": {},
+        "copilot_ide_chat": {},
+        "copilot_ide_code_completions": {},
+        "date": "s90",
+        "total_active_users": "s91",
+        "total_engaged_users": "s92",
+        "org_id": "ORG01",
+        "team_id": "TEAM01"
+      },
+      "COPILOT_USAGE_METRICS_DAY02": {
+        "copilot_dotcom_chat": {},
+        "copilot_dotcom_pull_requests": {},
+        "copilot_ide_chat": {},
+        "copilot_ide_code_completions": {},
+        "date": "sd6",
+        "total_active_users": "sd7",
+        "total_engaged_users": "sd8",
+        "org_id": "ORG01",
+        "team_id": "TEAM01"
+      }
+    }
+  },
+  "new": {
+    "copilot_usage_metrics_day": {
+      "copilot_usage_metrics_day_ref01": {
+        "copilot_dotcom_chat": {},
+        "copilot_dotcom_pull_requests": {},
+        "copilot_ide_chat": {},
+        "copilot_ide_code_completions": {},
+        "date": "s11c",
+        "total_active_users": "s11d",
+        "total_engaged_users": "s11e"
+      }
+    }
+  }
+}

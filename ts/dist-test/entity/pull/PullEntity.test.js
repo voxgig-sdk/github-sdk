@@ -58,7 +58,7 @@ const utility_1 = require("../../utility");
     });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.GITHUB_TEST_LIVE;
-        for (const op of ['create', 'list', 'update', 'load']) {
+        for (const op of ['create', 'list', 'update', 'load', 'remove']) {
             if ((0, utility_1.maybeSkipControl)(t, 'entityOp', 'pull.' + op, live))
                 return;
         }
@@ -77,12 +77,14 @@ const utility_1 = require("../../utility");
         // CREATE
         const pull_ref01_ent = client.Pull();
         let pull_ref01_data = setup.data.new.pull['pull_ref01'];
+        pull_ref01_data['commit_sha'] = setup.idmap['commit_sha01'];
         pull_ref01_data['owner'] = setup.idmap['owner01'];
         pull_ref01_data['repo'] = setup.idmap['repo01'];
         pull_ref01_data = (await pull_ref01_ent.create(pull_ref01_data)).data();
         (0, node_assert_1.default)(null != pull_ref01_data.id);
         // LIST
         const pull_ref01_match = {};
+        pull_ref01_match['commit_sha'] = setup.idmap['commit_sha01'];
         pull_ref01_match['owner'] = setup.idmap['owner01'];
         pull_ref01_match['repo'] = setup.idmap['repo01'];
         const pull_ref01_list = (await pull_ref01_ent.list(pull_ref01_match)).map((e) => e.data());
@@ -102,6 +104,16 @@ const utility_1 = require("../../utility");
         pull_ref01_match_dt0.id = pull_ref01_data.id;
         const pull_ref01_data_dt0 = (await pull_ref01_ent.load(pull_ref01_match_dt0)).data();
         (0, node_assert_1.default)(pull_ref01_data_dt0.id === pull_ref01_data.id);
+        // REMOVE
+        const pull_ref01_match_rm0 = { id: pull_ref01_data.id };
+        await pull_ref01_ent.remove(pull_ref01_match_rm0);
+        // LIST
+        const pull_ref01_match_rt0 = {};
+        pull_ref01_match_rt0['commit_sha'] = setup.idmap['commit_sha01'];
+        pull_ref01_match_rt0['owner'] = setup.idmap['owner01'];
+        pull_ref01_match_rt0['repo'] = setup.idmap['repo01'];
+        const pull_ref01_list_rt0 = (await pull_ref01_ent.list(pull_ref01_match_rt0)).map((e) => e.data());
+        (0, node_assert_1.default)(isempty(select(pull_ref01_list_rt0, { id: pull_ref01_data.id })));
     });
 });
 function basicSetup(extra) {
@@ -118,7 +130,7 @@ function basicSetup(extra) {
     const struct = client.utility().struct;
     const merge = struct.merge;
     const transform = struct.transform;
-    let idmap = transform(['pull01', 'pull02', 'pull03', 'repo01', 'repo02', 'repo03'], {
+    let idmap = transform(['pull01', 'pull02', 'pull03', 'repo01', 'repo02', 'repo03', 'repo01', 'repo02', 'repo03', 'commit01', 'commit02', 'commit03', 'repo01', 'repo02', 'repo03', 'comment01', 'comment02', 'comment03'], {
         '`$PACK`': ['', {
                 '`$KEY`': '`$COPY`',
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']

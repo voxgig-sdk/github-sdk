@@ -1,0 +1,22 @@
+# BasicFollowerFlow
+
+main: kit: flow: BasicFollowerFlow:
+{
+  entity: "follower",
+  kind: "basic",
+  name: "BasicFollowerFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "follower_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFollowerFlow"
+}

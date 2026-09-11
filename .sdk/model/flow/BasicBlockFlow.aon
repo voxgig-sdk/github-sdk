@@ -1,0 +1,22 @@
+# BasicBlockFlow
+
+main: kit: flow: BasicBlockFlow:
+{
+  entity: "block",
+  kind: "basic",
+  name: "BasicBlockFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "block_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBlockFlow"
+}

@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "integration_installation": {
+      "INTEGRATION_INSTALLATION00": {
+        "account": "s32",
+        "created_at": "s33",
+        "id": "INTEGRATION_INSTALLATION00",
+        "node_id": "NODE01",
+        "requester": {}
+      },
+      "INTEGRATION_INSTALLATION01": {
+        "account": "s64",
+        "created_at": "s65",
+        "id": "INTEGRATION_INSTALLATION01",
+        "node_id": "NODE01",
+        "requester": {}
+      },
+      "INTEGRATION_INSTALLATION02": {
+        "account": "s96",
+        "created_at": "s97",
+        "id": "INTEGRATION_INSTALLATION02",
+        "node_id": "NODE01",
+        "requester": {}
+      }
+    }
+  },
+  "new": {
+    "integration_installation": {
+      "integration_installation_ref01": {
+        "account": "sc8",
+        "created_at": "sc9",
+        "node_id": "NODE01",
+        "requester": {}
+      }
+    }
+  }
+}

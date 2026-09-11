@@ -1,0 +1,93 @@
+# Entity: add
+
+main: kit: entity: add: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "usernames"
+      req: true
+      short: "The GitHub user handles to add to the team."
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "add"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "enterprise"
+                orig: "enterprise"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "team_id"
+                orig: "enterprise_team"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/add"
+          rename: {
+            param: {
+              "enterprise-team": "team_id"
+            }
+          }
+          segments: [
+            {
+              lit: "enterprises"
+            }
+            {
+              var: "enterprise"
+            }
+            {
+              lit: "teams"
+            }
+            {
+              var: "team_id"
+            }
+            {
+              lit: "memberships"
+            }
+            {
+              lit: "add"
+            }
+          ]
+          select: {
+            exist: [
+              "enterprise"
+              "team_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "enterpris"
+        "team"
+      ]
+    ]
+  }
+
+
+
+}

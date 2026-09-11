@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "projects_classic": {
+      "PROJECTS_CLASSIC00": {
+        "permission": "s14",
+        "position": "s15",
+        "column_id": "COLUMN01",
+        "project_id": "PROJECT01",
+        "username": "USERNAME01",
+        "id": "PROJECTS_CLASSIC00"
+      },
+      "PROJECTS_CLASSIC01": {
+        "permission": "s28",
+        "position": "s29",
+        "column_id": "COLUMN01",
+        "project_id": "PROJECT01",
+        "username": "USERNAME01",
+        "id": "PROJECTS_CLASSIC01"
+      },
+      "PROJECTS_CLASSIC02": {
+        "permission": "s3c",
+        "position": "s3d",
+        "column_id": "COLUMN01",
+        "project_id": "PROJECT01",
+        "username": "USERNAME01",
+        "id": "PROJECTS_CLASSIC02"
+      }
+    }
+  },
+  "new": {
+    "projects_classic": {
+      "projects_classic_ref01": {
+        "permission": "s50",
+        "position": "s51"
+      }
+    }
+  }
+}

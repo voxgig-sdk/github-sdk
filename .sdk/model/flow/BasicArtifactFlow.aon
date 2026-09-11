@@ -1,0 +1,34 @@
+# BasicArtifactFlow
+
+main: kit: flow: BasicArtifactFlow:
+{
+  entity: "artifact",
+  kind: "basic",
+  name: "BasicArtifactFlow",
+  step: [
+    {
+      input: {
+        ref: "artifact_ref01",
+        srcdatavar: "artifact_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "artifact01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-artifact_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicArtifactFlow"
+}

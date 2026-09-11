@@ -1,0 +1,33 @@
+# BasicNetworkSettingFlow
+
+main: kit: flow: BasicNetworkSettingFlow:
+{
+  entity: "network_setting",
+  kind: "basic",
+  name: "BasicNetworkSettingFlow",
+  step: [
+    {
+      input: {
+        ref: "network_setting_ref01",
+        srcdatavar: "network_setting_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "network_setting01",
+        org_id: "org01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-network_setting_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNetworkSettingFlow"
+}

@@ -1,0 +1,128 @@
+# Entity: pending_deployment
+
+main: kit: entity: pending_deployment: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "current_user_can_approve"
+      req: true
+      short: "Whether the currently authenticated user can approve the deployment"
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "environment"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "reviewers"
+      req: true
+      short: "The people or teams that may approve jobs that reference the environment."
+      type: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 3
+      }
+    }
+    {
+      name: "wait_timer"
+      req: true
+      short: "The set duration of the wait timer"
+      type: "`$INTEGER`"
+    }
+    {
+      format: "date-time"
+      name: "wait_timer_started_at"
+      req: true
+      short: "The time that the wait timer began."
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "pending_deployment"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "run_id"
+                orig: "run_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runs"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "pending_deployments"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "run_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+        "run"
+      ]
+    ]
+  }
+
+
+
+}

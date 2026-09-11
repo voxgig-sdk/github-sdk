@@ -1,0 +1,51 @@
+# BasicProjectsV2FieldFlow
+
+main: kit: flow: BasicProjectsV2FieldFlow:
+{
+  entity: "projects_v2_field",
+  kind: "basic",
+  name: "BasicProjectsV2FieldFlow",
+  step: [
+    {
+      match: {
+        project_number: "project_number01",
+        username: "username01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "projects_v2_field_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "projects_v2_field_ref01",
+        srcdatavar: "projects_v2_field_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "projects_v2_field01",
+        projects_v2_id: "projects_v201",
+        username: "username01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-projects_v2_field_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicProjectsV2FieldFlow"
+}

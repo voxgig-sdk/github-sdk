@@ -1,0 +1,69 @@
+{
+  "existing": {
+    "marketplace_listing_plan": {
+      "MARKETPLACE_LISTING_PLAN00": {
+        "accounts_url": "s82",
+        "bullets": [],
+        "description": "s84",
+        "has_free_trial": false,
+        "id": "MARKETPLACE_LISTING_PLAN00",
+        "monthly_price_in_cents": "s87",
+        "name": "s88",
+        "number": "s89",
+        "price_model": "s8a",
+        "state": "s8b",
+        "unit_name": "s8c",
+        "url": "s8d",
+        "yearly_price_in_cents": "s8e"
+      },
+      "MARKETPLACE_LISTING_PLAN01": {
+        "accounts_url": "s104",
+        "bullets": [],
+        "description": "s106",
+        "has_free_trial": false,
+        "id": "MARKETPLACE_LISTING_PLAN01",
+        "monthly_price_in_cents": "s109",
+        "name": "s10a",
+        "number": "s10b",
+        "price_model": "s10c",
+        "state": "s10d",
+        "unit_name": "s10e",
+        "url": "s10f",
+        "yearly_price_in_cents": "s110"
+      },
+      "MARKETPLACE_LISTING_PLAN02": {
+        "accounts_url": "s186",
+        "bullets": [],
+        "description": "s188",
+        "has_free_trial": false,
+        "id": "MARKETPLACE_LISTING_PLAN02",
+        "monthly_price_in_cents": "s18b",
+        "name": "s18c",
+        "number": "s18d",
+        "price_model": "s18e",
+        "state": "s18f",
+        "unit_name": "s190",
+        "url": "s191",
+        "yearly_price_in_cents": "s192"
+      }
+    }
+  },
+  "new": {
+    "marketplace_listing_plan": {
+      "marketplace_listing_plan_ref01": {
+        "accounts_url": "s208",
+        "bullets": [],
+        "description": "s20a",
+        "has_free_trial": false,
+        "monthly_price_in_cents": "s20d",
+        "name": "s20e",
+        "number": "s20f",
+        "price_model": "s210",
+        "state": "s211",
+        "unit_name": "s212",
+        "url": "s213",
+        "yearly_price_in_cents": "s214"
+      }
+    }
+  }
+}

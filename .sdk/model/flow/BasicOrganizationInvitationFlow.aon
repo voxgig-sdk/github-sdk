@@ -1,0 +1,38 @@
+# BasicOrganizationInvitationFlow
+
+main: kit: flow: BasicOrganizationInvitationFlow:
+{
+  entity: "organization_invitation",
+  kind: "basic",
+  name: "BasicOrganizationInvitationFlow",
+  step: [
+    {
+      input: {
+        ref: "organization_invitation_ref01"
+      }
+
+      match: {
+        org_id: "org01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "organization_invitation_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOrganizationInvitationFlow"
+}

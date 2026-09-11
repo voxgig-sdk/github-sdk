@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "dependabot_public_key": {
+      "DEPENDABOT_PUBLIC_KEY00": {
+        "key": "s14",
+        "key_id": "KEY01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "DEPENDABOT_PUBLIC_KEY00"
+      },
+      "DEPENDABOT_PUBLIC_KEY01": {
+        "key": "s28",
+        "key_id": "KEY01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "DEPENDABOT_PUBLIC_KEY01"
+      },
+      "DEPENDABOT_PUBLIC_KEY02": {
+        "key": "s3c",
+        "key_id": "KEY01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "DEPENDABOT_PUBLIC_KEY02"
+      }
+    }
+  },
+  "new": {
+    "dependabot_public_key": {
+      "dependabot_public_key_ref01": {
+        "key": "s50",
+        "key_id": "KEY01"
+      }
+    }
+  }
+}

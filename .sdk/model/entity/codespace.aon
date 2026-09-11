@@ -1,0 +1,3639 @@
+# Entity: codespace
+
+main: kit: entity: codespace: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "accepted"
+      req: true
+      short: "Whether the user has accepted the permissions defined by the devcontainer config"
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "allow_forking"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "archive_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "archived"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "assignees_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "billable_owner"
+      op: {
+        create: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "blobs_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "branch"
+      req: false
+      short: "Name of the exported branch"
+      type: "`$STRING`"
+    }
+    {
+      name: "branches_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "client_ip"
+      req: false
+      short: "IP for location auto-detection when proxying a request"
+      type: "`$STRING`"
+    }
+    {
+      name: "clone_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "code_of_conduct"
+      req: true
+      short: "Code Of Conduct"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "collaborators_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "comments_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "commits_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "compare_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "completed_at"
+      req: false
+      short: "Completion time of the last export operation"
+      type: "`$STRING`"
+    }
+    {
+      name: "contents_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "contributors_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "cpus"
+      req: true
+      short: "How many cores are available to the codespace."
+      type: "`$INTEGER`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+        load: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The date and time at which the secret was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ."
+      type: "`$STRING`"
+    }
+    {
+      name: "custom_properties"
+      req: false
+      short: "The custom properties that were defined for the repository."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "default_branch"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "defaults"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "delete_branch_on_merge"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "deployments_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "devcontainer_path"
+      req: false
+      short: "Path to devcontainer.json from repo root used to create Codespace."
+      type: "`$STRING`"
+    }
+    {
+      name: "disabled"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "display_name"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "Display name for this codespace."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "downloads_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "encrypted_value"
+      req: false
+      short: "Value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get a repository public key](https://docs.github.com/rest/codespaces/repository-secre…"
+      type: "`$STRING`"
+    }
+    {
+      name: "environment_id"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "UUID identifying this codespace's environment."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "export_url"
+      req: false
+      short: "Url for fetching export details"
+      type: "`$STRING`"
+    }
+    {
+      name: "fork"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "forks"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "forks_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "forks_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "full_name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "geo"
+      req: false
+      short: "The geographic area for this codespace."
+      type: "`$STRING`"
+    }
+    {
+      name: "git_commits_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_refs_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_status"
+      op: {
+        create: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      req: true
+      short: "Details about the codespace's git repository."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "git_tags_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "has_discussions"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_downloads"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_issues"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_pages"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_projects"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_wiki"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "homepage"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "hooks_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "Web url for the exported branch"
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      op: {
+        create: {
+          req: true
+          type: "`$INTEGER`"
+        }
+        list: {
+          req: true
+          type: "`$INTEGER`"
+        }
+        load: {
+          req: true
+          type: "`$INTEGER`"
+        }
+        patch: {
+          req: true
+          type: "`$INTEGER`"
+        }
+      }
+      req: false
+      short: "Id for the export details"
+      type: "`$STRING`"
+    }
+    {
+      name: "idle_timeout_minutes"
+      op: {
+        create: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      req: true
+      short: "The number of minutes of inactivity after which this codespace will be automatically stopped."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "idle_timeout_notice"
+      req: false
+      short: "Text to show user when codespace idle timeout minutes has been overriden by an organization policy"
+      type: "`$STRING`"
+    }
+    {
+      name: "is_template"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "issue_comment_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "issue_events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "issues_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "key"
+      req: true
+      short: "The Base64 encoded public key."
+      type: "`$STRING`"
+    }
+    {
+      name: "key_id"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The identifier for the key."
+      type: "`$STRING`"
+    }
+    {
+      name: "keys_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "labels_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "language"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "languages_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "last_known_stop_notice"
+      req: false
+      short: "The text to display to a user when a codespace has been stopped for a potentially actionable reason."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "last_used_at"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "Last known time this codespace was started."
+      type: "`$STRING`"
+    }
+    {
+      name: "license"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "location"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The initally assigned location of a new codespace."
+      type: "`$STRING`"
+    }
+    {
+      name: "machine"
+      op: {
+        create: {
+          req: false
+          type: "`$OBJECT`"
+        }
+        patch: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "A description of the machine powering a codespace."
+      type: "`$OBJECT`"
+    }
+    {
+      format: "uri"
+      name: "machines_url"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "API URL to access available alternate machine types for this codespace."
+      type: "`$STRING`"
+    }
+    {
+      name: "memory_in_bytes"
+      req: true
+      short: "How much memory is available to the codespace."
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "merges_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "milestones_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "mirror_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "multi_repo_permissions_opt_out"
+      req: false
+      short: "Whether to authorize requested permissions from devcontainer.json"
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "name"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The name of the secret."
+      type: "`$STRING`"
+    }
+    {
+      name: "network_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "notifications_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "open_issues"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "open_issues_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "operating_system"
+      req: true
+      short: "The operating system of the machine."
+      type: "`$STRING`"
+    }
+    {
+      name: "owner"
+      op: {
+        create: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "path"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "pending_operation"
+      req: false
+      short: "Whether or not a codespace has a pending async operation."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "pending_operation_disabled_reason"
+      req: false
+      short: "Text to show user when codespace is disabled by a pending operation"
+      type: "`$STRING`"
+    }
+    {
+      name: "permissions"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "prebuild"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Whether the codespace was created from a prebuild."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "prebuild_availability"
+      req: true
+      short: "Whether a prebuild is currently available when creating a codespace for this machine and repository."
+      type: "`$STRING`"
+    }
+    {
+      name: "private"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: false
+      short: "Whether the new repository should be private."
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "publish_url"
+      req: false
+      short: "API URL to publish this codespace to a new repository."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "pulls_url"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "API URL for the Pull Request associated with this codespace, if any."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "pushed_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "recent_folders"
+      op: {
+        create: {
+          req: false
+          type: "`$ARRAY`"
+        }
+        patch: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      req: true
+      short: "Recently opened folders inside the codespace."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "ref"
+      req: false
+      short: "Git ref (typically a branch name) for this codespace"
+      type: "`$STRING`"
+    }
+    {
+      name: "releases_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "repository"
+      op: {
+        create: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      req: true
+      short: "Minimal Repository"
+      type: "`$OBJECT`"
+    }
+    {
+      format: "date-time"
+      name: "retention_expires_at"
+      req: false
+      short: "When a codespace will be auto-deleted based on the \"retention_period_minutes\" and \"last_used_at\""
+      type: "`$STRING`"
+    }
+    {
+      name: "retention_period_minutes"
+      req: false
+      short: "Duration in minutes after codespace has gone idle in which it will be deleted."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "role_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "runtime_constraints"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "security_and_analysis"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      format: "uri"
+      name: "selected_repositories_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+        load: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "The API URL at which the list of repositories this secret is visible to can be retrieved"
+      type: "`$STRING`"
+    }
+    {
+      name: "selected_repository_ids"
+      op: {
+        update: {
+          req: true
+          type: "`$ARRAY`"
+        }
+      }
+      req: false
+      short: "An array of repository IDs that can access the organization secret."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "selected_usernames"
+      op: {
+        update: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      req: true
+      short: "The usernames of the organization members whose codespaces be billed to the organization."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "sha"
+      req: false
+      short: "Git commit SHA of the exported branch"
+      type: "`$STRING`"
+    }
+    {
+      name: "size"
+      req: false
+      short: "The size of the repository, in kilobytes."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ssh_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "stargazers_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "stargazers_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "start_url"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "API URL to start this codespace."
+      type: "`$STRING`"
+    }
+    {
+      name: "state"
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+        load: {
+          req: true
+          type: "`$STRING`"
+        }
+        patch: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "State of the latest export"
+      type: "`$STRING`"
+    }
+    {
+      name: "statuses_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "stop_url"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "API URL to stop this codespace."
+      type: "`$STRING`"
+    }
+    {
+      name: "storage_in_bytes"
+      req: true
+      short: "How much storage is available to the codespace."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "subscribers_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "subscribers_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "subscription_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "svn_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "tags_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "teams_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "temp_clone_token"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "template"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "topics"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "trees_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The date and time at which the secret was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+        load: {
+          req: true
+          type: "`$STRING`"
+        }
+        patch: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "API URL for this codespace."
+      type: "`$STRING`"
+    }
+    {
+      name: "visibility"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The type of repositories in the organization that the secret is visible to"
+      type: "`$STRING`"
+    }
+    {
+      name: "watchers"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "watchers_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "web_commit_signoff_required"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "web_url"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "URL to access this codespace on the web."
+      type: "`$STRING`"
+    }
+    {
+      name: "working_directory"
+      req: false
+      short: "Working directory for this codespace"
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "codespace"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "codespace_name"
+                orig: "codespace_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "member_id"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/members/{username}/codespaces/{codespace_name}/stop"
+          rename: {
+            param: {
+              org: "org_id"
+              username: "member_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "members"
+            }
+            {
+              var: "member_id"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              var: "codespace_name"
+            }
+            {
+              lit: "stop"
+            }
+          ]
+          select: {
+            "$action": "stop"
+            exist: [
+              "codespace_name"
+              "member_id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pull_number"
+                orig: "pull_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/pulls/{pull_number}/codespaces"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              var: "pull_number"
+            }
+            {
+              lit: "codespaces"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "pull_number"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/codespaces"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "codespaces"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "codespace_name"
+                orig: "codespace_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/user/codespaces/{codespace_name}/exports"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              var: "codespace_name"
+            }
+            {
+              lit: "exports"
+            }
+          ]
+          select: {
+            "$action": "export"
+            exist: [
+              "codespace_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "codespace_name"
+                orig: "codespace_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/user/codespaces/{codespace_name}/publish"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              var: "codespace_name"
+            }
+            {
+              lit: "publish"
+            }
+          ]
+          select: {
+            "$action": "publish"
+            exist: [
+              "codespace_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "codespace_name"
+                orig: "codespace_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/user/codespaces/{codespace_name}/start"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              var: "codespace_name"
+            }
+            {
+              lit: "start"
+            }
+          ]
+          select: {
+            "$action": "start"
+            exist: [
+              "codespace_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "codespace_name"
+                orig: "codespace_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/user/codespaces/{codespace_name}/stop"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              var: "codespace_name"
+            }
+            {
+              lit: "stop"
+            }
+          ]
+          select: {
+            "$action": "stop"
+            exist: [
+              "codespace_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/codespaces/access/selected_users"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "access"
+            }
+            {
+              lit: "selected_users"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/user/codespaces"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "client_ip"
+                orig: "client_ip"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "WestUs2"
+                kind: "query"
+                name: "location"
+                orig: "location"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "main"
+                kind: "query"
+                name: "ref"
+                orig: "ref"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/codespaces/machines"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "machines"
+            }
+          ]
+          select: {
+            "$action": "machine"
+            exist: [
+              "client_ip"
+              "location"
+              "owner"
+              "ref"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.machines`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/codespaces/secrets/{secret_name}/repositories"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.repositories`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/members/{username}/codespaces"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "members"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "codespaces"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.codespaces`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/codespaces"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "codespaces"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.codespaces`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/codespaces/devcontainers"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "devcontainers"
+            }
+          ]
+          select: {
+            "$action": "devcontainer"
+            exist: [
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.devcontainers`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/codespaces/secrets"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+          ]
+          select: {
+            "$action": "secret"
+            exist: [
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.secrets`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/codespaces"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "codespaces"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.codespaces`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/codespaces/secrets"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+          ]
+          select: {
+            "$action": "secret"
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.secrets`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "repository_id"
+                orig: "repository_id"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/codespaces"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+          ]
+          select: {
+            exist: [
+              "page"
+              "per_page"
+              "repository_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.codespaces`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/codespaces/secrets"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+          ]
+          select: {
+            "$action": "secret"
+            exist: [
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.secrets`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "codespace_name"
+                orig: "codespace_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/codespaces/{codespace_name}/machines"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              var: "codespace_name"
+            }
+            {
+              lit: "machines"
+            }
+          ]
+          select: {
+            "$action": "machine"
+            exist: [
+              "codespace_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.machines`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/codespaces/secrets/{secret_name}/repositories"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            exist: [
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.repositories`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: "1.2.3.4"
+                kind: "query"
+                name: "client_ip"
+                orig: "client_ip"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "main"
+                kind: "query"
+                name: "ref"
+                orig: "ref"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/codespaces/new"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "new"
+            }
+          ]
+          select: {
+            "$action": "new"
+            exist: [
+              "client_ip"
+              "owner"
+              "ref"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: ".devcontainer/example/devcontainer.json"
+                kind: "query"
+                name: "devcontainer_path"
+                orig: "devcontainer_path"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "master"
+                kind: "query"
+                name: "ref"
+                orig: "ref"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/codespaces/permissions_check"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "permissions_check"
+            }
+          ]
+          select: {
+            "$action": "permissions_check"
+            exist: [
+              "devcontainer_path"
+              "owner"
+              "ref"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "codespace_id"
+                orig: "codespace_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "export_id"
+                orig: "export_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/codespaces/{codespace_name}/exports/{export_id}"
+          rename: {
+            param: {
+              codespace_name: "codespace_id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              var: "codespace_id"
+            }
+            {
+              lit: "exports"
+            }
+            {
+              var: "export_id"
+            }
+          ]
+          select: {
+            exist: [
+              "codespace_id"
+              "export_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/codespaces/secrets/{secret_name}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/codespaces/secrets/public-key"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              lit: "public-key"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "codespace_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/codespaces/{codespace_name}"
+          rename: {
+            param: {
+              codespace_name: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/codespaces/secrets/public-key"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              lit: "public-key"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/codespaces/secrets/{secret_name}"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+          ]
+          select: {
+            exist: [
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/user/codespaces/secrets/public-key"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              lit: "public-key"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    patch: {
+      name: "patch"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "codespace_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/user/codespaces/{codespace_name}"
+          rename: {
+            param: {
+              codespace_name: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "codespace_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "member_id"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/members/{username}/codespaces/{codespace_name}"
+          rename: {
+            param: {
+              codespace_name: "id"
+              org: "org_id"
+              username: "member_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "members"
+            }
+            {
+              var: "member_id"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "member_id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repository_id"
+                orig: "repository_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "secret_id"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/codespaces/secrets/{secret_name}/repositories/{repository_id}"
+          rename: {
+            param: {
+              org: "org_id"
+              secret_name: "secret_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_id"
+            }
+            {
+              lit: "repositories"
+            }
+            {
+              var: "repository_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "repository_id"
+              "secret_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/codespaces/secrets/{secret_name}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "repository_id"
+                orig: "repository_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "secret_id"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/user/codespaces/secrets/{secret_name}/repositories/{repository_id}"
+          rename: {
+            param: {
+              secret_name: "secret_id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_id"
+            }
+            {
+              lit: "repositories"
+            }
+            {
+              var: "repository_id"
+            }
+          ]
+          select: {
+            exist: [
+              "repository_id"
+              "secret_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "codespace_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/user/codespaces/{codespace_name}"
+          rename: {
+            param: {
+              codespace_name: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/codespaces/access/selected_users"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "access"
+            }
+            {
+              lit: "selected_users"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/user/codespaces/secrets/{secret_name}"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+          ]
+          select: {
+            exist: [
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repository_id"
+                orig: "repository_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "secret_id"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/codespaces/secrets/{secret_name}/repositories/{repository_id}"
+          rename: {
+            param: {
+              org: "org_id"
+              secret_name: "secret_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_id"
+            }
+            {
+              lit: "repositories"
+            }
+            {
+              var: "repository_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "repository_id"
+              "secret_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/codespaces/secrets/{secret_name}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/codespaces/secrets/{secret_name}/repositories"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "repository_id"
+                orig: "repository_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "secret_id"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/user/codespaces/secrets/{secret_name}/repositories/{repository_id}"
+          rename: {
+            param: {
+              secret_name: "secret_id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_id"
+            }
+            {
+              lit: "repositories"
+            }
+            {
+              var: "repository_id"
+            }
+          ]
+          select: {
+            exist: [
+              "repository_id"
+              "secret_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/codespaces/access"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "access"
+            }
+          ]
+          select: {
+            "$action": "access"
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/user/codespaces/secrets/{secret_name}"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+          ]
+          select: {
+            exist: [
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "secret_name"
+                orig: "secret_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/user/codespaces/secrets/{secret_name}/repositories"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "codespaces"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            exist: [
+              "secret_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+      [
+        "repo"
+      ]
+      [
+        "org"
+        "secret"
+      ]
+      [
+        "org"
+        "member"
+      ]
+      [
+        "repo"
+        "secret"
+      ]
+      [
+        "repo"
+        "pull"
+      ]
+      [
+        "codespace"
+        "export"
+      ]
+      [
+        "org"
+        "secret"
+        "repository"
+      ]
+      [
+        "org"
+        "member"
+        "codespace"
+      ]
+    ]
+  }
+
+
+
+}

@@ -1,0 +1,32 @@
+# BasicActionsOrganizationPermissionFlow
+
+main: kit: flow: BasicActionsOrganizationPermissionFlow:
+{
+  entity: "actions_organization_permission",
+  kind: "basic",
+  name: "BasicActionsOrganizationPermissionFlow",
+  step: [
+    {
+      input: {
+        ref: "actions_organization_permission_ref01",
+        srcdatavar: "actions_organization_permission_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "actions_organization_permission01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-actions_organization_permission_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicActionsOrganizationPermissionFlow"
+}

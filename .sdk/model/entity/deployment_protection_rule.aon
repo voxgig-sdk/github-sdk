@@ -1,0 +1,207 @@
+# Entity: deployment_protection_rule
+
+main: kit: entity: deployment_protection_rule: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "id"
+      req: true
+      short: "The unique identifier of the deployment protection rule integration."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "integration_id"
+      req: false
+      short: "The ID of the custom app that will be enabled on the environment."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "integration_url"
+      req: true
+      short: "The URL for the endpoint to get details about the app."
+      type: "`$STRING`"
+    }
+    {
+      name: "node_id"
+      req: true
+      short: "The node ID for the deployment protection rule integration."
+      type: "`$STRING`"
+    }
+    {
+      name: "slug"
+      req: true
+      short: "The slugified name of the deployment protection rule integration."
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "deployment_protection_rule"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "environment_name"
+                orig: "environment_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "environments"
+            }
+            {
+              var: "environment_name"
+            }
+            {
+              lit: "deployment_protection_rules"
+            }
+          ]
+          select: {
+            exist: [
+              "environment_name"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.app`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "environment_id"
+                orig: "environment_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "protection_rule_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}"
+          rename: {
+            param: {
+              environment_name: "environment_id"
+              protection_rule_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "environments"
+            }
+            {
+              var: "environment_id"
+            }
+            {
+              lit: "deployment_protection_rules"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "environment_id"
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.app`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+        "environment"
+      ]
+    ]
+  }
+
+
+
+}

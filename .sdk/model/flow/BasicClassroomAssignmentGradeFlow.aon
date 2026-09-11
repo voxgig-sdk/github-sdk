@@ -1,0 +1,26 @@
+# BasicClassroomAssignmentGradeFlow
+
+main: kit: flow: BasicClassroomAssignmentGradeFlow:
+{
+  entity: "classroom_assignment_grade",
+  kind: "basic",
+  name: "BasicClassroomAssignmentGradeFlow",
+  step: [
+    {
+      match: {
+        assignment_id: "assignment01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "classroom_assignment_grade_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicClassroomAssignmentGradeFlow"
+}

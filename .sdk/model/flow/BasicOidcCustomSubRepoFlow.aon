@@ -1,0 +1,27 @@
+# BasicOidcCustomSubRepoFlow
+
+main: kit: flow: BasicOidcCustomSubRepoFlow:
+{
+  entity: "oidc_custom_sub_repo",
+  kind: "basic",
+  name: "BasicOidcCustomSubRepoFlow",
+  step: [
+    {
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "oidc_custom_sub_repo_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOidcCustomSubRepoFlow"
+}

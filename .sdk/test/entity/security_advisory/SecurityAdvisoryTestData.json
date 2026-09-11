@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "security_advisory": {
+      "SECURITY_ADVISORY00": {
+        "id": "SECURITY_ADVISORY00",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "SECURITY_ADVISORY01": {
+        "id": "SECURITY_ADVISORY01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "SECURITY_ADVISORY02": {
+        "id": "SECURITY_ADVISORY02",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "security_advisory": {
+      "security_advisory_ref01": {}
+    }
+  }
+}

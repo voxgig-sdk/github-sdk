@@ -1,0 +1,118 @@
+# BasicCampaignFlow
+
+main: kit: flow: BasicCampaignFlow:
+{
+  entity: "campaign",
+  kind: "basic",
+  name: "BasicCampaignFlow",
+  step: [
+    {
+      input: {
+        ref: "campaign_ref01"
+      }
+
+      match: {
+        org_id: "org01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "campaign_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        org_id: "org01"
+      }
+
+      input: {
+        ref: "campaign_ref01",
+        srcdatavar: "campaign_ref01_data",
+        suffix: "_up0",
+        textfield: "closed_at"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-campaign_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "campaign_ref01",
+        srcdatavar: "campaign_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "campaign01",
+        org_id: "org01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-campaign_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "campaign_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "campaign01",
+        org_id: "org01"
+      }
+
+      op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "campaign_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCampaignFlow"
+}

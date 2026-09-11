@@ -1,0 +1,56 @@
+{
+  "existing": {
+    "organization_role": {
+      "ORGANIZATION_ROLE00": {
+        "base_role": "s5a",
+        "created_at": "s5b",
+        "description": "s5c",
+        "id": "ORGANIZATION_ROLE00",
+        "name": "s5e",
+        "organization": {},
+        "permissions": [],
+        "source": "s61",
+        "updated_at": "s62",
+        "org_id": "ORG01"
+      },
+      "ORGANIZATION_ROLE01": {
+        "base_role": "sb4",
+        "created_at": "sb5",
+        "description": "sb6",
+        "id": "ORGANIZATION_ROLE01",
+        "name": "sb8",
+        "organization": {},
+        "permissions": [],
+        "source": "sbb",
+        "updated_at": "sbc",
+        "org_id": "ORG01"
+      },
+      "ORGANIZATION_ROLE02": {
+        "base_role": "s10e",
+        "created_at": "s10f",
+        "description": "s110",
+        "id": "ORGANIZATION_ROLE02",
+        "name": "s112",
+        "organization": {},
+        "permissions": [],
+        "source": "s115",
+        "updated_at": "s116",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "organization_role": {
+      "organization_role_ref01": {
+        "base_role": "s168",
+        "created_at": "s169",
+        "description": "s16a",
+        "name": "s16c",
+        "organization": {},
+        "permissions": [],
+        "source": "s16f",
+        "updated_at": "s170"
+      }
+    }
+  }
+}

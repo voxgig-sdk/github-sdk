@@ -1,0 +1,34 @@
+# BasicWorkflowUsageFlow
+
+main: kit: flow: BasicWorkflowUsageFlow:
+{
+  entity: "workflow_usage",
+  kind: "basic",
+  name: "BasicWorkflowUsageFlow",
+  step: [
+    {
+      input: {
+        ref: "workflow_usage_ref01",
+        srcdatavar: "workflow_usage_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "workflow_usage01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workflow_usage_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkflowUsageFlow"
+}

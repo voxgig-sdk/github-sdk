@@ -1,0 +1,71 @@
+{
+  "existing": {
+    "git_commit": {
+      "GIT_COMMIT00": {
+        "author": {},
+        "committer": {},
+        "html_url": "s7a",
+        "id": "GIT_COMMIT00",
+        "message": "s7c",
+        "node_id": "NODE01",
+        "parents": [],
+        "sha": "s7f",
+        "signature": "s80",
+        "tree": {},
+        "url": "s82",
+        "verification": {},
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "GIT_COMMIT01": {
+        "author": {},
+        "committer": {},
+        "html_url": "sf2",
+        "id": "GIT_COMMIT01",
+        "message": "sf4",
+        "node_id": "NODE01",
+        "parents": [],
+        "sha": "sf7",
+        "signature": "sf8",
+        "tree": {},
+        "url": "sfa",
+        "verification": {},
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "GIT_COMMIT02": {
+        "author": {},
+        "committer": {},
+        "html_url": "s16a",
+        "id": "GIT_COMMIT02",
+        "message": "s16c",
+        "node_id": "NODE01",
+        "parents": [],
+        "sha": "s16f",
+        "signature": "s170",
+        "tree": {},
+        "url": "s172",
+        "verification": {},
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "git_commit": {
+      "git_commit_ref01": {
+        "author": {},
+        "committer": {},
+        "html_url": "s1e2",
+        "message": "s1e4",
+        "node_id": "NODE01",
+        "parents": [],
+        "sha": "s1e7",
+        "signature": "s1e8",
+        "tree": {},
+        "url": "s1ea",
+        "verification": {}
+      }
+    }
+  }
+}

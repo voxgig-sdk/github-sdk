@@ -1,0 +1,34 @@
+# BasicRepositoryCollaboratorPermissionFlow
+
+main: kit: flow: BasicRepositoryCollaboratorPermissionFlow:
+{
+  entity: "repository_collaborator_permission",
+  kind: "basic",
+  name: "BasicRepositoryCollaboratorPermissionFlow",
+  step: [
+    {
+      input: {
+        ref: "repository_collaborator_permission_ref01",
+        srcdatavar: "repository_collaborator_permission_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "repository_collaborator_permission01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_collaborator_permission_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryCollaboratorPermissionFlow"
+}

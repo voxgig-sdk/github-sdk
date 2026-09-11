@@ -1,0 +1,32 @@
+# BasicApiInsightsSummaryStatFlow
+
+main: kit: flow: BasicApiInsightsSummaryStatFlow:
+{
+  entity: "api_insights_summary_stat",
+  kind: "basic",
+  name: "BasicApiInsightsSummaryStatFlow",
+  step: [
+    {
+      input: {
+        ref: "api_insights_summary_stat_ref01",
+        srcdatavar: "api_insights_summary_stat_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "api_insights_summary_stat01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-api_insights_summary_stat_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicApiInsightsSummaryStatFlow"
+}

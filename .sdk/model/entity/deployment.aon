@@ -1,0 +1,490 @@
+# Entity: deployment
+
+main: kit: entity: deployment: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "auto_merge"
+      req: false
+      short: "Attempts to automatically merge the default branch into the requested ref, if it's behind the default branch."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "comment"
+      req: true
+      short: "A comment to accompany the deployment review"
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "creator"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "description"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "Short description of the deployment."
+      type: "`$STRING`"
+    }
+    {
+      name: "environment"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "Name for the target deployment environment."
+      type: "`$STRING`"
+    }
+    {
+      name: "environment_ids"
+      req: true
+      short: "The list of environment ids to approve or reject"
+      type: "`$ARRAY`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      req: true
+      short: "Unique identifier of the deployment"
+      type: "`$INTEGER`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "original_environment"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "payload"
+      op: {
+        create: {
+          req: false
+          type: "`$ANY`"
+        }
+      }
+      req: true
+      type: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    {
+      name: "performed_via_github_app"
+      req: true
+      short: "GitHub apps are a new way to extend GitHub."
+      type: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    {
+      name: "production_environment"
+      req: false
+      short: "Specifies if the given environment is one that end-users directly interact with."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "ref"
+      req: true
+      short: "The ref to deploy."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "repository_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "required_contexts"
+      req: false
+      short: "The [status](https://docs.github.com/rest/commits/statuses) contexts to verify against commit status checks."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "sha"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "state"
+      req: true
+      short: "Whether to approve or reject deployment to the specified environments."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "statuses_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "task"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "Parameter to specify a task to execute"
+      type: "`$STRING`"
+    }
+    {
+      name: "transient_environment"
+      req: false
+      short: "Specifies if the given environment is will no longer exist at some point in the future."
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "deployment"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "run_id"
+                orig: "run_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "runs"
+            }
+            {
+              var: "run_id"
+            }
+            {
+              lit: "pending_deployments"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "run_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/deployments"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "deployments"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: "none"
+                kind: "query"
+                name: "environment"
+                orig: "environment"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "none"
+                kind: "query"
+                name: "ref"
+                orig: "ref"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "none"
+                kind: "query"
+                name: "sha"
+                orig: "sha"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "none"
+                kind: "query"
+                name: "task"
+                orig: "task"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/deployments"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "deployments"
+            }
+          ]
+          select: {
+            exist: [
+              "environment"
+              "owner"
+              "page"
+              "per_page"
+              "ref"
+              "repo"
+              "sha"
+              "task"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "deployment_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/deployments/{deployment_id}"
+          rename: {
+            param: {
+              deployment_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "deployments"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+      [
+        "repo"
+        "run"
+      ]
+    ]
+  }
+
+
+
+}

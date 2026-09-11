@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "email": {
+      "EMAIL00": {
+        "email": "s28",
+        "primary": false,
+        "verified": true,
+        "visibility": "s2b",
+        "id": "EMAIL00"
+      },
+      "EMAIL01": {
+        "email": "s50",
+        "primary": false,
+        "verified": true,
+        "visibility": "s53",
+        "id": "EMAIL01"
+      },
+      "EMAIL02": {
+        "email": "s78",
+        "primary": false,
+        "verified": true,
+        "visibility": "s7b",
+        "id": "EMAIL02"
+      }
+    }
+  },
+  "new": {
+    "email": {
+      "email_ref01": {
+        "email": "sa0",
+        "primary": false,
+        "verified": true,
+        "visibility": "sa3"
+      }
+    }
+  }
+}

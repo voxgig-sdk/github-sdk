@@ -1,0 +1,78 @@
+# Entity: meta
+
+main: kit: entity: meta: {
+
+  alias: field: {}
+
+  name: "meta"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/versions"
+          segments: [
+            {
+              lit: "versions"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "s"
+                orig: "s"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/octocat"
+          segments: [
+            {
+              lit: "octocat"
+            }
+          ]
+          select: {
+            exist: [
+              "s"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/zen"
+          segments: [
+            {
+              lit: "zen"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

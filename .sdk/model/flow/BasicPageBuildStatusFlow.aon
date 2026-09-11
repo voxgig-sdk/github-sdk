@@ -1,0 +1,23 @@
+# BasicPageBuildStatusFlow
+
+main: kit: flow: BasicPageBuildStatusFlow:
+{
+  entity: "page_build_status",
+  kind: "basic",
+  name: "BasicPageBuildStatusFlow",
+  step: [
+    {
+      input: {
+        ref: "page_build_status_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicPageBuildStatusFlow"
+}

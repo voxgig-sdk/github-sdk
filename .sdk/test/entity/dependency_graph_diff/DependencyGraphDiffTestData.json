@@ -1,0 +1,70 @@
+{
+  "existing": {
+    "dependency_graph_diff": {
+      "DEPENDENCY_GRAPH_DIFF00": {
+        "change_type": "s64",
+        "ecosystem": "s65",
+        "license": "s66",
+        "manifest": "s67",
+        "name": "s68",
+        "package_url": "s69",
+        "scope": "s6a",
+        "source_repository_url": "s6b",
+        "version": "s6c",
+        "vulnerabilities": [],
+        "basehead": "BASEHEAD01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "DEPENDENCY_GRAPH_DIFF00"
+      },
+      "DEPENDENCY_GRAPH_DIFF01": {
+        "change_type": "sc8",
+        "ecosystem": "sc9",
+        "license": "sca",
+        "manifest": "scb",
+        "name": "scc",
+        "package_url": "scd",
+        "scope": "sce",
+        "source_repository_url": "scf",
+        "version": "sd0",
+        "vulnerabilities": [],
+        "basehead": "BASEHEAD01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "DEPENDENCY_GRAPH_DIFF01"
+      },
+      "DEPENDENCY_GRAPH_DIFF02": {
+        "change_type": "s12c",
+        "ecosystem": "s12d",
+        "license": "s12e",
+        "manifest": "s12f",
+        "name": "s130",
+        "package_url": "s131",
+        "scope": "s132",
+        "source_repository_url": "s133",
+        "version": "s134",
+        "vulnerabilities": [],
+        "basehead": "BASEHEAD01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "DEPENDENCY_GRAPH_DIFF02"
+      }
+    }
+  },
+  "new": {
+    "dependency_graph_diff": {
+      "dependency_graph_diff_ref01": {
+        "change_type": "s190",
+        "ecosystem": "s191",
+        "license": "s192",
+        "manifest": "s193",
+        "name": "s194",
+        "package_url": "s195",
+        "scope": "s196",
+        "source_repository_url": "s197",
+        "version": "s198",
+        "vulnerabilities": []
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "codeowners_error": {
+      "CODEOWNERS_ERROR00": {
+        "column": "s46",
+        "kind": "s47",
+        "line": "s48",
+        "message": "s49",
+        "path": "s4a",
+        "source": "s4b",
+        "suggestion": "s4c",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CODEOWNERS_ERROR01": {
+        "column": "s8c",
+        "kind": "s8d",
+        "line": "s8e",
+        "message": "s8f",
+        "path": "s90",
+        "source": "s91",
+        "suggestion": "s92",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CODEOWNERS_ERROR02": {
+        "column": "sd2",
+        "kind": "sd3",
+        "line": "sd4",
+        "message": "sd5",
+        "path": "sd6",
+        "source": "sd7",
+        "suggestion": "sd8",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "codeowners_error": {
+      "codeowners_error_ref01": {
+        "column": "s118",
+        "kind": "s119",
+        "line": "s11a",
+        "message": "s11b",
+        "path": "s11c",
+        "source": "s11d",
+        "suggestion": "s11e"
+      }
+    }
+  }
+}

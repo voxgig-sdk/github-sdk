@@ -1,0 +1,174 @@
+# Entity: content_file
+
+main: kit: entity: content_file: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      format: "uri"
+      name: "git"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "self"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "content_file"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "dir"
+                orig: "dir"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "ref"
+                orig: "ref"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/readme/{dir}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "readme"
+            }
+            {
+              var: "dir"
+            }
+          ]
+          select: {
+            exist: [
+              "dir"
+              "owner"
+              "ref"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body._links`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "ref"
+                orig: "ref"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/readme"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "readme"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "ref"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body._links`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+      [
+        "repo"
+        "readme"
+      ]
+    ]
+  }
+
+
+
+}

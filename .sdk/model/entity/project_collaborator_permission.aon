@@ -1,0 +1,203 @@
+# Entity: project_collaborator_permission
+
+main: kit: entity: project_collaborator_permission: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      format: "uri"
+      name: "avatar_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "email"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "followers_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "following_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "gists_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "gravatar_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "login"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "organizations_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "received_events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "repos_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "site_admin"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "starred_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "starred_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "subscriptions_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "user_view_type"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "project_collaborator_permission"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "project_id"
+                orig: "project_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/projects/{project_id}/collaborators/{username}/permission"
+          segments: [
+            {
+              lit: "projects"
+            }
+            {
+              var: "project_id"
+            }
+            {
+              lit: "collaborators"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "permission"
+            }
+          ]
+          select: {
+            exist: [
+              "project_id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.user`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "project"
+        "collaborator"
+      ]
+    ]
+  }
+
+
+
+}

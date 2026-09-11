@@ -1,0 +1,282 @@
+# Entity: gpg_key
+
+main: kit: entity: gpg_key: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "armored_public_key"
+      req: true
+      short: "A GPG key in ASCII-armored format."
+      type: "`$STRING`"
+    }
+    {
+      name: "can_certify"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_encrypt_comms"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_encrypt_storage"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "can_sign"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "emails"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      format: "date-time"
+      name: "expires_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "key_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      short: "A descriptive name for the new key."
+      type: "`$STRING`"
+    }
+    {
+      name: "primary_key_id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "public_key"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "raw_key"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "revoked"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "subkeys"
+      req: true
+      type: "`$ARRAY`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "gpg_key"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/user/gpg_keys"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "gpg_keys"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users/{username}/gpg_keys"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "gpg_keys"
+            }
+          ]
+          select: {
+            exist: [
+              "page"
+              "per_page"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/gpg_keys"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "gpg_keys"
+            }
+          ]
+          select: {
+            exist: [
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "gpg_key_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/gpg_keys/{gpg_key_id}"
+          rename: {
+            param: {
+              gpg_key_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "gpg_keys"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "user"
+      ]
+    ]
+  }
+
+
+
+}

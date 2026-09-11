@@ -1,0 +1,67 @@
+# BasicDeploymentStatusFlow
+
+main: kit: flow: BasicDeploymentStatusFlow:
+{
+  entity: "deployment_status",
+  kind: "basic",
+  name: "BasicDeploymentStatusFlow",
+  step: [
+    {
+      input: {
+        ref: "deployment_status_ref01"
+      }
+
+      match: {
+        deployment_id: "deployment01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        deployment_id: "deployment01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "deployment_status_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "deployment_status_ref01",
+        srcdatavar: "deployment_status_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        deployment_id: "deployment01",
+        id: "deployment_status01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-deployment_status_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDeploymentStatusFlow"
+}

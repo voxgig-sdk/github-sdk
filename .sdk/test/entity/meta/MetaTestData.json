@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "meta": {
+      "META00": {
+        "id": "META00"
+      },
+      "META01": {
+        "id": "META01"
+      },
+      "META02": {
+        "id": "META02"
+      }
+    }
+  },
+  "new": {
+    "meta": {
+      "meta_ref01": {}
+    }
+  }
+}

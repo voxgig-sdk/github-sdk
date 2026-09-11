@@ -1,0 +1,195 @@
+# Entity: branch_protection
+
+main: kit: entity: branch_protection: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "allow_deletions"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "allow_force_pushes"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "allow_fork_syncing"
+      req: false
+      short: "Whether users can pull changes from upstream when the branch is locked."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "block_creations"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "enabled"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "enforce_admins"
+      req: true
+      short: "Protected Branch Admin Enforced"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "lock_branch"
+      req: false
+      short: "Whether to set the branch as read-only."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "protection_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "required_conversation_resolution"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "required_linear_history"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "required_pull_request_reviews"
+      req: true
+      short: "Protected Branch Pull Request Review"
+      type: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 2
+        depth: 7
+      }
+    }
+    {
+      name: "required_signatures"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "required_status_checks"
+      req: true
+      short: "Protected Branch Required Status Check"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "restrictions"
+      req: true
+      short: "Branch Restriction Policy"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "url"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "branch_protection"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection"
+          rename: {
+            param: {
+              branch: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "protection"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

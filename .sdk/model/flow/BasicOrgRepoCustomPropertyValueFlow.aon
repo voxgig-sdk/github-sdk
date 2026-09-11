@@ -1,0 +1,26 @@
+# BasicOrgRepoCustomPropertyValueFlow
+
+main: kit: flow: BasicOrgRepoCustomPropertyValueFlow:
+{
+  entity: "org_repo_custom_property_value",
+  kind: "basic",
+  name: "BasicOrgRepoCustomPropertyValueFlow",
+  step: [
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "org_repo_custom_property_value_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOrgRepoCustomPropertyValueFlow"
+}

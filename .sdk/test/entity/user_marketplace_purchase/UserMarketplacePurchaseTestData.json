@@ -1,0 +1,50 @@
+{
+  "existing": {
+    "user_marketplace_purchase": {
+      "USER_MARKETPLACE_PURCHASE00": {
+        "account": {},
+        "billing_cycle": "s51",
+        "free_trial_ends_on": "s52",
+        "next_billing_date": "s53",
+        "on_free_trial": true,
+        "plan": {},
+        "unit_count": "s56",
+        "updated_at": "s57"
+      },
+      "USER_MARKETPLACE_PURCHASE01": {
+        "account": {},
+        "billing_cycle": "sa1",
+        "free_trial_ends_on": "sa2",
+        "next_billing_date": "sa3",
+        "on_free_trial": true,
+        "plan": {},
+        "unit_count": "sa6",
+        "updated_at": "sa7"
+      },
+      "USER_MARKETPLACE_PURCHASE02": {
+        "account": {},
+        "billing_cycle": "sf1",
+        "free_trial_ends_on": "sf2",
+        "next_billing_date": "sf3",
+        "on_free_trial": true,
+        "plan": {},
+        "unit_count": "sf6",
+        "updated_at": "sf7"
+      }
+    }
+  },
+  "new": {
+    "user_marketplace_purchase": {
+      "user_marketplace_purchase_ref01": {
+        "account": {},
+        "billing_cycle": "s141",
+        "free_trial_ends_on": "s142",
+        "next_billing_date": "s143",
+        "on_free_trial": true,
+        "plan": {},
+        "unit_count": "s146",
+        "updated_at": "s147"
+      }
+    }
+  }
+}

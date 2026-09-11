@@ -1,0 +1,44 @@
+# BasicThreadFlow
+
+main: kit: flow: BasicThreadFlow:
+{
+  entity: "thread",
+  kind: "basic",
+  name: "BasicThreadFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "thread_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "thread_ref01",
+        srcdatavar: "thread_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "thread01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-thread_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicThreadFlow"
+}

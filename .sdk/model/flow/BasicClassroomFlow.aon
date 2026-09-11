@@ -1,0 +1,44 @@
+# BasicClassroomFlow
+
+main: kit: flow: BasicClassroomFlow:
+{
+  entity: "classroom",
+  kind: "basic",
+  name: "BasicClassroomFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "classroom_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "classroom_ref01",
+        srcdatavar: "classroom_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "classroom01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-classroom_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicClassroomFlow"
+}

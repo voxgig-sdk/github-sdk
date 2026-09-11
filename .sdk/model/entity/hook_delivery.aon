@@ -1,0 +1,314 @@
+# Entity: hook_delivery
+
+main: kit: entity: hook_delivery: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "action"
+      req: true
+      short: "The type of activity for the event that triggered the delivery."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "delivered_at"
+      req: true
+      short: "Time when the delivery was delivered."
+      type: "`$STRING`"
+    }
+    {
+      name: "duration"
+      req: true
+      short: "Time spent delivering."
+      type: "`$NUMBER`"
+    }
+    {
+      name: "event"
+      req: true
+      short: "The event that triggered the delivery."
+      type: "`$STRING`"
+    }
+    {
+      name: "guid"
+      req: true
+      short: "Unique identifier for the event (shared with all deliveries for all webhooks that subscribe to this event)."
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      short: "Unique identifier of the delivery."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "installation_id"
+      req: true
+      short: "The id of the GitHub App installation associated with this event."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "redelivery"
+      req: true
+      short: "Whether the delivery is a redelivery."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "repository_id"
+      req: true
+      short: "The id of the repository associated with this event."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "request"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "response"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "status"
+      req: true
+      short: "Description of the status of the attempted delivery"
+      type: "`$STRING`"
+    }
+    {
+      name: "status_code"
+      req: true
+      short: "Status code received when delivery was made."
+      type: "`$INTEGER`"
+    }
+    {
+      format: "date-time"
+      name: "throttled_at"
+      req: false
+      short: "Time when the webhook delivery was throttled."
+      type: "`$STRING`"
+    }
+    {
+      name: "url"
+      req: false
+      short: "The URL target of the delivery."
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "hook_delivery"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "hook_id"
+                orig: "hook_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "delivery_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}"
+          rename: {
+            param: {
+              delivery_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "hooks"
+            }
+            {
+              var: "hook_id"
+            }
+            {
+              lit: "deliveries"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "hook_id"
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "hook_id"
+                orig: "hook_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "delivery_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}"
+          rename: {
+            param: {
+              delivery_id: "id"
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "hooks"
+            }
+            {
+              var: "hook_id"
+            }
+            {
+              lit: "deliveries"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "hook_id"
+              "id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "delivery_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/app/hook/deliveries/{delivery_id}"
+          rename: {
+            param: {
+              delivery_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "app"
+            }
+            {
+              lit: "hook"
+            }
+            {
+              lit: "deliveries"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+        "hook"
+      ]
+      [
+        "repo"
+        "hook"
+      ]
+    ]
+  }
+
+
+
+}

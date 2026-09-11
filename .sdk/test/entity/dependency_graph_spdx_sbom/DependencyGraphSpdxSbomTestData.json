@@ -1,0 +1,63 @@
+{
+  "existing": {
+    "dependency_graph_spdx_sbom": {
+      "DEPENDENCY_GRAPH_SPDX_SBOM00": {
+        "SPDXID": "s5a",
+        "comment": "s5b",
+        "creationInfo": {},
+        "dataLicense": "s5d",
+        "documentNamespace": "s5e",
+        "name": "s5f",
+        "packages": [],
+        "relationships": [],
+        "spdxVersion": "s62",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "DEPENDENCY_GRAPH_SPDX_SBOM00"
+      },
+      "DEPENDENCY_GRAPH_SPDX_SBOM01": {
+        "SPDXID": "sb4",
+        "comment": "sb5",
+        "creationInfo": {},
+        "dataLicense": "sb7",
+        "documentNamespace": "sb8",
+        "name": "sb9",
+        "packages": [],
+        "relationships": [],
+        "spdxVersion": "sbc",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "DEPENDENCY_GRAPH_SPDX_SBOM01"
+      },
+      "DEPENDENCY_GRAPH_SPDX_SBOM02": {
+        "SPDXID": "s10e",
+        "comment": "s10f",
+        "creationInfo": {},
+        "dataLicense": "s111",
+        "documentNamespace": "s112",
+        "name": "s113",
+        "packages": [],
+        "relationships": [],
+        "spdxVersion": "s116",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "DEPENDENCY_GRAPH_SPDX_SBOM02"
+      }
+    }
+  },
+  "new": {
+    "dependency_graph_spdx_sbom": {
+      "dependency_graph_spdx_sbom_ref01": {
+        "SPDXID": "s168",
+        "comment": "s169",
+        "creationInfo": {},
+        "dataLicense": "s16b",
+        "documentNamespace": "s16c",
+        "name": "s16d",
+        "packages": [],
+        "relationships": [],
+        "spdxVersion": "s170"
+      }
+    }
+  }
+}

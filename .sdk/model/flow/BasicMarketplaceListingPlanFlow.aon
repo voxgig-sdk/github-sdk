@@ -1,0 +1,22 @@
+# BasicMarketplaceListingPlanFlow
+
+main: kit: flow: BasicMarketplaceListingPlanFlow:
+{
+  entity: "marketplace_listing_plan",
+  kind: "basic",
+  name: "BasicMarketplaceListingPlanFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "marketplace_listing_plan_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMarketplaceListingPlanFlow"
+}

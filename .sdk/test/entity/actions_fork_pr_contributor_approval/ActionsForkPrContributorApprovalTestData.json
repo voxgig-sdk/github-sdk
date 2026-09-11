@@ -1,0 +1,34 @@
+{
+  "existing": {
+    "actions_fork_pr_contributor_approval": {
+      "ACTIONS_FORK_PR_CONTRIBUTOR_APPROVAL00": {
+        "approval_policy": "sa",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "ACTIONS_FORK_PR_CONTRIBUTOR_APPROVAL00"
+      },
+      "ACTIONS_FORK_PR_CONTRIBUTOR_APPROVAL01": {
+        "approval_policy": "s14",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "ACTIONS_FORK_PR_CONTRIBUTOR_APPROVAL01"
+      },
+      "ACTIONS_FORK_PR_CONTRIBUTOR_APPROVAL02": {
+        "approval_policy": "s1e",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "ACTIONS_FORK_PR_CONTRIBUTOR_APPROVAL02"
+      }
+    }
+  },
+  "new": {
+    "actions_fork_pr_contributor_approval": {
+      "actions_fork_pr_contributor_approval_ref01": {
+        "approval_policy": "s28"
+      }
+    }
+  }
+}

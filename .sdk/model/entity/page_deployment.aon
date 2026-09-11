@@ -1,0 +1,108 @@
+# Entity: page_deployment
+
+main: kit: entity: page_deployment: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "artifact_id"
+      req: false
+      short: "The ID of an artifact that contains the .zip or .tar of static assets to deploy."
+      type: "`$NUMBER`"
+    }
+    {
+      name: "artifact_url"
+      req: false
+      short: "The URL of an artifact that contains the .zip or .tar of static assets to deploy."
+      type: "`$STRING`"
+    }
+    {
+      name: "environment"
+      req: false
+      short: "The target environment for this GitHub Pages deployment."
+      type: "`$STRING`"
+    }
+    {
+      name: "oidc_token"
+      req: true
+      short: "The OIDC token issued by GitHub Actions certifying the origin of the deployment."
+      type: "`$STRING`"
+    }
+    {
+      name: "pages_build_version"
+      req: true
+      short: "A unique string that represents the version of the build for this deployment."
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "page_deployment"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/pages/deployments"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pages"
+            }
+            {
+              lit: "deployments"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.id`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

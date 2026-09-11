@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "language": {
+      "LANGUAGE00": {
+        "C": "s14",
+        "Python": "s15",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "LANGUAGE00"
+      },
+      "LANGUAGE01": {
+        "C": "s28",
+        "Python": "s29",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "LANGUAGE01"
+      },
+      "LANGUAGE02": {
+        "C": "s3c",
+        "Python": "s3d",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "LANGUAGE02"
+      }
+    }
+  },
+  "new": {
+    "language": {
+      "language_ref01": {
+        "C": "s50",
+        "Python": "s51"
+      }
+    }
+  }
+}

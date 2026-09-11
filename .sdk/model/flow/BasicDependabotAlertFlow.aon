@@ -1,0 +1,75 @@
+# BasicDependabotAlertFlow
+
+main: kit: flow: BasicDependabotAlertFlow:
+{
+  entity: "dependabot_alert",
+  kind: "basic",
+  name: "BasicDependabotAlertFlow",
+  step: [
+    {
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "dependabot_alert_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      input: {
+        ref: "dependabot_alert_ref01",
+        srcdatavar: "dependabot_alert_ref01_data",
+        suffix: "_up0",
+        textfield: "auto_dismissed_at"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-dependabot_alert_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "dependabot_alert_ref01",
+        srcdatavar: "dependabot_alert_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "dependabot_alert01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-dependabot_alert_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDependabotAlertFlow"
+}

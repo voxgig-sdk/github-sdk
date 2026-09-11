@@ -1,0 +1,46 @@
+# BasicRepositoryInvitationFlow
+
+main: kit: flow: BasicRepositoryInvitationFlow:
+{
+  entity: "repository_invitation",
+  kind: "basic",
+  name: "BasicRepositoryInvitationFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "repository_invitation_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      input: {
+        ref: "repository_invitation_ref01",
+        srcdatavar: "repository_invitation_ref01_data",
+        suffix: "_up0",
+        textfield: "created_at"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_invitation_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryInvitationFlow"
+}

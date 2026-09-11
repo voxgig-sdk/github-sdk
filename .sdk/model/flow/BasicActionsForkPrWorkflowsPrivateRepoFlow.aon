@@ -1,0 +1,32 @@
+# BasicActionsForkPrWorkflowsPrivateRepoFlow
+
+main: kit: flow: BasicActionsForkPrWorkflowsPrivateRepoFlow:
+{
+  entity: "actions_fork_pr_workflows_private_repo",
+  kind: "basic",
+  name: "BasicActionsForkPrWorkflowsPrivateRepoFlow",
+  step: [
+    {
+      input: {
+        ref: "actions_fork_pr_workflows_private_repo_ref01",
+        srcdatavar: "actions_fork_pr_workflows_private_repo_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "actions_fork_pr_workflows_private_repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-actions_fork_pr_workflows_private_repo_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicActionsForkPrWorkflowsPrivateRepoFlow"
+}

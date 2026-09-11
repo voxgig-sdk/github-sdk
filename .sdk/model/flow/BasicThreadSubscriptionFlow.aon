@@ -1,0 +1,51 @@
+# BasicThreadSubscriptionFlow
+
+main: kit: flow: BasicThreadSubscriptionFlow:
+{
+  entity: "thread_subscription",
+  kind: "basic",
+  name: "BasicThreadSubscriptionFlow",
+  step: [
+    {
+      input: {
+        ref: "thread_subscription_ref01",
+        srcdatavar: "thread_subscription_ref01_data",
+        suffix: "_up0",
+        textfield: "created_at"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-thread_subscription_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "thread_subscription_ref01",
+        srcdatavar: "thread_subscription_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "thread_subscription01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-thread_subscription_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicThreadSubscriptionFlow"
+}

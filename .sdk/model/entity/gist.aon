@@ -1,0 +1,671 @@
+# Entity: gist
+
+main: kit: entity: gist: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "comments"
+      op: {
+        list: {
+          req: true
+          type: "`$INTEGER`"
+        }
+      }
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "comments_enabled"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "comments_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "commits_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "Description of the gist"
+      type: "`$STRING`"
+    }
+    {
+      name: "files"
+      op: {
+        create: {
+          req: true
+          type: "`$OBJECT`"
+        }
+        list: {
+          req: true
+          type: "`$OBJECT`"
+        }
+      }
+      req: false
+      short: "Names and content for the files that make up the gist"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "fork_of"
+      req: true
+      short: "Gist"
+      type: "`$OBJECT`"
+    }
+    {
+      deprecated: true
+      name: "forks"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      format: "uri"
+      name: "forks_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "git_pull_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "git_push_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      deprecated: true
+      name: "history"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "node_id"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "owner"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "public"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "truncated"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "user"
+      op: {
+        list: {
+          req: true
+          type: "`$OBJECT`"
+        }
+      }
+      req: false
+      short: "A GitHub user."
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "gist"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/gists"
+          segments: [
+            {
+              lit: "gists"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "since"
+                orig: "since"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/gists"
+          segments: [
+            {
+              lit: "gists"
+            }
+          ]
+          select: {
+            exist: [
+              "page"
+              "per_page"
+              "since"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "gist_id"
+                orig: "gist_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "sha"
+                orig: "sha"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/gists/{gist_id}/{sha}"
+          segments: [
+            {
+              lit: "gists"
+            }
+            {
+              var: "gist_id"
+            }
+            {
+              var: "sha"
+            }
+          ]
+          select: {
+            exist: [
+              "gist_id"
+              "sha"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "gist_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/gists/{gist_id}"
+          rename: {
+            param: {
+              gist_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "gists"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "gist_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/gists/{gist_id}/star"
+          rename: {
+            param: {
+              gist_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "gists"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "star"
+            }
+          ]
+          select: {
+            "$action": "star"
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "comment_id"
+                orig: "comment_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "gist_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/gists/{gist_id}/comments/{comment_id}"
+          rename: {
+            param: {
+              gist_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "gists"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "comments"
+            }
+            {
+              var: "comment_id"
+            }
+          ]
+          select: {
+            exist: [
+              "comment_id"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "gist_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/gists/{gist_id}"
+          rename: {
+            param: {
+              gist_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "gists"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "gist_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/gists/{gist_id}/star"
+          rename: {
+            param: {
+              gist_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "gists"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "star"
+            }
+          ]
+          select: {
+            "$action": "star"
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "gist_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/gists/{gist_id}"
+          rename: {
+            param: {
+              gist_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "gists"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "gist_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/gists/{gist_id}/star"
+          rename: {
+            param: {
+              gist_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "gists"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "star"
+            }
+          ]
+          select: {
+            "$action": "star"
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "comment"
+      ]
+      [
+        "gist"
+      ]
+    ]
+  }
+
+
+
+}

@@ -1,0 +1,34 @@
+# BasicRepositoryRuleDetailedFlow
+
+main: kit: flow: BasicRepositoryRuleDetailedFlow:
+{
+  entity: "repository_rule_detailed",
+  kind: "basic",
+  name: "BasicRepositoryRuleDetailedFlow",
+  step: [
+    {
+      input: {
+        ref: "repository_rule_detailed_ref01",
+        srcdatavar: "repository_rule_detailed_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "repository_rule_detailed01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_rule_detailed_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryRuleDetailedFlow"
+}

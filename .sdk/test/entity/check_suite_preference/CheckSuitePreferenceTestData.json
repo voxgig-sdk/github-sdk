@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "check_suite_preference": {
+      "CHECK_SUITE_PREFERENCE00": {
+        "auto_trigger_checks": [],
+        "preferences": {},
+        "repository": {},
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CHECK_SUITE_PREFERENCE00"
+      },
+      "CHECK_SUITE_PREFERENCE01": {
+        "auto_trigger_checks": [],
+        "preferences": {},
+        "repository": {},
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CHECK_SUITE_PREFERENCE01"
+      },
+      "CHECK_SUITE_PREFERENCE02": {
+        "auto_trigger_checks": [],
+        "preferences": {},
+        "repository": {},
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CHECK_SUITE_PREFERENCE02"
+      }
+    }
+  },
+  "new": {
+    "check_suite_preference": {
+      "check_suite_preference_ref01": {
+        "auto_trigger_checks": [],
+        "preferences": {},
+        "repository": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+# BasicApiInsightsSubjectStatFlow
+
+main: kit: flow: BasicApiInsightsSubjectStatFlow:
+{
+  entity: "api_insights_subject_stat",
+  kind: "basic",
+  name: "BasicApiInsightsSubjectStatFlow",
+  step: [
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "api_insights_subject_stat_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicApiInsightsSubjectStatFlow"
+}

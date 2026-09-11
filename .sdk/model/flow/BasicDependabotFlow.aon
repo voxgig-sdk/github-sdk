@@ -1,0 +1,41 @@
+# BasicDependabotFlow
+
+main: kit: flow: BasicDependabotFlow:
+{
+  entity: "dependabot",
+  kind: "basic",
+  name: "BasicDependabotFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "dependabot_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "dependabot_ref01",
+        srcdatavar: "dependabot_ref01_data",
+        suffix: "_up0",
+        textfield: "archive_url"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-dependabot_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDependabotFlow"
+}

@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "org_repo_custom_property_value": {
+      "ORG_REPO_CUSTOM_PROPERTY_VALUE00": {
+        "properties": [],
+        "repository_full_name": "s29",
+        "repository_id": "REPOSITORY01",
+        "repository_name": "s2b",
+        "org_id": "ORG01"
+      },
+      "ORG_REPO_CUSTOM_PROPERTY_VALUE01": {
+        "properties": [],
+        "repository_full_name": "s51",
+        "repository_id": "REPOSITORY01",
+        "repository_name": "s53",
+        "org_id": "ORG01"
+      },
+      "ORG_REPO_CUSTOM_PROPERTY_VALUE02": {
+        "properties": [],
+        "repository_full_name": "s79",
+        "repository_id": "REPOSITORY01",
+        "repository_name": "s7b",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "org_repo_custom_property_value": {
+      "org_repo_custom_property_value_ref01": {
+        "properties": [],
+        "repository_full_name": "sa1",
+        "repository_id": "REPOSITORY01",
+        "repository_name": "sa3"
+      }
+    }
+  }
+}

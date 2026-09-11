@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "private_user": {
+      "PRIVATE_USER00": {},
+      "PRIVATE_USER01": {},
+      "PRIVATE_USER02": {}
+    }
+  },
+  "new": {
+    "private_user": {
+      "private_user_ref01": {}
+    }
+  }
+}

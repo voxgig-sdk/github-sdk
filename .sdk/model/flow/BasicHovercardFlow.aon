@@ -1,0 +1,26 @@
+# BasicHovercardFlow
+
+main: kit: flow: BasicHovercardFlow:
+{
+  entity: "hovercard",
+  kind: "basic",
+  name: "BasicHovercardFlow",
+  step: [
+    {
+      match: {
+        username: "username01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "hovercard_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicHovercardFlow"
+}

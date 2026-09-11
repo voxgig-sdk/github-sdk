@@ -1,0 +1,33 @@
+# BasicActionsCacheUsageByRepositoryFlow
+
+main: kit: flow: BasicActionsCacheUsageByRepositoryFlow:
+{
+  entity: "actions_cache_usage_by_repository",
+  kind: "basic",
+  name: "BasicActionsCacheUsageByRepositoryFlow",
+  step: [
+    {
+      input: {
+        ref: "actions_cache_usage_by_repository_ref01",
+        srcdatavar: "actions_cache_usage_by_repository_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "actions_cache_usage_by_repository01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-actions_cache_usage_by_repository_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicActionsCacheUsageByRepositoryFlow"
+}

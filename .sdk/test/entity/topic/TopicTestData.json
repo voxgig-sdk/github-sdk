@@ -1,0 +1,31 @@
+{
+  "existing": {
+    "topic": {
+      "TOPIC00": {
+        "names": [],
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "TOPIC00"
+      },
+      "TOPIC01": {
+        "names": [],
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "TOPIC01"
+      },
+      "TOPIC02": {
+        "names": [],
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "TOPIC02"
+      }
+    }
+  },
+  "new": {
+    "topic": {
+      "topic_ref01": {
+        "names": []
+      }
+    }
+  }
+}

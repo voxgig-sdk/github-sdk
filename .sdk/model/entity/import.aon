@@ -1,0 +1,387 @@
+# Entity: import
+
+main: kit: entity: import: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "authors_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "authors_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "commit_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "error_message"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "failed_step"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "has_large_files"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "human_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "import_percent"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "large_files_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "large_files_size"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "message"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "project_choices"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "push_percent"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "repository_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "status_text"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "svc_root"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "svn_root"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "tfvc_project"
+      req: false
+      short: "For a tfvc import, the name of the project that is being imported."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "use_lfs"
+      op: {
+        patch: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "Whether to store large files during the import."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "vcs"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+        patch: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The originating VCS type."
+      type: "`$STRING`"
+    }
+    {
+      name: "vcs_password"
+      req: false
+      short: "If authentication is required, the password to provide to `vcs_url`."
+      type: "`$STRING`"
+    }
+    {
+      name: "vcs_url"
+      req: true
+      short: "The URL of the originating repository."
+      type: "`$STRING`"
+    }
+    {
+      name: "vcs_username"
+      req: false
+      short: "If authentication is required, the username to provide to `vcs_url`."
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "import"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/import"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "import"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.project_choices`"
+          }
+        }
+      ]
+    }
+    patch: {
+      name: "patch"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/repos/{owner}/{repo}/import"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "import"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/repos/{owner}/{repo}/import/lfs"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "import"
+            }
+            {
+              lit: "lfs"
+            }
+          ]
+          select: {
+            "$action": "lfs"
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/import"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "import"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

@@ -1,0 +1,84 @@
+# Entity: oidc_custom_sub
+
+main: kit: entity: oidc_custom_sub: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "include_claim_keys"
+      req: true
+      short: "Array of unique strings."
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "oidc_custom_sub"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/oidc/customization/sub"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "oidc"
+            }
+            {
+              lit: "customization"
+            }
+            {
+              lit: "sub"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.include_claim_keys`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+    ]
+  }
+
+
+
+}

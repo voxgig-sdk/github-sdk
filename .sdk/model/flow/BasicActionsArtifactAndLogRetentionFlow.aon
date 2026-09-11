@@ -1,0 +1,32 @@
+# BasicActionsArtifactAndLogRetentionFlow
+
+main: kit: flow: BasicActionsArtifactAndLogRetentionFlow:
+{
+  entity: "actions_artifact_and_log_retention",
+  kind: "basic",
+  name: "BasicActionsArtifactAndLogRetentionFlow",
+  step: [
+    {
+      input: {
+        ref: "actions_artifact_and_log_retention_ref01",
+        srcdatavar: "actions_artifact_and_log_retention_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "actions_artifact_and_log_retention01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-actions_artifact_and_log_retention_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicActionsArtifactAndLogRetentionFlow"
+}

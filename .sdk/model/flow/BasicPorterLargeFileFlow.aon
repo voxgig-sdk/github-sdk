@@ -1,0 +1,27 @@
+# BasicPorterLargeFileFlow
+
+main: kit: flow: BasicPorterLargeFileFlow:
+{
+  entity: "porter_large_file",
+  kind: "basic",
+  name: "BasicPorterLargeFileFlow",
+  step: [
+    {
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "porter_large_file_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPorterLargeFileFlow"
+}

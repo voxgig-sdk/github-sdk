@@ -1,0 +1,1403 @@
+# Entity: search
+
+main: kit: entity: search: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "active_lock_reason"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "aliases"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "allow_auto_merge"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "allow_forking"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "allow_merge_commit"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "allow_rebase_merge"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "allow_squash_merge"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "archive_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "archived"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "assignee"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "assignees"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "assignees_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "author"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "author_association"
+      req: true
+      short: "How the author is associated with the repository."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "avatar_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "bio"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "blobs_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "blog"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "body"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "body_html"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "body_text"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "branches_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "clone_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "closed_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "collaborators_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "color"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "comments"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "comments_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "commit"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "commits_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "committer"
+      req: true
+      short: "Metaproperties for Git author/committer information."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "company"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "compare_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "contents_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "contributors_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "created_by"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "curated"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "default"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "default_branch"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "delete_branch_on_merge"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "deployments_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "disabled"
+      req: true
+      short: "Returns whether or not this repository disabled."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "display_name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "downloads_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "draft"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "email"
+      name: "email"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "featured"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "file_size"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "followers"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "followers_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "following"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "following_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "fork"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "forks"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "forks_count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "forks_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "full_name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "gists_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_commits_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_refs_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_tags_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "git_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "gravatar_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "has_discussions"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_downloads"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_issues"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_pages"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_projects"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_wiki"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "hireable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "homepage"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "hooks_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "is_template"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "issue_comment_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "issue_dependencies_summary"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "issue_events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "issue_field_values"
+      req: false
+      type: "`$ARRAY`"
+      union: {
+        branches: 3
+        count: 1
+        depth: 3
+      }
+    }
+    {
+      name: "issues_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "keys_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "labels"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "labels_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "language"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "languages_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "last_modified_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "license"
+      req: true
+      short: "License Simple"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "line_numbers"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "location"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "locked"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "login"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "logo_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "master_branch"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "merges_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "milestone"
+      req: true
+      short: "A collection of related issues and pull requests."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "milestones_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "mirror_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "notifications_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "number"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "open_issues"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "open_issues_count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "organizations_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "owner"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "parents"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "path"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "performed_via_github_app"
+      req: true
+      short: "GitHub apps are a new way to extend GitHub."
+      type: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    {
+      name: "permissions"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "private"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "public_gists"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "public_repos"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "pull_request"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "pulls_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "pushed_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "reactions"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      format: "uri"
+      name: "received_events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "related"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "released"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "releases_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "repos_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "repository"
+      req: true
+      short: "A repository on GitHub."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "repository_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "repository_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "score"
+      req: true
+      type: "`$NUMBER`"
+    }
+    {
+      name: "sha"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "short_description"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "site_admin"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "size"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ssh_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "stargazers_count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "stargazers_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "starred_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "state"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "state_reason"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "statuses_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "sub_issues_summary"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      format: "uri"
+      name: "subscribers_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "subscription_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "subscriptions_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "suspended_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "svn_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "tags_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "teams_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "temp_clone_token"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "text_matches"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      format: "uri"
+      name: "timeline_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "topics"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "trees_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: true
+      short: "The type of issue."
+      type: "`$OBJECT`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "user"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "user_view_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "visibility"
+      req: false
+      short: "The repository visibility: public, private, or internal."
+      type: "`$STRING`"
+    }
+    {
+      name: "watchers"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "watchers_count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "web_commit_signoff_required"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "search"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "advanced_search"
+                orig: "advanced_search"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "desc"
+                kind: "query"
+                name: "order"
+                orig: "order"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "q"
+                orig: "q"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "search_type"
+                orig: "search_type"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/search/issues"
+          segments: [
+            {
+              lit: "search"
+            }
+            {
+              lit: "issues"
+            }
+          ]
+          select: {
+            "$action": "issue"
+            exist: [
+              "advanced_search"
+              "order"
+              "page"
+              "per_page"
+              "q"
+              "search_type"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.items`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: "desc"
+                kind: "query"
+                name: "order"
+                orig: "order"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "q"
+                orig: "q"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "repository_id"
+                orig: "repository_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/search/labels"
+          segments: [
+            {
+              lit: "search"
+            }
+            {
+              lit: "labels"
+            }
+          ]
+          select: {
+            "$action": "label"
+            exist: [
+              "order"
+              "page"
+              "per_page"
+              "q"
+              "repository_id"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.items`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: "desc"
+                kind: "query"
+                name: "order"
+                orig: "order"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "q"
+                orig: "q"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/search/code"
+          segments: [
+            {
+              lit: "search"
+            }
+            {
+              lit: "code"
+            }
+          ]
+          select: {
+            "$action": "code"
+            exist: [
+              "order"
+              "page"
+              "per_page"
+              "q"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.items`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: "desc"
+                kind: "query"
+                name: "order"
+                orig: "order"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "q"
+                orig: "q"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/search/commits"
+          segments: [
+            {
+              lit: "search"
+            }
+            {
+              lit: "commits"
+            }
+          ]
+          select: {
+            "$action": "commit"
+            exist: [
+              "order"
+              "page"
+              "per_page"
+              "q"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.items`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: "desc"
+                kind: "query"
+                name: "order"
+                orig: "order"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "q"
+                orig: "q"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/search/repositories"
+          segments: [
+            {
+              lit: "search"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            "$action": "repository"
+            exist: [
+              "order"
+              "page"
+              "per_page"
+              "q"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.items`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: "desc"
+                kind: "query"
+                name: "order"
+                orig: "order"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "q"
+                orig: "q"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/search/users"
+          segments: [
+            {
+              lit: "search"
+            }
+            {
+              lit: "users"
+            }
+          ]
+          select: {
+            "$action": "user"
+            exist: [
+              "order"
+              "page"
+              "per_page"
+              "q"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.items`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "q"
+                orig: "q"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/search/topics"
+          segments: [
+            {
+              lit: "search"
+            }
+            {
+              lit: "topics"
+            }
+          ]
+          select: {
+            "$action": "topic"
+            exist: [
+              "page"
+              "per_page"
+              "q"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.items`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

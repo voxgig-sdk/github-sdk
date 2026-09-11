@@ -1,0 +1,28 @@
+# BasicMetarootFlow
+
+main: kit: flow: BasicMetarootFlow:
+{
+  entity: "metaroot",
+  kind: "basic",
+  name: "BasicMetarootFlow",
+  step: [
+    {
+      input: {
+        ref: "metaroot_ref01",
+        srcdatavar: "metaroot_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-metaroot_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMetarootFlow"
+}

@@ -1,0 +1,44 @@
+# Entity: rate_limit
+
+main: kit: entity: rate_limit: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "rate"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "resources"
+      req: true
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "rate_limit"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/rate_limit"
+          segments: [
+            {
+              lit: "rate_limit"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

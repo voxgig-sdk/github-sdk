@@ -1,0 +1,396 @@
+# Entity: projects_v2
+
+main: kit: entity: projects_v2: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      format: "date-time"
+      name: "closed_at"
+      req: true
+      short: "The time when the project was closed."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      short: "The time when the project was created."
+      type: "`$STRING`"
+    }
+    {
+      name: "creator"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      format: "date-time"
+      name: "deleted_at"
+      req: true
+      short: "The time when the project was deleted."
+      type: "`$STRING`"
+    }
+    {
+      name: "deleted_by"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "description"
+      req: true
+      short: "A short description of the project."
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      short: "The unique identifier of the project."
+      type: "`$NUMBER`"
+    }
+    {
+      name: "is_template"
+      req: false
+      short: "Whether this project is a template"
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "latest_status_update"
+      req: true
+      short: "An status update belonging to a project"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "node_id"
+      req: true
+      short: "The node ID of the project."
+      type: "`$STRING`"
+    }
+    {
+      name: "number"
+      req: true
+      short: "The project number."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "owner"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "public"
+      req: true
+      short: "Whether the project is visible to anyone with access to the owner."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "short_description"
+      req: true
+      short: "A concise summary of the project."
+      type: "`$STRING`"
+    }
+    {
+      name: "state"
+      req: false
+      short: "The current state of the project."
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      req: true
+      short: "The project title."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      req: true
+      short: "The time when the project was last updated."
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "projects_v2"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "after"
+                orig: "after"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "before"
+                orig: "before"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "q"
+                orig: "q"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/projectsV2"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "projectsV2"
+            }
+          ]
+          select: {
+            exist: [
+              "after"
+              "before"
+              "org_id"
+              "per_page"
+              "q"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "after"
+                orig: "after"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "before"
+                orig: "before"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "q"
+                orig: "q"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users/{username}/projectsV2"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "projectsV2"
+            }
+          ]
+          select: {
+            exist: [
+              "after"
+              "before"
+              "per_page"
+              "q"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "project_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/projectsV2/{project_number}"
+          rename: {
+            param: {
+              org: "org_id"
+              project_number: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "projectsV2"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "project_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users/{username}/projectsV2/{project_number}"
+          rename: {
+            param: {
+              project_number: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "projectsV2"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+      [
+        "user"
+      ]
+    ]
+  }
+
+
+
+}

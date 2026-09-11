@@ -1,0 +1,706 @@
+# Entity: pull_request_review_comment
+
+main: kit: entity: pull_request_review_comment: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "author_association"
+      req: true
+      short: "How the author is associated with the repository."
+      type: "`$STRING`"
+    }
+    {
+      name: "body"
+      req: true
+      short: "The text of the comment."
+      type: "`$STRING`"
+    }
+    {
+      name: "body_html"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "body_text"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "commit_id"
+      req: true
+      short: "The SHA of the commit to which the comment applies."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "diff_hunk"
+      req: true
+      short: "The diff of the line that the comment refers to."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      req: true
+      short: "HTML URL for the pull request review comment."
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      req: true
+      short: "The ID of the pull request review comment."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "in_reply_to"
+      req: false
+      short: "The ID of the review comment to reply to."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "in_reply_to_id"
+      req: false
+      short: "The comment ID to reply to."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "line"
+      req: false
+      short: "The line of the blob to which the comment applies."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "links"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "node_id"
+      req: true
+      short: "The node ID of the pull request review comment."
+      type: "`$STRING`"
+    }
+    {
+      name: "original_commit_id"
+      req: true
+      short: "The SHA of the original commit to which the comment applies."
+      type: "`$STRING`"
+    }
+    {
+      name: "original_line"
+      req: false
+      short: "The line of the blob to which the comment applies."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "original_position"
+      req: false
+      short: "The index of the original line in the diff to which the comment applies."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "original_start_line"
+      req: false
+      short: "The first line of the range for a multi-line comment."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "path"
+      req: true
+      short: "The relative path of the file to which the comment applies."
+      type: "`$STRING`"
+    }
+    {
+      deprecated: true
+      name: "position"
+      req: false
+      short: "The line index in the diff to which the comment applies."
+      type: "`$INTEGER`"
+    }
+    {
+      format: "int64"
+      name: "pull_request_review_id"
+      req: true
+      short: "The ID of the pull request review to which the comment belongs."
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "pull_request_url"
+      req: true
+      short: "URL for the pull request that the review comment belongs to."
+      type: "`$STRING`"
+    }
+    {
+      name: "reactions"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "side"
+      req: false
+      short: "The side of the diff to which the comment applies."
+      type: "`$STRING`"
+    }
+    {
+      name: "start_line"
+      req: false
+      short: "The first line of the range for a multi-line comment."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "start_side"
+      req: false
+      short: "The side of the first line of the range for a multi-line comment."
+      type: "`$STRING`"
+    }
+    {
+      name: "subject_type"
+      req: false
+      short: "The level at which the comment is targeted, can be a diff line or a file."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "url"
+      req: true
+      short: "URL for the pull request review comment"
+      type: "`$STRING`"
+    }
+    {
+      name: "user"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "pull_request_review_comment"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "comment_id"
+                orig: "comment_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pull_id"
+                orig: "pull_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/pulls/{pull_number}/comments/{comment_id}/replies"
+          rename: {
+            param: {
+              pull_number: "pull_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              var: "pull_id"
+            }
+            {
+              lit: "comments"
+            }
+            {
+              var: "comment_id"
+            }
+            {
+              lit: "replies"
+            }
+          ]
+          select: {
+            exist: [
+              "comment_id"
+              "owner"
+              "pull_id"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pull_number"
+                orig: "pull_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/pulls/{pull_number}/comments"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              var: "pull_number"
+            }
+            {
+              lit: "comments"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "pull_number"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pull_number"
+                orig: "pull_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "direction"
+                orig: "direction"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "since"
+                orig: "since"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "created"
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/pulls/{pull_number}/comments"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              var: "pull_number"
+            }
+            {
+              lit: "comments"
+            }
+          ]
+          select: {
+            exist: [
+              "direction"
+              "owner"
+              "page"
+              "per_page"
+              "pull_number"
+              "repo"
+              "since"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "direction"
+                orig: "direction"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "since"
+                orig: "since"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/pulls/comments"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              lit: "comments"
+            }
+          ]
+          select: {
+            exist: [
+              "direction"
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+              "since"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "comment_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/pulls/comments/{comment_id}"
+          rename: {
+            param: {
+              comment_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              lit: "comments"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "comment_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/repos/{owner}/{repo}/pulls/comments/{comment_id}"
+          rename: {
+            param: {
+              comment_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              lit: "comments"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+      [
+        "repo"
+        "pull"
+      ]
+      [
+        "repo"
+        "pull"
+        "comment"
+      ]
+    ]
+  }
+
+
+
+}

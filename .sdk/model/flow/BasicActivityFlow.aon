@@ -1,0 +1,69 @@
+# BasicActivityFlow
+
+main: kit: flow: BasicActivityFlow:
+{
+  entity: "activity",
+  kind: "basic",
+  name: "BasicActivityFlow",
+  step: [
+    {
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "activity_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "activity_ref01",
+        srcdatavar: "activity_ref01_data",
+        suffix: "_up0",
+        textfield: "activity_type"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-activity_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "activity_ref01",
+        srcdatavar: "activity_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "activity01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-activity_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicActivityFlow"
+}

@@ -1,0 +1,23 @@
+# BasicShortBlobFlow
+
+main: kit: flow: BasicShortBlobFlow:
+{
+  entity: "short_blob",
+  kind: "basic",
+  name: "BasicShortBlobFlow",
+  step: [
+    {
+      input: {
+        ref: "short_blob_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicShortBlobFlow"
+}

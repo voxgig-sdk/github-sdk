@@ -1,0 +1,119 @@
+# Entity: api_overview
+
+main: kit: entity: api_overview: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "actions"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "actions_macos"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "api"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "codespaces"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "copilot"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "dependabot"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "domains"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "git"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "github_enterprise_importer"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "hooks"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "importer"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "packages"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "pages"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "ssh_key_fingerprints"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "ssh_keys"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "verifiable_password_authentication"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "web"
+      req: false
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "api_overview"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/meta"
+          segments: [
+            {
+              lit: "meta"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

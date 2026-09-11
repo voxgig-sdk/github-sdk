@@ -1,0 +1,86 @@
+{
+  "existing": {
+    "api_overview": {
+      "API_OVERVIEW00": {
+        "actions": [],
+        "actions_macos": [],
+        "api": [],
+        "codespaces": [],
+        "copilot": [],
+        "dependabot": [],
+        "domains": {},
+        "git": [],
+        "github_enterprise_importer": [],
+        "hooks": [],
+        "importer": [],
+        "packages": [],
+        "pages": [],
+        "ssh_key_fingerprints": {},
+        "ssh_keys": [],
+        "verifiable_password_authentication": false,
+        "web": []
+      },
+      "API_OVERVIEW01": {
+        "actions": [],
+        "actions_macos": [],
+        "api": [],
+        "codespaces": [],
+        "copilot": [],
+        "dependabot": [],
+        "domains": {},
+        "git": [],
+        "github_enterprise_importer": [],
+        "hooks": [],
+        "importer": [],
+        "packages": [],
+        "pages": [],
+        "ssh_key_fingerprints": {},
+        "ssh_keys": [],
+        "verifiable_password_authentication": false,
+        "web": []
+      },
+      "API_OVERVIEW02": {
+        "actions": [],
+        "actions_macos": [],
+        "api": [],
+        "codespaces": [],
+        "copilot": [],
+        "dependabot": [],
+        "domains": {},
+        "git": [],
+        "github_enterprise_importer": [],
+        "hooks": [],
+        "importer": [],
+        "packages": [],
+        "pages": [],
+        "ssh_key_fingerprints": {},
+        "ssh_keys": [],
+        "verifiable_password_authentication": false,
+        "web": []
+      }
+    }
+  },
+  "new": {
+    "api_overview": {
+      "api_overview_ref01": {
+        "actions": [],
+        "actions_macos": [],
+        "api": [],
+        "codespaces": [],
+        "copilot": [],
+        "dependabot": [],
+        "domains": {},
+        "git": [],
+        "github_enterprise_importer": [],
+        "hooks": [],
+        "importer": [],
+        "packages": [],
+        "pages": [],
+        "ssh_key_fingerprints": {},
+        "ssh_keys": [],
+        "verifiable_password_authentication": false,
+        "web": []
+      }
+    }
+  }
+}

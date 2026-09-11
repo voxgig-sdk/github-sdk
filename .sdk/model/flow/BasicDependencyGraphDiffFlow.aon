@@ -1,0 +1,34 @@
+# BasicDependencyGraphDiffFlow
+
+main: kit: flow: BasicDependencyGraphDiffFlow:
+{
+  entity: "dependency_graph_diff",
+  kind: "basic",
+  name: "BasicDependencyGraphDiffFlow",
+  step: [
+    {
+      input: {
+        ref: "dependency_graph_diff_ref01",
+        srcdatavar: "dependency_graph_diff_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "dependency_graph_diff01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-dependency_graph_diff_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDependencyGraphDiffFlow"
+}

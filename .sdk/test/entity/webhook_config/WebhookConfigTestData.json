@@ -1,0 +1,49 @@
+{
+  "existing": {
+    "webhook_config": {
+      "WEBHOOK_CONFIG00": {
+        "content_type": "s28",
+        "insecure_ssl": "s29",
+        "secret": "s2a",
+        "url": "s2b",
+        "hook_id": "HOOK01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "WEBHOOK_CONFIG00"
+      },
+      "WEBHOOK_CONFIG01": {
+        "content_type": "s50",
+        "insecure_ssl": "s51",
+        "secret": "s52",
+        "url": "s53",
+        "hook_id": "HOOK01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "WEBHOOK_CONFIG01"
+      },
+      "WEBHOOK_CONFIG02": {
+        "content_type": "s78",
+        "insecure_ssl": "s79",
+        "secret": "s7a",
+        "url": "s7b",
+        "hook_id": "HOOK01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "WEBHOOK_CONFIG02"
+      }
+    }
+  },
+  "new": {
+    "webhook_config": {
+      "webhook_config_ref01": {
+        "content_type": "sa0",
+        "insecure_ssl": "sa1",
+        "secret": "sa2",
+        "url": "sa3"
+      }
+    }
+  }
+}

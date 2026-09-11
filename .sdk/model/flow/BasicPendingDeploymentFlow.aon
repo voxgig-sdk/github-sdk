@@ -1,0 +1,28 @@
+# BasicPendingDeploymentFlow
+
+main: kit: flow: BasicPendingDeploymentFlow:
+{
+  entity: "pending_deployment",
+  kind: "basic",
+  name: "BasicPendingDeploymentFlow",
+  step: [
+    {
+      match: {
+        owner: "owner01",
+        repo: "repo01",
+        run_id: "run01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "pending_deployment_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPendingDeploymentFlow"
+}

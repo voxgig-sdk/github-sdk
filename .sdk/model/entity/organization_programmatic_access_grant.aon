@@ -1,0 +1,372 @@
+# Entity: organization_programmatic_access_grant
+
+main: kit: entity: organization_programmatic_access_grant: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "access_granted_at"
+      req: true
+      short: "Date and time when the fine-grained personal access token was approved to access the organization."
+      type: "`$STRING`"
+    }
+    {
+      name: "created_at"
+      req: true
+      short: "Date and time when the request for access was created."
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      short: "Unique identifier of the request for access via fine-grained personal access token."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "owner"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "permissions"
+      req: true
+      short: "Permissions requested, categorized by type of permission."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "reason"
+      req: true
+      short: "Reason for requesting access."
+      type: "`$STRING`"
+    }
+    {
+      name: "repositories_url"
+      req: true
+      short: "URL to the list of repositories requested to be accessed via fine-grained personal access token."
+      type: "`$STRING`"
+    }
+    {
+      name: "repository_selection"
+      req: true
+      short: "Type of repository selection requested."
+      type: "`$STRING`"
+    }
+    {
+      name: "token_expired"
+      req: true
+      short: "Whether the associated fine-grained personal access token has expired."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "token_expires_at"
+      req: true
+      short: "Date and time when the associated fine-grained personal access token expires."
+      type: "`$STRING`"
+    }
+    {
+      name: "token_id"
+      req: true
+      short: "Unique identifier of the user's token."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "token_last_used_at"
+      req: true
+      short: "Date and time when the associated fine-grained personal access token was last used for authentication."
+      type: "`$STRING`"
+    }
+    {
+      name: "token_name"
+      req: true
+      short: "The name given to the user's token."
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "organization_programmatic_access_grant"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: "desc"
+                kind: "query"
+                name: "direction"
+                orig: "direction"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "last_used_after"
+                orig: "last_used_after"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "last_used_before"
+                orig: "last_used_before"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "owner[]=octocat1,owner[]=octocat2"
+                kind: "query"
+                name: "owner"
+                orig: "owner"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "issues_read"
+                kind: "query"
+                name: "permission"
+                orig: "permission"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "Hello-World"
+                kind: "query"
+                name: "repository"
+                orig: "repository"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "created_at"
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "token_id[]=1,token_id[]=2"
+                kind: "query"
+                name: "token_id"
+                orig: "token_id"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/personal-access-token-requests"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "personal-access-token-requests"
+            }
+          ]
+          select: {
+            exist: [
+              "direction"
+              "last_used_after"
+              "last_used_before"
+              "org_id"
+              "owner"
+              "page"
+              "per_page"
+              "permission"
+              "repository"
+              "sort"
+              "token_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: "desc"
+                kind: "query"
+                name: "direction"
+                orig: "direction"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "last_used_after"
+                orig: "last_used_after"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "last_used_before"
+                orig: "last_used_before"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "owner[]=octocat1,owner[]=octocat2"
+                kind: "query"
+                name: "owner"
+                orig: "owner"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "issues_read"
+                kind: "query"
+                name: "permission"
+                orig: "permission"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "Hello-World"
+                kind: "query"
+                name: "repository"
+                orig: "repository"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "created_at"
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "token_id[]=1,token_id[]=2"
+                kind: "query"
+                name: "token_id"
+                orig: "token_id"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/personal-access-tokens"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "personal-access-tokens"
+            }
+          ]
+          select: {
+            exist: [
+              "direction"
+              "last_used_after"
+              "last_used_before"
+              "org_id"
+              "owner"
+              "page"
+              "per_page"
+              "permission"
+              "repository"
+              "sort"
+              "token_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+    ]
+  }
+
+
+
+}

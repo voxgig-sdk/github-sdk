@@ -1,0 +1,1431 @@
+# Entity: migration
+
+main: kit: entity: migration: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "allow_forking"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "archive_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "archived"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "assignees_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "blobs_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "branches_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "clone_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "code_of_conduct"
+      req: true
+      short: "Code Of Conduct"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "collaborators_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "comments_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "commits_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "compare_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "contents_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "contributors_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "custom_properties"
+      req: false
+      short: "The custom properties that were defined for the repository."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "default_branch"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "delete_branch_on_merge"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "deployments_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "disabled"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "downloads_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "exclude"
+      req: false
+      short: "Exclude related items from being returned in the response in order to improve performance of the request."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "exclude_attachments"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Indicates whether attachments should be excluded from the migration (to reduce migration archive file size)."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "exclude_git_data"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Indicates whether the repository git data should be excluded from the migration."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "exclude_metadata"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Indicates whether metadata should be excluded and only git source should be included for the migration."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "exclude_owner_projects"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Indicates whether projects owned by the organization or users should be excluded."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "exclude_releases"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Indicates whether releases should be excluded from the migration (to reduce migration archive file size)."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "fork"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "forks"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "forks_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "forks_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "full_name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_commits_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_refs_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_tags_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "git_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "guid"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "has_discussions"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_downloads"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_issues"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_pages"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_projects"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_wiki"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "homepage"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "hooks_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "is_template"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "issue_comment_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "issue_events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "issues_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "keys_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "labels_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "language"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "languages_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "license"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "lock_repositories"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Indicates whether repositories should be locked (to prevent manipulation) while migrating data."
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "merges_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "milestones_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "mirror_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "network_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "notifications_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "open_issues"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "open_issues_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "org_metadata_only"
+      op: {
+        create: {
+          req: false
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: true
+      short: "Indicates whether this should only include organization metadata (repositories array should be empty and will ignore other flags)."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "owner"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "permissions"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "private"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "pulls_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "pushed_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "releases_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "repositories"
+      req: true
+      short: "The repositories included in the migration."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "role_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "security_and_analysis"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "size"
+      req: false
+      short: "The size of the repository, in kilobytes."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ssh_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "stargazers_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "stargazers_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "state"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "statuses_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "subscribers_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "subscribers_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "subscription_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "svn_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "tags_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "teams_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "temp_clone_token"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "topics"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "trees_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "visibility"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "watchers"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "watchers_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "web_commit_signoff_required"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "migration"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/migrations"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "migrations"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "POST"
+          orig: "/user/migrations"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "migrations"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "exclude"
+                orig: "exclude"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/migrations"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "migrations"
+            }
+          ]
+          select: {
+            exist: [
+              "exclude"
+              "org_id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "migration_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/migrations/{migration_id}/repositories"
+          rename: {
+            param: {
+              migration_id: "id"
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "migrations"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            "$action": "repository"
+            exist: [
+              "id"
+              "org_id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "migration_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/migrations/{migration_id}/repositories"
+          rename: {
+            param: {
+              migration_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "migrations"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "repositories"
+            }
+          ]
+          select: {
+            "$action": "repository"
+            exist: [
+              "id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/migrations"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "migrations"
+            }
+          ]
+          select: {
+            exist: [
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "migration_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "exclude"
+                orig: "exclude"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/migrations/{migration_id}"
+          rename: {
+            param: {
+              migration_id: "id"
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "migrations"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "exclude"
+              "id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "migration_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "exclude"
+                orig: "exclude"
+                reqd: false
+                type: "`$ARRAY`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/migrations/{migration_id}"
+          rename: {
+            param: {
+              migration_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "migrations"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "exclude"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "migration_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/migrations/{migration_id}/archive"
+          rename: {
+            param: {
+              migration_id: "id"
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "migrations"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "archive"
+            }
+          ]
+          select: {
+            "$action": "archive"
+            exist: [
+              "id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "migration_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/migrations/{migration_id}/archive"
+          rename: {
+            param: {
+              migration_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "migrations"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "archive"
+            }
+          ]
+          select: {
+            "$action": "archive"
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "migration_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo_name"
+                orig: "repo_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/migrations/{migration_id}/repos/{repo_name}/lock"
+          rename: {
+            param: {
+              migration_id: "id"
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "migrations"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "repos"
+            }
+            {
+              var: "repo_name"
+            }
+            {
+              lit: "lock"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "org_id"
+              "repo_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "migration_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/migrations/{migration_id}/archive"
+          rename: {
+            param: {
+              migration_id: "id"
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "migrations"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "archive"
+            }
+          ]
+          select: {
+            "$action": "archive"
+            exist: [
+              "id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "migration_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "repo_name"
+                orig: "repo_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/user/migrations/{migration_id}/repos/{repo_name}/lock"
+          rename: {
+            param: {
+              migration_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "migrations"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "repos"
+            }
+            {
+              var: "repo_name"
+            }
+            {
+              lit: "lock"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "repo_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/import"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "import"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "migration_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/user/migrations/{migration_id}/archive"
+          rename: {
+            param: {
+              migration_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "migrations"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "archive"
+            }
+          ]
+          select: {
+            "$action": "archive"
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+      [
+        "org"
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

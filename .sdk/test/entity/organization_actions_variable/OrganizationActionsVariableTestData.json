@@ -1,0 +1,48 @@
+{
+  "existing": {
+    "organization_actions_variable": {
+      "ORGANIZATION_ACTIONS_VARIABLE00": {
+        "created_at": "s46",
+        "id": "ORGANIZATION_ACTIONS_VARIABLE00",
+        "name": "s48",
+        "selected_repositories_url": "s49",
+        "updated_at": "s4a",
+        "value": "s4b",
+        "visibility": "s4c",
+        "org_id": "ORG01"
+      },
+      "ORGANIZATION_ACTIONS_VARIABLE01": {
+        "created_at": "s8c",
+        "id": "ORGANIZATION_ACTIONS_VARIABLE01",
+        "name": "s8e",
+        "selected_repositories_url": "s8f",
+        "updated_at": "s90",
+        "value": "s91",
+        "visibility": "s92",
+        "org_id": "ORG01"
+      },
+      "ORGANIZATION_ACTIONS_VARIABLE02": {
+        "created_at": "sd2",
+        "id": "ORGANIZATION_ACTIONS_VARIABLE02",
+        "name": "sd4",
+        "selected_repositories_url": "sd5",
+        "updated_at": "sd6",
+        "value": "sd7",
+        "visibility": "sd8",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "organization_actions_variable": {
+      "organization_actions_variable_ref01": {
+        "created_at": "s118",
+        "name": "s11a",
+        "selected_repositories_url": "s11b",
+        "updated_at": "s11c",
+        "value": "s11d",
+        "visibility": "s11e"
+      }
+    }
+  }
+}

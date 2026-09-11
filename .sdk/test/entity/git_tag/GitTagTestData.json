@@ -1,0 +1,63 @@
+{
+  "existing": {
+    "git_tag": {
+      "GIT_TAG00": {
+        "id": "GIT_TAG00",
+        "message": "s65",
+        "node_id": "NODE01",
+        "object": {},
+        "sha": "s68",
+        "tag": "s69",
+        "tagger": {},
+        "type": "s6b",
+        "url": "s6c",
+        "verification": {},
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "GIT_TAG01": {
+        "id": "GIT_TAG01",
+        "message": "sc9",
+        "node_id": "NODE01",
+        "object": {},
+        "sha": "scc",
+        "tag": "scd",
+        "tagger": {},
+        "type": "scf",
+        "url": "sd0",
+        "verification": {},
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "GIT_TAG02": {
+        "id": "GIT_TAG02",
+        "message": "s12d",
+        "node_id": "NODE01",
+        "object": {},
+        "sha": "s130",
+        "tag": "s131",
+        "tagger": {},
+        "type": "s133",
+        "url": "s134",
+        "verification": {},
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "git_tag": {
+      "git_tag_ref01": {
+        "message": "s191",
+        "node_id": "NODE01",
+        "object": {},
+        "sha": "s194",
+        "tag": "s195",
+        "tagger": {},
+        "type": "s197",
+        "url": "s198",
+        "verification": {}
+      }
+    }
+  }
+}

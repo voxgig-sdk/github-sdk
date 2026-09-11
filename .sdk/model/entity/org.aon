@@ -1,0 +1,3211 @@
+# Entity: org
+
+main: kit: entity: org: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      format: "uri"
+      name: "access_tokens_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "account"
+      req: true
+      type: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    {
+      name: "action"
+      req: true
+      short: "Action to apply to the fine-grained personal access token."
+      type: "`$STRING`"
+    }
+    {
+      deprecated: true
+      name: "advanced_security_enabled_for_new_repositories"
+      req: false
+      short: "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/rest/code-security/configurations) instead."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "app_id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "app_slug"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "artifact_url"
+      req: false
+      short: "The URL where the artifact is stored."
+      type: "`$STRING`"
+    }
+    {
+      name: "async"
+      req: false
+      short: "When set to `true`, the request will be performed asynchronously."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "attestations"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "attestations_subject_digests"
+      req: false
+      short: "Mapping of subject digest to bundles."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "avatar_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "base_role"
+      req: false
+      short: "The system role from which this role inherits permissions."
+      type: "`$STRING`"
+    }
+    {
+      name: "billing_email"
+      req: false
+      short: "Billing email address."
+      type: "`$STRING`"
+    }
+    {
+      name: "blog"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "client_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "company"
+      req: false
+      short: "The company name."
+      type: "`$STRING`"
+    }
+    {
+      name: "contact_email"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The date and time the role was created."
+      type: "`$STRING`"
+    }
+    {
+      name: "default_repository_permission"
+      req: false
+      short: "Default permission level members have for organization repositories."
+      type: "`$STRING`"
+    }
+    {
+      deprecated: true
+      name: "dependabot_alerts_enabled_for_new_repositories"
+      req: false
+      short: "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/rest/code-security/configurations) instead."
+      type: "`$BOOLEAN`"
+    }
+    {
+      deprecated: true
+      name: "dependabot_security_updates_enabled_for_new_repositories"
+      req: false
+      short: "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/rest/code-security/configurations) instead."
+      type: "`$BOOLEAN`"
+    }
+    {
+      deprecated: true
+      name: "dependency_graph_enabled_for_new_repositories"
+      req: false
+      short: "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/rest/code-security/configurations) instead."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "deploy_keys_enabled_for_repositories"
+      req: false
+      short: "Controls whether or not deploy keys may be added and used for repositories in the organization."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "description"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "The description of the company."
+      type: "`$STRING`"
+    }
+    {
+      name: "digest"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The digest of the artifact (algorithm:hex-encoded-digest)."
+      type: "`$STRING`"
+    }
+    {
+      name: "direct_membership"
+      req: false
+      short: "Whether the user has direct membership in the organization."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "email"
+      req: false
+      short: "The publicly visible email address."
+      type: "`$STRING`"
+    }
+    {
+      name: "enterprise_teams_providing_indirect_membership"
+      req: false
+      short: "The slugs of the enterprise teams providing the user with indirect membership in the organization."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "events"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      format: "uri"
+      name: "events_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "filled_seats"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "has_multiple_single_files"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_organization_projects"
+      req: false
+      short: "Whether an organization can use organization projects."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "has_repository_projects"
+      req: false
+      short: "Whether repositories that belong to the organization can use repository projects."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "hooks_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      op: {
+        list: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      req: true
+      short: "The ID of the installation."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "issues_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "location"
+      req: false
+      short: "The location."
+      type: "`$STRING`"
+    }
+    {
+      name: "login"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "members_allowed_repository_creation_type"
+      req: false
+      short: "Specifies which types of repositories non-admin organization members can create."
+      type: "`$STRING`"
+    }
+    {
+      name: "members_can_create_internal_repositories"
+      req: false
+      short: "Whether organization members can create internal repositories, which are visible to all enterprise members."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "members_can_create_pages"
+      req: false
+      short: "Whether organization members can create GitHub Pages sites."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "members_can_create_private_pages"
+      req: false
+      short: "Whether organization members can create private GitHub Pages sites."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "members_can_create_private_repositories"
+      req: false
+      short: "Whether organization members can create private repositories, which are visible to organization members with permission."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "members_can_create_public_pages"
+      req: false
+      short: "Whether organization members can create public GitHub Pages sites."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "members_can_create_public_repositories"
+      req: false
+      short: "Whether organization members can create public repositories, which are visible to anyone."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "members_can_create_repositories"
+      req: false
+      short: "Whether of non-admin organization members can create repositories."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "members_can_fork_private_repositories"
+      req: false
+      short: "Whether organization members can fork private organization repositories."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "members_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+        patch: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The name of the artifact."
+      type: "`$STRING`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "organization"
+      req: true
+      short: "A GitHub organization."
+      type: "`$OBJECT`"
+    }
+    {
+      format: "uri"
+      name: "organization_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "page_info"
+      req: false
+      short: "Information about the current page."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "pat_ids"
+      req: true
+      short: "The IDs of the fine-grained personal access tokens."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "pat_request_ids"
+      req: false
+      short: "Unique identifiers of the requests for access via fine-grained personal access token."
+      type: "`$ARRAY`"
+    }
+    {
+      format: "uri"
+      name: "path"
+      req: false
+      short: "The path of the artifact."
+      type: "`$STRING`"
+    }
+    {
+      name: "permissions"
+      req: true
+      short: "The permissions granted to the user access token."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "predicate_type"
+      req: false
+      short: "Optional filter for fetching attestations with a given predicate type."
+      type: "`$STRING`"
+    }
+    {
+      name: "private_repos"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "properties"
+      req: true
+      short: "List of custom property names and associated values to apply to the repositories."
+      type: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 3
+      }
+    }
+    {
+      name: "public_members_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "query_suite"
+      req: false
+      short: "CodeQL query suite to be used."
+      type: "`$STRING`"
+    }
+    {
+      name: "reason"
+      req: false
+      short: "Reason for approving or denying the request."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "registry_url"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The base URL of the artifact registry."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "repos_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "repositories_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "repository"
+      req: false
+      short: "The repository name within the registry."
+      type: "`$STRING`"
+    }
+    {
+      name: "repository_names"
+      req: true
+      short: "The names of repositories that the custom property values will be applied to."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "repository_selection"
+      req: true
+      short: "Describe whether all repositories have been selected or there's a selection involved"
+      type: "`$STRING`"
+    }
+    {
+      name: "role"
+      req: true
+      short: "The user's membership type in the organization."
+      type: "`$STRING`"
+    }
+    {
+      name: "seats"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      deprecated: true
+      name: "secret_scanning_enabled_for_new_repositories"
+      req: false
+      short: "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/rest/code-security/configurations) instead."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "secret_scanning_push_protection_custom_link"
+      req: false
+      short: "If `secret_scanning_push_protection_custom_link_enabled` is true, the URL that will be displayed to contributors who are blocked from pushing a secret."
+      type: "`$STRING`"
+    }
+    {
+      name: "secret_scanning_push_protection_custom_link_enabled"
+      req: false
+      short: "Whether a custom link is shown to contributors who are blocked from pushing a secret by push protection."
+      type: "`$BOOLEAN`"
+    }
+    {
+      deprecated: true
+      name: "secret_scanning_push_protection_enabled_for_new_repositories"
+      req: false
+      short: "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/rest/code-security/configurations) instead."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "single_file_name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "single_file_paths"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "source"
+      req: false
+      short: "Source answers the question, \"where did this role come from?\""
+      type: "`$STRING`"
+    }
+    {
+      name: "space"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "state"
+      req: true
+      short: "The state of the member in the organization."
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: false
+      short: "The status of the artifact (e.g., active, inactive)."
+      type: "`$STRING`"
+    }
+    {
+      name: "storage_records"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "subject_digests"
+      req: true
+      short: "List of subject digests to fetch attestations for."
+      type: "`$ARRAY`"
+    }
+    {
+      format: "date-time"
+      name: "suspended_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "suspended_by"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "target_id"
+      req: true
+      short: "The ID of the user or organization this token is being scoped to."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "target_type"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "total_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "twitter_username"
+      req: false
+      short: "The Twitter username of the company."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The date and time the role was last updated."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "user"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "web_commit_signoff_required"
+      req: false
+      short: "Whether contributors to organization repositories are required to sign off on commits they make through GitHub's web interface."
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "org"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "after"
+                orig: "after"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "before"
+                orig: "before"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/attestations/bulk-list"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "attestations"
+            }
+            {
+              lit: "bulk-list"
+            }
+          ]
+          select: {
+            exist: [
+              "after"
+              "before"
+              "id"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "delivery_id"
+                orig: "delivery_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "hook_id"
+                orig: "hook_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}/attempts"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "hooks"
+            }
+            {
+              var: "hook_id"
+            }
+            {
+              lit: "deliveries"
+            }
+            {
+              var: "delivery_id"
+            }
+            {
+              lit: "attempts"
+            }
+          ]
+          select: {
+            exist: [
+              "delivery_id"
+              "hook_id"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "enablement"
+                orig: "enablement"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "org"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "security_product"
+                orig: "security_product"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/{security_product}/{enablement}"
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org"
+            }
+            {
+              var: "security_product"
+            }
+            {
+              var: "enablement"
+            }
+          ]
+          select: {
+            exist: [
+              "enablement"
+              "org"
+              "security_product"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "hook_id"
+                orig: "hook_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/hooks/{hook_id}/pings"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "hooks"
+            }
+            {
+              var: "hook_id"
+            }
+            {
+              lit: "pings"
+            }
+          ]
+          select: {
+            exist: [
+              "hook_id"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pat_id"
+                orig: "pat_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/personal-access-tokens/{pat_id}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "personal-access-tokens"
+            }
+            {
+              var: "pat_id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "pat_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pat_request_id"
+                orig: "pat_request_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/personal-access-token-requests/{pat_request_id}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "personal-access-token-requests"
+            }
+            {
+              var: "pat_request_id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "pat_request_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/artifacts/metadata/storage-record"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              lit: "metadata"
+            }
+            {
+              lit: "storage-record"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/attestations/delete-request"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "attestations"
+            }
+            {
+              lit: "delete-request"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/personal-access-tokens"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "personal-access-tokens"
+            }
+          ]
+          select: {
+            "$action": "personal_access_token"
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/orgs/{org}/personal-access-token-requests"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "personal-access-token-requests"
+            }
+          ]
+          select: {
+            "$action": "personal_access_token_request"
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/installations"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "installations"
+            }
+          ]
+          select: {
+            "$action": "installation"
+            exist: [
+              "id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.installations`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "state"
+                orig: "state"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/memberships/orgs"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "memberships"
+            }
+            {
+              lit: "orgs"
+            }
+          ]
+          select: {
+            exist: [
+              "page"
+              "per_page"
+              "state"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users/{username}/orgs"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "orgs"
+            }
+          ]
+          select: {
+            exist: [
+              "page"
+              "per_page"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                example: "sha256:1bb1e949e55dcefc6353e7b36c8897d2a107d8e8dca49d4e3c0ea8493fc0bc72"
+                kind: "param"
+                name: "artifact_id"
+                orig: "subject_digest"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records"
+          rename: {
+            param: {
+              org: "id"
+              subject_digest: "artifact_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "artifacts"
+            }
+            {
+              var: "artifact_id"
+            }
+            {
+              lit: "metadata"
+            }
+            {
+              lit: "storage-records"
+            }
+          ]
+          select: {
+            exist: [
+              "artifact_id"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.storage_records`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/orgs"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "orgs"
+            }
+          ]
+          select: {
+            exist: [
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/organization-roles"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "organization-roles"
+            }
+          ]
+          select: {
+            "$action": "organization_role"
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.roles`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "subject_digest"
+                orig: "subject_digest"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "after"
+                orig: "after"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "before"
+                orig: "before"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "predicate_type"
+                orig: "predicate_type"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/attestations/{subject_digest}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "attestations"
+            }
+            {
+              var: "subject_digest"
+            }
+          ]
+          select: {
+            exist: [
+              "after"
+              "before"
+              "id"
+              "per_page"
+              "predicate_type"
+              "subject_digest"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/blocks/{username}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "blocks"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/members/{username}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "members"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/public_members/{username}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "public_members"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.plan`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/memberships/orgs/{org}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "memberships"
+            }
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    patch: {
+      name: "patch"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/orgs/{org}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.plan`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/orgs/{org}/properties/values"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "properties"
+            }
+            {
+              lit: "values"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/user/memberships/orgs/{org}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "memberships"
+            }
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "role_id"
+                orig: "role_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "team_slug"
+                orig: "team_slug"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/organization-roles/teams/{team_slug}/{role_id}"
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org"
+            }
+            {
+              lit: "organization-roles"
+            }
+            {
+              lit: "teams"
+            }
+            {
+              var: "team_slug"
+            }
+            {
+              var: "role_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org"
+              "role_id"
+              "team_slug"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "role_id"
+                orig: "role_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/organization-roles/users/{username}/{role_id}"
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org"
+            }
+            {
+              lit: "organization-roles"
+            }
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              var: "role_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org"
+              "role_id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "attestation_id"
+                orig: "attestation_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/attestations/{attestation_id}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "attestations"
+            }
+            {
+              var: "attestation_id"
+            }
+          ]
+          select: {
+            exist: [
+              "attestation_id"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "custom_property_name"
+                orig: "custom_property_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/properties/schema/{custom_property_name}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "properties"
+            }
+            {
+              lit: "schema"
+            }
+            {
+              var: "custom_property_name"
+            }
+          ]
+          select: {
+            exist: [
+              "custom_property_name"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "hook_id"
+                orig: "hook_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/hooks/{hook_id}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "hooks"
+            }
+            {
+              var: "hook_id"
+            }
+          ]
+          select: {
+            exist: [
+              "hook_id"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "invitation_id"
+                orig: "invitation_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/invitations/{invitation_id}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "invitations"
+            }
+            {
+              var: "invitation_id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "invitation_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "issue_type_id"
+                orig: "issue_type_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/issue-types/{issue_type_id}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "issue-types"
+            }
+            {
+              var: "issue_type_id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "issue_type_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "subject_digest"
+                orig: "subject_digest"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/attestations/digest/{subject_digest}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "attestations"
+            }
+            {
+              lit: "digest"
+            }
+            {
+              var: "subject_digest"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "subject_digest"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "team_slug"
+                orig: "team_slug"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/organization-roles/teams/{team_slug}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "organization-roles"
+            }
+            {
+              lit: "teams"
+            }
+            {
+              var: "team_slug"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "team_slug"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "team_slug"
+                orig: "team_slug"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/security-managers/teams/{team_slug}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "security-managers"
+            }
+            {
+              lit: "teams"
+            }
+            {
+              var: "team_slug"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "team_slug"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/blocks/{username}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "blocks"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/members/{username}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "members"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/memberships/{username}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "memberships"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/organization-roles/users/{username}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "organization-roles"
+            }
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/outside_collaborators/{username}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "outside_collaborators"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/public_members/{username}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "public_members"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "role_id"
+                orig: "role_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "team_slug"
+                orig: "team_slug"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/organization-roles/teams/{team_slug}/{role_id}"
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org"
+            }
+            {
+              lit: "organization-roles"
+            }
+            {
+              lit: "teams"
+            }
+            {
+              var: "team_slug"
+            }
+            {
+              var: "role_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org"
+              "role_id"
+              "team_slug"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "role_id"
+                orig: "role_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/organization-roles/users/{username}/{role_id}"
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org"
+            }
+            {
+              lit: "organization-roles"
+            }
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              var: "role_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org"
+              "role_id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "team_slug"
+                orig: "team_slug"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/security-managers/teams/{team_slug}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "security-managers"
+            }
+            {
+              lit: "teams"
+            }
+            {
+              var: "team_slug"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "team_slug"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/blocks/{username}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "blocks"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/outside_collaborators/{username}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "outside_collaborators"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/public_members/{username}"
+          rename: {
+            param: {
+              org: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "public_members"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "artifact"
+      ]
+      [
+        "digest"
+      ]
+      [
+        "attestation"
+      ]
+      [
+        "block"
+      ]
+      [
+        "hook"
+      ]
+      [
+        "invitation"
+      ]
+      [
+        "issue_type"
+      ]
+      [
+        "member"
+      ]
+      [
+        "membership"
+      ]
+      [
+        "outside_collaborator"
+      ]
+      [
+        "personal_access_token_request"
+      ]
+      [
+        "personal_access_token"
+      ]
+      [
+        "schema"
+      ]
+      [
+        "public_member"
+      ]
+      [
+        "org"
+      ]
+      [
+        "hook"
+        "delivery"
+      ]
+      [
+        "org"
+        "team"
+      ]
+      [
+        "org"
+        "user"
+      ]
+    ]
+  }
+
+
+
+}

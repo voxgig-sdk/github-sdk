@@ -1,0 +1,284 @@
+# Entity: authorization
+
+main: kit: entity: authorization: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "access_token"
+      req: true
+      short: "The access_token of the OAuth or GitHub application."
+      type: "`$STRING`"
+    }
+    {
+      name: "app"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "expires_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "fingerprint"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "hashed_token"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "installation"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "note"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "note_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "permissions"
+      req: false
+      short: "The permissions granted to the user access token."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "repositories"
+      req: false
+      short: "The list of repository names to scope the user access token to."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "repository_ids"
+      req: false
+      short: "The list of repository IDs to scope the user access token to."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "scopes"
+      req: true
+      short: "A list of scopes that this authorization is in."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "target"
+      req: false
+      short: "The name of the user or organization to scope the user access token to."
+      type: "`$STRING`"
+    }
+    {
+      name: "target_id"
+      req: false
+      short: "The ID of the user or organization to scope the user access token to."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "token"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "token_last_eight"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "user"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "authorization"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "Iv1.8a61f9b3a7aba766"
+                kind: "param"
+                name: "application_id"
+                orig: "client_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/applications/{client_id}/token"
+          rename: {
+            param: {
+              client_id: "application_id"
+            }
+          }
+          segments: [
+            {
+              lit: "applications"
+            }
+            {
+              var: "application_id"
+            }
+            {
+              lit: "token"
+            }
+          ]
+          select: {
+            exist: [
+              "application_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                example: "Iv1.8a61f9b3a7aba766"
+                kind: "param"
+                name: "application_id"
+                orig: "client_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/applications/{client_id}/token/scoped"
+          rename: {
+            param: {
+              client_id: "application_id"
+            }
+          }
+          segments: [
+            {
+              lit: "applications"
+            }
+            {
+              var: "application_id"
+            }
+            {
+              lit: "token"
+            }
+            {
+              lit: "scoped"
+            }
+          ]
+          select: {
+            exist: [
+              "application_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "Iv1.8a61f9b3a7aba766"
+                kind: "param"
+                name: "application_id"
+                orig: "client_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/applications/{client_id}/token"
+          rename: {
+            param: {
+              client_id: "application_id"
+            }
+          }
+          segments: [
+            {
+              lit: "applications"
+            }
+            {
+              var: "application_id"
+            }
+            {
+              lit: "token"
+            }
+          ]
+          select: {
+            exist: [
+              "application_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "application"
+      ]
+    ]
+  }
+
+
+
+}

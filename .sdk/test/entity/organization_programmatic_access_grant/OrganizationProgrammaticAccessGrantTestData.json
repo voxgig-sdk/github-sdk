@@ -1,0 +1,72 @@
+{
+  "existing": {
+    "organization_programmatic_access_grant": {
+      "ORGANIZATION_PROGRAMMATIC_ACCESS_GRANT00": {
+        "access_granted_at": "s82",
+        "created_at": "s83",
+        "id": "ORGANIZATION_PROGRAMMATIC_ACCESS_GRANT00",
+        "owner": {},
+        "permissions": {},
+        "reason": "s87",
+        "repositories_url": "s88",
+        "repository_selection": "s89",
+        "token_expired": true,
+        "token_expires_at": "s8b",
+        "token_id": "TOKEN01",
+        "token_last_used_at": "s8d",
+        "token_name": "s8e",
+        "org_id": "ORG01"
+      },
+      "ORGANIZATION_PROGRAMMATIC_ACCESS_GRANT01": {
+        "access_granted_at": "s104",
+        "created_at": "s105",
+        "id": "ORGANIZATION_PROGRAMMATIC_ACCESS_GRANT01",
+        "owner": {},
+        "permissions": {},
+        "reason": "s109",
+        "repositories_url": "s10a",
+        "repository_selection": "s10b",
+        "token_expired": true,
+        "token_expires_at": "s10d",
+        "token_id": "TOKEN01",
+        "token_last_used_at": "s10f",
+        "token_name": "s110",
+        "org_id": "ORG01"
+      },
+      "ORGANIZATION_PROGRAMMATIC_ACCESS_GRANT02": {
+        "access_granted_at": "s186",
+        "created_at": "s187",
+        "id": "ORGANIZATION_PROGRAMMATIC_ACCESS_GRANT02",
+        "owner": {},
+        "permissions": {},
+        "reason": "s18b",
+        "repositories_url": "s18c",
+        "repository_selection": "s18d",
+        "token_expired": true,
+        "token_expires_at": "s18f",
+        "token_id": "TOKEN01",
+        "token_last_used_at": "s191",
+        "token_name": "s192",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "organization_programmatic_access_grant": {
+      "organization_programmatic_access_grant_ref01": {
+        "access_granted_at": "s208",
+        "created_at": "s209",
+        "owner": {},
+        "permissions": {},
+        "reason": "s20d",
+        "repositories_url": "s20e",
+        "repository_selection": "s20f",
+        "token_expired": true,
+        "token_expires_at": "s211",
+        "token_id": "TOKEN01",
+        "token_last_used_at": "s213",
+        "token_name": "s214"
+      }
+    }
+  }
+}

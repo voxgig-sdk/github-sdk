@@ -1,0 +1,63 @@
+{
+  "existing": {
+    "deploy_key": {
+      "DEPLOY_KEY00": {
+        "added_by": "s64",
+        "created_at": "s65",
+        "enabled": true,
+        "id": "DEPLOY_KEY00",
+        "key": "s68",
+        "last_used": "s69",
+        "read_only": true,
+        "title": "s6b",
+        "url": "s6c",
+        "verified": false,
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "DEPLOY_KEY01": {
+        "added_by": "sc8",
+        "created_at": "sc9",
+        "enabled": true,
+        "id": "DEPLOY_KEY01",
+        "key": "scc",
+        "last_used": "scd",
+        "read_only": true,
+        "title": "scf",
+        "url": "sd0",
+        "verified": false,
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "DEPLOY_KEY02": {
+        "added_by": "s12c",
+        "created_at": "s12d",
+        "enabled": true,
+        "id": "DEPLOY_KEY02",
+        "key": "s130",
+        "last_used": "s131",
+        "read_only": true,
+        "title": "s133",
+        "url": "s134",
+        "verified": false,
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "deploy_key": {
+      "deploy_key_ref01": {
+        "added_by": "s190",
+        "created_at": "s191",
+        "enabled": true,
+        "key": "s194",
+        "last_used": "s195",
+        "read_only": true,
+        "title": "s197",
+        "url": "s198",
+        "verified": false
+      }
+    }
+  }
+}

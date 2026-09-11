@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "repository_subscription": {
+      "REPOSITORY_SUBSCRIPTION00": {
+        "created_at": "s3c",
+        "ignored": false,
+        "reason": "s3e",
+        "repository_url": "s3f",
+        "subscribed": true,
+        "url": "s41",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "REPOSITORY_SUBSCRIPTION00"
+      },
+      "REPOSITORY_SUBSCRIPTION01": {
+        "created_at": "s78",
+        "ignored": false,
+        "reason": "s7a",
+        "repository_url": "s7b",
+        "subscribed": true,
+        "url": "s7d",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "REPOSITORY_SUBSCRIPTION01"
+      },
+      "REPOSITORY_SUBSCRIPTION02": {
+        "created_at": "sb4",
+        "ignored": false,
+        "reason": "sb6",
+        "repository_url": "sb7",
+        "subscribed": true,
+        "url": "sb9",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "REPOSITORY_SUBSCRIPTION02"
+      }
+    }
+  },
+  "new": {
+    "repository_subscription": {
+      "repository_subscription_ref01": {
+        "created_at": "sf0",
+        "ignored": false,
+        "reason": "sf2",
+        "repository_url": "sf3",
+        "subscribed": true,
+        "url": "sf5"
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# BasicApiOverviewFlow
+
+main: kit: flow: BasicApiOverviewFlow:
+{
+  entity: "api_overview",
+  kind: "basic",
+  name: "BasicApiOverviewFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "api_overview_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicApiOverviewFlow"
+}

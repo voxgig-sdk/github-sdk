@@ -1,0 +1,48 @@
+# BasicWorkflowRunFlow
+
+main: kit: flow: BasicWorkflowRunFlow:
+{
+  entity: "workflow_run",
+  kind: "basic",
+  name: "BasicWorkflowRunFlow",
+  step: [
+    {
+      input: {
+        ref: "workflow_run_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        repo: "repo01",
+        run_id: "run01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "workflow_run_ref01",
+        srcdatavar: "workflow_run_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "workflow_run01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workflow_run_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkflowRunFlow"
+}

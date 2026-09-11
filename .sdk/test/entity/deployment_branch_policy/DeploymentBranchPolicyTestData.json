@@ -1,0 +1,45 @@
+{
+  "existing": {
+    "deployment_branch_policy": {
+      "DEPLOYMENT_BRANCH_POLICY00": {
+        "id": "DEPLOYMENT_BRANCH_POLICY00",
+        "name": "s29",
+        "node_id": "NODE01",
+        "type": "s2b",
+        "environment_name": "ENVIRONMENT_NAME01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "environment_id": "ENVIRONMENT01"
+      },
+      "DEPLOYMENT_BRANCH_POLICY01": {
+        "id": "DEPLOYMENT_BRANCH_POLICY01",
+        "name": "s51",
+        "node_id": "NODE01",
+        "type": "s53",
+        "environment_name": "ENVIRONMENT_NAME01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "environment_id": "ENVIRONMENT01"
+      },
+      "DEPLOYMENT_BRANCH_POLICY02": {
+        "id": "DEPLOYMENT_BRANCH_POLICY02",
+        "name": "s79",
+        "node_id": "NODE01",
+        "type": "s7b",
+        "environment_name": "ENVIRONMENT_NAME01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "environment_id": "ENVIRONMENT01"
+      }
+    }
+  },
+  "new": {
+    "deployment_branch_policy": {
+      "deployment_branch_policy_ref01": {
+        "name": "sa1",
+        "node_id": "NODE01",
+        "type": "sa3"
+      }
+    }
+  }
+}

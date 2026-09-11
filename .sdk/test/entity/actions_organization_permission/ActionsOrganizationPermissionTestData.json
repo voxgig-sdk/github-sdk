@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "actions_organization_permission": {
+      "ACTIONS_ORGANIZATION_PERMISSION00": {
+        "allowed_actions": "s32",
+        "enabled_repositories": "s33",
+        "selected_actions_url": "s34",
+        "selected_repositories_url": "s35",
+        "sha_pinning_required": true,
+        "org_id": "ORG01",
+        "id": "ACTIONS_ORGANIZATION_PERMISSION00"
+      },
+      "ACTIONS_ORGANIZATION_PERMISSION01": {
+        "allowed_actions": "s64",
+        "enabled_repositories": "s65",
+        "selected_actions_url": "s66",
+        "selected_repositories_url": "s67",
+        "sha_pinning_required": true,
+        "org_id": "ORG01",
+        "id": "ACTIONS_ORGANIZATION_PERMISSION01"
+      },
+      "ACTIONS_ORGANIZATION_PERMISSION02": {
+        "allowed_actions": "s96",
+        "enabled_repositories": "s97",
+        "selected_actions_url": "s98",
+        "selected_repositories_url": "s99",
+        "sha_pinning_required": true,
+        "org_id": "ORG01",
+        "id": "ACTIONS_ORGANIZATION_PERMISSION02"
+      }
+    }
+  },
+  "new": {
+    "actions_organization_permission": {
+      "actions_organization_permission_ref01": {
+        "allowed_actions": "sc8",
+        "enabled_repositories": "sc9",
+        "selected_actions_url": "sca",
+        "selected_repositories_url": "scb",
+        "sha_pinning_required": true
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+# BasicOutsideCollaboratorFlow
+
+main: kit: flow: BasicOutsideCollaboratorFlow:
+{
+  entity: "outside_collaborator",
+  kind: "basic",
+  name: "BasicOutsideCollaboratorFlow",
+  step: [
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "outside_collaborator_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOutsideCollaboratorFlow"
+}

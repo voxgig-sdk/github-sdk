@@ -1,0 +1,200 @@
+# Entity: page
+
+main: kit: entity: page: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "build_type"
+      req: false
+      short: "The process in which the Page will be built."
+      type: "`$STRING`"
+    }
+    {
+      name: "cname"
+      req: true
+      short: "The Pages site's custom domain"
+      type: "`$STRING`"
+    }
+    {
+      name: "custom_404"
+      req: true
+      short: "Whether the Page has a custom 404 page."
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      req: false
+      short: "The web address the Page can be accessed from."
+      type: "`$STRING`"
+    }
+    {
+      name: "https_certificate"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "https_enforced"
+      req: false
+      short: "Whether https is enabled on the domain"
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "date-time"
+      name: "pending_domain_unverified_at"
+      req: false
+      short: "The timestamp when a pending domain becomes unverified."
+      type: "`$STRING`"
+    }
+    {
+      name: "protected_domain_state"
+      req: false
+      short: "The state if the domain is verified"
+      type: "`$STRING`"
+    }
+    {
+      name: "public"
+      req: true
+      short: "Whether the GitHub Pages site is publicly visible."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "source"
+      req: true
+      short: "The source branch and directory used to publish your Pages site."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "status"
+      req: true
+      short: "The status of the most recent build of the Page."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      short: "The API address for accessing this Page resource."
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "page"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/pages"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pages"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/pages"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pages"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

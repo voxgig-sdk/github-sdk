@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "classroom_accepted_assignment": {
+      "CLASSROOM_ACCEPTED_ASSIGNMENT00": {
+        "assignment": {},
+        "commit_count": "s51",
+        "grade": "s52",
+        "id": "CLASSROOM_ACCEPTED_ASSIGNMENT00",
+        "passing": true,
+        "repository": {},
+        "students": [],
+        "submitted": false,
+        "assignment_id": "ASSIGNMENT01"
+      },
+      "CLASSROOM_ACCEPTED_ASSIGNMENT01": {
+        "assignment": {},
+        "commit_count": "sa1",
+        "grade": "sa2",
+        "id": "CLASSROOM_ACCEPTED_ASSIGNMENT01",
+        "passing": true,
+        "repository": {},
+        "students": [],
+        "submitted": false,
+        "assignment_id": "ASSIGNMENT01"
+      },
+      "CLASSROOM_ACCEPTED_ASSIGNMENT02": {
+        "assignment": {},
+        "commit_count": "sf1",
+        "grade": "sf2",
+        "id": "CLASSROOM_ACCEPTED_ASSIGNMENT02",
+        "passing": true,
+        "repository": {},
+        "students": [],
+        "submitted": false,
+        "assignment_id": "ASSIGNMENT01"
+      }
+    }
+  },
+  "new": {
+    "classroom_accepted_assignment": {
+      "classroom_accepted_assignment_ref01": {
+        "assignment": {},
+        "commit_count": "s141",
+        "grade": "s142",
+        "passing": true,
+        "repository": {},
+        "students": [],
+        "submitted": false
+      }
+    }
+  }
+}

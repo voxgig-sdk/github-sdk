@@ -1,0 +1,33 @@
+# BasicActionsWorkflowAccessToRepositoryFlow
+
+main: kit: flow: BasicActionsWorkflowAccessToRepositoryFlow:
+{
+  entity: "actions_workflow_access_to_repository",
+  kind: "basic",
+  name: "BasicActionsWorkflowAccessToRepositoryFlow",
+  step: [
+    {
+      input: {
+        ref: "actions_workflow_access_to_repository_ref01",
+        srcdatavar: "actions_workflow_access_to_repository_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "actions_workflow_access_to_repository01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-actions_workflow_access_to_repository_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicActionsWorkflowAccessToRepositoryFlow"
+}

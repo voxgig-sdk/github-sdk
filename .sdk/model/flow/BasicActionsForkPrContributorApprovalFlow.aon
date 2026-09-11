@@ -1,0 +1,32 @@
+# BasicActionsForkPrContributorApprovalFlow
+
+main: kit: flow: BasicActionsForkPrContributorApprovalFlow:
+{
+  entity: "actions_fork_pr_contributor_approval",
+  kind: "basic",
+  name: "BasicActionsForkPrContributorApprovalFlow",
+  step: [
+    {
+      input: {
+        ref: "actions_fork_pr_contributor_approval_ref01",
+        srcdatavar: "actions_fork_pr_contributor_approval_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "actions_fork_pr_contributor_approval01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-actions_fork_pr_contributor_approval_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicActionsForkPrContributorApprovalFlow"
+}

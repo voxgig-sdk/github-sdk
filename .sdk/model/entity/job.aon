@@ -1,0 +1,235 @@
+# Entity: job
+
+main: kit: entity: job: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "check_run_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "completed_at"
+      req: true
+      short: "The time that the job finished, in ISO 8601 format."
+      type: "`$STRING`"
+    }
+    {
+      name: "conclusion"
+      req: true
+      short: "The outcome of the job."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      short: "The time that the job created, in ISO 8601 format."
+      type: "`$STRING`"
+    }
+    {
+      name: "head_branch"
+      req: true
+      short: "The name of the current branch."
+      type: "`$STRING`"
+    }
+    {
+      name: "head_sha"
+      req: true
+      short: "The SHA of the commit that is being run."
+      type: "`$STRING`"
+    }
+    {
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      short: "The id of the job."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "labels"
+      req: true
+      short: "Labels for the workflow job."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "name"
+      req: true
+      short: "The name of the job."
+      type: "`$STRING`"
+    }
+    {
+      name: "node_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "run_attempt"
+      req: false
+      short: "Attempt number of the associated workflow run, 1 for first attempt and higher if the workflow was re-run."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "run_id"
+      req: true
+      short: "The id of the associated workflow run."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "run_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "runner_group_id"
+      req: true
+      short: "The ID of the runner group to which this job has been assigned."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "runner_group_name"
+      req: true
+      short: "The name of the runner group to which this job has been assigned."
+      type: "`$STRING`"
+    }
+    {
+      name: "runner_id"
+      req: true
+      short: "The ID of the runner to which this job has been assigned."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "runner_name"
+      req: true
+      short: "The name of the runner to which this job has been assigned."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "started_at"
+      req: true
+      short: "The time that the job started, in ISO 8601 format."
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: true
+      short: "The phase of the lifecycle that the job is currently in."
+      type: "`$STRING`"
+    }
+    {
+      name: "steps"
+      req: false
+      short: "Steps in this job."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "workflow_name"
+      req: true
+      short: "The name of the workflow."
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "job"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "job_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/jobs/{job_id}"
+          rename: {
+            param: {
+              job_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "jobs"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

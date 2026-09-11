@@ -1,0 +1,34 @@
+# BasicCodeScanningSarifsStatusFlow
+
+main: kit: flow: BasicCodeScanningSarifsStatusFlow:
+{
+  entity: "code_scanning_sarifs_status",
+  kind: "basic",
+  name: "BasicCodeScanningSarifsStatusFlow",
+  step: [
+    {
+      input: {
+        ref: "code_scanning_sarifs_status_ref01",
+        srcdatavar: "code_scanning_sarifs_status_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "code_scanning_sarifs_status01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-code_scanning_sarifs_status_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCodeScanningSarifsStatusFlow"
+}

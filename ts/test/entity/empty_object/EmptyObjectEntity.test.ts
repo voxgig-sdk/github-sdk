@@ -1,0 +1,180 @@
+
+
+import Path from 'node:path'
+import * as Fs from 'node:fs'
+
+import { test, describe, afterEach } from 'node:test'
+import assert from 'node:assert'
+
+
+import { GithubSDK, BaseFeature, stdutil } from '../../..'
+
+import {
+  envOverride,
+  liveClientOptions,
+  liveDelay,
+  loadEnvLocal,
+  makeCtrl,
+  makeMatch,
+  makeReqdata,
+  makeStepData,
+  makeValid,
+  maybeSkipControl,
+} from '../../utility'
+
+
+// AFTER the imports on purpose: TypeScript hoists `import` above any
+// statement in the emitted CommonJS, so a loader placed above them would
+// run only after every imported module had already been evaluated - and
+// anything reading process.env at module scope would miss these values.
+loadEnvLocal(__dirname + '/../../../.env.local')
+
+
+describe('EmptyObjectEntity', async () => {
+
+  // Per-test live pacing. Delay is read from sdk-test-control.json's
+  // `test.live.delayMs`; only sleeps when GITHUB_TEST_LIVE=TRUE.
+  afterEach(liveDelay('GITHUB_TEST_LIVE'))
+
+  test('instance', async () => {
+    const testsdk = GithubSDK.test()
+    const ent = testsdk.EmptyObject()
+    assert(null != ent)
+  })
+
+
+  test('basic', async (t) => {
+
+    const live = 'TRUE' === process.env.GITHUB_TEST_LIVE
+    for (const op of ['create', 'update', 'load']) {
+      if (maybeSkipControl(t, 'entityOp', 'empty_object.' + op, live)) return
+    }
+
+    const setup = basicSetup()
+    // The basic flow consumes synthetic IDs and field values from the
+    // fixture (entity TestData.json). Those don't exist on the live API.
+    // Skip live runs unless the user provided a real ENTID env override.
+    if (setup.syntheticOnly) {
+      t.skip('live entity test uses synthetic IDs from fixture — set GITHUB_TEST_EMPTY_OBJECT_ENTID JSON to run live')
+      return
+    }
+    const client = setup.client
+    const struct = setup.struct
+
+    const isempty = struct.isempty
+    const select = struct.select
+
+
+    // CREATE
+    const empty_object_ref01_ent = client.EmptyObject()
+    let empty_object_ref01_data = setup.data.new.empty_object['empty_object_ref01']
+    empty_object_ref01_data['environment_id'] = setup.idmap['environment01']
+    empty_object_ref01_data['org_id'] = setup.idmap['org01']
+    empty_object_ref01_data['owner'] = setup.idmap['owner01']
+    empty_object_ref01_data['repo'] = setup.idmap['repo01']
+    empty_object_ref01_data['username'] = setup.idmap['username01']
+
+    empty_object_ref01_data = (await empty_object_ref01_ent.create(empty_object_ref01_data)).data()
+    assert(null != empty_object_ref01_data)
+
+
+    // UPDATE
+    const empty_object_ref01_data_up0: any = {}
+
+    const empty_object_ref01_markdef_up0 = { name: 'encrypted_value', value: 'Mark01-empty_object_ref01_' + setup.now }
+    ;(empty_object_ref01_data_up0 as any)[empty_object_ref01_markdef_up0.name] = empty_object_ref01_markdef_up0.value
+
+    const empty_object_ref01_resdata_up0 = (await empty_object_ref01_ent.update(empty_object_ref01_data_up0)).data()
+    assert(null != empty_object_ref01_resdata_up0)
+
+    assert((empty_object_ref01_resdata_up0 as any)[empty_object_ref01_markdef_up0.name] === empty_object_ref01_markdef_up0.value)
+
+
+
+  })
+})
+
+
+
+function basicSetup(extra?: any) {
+  // TODO: fix test def options
+  const options: any = {} // null
+
+  // TODO: needs test utility to resolve path
+  const entityDataFile =
+    Path.resolve(__dirname, 
+      '../../../../.sdk/test/entity/empty_object/EmptyObjectTestData.json')
+
+  // TODO: file ready util needed?
+  const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8')
+
+  // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+  const entityData = JSON.parse(entityDataSource)
+
+  options.entity = entityData.existing
+
+  let client = GithubSDK.test(options, extra)
+  const struct = client.utility().struct
+  const merge = struct.merge
+  const transform = struct.transform
+
+  let idmap = transform(
+    ['empty_object01','empty_object02','empty_object03','org01','org02','org03','repo01','repo02','repo03','org01','org02','org03','secret01','secret02','secret03','repo01','repo02','repo03','job01','job02','job03','repo01','repo02','repo03','run01','run02','run03','repo01','repo02','repo03','check_run01','check_run02','check_run03','repo01','repo02','repo03','check_suite01','check_suite02','check_suite03','repo01','repo02','repo03','secret01','secret02','secret03','repo01','repo02','repo03','environment01','environment02','environment03','user01','user02','user03','attestation01','attestation02','attestation03','repo01','repo02','repo03','environment01','environment02','environment03','secret01','secret02','secret03'],
+    {
+      '`$PACK`': ['', {
+        '`$KEY`': '`$COPY`',
+        '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+      }]
+    })
+
+  // Detect whether the user provided a real ENTID JSON via env var. The
+  // basic flow consumes synthetic IDs from the fixture file; without an
+  // override those synthetic IDs reach the live API and 4xx. Surface this
+  // to the test so it can skip rather than fail.
+  const idmapEnvVal = process.env['GITHUB_TEST_EMPTY_OBJECT_ENTID']
+  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
+
+  const env = envOverride({
+    'GITHUB_TEST_EMPTY_OBJECT_ENTID': idmap,
+    'GITHUB_TEST_LIVE': 'FALSE',
+    'GITHUB_TEST_EXPLAIN': 'FALSE',
+    'GITHUB_APIKEY': '',
+  })
+
+  idmap = env['GITHUB_TEST_EMPTY_OBJECT_ENTID']
+
+  const live = 'TRUE' === env.GITHUB_TEST_LIVE
+
+  if (live) {
+    client = new GithubSDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
+      {
+        apikey: env.GITHUB_APIKEY,
+      },
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {}
+    ]))
+  }
+
+  const setup = {
+    idmap,
+    env,
+    options,
+    client,
+    struct,
+    data: entityData,
+    explain: 'TRUE' === env.GITHUB_TEST_EXPLAIN,
+    live,
+    syntheticOnly: live && !idmapOverridden,
+    now: Date.now(),
+  }
+
+  return setup
+}
+  

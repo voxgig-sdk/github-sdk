@@ -1,0 +1,27 @@
+# BasicContentTrafficFlow
+
+main: kit: flow: BasicContentTrafficFlow:
+{
+  entity: "content_traffic",
+  kind: "basic",
+  name: "BasicContentTrafficFlow",
+  step: [
+    {
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "content_traffic_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicContentTrafficFlow"
+}

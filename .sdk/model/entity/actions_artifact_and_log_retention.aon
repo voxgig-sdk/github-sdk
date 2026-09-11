@@ -1,0 +1,142 @@
+# Entity: actions_artifact_and_log_retention
+
+main: kit: entity: actions_artifact_and_log_retention: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "days"
+      req: true
+      short: "The number of days artifacts and logs are retained"
+      type: "`$INTEGER`"
+    }
+    {
+      name: "maximum_allowed_days"
+      req: true
+      short: "The maximum number of days that can be configured"
+      type: "`$INTEGER`"
+    }
+  ]
+
+  name: "actions_artifact_and_log_retention"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/permissions/artifact-and-log-retention"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "artifact-and-log-retention"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/permissions/artifact-and-log-retention"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "artifact-and-log-retention"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

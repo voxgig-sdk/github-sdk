@@ -1,0 +1,29 @@
+# BasicInteractionLimitFlow
+
+main: kit: flow: BasicInteractionLimitFlow:
+{
+  entity: "interaction_limit",
+  kind: "basic",
+  name: "BasicInteractionLimitFlow",
+  step: [
+    {
+      input: {
+        ref: "interaction_limit_ref01",
+        srcdatavar: "interaction_limit_ref01_data",
+        suffix: "_up0",
+        textfield: "expires_at"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-interaction_limit_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicInteractionLimitFlow"
+}

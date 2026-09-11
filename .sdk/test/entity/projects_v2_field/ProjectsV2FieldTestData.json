@@ -1,0 +1,65 @@
+{
+  "existing": {
+    "projects_v2_field": {
+      "PROJECTS_V2_FIELD00": {
+        "configuration": {},
+        "created_at": "s5b",
+        "data_type": "s5c",
+        "id": "PROJECTS_V2_FIELD00",
+        "name": "s5e",
+        "node_id": "NODE01",
+        "options": [],
+        "project_url": "s61",
+        "updated_at": "s62",
+        "org_id": "ORG01",
+        "project_number": "PROJECT_NUMBER01",
+        "username": "USERNAME01",
+        "projects_v2_id": "PROJECTS_V201"
+      },
+      "PROJECTS_V2_FIELD01": {
+        "configuration": {},
+        "created_at": "sb5",
+        "data_type": "sb6",
+        "id": "PROJECTS_V2_FIELD01",
+        "name": "sb8",
+        "node_id": "NODE01",
+        "options": [],
+        "project_url": "sbb",
+        "updated_at": "sbc",
+        "org_id": "ORG01",
+        "project_number": "PROJECT_NUMBER01",
+        "username": "USERNAME01",
+        "projects_v2_id": "PROJECTS_V201"
+      },
+      "PROJECTS_V2_FIELD02": {
+        "configuration": {},
+        "created_at": "s10f",
+        "data_type": "s110",
+        "id": "PROJECTS_V2_FIELD02",
+        "name": "s112",
+        "node_id": "NODE01",
+        "options": [],
+        "project_url": "s115",
+        "updated_at": "s116",
+        "org_id": "ORG01",
+        "project_number": "PROJECT_NUMBER01",
+        "username": "USERNAME01",
+        "projects_v2_id": "PROJECTS_V201"
+      }
+    }
+  },
+  "new": {
+    "projects_v2_field": {
+      "projects_v2_field_ref01": {
+        "configuration": {},
+        "created_at": "s169",
+        "data_type": "s16a",
+        "name": "s16c",
+        "node_id": "NODE01",
+        "options": [],
+        "project_url": "s16f",
+        "updated_at": "s170"
+      }
+    }
+  }
+}

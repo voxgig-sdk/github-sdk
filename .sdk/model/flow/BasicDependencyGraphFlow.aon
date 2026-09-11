@@ -1,0 +1,23 @@
+# BasicDependencyGraphFlow
+
+main: kit: flow: BasicDependencyGraphFlow:
+{
+  entity: "dependency_graph",
+  kind: "basic",
+  name: "BasicDependencyGraphFlow",
+  step: [
+    {
+      input: {
+        ref: "dependency_graph_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicDependencyGraphFlow"
+}

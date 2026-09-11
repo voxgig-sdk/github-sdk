@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "self_hosted_runner": {
+      "SELF_HOSTED_RUNNER00": {
+        "enabled_repositories": "s14",
+        "selected_repositories_url": "s15",
+        "org_id": "ORG01",
+        "id": "SELF_HOSTED_RUNNER00"
+      },
+      "SELF_HOSTED_RUNNER01": {
+        "enabled_repositories": "s28",
+        "selected_repositories_url": "s29",
+        "org_id": "ORG01",
+        "id": "SELF_HOSTED_RUNNER01"
+      },
+      "SELF_HOSTED_RUNNER02": {
+        "enabled_repositories": "s3c",
+        "selected_repositories_url": "s3d",
+        "org_id": "ORG01",
+        "id": "SELF_HOSTED_RUNNER02"
+      }
+    }
+  },
+  "new": {
+    "self_hosted_runner": {
+      "self_hosted_runner_ref01": {
+        "enabled_repositories": "s50",
+        "selected_repositories_url": "s51"
+      }
+    }
+  }
+}

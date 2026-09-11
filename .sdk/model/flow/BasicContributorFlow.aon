@@ -1,0 +1,27 @@
+# BasicContributorFlow
+
+main: kit: flow: BasicContributorFlow:
+{
+  entity: "contributor",
+  kind: "basic",
+  name: "BasicContributorFlow",
+  step: [
+    {
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "contributor_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicContributorFlow"
+}

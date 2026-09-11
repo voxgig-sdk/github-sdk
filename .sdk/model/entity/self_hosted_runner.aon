@@ -1,0 +1,87 @@
+# Entity: self_hosted_runner
+
+main: kit: entity: self_hosted_runner: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "enabled_repositories"
+      req: true
+      short: "The policy that controls whether self-hosted runners can be used by repositories in the organization"
+      type: "`$STRING`"
+    }
+    {
+      name: "selected_repositories_url"
+      req: false
+      short: "The URL to the endpoint for managing selected repositories for self-hosted runners in the organization"
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "self_hosted_runner"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/permissions/self-hosted-runners"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "self-hosted-runners"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+    ]
+  }
+
+
+
+}

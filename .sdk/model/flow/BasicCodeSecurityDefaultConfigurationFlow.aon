@@ -1,0 +1,26 @@
+# BasicCodeSecurityDefaultConfigurationFlow
+
+main: kit: flow: BasicCodeSecurityDefaultConfigurationFlow:
+{
+  entity: "code_security_default_configuration",
+  kind: "basic",
+  name: "BasicCodeSecurityDefaultConfigurationFlow",
+  step: [
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "code_security_default_configuration_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCodeSecurityDefaultConfigurationFlow"
+}

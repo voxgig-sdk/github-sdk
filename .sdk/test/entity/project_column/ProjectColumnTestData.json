@@ -1,0 +1,49 @@
+{
+  "existing": {
+    "project_column": {
+      "PROJECT_COLUMN00": {
+        "cards_url": "s50",
+        "created_at": "s51",
+        "id": "PROJECT_COLUMN00",
+        "name": "s53",
+        "node_id": "NODE01",
+        "project_url": "s55",
+        "updated_at": "s56",
+        "url": "s57"
+      },
+      "PROJECT_COLUMN01": {
+        "cards_url": "sa0",
+        "created_at": "sa1",
+        "id": "PROJECT_COLUMN01",
+        "name": "sa3",
+        "node_id": "NODE01",
+        "project_url": "sa5",
+        "updated_at": "sa6",
+        "url": "sa7"
+      },
+      "PROJECT_COLUMN02": {
+        "cards_url": "sf0",
+        "created_at": "sf1",
+        "id": "PROJECT_COLUMN02",
+        "name": "sf3",
+        "node_id": "NODE01",
+        "project_url": "sf5",
+        "updated_at": "sf6",
+        "url": "sf7"
+      }
+    }
+  },
+  "new": {
+    "project_column": {
+      "project_column_ref01": {
+        "cards_url": "s140",
+        "created_at": "s141",
+        "name": "s143",
+        "node_id": "NODE01",
+        "project_url": "s145",
+        "updated_at": "s146",
+        "url": "s147"
+      }
+    }
+  }
+}

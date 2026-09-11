@@ -81,7 +81,7 @@ func TestPullEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{"create", "list", "update", "load"} {
+		for _, _op := range []string{"create", "list", "update", "load", "remove"} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "pull." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -102,6 +102,7 @@ func TestPullEntity(t *testing.T) {
 		pullRef01Ent := client.Pull(nil)
 		pullRef01Data := core.ToMapAny(vs.GetProp(
 			vs.GetPath(setup.data, []any{"new", "pull"}), "pull_ref01"))
+		pullRef01Data["commit_sha"] = setup.idmap["commit_sha01"]
 		pullRef01Data["owner"] = setup.idmap["owner01"]
 		pullRef01Data["repo"] = setup.idmap["repo01"]
 
@@ -119,6 +120,7 @@ func TestPullEntity(t *testing.T) {
 
 		// LIST
 		pullRef01Match := map[string]any{
+			"commit_sha": setup.idmap["commit_sha01"],
 			"owner": setup.idmap["owner01"],
 			"repo": setup.idmap["repo01"],
 		}
@@ -179,6 +181,36 @@ func TestPullEntity(t *testing.T) {
 			t.Fatal("expected load result id to match")
 		}
 
+		// REMOVE
+		pullRef01MatchRm0 := map[string]any{
+			"id": pullRef01Data["id"],
+		}
+		_, err = pullRef01Ent.Remove(pullRef01MatchRm0, nil)
+		if err != nil {
+			t.Fatalf("remove failed: %v", err)
+		}
+
+		// LIST
+		pullRef01MatchRt0 := map[string]any{
+			"commit_sha": setup.idmap["commit_sha01"],
+			"owner": setup.idmap["owner01"],
+			"repo": setup.idmap["repo01"],
+		}
+
+		pullRef01ListRt0Result, err := pullRef01Ent.List(pullRef01MatchRt0, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		pullRef01ListRt0, pullRef01ListRt0Ok := pullRef01ListRt0Result.([]any)
+		if !pullRef01ListRt0Ok {
+			t.Fatalf("expected list result to be an array, got %T", pullRef01ListRt0Result)
+		}
+
+		notFoundItem := vs.Select(entityListToData(pullRef01ListRt0), map[string]any{"id": pullRef01Data["id"]})
+		if !vs.IsEmpty(notFoundItem) {
+			t.Fatal("expected removed entity to not be in list")
+		}
+
 	})
 }
 
@@ -207,7 +239,7 @@ func pullBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"pull01", "pull02", "pull03", "repo01", "repo02", "repo03", "owner01"},
+		[]any{"pull01", "pull02", "pull03", "repo01", "repo02", "repo03", "commit01", "commit02", "commit03", "comment01", "comment02", "comment03", "commit_sha01", "owner01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

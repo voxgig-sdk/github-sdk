@@ -1,0 +1,49 @@
+{
+  "existing": {
+    "api_insights_subject_stat": {
+      "API_INSIGHTS_SUBJECT_STAT00": {
+        "last_rate_limited_timestamp": "s46",
+        "last_request_timestamp": "s47",
+        "rate_limited_request_count": "s48",
+        "subject_id": "SUBJECT01",
+        "subject_name": "s4a",
+        "subject_type": "s4b",
+        "total_request_count": "s4c",
+        "org_id": "ORG01"
+      },
+      "API_INSIGHTS_SUBJECT_STAT01": {
+        "last_rate_limited_timestamp": "s8c",
+        "last_request_timestamp": "s8d",
+        "rate_limited_request_count": "s8e",
+        "subject_id": "SUBJECT01",
+        "subject_name": "s90",
+        "subject_type": "s91",
+        "total_request_count": "s92",
+        "org_id": "ORG01"
+      },
+      "API_INSIGHTS_SUBJECT_STAT02": {
+        "last_rate_limited_timestamp": "sd2",
+        "last_request_timestamp": "sd3",
+        "rate_limited_request_count": "sd4",
+        "subject_id": "SUBJECT01",
+        "subject_name": "sd6",
+        "subject_type": "sd7",
+        "total_request_count": "sd8",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "api_insights_subject_stat": {
+      "api_insights_subject_stat_ref01": {
+        "last_rate_limited_timestamp": "s118",
+        "last_request_timestamp": "s119",
+        "rate_limited_request_count": "s11a",
+        "subject_id": "SUBJECT01",
+        "subject_name": "s11c",
+        "subject_type": "s11d",
+        "total_request_count": "s11e"
+      }
+    }
+  }
+}

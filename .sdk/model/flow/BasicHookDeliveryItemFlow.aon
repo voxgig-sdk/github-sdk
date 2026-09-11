@@ -1,0 +1,22 @@
+# BasicHookDeliveryItemFlow
+
+main: kit: flow: BasicHookDeliveryItemFlow:
+{
+  entity: "hook_delivery_item",
+  kind: "basic",
+  name: "BasicHookDeliveryItemFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "hook_delivery_item_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicHookDeliveryItemFlow"
+}

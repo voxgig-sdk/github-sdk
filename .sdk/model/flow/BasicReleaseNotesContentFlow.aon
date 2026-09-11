@@ -1,0 +1,23 @@
+# BasicReleaseNotesContentFlow
+
+main: kit: flow: BasicReleaseNotesContentFlow:
+{
+  entity: "release_notes_content",
+  kind: "basic",
+  name: "BasicReleaseNotesContentFlow",
+  step: [
+    {
+      input: {
+        ref: "release_notes_content_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicReleaseNotesContentFlow"
+}

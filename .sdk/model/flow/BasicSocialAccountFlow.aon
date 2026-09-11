@@ -1,0 +1,34 @@
+# BasicSocialAccountFlow
+
+main: kit: flow: BasicSocialAccountFlow:
+{
+  entity: "social_account",
+  kind: "basic",
+  name: "BasicSocialAccountFlow",
+  step: [
+    {
+      input: {
+        ref: "social_account_ref01"
+      }
+
+      match: {
+        username: "username01"
+      }
+
+      op: "create"
+    }
+
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "social_account_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSocialAccountFlow"
+}

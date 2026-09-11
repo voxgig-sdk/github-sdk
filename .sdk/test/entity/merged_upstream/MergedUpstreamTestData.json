@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "merged_upstream": {
+      "MERGED_UPSTREAM00": {
+        "base_branch": "s28",
+        "branch": "s29",
+        "merge_type": "s2a",
+        "message": "s2b",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "MERGED_UPSTREAM00"
+      },
+      "MERGED_UPSTREAM01": {
+        "base_branch": "s50",
+        "branch": "s51",
+        "merge_type": "s52",
+        "message": "s53",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "MERGED_UPSTREAM01"
+      },
+      "MERGED_UPSTREAM02": {
+        "base_branch": "s78",
+        "branch": "s79",
+        "merge_type": "s7a",
+        "message": "s7b",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "MERGED_UPSTREAM02"
+      }
+    }
+  },
+  "new": {
+    "merged_upstream": {
+      "merged_upstream_ref01": {
+        "base_branch": "sa0",
+        "branch": "sa1",
+        "merge_type": "sa2",
+        "message": "sa3"
+      }
+    }
+  }
+}

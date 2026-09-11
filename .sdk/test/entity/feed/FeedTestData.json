@@ -1,0 +1,62 @@
+{
+  "existing": {
+    "feed": {
+      "FEED00": {
+        "current_user_actor_url": "s6e",
+        "current_user_organization_url": "s6f",
+        "current_user_organization_urls": [],
+        "current_user_public_url": "s71",
+        "current_user_url": "s72",
+        "links": {},
+        "repository_discussions_category_url": "s74",
+        "repository_discussions_url": "s75",
+        "security_advisories_url": "s76",
+        "timeline_url": "s77",
+        "user_url": "s78"
+      },
+      "FEED01": {
+        "current_user_actor_url": "sdc",
+        "current_user_organization_url": "sdd",
+        "current_user_organization_urls": [],
+        "current_user_public_url": "sdf",
+        "current_user_url": "se0",
+        "links": {},
+        "repository_discussions_category_url": "se2",
+        "repository_discussions_url": "se3",
+        "security_advisories_url": "se4",
+        "timeline_url": "se5",
+        "user_url": "se6"
+      },
+      "FEED02": {
+        "current_user_actor_url": "s14a",
+        "current_user_organization_url": "s14b",
+        "current_user_organization_urls": [],
+        "current_user_public_url": "s14d",
+        "current_user_url": "s14e",
+        "links": {},
+        "repository_discussions_category_url": "s150",
+        "repository_discussions_url": "s151",
+        "security_advisories_url": "s152",
+        "timeline_url": "s153",
+        "user_url": "s154"
+      }
+    }
+  },
+  "new": {
+    "feed": {
+      "feed_ref01": {
+        "current_user_actor_url": "s1b8",
+        "current_user_organization_url": "s1b9",
+        "current_user_organization_urls": [],
+        "current_user_public_url": "s1bb",
+        "current_user_url": "s1bc",
+        "links": {},
+        "repository_discussions_category_url": "s1be",
+        "repository_discussions_url": "s1bf",
+        "security_advisories_url": "s1c0",
+        "timeline_url": "s1c1",
+        "user_url": "s1c2"
+      }
+    }
+  }
+}

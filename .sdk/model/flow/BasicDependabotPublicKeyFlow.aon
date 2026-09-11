@@ -1,0 +1,32 @@
+# BasicDependabotPublicKeyFlow
+
+main: kit: flow: BasicDependabotPublicKeyFlow:
+{
+  entity: "dependabot_public_key",
+  kind: "basic",
+  name: "BasicDependabotPublicKeyFlow",
+  step: [
+    {
+      input: {
+        ref: "dependabot_public_key_ref01",
+        srcdatavar: "dependabot_public_key_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "dependabot_public_key01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-dependabot_public_key_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDependabotPublicKeyFlow"
+}

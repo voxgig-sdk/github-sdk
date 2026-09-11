@@ -1,0 +1,72 @@
+# BasicCustomPropertyFlow
+
+main: kit: flow: BasicCustomPropertyFlow:
+{
+  entity: "custom_property",
+  kind: "basic",
+  name: "BasicCustomPropertyFlow",
+  step: [
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "custom_property_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        org_id: "org01"
+      }
+
+      input: {
+        ref: "custom_property_ref01",
+        srcdatavar: "custom_property_ref01_data",
+        suffix: "_up0",
+        textfield: "description"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-custom_property_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "custom_property_ref01",
+        srcdatavar: "custom_property_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "custom_property01",
+        org_id: "org01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-custom_property_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCustomPropertyFlow"
+}

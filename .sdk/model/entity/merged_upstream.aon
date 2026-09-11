@@ -1,0 +1,96 @@
+# Entity: merged_upstream
+
+main: kit: entity: merged_upstream: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "base_branch"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "branch"
+      req: true
+      short: "The name of the branch which should be updated to match upstream."
+      type: "`$STRING`"
+    }
+    {
+      name: "merge_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "message"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "merged_upstream"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/merge-upstream"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "merge-upstream"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

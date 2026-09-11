@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "commit_activity": {
+      "COMMIT_ACTIVITY00": {
+        "days": [],
+        "total": "s1f",
+        "week": "s20",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "COMMIT_ACTIVITY01": {
+        "days": [],
+        "total": "s3d",
+        "week": "s3e",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "COMMIT_ACTIVITY02": {
+        "days": [],
+        "total": "s5b",
+        "week": "s5c",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "commit_activity": {
+      "commit_activity_ref01": {
+        "days": [],
+        "total": "s79",
+        "week": "s7a"
+      }
+    }
+  }
+}

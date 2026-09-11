@@ -1,0 +1,22 @@
+# BasicRepositoryFlow
+
+main: kit: flow: BasicRepositoryFlow:
+{
+  entity: "repository",
+  kind: "basic",
+  name: "BasicRepositoryFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "repository_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryFlow"
+}

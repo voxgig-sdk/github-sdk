@@ -1,0 +1,59 @@
+{
+  "existing": {
+    "thread": {
+      "THREAD00": {
+        "id": "THREAD00",
+        "last_read_at": "s5b",
+        "reason": "s5c",
+        "repository": {},
+        "subject": {},
+        "subscription_url": "s5f",
+        "unread": true,
+        "updated_at": "s61",
+        "url": "s62",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "THREAD01": {
+        "id": "THREAD01",
+        "last_read_at": "sb5",
+        "reason": "sb6",
+        "repository": {},
+        "subject": {},
+        "subscription_url": "sb9",
+        "unread": true,
+        "updated_at": "sbb",
+        "url": "sbc",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "THREAD02": {
+        "id": "THREAD02",
+        "last_read_at": "s10f",
+        "reason": "s110",
+        "repository": {},
+        "subject": {},
+        "subscription_url": "s113",
+        "unread": true,
+        "updated_at": "s115",
+        "url": "s116",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "thread": {
+      "thread_ref01": {
+        "last_read_at": "s169",
+        "reason": "s16a",
+        "repository": {},
+        "subject": {},
+        "subscription_url": "s16d",
+        "unread": true,
+        "updated_at": "s16f",
+        "url": "s170"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "enterprise_team_membership": {
+      "ENTERPRISE_TEAM_MEMBERSHIP00": {
+        "id": "ENTERPRISE_TEAM_MEMBERSHIP00",
+        "enterprise": "ENTERPRISE01",
+        "team_id": "TEAM01"
+      },
+      "ENTERPRISE_TEAM_MEMBERSHIP01": {
+        "id": "ENTERPRISE_TEAM_MEMBERSHIP01",
+        "enterprise": "ENTERPRISE01",
+        "team_id": "TEAM01"
+      },
+      "ENTERPRISE_TEAM_MEMBERSHIP02": {
+        "id": "ENTERPRISE_TEAM_MEMBERSHIP02",
+        "enterprise": "ENTERPRISE01",
+        "team_id": "TEAM01"
+      }
+    }
+  },
+  "new": {
+    "enterprise_team_membership": {
+      "enterprise_team_membership_ref01": {}
+    }
+  }
+}

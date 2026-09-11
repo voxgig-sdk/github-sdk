@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "simple_classroom": {
+      "SIMPLE_CLASSROOM00": {},
+      "SIMPLE_CLASSROOM01": {},
+      "SIMPLE_CLASSROOM02": {}
+    }
+  },
+  "new": {
+    "simple_classroom": {
+      "simple_classroom_ref01": {}
+    }
+  }
+}

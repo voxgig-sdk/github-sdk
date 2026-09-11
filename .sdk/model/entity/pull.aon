@@ -135,6 +135,12 @@ main: kit: entity: pull: {
       type: "`$BOOLEAN`"
     }
     {
+      name: "expected_head_sha"
+      req: false
+      short: "The expected SHA of the pull request's HEAD ref."
+      type: "`$STRING`"
+    }
+    {
       name: "head"
       req: true
       short: "The name of the branch where your changes are implemented."
@@ -311,12 +317,6 @@ main: kit: entity: pull: {
       req: true
       short: "SHA that pull request head must match to allow merge."
       type: "`$STRING`"
-    }
-    {
-      name: "stack"
-      req: true
-      short: "The stack information associated with a pull request."
-      type: "`$OBJECT`"
     }
     {
       name: "state"
@@ -541,6 +541,86 @@ main: kit: entity: pull: {
             res: "`body`"
           }
         }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "commit_sha"
+                orig: "commit_sha"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/commits/{commit_sha}/pulls"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "commits"
+            }
+            {
+              var: "commit_sha"
+            }
+            {
+              lit: "pulls"
+            }
+          ]
+          select: {
+            exist: [
+              "commit_sha"
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
       ]
     }
     load: {
@@ -599,6 +679,137 @@ main: kit: entity: pull: {
           select: {
             exist: [
               "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "pull_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/pulls/{pull_number}/merge"
+          rename: {
+            param: {
+              pull_number: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "merge"
+            }
+          ]
+          select: {
+            "$action": "merge"
+            exist: [
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "comment_id"
+                orig: "comment_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/pulls/comments/{comment_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              lit: "comments"
+            }
+            {
+              var: "comment_id"
+            }
+          ]
+          select: {
+            exist: [
+              "comment_id"
               "owner"
               "repo"
             ]
@@ -741,6 +952,72 @@ main: kit: entity: pull: {
             res: "`body`"
           }
         }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "pull_number"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch"
+          rename: {
+            param: {
+              pull_number: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pulls"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "update-branch"
+            }
+          ]
+          select: {
+            "$action": "update_branch"
+            exist: [
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
       ]
     }
   }
@@ -749,6 +1026,14 @@ main: kit: entity: pull: {
     ancestors: [
       [
         "repo"
+      ]
+      [
+        "repo"
+        "commit"
+      ]
+      [
+        "repo"
+        "comment"
       ]
     ]
   }

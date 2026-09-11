@@ -1,0 +1,64 @@
+# BasicDeployKeyFlow
+
+main: kit: flow: BasicDeployKeyFlow:
+{
+  entity: "deploy_key",
+  kind: "basic",
+  name: "BasicDeployKeyFlow",
+  step: [
+    {
+      input: {
+        ref: "deploy_key_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "deploy_key_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "deploy_key_ref01",
+        srcdatavar: "deploy_key_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "deploy_key01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-deploy_key_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDeployKeyFlow"
+}

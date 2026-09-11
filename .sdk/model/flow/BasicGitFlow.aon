@@ -1,0 +1,9 @@
+# BasicGitFlow
+
+main: kit: flow: BasicGitFlow:
+{
+  entity: "git",
+  kind: "basic",
+  name: "BasicGitFlow",
+  "key$": "BasicGitFlow"
+}

@@ -1,0 +1,29 @@
+# BasicReviewCommentFlow
+
+main: kit: flow: BasicReviewCommentFlow:
+{
+  entity: "review_comment",
+  kind: "basic",
+  name: "BasicReviewCommentFlow",
+  step: [
+    {
+      match: {
+        owner: "owner01",
+        pull_id: "pull01",
+        repo: "repo01",
+        review_id: "review01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "review_comment_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicReviewCommentFlow"
+}

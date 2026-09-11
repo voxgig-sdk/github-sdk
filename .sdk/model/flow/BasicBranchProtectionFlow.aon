@@ -1,0 +1,34 @@
+# BasicBranchProtectionFlow
+
+main: kit: flow: BasicBranchProtectionFlow:
+{
+  entity: "branch_protection",
+  kind: "basic",
+  name: "BasicBranchProtectionFlow",
+  step: [
+    {
+      input: {
+        ref: "branch_protection_ref01",
+        srcdatavar: "branch_protection_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "branch_protection01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-branch_protection_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBranchProtectionFlow"
+}

@@ -1,0 +1,34 @@
+# BasicCommitComparisonFlow
+
+main: kit: flow: BasicCommitComparisonFlow:
+{
+  entity: "commit_comparison",
+  kind: "basic",
+  name: "BasicCommitComparisonFlow",
+  step: [
+    {
+      input: {
+        ref: "commit_comparison_ref01",
+        srcdatavar: "commit_comparison_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "commit_comparison01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-commit_comparison_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCommitComparisonFlow"
+}

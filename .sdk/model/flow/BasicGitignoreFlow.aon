@@ -1,0 +1,22 @@
+# BasicGitignoreFlow
+
+main: kit: flow: BasicGitignoreFlow:
+{
+  entity: "gitignore",
+  kind: "basic",
+  name: "BasicGitignoreFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "gitignore_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGitignoreFlow"
+}

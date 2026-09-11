@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "code_scanning_analysis_deletion": {
+      "CODE_SCANNING_ANALYSIS_DELETION00": {
+        "analysis_id": "ANALYSIS01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CODE_SCANNING_ANALYSIS_DELETION00"
+      },
+      "CODE_SCANNING_ANALYSIS_DELETION01": {
+        "analysis_id": "ANALYSIS01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CODE_SCANNING_ANALYSIS_DELETION01"
+      },
+      "CODE_SCANNING_ANALYSIS_DELETION02": {
+        "analysis_id": "ANALYSIS01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CODE_SCANNING_ANALYSIS_DELETION02"
+      }
+    }
+  },
+  "new": {
+    "code_scanning_analysis_deletion": {
+      "code_scanning_analysis_deletion_ref01": {}
+    }
+  }
+}

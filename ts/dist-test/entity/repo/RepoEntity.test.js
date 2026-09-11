@@ -77,11 +77,19 @@ const utility_1 = require("../../utility");
         // CREATE
         const repo_ref01_ent = client.Repo();
         let repo_ref01_data = setup.data.new.repo['repo_ref01'];
+        repo_ref01_data['branch_id'] = setup.idmap['branch01'];
+        repo_ref01_data['environment_id'] = setup.idmap['environment01'];
+        repo_ref01_data['environment_name'] = setup.idmap['environment_name01'];
+        repo_ref01_data['org_id'] = setup.idmap['org01'];
         repo_ref01_data['owner'] = setup.idmap['owner01'];
+        repo_ref01_data['repo'] = setup.idmap['repo01'];
         repo_ref01_data = (await repo_ref01_ent.create(repo_ref01_data)).data();
         (0, node_assert_1.default)(null != repo_ref01_data.id);
         // LIST
         const repo_ref01_match = {};
+        repo_ref01_match['environment_name'] = setup.idmap['environment_name01'];
+        repo_ref01_match['owner'] = setup.idmap['owner01'];
+        repo_ref01_match['repo'] = setup.idmap['repo01'];
         const repo_ref01_list = (await repo_ref01_ent.list(repo_ref01_match)).map((e) => e.data());
         (0, node_assert_1.default)(!isempty(select(repo_ref01_list, { id: repo_ref01_data.id })));
         // UPDATE
@@ -103,6 +111,9 @@ const utility_1 = require("../../utility");
         await repo_ref01_ent.remove(repo_ref01_match_rm0);
         // LIST
         const repo_ref01_match_rt0 = {};
+        repo_ref01_match_rt0['environment_name'] = setup.idmap['environment_name01'];
+        repo_ref01_match_rt0['owner'] = setup.idmap['owner01'];
+        repo_ref01_match_rt0['repo'] = setup.idmap['repo01'];
         const repo_ref01_list_rt0 = (await repo_ref01_ent.list(repo_ref01_match_rt0)).map((e) => e.data());
         (0, node_assert_1.default)(isempty(select(repo_ref01_list_rt0, { id: repo_ref01_data.id })));
     });
@@ -121,7 +132,7 @@ function basicSetup(extra) {
     const struct = client.utility().struct;
     const merge = struct.merge;
     const transform = struct.transform;
-    let idmap = transform(['repo01', 'repo02', 'repo03', 'repo01', 'repo02', 'repo03'], {
+    let idmap = transform(['repo01', 'repo02', 'repo03', 'repo01', 'repo02', 'repo03', 'repository_invitation01', 'repository_invitation02', 'repository_invitation03', 'org01', 'org02', 'org03', 'ruleset01', 'ruleset02', 'ruleset03', 'repo01', 'repo02', 'repo03', 'attestation01', 'attestation02', 'attestation03', 'repo01', 'repo02', 'repo03', 'autolink01', 'autolink02', 'autolink03', 'repo01', 'repo02', 'repo03', 'branch01', 'branch02', 'branch03', 'repo01', 'repo02', 'repo03', 'collaborator01', 'collaborator02', 'collaborator03', 'repo01', 'repo02', 'repo03', 'comment01', 'comment02', 'comment03', 'repo01', 'repo02', 'repo03', 'content01', 'content02', 'content03', 'repo01', 'repo02', 'repo03', 'deployment01', 'deployment02', 'deployment03', 'repo01', 'repo02', 'repo03', 'environment01', 'environment02', 'environment03', 'repo01', 'repo02', 'repo03', 'hook01', 'hook02', 'hook03', 'repo01', 'repo02', 'repo03', 'invitation01', 'invitation02', 'invitation03', 'repo01', 'repo02', 'repo03', 'key01', 'key02', 'key03', 'repo01', 'repo02', 'repo03', 'asset01', 'asset02', 'asset03', 'repo01', 'repo02', 'repo03', 'release01', 'release02', 'release03', 'repo01', 'repo02', 'repo03', 'ruleset01', 'ruleset02', 'ruleset03', 'repo01', 'repo02', 'repo03', 'protection01', 'protection02', 'protection03', 'repo01', 'repo02', 'repo03', 'tarball01', 'tarball02', 'tarball03', 'repo01', 'repo02', 'repo03', 'zipball01', 'zipball02', 'zipball03', 'repo01', 'repo02', 'repo03', 'environment01', 'environment02', 'environment03', 'deployment_branch_policy01', 'deployment_branch_policy02', 'deployment_branch_policy03', 'repo01', 'repo02', 'repo03', 'environment01', 'environment02', 'environment03', 'deployment_protection_rule01', 'deployment_protection_rule02', 'deployment_protection_rule03', 'repo01', 'repo02', 'repo03', 'hook01', 'hook02', 'hook03', 'delivery01', 'delivery02', 'delivery03'], {
         '`$PACK`': ['', {
                 '`$KEY`': '`$COPY`',
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']

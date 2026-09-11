@@ -1,0 +1,89 @@
+# BasicPullRequestReviewCommentFlow
+
+main: kit: flow: BasicPullRequestReviewCommentFlow:
+{
+  entity: "pull_request_review_comment",
+  kind: "basic",
+  name: "BasicPullRequestReviewCommentFlow",
+  step: [
+    {
+      input: {
+        ref: "pull_request_review_comment_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        pull_number: "pull_number01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "pull_request_review_comment_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      input: {
+        ref: "pull_request_review_comment_ref01",
+        srcdatavar: "pull_request_review_comment_ref01_data",
+        suffix: "_up0",
+        textfield: "author_association"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-pull_request_review_comment_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "pull_request_review_comment_ref01",
+        srcdatavar: "pull_request_review_comment_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "pull_request_review_comment01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-pull_request_review_comment_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPullRequestReviewCommentFlow"
+}

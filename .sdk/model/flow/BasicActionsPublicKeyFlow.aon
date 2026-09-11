@@ -1,0 +1,32 @@
+# BasicActionsPublicKeyFlow
+
+main: kit: flow: BasicActionsPublicKeyFlow:
+{
+  entity: "actions_public_key",
+  kind: "basic",
+  name: "BasicActionsPublicKeyFlow",
+  step: [
+    {
+      input: {
+        ref: "actions_public_key_ref01",
+        srcdatavar: "actions_public_key_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "actions_public_key01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-actions_public_key_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicActionsPublicKeyFlow"
+}

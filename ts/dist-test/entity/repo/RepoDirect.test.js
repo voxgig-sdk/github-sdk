@@ -31,7 +31,7 @@ const utility_1 = require("../../utility");
         const setup = directSetup({ id: 'direct01' });
         if ((0, utility_1.maybeSkipControl)(t, 'direct', 'direct-load-repo', setup.live))
             return;
-        if ((0, utility_1.skipIfMissingIds)(t, setup, ["owner01", "repo01"]))
+        if ((0, utility_1.skipIfMissingIds)(t, setup, ["owner01", "repo01", "subject_digest01"]))
             return;
         const { client, calls } = setup;
         const params = {};
@@ -56,13 +56,15 @@ const utility_1 = require("../../utility");
             params.owner = candidateId;
             params.owner = setup.idmap['owner01'];
             params.repo = setup.idmap['repo01'];
+            params.subject_digest = setup.idmap['subject_digest01'];
         }
         else {
             params.owner = 'direct01';
             params.repo = 'direct02';
+            params.subject_digest = 'direct03';
         }
         const result = await client.direct({
-            path: 'repos/{owner}/{repo}',
+            path: 'repos/{owner}/{repo}/attestations/{subject_digest}',
             method: 'GET',
             params,
             query,
@@ -84,6 +86,7 @@ const utility_1 = require("../../utility");
             (0, node_assert_1.default)(calls[0].init.method === 'GET');
             (0, node_assert_1.default)(calls[0].url.includes('direct01'));
             (0, node_assert_1.default)(calls[0].url.includes('direct02'));
+            (0, node_assert_1.default)(calls[0].url.includes('direct03'));
         }
     });
     (0, node_test_1.test)('direct-list-repo', async (t) => {

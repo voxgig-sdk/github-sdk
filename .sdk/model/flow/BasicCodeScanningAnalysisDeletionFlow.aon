@@ -1,0 +1,9 @@
+# BasicCodeScanningAnalysisDeletionFlow
+
+main: kit: flow: BasicCodeScanningAnalysisDeletionFlow:
+{
+  entity: "code_scanning_analysis_deletion",
+  kind: "basic",
+  name: "BasicCodeScanningAnalysisDeletionFlow",
+  "key$": "BasicCodeScanningAnalysisDeletionFlow"
+}

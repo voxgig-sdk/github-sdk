@@ -1,0 +1,119 @@
+# Entity: network_setting
+
+main: kit: entity: network_setting: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "id"
+      req: true
+      short: "The unique identifier of the network settings resource."
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: true
+      short: "The name of the network settings resource."
+      type: "`$STRING`"
+    }
+    {
+      name: "network_configuration_id"
+      req: false
+      short: "The identifier of the network configuration that is using this settings resource."
+      type: "`$STRING`"
+    }
+    {
+      name: "region"
+      req: true
+      short: "The location of the subnet this network settings resource is configured for."
+      type: "`$STRING`"
+    }
+    {
+      name: "subnet_id"
+      req: true
+      short: "The subnet this network settings resource is configured for."
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "network_setting"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "network_settings_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/settings/network-settings/{network_settings_id}"
+          rename: {
+            param: {
+              network_settings_id: "id"
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "settings"
+            }
+            {
+              lit: "network-settings"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+    ]
+  }
+
+
+
+}

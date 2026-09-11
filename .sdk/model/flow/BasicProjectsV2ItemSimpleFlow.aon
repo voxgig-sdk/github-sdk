@@ -1,0 +1,23 @@
+# BasicProjectsV2ItemSimpleFlow
+
+main: kit: flow: BasicProjectsV2ItemSimpleFlow:
+{
+  entity: "projects_v2_item_simple",
+  kind: "basic",
+  name: "BasicProjectsV2ItemSimpleFlow",
+  step: [
+    {
+      input: {
+        ref: "projects_v2_item_simple_ref01"
+      }
+
+      match: {
+        project_number: "project_number01",
+        username: "username01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicProjectsV2ItemSimpleFlow"
+}

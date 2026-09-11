@@ -1,0 +1,126 @@
+-- PullRequestSimple entity test
+
+local json = require("dkjson")
+local vs = require("utility.struct.struct")
+local sdk = require("github_sdk")
+local helpers = require("core.helpers")
+local runner = require("test.runner")
+
+local _test_dir = debug.getinfo(1, "S").source:match("^@(.+/)")  or "./"
+
+describe("PullRequestSimpleEntity", function()
+  it("should create instance", function()
+    local testsdk = sdk.test(nil, nil)
+    local ent = testsdk:PullRequestSimple(nil)
+    assert.is_not_nil(ent)
+  end)
+
+  it("should run basic flow", function()
+    local setup = pull_request_simple_basic_setup(nil)
+    -- Per-op sdk-test-control.json skip.
+    local _live = setup.live or false
+    for _, _op in ipairs({"create", "remove"}) do
+      local _should_skip, _reason = runner.is_control_skipped("entityOp", "pull_request_simple." .. _op, _live and "live" or "unit")
+      if _should_skip then
+        pending(_reason or "skipped via sdk-test-control.json")
+        return
+      end
+    end
+    -- The basic flow consumes synthetic IDs from the fixture. In live mode
+    -- without an *_ENTID env override, those IDs hit the live API and 4xx.
+    if setup.synthetic_only then
+      pending("live entity test uses synthetic IDs from fixture — set GITHUB_TEST_PULL_REQUEST_SIMPLE_ENTID JSON to run live")
+      return
+    end
+    local client = setup.client
+
+    -- CREATE
+    local pull_request_simple_ref01_ent = client:PullRequestSimple(nil)
+    local pull_request_simple_ref01_data = helpers.to_map(vs.getprop(
+      vs.getpath(setup.data, "new.pull_request_simple"), "pull_request_simple_ref01"))
+    pull_request_simple_ref01_data["owner"] = setup.idmap["owner01"]
+    pull_request_simple_ref01_data["pull_number"] = setup.idmap["pull_number01"]
+    pull_request_simple_ref01_data["repo"] = setup.idmap["repo01"]
+
+    local pull_request_simple_ref01_data_result, err = pull_request_simple_ref01_ent:create(pull_request_simple_ref01_data, nil)
+    assert.is_nil(err)
+    pull_request_simple_ref01_data = helpers.to_map(type(pull_request_simple_ref01_data_result) == 'table' and pull_request_simple_ref01_data_result.data_get and pull_request_simple_ref01_data_result:data_get() or pull_request_simple_ref01_data_result)
+    assert.is_not_nil(pull_request_simple_ref01_data)
+
+
+  end)
+end)
+
+function pull_request_simple_basic_setup(extra)
+  runner.load_env_local()
+
+  local entity_data_file = _test_dir .. "../../.sdk/test/entity/pull_request_simple/PullRequestSimpleTestData.json"
+  local f = io.open(entity_data_file, "r")
+  if f == nil then
+    error("failed to read pull_request_simple test data: " .. entity_data_file)
+  end
+  local entity_data_source = f:read("*a")
+  f:close()
+
+  local entity_data = json.decode(entity_data_source)
+
+  local options = {}
+  options["entity"] = entity_data["existing"]
+
+  local client = sdk.test(options, extra)
+
+  -- Generate idmap via transform.
+  local idmap = vs.transform(
+    { "pull_request_simple01", "pull_request_simple02", "pull_request_simple03", "repo01", "repo02", "repo03", "pull01", "pull02", "pull03", "owner01", "pull_number01" },
+    {
+      ["`$PACK`"] = { "", {
+        ["`$KEY`"] = "`$COPY`",
+        ["`$VAL`"] = { "`$FORMAT`", "upper", "`$COPY`" },
+      }},
+    }
+  )
+
+  -- Detect ENTID env override before envOverride consumes it. When live
+  -- mode is on without a real override, the basic test runs against synthetic
+  -- IDs from the fixture and 4xx's. Surface this so the test can skip.
+  local entid_env_raw = os.getenv("GITHUB_TEST_PULL_REQUEST_SIMPLE_ENTID")
+  local idmap_overridden = entid_env_raw ~= nil and entid_env_raw:match("^%s*{") ~= nil
+
+  local env = runner.env_override({
+    ["GITHUB_TEST_PULL_REQUEST_SIMPLE_ENTID"] = idmap,
+    ["GITHUB_TEST_LIVE"] = "FALSE",
+    ["GITHUB_TEST_EXPLAIN"] = "FALSE",
+    ["GITHUB_APIKEY"] = "",
+  })
+
+  local idmap_resolved = helpers.to_map(
+    env["GITHUB_TEST_PULL_REQUEST_SIMPLE_ENTID"])
+  if idmap_resolved == nil then
+    idmap_resolved = helpers.to_map(idmap)
+  end
+
+  if env["GITHUB_TEST_LIVE"] == "TRUE" then
+    local merged_opts = vs.merge({
+      -- FIRST, so the generated fields below win: sdk-test-control.json's
+      -- test.client.options adds to the live client, it does not redirect it.
+      runner.live_client_options(),
+      {
+        apikey = env["GITHUB_APIKEY"],
+      },
+      extra or {},
+    })
+    client = sdk.new(helpers.to_map(merged_opts))
+  end
+
+  local live = env["GITHUB_TEST_LIVE"] == "TRUE"
+  return {
+    client = client,
+    data = entity_data,
+    idmap = idmap_resolved,
+    env = env,
+    explain = env["GITHUB_TEST_EXPLAIN"] == "TRUE",
+    live = live,
+    synthetic_only = live and not idmap_overridden,
+    now = os.time() * 1000,
+  }
+end

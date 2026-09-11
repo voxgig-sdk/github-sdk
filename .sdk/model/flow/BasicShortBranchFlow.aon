@@ -1,0 +1,27 @@
+# BasicShortBranchFlow
+
+main: kit: flow: BasicShortBranchFlow:
+{
+  entity: "short_branch",
+  kind: "basic",
+  name: "BasicShortBranchFlow",
+  step: [
+    {
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "short_branch_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicShortBranchFlow"
+}

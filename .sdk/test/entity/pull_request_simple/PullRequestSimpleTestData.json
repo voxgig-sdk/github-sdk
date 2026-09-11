@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "pull_request_simple": {
+      "PULL_REQUEST_SIMPLE00": {
+        "reviewers": [],
+        "team_reviewers": [],
+        "owner": "OWNER01",
+        "pull_number": "PULL_NUMBER01",
+        "repo": "REPO01",
+        "id": "PULL_REQUEST_SIMPLE00"
+      },
+      "PULL_REQUEST_SIMPLE01": {
+        "reviewers": [],
+        "team_reviewers": [],
+        "owner": "OWNER01",
+        "pull_number": "PULL_NUMBER01",
+        "repo": "REPO01",
+        "id": "PULL_REQUEST_SIMPLE01"
+      },
+      "PULL_REQUEST_SIMPLE02": {
+        "reviewers": [],
+        "team_reviewers": [],
+        "owner": "OWNER01",
+        "pull_number": "PULL_NUMBER01",
+        "repo": "REPO01",
+        "id": "PULL_REQUEST_SIMPLE02"
+      }
+    }
+  },
+  "new": {
+    "pull_request_simple": {
+      "pull_request_simple_ref01": {
+        "reviewers": [],
+        "team_reviewers": []
+      }
+    }
+  }
+}

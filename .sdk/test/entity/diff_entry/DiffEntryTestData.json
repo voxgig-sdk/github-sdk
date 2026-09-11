@@ -1,0 +1,71 @@
+{
+  "existing": {
+    "diff_entry": {
+      "DIFF_ENTRY00": {
+        "additions": "s6e",
+        "blob_url": "s6f",
+        "changes": "s70",
+        "contents_url": "s71",
+        "deletions": "s72",
+        "filename": "s73",
+        "patch": "s74",
+        "previous_filename": "s75",
+        "raw_url": "s76",
+        "sha": "s77",
+        "status": "s78",
+        "owner": "OWNER01",
+        "pull_number": "PULL_NUMBER01",
+        "repo": "REPO01"
+      },
+      "DIFF_ENTRY01": {
+        "additions": "sdc",
+        "blob_url": "sdd",
+        "changes": "sde",
+        "contents_url": "sdf",
+        "deletions": "se0",
+        "filename": "se1",
+        "patch": "se2",
+        "previous_filename": "se3",
+        "raw_url": "se4",
+        "sha": "se5",
+        "status": "se6",
+        "owner": "OWNER01",
+        "pull_number": "PULL_NUMBER01",
+        "repo": "REPO01"
+      },
+      "DIFF_ENTRY02": {
+        "additions": "s14a",
+        "blob_url": "s14b",
+        "changes": "s14c",
+        "contents_url": "s14d",
+        "deletions": "s14e",
+        "filename": "s14f",
+        "patch": "s150",
+        "previous_filename": "s151",
+        "raw_url": "s152",
+        "sha": "s153",
+        "status": "s154",
+        "owner": "OWNER01",
+        "pull_number": "PULL_NUMBER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "diff_entry": {
+      "diff_entry_ref01": {
+        "additions": "s1b8",
+        "blob_url": "s1b9",
+        "changes": "s1ba",
+        "contents_url": "s1bb",
+        "deletions": "s1bc",
+        "filename": "s1bd",
+        "patch": "s1be",
+        "previous_filename": "s1bf",
+        "raw_url": "s1c0",
+        "sha": "s1c1",
+        "status": "s1c2"
+      }
+    }
+  }
+}

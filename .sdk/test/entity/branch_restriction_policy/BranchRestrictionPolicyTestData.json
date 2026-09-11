@@ -1,0 +1,55 @@
+{
+  "existing": {
+    "branch_restriction_policy": {
+      "BRANCH_RESTRICTION_POLICY00": {
+        "apps": [],
+        "apps_url": "s47",
+        "teams": [],
+        "teams_url": "s49",
+        "url": "s4a",
+        "users": [],
+        "users_url": "s4c",
+        "branch_id": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "BRANCH_RESTRICTION_POLICY01": {
+        "apps": [],
+        "apps_url": "s8d",
+        "teams": [],
+        "teams_url": "s8f",
+        "url": "s90",
+        "users": [],
+        "users_url": "s92",
+        "branch_id": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "BRANCH_RESTRICTION_POLICY02": {
+        "apps": [],
+        "apps_url": "sd3",
+        "teams": [],
+        "teams_url": "sd5",
+        "url": "sd6",
+        "users": [],
+        "users_url": "sd8",
+        "branch_id": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "branch_restriction_policy": {
+      "branch_restriction_policy_ref01": {
+        "apps": [],
+        "apps_url": "s119",
+        "teams": [],
+        "teams_url": "s11b",
+        "url": "s11c",
+        "users": [],
+        "users_url": "s11e"
+      }
+    }
+  }
+}

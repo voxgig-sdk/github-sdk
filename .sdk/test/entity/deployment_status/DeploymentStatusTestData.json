@@ -1,0 +1,90 @@
+{
+  "existing": {
+    "deployment_status": {
+      "DEPLOYMENT_STATUS00": {
+        "auto_inactive": true,
+        "created_at": "sa1",
+        "creator": {},
+        "deployment_url": "sa3",
+        "description": "sa4",
+        "environment": "sa5",
+        "environment_url": "sa6",
+        "id": "DEPLOYMENT_STATUS00",
+        "log_url": "sa8",
+        "node_id": "NODE01",
+        "performed_via_github_app": {},
+        "repository_url": "sab",
+        "state": "sac",
+        "target_url": "sad",
+        "updated_at": "sae",
+        "url": "saf",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "deployment_id": "DEPLOYMENT01"
+      },
+      "DEPLOYMENT_STATUS01": {
+        "auto_inactive": true,
+        "created_at": "s141",
+        "creator": {},
+        "deployment_url": "s143",
+        "description": "s144",
+        "environment": "s145",
+        "environment_url": "s146",
+        "id": "DEPLOYMENT_STATUS01",
+        "log_url": "s148",
+        "node_id": "NODE01",
+        "performed_via_github_app": {},
+        "repository_url": "s14b",
+        "state": "s14c",
+        "target_url": "s14d",
+        "updated_at": "s14e",
+        "url": "s14f",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "deployment_id": "DEPLOYMENT01"
+      },
+      "DEPLOYMENT_STATUS02": {
+        "auto_inactive": true,
+        "created_at": "s1e1",
+        "creator": {},
+        "deployment_url": "s1e3",
+        "description": "s1e4",
+        "environment": "s1e5",
+        "environment_url": "s1e6",
+        "id": "DEPLOYMENT_STATUS02",
+        "log_url": "s1e8",
+        "node_id": "NODE01",
+        "performed_via_github_app": {},
+        "repository_url": "s1eb",
+        "state": "s1ec",
+        "target_url": "s1ed",
+        "updated_at": "s1ee",
+        "url": "s1ef",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "deployment_id": "DEPLOYMENT01"
+      }
+    }
+  },
+  "new": {
+    "deployment_status": {
+      "deployment_status_ref01": {
+        "auto_inactive": true,
+        "created_at": "s281",
+        "creator": {},
+        "deployment_url": "s283",
+        "description": "s284",
+        "environment": "s285",
+        "environment_url": "s286",
+        "log_url": "s288",
+        "node_id": "NODE01",
+        "performed_via_github_app": {},
+        "repository_url": "s28b",
+        "state": "s28c",
+        "target_url": "s28d",
+        "updated_at": "s28e",
+        "url": "s28f"
+      }
+    }
+  }
+}

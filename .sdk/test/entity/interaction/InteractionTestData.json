@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "interaction": {
+      "INTERACTION00": {
+        "expires_at": "s1e",
+        "limit": "s1f",
+        "origin": "s20",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "INTERACTION00"
+      },
+      "INTERACTION01": {
+        "expires_at": "s3c",
+        "limit": "s3d",
+        "origin": "s3e",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "INTERACTION01"
+      },
+      "INTERACTION02": {
+        "expires_at": "s5a",
+        "limit": "s5b",
+        "origin": "s5c",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "INTERACTION02"
+      }
+    }
+  },
+  "new": {
+    "interaction": {
+      "interaction_ref01": {
+        "expires_at": "s78",
+        "limit": "s79",
+        "origin": "s7a"
+      }
+    }
+  }
+}

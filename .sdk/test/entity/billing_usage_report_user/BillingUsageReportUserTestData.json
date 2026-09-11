@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "billing_usage_report_user": {
+      "BILLING_USAGE_REPORT_USER00": {
+        "date": "s64",
+        "discountAmount": 101,
+        "grossAmount": 102,
+        "netAmount": 103,
+        "pricePerUnit": 104,
+        "product": "s69",
+        "quantity": "s6a",
+        "repositoryName": "s6b",
+        "sku": "s6c",
+        "unitType": "s6d",
+        "username": "USERNAME01"
+      },
+      "BILLING_USAGE_REPORT_USER01": {
+        "date": "sc8",
+        "discountAmount": 201,
+        "grossAmount": 202,
+        "netAmount": 203,
+        "pricePerUnit": 204,
+        "product": "scd",
+        "quantity": "sce",
+        "repositoryName": "scf",
+        "sku": "sd0",
+        "unitType": "sd1",
+        "username": "USERNAME01"
+      },
+      "BILLING_USAGE_REPORT_USER02": {
+        "date": "s12c",
+        "discountAmount": 301,
+        "grossAmount": 302,
+        "netAmount": 303,
+        "pricePerUnit": 304,
+        "product": "s131",
+        "quantity": "s132",
+        "repositoryName": "s133",
+        "sku": "s134",
+        "unitType": "s135",
+        "username": "USERNAME01"
+      }
+    }
+  },
+  "new": {
+    "billing_usage_report_user": {
+      "billing_usage_report_user_ref01": {
+        "date": "s190",
+        "discountAmount": 401,
+        "grossAmount": 402,
+        "netAmount": 403,
+        "pricePerUnit": 404,
+        "product": "s195",
+        "quantity": "s196",
+        "repositoryName": "s197",
+        "sku": "s198",
+        "unitType": "s199"
+      }
+    }
+  }
+}

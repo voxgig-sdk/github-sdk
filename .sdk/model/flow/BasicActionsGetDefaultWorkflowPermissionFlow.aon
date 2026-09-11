@@ -1,0 +1,32 @@
+# BasicActionsGetDefaultWorkflowPermissionFlow
+
+main: kit: flow: BasicActionsGetDefaultWorkflowPermissionFlow:
+{
+  entity: "actions_get_default_workflow_permission",
+  kind: "basic",
+  name: "BasicActionsGetDefaultWorkflowPermissionFlow",
+  step: [
+    {
+      input: {
+        ref: "actions_get_default_workflow_permission_ref01",
+        srcdatavar: "actions_get_default_workflow_permission_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "actions_get_default_workflow_permission01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-actions_get_default_workflow_permission_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicActionsGetDefaultWorkflowPermissionFlow"
+}

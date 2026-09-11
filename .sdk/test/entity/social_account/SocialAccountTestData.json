@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "social_account": {
+      "SOCIAL_ACCOUNT00": {
+        "account_urls": [],
+        "provider": "s1f",
+        "url": "s20",
+        "username": "USERNAME01",
+        "id": "SOCIAL_ACCOUNT00"
+      },
+      "SOCIAL_ACCOUNT01": {
+        "account_urls": [],
+        "provider": "s3d",
+        "url": "s3e",
+        "username": "USERNAME01",
+        "id": "SOCIAL_ACCOUNT01"
+      },
+      "SOCIAL_ACCOUNT02": {
+        "account_urls": [],
+        "provider": "s5b",
+        "url": "s5c",
+        "username": "USERNAME01",
+        "id": "SOCIAL_ACCOUNT02"
+      }
+    }
+  },
+  "new": {
+    "social_account": {
+      "social_account_ref01": {
+        "account_urls": [],
+        "provider": "s79",
+        "url": "s7a"
+      }
+    }
+  }
+}

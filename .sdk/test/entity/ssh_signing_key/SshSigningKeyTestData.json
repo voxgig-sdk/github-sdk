@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "ssh_signing_key": {
+      "SSH_SIGNING_KEY00": {
+        "created_at": "s28",
+        "id": "SSH_SIGNING_KEY00",
+        "key": "s2a",
+        "title": "s2b",
+        "username": "USERNAME01"
+      },
+      "SSH_SIGNING_KEY01": {
+        "created_at": "s50",
+        "id": "SSH_SIGNING_KEY01",
+        "key": "s52",
+        "title": "s53",
+        "username": "USERNAME01"
+      },
+      "SSH_SIGNING_KEY02": {
+        "created_at": "s78",
+        "id": "SSH_SIGNING_KEY02",
+        "key": "s7a",
+        "title": "s7b",
+        "username": "USERNAME01"
+      }
+    }
+  },
+  "new": {
+    "ssh_signing_key": {
+      "ssh_signing_key_ref01": {
+        "created_at": "sa0",
+        "key": "sa2",
+        "title": "sa3"
+      }
+    }
+  }
+}

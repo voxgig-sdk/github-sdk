@@ -1,0 +1,27 @@
+# BasicCodeFrequencyStatFlow
+
+main: kit: flow: BasicCodeFrequencyStatFlow:
+{
+  entity: "code_frequency_stat",
+  kind: "basic",
+  name: "BasicCodeFrequencyStatFlow",
+  step: [
+    {
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "code_frequency_stat_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCodeFrequencyStatFlow"
+}

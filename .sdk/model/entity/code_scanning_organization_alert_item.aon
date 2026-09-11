@@ -1,0 +1,272 @@
+# Entity: code_scanning_organization_alert_item
+
+main: kit: entity: code_scanning_organization_alert_item: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      format: "date-time"
+      name: "created_at"
+      readOnly: true
+      req: true
+      short: "The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`."
+      type: "`$STRING`"
+    }
+    {
+      name: "dismissal_approved_by"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      format: "date-time"
+      name: "dismissed_at"
+      readOnly: true
+      req: true
+      short: "The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`."
+      type: "`$STRING`"
+    }
+    {
+      name: "dismissed_by"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "dismissed_comment"
+      req: false
+      short: "The dismissal comment associated with the dismissal of the alert."
+      type: "`$STRING`"
+    }
+    {
+      name: "dismissed_reason"
+      req: true
+      short: "**Required when the state is dismissed.** The reason for dismissing or closing the alert."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "fixed_at"
+      readOnly: true
+      req: false
+      short: "The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      readOnly: true
+      req: true
+      short: "The GitHub URL of the alert resource."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "instances_url"
+      readOnly: true
+      req: true
+      short: "The REST API URL for fetching the list of instances for an alert."
+      type: "`$STRING`"
+    }
+    {
+      name: "most_recent_instance"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "number"
+      readOnly: true
+      req: true
+      short: "The security alert number."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "repository"
+      req: true
+      short: "A GitHub repository."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "rule"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "state"
+      req: true
+      short: "State of a code scanning alert."
+      type: "`$STRING`"
+    }
+    {
+      name: "tool"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      readOnly: true
+      req: false
+      short: "The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      readOnly: true
+      req: true
+      short: "The REST API URL of the alert resource."
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "code_scanning_organization_alert_item"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "after"
+                orig: "after"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "before"
+                orig: "before"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "desc"
+                kind: "query"
+                name: "direction"
+                orig: "direction"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "severity"
+                orig: "severity"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "created"
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "state"
+                orig: "state"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "tool_guid"
+                orig: "tool_guid"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "tool_name"
+                orig: "tool_name"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/code-scanning/alerts"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "code-scanning"
+            }
+            {
+              lit: "alerts"
+            }
+          ]
+          select: {
+            exist: [
+              "after"
+              "before"
+              "direction"
+              "org_id"
+              "page"
+              "per_page"
+              "severity"
+              "sort"
+              "state"
+              "tool_guid"
+              "tool_name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+    ]
+  }
+
+
+
+}

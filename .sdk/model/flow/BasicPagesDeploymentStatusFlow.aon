@@ -1,0 +1,48 @@
+# BasicPagesDeploymentStatusFlow
+
+main: kit: flow: BasicPagesDeploymentStatusFlow:
+{
+  entity: "pages_deployment_status",
+  kind: "basic",
+  name: "BasicPagesDeploymentStatusFlow",
+  step: [
+    {
+      input: {
+        ref: "pages_deployment_status_ref01"
+      }
+
+      match: {
+        deployment_id: "deployment01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "pages_deployment_status_ref01",
+        srcdatavar: "pages_deployment_status_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "pages_deployment_status01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-pages_deployment_status_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPagesDeploymentStatusFlow"
+}

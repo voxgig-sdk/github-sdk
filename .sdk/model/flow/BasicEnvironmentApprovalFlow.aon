@@ -1,0 +1,28 @@
+# BasicEnvironmentApprovalFlow
+
+main: kit: flow: BasicEnvironmentApprovalFlow:
+{
+  entity: "environment_approval",
+  kind: "basic",
+  name: "BasicEnvironmentApprovalFlow",
+  step: [
+    {
+      match: {
+        owner: "owner01",
+        repo: "repo01",
+        run_id: "run01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "environment_approval_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEnvironmentApprovalFlow"
+}

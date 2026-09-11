@@ -1,0 +1,93 @@
+{
+  "existing": {
+    "classroom_assignment": {
+      "CLASSROOM_ASSIGNMENT00": {
+        "accepted": "sbe",
+        "classroom": {},
+        "deadline": "sc0",
+        "editor": "sc1",
+        "feedback_pull_requests_enabled": true,
+        "id": "CLASSROOM_ASSIGNMENT00",
+        "invitations_enabled": true,
+        "invite_link": "sc5",
+        "language": "sc6",
+        "max_members": "sc7",
+        "max_teams": "sc8",
+        "passing": "sc9",
+        "public_repo": true,
+        "slug": "scb",
+        "starter_code_repository": {},
+        "students_are_repo_admins": false,
+        "submitted": "sce",
+        "title": "scf",
+        "type": "sd0"
+      },
+      "CLASSROOM_ASSIGNMENT01": {
+        "accepted": "s17c",
+        "classroom": {},
+        "deadline": "s17e",
+        "editor": "s17f",
+        "feedback_pull_requests_enabled": true,
+        "id": "CLASSROOM_ASSIGNMENT01",
+        "invitations_enabled": true,
+        "invite_link": "s183",
+        "language": "s184",
+        "max_members": "s185",
+        "max_teams": "s186",
+        "passing": "s187",
+        "public_repo": true,
+        "slug": "s189",
+        "starter_code_repository": {},
+        "students_are_repo_admins": false,
+        "submitted": "s18c",
+        "title": "s18d",
+        "type": "s18e"
+      },
+      "CLASSROOM_ASSIGNMENT02": {
+        "accepted": "s23a",
+        "classroom": {},
+        "deadline": "s23c",
+        "editor": "s23d",
+        "feedback_pull_requests_enabled": true,
+        "id": "CLASSROOM_ASSIGNMENT02",
+        "invitations_enabled": true,
+        "invite_link": "s241",
+        "language": "s242",
+        "max_members": "s243",
+        "max_teams": "s244",
+        "passing": "s245",
+        "public_repo": true,
+        "slug": "s247",
+        "starter_code_repository": {},
+        "students_are_repo_admins": false,
+        "submitted": "s24a",
+        "title": "s24b",
+        "type": "s24c"
+      }
+    }
+  },
+  "new": {
+    "classroom_assignment": {
+      "classroom_assignment_ref01": {
+        "accepted": "s2f8",
+        "classroom": {},
+        "deadline": "s2fa",
+        "editor": "s2fb",
+        "feedback_pull_requests_enabled": true,
+        "invitations_enabled": true,
+        "invite_link": "s2ff",
+        "language": "s300",
+        "max_members": "s301",
+        "max_teams": "s302",
+        "passing": "s303",
+        "public_repo": true,
+        "slug": "s305",
+        "starter_code_repository": {},
+        "students_are_repo_admins": false,
+        "submitted": "s308",
+        "title": "s309",
+        "type": "s30a"
+      }
+    }
+  }
+}

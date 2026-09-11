@@ -1,0 +1,9 @@
+# BasicPrivateUserFlow
+
+main: kit: flow: BasicPrivateUserFlow:
+{
+  entity: "private_user",
+  kind: "basic",
+  name: "BasicPrivateUserFlow",
+  "key$": "BasicPrivateUserFlow"
+}

@@ -1,0 +1,47 @@
+# BasicWebhookConfigFlow
+
+main: kit: flow: BasicWebhookConfigFlow:
+{
+  entity: "webhook_config",
+  kind: "basic",
+  name: "BasicWebhookConfigFlow",
+  step: [
+    {
+      input: {
+        ref: "webhook_config_ref01",
+        srcdatavar: "webhook_config_ref01_data",
+        suffix: "_up0",
+        textfield: "content_type"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-webhook_config_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "webhook_config_ref01",
+        srcdatavar: "webhook_config_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-webhook_config_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWebhookConfigFlow"
+}

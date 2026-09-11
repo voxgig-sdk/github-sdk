@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "gist_commit": {
+      "GIST_COMMIT00": {
+        "change_status": {},
+        "committed_at": "s3d",
+        "id": "GIST_COMMIT00",
+        "url": "s3f",
+        "user": {},
+        "version": "s41"
+      },
+      "GIST_COMMIT01": {
+        "change_status": {},
+        "committed_at": "s79",
+        "id": "GIST_COMMIT01",
+        "url": "s7b",
+        "user": {},
+        "version": "s7d"
+      },
+      "GIST_COMMIT02": {
+        "change_status": {},
+        "committed_at": "sb5",
+        "id": "GIST_COMMIT02",
+        "url": "sb7",
+        "user": {},
+        "version": "sb9"
+      }
+    }
+  },
+  "new": {
+    "gist_commit": {
+      "gist_commit_ref01": {
+        "change_status": {},
+        "committed_at": "sf1",
+        "url": "sf3",
+        "user": {},
+        "version": "sf5"
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "existing": {
+    "runner_group": {
+      "RUNNER_GROUP00": {
+        "allows_public_repositories": true,
+        "default": false,
+        "hosted_runners_url": "sa2",
+        "id": "RUNNER_GROUP00",
+        "inherited": true,
+        "inherited_allows_public_repositories": false,
+        "name": "sa6",
+        "network_configuration_id": "NETWORK_CONFIGURATION01",
+        "restricted_to_workflows": true,
+        "runners": [],
+        "runners_url": "saa",
+        "selected_repositories_url": "sab",
+        "selected_repository_ids": [],
+        "selected_workflows": [],
+        "visibility": "sae",
+        "workflow_restrictions_read_only": false,
+        "org_id": "ORG01"
+      },
+      "RUNNER_GROUP01": {
+        "allows_public_repositories": true,
+        "default": false,
+        "hosted_runners_url": "s142",
+        "id": "RUNNER_GROUP01",
+        "inherited": true,
+        "inherited_allows_public_repositories": false,
+        "name": "s146",
+        "network_configuration_id": "NETWORK_CONFIGURATION01",
+        "restricted_to_workflows": true,
+        "runners": [],
+        "runners_url": "s14a",
+        "selected_repositories_url": "s14b",
+        "selected_repository_ids": [],
+        "selected_workflows": [],
+        "visibility": "s14e",
+        "workflow_restrictions_read_only": false,
+        "org_id": "ORG01"
+      },
+      "RUNNER_GROUP02": {
+        "allows_public_repositories": true,
+        "default": false,
+        "hosted_runners_url": "s1e2",
+        "id": "RUNNER_GROUP02",
+        "inherited": true,
+        "inherited_allows_public_repositories": false,
+        "name": "s1e6",
+        "network_configuration_id": "NETWORK_CONFIGURATION01",
+        "restricted_to_workflows": true,
+        "runners": [],
+        "runners_url": "s1ea",
+        "selected_repositories_url": "s1eb",
+        "selected_repository_ids": [],
+        "selected_workflows": [],
+        "visibility": "s1ee",
+        "workflow_restrictions_read_only": false,
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "runner_group": {
+      "runner_group_ref01": {
+        "allows_public_repositories": true,
+        "default": false,
+        "hosted_runners_url": "s282",
+        "inherited": true,
+        "inherited_allows_public_repositories": false,
+        "name": "s286",
+        "network_configuration_id": "NETWORK_CONFIGURATION01",
+        "restricted_to_workflows": true,
+        "runners": [],
+        "runners_url": "s28a",
+        "selected_repositories_url": "s28b",
+        "selected_repository_ids": [],
+        "selected_workflows": [],
+        "visibility": "s28e",
+        "workflow_restrictions_read_only": false
+      }
+    }
+  }
+}

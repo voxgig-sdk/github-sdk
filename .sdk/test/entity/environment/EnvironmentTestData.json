@@ -1,0 +1,71 @@
+{
+  "existing": {
+    "environment": {
+      "ENVIRONMENT00": {
+        "created_at": "s78",
+        "deployment_branch_policy": {},
+        "html_url": "s7a",
+        "id": "ENVIRONMENT00",
+        "name": "s7c",
+        "node_id": "NODE01",
+        "prevent_self_review": true,
+        "protection_rules": [],
+        "reviewers": [],
+        "updated_at": "s81",
+        "url": "s82",
+        "wait_timer": "s83",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "ENVIRONMENT01": {
+        "created_at": "sf0",
+        "deployment_branch_policy": {},
+        "html_url": "sf2",
+        "id": "ENVIRONMENT01",
+        "name": "sf4",
+        "node_id": "NODE01",
+        "prevent_self_review": true,
+        "protection_rules": [],
+        "reviewers": [],
+        "updated_at": "sf9",
+        "url": "sfa",
+        "wait_timer": "sfb",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "ENVIRONMENT02": {
+        "created_at": "s168",
+        "deployment_branch_policy": {},
+        "html_url": "s16a",
+        "id": "ENVIRONMENT02",
+        "name": "s16c",
+        "node_id": "NODE01",
+        "prevent_self_review": true,
+        "protection_rules": [],
+        "reviewers": [],
+        "updated_at": "s171",
+        "url": "s172",
+        "wait_timer": "s173",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "environment": {
+      "environment_ref01": {
+        "created_at": "s1e0",
+        "deployment_branch_policy": {},
+        "html_url": "s1e2",
+        "name": "s1e4",
+        "node_id": "NODE01",
+        "prevent_self_review": true,
+        "protection_rules": [],
+        "reviewers": [],
+        "updated_at": "s1e9",
+        "url": "s1ea",
+        "wait_timer": "s1eb"
+      }
+    }
+  }
+}

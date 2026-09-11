@@ -1,0 +1,70 @@
+{
+  "existing": {
+    "repository_invitation": {
+      "REPOSITORY_INVITATION00": {
+        "created_at": "s6e",
+        "expired": false,
+        "html_url": "s70",
+        "id": "REPOSITORY_INVITATION00",
+        "invitee": {},
+        "inviter": {},
+        "node_id": "NODE01",
+        "permission": "s75",
+        "permissions": "s76",
+        "repository": {},
+        "url": "s78",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "username": "USERNAME01"
+      },
+      "REPOSITORY_INVITATION01": {
+        "created_at": "sdc",
+        "expired": false,
+        "html_url": "sde",
+        "id": "REPOSITORY_INVITATION01",
+        "invitee": {},
+        "inviter": {},
+        "node_id": "NODE01",
+        "permission": "se3",
+        "permissions": "se4",
+        "repository": {},
+        "url": "se6",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "username": "USERNAME01"
+      },
+      "REPOSITORY_INVITATION02": {
+        "created_at": "s14a",
+        "expired": false,
+        "html_url": "s14c",
+        "id": "REPOSITORY_INVITATION02",
+        "invitee": {},
+        "inviter": {},
+        "node_id": "NODE01",
+        "permission": "s151",
+        "permissions": "s152",
+        "repository": {},
+        "url": "s154",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "username": "USERNAME01"
+      }
+    }
+  },
+  "new": {
+    "repository_invitation": {
+      "repository_invitation_ref01": {
+        "created_at": "s1b8",
+        "expired": false,
+        "html_url": "s1ba",
+        "invitee": {},
+        "inviter": {},
+        "node_id": "NODE01",
+        "permission": "s1bf",
+        "permissions": "s1c0",
+        "repository": {},
+        "url": "s1c2"
+      }
+    }
+  }
+}

@@ -1,14 +1,3347 @@
 # Guide
 
 guide: {
-  metrics: count: entity: 2
-  metrics: count: path: 5
-  metrics: count: method: 10
+  metrics: count: entity: 267
+  metrics: count: path: 722
+  metrics: count: method: 1089
+
+  entity: action: {
+    path: "/orgs/{org}/actions/cache/usage-by-repository": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.repository_cache_usages`")|top
+    }
+    path: "/orgs/{org}/actions/hosted-runners": {
+      action: "hosted_runner": {}
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.runners`")|top
+    }
+    path: "/orgs/{org}/actions/hosted-runners/images/github-owned": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.images`")|top
+    }
+    path: "/orgs/{org}/actions/hosted-runners/images/partner": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.images`")|top
+    }
+    path: "/orgs/{org}/actions/hosted-runners/machine-sizes": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.machine_specs`")|top
+    }
+    path: "/orgs/{org}/actions/hosted-runners/platforms": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.platforms`")|top
+    }
+    path: "/orgs/{org}/actions/hosted-runners/{hosted_runner_id}": {
+      rename: param: "org": *"org_id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/actions/permissions": {
+      action: "permission": {}
+      rename: param: "org": *"org_id"
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/permissions/artifact-and-log-retention": {
+      rename: param: "org": *"org_id"
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/permissions/fork-pr-contributor-approval": {
+      rename: param: "org": *"org_id"
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/permissions/fork-pr-workflows-private-repos": {
+      rename: param: "org": *"org_id"
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/permissions/repositories": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.repositories`")|top
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/permissions/repositories/{repository_id}": {
+      rename: param: "org": *"org_id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/permissions/selected-actions": {
+      rename: param: "org": *"org_id"
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/permissions/self-hosted-runners": {
+      rename: param: "org": *"org_id"
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/permissions/self-hosted-runners/repositories": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.repositories`")|top
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/permissions/self-hosted-runners/repositories/{repository_id}": {
+      rename: param: "org": *"org_id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/permissions/workflow": {
+      rename: param: "org": *"org_id"
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/runner-groups": {
+      action: "runner_group": {}
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.runner_groups`")|top
+    }
+    path: "/orgs/{org}/actions/runner-groups/{runner_group_id}": {
+      rename: param: "org": *"org_id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/actions/runner-groups/{runner_group_id}/hosted-runners": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.runners`")|top
+    }
+    path: "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.repositories`")|top
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}": {
+      rename: param: "org": *"org_id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.runners`")|top
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}": {
+      rename: param: "org": *"org_id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/runners": {
+      action: "runner": {}
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.runners`")|top
+    }
+    path: "/orgs/{org}/actions/runners/generate-jitconfig": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.runner`")|top
+    }
+    path: "/orgs/{org}/actions/runners/{runner_id}": {
+      rename: param: "org": *"org_id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/actions/runners/{runner_id}/labels": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.labels`")|top
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/runners/{runner_id}/labels/{name}": {
+      rename: param: "org": *"org_id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/actions/secrets": {
+      action: "secret": {}
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.secrets`")|top
+    }
+    path: "/orgs/{org}/actions/secrets/{secret_name}": {
+      rename: param: "org": *"org_id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/actions/secrets/{secret_name}/repositories": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.repositories`")|top
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}": {
+      rename: param: "org": *"org_id"
+      rename: param: "secret_name": *"secret_id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/variables": {
+      action: "variable": {}
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.variables`")|top
+    }
+    path: "/orgs/{org}/actions/variables/{name}": {
+      rename: param: "org": *"org_id"
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/actions/variables/{name}/repositories": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.repositories`")|top
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}": {
+      rename: param: "name": *"variable_id"
+      rename: param: "org": *"org_id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/settings/billing/actions": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.minutes_used_breakdown`")|top
+    }
+    path: "/repos/{owner}/{repo}/actions/artifacts": {
+      action: "artifact": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.artifacts`")|top
+    }
+    path: "/repos/{owner}/{repo}/actions/artifacts/{artifact_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}": {
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/actions/caches/{cache_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/actions/jobs/{job_id}/logs": {
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/actions/organization-secrets": {
+      action: "organization_secret": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.secrets`")|top
+    }
+    path: "/repos/{owner}/{repo}/actions/organization-variables": {
+      action: "organization_variable": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.variables`")|top
+    }
+    path: "/repos/{owner}/{repo}/actions/permissions": {
+      action: "permission": {}
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/actions/permissions/access": {
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/actions/permissions/artifact-and-log-retention": {
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/actions/permissions/fork-pr-contributor-approval": {
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/actions/permissions/fork-pr-workflows-private-repos": {
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/actions/permissions/selected-actions": {
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/actions/permissions/workflow": {
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/actions/runners": {
+      action: "runner": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.runners`")|top
+    }
+    path: "/repos/{owner}/{repo}/actions/runners/generate-jitconfig": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.runner`")|top
+    }
+    path: "/repos/{owner}/{repo}/actions/runners/{runner_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/actions/runners/{runner_id}/labels": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.labels`")|top
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/actions/runners/{runner_id}/labels/{name}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/actions/runs": {
+      action: "run": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.workflow_runs`")|top
+    }
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}/artifacts": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.artifacts`")|top
+    }
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/jobs": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.jobs`")|top
+    }
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/logs": {
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}/jobs": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.jobs`")|top
+    }
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}/logs": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/actions/secrets": {
+      action: "secret": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.secrets`")|top
+    }
+    path: "/repos/{owner}/{repo}/actions/secrets/{secret_name}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/actions/variables": {
+      action: "variable": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.variables`")|top
+    }
+    path: "/repos/{owner}/{repo}/actions/variables/{name}": {
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/actions/workflows": {
+      action: "workflow": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.workflows`")|top
+    }
+    path: "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.workflow_runs`")|top
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/secrets": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.secrets`")|top
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}": {
+      rename: param: "environment_name": *"environment_id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/variables": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.variables`")|top
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}": {
+      rename: param: "environment_name": *"environment_id"
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/users/{username}/settings/billing/actions": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.minutes_used_breakdown`")|top
+    }
+  }
+
+  entity: actions_artifact_and_log_retention: {
+    path: "/orgs/{org}/actions/permissions/artifact-and-log-retention": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/actions/permissions/artifact-and-log-retention": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: actions_cache_list: {
+    path: "/repos/{owner}/{repo}/actions/caches": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.actions_caches`")|top
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: actions_cache_usage_by_repository: {
+    path: "/repos/{owner}/{repo}/actions/cache/usage": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: actions_cache_usage_org_enterprise: {
+    path: "/orgs/{org}/actions/cache/usage": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: actions_fork_pr_contributor_approval: {
+    path: "/orgs/{org}/actions/permissions/fork-pr-contributor-approval": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/actions/permissions/fork-pr-contributor-approval": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: actions_fork_pr_workflows_private_repo: {
+    path: "/orgs/{org}/actions/permissions/fork-pr-workflows-private-repos": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/actions/permissions/fork-pr-workflows-private-repos": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: actions_get_default_workflow_permission: {
+    path: "/orgs/{org}/actions/permissions/workflow": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/actions/permissions/workflow": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: actions_hosted_runner: {
+    path: "/orgs/{org}/actions/hosted-runners": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/actions/hosted-runners/{hosted_runner_id}": {
+      rename: param: "hosted_runner_id": *"id"
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: actions_hosted_runner_limit: {
+    path: "/orgs/{org}/actions/hosted-runners/limits": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.public_ips`")|top
+    }
+  }
+
+  entity: actions_organization_permission: {
+    path: "/orgs/{org}/actions/permissions": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: actions_public_key: {
+    path: "/orgs/{org}/actions/secrets/public-key": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/actions/secrets/public-key": {
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key": {
+      rename: param: "environment_name": *"environment_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: actions_repository_permission: {
+    path: "/repos/{owner}/{repo}/actions/permissions": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: actions_secret: {
+    path: "/repos/{owner}/{repo}/actions/secrets/{secret_name}": {
+      rename: param: "secret_name": *"id"
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}": {
+      rename: param: "environment_name": *"environment_id"
+      rename: param: "secret_name": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: actions_variable: {
+    path: "/repos/{owner}/{repo}/actions/variables/{name}": {
+      rename: param: "name": *"id"
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}": {
+      rename: param: "environment_name": *"environment_id"
+      rename: param: "name": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: actions_workflow_access_to_repository: {
+    path: "/repos/{owner}/{repo}/actions/permissions/access": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: activity: {
+    path: "/notifications": {
+      op: update: method: *PUT
+    }
+    path: "/notifications/threads/{thread_id}": {
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/activity": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/notifications": {
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/stargazers": {
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/subscription": {
+      op: remove: method: *DELETE
+    }
+    path: "/user/starred/{owner}/{repo}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/users/{username}/starred": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: add: {
+    path: "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/add": {
+      rename: param: "enterprise-team": *"team_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: api_insights_route_stat: {
+    path: "/orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: api_insights_subject_stat: {
+    path: "/orgs/{org}/insights/api/subject-stats": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: api_insights_summary_stat: {
+    path: "/orgs/{org}/insights/api/summary-stats": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+    path: "/orgs/{org}/insights/api/summary-stats/users/{user_id}": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+    path: "/orgs/{org}/insights/api/summary-stats/{actor_type}/{actor_id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: api_insights_time_stat: {
+    path: "/orgs/{org}/insights/api/time-stats": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/insights/api/time-stats/users/{user_id}": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+    path: "/orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id}": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: api_insights_user_stat: {
+    path: "/orgs/{org}/insights/api/user-stats/{user_id}": {
+      rename: param: "org": *"org_id"
+      rename: param: "user_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: api_overview: {
+    path: "/meta": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: app: {
+    path: "/app-manifests/{code}/conversions": {
+      op: create: method: *POST
+    }
+    path: "/app/hook/deliveries/{delivery_id}/attempts": {
+      op: create: method: *POST
+    }
+    path: "/app/installations/{installation_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/applications/{client_id}/grant": {
+      rename: param: "client_id": *"application_id"
+      op: remove: method: *DELETE
+    }
+    path: "/applications/{client_id}/token": {
+      rename: param: "client_id": *"application_id"
+      op: remove: method: *DELETE
+    }
+    path: "/installation/repositories": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.repositories`")|top
+    }
+    path: "/installation/token": {
+      op: remove: method: *DELETE
+    }
+    path: "/user/installations": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.installations`")|top
+    }
+    path: "/user/installations/{installation_id}/repositories": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.repositories`")|top
+    }
+    path: "/user/installations/{installation_id}/repositories/{repository_id}": {
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+  }
+
+  entity: artifact: {
+    path: "/repos/{owner}/{repo}/actions/artifacts/{artifact_id}": {
+      rename: param: "artifact_id": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.workflow_run`")|top
+    }
+  }
+
+  entity: assignee: {
+    path: "/repos/{owner}/{repo}/assignees": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: authentication_token: {
+    path: "/orgs/{org}/actions/runners/registration-token": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/actions/runners/remove-token": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/actions/runners/registration-token": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/actions/runners/remove-token": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: authorization: {
+    path: "/applications/{client_id}/token": {
+      rename: param: "client_id": *"application_id"
+      op: create: method: *POST
+      op: patch: method: *PATCH
+    }
+    path: "/applications/{client_id}/token/scoped": {
+      rename: param: "client_id": *"application_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: autolink: {
+    path: "/repos/{owner}/{repo}/autolinks": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/autolinks/{autolink_id}": {
+      rename: param: "autolink_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: base_gist: {
+    path: "/gists/public": {
+      op: list: method: *GET
+    }
+    path: "/gists/starred": {
+      op: list: method: *GET
+    }
+    path: "/gists/{gist_id}/forks": {
+      op: create: method: *POST
+    }
+    path: "/users/{username}/gists": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: billing_usage_report: {
+    path: "/organizations/{org}/settings/billing/usage": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.usageItems`")|top
+    }
+  }
+
+  entity: billing_usage_report_user: {
+    path: "/users/{username}/settings/billing/usage": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.usageItems`")|top
+    }
+  }
+
+  entity: blob: {
+    path: "/repos/{owner}/{repo}/git/blobs/{file_sha}": {
+      rename: param: "file_sha": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: block: {
+    path: "/orgs/{org}/blocks": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/user/blocks": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: branch: {
+    path: "/repos/{owner}/{repo}/branches/{branch}": {
+      rename: param: "branch": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: branch_protection: {
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection": {
+      rename: param: "branch": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: branch_restriction_policy: {
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection/restrictions": {
+      rename: param: "branch": *"branch_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: branch_short: {
+    path: "/repos/{owner}/{repo}/commits/{commit_sha}/branches-where-head": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: branch_with_protection: {
+    path: "/repos/{owner}/{repo}/branches/{branch}/rename": {
+      action: "rename": {}
+      rename: param: "branch": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: campaign: {
+    path: "/orgs/{org}/campaigns": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: create: transform: req: "code_scanning_alerts": *("`reqdata.code_scanning_alert`")|top
+      op: create: transform: req: "contact_link": *("`reqdata.contact_link`")|top
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "ends_at": *("`reqdata.ends_at`")|top
+      op: create: transform: req: "generate_issues": *("`reqdata.generate_issue`")|top
+      op: create: transform: req: "managers": *("`reqdata.manager`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: create: transform: req: "team_managers": *("`reqdata.team_manager`")|top
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/campaigns/{campaign_number}": {
+      rename: param: "campaign_number": *"id"
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: patch: transform: req: "contact_link": *("`reqdata.contact_link`")|top
+      op: patch: transform: req: "description": *("`reqdata.description`")|top
+      op: patch: transform: req: "ends_at": *("`reqdata.ends_at`")|top
+      op: patch: transform: req: "managers": *("`reqdata.manager`")|top
+      op: patch: transform: req: "name": *("`reqdata.name`")|top
+      op: patch: transform: req: "state": *("`reqdata.state`")|top
+      op: patch: transform: req: "team_managers": *("`reqdata.team_manager`")|top
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: check: {
+    path: "/repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.check_runs`")|top
+    }
+    path: "/repos/{owner}/{repo}/commits/{ref}/check-runs": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.check_runs`")|top
+    }
+    path: "/repos/{owner}/{repo}/commits/{ref}/check-suites": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.check_suites`")|top
+    }
+  }
+
+  entity: check_annotation: {
+    path: "/repos/{owner}/{repo}/check-runs/{check_run_id}/annotations": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: check_automated_security_fix: {
+    path: "/repos/{owner}/{repo}/automated-security-fixes": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: check_run: {
+    path: "/repos/{owner}/{repo}/check-runs": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/check-runs/{check_run_id}": {
+      rename: param: "check_run_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: check_suite: {
+    path: "/repos/{owner}/{repo}/check-suites": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/check-suites/{check_suite_id}": {
+      rename: param: "check_suite_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: check_suite_preference: {
+    path: "/repos/{owner}/{repo}/check-suites/preferences": {
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: classroom: {
+    path: "/classrooms": {
+      op: list: method: *GET
+    }
+    path: "/classrooms/{classroom_id}": {
+      rename: param: "classroom_id": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.organization`")|top
+    }
+  }
+
+  entity: classroom_accepted_assignment: {
+    path: "/assignments/{assignment_id}/accepted_assignments": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: classroom_assignment: {
+    path: "/assignments/{assignment_id}": {
+      rename: param: "assignment_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: classroom_assignment_grade: {
+    path: "/assignments/{assignment_id}/grades": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: clone: {
+    path: "/repos/{owner}/{repo}/traffic/clones": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.clones`")|top
+    }
+  }
+
+  entity: code_frequency: {
+    path: "/repos/{owner}/{repo}/stats/code_frequency": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: code_frequency_stat: {
+    path: "/repos/{owner}/{repo}/stats/punch_card": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: code_of_conduct: {
+    path: "/codes_of_conduct": {
+      op: list: method: *GET
+    }
+    path: "/codes_of_conduct/{key}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: code_scanning: {
+    path: "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/code-scanning/sarifs": {
+      action: "sarif": {}
+      op: create: method: *POST
+      op: create: transform: req: "checkout_uri": *("`reqdata.checkout_uri`")|top
+      op: create: transform: req: "commit_sha": *("`reqdata.commit_sha`")|top
+      op: create: transform: req: "ref": *("`reqdata.ref`")|top
+      op: create: transform: req: "sarif": *("`reqdata.sarif`")|top
+      op: create: transform: req: "started_at": *("`reqdata.started_at`")|top
+      op: create: transform: req: "tool_name": *("`reqdata.tool_name`")|top
+      op: create: transform: req: "validate": *("`reqdata.validate`")|top
+    }
+  }
+
+  entity: code_scanning_alert: {
+    path: "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}": {
+      rename: param: "alert_number": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: code_scanning_alert_instance: {
+    path: "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: code_scanning_alert_item: {
+    path: "/repos/{owner}/{repo}/code-scanning/alerts": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: code_scanning_analysi: {
+    path: "/repos/{owner}/{repo}/code-scanning/analyses": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.tool`")|top
+    }
+  }
+
+  entity: code_scanning_analysis_deletion: {
+    path: "/repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: code_scanning_autofix: {
+    path: "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix": {
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+  }
+
+  entity: code_scanning_autofix_commit: {
+    path: "/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix/commits": {
+      rename: param: "alert_number": *"alert_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: code_scanning_codeql_database: {
+    path: "/repos/{owner}/{repo}/code-scanning/codeql/databases": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.uploader`")|top
+    }
+  }
+
+  entity: code_scanning_default_setup: {
+    path: "/repos/{owner}/{repo}/code-scanning/default-setup": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.languages`")|top
+    }
+  }
+
+  entity: code_scanning_organization_alert_item: {
+    path: "/orgs/{org}/code-scanning/alerts": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: code_scanning_sarifs_status: {
+    path: "/repos/{owner}/{repo}/code-scanning/sarifs/{sarif_id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: code_scanning_variant_analysi: {
+    path: "/repos/{owner}/{repo}/code-scanning/codeql/variant-analyses": {
+      op: create: method: *POST
+      op: create: transform: req: "language": *("`reqdata.language`")|top
+      op: create: transform: req: "query_pack": *("`reqdata.query_pack`")|top
+      op: create: transform: req: "repositories": *("`reqdata.repository`")|top
+      op: create: transform: req: "repository_lists": *("`reqdata.repository_list`")|top
+      op: create: transform: req: "repository_owners": *("`reqdata.repository_owner`")|top
+    }
+    path: "/repos/{owner}/{repo}/code-scanning/codeql/variant-analyses/{codeql_variant_analysis_id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: code_scanning_variant_analysis_repo_task: {
+    path: "/repos/{owner}/{repo}/code-scanning/codeql/variant-analyses/{codeql_variant_analysis_id}/repos/{repo_owner}/{repo_name}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.repository`")|top
+    }
+  }
+
+  entity: code_security: {
+    path: "/enterprises/{enterprise}/code-security/configurations/{configuration_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/enterprises/{enterprise}/code-security/configurations/{configuration_id}/defaults": {
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.configuration`")|top
+    }
+    path: "/orgs/{org}/code-security/configurations/detach": {
+      rename: param: "org": *"org_id"
+      op: remove: method: *DELETE
+      op: remove: transform: req: "selected_repository_ids": *("`reqdata.selected_repository_id`")|top
+    }
+    path: "/orgs/{org}/code-security/configurations/{configuration_id}": {
+      rename: param: "org": *"org_id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/code-security/configurations/{configuration_id}/defaults": {
+      rename: param: "org": *"org_id"
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.configuration`")|top
+    }
+  }
+
+  entity: code_security_configuration: {
+    path: "/enterprises/{enterprise}/code-security/configurations": {
+      op: create: method: *POST
+      op: create: transform: req: "advanced_security": *("`reqdata.advanced_security`")|top
+      op: create: transform: req: "code_scanning_default_setup": *("`reqdata.code_scanning_default_setup`")|top
+      op: create: transform: req: "code_scanning_default_setup_options": *("`reqdata.code_scanning_default_setup_option`")|top
+      op: create: transform: req: "code_scanning_delegated_alert_dismissal": *("`reqdata.code_scanning_delegated_alert_dismissal`")|top
+      op: create: transform: req: "code_scanning_options": *("`reqdata.code_scanning_option`")|top
+      op: create: transform: req: "code_security": *("`reqdata.code_security`")|top
+      op: create: transform: req: "dependabot_alerts": *("`reqdata.dependabot_alert`")|top
+      op: create: transform: req: "dependabot_security_updates": *("`reqdata.dependabot_security_update`")|top
+      op: create: transform: req: "dependency_graph": *("`reqdata.dependency_graph`")|top
+      op: create: transform: req: "dependency_graph_autosubmit_action": *("`reqdata.dependency_graph_autosubmit_action`")|top
+      op: create: transform: req: "dependency_graph_autosubmit_action_options": *("`reqdata.dependency_graph_autosubmit_action_option`")|top
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "enforcement": *("`reqdata.enforcement`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: create: transform: req: "private_vulnerability_reporting": *("`reqdata.private_vulnerability_reporting`")|top
+      op: create: transform: req: "secret_protection": *("`reqdata.secret_protection`")|top
+      op: create: transform: req: "secret_scanning": *("`reqdata.secret_scanning`")|top
+      op: create: transform: req: "secret_scanning_delegated_alert_dismissal": *("`reqdata.secret_scanning_delegated_alert_dismissal`")|top
+      op: create: transform: req: "secret_scanning_generic_secrets": *("`reqdata.secret_scanning_generic_secret`")|top
+      op: create: transform: req: "secret_scanning_non_provider_patterns": *("`reqdata.secret_scanning_non_provider_pattern`")|top
+      op: create: transform: req: "secret_scanning_push_protection": *("`reqdata.secret_scanning_push_protection`")|top
+      op: create: transform: req: "secret_scanning_validity_checks": *("`reqdata.secret_scanning_validity_check`")|top
+      op: list: method: *GET
+    }
+    path: "/enterprises/{enterprise}/code-security/configurations/{configuration_id}": {
+      rename: param: "configuration_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: patch: transform: req: "advanced_security": *("`reqdata.advanced_security`")|top
+      op: patch: transform: req: "code_scanning_default_setup": *("`reqdata.code_scanning_default_setup`")|top
+      op: patch: transform: req: "code_scanning_default_setup_options": *("`reqdata.code_scanning_default_setup_option`")|top
+      op: patch: transform: req: "code_scanning_delegated_alert_dismissal": *("`reqdata.code_scanning_delegated_alert_dismissal`")|top
+      op: patch: transform: req: "code_security": *("`reqdata.code_security`")|top
+      op: patch: transform: req: "dependabot_alerts": *("`reqdata.dependabot_alert`")|top
+      op: patch: transform: req: "dependabot_security_updates": *("`reqdata.dependabot_security_update`")|top
+      op: patch: transform: req: "dependency_graph": *("`reqdata.dependency_graph`")|top
+      op: patch: transform: req: "dependency_graph_autosubmit_action": *("`reqdata.dependency_graph_autosubmit_action`")|top
+      op: patch: transform: req: "dependency_graph_autosubmit_action_options": *("`reqdata.dependency_graph_autosubmit_action_option`")|top
+      op: patch: transform: req: "description": *("`reqdata.description`")|top
+      op: patch: transform: req: "enforcement": *("`reqdata.enforcement`")|top
+      op: patch: transform: req: "name": *("`reqdata.name`")|top
+      op: patch: transform: req: "private_vulnerability_reporting": *("`reqdata.private_vulnerability_reporting`")|top
+      op: patch: transform: req: "secret_protection": *("`reqdata.secret_protection`")|top
+      op: patch: transform: req: "secret_scanning": *("`reqdata.secret_scanning`")|top
+      op: patch: transform: req: "secret_scanning_delegated_alert_dismissal": *("`reqdata.secret_scanning_delegated_alert_dismissal`")|top
+      op: patch: transform: req: "secret_scanning_generic_secrets": *("`reqdata.secret_scanning_generic_secret`")|top
+      op: patch: transform: req: "secret_scanning_non_provider_patterns": *("`reqdata.secret_scanning_non_provider_pattern`")|top
+      op: patch: transform: req: "secret_scanning_push_protection": *("`reqdata.secret_scanning_push_protection`")|top
+      op: patch: transform: req: "secret_scanning_validity_checks": *("`reqdata.secret_scanning_validity_check`")|top
+    }
+    path: "/enterprises/{enterprise}/code-security/configurations/{configuration_id}/attach": {
+      action: "attach": {}
+      op: create: method: *POST
+      op: create: transform: req: "scope": *("`reqdata.scope`")|top
+    }
+    path: "/orgs/{org}/code-security/configurations": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: create: transform: req: "advanced_security": *("`reqdata.advanced_security`")|top
+      op: create: transform: req: "code_scanning_default_setup": *("`reqdata.code_scanning_default_setup`")|top
+      op: create: transform: req: "code_scanning_default_setup_options": *("`reqdata.code_scanning_default_setup_option`")|top
+      op: create: transform: req: "code_scanning_delegated_alert_dismissal": *("`reqdata.code_scanning_delegated_alert_dismissal`")|top
+      op: create: transform: req: "code_scanning_options": *("`reqdata.code_scanning_option`")|top
+      op: create: transform: req: "code_security": *("`reqdata.code_security`")|top
+      op: create: transform: req: "dependabot_alerts": *("`reqdata.dependabot_alert`")|top
+      op: create: transform: req: "dependabot_security_updates": *("`reqdata.dependabot_security_update`")|top
+      op: create: transform: req: "dependency_graph": *("`reqdata.dependency_graph`")|top
+      op: create: transform: req: "dependency_graph_autosubmit_action": *("`reqdata.dependency_graph_autosubmit_action`")|top
+      op: create: transform: req: "dependency_graph_autosubmit_action_options": *("`reqdata.dependency_graph_autosubmit_action_option`")|top
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "enforcement": *("`reqdata.enforcement`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: create: transform: req: "private_vulnerability_reporting": *("`reqdata.private_vulnerability_reporting`")|top
+      op: create: transform: req: "secret_protection": *("`reqdata.secret_protection`")|top
+      op: create: transform: req: "secret_scanning": *("`reqdata.secret_scanning`")|top
+      op: create: transform: req: "secret_scanning_delegated_alert_dismissal": *("`reqdata.secret_scanning_delegated_alert_dismissal`")|top
+      op: create: transform: req: "secret_scanning_delegated_bypass": *("`reqdata.secret_scanning_delegated_bypass`")|top
+      op: create: transform: req: "secret_scanning_delegated_bypass_options": *("`reqdata.secret_scanning_delegated_bypass_option`")|top
+      op: create: transform: req: "secret_scanning_generic_secrets": *("`reqdata.secret_scanning_generic_secret`")|top
+      op: create: transform: req: "secret_scanning_non_provider_patterns": *("`reqdata.secret_scanning_non_provider_pattern`")|top
+      op: create: transform: req: "secret_scanning_push_protection": *("`reqdata.secret_scanning_push_protection`")|top
+      op: create: transform: req: "secret_scanning_validity_checks": *("`reqdata.secret_scanning_validity_check`")|top
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/code-security/configurations/{configuration_id}": {
+      rename: param: "configuration_id": *"id"
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: patch: transform: req: "advanced_security": *("`reqdata.advanced_security`")|top
+      op: patch: transform: req: "code_scanning_default_setup": *("`reqdata.code_scanning_default_setup`")|top
+      op: patch: transform: req: "code_scanning_default_setup_options": *("`reqdata.code_scanning_default_setup_option`")|top
+      op: patch: transform: req: "code_scanning_delegated_alert_dismissal": *("`reqdata.code_scanning_delegated_alert_dismissal`")|top
+      op: patch: transform: req: "code_security": *("`reqdata.code_security`")|top
+      op: patch: transform: req: "dependabot_alerts": *("`reqdata.dependabot_alert`")|top
+      op: patch: transform: req: "dependabot_security_updates": *("`reqdata.dependabot_security_update`")|top
+      op: patch: transform: req: "dependency_graph": *("`reqdata.dependency_graph`")|top
+      op: patch: transform: req: "dependency_graph_autosubmit_action": *("`reqdata.dependency_graph_autosubmit_action`")|top
+      op: patch: transform: req: "dependency_graph_autosubmit_action_options": *("`reqdata.dependency_graph_autosubmit_action_option`")|top
+      op: patch: transform: req: "description": *("`reqdata.description`")|top
+      op: patch: transform: req: "enforcement": *("`reqdata.enforcement`")|top
+      op: patch: transform: req: "name": *("`reqdata.name`")|top
+      op: patch: transform: req: "private_vulnerability_reporting": *("`reqdata.private_vulnerability_reporting`")|top
+      op: patch: transform: req: "secret_protection": *("`reqdata.secret_protection`")|top
+      op: patch: transform: req: "secret_scanning": *("`reqdata.secret_scanning`")|top
+      op: patch: transform: req: "secret_scanning_delegated_alert_dismissal": *("`reqdata.secret_scanning_delegated_alert_dismissal`")|top
+      op: patch: transform: req: "secret_scanning_delegated_bypass": *("`reqdata.secret_scanning_delegated_bypass`")|top
+      op: patch: transform: req: "secret_scanning_delegated_bypass_options": *("`reqdata.secret_scanning_delegated_bypass_option`")|top
+      op: patch: transform: req: "secret_scanning_generic_secrets": *("`reqdata.secret_scanning_generic_secret`")|top
+      op: patch: transform: req: "secret_scanning_non_provider_patterns": *("`reqdata.secret_scanning_non_provider_pattern`")|top
+      op: patch: transform: req: "secret_scanning_push_protection": *("`reqdata.secret_scanning_push_protection`")|top
+      op: patch: transform: req: "secret_scanning_validity_checks": *("`reqdata.secret_scanning_validity_check`")|top
+    }
+    path: "/orgs/{org}/code-security/configurations/{configuration_id}/attach": {
+      action: "attach": {}
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: create: transform: req: "scope": *("`reqdata.scope`")|top
+      op: create: transform: req: "selected_repository_ids": *("`reqdata.selected_repository_id`")|top
+    }
+    path: "/repos/{owner}/{repo}/code-security-configuration": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.configuration`")|top
+    }
+  }
+
+  entity: code_security_configuration_repository: {
+    path: "/enterprises/{enterprise}/code-security/configurations/{configuration_id}/repositories": {
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/code-security/configurations/{configuration_id}/repositories": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: code_security_default_configuration: {
+    path: "/enterprises/{enterprise}/code-security/configurations/defaults": {
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/code-security/configurations/defaults": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: codeowners_error: {
+    path: "/repos/{owner}/{repo}/codeowners/errors": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.errors`")|top
+    }
+  }
+
+  entity: codespace: {
+    path: "/orgs/{org}/codespaces": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.codespaces`")|top
+    }
+    path: "/orgs/{org}/codespaces/access": {
+      action: "access": {}
+      rename: param: "org": *"org_id"
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/codespaces/access/selected_users": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/codespaces/secrets": {
+      action: "secret": {}
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.secrets`")|top
+    }
+    path: "/orgs/{org}/codespaces/secrets/public-key": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+    path: "/orgs/{org}/codespaces/secrets/{secret_name}": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/codespaces/secrets/{secret_name}/repositories": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.repositories`")|top
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/codespaces/secrets/{secret_name}/repositories/{repository_id}": {
+      rename: param: "org": *"org_id"
+      rename: param: "secret_name": *"secret_id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/members/{username}/codespaces": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.codespaces`")|top
+    }
+    path: "/orgs/{org}/members/{username}/codespaces/{codespace_name}": {
+      rename: param: "codespace_name": *"id"
+      rename: param: "org": *"org_id"
+      rename: param: "username": *"member_id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/members/{username}/codespaces/{codespace_name}/stop": {
+      action: "stop": {}
+      rename: param: "org": *"org_id"
+      rename: param: "username": *"member_id"
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/codespaces": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.codespaces`")|top
+    }
+    path: "/repos/{owner}/{repo}/codespaces/devcontainers": {
+      action: "devcontainer": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.devcontainers`")|top
+    }
+    path: "/repos/{owner}/{repo}/codespaces/machines": {
+      action: "machine": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.machines`")|top
+    }
+    path: "/repos/{owner}/{repo}/codespaces/new": {
+      action: "new": {}
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/codespaces/permissions_check": {
+      action: "permissions_check": {}
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/codespaces/secrets": {
+      action: "secret": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.secrets`")|top
+    }
+    path: "/repos/{owner}/{repo}/codespaces/secrets/public-key": {
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}/codespaces": {
+      op: create: method: *POST
+    }
+    path: "/user/codespaces": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.codespaces`")|top
+    }
+    path: "/user/codespaces/secrets": {
+      action: "secret": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.secrets`")|top
+    }
+    path: "/user/codespaces/secrets/public-key": {
+      op: load: method: *GET
+    }
+    path: "/user/codespaces/secrets/{secret_name}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/user/codespaces/secrets/{secret_name}/repositories": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.repositories`")|top
+      op: update: method: *PUT
+    }
+    path: "/user/codespaces/secrets/{secret_name}/repositories/{repository_id}": {
+      rename: param: "secret_name": *"secret_id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/user/codespaces/{codespace_name}": {
+      rename: param: "codespace_name": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/user/codespaces/{codespace_name}/exports": {
+      action: "export": {}
+      op: create: method: *POST
+    }
+    path: "/user/codespaces/{codespace_name}/exports/{export_id}": {
+      rename: param: "codespace_name": *"codespace_id"
+      op: load: method: *GET
+    }
+    path: "/user/codespaces/{codespace_name}/machines": {
+      action: "machine": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.machines`")|top
+    }
+    path: "/user/codespaces/{codespace_name}/publish": {
+      action: "publish": {}
+      op: create: method: *POST
+    }
+    path: "/user/codespaces/{codespace_name}/start": {
+      action: "start": {}
+      op: create: method: *POST
+    }
+    path: "/user/codespaces/{codespace_name}/stop": {
+      action: "stop": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: collaborator: {
+    path: "/projects/{project_id}/collaborators": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/collaborators": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: combined_billing_usage: {
+    path: "/orgs/{org}/settings/billing/shared-storage": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+    path: "/users/{username}/settings/billing/shared-storage": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: combined_commit_status: {
+    path: "/repos/{owner}/{repo}/commits/{ref}/status": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: commit: {
+    path: "/repos/{owner}/{repo}/commits": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/commits/{ref}": {
+      rename: param: "ref": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.commit`")|top
+    }
+    path: "/repos/{owner}/{repo}/merges": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.commit`")|top
+    }
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}/commits": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: commit_activity: {
+    path: "/repos/{owner}/{repo}/stats/commit_activity": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: commit_comment: {
+    path: "/repos/{owner}/{repo}/comments": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/comments/{comment_id}": {
+      rename: param: "comment_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/repos/{owner}/{repo}/commits/{commit_sha}/comments": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: commit_comparison: {
+    path: "/repos/{owner}/{repo}/compare/{basehead}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: community_profile: {
+    path: "/repos/{owner}/{repo}/community/profile": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.files`")|top
+    }
+  }
+
+  entity: content_file: {
+    path: "/repos/{owner}/{repo}/readme": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body._links`")|top
+    }
+    path: "/repos/{owner}/{repo}/readme/{dir}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body._links`")|top
+    }
+  }
+
+  entity: content_traffic: {
+    path: "/repos/{owner}/{repo}/traffic/popular/paths": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: contributor: {
+    path: "/repos/{owner}/{repo}/contributors": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/stats/contributors": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: copilot: {
+    path: "/orgs/{org}/copilot/billing/seats": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.seats`")|top
+    }
+    path: "/orgs/{org}/copilot/billing/selected_teams": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/copilot/billing/selected_users": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/members/{username}/copilot": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: copilot_organization_detail: {
+    path: "/orgs/{org}/copilot/billing": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.seat_breakdown`")|top
+    }
+  }
+
+  entity: copilot_usage_metrics_day: {
+    path: "/orgs/{org}/copilot/metrics": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/team/{team_slug}/copilot/metrics": {
+      rename: param: "org": *"org_id"
+      rename: param: "team_slug": *"team_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: credential: {
+    path: "/credentials/revoke": {
+      action: "revoke": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: custom_property: {
+    path: "/orgs/{org}/properties/schema": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/orgs/{org}/properties/schema/{custom_property_name}": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+  }
+
+  entity: custom_property_value: {
+    path: "/repos/{owner}/{repo}/properties/values": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: dependabot: {
+    path: "/organizations": {
+      op: list: method: *GET
+    }
+    path: "/organizations/{org}/dependabot/repository-access": {
+      action: "repository_access": {}
+      op: patch: method: *PATCH
+    }
+    path: "/organizations/{org}/dependabot/repository-access/default-level": {
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/dependabot/secrets": {
+      action: "secret": {}
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.secrets`")|top
+    }
+    path: "/orgs/{org}/dependabot/secrets/{secret_name}": {
+      rename: param: "org": *"org_id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/dependabot/secrets/{secret_name}/repositories": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.repositories`")|top
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}": {
+      rename: param: "org": *"org_id"
+      rename: param: "secret_name": *"secret_id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/dependabot/secrets": {
+      action: "secret": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.secrets`")|top
+    }
+    path: "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: dependabot_alert: {
+    path: "/repos/{owner}/{repo}/dependabot/alerts": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/dependabot/alerts/{alert_number}": {
+      rename: param: "alert_number": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: patch: transform: req: "dismissed_comment": *("`reqdata.dismissed_comment`")|top
+      op: patch: transform: req: "dismissed_reason": *("`reqdata.dismissed_reason`")|top
+      op: patch: transform: req: "state": *("`reqdata.state`")|top
+    }
+  }
+
+  entity: dependabot_alert_with_repository: {
+    path: "/enterprises/{enterprise}/dependabot/alerts": {
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/dependabot/alerts": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: dependabot_public_key: {
+    path: "/orgs/{org}/dependabot/secrets/public-key": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/dependabot/secrets/public-key": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: dependabot_repository_access_detail: {
+    path: "/organizations/{org}/dependabot/repository-access": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.accessible_repositories`")|top
+    }
+  }
+
+  entity: dependabot_secret: {
+    path: "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}": {
+      rename: param: "secret_name": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: dependency_graph: {
+    path: "/repos/{owner}/{repo}/dependency-graph/snapshots": {
+      action: "snapshot": {}
+      op: create: method: *POST
+      op: create: transform: req: "detector": *("`reqdata.detector`")|top
+      op: create: transform: req: "job": *("`reqdata.job`")|top
+      op: create: transform: req: "manifests": *("`reqdata.manifest`")|top
+      op: create: transform: req: "metadata": *("`reqdata.metadata`")|top
+      op: create: transform: req: "ref": *("`reqdata.ref`")|top
+      op: create: transform: req: "scanned": *("`reqdata.scanned`")|top
+      op: create: transform: req: "sha": *("`reqdata.sha`")|top
+      op: create: transform: req: "version": *("`reqdata.version`")|top
+    }
+  }
+
+  entity: dependency_graph_diff: {
+    path: "/repos/{owner}/{repo}/dependency-graph/compare/{basehead}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: dependency_graph_spdx_sbom: {
+    path: "/repos/{owner}/{repo}/dependency-graph/sbom": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.sbom`")|top
+    }
+  }
+
+  entity: deploy_key: {
+    path: "/repos/{owner}/{repo}/keys": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/keys/{key_id}": {
+      rename: param: "key_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: deployment: {
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/deployments": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/deployments/{deployment_id}": {
+      rename: param: "deployment_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: deployment_branch_policy: {
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}": {
+      rename: param: "branch_policy_id": *"id"
+      rename: param: "environment_name": *"environment_id"
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+  }
+
+  entity: deployment_protection_rule: {
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.app`")|top
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}": {
+      rename: param: "environment_name": *"environment_id"
+      rename: param: "protection_rule_id": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.app`")|top
+    }
+  }
+
+  entity: deployment_status: {
+    path: "/repos/{owner}/{repo}/deployments/{deployment_id}/statuses": {
+      rename: param: "deployment_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}": {
+      rename: param: "status_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: diff_entry: {
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}/files": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: email: {
+    path: "/user/email/visibility": {
+      action: "visibility": {}
+      op: patch: method: *PATCH
+    }
+    path: "/user/emails": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/user/public_emails": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: emoji: {
+    path: "/emojis": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: empty_object: {
+    path: "/orgs/{org}/actions/oidc/customization/sub": {
+      rename: param: "org": *"org_id"
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/secrets/{secret_name}": {
+      rename: param: "org": *"org_id"
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/actions/variables": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/dependabot/secrets/{secret_name}": {
+      rename: param: "org": *"org_id"
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/actions/jobs/{job_id}/rerun": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/actions/oidc/customization/sub": {
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}/approve": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}/rerun": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}/rerun-failed-jobs": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/actions/secrets/{secret_name}": {
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/actions/variables": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/check-runs/{check_run_id}/rerequest": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/check-suites/{check_suite_id}/rerequest": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/code-scanning/default-setup": {
+      op: patch: method: *PATCH
+      op: patch: transform: req: "languages": *("`reqdata.language`")|top
+      op: patch: transform: req: "query_suite": *("`reqdata.query_suite`")|top
+      op: patch: transform: req: "runner_label": *("`reqdata.runner_label`")|top
+      op: patch: transform: req: "runner_type": *("`reqdata.runner_type`")|top
+      op: patch: transform: req: "state": *("`reqdata.state`")|top
+      op: patch: transform: req: "threat_model": *("`reqdata.threat_model`")|top
+    }
+    path: "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}": {
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}": {
+      rename: param: "environment_name": *"environment_id"
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/variables": {
+      op: create: method: *POST
+    }
+    path: "/users/{username}/attestations/{subject_digest}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: enterprise_team: {
+    path: "/enterprises/{enterprise}/teams": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/enterprises/{enterprise}/teams/{team_slug}": {
+      rename: param: "team_slug": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: enterprise_team_membership: {
+    path: "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}": {
+      rename: param: "enterprise-team": *"team_id"
+      rename: param: "username": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: environment: {
+    path: "/repos/{owner}/{repo}/environments/{environment_name}": {
+      rename: param: "environment_name": *"id"
+      op: load: method: *GET
+      op: update: method: *PUT
+      op: update: transform: req: "deployment_branch_policy": *("`reqdata.deployment_branch_policy`")|top
+      op: update: transform: req: "prevent_self_review": *("`reqdata.prevent_self_review`")|top
+      op: update: transform: req: "reviewers": *("`reqdata.reviewer`")|top
+      op: update: transform: req: "wait_timer": *("`reqdata.wait_timer`")|top
+    }
+  }
+
+  entity: environment_approval: {
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}/approvals": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: event: {
+    path: "/events": {
+      op: list: method: *GET
+    }
+    path: "/networks/{owner}/{repo}/events": {
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/events": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/events": {
+      op: list: method: *GET
+    }
+    path: "/users/{username}/events": {
+      op: list: method: *GET
+    }
+    path: "/users/{username}/events/orgs/{org}": {
+      op: load: method: *GET
+    }
+    path: "/users/{username}/events/public": {
+      action: "public": {}
+      op: list: method: *GET
+    }
+    path: "/users/{username}/received_events": {
+      op: list: method: *GET
+    }
+    path: "/users/{username}/received_events/public": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: feed: {
+    path: "/feeds": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: file_commit: {
+    path: "/repos/{owner}/{repo}/contents/{path}": {
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+  }
+
+  entity: follower: {
+    path: "/user/followers": {
+      op: list: method: *GET
+    }
+    path: "/users/{username}/followers": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: following: {
+    path: "/user/following": {
+      op: list: method: *GET
+    }
+    path: "/users/{username}/following": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: full_repository: {
+    path: "/orgs/{org}/repos": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/repos/{template_owner}/{template_repo}/generate": {
+      op: create: method: *POST
+    }
+    path: "/user/repos": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: gist: {
+    path: "/gists": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/gists/{gist_id}": {
+      rename: param: "gist_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/gists/{gist_id}/comments/{comment_id}": {
+      rename: param: "gist_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/gists/{gist_id}/star": {
+      action: "star": {}
+      rename: param: "gist_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/gists/{gist_id}/{sha}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: gist_comment: {
+    path: "/gists/{gist_id}/comments": {
+      rename: param: "gist_id": *"id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.user`")|top
+      op: list: method: *GET
+    }
+    path: "/gists/{gist_id}/comments/{comment_id}": {
+      rename: param: "comment_id": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.user`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.user`")|top
+    }
+  }
+
+  entity: gist_commit: {
+    path: "/gists/{gist_id}/commits": {
+      rename: param: "gist_id": *"id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: gist_simple: {
+    path: "/gists/{gist_id}/forks": {
+      action: "forks": {}
+      rename: param: "gist_id": *"id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: git: {
+    path: "/repos/{owner}/{repo}/git/refs/{ref}": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: git_commit: {
+    path: "/repos/{owner}/{repo}/git/commits": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/git/commits/{commit_sha}": {
+      rename: param: "commit_sha": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: git_ref: {
+    path: "/repos/{owner}/{repo}/git/matching-refs/{ref}": {
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/git/ref/{ref}": {
+      rename: param: "ref": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.object`")|top
+    }
+    path: "/repos/{owner}/{repo}/git/refs": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.object`")|top
+    }
+    path: "/repos/{owner}/{repo}/git/refs/{ref}": {
+      rename: param: "ref": *"id"
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.object`")|top
+    }
+  }
+
+  entity: git_tag: {
+    path: "/repos/{owner}/{repo}/git/tags": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/git/tags/{tag_sha}": {
+      rename: param: "tag_sha": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: git_tree: {
+    path: "/repos/{owner}/{repo}/git/trees": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/git/trees/{tree_sha}": {
+      rename: param: "tree_sha": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: gitignore: {
+    path: "/gitignore/templates": {
+      action: "template": {}
+      op: list: method: *GET
+    }
+  }
+
+  entity: gitignore_template: {
+    path: "/gitignore/templates/{name}": {
+      rename: param: "name": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: global_advisory: {
+    path: "/advisories": {
+      op: list: method: *GET
+    }
+    path: "/advisories/{ghsa_id}": {
+      rename: param: "ghsa_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: gpg_key: {
+    path: "/user/gpg_keys": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/user/gpg_keys/{gpg_key_id}": {
+      rename: param: "gpg_key_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/users/{username}/gpg_keys": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: hook: {
+    path: "/repos/{owner}/{repo}/hooks": {
+      op: create: method: *POST
+      op: create: transform: req: "active": *("`reqdata.active`")|top
+      op: create: transform: req: "config": *("`reqdata.config`")|top
+      op: create: transform: req: "events": *("`reqdata.event`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/hooks/{hook_id}": {
+      rename: param: "hook_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: hook_delivery: {
+    path: "/app/hook/deliveries/{delivery_id}": {
+      rename: param: "delivery_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}": {
+      rename: param: "delivery_id": *"id"
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}": {
+      rename: param: "delivery_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: hook_delivery_item: {
+    path: "/app/hook/deliveries": {
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/hooks/{hook_id}/deliveries": {
+      action: "deliveries": {}
+      rename: param: "hook_id": *"id"
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries": {
+      action: "deliveries": {}
+      rename: param: "hook_id": *"id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: hosted_compute: {
+    path: "/orgs/{org}/settings/network-configurations": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.network_configurations`")|top
+    }
+    path: "/orgs/{org}/settings/network-configurations/{network_configuration_id}": {
+      rename: param: "org": *"org_id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: hovercard: {
+    path: "/users/{username}/hovercard": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.contexts`")|top
+    }
+  }
+
+  entity: import: {
+    path: "/repos/{owner}/{repo}/import": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.project_choices`")|top
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/import/lfs": {
+      action: "lfs": {}
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: installation: {
+    path: "/app/installations": {
+      op: list: method: *GET
+    }
+    path: "/app/installations/{installation_id}": {
+      rename: param: "installation_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/app/installations/{installation_id}/suspended": {
+      action: "suspended": {}
+      rename: param: "installation_id": *"id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/installation": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/installation": {
+      op: list: method: *GET
+    }
+    path: "/users/{username}/installation": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: installation_token: {
+    path: "/app/installations/{installation_id}/access_tokens": {
+      action: "access_tokens": {}
+      rename: param: "installation_id": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: integration: {
+    path: "/app": {
+      op: list: method: *GET
+    }
+    path: "/apps/{app_slug}": {
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps": {
+      rename: param: "branch": *"branch_id"
+      op: create: method: *POST
+      op: list: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+  }
+
+  entity: integration_installation: {
+    path: "/app/installation-requests": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: interaction: {
+    path: "/orgs/{org}/interaction-limits": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/interaction-limits": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/user/interaction-limits": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: interaction_limit: {
+    path: "/orgs/{org}/interaction-limits": {
+      rename: param: "org": *"org_id"
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/interaction-limits": {
+      op: update: method: *PUT
+    }
+    path: "/user/interaction-limits": {
+      op: update: method: *PUT
+    }
+  }
+
+  entity: issue: {
+    path: "/issues": {
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/issues": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/assignees/{assignee}": {
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/issues": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/issues/comments": {
+      action: "comment": {}
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/issues/comments/{comment_id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/issues/events": {
+      action: "event": {}
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/issues/events/{event_id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.issue`")|top
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}": {
+      rename: param: "issue_number": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/assignees": {
+      action: "assignee": {}
+      rename: param: "issue_number": *"id"
+      op: create: method: *POST
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}": {
+      rename: param: "issue_number": *"id"
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/comments": {
+      action: "comment": {}
+      rename: param: "issue_number": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/dependencies/blocked_by": {
+      action: "dependency_blocked_by": {}
+      rename: param: "issue_number": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/dependencies/blocked_by/{issue_id}": {
+      rename: param: "issue_number": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/dependencies/blocking": {
+      action: "dependency_blocking": {}
+      rename: param: "issue_number": *"id"
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/events": {
+      action: "event": {}
+      rename: param: "issue_number": *"id"
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/labels": {
+      action: "label": {}
+      rename: param: "issue_number": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/labels/{name}": {
+      rename: param: "issue_number": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/lock": {
+      action: "lock": {}
+      rename: param: "issue_number": *"id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/parent": {
+      action: "parent": {}
+      rename: param: "issue_number": *"id"
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/sub_issue": {
+      action: "sub_issue": {}
+      rename: param: "issue_number": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/sub_issues": {
+      action: "sub_issue": {}
+      rename: param: "issue_number": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/sub_issues/priority": {
+      action: "sub_issue_priority": {}
+      rename: param: "issue_number": *"id"
+      op: patch: method: *PATCH
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/timeline": {
+      action: "timeline": {}
+      rename: param: "issue_number": *"id"
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/labels/{name}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/milestones/{milestone_number}": {
+      op: remove: method: *DELETE
+    }
+    path: "/user/issues": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: issue_type: {
+    path: "/orgs/{org}/issue-types": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/issue-types/{issue_type_id}": {
+      rename: param: "issue_type_id": *"id"
+      rename: param: "org": *"org_id"
+      op: update: method: *PUT
+    }
+  }
+
+  entity: job: {
+    path: "/repos/{owner}/{repo}/actions/jobs/{job_id}": {
+      rename: param: "job_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: key: {
+    path: "/user/keys": {
+      op: create: method: *POST
+      op: create: transform: req: "key": *("`reqdata`")|top
+      op: list: method: *GET
+    }
+    path: "/user/keys/{key_id}": {
+      rename: param: "key_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/users/{username}/keys": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: label: {
+    path: "/repos/{owner}/{repo}/labels": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/labels/{name}": {
+      rename: param: "name": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/repos/{owner}/{repo}/milestones/{milestone_number}/labels": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: language: {
+    path: "/repos/{owner}/{repo}/languages": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: license: {
+    path: "/licenses": {
+      op: list: method: *GET
+    }
+    path: "/licenses/{license}": {
+      rename: param: "license": *"id"
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/license": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.license`")|top
+    }
+  }
+
+  entity: markdown: {
+    path: "/markdown": {
+      op: create: method: *POST
+    }
+    path: "/markdown/raw": {
+      action: "raw": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: marketplace_listing_plan: {
+    path: "/marketplace_listing/plans": {
+      op: list: method: *GET
+    }
+    path: "/marketplace_listing/stubbed/plans": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: marketplace_purchase: {
+    path: "/marketplace_listing/accounts/{account_id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.marketplace_purchase`")|top
+    }
+    path: "/marketplace_listing/plans/{plan_id}/accounts": {
+      op: list: method: *GET
+    }
+    path: "/marketplace_listing/stubbed/accounts/{account_id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.marketplace_purchase`")|top
+    }
+    path: "/marketplace_listing/stubbed/plans/{plan_id}/accounts": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: member: {
+    path: "/orgs/{org}/members": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: membership: {
+    path: "/enterprises/{enterprise}/teams/{enterprise-team}/memberships": {
+      rename: param: "enterprise-team": *"enterprise_team"
+      op: list: method: *GET
+    }
+    path: "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}": {
+      rename: param: "enterprise-team": *"team_id"
+      rename: param: "username": *"id"
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+  }
+
+  entity: merged_upstream: {
+    path: "/repos/{owner}/{repo}/merge-upstream": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: meta: {
+    path: "/octocat": {
+      op: load: method: *GET
+    }
+    path: "/versions": {
+      op: list: method: *GET
+    }
+    path: "/zen": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: metaroot: {
+    path: "/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: migration: {
+    path: "/orgs/{org}/migrations": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/migrations/{migration_id}": {
+      rename: param: "migration_id": *"id"
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+    path: "/orgs/{org}/migrations/{migration_id}/archive": {
+      action: "archive": {}
+      rename: param: "migration_id": *"id"
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/migrations/{migration_id}/repos/{repo_name}/lock": {
+      rename: param: "migration_id": *"id"
+      rename: param: "org": *"org_id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/migrations/{migration_id}/repositories": {
+      action: "repository": {}
+      rename: param: "migration_id": *"id"
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/import": {
+      op: remove: method: *DELETE
+    }
+    path: "/user/migrations": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/user/migrations/{migration_id}": {
+      rename: param: "migration_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/user/migrations/{migration_id}/archive": {
+      action: "archive": {}
+      rename: param: "migration_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/user/migrations/{migration_id}/repos/{repo_name}/lock": {
+      rename: param: "migration_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/user/migrations/{migration_id}/repositories": {
+      action: "repository": {}
+      rename: param: "migration_id": *"id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: milestone: {
+    path: "/repos/{owner}/{repo}/milestones": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.creator`")|top
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/milestones/{milestone_number}": {
+      rename: param: "milestone_number": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.creator`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.creator`")|top
+    }
+  }
+
+  entity: minimal_repository: {
+    path: "/orgs/{org}/personal-access-token-requests/{pat_request_id}/repositories": {
+      rename: param: "org": *"org_id"
+      rename: param: "pat_request_id": *"personal_access_token_request_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/personal-access-tokens/{pat_id}/repositories": {
+      rename: param: "org": *"org_id"
+      rename: param: "pat_id": *"personal_access_token_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/repos": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/forks": {
+      op: list: method: *GET
+    }
+    path: "/repositories": {
+      op: list: method: *GET
+    }
+    path: "/user/subscriptions": {
+      op: list: method: *GET
+    }
+    path: "/users/{username}/repos": {
+      op: list: method: *GET
+    }
+    path: "/users/{username}/subscriptions": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: network_configuration: {
+    path: "/orgs/{org}/settings/network-configurations": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/settings/network-configurations/{network_configuration_id}": {
+      rename: param: "network_configuration_id": *"id"
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: network_setting: {
+    path: "/orgs/{org}/settings/network-settings/{network_settings_id}": {
+      rename: param: "network_settings_id": *"id"
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: oidc_custom_sub: {
+    path: "/orgs/{org}/actions/oidc/customization/sub": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.include_claim_keys`")|top
+    }
+  }
+
+  entity: oidc_custom_sub_repo: {
+    path: "/repos/{owner}/{repo}/actions/oidc/customization/sub": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.include_claim_keys`")|top
+    }
+  }
+
+  entity: org: {
+    path: "/orgs/{org}": {
+      rename: param: "org": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.plan`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.plan`")|top
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/artifacts/metadata/storage-record": {
+      rename: param: "org": *"id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records": {
+      rename: param: "org": *"id"
+      rename: param: "subject_digest": *"artifact_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.storage_records`")|top
+    }
+    path: "/orgs/{org}/attestations/bulk-list": {
+      rename: param: "org": *"id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/attestations/delete-request": {
+      rename: param: "org": *"id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/attestations/digest/{subject_digest}": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/attestations/{attestation_id}": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/attestations/{subject_digest}": {
+      rename: param: "org": *"id"
+      op: load: method: *GET
+    }
+    path: "/orgs/{org}/blocks/{username}": {
+      rename: param: "org": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/hooks/{hook_id}": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}/attempts": {
+      rename: param: "org": *"id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/hooks/{hook_id}/pings": {
+      rename: param: "org": *"id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/installations": {
+      action: "installation": {}
+      rename: param: "org": *"id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.installations`")|top
+    }
+    path: "/orgs/{org}/invitations/{invitation_id}": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/issue-types/{issue_type_id}": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/members/{username}": {
+      rename: param: "org": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/memberships/{username}": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/organization-roles": {
+      action: "organization_role": {}
+      rename: param: "org": *"id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.roles`")|top
+    }
+    path: "/orgs/{org}/organization-roles/teams/{team_slug}": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/organization-roles/teams/{team_slug}/{role_id}": {
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/organization-roles/users/{username}": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/organization-roles/users/{username}/{role_id}": {
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/outside_collaborators/{username}": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/personal-access-token-requests": {
+      action: "personal_access_token_request": {}
+      rename: param: "org": *"id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/personal-access-token-requests/{pat_request_id}": {
+      rename: param: "org": *"id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/personal-access-tokens": {
+      action: "personal_access_token": {}
+      rename: param: "org": *"id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/personal-access-tokens/{pat_id}": {
+      rename: param: "org": *"id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/properties/schema/{custom_property_name}": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/properties/values": {
+      rename: param: "org": *"id"
+      op: patch: method: *PATCH
+    }
+    path: "/orgs/{org}/public_members/{username}": {
+      rename: param: "org": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/security-managers/teams/{team_slug}": {
+      rename: param: "org": *"id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/{security_product}/{enablement}": {
+      op: create: method: *POST
+    }
+    path: "/user/memberships/orgs": {
+      op: list: method: *GET
+    }
+    path: "/user/memberships/orgs/{org}": {
+      rename: param: "org": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/user/orgs": {
+      op: list: method: *GET
+    }
+    path: "/users/{username}/orgs": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: org_hook: {
+    path: "/orgs/{org}/hooks": {
+      rename: param: "org": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/hooks/{hook_id}": {
+      rename: param: "hook_id": *"id"
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: org_membership: {
+    path: "/orgs/{org}/memberships/{username}": {
+      rename: param: "org": *"org_id"
+      rename: param: "username": *"id"
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+  }
+
+  entity: org_private_registry_configuration: {
+    path: "/orgs/{org}/private-registries/{secret_name}": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: org_private_registry_configuration_with_selected_repository: {
+    path: "/orgs/{org}/private-registries": {
+      action: "private-registries": {}
+      rename: param: "org": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: org_repo_custom_property_value: {
+    path: "/orgs/{org}/properties/values": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: organization: {
+  }
+
+  entity: organization_actions_secret: {
+    path: "/orgs/{org}/actions/secrets/{secret_name}": {
+      rename: param: "org": *"org_id"
+      rename: param: "secret_name": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: organization_actions_variable: {
+    path: "/orgs/{org}/actions/variables/{name}": {
+      rename: param: "name": *"id"
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: organization_dependabot_secret: {
+    path: "/orgs/{org}/dependabot/secrets/{secret_name}": {
+      rename: param: "org": *"org_id"
+      rename: param: "secret_name": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: organization_invitation: {
+    path: "/orgs/{org}/failed_invitations": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/invitations": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.inviter`")|top
+      op: list: method: *GET
+    }
+  }
+
+  entity: organization_programmatic_access_grant: {
+    path: "/orgs/{org}/personal-access-token-requests": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/personal-access-tokens": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: organization_role: {
+    path: "/orgs/{org}/organization-roles/{role_id}": {
+      rename: param: "org": *"org_id"
+      rename: param: "role_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: organization_secret_scanning_alert: {
+    path: "/enterprises/{enterprise}/secret-scanning/alerts": {
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/secret-scanning/alerts": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: outside_collaborator: {
+    path: "/orgs/{org}/outside_collaborators": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: package: {
+    path: "/orgs/{org}/docker/conflicts": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/packages": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/packages/{package_type}/{package_name}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/packages/{package_type}/{package_name}/restore": {
+      rename: param: "org": *"org_id"
+      rename: param: "package_type": *"package_id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/packages/{package_type}/{package_name}/versions": {
+      rename: param: "org": *"org_id"
+      rename: param: "package_type": *"package_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/packages/{package_type}/{package_name}/versions/{package_version_id}": {
+      rename: param: "org": *"org_id"
+      rename: param: "package_type": *"package_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.metadata`")|top
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/packages/{package_type}/{package_name}/versions/{package_version_id}/restore": {
+      action: "restore": {}
+      rename: param: "org": *"org_id"
+      rename: param: "package_type": *"package_id"
+      rename: param: "package_version_id": *"version_id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/settings/billing/packages": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+    path: "/user/docker/conflicts": {
+      op: list: method: *GET
+    }
+    path: "/user/packages": {
+      op: list: method: *GET
+    }
+    path: "/user/packages/{package_type}/{package_name}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/user/packages/{package_type}/{package_name}/restore": {
+      rename: param: "package_type": *"package_id"
+      op: create: method: *POST
+    }
+    path: "/user/packages/{package_type}/{package_name}/versions": {
+      rename: param: "package_type": *"package_id"
+      op: list: method: *GET
+    }
+    path: "/user/packages/{package_type}/{package_name}/versions/{package_version_id}": {
+      rename: param: "package_type": *"package_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.metadata`")|top
+      op: remove: method: *DELETE
+    }
+    path: "/user/packages/{package_type}/{package_name}/versions/{package_version_id}/restore": {
+      action: "restore": {}
+      rename: param: "package_type": *"package_id"
+      rename: param: "package_version_id": *"version_id"
+      op: create: method: *POST
+    }
+    path: "/users/{username}/docker/conflicts": {
+      op: list: method: *GET
+    }
+    path: "/users/{username}/packages": {
+      op: list: method: *GET
+    }
+    path: "/users/{username}/packages/{package_type}/{package_name}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/users/{username}/packages/{package_type}/{package_name}/restore": {
+      rename: param: "package_type": *"package_id"
+      op: create: method: *POST
+    }
+    path: "/users/{username}/packages/{package_type}/{package_name}/versions": {
+      rename: param: "package_type": *"package_id"
+      op: list: method: *GET
+    }
+    path: "/users/{username}/packages/{package_type}/{package_name}/versions/{package_version_id}": {
+      rename: param: "package_type": *"package_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.metadata`")|top
+      op: remove: method: *DELETE
+    }
+    path: "/users/{username}/packages/{package_type}/{package_name}/versions/{package_version_id}/restore": {
+      action: "restore": {}
+      rename: param: "package_type": *"package_id"
+      rename: param: "package_version_id": *"version_id"
+      op: create: method: *POST
+    }
+    path: "/users/{username}/settings/billing/packages": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: page: {
+    path: "/repos/{owner}/{repo}/pages": {
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+  }
+
+  entity: page_build: {
+    path: "/repos/{owner}/{repo}/pages/builds": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/pages/builds/latest": {
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/pages/builds/{build_id}": {
+      rename: param: "build_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: page_build_status: {
+    path: "/repos/{owner}/{repo}/pages/builds": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: page_deployment: {
+    path: "/repos/{owner}/{repo}/pages/deployments": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.id`")|top
+    }
+  }
+
+  entity: pages_deployment_status: {
+    path: "/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}": {
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}/cancel": {
+      action: "cancel": {}
+      rename: param: "pages_deployment_id": *"deployment_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: pages_health_check: {
+    path: "/repos/{owner}/{repo}/pages/health": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: participation: {
+    path: "/repos/{owner}/{repo}/stats/participation": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: pending_deployment: {
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: porter_author: {
+    path: "/repos/{owner}/{repo}/import/authors": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/import/authors/{author_id}": {
+      rename: param: "author_id": *"id"
+      op: patch: method: *PATCH
+      op: patch: transform: req: "email": *("`reqdata.email`")|top
+      op: patch: transform: req: "name": *("`reqdata.name`")|top
+    }
+  }
+
+  entity: porter_large_file: {
+    path: "/repos/{owner}/{repo}/import/large_files": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: private_registry: {
+    path: "/orgs/{org}/private-registries": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.configurations`")|top
+    }
+    path: "/orgs/{org}/private-registries/public-key": {
+      action: "public_key": {}
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+    path: "/orgs/{org}/private-registries/{secret_name}": {
+      rename: param: "org": *"org_id"
+      rename: param: "secret_name": *"id"
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: private_user: {
+  }
+
+  entity: project: {
+    path: "/orgs/{org}/projects": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.creator`")|top
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/projectsV2/{project_number}/items/{item_id}": {
+      rename: param: "org": *"org_id"
+      rename: param: "project_number": *"projects_v2_id"
+      op: remove: method: *DELETE
+    }
+    path: "/projects/{project_id}": {
+      rename: param: "project_id": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.creator`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.creator`")|top
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/projects": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.creator`")|top
+      op: list: method: *GET
+    }
+    path: "/user/projects": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.creator`")|top
+    }
+    path: "/users/{username}/projects": {
+      op: list: method: *GET
+    }
+    path: "/users/{username}/projectsV2/{project_number}/items/{item_id}": {
+      rename: param: "project_number": *"projects_v2_id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: project_collaborator_permission: {
+    path: "/projects/{project_id}/collaborators/{username}/permission": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.user`")|top
+    }
+  }
+
+  entity: project_column: {
+    path: "/projects/columns/{column_id}": {
+      rename: param: "column_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/projects/{project_id}/columns": {
+      rename: param: "project_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: projects_classic: {
+    path: "/projects/columns/{column_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/projects/columns/{column_id}/moves": {
+      op: create: method: *POST
+    }
+    path: "/projects/{project_id}/collaborators/{username}": {
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+  }
+
+  entity: projects_v2: {
+    path: "/orgs/{org}/projectsV2": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/projectsV2/{project_number}": {
+      rename: param: "org": *"org_id"
+      rename: param: "project_number": *"id"
+      op: load: method: *GET
+    }
+    path: "/users/{username}/projectsV2": {
+      op: list: method: *GET
+    }
+    path: "/users/{username}/projectsV2/{project_number}": {
+      rename: param: "project_number": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: projects_v2_field: {
+    path: "/orgs/{org}/projectsV2/{project_number}/fields": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/projectsV2/{project_number}/fields/{field_id}": {
+      rename: param: "field_id": *"id"
+      rename: param: "org": *"org_id"
+      rename: param: "project_number": *"projects_v2_id"
+      op: load: method: *GET
+    }
+    path: "/users/{username}/projectsV2/{project_number}/fields": {
+      op: list: method: *GET
+    }
+    path: "/users/{username}/projectsV2/{project_number}/fields/{field_id}": {
+      rename: param: "field_id": *"id"
+      rename: param: "project_number": *"projects_v2_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: projects_v2_item_simple: {
+    path: "/orgs/{org}/projectsV2/{project_number}/items": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+    }
+    path: "/users/{username}/projectsV2/{project_number}/items": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: projects_v2_item_with_content: {
+    path: "/orgs/{org}/projectsV2/{project_number}/items": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/projectsV2/{project_number}/items/{item_id}": {
+      rename: param: "org": *"org_id"
+      rename: param: "project_number": *"projects_v2_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/users/{username}/projectsV2/{project_number}/items": {
+      op: list: method: *GET
+    }
+    path: "/users/{username}/projectsV2/{project_number}/items/{item_id}": {
+      rename: param: "project_number": *"projects_v2_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: protected_branch: {
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection": {
+      rename: param: "branch": *"branch_id"
+      op: update: method: *PUT
+    }
+  }
+
+  entity: protected_branch_admin_enforced: {
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection/enforce_admins": {
+      rename: param: "branch": *"branch_id"
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection/required_signatures": {
+      rename: param: "branch": *"branch_id"
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+  }
+
+  entity: protected_branch_pull_request_review: {
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection/required_pull_request_reviews": {
+      rename: param: "branch": *"branch_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: public_member: {
+    path: "/orgs/{org}/public_members": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+  }
 
   entity: pull: {
+    path: "/repos/{owner}/{repo}/commits/{commit_sha}/pulls": {
+      op: list: method: *GET
+    }
     path: "/repos/{owner}/{repo}/pulls": {
       op: create: method: *POST
       op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/pulls/comments/{comment_id}": {
+      op: remove: method: *DELETE
     }
     path: "/repos/{owner}/{repo}/pulls/{pull_number}": {
       rename: param: "pull_number": *"id"
@@ -18,19 +3351,1177 @@ guide: {
     path: "/repos/{owner}/{repo}/pulls/{pull_number}/merge": {
       action: "merge": {}
       rename: param: "pull_number": *"id"
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch": {
+      action: "update_branch": {}
+      rename: param: "pull_number": *"id"
       op: update: method: *PUT
     }
   }
 
+  entity: pull_request_review: {
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}/reviews": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}": {
+      rename: param: "pull_number": *"pull_id"
+      rename: param: "review_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/dismissals": {
+      rename: param: "pull_number": *"pull_id"
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/events": {
+      rename: param: "pull_number": *"pull_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: pull_request_review_comment: {
+    path: "/repos/{owner}/{repo}/pulls/comments": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/pulls/comments/{comment_id}": {
+      rename: param: "comment_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}/comments": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}/comments/{comment_id}/replies": {
+      rename: param: "pull_number": *"pull_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: pull_request_simple: {
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers": {
+      op: create: method: *POST
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: rate_limit: {
+    path: "/rate_limit": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: reaction: {
+    path: "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions": {
+      rename: param: "discussion_number": *"discussion_id"
+      rename: param: "org": *"org_id"
+      rename: param: "team_slug": *"team_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.user`")|top
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions/{reaction_id}": {
+      rename: param: "comment_number": *"comment_id"
+      rename: param: "discussion_number": *"discussion_id"
+      rename: param: "org": *"org_id"
+      rename: param: "reaction_id": *"id"
+      rename: param: "team_slug": *"team_id"
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions": {
+      rename: param: "org": *"org_id"
+      rename: param: "team_slug": *"team_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.user`")|top
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}": {
+      rename: param: "discussion_number": *"discussion_id"
+      rename: param: "org": *"org_id"
+      rename: param: "reaction_id": *"id"
+      rename: param: "team_slug": *"team_id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/comments/{comment_id}/reactions": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.user`")|top
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/comments/{comment_id}/reactions/{reaction_id}": {
+      rename: param: "reaction_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/issues/comments/{comment_id}/reactions": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.user`")|top
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/issues/comments/{comment_id}/reactions/{reaction_id}": {
+      rename: param: "reaction_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/reactions": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.user`")|top
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/issues/{issue_number}/reactions/{reaction_id}": {
+      rename: param: "issue_number": *"issue_id"
+      rename: param: "reaction_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.user`")|top
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}": {
+      rename: param: "reaction_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/releases/{release_id}/reactions": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.user`")|top
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}": {
+      rename: param: "reaction_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions": {
+      rename: param: "discussion_number": *"discussion_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.user`")|top
+      op: list: method: *GET
+    }
+    path: "/teams/{team_id}/discussions/{discussion_number}/reactions": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.user`")|top
+      op: list: method: *GET
+    }
+  }
+
+  entity: referrer: {
+    path: "/repos/{owner}/{repo}/traffic/popular/referrers": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: release: {
+    path: "/repos/{owner}/{repo}/releases": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/releases/latest": {
+      action: "latest": {}
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/releases/tags/{tag}": {
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/releases/{release_id}": {
+      rename: param: "release_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: release_asset: {
+    path: "/repos/{owner}/{repo}/releases/assets/{asset_id}": {
+      rename: param: "asset_id": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.uploader`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.uploader`")|top
+    }
+    path: "/repos/{owner}/{repo}/releases/{release_id}/assets": {
+      rename: param: "release_id": *"id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.uploader`")|top
+      op: list: method: *GET
+    }
+  }
+
+  entity: release_notes_content: {
+    path: "/repos/{owner}/{repo}/releases/generate-notes": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: remove: {
+    path: "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/remove": {
+      rename: param: "enterprise-team": *"team_id"
+      op: create: method: *POST
+    }
+  }
+
   entity: repo: {
+    path: "/orgs/{org}/rulesets/{ruleset_id}": {
+      rename: param: "org": *"org_id"
+      op: remove: method: *DELETE
+    }
     path: "/repos/{owner}/{repo}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/attestations": {
+      action: "attestation": {}
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/attestations/{subject_digest}": {
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/autolinks/{autolink_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/automated-security-fixes": {
+      action: "automated_security_fix": {}
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection": {
+      rename: param: "branch": *"branch_id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection/enforce_admins": {
+      rename: param: "branch": *"branch_id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection/required_pull_request_reviews": {
+      rename: param: "branch": *"branch_id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection/required_signatures": {
+      rename: param: "branch": *"branch_id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks": {
+      rename: param: "branch": *"branch_id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts": {
+      rename: param: "branch": *"branch_id"
+      op: create: method: *POST
+      op: list: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection/restrictions": {
+      rename: param: "branch": *"branch_id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/collaborators/{username}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/comments/{comment_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/contents/{path}": {
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/deployments/{deployment_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/dispatches": {
+      action: "dispatch": {}
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/environments": {
+      action: "environment": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.environments`")|top
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.branch_policies`")|top
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}": {
+      rename: param: "environment_name": *"environment_id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.custom_deployment_protection_rules`")|top
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps": {
+      rename: param: "environment_name": *"environment_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.available_custom_deployment_protection_rule_integrations`")|top
+    }
+    path: "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}": {
+      rename: param: "environment_name": *"environment_id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/forks": {
+      action: "fork": {}
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/hooks/{hook_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}/attempts": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/hooks/{hook_id}/pings": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/hooks/{hook_id}/tests": {
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/invitations/{invitation_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/keys/{key_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/pages": {
+      action: "page": {}
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/private-vulnerability-reporting": {
+      action: "private_vulnerability_reporting": {}
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/properties/values": {
+      op: patch: method: *PATCH
+    }
+    path: "/repos/{owner}/{repo}/releases/assets/{asset_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/releases/{release_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/rulesets/{ruleset_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/tarball/{ref}": {
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/transfer": {
+      action: "transfer": {}
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/vulnerability-alerts": {
+      action: "vulnerability_alert": {}
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/zipball/{ref}": {
+      op: load: method: *GET
+    }
+    path: "/user/repos": {
+      op: list: method: *GET
+    }
+    path: "/user/repository_invitations/{invitation_id}": {
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: repository: {
+    path: "/user/starred": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: repository_advisory: {
+    path: "/orgs/{org}/security-advisories": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/security-advisories": {
+      op: create: method: *POST
+      op: create: transform: req: "credits": *("`reqdata.credit`")|top
+      op: create: transform: req: "cve_id": *("`reqdata.cve_id`")|top
+      op: create: transform: req: "cvss_vector_string": *("`reqdata.cvss_vector_string`")|top
+      op: create: transform: req: "cwe_ids": *("`reqdata.cwe_id`")|top
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "severity": *("`reqdata.severity`")|top
+      op: create: transform: req: "start_private_fork": *("`reqdata.start_private_fork`")|top
+      op: create: transform: req: "summary": *("`reqdata.summary`")|top
+      op: create: transform: req: "vulnerabilities": *("`reqdata.vulnerability`")|top
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/security-advisories/reports": {
+      op: create: method: *POST
+      op: create: transform: req: "cvss_vector_string": *("`reqdata.cvss_vector_string`")|top
+      op: create: transform: req: "cwe_ids": *("`reqdata.cwe_id`")|top
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "severity": *("`reqdata.severity`")|top
+      op: create: transform: req: "start_private_fork": *("`reqdata.start_private_fork`")|top
+      op: create: transform: req: "summary": *("`reqdata.summary`")|top
+      op: create: transform: req: "vulnerabilities": *("`reqdata.vulnerability`")|top
+    }
+    path: "/repos/{owner}/{repo}/security-advisories/{ghsa_id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: patch: transform: req: "collaborating_teams": *("`reqdata.collaborating_team`")|top
+      op: patch: transform: req: "collaborating_users": *("`reqdata.collaborating_user`")|top
+      op: patch: transform: req: "credits": *("`reqdata.credit`")|top
+      op: patch: transform: req: "cve_id": *("`reqdata.cve_id`")|top
+      op: patch: transform: req: "cvss_vector_string": *("`reqdata.cvss_vector_string`")|top
+      op: patch: transform: req: "cwe_ids": *("`reqdata.cwe_id`")|top
+      op: patch: transform: req: "description": *("`reqdata.description`")|top
+      op: patch: transform: req: "severity": *("`reqdata.severity`")|top
+      op: patch: transform: req: "state": *("`reqdata.state`")|top
+      op: patch: transform: req: "summary": *("`reqdata.summary`")|top
+      op: patch: transform: req: "vulnerabilities": *("`reqdata.vulnerability`")|top
+    }
+    path: "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/cve": {
+      action: "cve": {}
+      rename: param: "ghsa_id": *"security_advisory_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: repository_collaborator_permission: {
+    path: "/repos/{owner}/{repo}/collaborators/{username}/permission": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.user`")|top
+    }
+  }
+
+  entity: repository_invitation: {
+    path: "/repos/{owner}/{repo}/collaborators/{username}": {
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/invitations": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/invitations/{invitation_id}": {
+      rename: param: "invitation_id": *"id"
+      op: patch: method: *PATCH
+    }
+    path: "/user/repository_invitations": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: repository_rule_detailed: {
+    path: "/repos/{owner}/{repo}/rules/branches/{branch}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: repository_ruleset: {
+    path: "/orgs/{org}/rulesets": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/rulesets/{ruleset_id}": {
+      rename: param: "org": *"org_id"
+      rename: param: "ruleset_id": *"id"
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/rulesets": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/rulesets/{ruleset_id}": {
+      rename: param: "ruleset_id": *"id"
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+  }
+
+  entity: repository_subscription: {
+    path: "/repos/{owner}/{repo}/subscription": {
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+  }
+
+  entity: review_comment: {
+    path: "/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments": {
+      rename: param: "pull_number": *"pull_id"
+      rename: param: "review_id": *"id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: rule_suite: {
+    path: "/orgs/{org}/rulesets/rule-suites": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/rulesets/rule-suites/{rule_suite_id}": {
+      rename: param: "org": *"org_id"
+      rename: param: "rule_suite_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/rulesets/rule-suites": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}": {
+      rename: param: "rule_suite_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: ruleset_version: {
+    path: "/orgs/{org}/rulesets/{ruleset_id}/history": {
+      action: "history": {}
+      rename: param: "org": *"org_id"
+      rename: param: "ruleset_id": *"id"
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/rulesets/{ruleset_id}/history": {
+      action: "history": {}
+      rename: param: "ruleset_id": *"id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: ruleset_version_with_state: {
+    path: "/orgs/{org}/rulesets/{ruleset_id}/history/{version_id}": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/rulesets/{ruleset_id}/history/{version_id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: runner: {
+    path: "/orgs/{org}/actions/runners/{runner_id}": {
+      rename: param: "org": *"org_id"
+      rename: param: "runner_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/actions/runners/{runner_id}": {
+      rename: param: "runner_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: runner_application: {
+    path: "/orgs/{org}/actions/runners/downloads": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/actions/runners/downloads": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: runner_group: {
+    path: "/orgs/{org}/actions/runner-groups": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+    }
+    path: "/orgs/{org}/actions/runner-groups/{runner_group_id}": {
+      rename: param: "org": *"org_id"
+      rename: param: "runner_group_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: search: {
+    path: "/search/code": {
+      action: "code": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.items`")|top
+    }
+    path: "/search/commits": {
+      action: "commit": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.items`")|top
+    }
+    path: "/search/issues": {
+      action: "issue": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.items`")|top
+    }
+    path: "/search/labels": {
+      action: "label": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.items`")|top
+    }
+    path: "/search/repositories": {
+      action: "repository": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.items`")|top
+    }
+    path: "/search/topics": {
+      action: "topic": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.items`")|top
+    }
+    path: "/search/users": {
+      action: "user": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.items`")|top
+    }
+  }
+
+  entity: secret_scanning: {
+    path: "/orgs/{org}/secret-scanning/pattern-configurations": {
+      action: "pattern_configuration": {}
+      rename: param: "org": *"org_id"
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: secret_scanning_alert: {
+    path: "/repos/{owner}/{repo}/secret-scanning/alerts": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}": {
+      rename: param: "alert_number": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: secret_scanning_location: {
+    path: "/repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: secret_scanning_pattern_configuration: {
+    path: "/orgs/{org}/secret-scanning/pattern-configurations": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: secret_scanning_push_protection_bypass: {
+    path: "/repos/{owner}/{repo}/secret-scanning/push-protection-bypasses": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: secret_scanning_scan_history: {
+    path: "/repos/{owner}/{repo}/secret-scanning/scan-history": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: security_advisory: {
+    path: "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/forks": {
+      action: "fork": {}
+      rename: param: "ghsa_id": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: selected_action: {
+    path: "/orgs/{org}/actions/permissions/selected-actions": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.patterns_allowed`")|top
+    }
+    path: "/repos/{owner}/{repo}/actions/permissions/selected-actions": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.patterns_allowed`")|top
+    }
+  }
+
+  entity: self_hosted_runner: {
+    path: "/orgs/{org}/actions/permissions/self-hosted-runners": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: short_blob: {
+    path: "/repos/{owner}/{repo}/git/blobs": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: short_branch: {
+    path: "/repos/{owner}/{repo}/branches": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: simple_classroom: {
+  }
+
+  entity: simple_classroom_assignment: {
+    path: "/classrooms/{classroom_id}/assignments": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: social_account: {
+    path: "/user/social_accounts": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/users/{username}/social_accounts": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: ssh_signing_key: {
+    path: "/user/ssh_signing_keys": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/user/ssh_signing_keys/{ssh_signing_key_id}": {
+      rename: param: "ssh_signing_key_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/users/{username}/ssh_signing_keys": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: status: {
+    path: "/repos/{owner}/{repo}/commits/{ref}/statuses": {
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/statuses/{sha}": {
+      rename: param: "sha": *"id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.creator`")|top
+    }
+  }
+
+  entity: status_check_policy: {
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks": {
+      rename: param: "branch": *"branch_id"
+      op: list: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: subscriber: {
+    path: "/repos/{owner}/{repo}/subscribers": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: tag: {
+    path: "/repos/{owner}/{repo}/tags": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: tag_protection: {
+    path: "/repos/{owner}/{repo}/tags/protection": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: team: {
+    path: "/orgs/{org}/invitations/{invitation_id}/teams": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/organization-roles/{role_id}/teams": {
+      rename: param: "org": *"org_id"
+      rename: param: "role_id": *"organization_role_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/teams": {
+      rename: param: "org": *"org_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/teams/{team_slug}": {
+      rename: param: "org": *"org_id"
+      rename: param: "team_slug": *"id"
       op: load: method: *GET
       op: patch: method: *PATCH
       op: remove: method: *DELETE
     }
-    path: "/user/repos": {
+    path: "/orgs/{org}/teams/{team_slug}/discussions": {
+      action: "discussion": {}
+      rename: param: "org": *"org_id"
       op: create: method: *POST
       op: list: method: *GET
+    }
+    path: "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}": {
+      rename: param: "org": *"org_id"
+      rename: param: "team_slug": *"team_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments": {
+      rename: param: "org": *"org_id"
+      rename: param: "team_slug": *"team_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}": {
+      rename: param: "discussion_number": *"discussion_id"
+      rename: param: "org": *"org_id"
+      rename: param: "team_slug": *"team_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/orgs/{org}/teams/{team_slug}/invitations": {
+      action: "invitation": {}
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/teams/{team_slug}/members": {
+      action: "member": {}
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/teams/{team_slug}/memberships/{username}": {
+      rename: param: "org": *"org_id"
+      rename: param: "team_slug": *"team_id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/teams/{team_slug}/projects": {
+      action: "project": {}
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/teams/{team_slug}/projects/{project_id}": {
+      rename: param: "org": *"org_id"
+      rename: param: "team_slug": *"team_id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/teams/{team_slug}/repos": {
+      action: "repo": {}
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/orgs/{org}/teams/{team_slug}/teams": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams": {
+      rename: param: "branch": *"branch_id"
+      op: create: method: *POST
+      op: list: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/teams": {
+      op: list: method: *GET
+    }
+    path: "/teams/{team_id}": {
+      rename: param: "team_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/teams/{team_id}/discussions": {
+      action: "discussion": {}
+      rename: param: "team_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/teams/{team_id}/discussions/{discussion_number}": {
+      rename: param: "team_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/teams/{team_id}/discussions/{discussion_number}/comments": {
+      rename: param: "team_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}": {
+      rename: param: "discussion_number": *"discussion_id"
+      rename: param: "team_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/teams/{team_id}/invitations": {
+      action: "invitation": {}
+      rename: param: "team_id": *"id"
+      op: list: method: *GET
+    }
+    path: "/teams/{team_id}/members": {
+      action: "member": {}
+      rename: param: "team_id": *"id"
+      op: list: method: *GET
+    }
+    path: "/teams/{team_id}/members/{username}": {
+      rename: param: "team_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/teams/{team_id}/memberships/{username}": {
+      rename: param: "team_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/teams/{team_id}/projects": {
+      action: "project": {}
+      rename: param: "team_id": *"id"
+      op: list: method: *GET
+    }
+    path: "/teams/{team_id}/projects/{project_id}": {
+      rename: param: "team_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/teams/{team_id}/repos": {
+      action: "repo": {}
+      rename: param: "team_id": *"id"
+      op: list: method: *GET
+    }
+    path: "/teams/{team_id}/repos/{owner}/{repo}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/teams/{team_id}/teams": {
+      rename: param: "team_id": *"id"
+      op: list: method: *GET
+    }
+    path: "/user/teams": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: team_simple: {
+    path: "/orgs/{org}/security-managers": {
+      rename: param: "org": *"org_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: thread: {
+    path: "/notifications": {
+      op: list: method: *GET
+    }
+    path: "/notifications/threads/{thread_id}": {
+      rename: param: "thread_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/notifications/threads/{thread_id}/subscription": {
+      action: "subscription": {}
+      rename: param: "thread_id": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/repos/{owner}/{repo}/notifications": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: thread_subscription: {
+    path: "/notifications/threads/{thread_id}/subscription": {
+      rename: param: "thread_id": *"id"
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+  }
+
+  entity: topic: {
+    path: "/repos/{owner}/{repo}/topics": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.names`")|top
+      op: update: method: *PUT
+    }
+  }
+
+  entity: user: {
+    path: "/orgs/{org}/organization-roles/{role_id}/users": {
+      rename: param: "org": *"org_id"
+      rename: param: "role_id": *"organization_role_id"
+      op: list: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users": {
+      rename: param: "branch": *"branch_id"
+      op: create: method: *POST
+      op: list: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/user": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.plan`")|top
+    }
+    path: "/user/blocks/{username}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/user/emails": {
+      action: "email": {}
+      op: remove: method: *DELETE
+    }
+    path: "/user/following/{username}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/user/gpg_keys/{gpg_key_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/user/keys/{key_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/user/social_accounts": {
+      action: "social_account": {}
+      op: remove: method: *DELETE
+    }
+    path: "/user/ssh_signing_keys/{ssh_signing_key_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/user/{account_id}": {
+      rename: param: "account_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/users": {
+      op: list: method: *GET
+    }
+    path: "/users/{username}": {
+      rename: param: "username": *"id"
+      op: load: method: *GET
+    }
+    path: "/users/{username}/attestations/bulk-list": {
+      action: "attestation_bulk_list": {}
+      op: create: method: *POST
+    }
+    path: "/users/{username}/attestations/delete-request": {
+      action: "attestation_delete_request": {}
+      op: create: method: *POST
+    }
+    path: "/users/{username}/attestations/digest/{subject_digest}": {
+      op: remove: method: *DELETE
+    }
+    path: "/users/{username}/attestations/{attestation_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/users/{username}/following/{target_user}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: user_marketplace_purchase: {
+    path: "/user/marketplace_purchases": {
+      op: list: method: *GET
+    }
+    path: "/user/marketplace_purchases/stubbed": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: view: {
+    path: "/repos/{owner}/{repo}/traffic/views": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.views`")|top
+    }
+  }
+
+  entity: webhook_config: {
+    path: "/app/hook/config": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.insecure_ssl`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.insecure_ssl`")|top
+    }
+    path: "/orgs/{org}/hooks/{hook_id}/config": {
+      rename: param: "org": *"org_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.insecure_ssl`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.insecure_ssl`")|top
+    }
+    path: "/repos/{owner}/{repo}/hooks/{hook_id}/config": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.insecure_ssl`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.insecure_ssl`")|top
+      op: patch: transform: req: "content_type": *("`reqdata.content_type`")|top
+      op: patch: transform: req: "insecure_ssl": *("`reqdata.insecure_ssl`")|top
+      op: patch: transform: req: "secret": *("`reqdata.secret`")|top
+      op: patch: transform: req: "url": *("`reqdata.url`")|top
+    }
+  }
+
+  entity: workflow: {
+    path: "/repos/{owner}/{repo}/actions/workflows/{workflow_id}": {
+      rename: param: "workflow_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/disable": {
+      action: "disable": {}
+      rename: param: "workflow_id": *"id"
+      op: update: method: *PUT
+    }
+    path: "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable": {
+      action: "enable": {}
+      rename: param: "workflow_id": *"id"
+      op: update: method: *PUT
+    }
+  }
+
+  entity: workflow_run: {
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}": {
+      rename: param: "run_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}": {
+      op: load: method: *GET
+    }
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}/cancel": {
+      action: "cancel": {}
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}/deployment_protection_rule": {
+      action: "deployment_protection_rule": {}
+      op: create: method: *POST
+    }
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}/force-cancel": {
+      action: "force_cancel": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: workflow_run_usage: {
+    path: "/repos/{owner}/{repo}/actions/runs/{run_id}/timing": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.billable`")|top
+    }
+  }
+
+  entity: workflow_usage: {
+    path: "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/timing": {
+      action: "timing": {}
+      rename: param: "workflow_id": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.billable`")|top
     }
   }
 

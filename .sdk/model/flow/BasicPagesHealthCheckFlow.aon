@@ -1,0 +1,33 @@
+# BasicPagesHealthCheckFlow
+
+main: kit: flow: BasicPagesHealthCheckFlow:
+{
+  entity: "pages_health_check",
+  kind: "basic",
+  name: "BasicPagesHealthCheckFlow",
+  step: [
+    {
+      input: {
+        ref: "pages_health_check_ref01",
+        srcdatavar: "pages_health_check_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "pages_health_check01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-pages_health_check_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPagesHealthCheckFlow"
+}

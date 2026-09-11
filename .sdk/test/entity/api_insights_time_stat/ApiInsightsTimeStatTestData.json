@@ -1,0 +1,48 @@
+{
+  "existing": {
+    "api_insights_time_stat": {
+      "API_INSIGHTS_TIME_STAT00": {
+        "rate_limited_request_count": "s1e",
+        "timestamp": "s1f",
+        "total_request_count": "s20",
+        "actor_id": "ACTOR01",
+        "actor_type": "ACTOR_TYPE01",
+        "org": "ORG01",
+        "org_id": "ORG01",
+        "user_id": "USER01",
+        "id": "API_INSIGHTS_TIME_STAT00"
+      },
+      "API_INSIGHTS_TIME_STAT01": {
+        "rate_limited_request_count": "s3c",
+        "timestamp": "s3d",
+        "total_request_count": "s3e",
+        "actor_id": "ACTOR01",
+        "actor_type": "ACTOR_TYPE01",
+        "org": "ORG01",
+        "org_id": "ORG01",
+        "user_id": "USER01",
+        "id": "API_INSIGHTS_TIME_STAT01"
+      },
+      "API_INSIGHTS_TIME_STAT02": {
+        "rate_limited_request_count": "s5a",
+        "timestamp": "s5b",
+        "total_request_count": "s5c",
+        "actor_id": "ACTOR01",
+        "actor_type": "ACTOR_TYPE01",
+        "org": "ORG01",
+        "org_id": "ORG01",
+        "user_id": "USER01",
+        "id": "API_INSIGHTS_TIME_STAT02"
+      }
+    }
+  },
+  "new": {
+    "api_insights_time_stat": {
+      "api_insights_time_stat_ref01": {
+        "rate_limited_request_count": "s78",
+        "timestamp": "s79",
+        "total_request_count": "s7a"
+      }
+    }
+  }
+}

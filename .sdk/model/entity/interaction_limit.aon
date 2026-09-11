@@ -1,0 +1,157 @@
+# Entity: interaction_limit
+
+main: kit: entity: interaction_limit: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      format: "date-time"
+      name: "expires_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "expiry"
+      req: false
+      short: "The duration of the interaction restriction."
+      type: "`$STRING`"
+    }
+    {
+      name: "limit"
+      req: true
+      short: "The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect."
+      type: "`$STRING`"
+    }
+    {
+      name: "origin"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "interaction_limit"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/interaction-limits"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "interaction-limits"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/orgs/{org}/interaction-limits"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "interaction-limits"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "PUT"
+          orig: "/user/interaction-limits"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "interaction-limits"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

@@ -1,0 +1,334 @@
+# Entity: webhook_config
+
+main: kit: entity: webhook_config: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "content_type"
+      req: false
+      short: "The media type used to serialize the payloads."
+      type: "`$STRING`"
+    }
+    {
+      name: "insecure_ssl"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "secret"
+      req: false
+      short: "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/webhooks/event-payloads/#delivery-headers)."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: false
+      short: "The URL to which the payloads will be delivered."
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "webhook_config"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "hook_id"
+                orig: "hook_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/hooks/{hook_id}/config"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "hooks"
+            }
+            {
+              var: "hook_id"
+            }
+            {
+              lit: "config"
+            }
+          ]
+          select: {
+            exist: [
+              "hook_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.insecure_ssl`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "hook_id"
+                orig: "hook_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/hooks/{hook_id}/config"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "hooks"
+            }
+            {
+              var: "hook_id"
+            }
+            {
+              lit: "config"
+            }
+          ]
+          select: {
+            exist: [
+              "hook_id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.insecure_ssl`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/app/hook/config"
+          segments: [
+            {
+              lit: "app"
+            }
+            {
+              lit: "hook"
+            }
+            {
+              lit: "config"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body.insecure_ssl`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "hook_id"
+                orig: "hook_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/repos/{owner}/{repo}/hooks/{hook_id}/config"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "hooks"
+            }
+            {
+              var: "hook_id"
+            }
+            {
+              lit: "config"
+            }
+          ]
+          select: {
+            exist: [
+              "hook_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: {
+              content_type: "`reqdata.content_type`"
+              insecure_ssl: "`reqdata.insecure_ssl`"
+              secret: "`reqdata.secret`"
+              url: "`reqdata.url`"
+            }
+            res: "`body.insecure_ssl`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "hook_id"
+                orig: "hook_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/orgs/{org}/hooks/{hook_id}/config"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "hooks"
+            }
+            {
+              var: "hook_id"
+            }
+            {
+              lit: "config"
+            }
+          ]
+          select: {
+            exist: [
+              "hook_id"
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.insecure_ssl`"
+          }
+        }
+        {
+          method: "PATCH"
+          orig: "/app/hook/config"
+          segments: [
+            {
+              lit: "app"
+            }
+            {
+              lit: "hook"
+            }
+            {
+              lit: "config"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body.insecure_ssl`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+        "hook"
+      ]
+      [
+        "repo"
+        "hook"
+      ]
+    ]
+  }
+
+
+
+}

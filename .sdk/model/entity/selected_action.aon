@@ -1,0 +1,148 @@
+# Entity: selected_action
+
+main: kit: entity: selected_action: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "github_owned_allowed"
+      req: false
+      short: "Whether GitHub-owned actions are allowed."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "patterns_allowed"
+      req: false
+      short: "Specifies a list of string-matching patterns to allow specific action(s) and reusable workflow(s)."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "verified_allowed"
+      req: false
+      short: "Whether actions from GitHub Marketplace verified creators are allowed."
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  name: "selected_action"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/permissions/selected-actions"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "selected-actions"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.patterns_allowed`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/actions/permissions/selected-actions"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "permissions"
+            }
+            {
+              lit: "selected-actions"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.patterns_allowed`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

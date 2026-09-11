@@ -89,10 +89,540 @@ func runOp(client *sdk.GithubSDK, op string, query *eng.Value, entityAtom eng.Va
 // emits one `case "<name>":` per entity defined in the SDK model.
 func entityFor(client *sdk.GithubSDK, name string) (sdk.GithubEntity, error) {
 	switch strings.ToLower(name) {
+	case "action":
+		return client.Action(nil), nil
+	case "actions_artifact_and_log_retention":
+		return client.ActionsArtifactAndLogRetention(nil), nil
+	case "actions_cache_list":
+		return client.ActionsCacheList(nil), nil
+	case "actions_cache_usage_by_repository":
+		return client.ActionsCacheUsageByRepository(nil), nil
+	case "actions_cache_usage_org_enterprise":
+		return client.ActionsCacheUsageOrgEnterprise(nil), nil
+	case "actions_fork_pr_contributor_approval":
+		return client.ActionsForkPrContributorApproval(nil), nil
+	case "actions_fork_pr_workflows_private_repo":
+		return client.ActionsForkPrWorkflowsPrivateRepo(nil), nil
+	case "actions_get_default_workflow_permission":
+		return client.ActionsGetDefaultWorkflowPermission(nil), nil
+	case "actions_hosted_runner":
+		return client.ActionsHostedRunner(nil), nil
+	case "actions_hosted_runner_limit":
+		return client.ActionsHostedRunnerLimit(nil), nil
+	case "actions_organization_permission":
+		return client.ActionsOrganizationPermission(nil), nil
+	case "actions_public_key":
+		return client.ActionsPublicKey(nil), nil
+	case "actions_repository_permission":
+		return client.ActionsRepositoryPermission(nil), nil
+	case "actions_secret":
+		return client.ActionsSecret(nil), nil
+	case "actions_variable":
+		return client.ActionsVariable(nil), nil
+	case "actions_workflow_access_to_repository":
+		return client.ActionsWorkflowAccessToRepository(nil), nil
+	case "activity":
+		return client.Activity(nil), nil
+	case "add":
+		return client.Add(nil), nil
+	case "api_insights_route_stat":
+		return client.ApiInsightsRouteStat(nil), nil
+	case "api_insights_subject_stat":
+		return client.ApiInsightsSubjectStat(nil), nil
+	case "api_insights_summary_stat":
+		return client.ApiInsightsSummaryStat(nil), nil
+	case "api_insights_time_stat":
+		return client.ApiInsightsTimeStat(nil), nil
+	case "api_insights_user_stat":
+		return client.ApiInsightsUserStat(nil), nil
+	case "api_overview":
+		return client.ApiOverview(nil), nil
+	case "app":
+		return client.App(nil), nil
+	case "artifact":
+		return client.Artifact(nil), nil
+	case "assignee":
+		return client.Assignee(nil), nil
+	case "authentication_token":
+		return client.AuthenticationToken(nil), nil
+	case "authorization":
+		return client.Authorization(nil), nil
+	case "autolink":
+		return client.Autolink(nil), nil
+	case "base_gist":
+		return client.BaseGist(nil), nil
+	case "billing_usage_report":
+		return client.BillingUsageReport(nil), nil
+	case "billing_usage_report_user":
+		return client.BillingUsageReportUser(nil), nil
+	case "blob":
+		return client.Blob(nil), nil
+	case "block":
+		return client.Block(nil), nil
+	case "branch":
+		return client.Branch(nil), nil
+	case "branch_protection":
+		return client.BranchProtection(nil), nil
+	case "branch_restriction_policy":
+		return client.BranchRestrictionPolicy(nil), nil
+	case "branch_short":
+		return client.BranchShort(nil), nil
+	case "branch_with_protection":
+		return client.BranchWithProtection(nil), nil
+	case "campaign":
+		return client.Campaign(nil), nil
+	case "check":
+		return client.Check(nil), nil
+	case "check_annotation":
+		return client.CheckAnnotation(nil), nil
+	case "check_automated_security_fix":
+		return client.CheckAutomatedSecurityFix(nil), nil
+	case "check_run":
+		return client.CheckRun(nil), nil
+	case "check_suite":
+		return client.CheckSuite(nil), nil
+	case "check_suite_preference":
+		return client.CheckSuitePreference(nil), nil
+	case "classroom":
+		return client.Classroom(nil), nil
+	case "classroom_accepted_assignment":
+		return client.ClassroomAcceptedAssignment(nil), nil
+	case "classroom_assignment":
+		return client.ClassroomAssignment(nil), nil
+	case "classroom_assignment_grade":
+		return client.ClassroomAssignmentGrade(nil), nil
+	case "clone":
+		return client.Clone(nil), nil
+	case "code_frequency":
+		return client.CodeFrequency(nil), nil
+	case "code_frequency_stat":
+		return client.CodeFrequencyStat(nil), nil
+	case "code_of_conduct":
+		return client.CodeOfConduct(nil), nil
+	case "code_scanning":
+		return client.CodeScanning(nil), nil
+	case "code_scanning_alert":
+		return client.CodeScanningAlert(nil), nil
+	case "code_scanning_alert_instance":
+		return client.CodeScanningAlertInstance(nil), nil
+	case "code_scanning_alert_item":
+		return client.CodeScanningAlertItem(nil), nil
+	case "code_scanning_analysi":
+		return client.CodeScanningAnalysi(nil), nil
+	case "code_scanning_analysis_deletion":
+		return client.CodeScanningAnalysisDeletion(nil), nil
+	case "code_scanning_autofix":
+		return client.CodeScanningAutofix(nil), nil
+	case "code_scanning_autofix_commit":
+		return client.CodeScanningAutofixCommit(nil), nil
+	case "code_scanning_codeql_database":
+		return client.CodeScanningCodeqlDatabase(nil), nil
+	case "code_scanning_default_setup":
+		return client.CodeScanningDefaultSetup(nil), nil
+	case "code_scanning_organization_alert_item":
+		return client.CodeScanningOrganizationAlertItem(nil), nil
+	case "code_scanning_sarifs_status":
+		return client.CodeScanningSarifsStatus(nil), nil
+	case "code_scanning_variant_analysi":
+		return client.CodeScanningVariantAnalysi(nil), nil
+	case "code_scanning_variant_analysis_repo_task":
+		return client.CodeScanningVariantAnalysisRepoTask(nil), nil
+	case "code_security":
+		return client.CodeSecurity(nil), nil
+	case "code_security_configuration":
+		return client.CodeSecurityConfiguration(nil), nil
+	case "code_security_configuration_repository":
+		return client.CodeSecurityConfigurationRepository(nil), nil
+	case "code_security_default_configuration":
+		return client.CodeSecurityDefaultConfiguration(nil), nil
+	case "codeowners_error":
+		return client.CodeownersError(nil), nil
+	case "codespace":
+		return client.Codespace(nil), nil
+	case "collaborator":
+		return client.Collaborator(nil), nil
+	case "combined_billing_usage":
+		return client.CombinedBillingUsage(nil), nil
+	case "combined_commit_status":
+		return client.CombinedCommitStatus(nil), nil
+	case "commit":
+		return client.Commit(nil), nil
+	case "commit_activity":
+		return client.CommitActivity(nil), nil
+	case "commit_comment":
+		return client.CommitComment(nil), nil
+	case "commit_comparison":
+		return client.CommitComparison(nil), nil
+	case "community_profile":
+		return client.CommunityProfile(nil), nil
+	case "content_file":
+		return client.ContentFile(nil), nil
+	case "content_traffic":
+		return client.ContentTraffic(nil), nil
+	case "contributor":
+		return client.Contributor(nil), nil
+	case "copilot":
+		return client.Copilot(nil), nil
+	case "copilot_organization_detail":
+		return client.CopilotOrganizationDetail(nil), nil
+	case "copilot_usage_metrics_day":
+		return client.CopilotUsageMetricsDay(nil), nil
+	case "credential":
+		return client.Credential(nil), nil
+	case "custom_property":
+		return client.CustomProperty(nil), nil
+	case "custom_property_value":
+		return client.CustomPropertyValue(nil), nil
+	case "dependabot":
+		return client.Dependabot(nil), nil
+	case "dependabot_alert":
+		return client.DependabotAlert(nil), nil
+	case "dependabot_alert_with_repository":
+		return client.DependabotAlertWithRepository(nil), nil
+	case "dependabot_public_key":
+		return client.DependabotPublicKey(nil), nil
+	case "dependabot_repository_access_detail":
+		return client.DependabotRepositoryAccessDetail(nil), nil
+	case "dependabot_secret":
+		return client.DependabotSecret(nil), nil
+	case "dependency_graph":
+		return client.DependencyGraph(nil), nil
+	case "dependency_graph_diff":
+		return client.DependencyGraphDiff(nil), nil
+	case "dependency_graph_spdx_sbom":
+		return client.DependencyGraphSpdxSbom(nil), nil
+	case "deploy_key":
+		return client.DeployKey(nil), nil
+	case "deployment":
+		return client.Deployment(nil), nil
+	case "deployment_branch_policy":
+		return client.DeploymentBranchPolicy(nil), nil
+	case "deployment_protection_rule":
+		return client.DeploymentProtectionRule(nil), nil
+	case "deployment_status":
+		return client.DeploymentStatus(nil), nil
+	case "diff_entry":
+		return client.DiffEntry(nil), nil
+	case "email":
+		return client.Email(nil), nil
+	case "emoji":
+		return client.Emoji(nil), nil
+	case "empty_object":
+		return client.EmptyObject(nil), nil
+	case "enterprise_team":
+		return client.EnterpriseTeam(nil), nil
+	case "enterprise_team_membership":
+		return client.EnterpriseTeamMembership(nil), nil
+	case "environment":
+		return client.Environment(nil), nil
+	case "environment_approval":
+		return client.EnvironmentApproval(nil), nil
+	case "event":
+		return client.Event(nil), nil
+	case "feed":
+		return client.Feed(nil), nil
+	case "file_commit":
+		return client.FileCommit(nil), nil
+	case "follower":
+		return client.Follower(nil), nil
+	case "following":
+		return client.Following(nil), nil
+	case "full_repository":
+		return client.FullRepository(nil), nil
+	case "gist":
+		return client.Gist(nil), nil
+	case "gist_comment":
+		return client.GistComment(nil), nil
+	case "gist_commit":
+		return client.GistCommit(nil), nil
+	case "gist_simple":
+		return client.GistSimple(nil), nil
+	case "git":
+		return client.Git(nil), nil
+	case "git_commit":
+		return client.GitCommit(nil), nil
+	case "git_ref":
+		return client.GitRef(nil), nil
+	case "git_tag":
+		return client.GitTag(nil), nil
+	case "git_tree":
+		return client.GitTree(nil), nil
+	case "gitignore":
+		return client.Gitignore(nil), nil
+	case "gitignore_template":
+		return client.GitignoreTemplate(nil), nil
+	case "global_advisory":
+		return client.GlobalAdvisory(nil), nil
+	case "gpg_key":
+		return client.GpgKey(nil), nil
+	case "hook":
+		return client.Hook(nil), nil
+	case "hook_delivery":
+		return client.HookDelivery(nil), nil
+	case "hook_delivery_item":
+		return client.HookDeliveryItem(nil), nil
+	case "hosted_compute":
+		return client.HostedCompute(nil), nil
+	case "hovercard":
+		return client.Hovercard(nil), nil
+	case "import":
+		return client.Import(nil), nil
+	case "installation":
+		return client.Installation(nil), nil
+	case "installation_token":
+		return client.InstallationToken(nil), nil
+	case "integration":
+		return client.Integration(nil), nil
+	case "integration_installation":
+		return client.IntegrationInstallation(nil), nil
+	case "interaction":
+		return client.Interaction(nil), nil
+	case "interaction_limit":
+		return client.InteractionLimit(nil), nil
+	case "issue":
+		return client.Issue(nil), nil
+	case "issue_type":
+		return client.IssueType(nil), nil
+	case "job":
+		return client.Job(nil), nil
+	case "key":
+		return client.Key(nil), nil
+	case "label":
+		return client.Label(nil), nil
+	case "language":
+		return client.Language(nil), nil
+	case "license":
+		return client.License(nil), nil
+	case "markdown":
+		return client.Markdown(nil), nil
+	case "marketplace_listing_plan":
+		return client.MarketplaceListingPlan(nil), nil
+	case "marketplace_purchase":
+		return client.MarketplacePurchase(nil), nil
+	case "member":
+		return client.Member(nil), nil
+	case "membership":
+		return client.Membership(nil), nil
+	case "merged_upstream":
+		return client.MergedUpstream(nil), nil
+	case "meta":
+		return client.Meta(nil), nil
+	case "metaroot":
+		return client.Metaroot(nil), nil
+	case "migration":
+		return client.Migration(nil), nil
+	case "milestone":
+		return client.Milestone(nil), nil
+	case "minimal_repository":
+		return client.MinimalRepository(nil), nil
+	case "network_configuration":
+		return client.NetworkConfiguration(nil), nil
+	case "network_setting":
+		return client.NetworkSetting(nil), nil
+	case "oidc_custom_sub":
+		return client.OidcCustomSub(nil), nil
+	case "oidc_custom_sub_repo":
+		return client.OidcCustomSubRepo(nil), nil
+	case "org":
+		return client.Org(nil), nil
+	case "org_hook":
+		return client.OrgHook(nil), nil
+	case "org_membership":
+		return client.OrgMembership(nil), nil
+	case "org_private_registry_configuration":
+		return client.OrgPrivateRegistryConfiguration(nil), nil
+	case "org_private_registry_configuration_with_selected_repository":
+		return client.OrgPrivateRegistryConfigurationWithSelectedRepository(nil), nil
+	case "org_repo_custom_property_value":
+		return client.OrgRepoCustomPropertyValue(nil), nil
+	case "organization":
+		return client.Organization(nil), nil
+	case "organization_actions_secret":
+		return client.OrganizationActionsSecret(nil), nil
+	case "organization_actions_variable":
+		return client.OrganizationActionsVariable(nil), nil
+	case "organization_dependabot_secret":
+		return client.OrganizationDependabotSecret(nil), nil
+	case "organization_invitation":
+		return client.OrganizationInvitation(nil), nil
+	case "organization_programmatic_access_grant":
+		return client.OrganizationProgrammaticAccessGrant(nil), nil
+	case "organization_role":
+		return client.OrganizationRole(nil), nil
+	case "organization_secret_scanning_alert":
+		return client.OrganizationSecretScanningAlert(nil), nil
+	case "outside_collaborator":
+		return client.OutsideCollaborator(nil), nil
+	case "package":
+		return client.Package(nil), nil
+	case "page":
+		return client.Page(nil), nil
+	case "page_build":
+		return client.PageBuild(nil), nil
+	case "page_build_status":
+		return client.PageBuildStatus(nil), nil
+	case "page_deployment":
+		return client.PageDeployment(nil), nil
+	case "pages_deployment_status":
+		return client.PagesDeploymentStatus(nil), nil
+	case "pages_health_check":
+		return client.PagesHealthCheck(nil), nil
+	case "participation":
+		return client.Participation(nil), nil
+	case "pending_deployment":
+		return client.PendingDeployment(nil), nil
+	case "porter_author":
+		return client.PorterAuthor(nil), nil
+	case "porter_large_file":
+		return client.PorterLargeFile(nil), nil
+	case "private_registry":
+		return client.PrivateRegistry(nil), nil
+	case "private_user":
+		return client.PrivateUser(nil), nil
+	case "project":
+		return client.Project(nil), nil
+	case "project_collaborator_permission":
+		return client.ProjectCollaboratorPermission(nil), nil
+	case "project_column":
+		return client.ProjectColumn(nil), nil
+	case "projects_classic":
+		return client.ProjectsClassic(nil), nil
+	case "projects_v2":
+		return client.ProjectsV2(nil), nil
+	case "projects_v2_field":
+		return client.ProjectsV2Field(nil), nil
+	case "projects_v2_item_simple":
+		return client.ProjectsV2ItemSimple(nil), nil
+	case "projects_v2_item_with_content":
+		return client.ProjectsV2ItemWithContent(nil), nil
+	case "protected_branch":
+		return client.ProtectedBranch(nil), nil
+	case "protected_branch_admin_enforced":
+		return client.ProtectedBranchAdminEnforced(nil), nil
+	case "protected_branch_pull_request_review":
+		return client.ProtectedBranchPullRequestReview(nil), nil
+	case "public_member":
+		return client.PublicMember(nil), nil
 	case "pull":
 		return client.Pull(nil), nil
+	case "pull_request_review":
+		return client.PullRequestReview(nil), nil
+	case "pull_request_review_comment":
+		return client.PullRequestReviewComment(nil), nil
+	case "pull_request_simple":
+		return client.PullRequestSimple(nil), nil
+	case "rate_limit":
+		return client.RateLimit(nil), nil
+	case "reaction":
+		return client.Reaction(nil), nil
+	case "referrer":
+		return client.Referrer(nil), nil
+	case "release":
+		return client.Release(nil), nil
+	case "release_asset":
+		return client.ReleaseAsset(nil), nil
+	case "release_notes_content":
+		return client.ReleaseNotesContent(nil), nil
+	case "remove":
+		return client.Remove(nil), nil
 	case "repo":
 		return client.Repo(nil), nil
+	case "repository":
+		return client.Repository(nil), nil
+	case "repository_advisory":
+		return client.RepositoryAdvisory(nil), nil
+	case "repository_collaborator_permission":
+		return client.RepositoryCollaboratorPermission(nil), nil
+	case "repository_invitation":
+		return client.RepositoryInvitation(nil), nil
+	case "repository_rule_detailed":
+		return client.RepositoryRuleDetailed(nil), nil
+	case "repository_ruleset":
+		return client.RepositoryRuleset(nil), nil
+	case "repository_subscription":
+		return client.RepositorySubscription(nil), nil
+	case "review_comment":
+		return client.ReviewComment(nil), nil
+	case "rule_suite":
+		return client.RuleSuite(nil), nil
+	case "ruleset_version":
+		return client.RulesetVersion(nil), nil
+	case "ruleset_version_with_state":
+		return client.RulesetVersionWithState(nil), nil
+	case "runner":
+		return client.Runner(nil), nil
+	case "runner_application":
+		return client.RunnerApplication(nil), nil
+	case "runner_group":
+		return client.RunnerGroup(nil), nil
+	case "search":
+		return client.Search(nil), nil
+	case "secret_scanning":
+		return client.SecretScanning(nil), nil
+	case "secret_scanning_alert":
+		return client.SecretScanningAlert(nil), nil
+	case "secret_scanning_location":
+		return client.SecretScanningLocation(nil), nil
+	case "secret_scanning_pattern_configuration":
+		return client.SecretScanningPatternConfiguration(nil), nil
+	case "secret_scanning_push_protection_bypass":
+		return client.SecretScanningPushProtectionBypass(nil), nil
+	case "secret_scanning_scan_history":
+		return client.SecretScanningScanHistory(nil), nil
+	case "security_advisory":
+		return client.SecurityAdvisory(nil), nil
+	case "selected_action":
+		return client.SelectedAction(nil), nil
+	case "self_hosted_runner":
+		return client.SelfHostedRunner(nil), nil
+	case "short_blob":
+		return client.ShortBlob(nil), nil
+	case "short_branch":
+		return client.ShortBranch(nil), nil
+	case "simple_classroom":
+		return client.SimpleClassroom(nil), nil
+	case "simple_classroom_assignment":
+		return client.SimpleClassroomAssignment(nil), nil
+	case "social_account":
+		return client.SocialAccount(nil), nil
+	case "ssh_signing_key":
+		return client.SshSigningKey(nil), nil
+	case "status":
+		return client.Status(nil), nil
+	case "status_check_policy":
+		return client.StatusCheckPolicy(nil), nil
+	case "subscriber":
+		return client.Subscriber(nil), nil
+	case "tag":
+		return client.Tag(nil), nil
+	case "tag_protection":
+		return client.TagProtection(nil), nil
+	case "team":
+		return client.Team(nil), nil
+	case "team_simple":
+		return client.TeamSimple(nil), nil
+	case "thread":
+		return client.Thread(nil), nil
+	case "thread_subscription":
+		return client.ThreadSubscription(nil), nil
+	case "topic":
+		return client.Topic(nil), nil
+	case "user":
+		return client.User(nil), nil
+	case "user_marketplace_purchase":
+		return client.UserMarketplacePurchase(nil), nil
+	case "view":
+		return client.View(nil), nil
+	case "webhook_config":
+		return client.WebhookConfig(nil), nil
+	case "workflow":
+		return client.Workflow(nil), nil
+	case "workflow_run":
+		return client.WorkflowRun(nil), nil
+	case "workflow_run_usage":
+		return client.WorkflowRunUsage(nil), nil
+	case "workflow_usage":
+		return client.WorkflowUsage(nil), nil
 
 	}
 	return nil, fmt.Errorf("unknown entity %q", name)

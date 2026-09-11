@@ -1,0 +1,55 @@
+{
+  "existing": {
+    "marketplace_purchase": {
+      "MARKETPLACE_PURCHASE00": {
+        "email": "s50",
+        "id": "MARKETPLACE_PURCHASE00",
+        "login": "s52",
+        "marketplace_pending_change": {},
+        "marketplace_purchase": {},
+        "organization_billing_email": "s55",
+        "type": "s56",
+        "url": "s57",
+        "plan_id": "PLAN01",
+        "account_id": "ACCOUNT01"
+      },
+      "MARKETPLACE_PURCHASE01": {
+        "email": "sa0",
+        "id": "MARKETPLACE_PURCHASE01",
+        "login": "sa2",
+        "marketplace_pending_change": {},
+        "marketplace_purchase": {},
+        "organization_billing_email": "sa5",
+        "type": "sa6",
+        "url": "sa7",
+        "plan_id": "PLAN01",
+        "account_id": "ACCOUNT01"
+      },
+      "MARKETPLACE_PURCHASE02": {
+        "email": "sf0",
+        "id": "MARKETPLACE_PURCHASE02",
+        "login": "sf2",
+        "marketplace_pending_change": {},
+        "marketplace_purchase": {},
+        "organization_billing_email": "sf5",
+        "type": "sf6",
+        "url": "sf7",
+        "plan_id": "PLAN01",
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "marketplace_purchase": {
+      "marketplace_purchase_ref01": {
+        "email": "s140",
+        "login": "s142",
+        "marketplace_pending_change": {},
+        "marketplace_purchase": {},
+        "organization_billing_email": "s145",
+        "type": "s146",
+        "url": "s147"
+      }
+    }
+  }
+}

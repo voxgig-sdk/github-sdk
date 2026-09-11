@@ -1,0 +1,308 @@
+# Entity: marketplace_purchase
+
+main: kit: entity: marketplace_purchase: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "email"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "login"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "marketplace_pending_change"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "marketplace_purchase"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "organization_billing_email"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "marketplace_purchase"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "plan_id"
+                orig: "plan_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "direction"
+                orig: "direction"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "created"
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/marketplace_listing/plans/{plan_id}/accounts"
+          segments: [
+            {
+              lit: "marketplace_listing"
+            }
+            {
+              lit: "plans"
+            }
+            {
+              var: "plan_id"
+            }
+            {
+              lit: "accounts"
+            }
+          ]
+          select: {
+            exist: [
+              "direction"
+              "page"
+              "per_page"
+              "plan_id"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "plan_id"
+                orig: "plan_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "direction"
+                orig: "direction"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "created"
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/marketplace_listing/stubbed/plans/{plan_id}/accounts"
+          segments: [
+            {
+              lit: "marketplace_listing"
+            }
+            {
+              lit: "stubbed"
+            }
+            {
+              lit: "plans"
+            }
+            {
+              var: "plan_id"
+            }
+            {
+              lit: "accounts"
+            }
+          ]
+          select: {
+            exist: [
+              "direction"
+              "page"
+              "per_page"
+              "plan_id"
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/marketplace_listing/accounts/{account_id}"
+          segments: [
+            {
+              lit: "marketplace_listing"
+            }
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+          ]
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.marketplace_purchase`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/marketplace_listing/stubbed/accounts/{account_id}"
+          segments: [
+            {
+              lit: "marketplace_listing"
+            }
+            {
+              lit: "stubbed"
+            }
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+          ]
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.marketplace_purchase`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+      ]
+      [
+        "plan"
+      ]
+    ]
+  }
+
+
+
+}

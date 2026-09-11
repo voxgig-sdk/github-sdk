@@ -1,0 +1,67 @@
+{
+  "existing": {
+    "workflow": {
+      "WORKFLOW00": {
+        "badge_url": "s6e",
+        "created_at": "s6f",
+        "deleted_at": "s70",
+        "html_url": "s71",
+        "id": "WORKFLOW00",
+        "name": "s73",
+        "node_id": "NODE01",
+        "path": "s75",
+        "state": "s76",
+        "updated_at": "s77",
+        "url": "s78",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "WORKFLOW01": {
+        "badge_url": "sdc",
+        "created_at": "sdd",
+        "deleted_at": "sde",
+        "html_url": "sdf",
+        "id": "WORKFLOW01",
+        "name": "se1",
+        "node_id": "NODE01",
+        "path": "se3",
+        "state": "se4",
+        "updated_at": "se5",
+        "url": "se6",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "WORKFLOW02": {
+        "badge_url": "s14a",
+        "created_at": "s14b",
+        "deleted_at": "s14c",
+        "html_url": "s14d",
+        "id": "WORKFLOW02",
+        "name": "s14f",
+        "node_id": "NODE01",
+        "path": "s151",
+        "state": "s152",
+        "updated_at": "s153",
+        "url": "s154",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "workflow": {
+      "workflow_ref01": {
+        "badge_url": "s1b8",
+        "created_at": "s1b9",
+        "deleted_at": "s1ba",
+        "html_url": "s1bb",
+        "name": "s1bd",
+        "node_id": "NODE01",
+        "path": "s1bf",
+        "state": "s1c0",
+        "updated_at": "s1c1",
+        "url": "s1c2"
+      }
+    }
+  }
+}

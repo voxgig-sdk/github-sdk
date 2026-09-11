@@ -1,0 +1,137 @@
+# Entity: branch_restriction_policy
+
+main: kit: entity: branch_restriction_policy: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "apps"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      format: "uri"
+      name: "apps_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "teams"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      format: "uri"
+      name: "teams_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "users"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      format: "uri"
+      name: "users_url"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "branch_restriction_policy"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection/restrictions"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              lit: "restrictions"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+        "branch"
+      ]
+    ]
+  }
+
+
+
+}

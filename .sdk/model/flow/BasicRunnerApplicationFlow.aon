@@ -1,0 +1,26 @@
+# BasicRunnerApplicationFlow
+
+main: kit: flow: BasicRunnerApplicationFlow:
+{
+  entity: "runner_application",
+  kind: "basic",
+  name: "BasicRunnerApplicationFlow",
+  step: [
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "runner_application_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRunnerApplicationFlow"
+}

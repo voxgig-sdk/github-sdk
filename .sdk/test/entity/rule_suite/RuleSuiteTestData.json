@@ -1,0 +1,74 @@
+{
+  "existing": {
+    "rule_suite": {
+      "RULE_SUITE00": {
+        "actor_id": "ACTOR01",
+        "actor_name": "s79",
+        "after_sha": "s7a",
+        "before_sha": "s7b",
+        "evaluation_result": "s7c",
+        "id": "RULE_SUITE00",
+        "pushed_at": "s7e",
+        "ref": "s7f",
+        "repository_id": "REPOSITORY01",
+        "repository_name": "s81",
+        "result": "s82",
+        "rule_evaluations": [],
+        "org_id": "ORG01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "RULE_SUITE01": {
+        "actor_id": "ACTOR01",
+        "actor_name": "sf1",
+        "after_sha": "sf2",
+        "before_sha": "sf3",
+        "evaluation_result": "sf4",
+        "id": "RULE_SUITE01",
+        "pushed_at": "sf6",
+        "ref": "sf7",
+        "repository_id": "REPOSITORY01",
+        "repository_name": "sf9",
+        "result": "sfa",
+        "rule_evaluations": [],
+        "org_id": "ORG01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "RULE_SUITE02": {
+        "actor_id": "ACTOR01",
+        "actor_name": "s169",
+        "after_sha": "s16a",
+        "before_sha": "s16b",
+        "evaluation_result": "s16c",
+        "id": "RULE_SUITE02",
+        "pushed_at": "s16e",
+        "ref": "s16f",
+        "repository_id": "REPOSITORY01",
+        "repository_name": "s171",
+        "result": "s172",
+        "rule_evaluations": [],
+        "org_id": "ORG01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "rule_suite": {
+      "rule_suite_ref01": {
+        "actor_id": "ACTOR01",
+        "actor_name": "s1e1",
+        "after_sha": "s1e2",
+        "before_sha": "s1e3",
+        "evaluation_result": "s1e4",
+        "pushed_at": "s1e6",
+        "ref": "s1e7",
+        "repository_id": "REPOSITORY01",
+        "repository_name": "s1e9",
+        "result": "s1ea",
+        "rule_evaluations": []
+      }
+    }
+  }
+}

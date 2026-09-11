@@ -1,0 +1,34 @@
+{
+  "existing": {
+    "projects_v2_item_simple": {
+      "PROJECTS_V2_ITEM_SIMPLE00": {
+        "id": "PROJECTS_V2_ITEM_SIMPLE00",
+        "type": "s15",
+        "org_id": "ORG01",
+        "project_number": "PROJECT_NUMBER01",
+        "username": "USERNAME01"
+      },
+      "PROJECTS_V2_ITEM_SIMPLE01": {
+        "id": "PROJECTS_V2_ITEM_SIMPLE01",
+        "type": "s29",
+        "org_id": "ORG01",
+        "project_number": "PROJECT_NUMBER01",
+        "username": "USERNAME01"
+      },
+      "PROJECTS_V2_ITEM_SIMPLE02": {
+        "id": "PROJECTS_V2_ITEM_SIMPLE02",
+        "type": "s3d",
+        "org_id": "ORG01",
+        "project_number": "PROJECT_NUMBER01",
+        "username": "USERNAME01"
+      }
+    }
+  },
+  "new": {
+    "projects_v2_item_simple": {
+      "projects_v2_item_simple_ref01": {
+        "type": "s51"
+      }
+    }
+  }
+}

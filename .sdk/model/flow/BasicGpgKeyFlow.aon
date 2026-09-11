@@ -1,0 +1,56 @@
+# BasicGpgKeyFlow
+
+main: kit: flow: BasicGpgKeyFlow:
+{
+  entity: "gpg_key",
+  kind: "basic",
+  name: "BasicGpgKeyFlow",
+  step: [
+    {
+      input: {
+        ref: "gpg_key_ref01"
+      }
+
+      match: {
+        username: "username01"
+      }
+
+      op: "create"
+    }
+
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "gpg_key_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "gpg_key_ref01",
+        srcdatavar: "gpg_key_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "gpg_key01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-gpg_key_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGpgKeyFlow"
+}

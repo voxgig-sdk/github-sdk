@@ -1,0 +1,388 @@
+# Entity: enterprise_team
+
+main: kit: entity: enterprise_team: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      short: "A description of the team."
+      type: "`$STRING`"
+    }
+    {
+      name: "group_id"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The ID of the IdP group to assign team membership with."
+      type: "`$STRING`"
+    }
+    {
+      name: "group_name"
+      req: false
+      short: "Retired: this field will not be returned with GHEC enterprise teams."
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "members_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      short: "The name of the team."
+      type: "`$STRING`"
+    }
+    {
+      name: "organization_selection_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "slug"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "sync_to_organizations"
+      req: false
+      short: "Retired: this field will not be returned with GHEC enterprise teams."
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "enterprise_team"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "enterprise"
+                orig: "enterprise"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/enterprises/{enterprise}/teams"
+          segments: [
+            {
+              lit: "enterprises"
+            }
+            {
+              var: "enterprise"
+            }
+            {
+              lit: "teams"
+            }
+          ]
+          select: {
+            exist: [
+              "enterprise"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "enterprise"
+                orig: "enterprise"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/enterprises/{enterprise}/teams"
+          segments: [
+            {
+              lit: "enterprises"
+            }
+            {
+              var: "enterprise"
+            }
+            {
+              lit: "teams"
+            }
+          ]
+          select: {
+            exist: [
+              "enterprise"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "enterprise"
+                orig: "enterprise"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "team_slug"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/enterprises/{enterprise}/teams/{team_slug}"
+          rename: {
+            param: {
+              team_slug: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "enterprises"
+            }
+            {
+              var: "enterprise"
+            }
+            {
+              lit: "teams"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "enterprise"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "enterprise"
+                orig: "enterprise"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "team_slug"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/enterprises/{enterprise}/teams/{team_slug}"
+          rename: {
+            param: {
+              team_slug: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "enterprises"
+            }
+            {
+              var: "enterprise"
+            }
+            {
+              lit: "teams"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "enterprise"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "enterprise"
+                orig: "enterprise"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "team_slug"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/enterprises/{enterprise}/teams/{team_slug}"
+          rename: {
+            param: {
+              team_slug: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "enterprises"
+            }
+            {
+              var: "enterprise"
+            }
+            {
+              lit: "teams"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "enterprise"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "enterpris"
+      ]
+    ]
+  }
+
+
+
+}

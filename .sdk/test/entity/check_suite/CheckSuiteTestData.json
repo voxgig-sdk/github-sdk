@@ -1,0 +1,99 @@
+{
+  "existing": {
+    "check_suite": {
+      "CHECK_SUITE00": {
+        "after": "sbe",
+        "app": {},
+        "before": "sc0",
+        "check_runs_url": "sc1",
+        "conclusion": "sc2",
+        "created_at": "sc3",
+        "head_branch": "sc4",
+        "head_commit": {},
+        "head_sha": "sc6",
+        "id": "CHECK_SUITE00",
+        "latest_check_runs_count": "sc8",
+        "node_id": "NODE01",
+        "pull_requests": [],
+        "repository": {},
+        "rerequestable": true,
+        "runs_rerequestable": false,
+        "status": "sce",
+        "updated_at": "scf",
+        "url": "sd0",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CHECK_SUITE01": {
+        "after": "s17c",
+        "app": {},
+        "before": "s17e",
+        "check_runs_url": "s17f",
+        "conclusion": "s180",
+        "created_at": "s181",
+        "head_branch": "s182",
+        "head_commit": {},
+        "head_sha": "s184",
+        "id": "CHECK_SUITE01",
+        "latest_check_runs_count": "s186",
+        "node_id": "NODE01",
+        "pull_requests": [],
+        "repository": {},
+        "rerequestable": true,
+        "runs_rerequestable": false,
+        "status": "s18c",
+        "updated_at": "s18d",
+        "url": "s18e",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CHECK_SUITE02": {
+        "after": "s23a",
+        "app": {},
+        "before": "s23c",
+        "check_runs_url": "s23d",
+        "conclusion": "s23e",
+        "created_at": "s23f",
+        "head_branch": "s240",
+        "head_commit": {},
+        "head_sha": "s242",
+        "id": "CHECK_SUITE02",
+        "latest_check_runs_count": "s244",
+        "node_id": "NODE01",
+        "pull_requests": [],
+        "repository": {},
+        "rerequestable": true,
+        "runs_rerequestable": false,
+        "status": "s24a",
+        "updated_at": "s24b",
+        "url": "s24c",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "check_suite": {
+      "check_suite_ref01": {
+        "after": "s2f8",
+        "app": {},
+        "before": "s2fa",
+        "check_runs_url": "s2fb",
+        "conclusion": "s2fc",
+        "created_at": "s2fd",
+        "head_branch": "s2fe",
+        "head_commit": {},
+        "head_sha": "s300",
+        "latest_check_runs_count": "s302",
+        "node_id": "NODE01",
+        "pull_requests": [],
+        "repository": {},
+        "rerequestable": true,
+        "runs_rerequestable": false,
+        "status": "s308",
+        "updated_at": "s309",
+        "url": "s30a"
+      }
+    }
+  }
+}

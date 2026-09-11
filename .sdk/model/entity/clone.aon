@@ -1,0 +1,105 @@
+# Entity: clone
+
+main: kit: entity: clone: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "count"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      format: "date-time"
+      name: "timestamp"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "uniques"
+      req: true
+      type: "`$INTEGER`"
+    }
+  ]
+
+  name: "clone"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: "day"
+                kind: "query"
+                name: "per"
+                orig: "per"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/traffic/clones"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "traffic"
+            }
+            {
+              lit: "clones"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "per"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.clones`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

@@ -1,0 +1,91 @@
+# Entity: feed
+
+main: kit: entity: feed: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "current_user_actor_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "current_user_organization_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "current_user_organization_urls"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "current_user_public_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "current_user_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "links"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "repository_discussions_category_url"
+      req: false
+      short: "A feed of discussions for a given repository and category."
+      type: "`$STRING`"
+    }
+    {
+      name: "repository_discussions_url"
+      req: false
+      short: "A feed of discussions for a given repository."
+      type: "`$STRING`"
+    }
+    {
+      name: "security_advisories_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "timeline_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "user_url"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "feed"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/feeds"
+          segments: [
+            {
+              lit: "feeds"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

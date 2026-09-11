@@ -1,0 +1,127 @@
+# BasicActionFlow
+
+main: kit: flow: BasicActionFlow:
+{
+  entity: "action",
+  kind: "basic",
+  name: "BasicActionFlow",
+  step: [
+    {
+      input: {
+        ref: "action_ref01"
+      }
+
+      match: {
+        artifact_id: "artifact01",
+        attempt_number: "attempt_number01",
+        environment_id: "environment01",
+        environment_name: "environment_name01",
+        name: "name01",
+        org_id: "org01",
+        owner: "owner01",
+        repo: "repo01",
+        run_id: "run01",
+        runner_group_id: "runner_group01",
+        runner_id: "runner01",
+        secret_id: "secret01",
+        secret_name: "secret_name01",
+        variable_id: "variable01",
+        workflow_id: "workflow01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "action_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "action_ref01",
+        srcdatavar: "action_ref01_data",
+        suffix: "_up0",
+        textfield: "access_level"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-action_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "action_ref01",
+        srcdatavar: "action_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "action01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-action_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "action_ref01",
+        suffix: "_rm0"
+      }
+
+      match: {
+        id: "action01",
+        org_id: "org01"
+      }
+
+      op: "remove"
+    }
+
+    {
+      input: {
+        suffix: "_rt0"
+      }
+
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "action_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicActionFlow"
+}

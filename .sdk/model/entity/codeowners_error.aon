@@ -1,0 +1,130 @@
+# Entity: codeowners_error
+
+main: kit: entity: codeowners_error: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "column"
+      req: true
+      short: "The column number where this errors occurs."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "kind"
+      req: true
+      short: "The type of error."
+      type: "`$STRING`"
+    }
+    {
+      name: "line"
+      req: true
+      short: "The line number where this errors occurs."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "message"
+      req: true
+      short: "A human-readable description of the error, combining information from multiple fields, laid out for display in a monospaced typeface (for example, a command-line setting)."
+      type: "`$STRING`"
+    }
+    {
+      name: "path"
+      req: true
+      short: "The path of the file where the error occured."
+      type: "`$STRING`"
+    }
+    {
+      name: "source"
+      req: false
+      short: "The contents of the line where the error occurs."
+      type: "`$STRING`"
+    }
+    {
+      name: "suggestion"
+      req: false
+      short: "Suggested action to fix the error."
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "codeowners_error"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "ref"
+                orig: "ref"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/codeowners/errors"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "codeowners"
+            }
+            {
+              lit: "errors"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "ref"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.errors`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

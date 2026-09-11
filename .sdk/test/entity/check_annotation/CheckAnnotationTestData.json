@@ -1,0 +1,67 @@
+{
+  "existing": {
+    "check_annotation": {
+      "CHECK_ANNOTATION00": {
+        "annotation_level": "s64",
+        "blob_href": "s65",
+        "end_column": "s66",
+        "end_line": "s67",
+        "message": "s68",
+        "path": "s69",
+        "raw_details": "s6a",
+        "start_column": "s6b",
+        "start_line": "s6c",
+        "title": "s6d",
+        "check_run_id": "CHECK_RUN01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CHECK_ANNOTATION01": {
+        "annotation_level": "sc8",
+        "blob_href": "sc9",
+        "end_column": "sca",
+        "end_line": "scb",
+        "message": "scc",
+        "path": "scd",
+        "raw_details": "sce",
+        "start_column": "scf",
+        "start_line": "sd0",
+        "title": "sd1",
+        "check_run_id": "CHECK_RUN01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CHECK_ANNOTATION02": {
+        "annotation_level": "s12c",
+        "blob_href": "s12d",
+        "end_column": "s12e",
+        "end_line": "s12f",
+        "message": "s130",
+        "path": "s131",
+        "raw_details": "s132",
+        "start_column": "s133",
+        "start_line": "s134",
+        "title": "s135",
+        "check_run_id": "CHECK_RUN01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "check_annotation": {
+      "check_annotation_ref01": {
+        "annotation_level": "s190",
+        "blob_href": "s191",
+        "end_column": "s192",
+        "end_line": "s193",
+        "message": "s194",
+        "path": "s195",
+        "raw_details": "s196",
+        "start_column": "s197",
+        "start_line": "s198",
+        "title": "s199"
+      }
+    }
+  }
+}

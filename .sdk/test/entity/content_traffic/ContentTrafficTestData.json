@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "content_traffic": {
+      "CONTENT_TRAFFIC00": {
+        "count": "s28",
+        "path": "s29",
+        "title": "s2a",
+        "uniques": "s2b",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CONTENT_TRAFFIC01": {
+        "count": "s50",
+        "path": "s51",
+        "title": "s52",
+        "uniques": "s53",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CONTENT_TRAFFIC02": {
+        "count": "s78",
+        "path": "s79",
+        "title": "s7a",
+        "uniques": "s7b",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "content_traffic": {
+      "content_traffic_ref01": {
+        "count": "sa0",
+        "path": "sa1",
+        "title": "sa2",
+        "uniques": "sa3"
+      }
+    }
+  }
+}

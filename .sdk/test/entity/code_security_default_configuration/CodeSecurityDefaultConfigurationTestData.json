@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "code_security_default_configuration": {
+      "CODE_SECURITY_DEFAULT_CONFIGURATION00": {
+        "configuration": {},
+        "default_for_new_repos": "s15",
+        "enterprise": "ENTERPRISE01",
+        "org_id": "ORG01"
+      },
+      "CODE_SECURITY_DEFAULT_CONFIGURATION01": {
+        "configuration": {},
+        "default_for_new_repos": "s29",
+        "enterprise": "ENTERPRISE01",
+        "org_id": "ORG01"
+      },
+      "CODE_SECURITY_DEFAULT_CONFIGURATION02": {
+        "configuration": {},
+        "default_for_new_repos": "s3d",
+        "enterprise": "ENTERPRISE01",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "code_security_default_configuration": {
+      "code_security_default_configuration_ref01": {
+        "configuration": {},
+        "default_for_new_repos": "s51"
+      }
+    }
+  }
+}

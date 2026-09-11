@@ -1,0 +1,27 @@
+# BasicParticipationFlow
+
+main: kit: flow: BasicParticipationFlow:
+{
+  entity: "participation",
+  kind: "basic",
+  name: "BasicParticipationFlow",
+  step: [
+    {
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "participation_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicParticipationFlow"
+}

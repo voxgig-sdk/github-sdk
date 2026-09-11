@@ -1,0 +1,47 @@
+{
+  "existing": {
+    "page_deployment": {
+      "PAGE_DEPLOYMENT00": {
+        "artifact_id": "ARTIFACT01",
+        "artifact_url": "s33",
+        "environment": "s34",
+        "oidc_token": "s35",
+        "pages_build_version": "s36",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PAGE_DEPLOYMENT00"
+      },
+      "PAGE_DEPLOYMENT01": {
+        "artifact_id": "ARTIFACT01",
+        "artifact_url": "s65",
+        "environment": "s66",
+        "oidc_token": "s67",
+        "pages_build_version": "s68",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PAGE_DEPLOYMENT01"
+      },
+      "PAGE_DEPLOYMENT02": {
+        "artifact_id": "ARTIFACT01",
+        "artifact_url": "s97",
+        "environment": "s98",
+        "oidc_token": "s99",
+        "pages_build_version": "s9a",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PAGE_DEPLOYMENT02"
+      }
+    }
+  },
+  "new": {
+    "page_deployment": {
+      "page_deployment_ref01": {
+        "artifact_id": "ARTIFACT01",
+        "artifact_url": "sc9",
+        "environment": "sca",
+        "oidc_token": "scb",
+        "pages_build_version": "scc"
+      }
+    }
+  }
+}

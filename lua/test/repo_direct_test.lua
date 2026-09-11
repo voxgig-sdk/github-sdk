@@ -70,10 +70,11 @@ describe("RepoDirect", function()
     if not setup.live then
       params["owner"] = "direct01"
       params["repo"] = "direct02"
+      params["subject_digest"] = "direct03"
     end
 
     local result, err = client:direct({
-      path = "repos/{owner}/{repo}",
+      path = "repos/{owner}/{repo}/attestations/{subject_digest}",
       method = "GET",
       params = params,
       query = query,

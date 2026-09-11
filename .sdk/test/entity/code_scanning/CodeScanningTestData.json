@@ -1,0 +1,58 @@
+{
+  "existing": {
+    "code_scanning": {
+      "CODE_SCANNING00": {
+        "checkout_uri": "s46",
+        "commit_sha": "s47",
+        "ref": "s48",
+        "sarif": "s49",
+        "started_at": "s4a",
+        "tool_name": "s4b",
+        "validate": true,
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "language": "LANGUAGE01",
+        "id": "CODE_SCANNING00"
+      },
+      "CODE_SCANNING01": {
+        "checkout_uri": "s8c",
+        "commit_sha": "s8d",
+        "ref": "s8e",
+        "sarif": "s8f",
+        "started_at": "s90",
+        "tool_name": "s91",
+        "validate": true,
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "language": "LANGUAGE01",
+        "id": "CODE_SCANNING01"
+      },
+      "CODE_SCANNING02": {
+        "checkout_uri": "sd2",
+        "commit_sha": "sd3",
+        "ref": "sd4",
+        "sarif": "sd5",
+        "started_at": "sd6",
+        "tool_name": "sd7",
+        "validate": true,
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "language": "LANGUAGE01",
+        "id": "CODE_SCANNING02"
+      }
+    }
+  },
+  "new": {
+    "code_scanning": {
+      "code_scanning_ref01": {
+        "checkout_uri": "s118",
+        "commit_sha": "s119",
+        "ref": "s11a",
+        "sarif": "s11b",
+        "started_at": "s11c",
+        "tool_name": "s11d",
+        "validate": true
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "protected_branch_admin_enforced": {
+      "PROTECTED_BRANCH_ADMIN_ENFORCED00": {
+        "enabled": true,
+        "url": "s15",
+        "branch_id": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PROTECTED_BRANCH_ADMIN_ENFORCED00"
+      },
+      "PROTECTED_BRANCH_ADMIN_ENFORCED01": {
+        "enabled": true,
+        "url": "s29",
+        "branch_id": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PROTECTED_BRANCH_ADMIN_ENFORCED01"
+      },
+      "PROTECTED_BRANCH_ADMIN_ENFORCED02": {
+        "enabled": true,
+        "url": "s3d",
+        "branch_id": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PROTECTED_BRANCH_ADMIN_ENFORCED02"
+      }
+    }
+  },
+  "new": {
+    "protected_branch_admin_enforced": {
+      "protected_branch_admin_enforced_ref01": {
+        "enabled": true,
+        "url": "s51"
+      }
+    }
+  }
+}

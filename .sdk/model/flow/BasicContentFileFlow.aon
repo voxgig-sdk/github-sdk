@@ -1,0 +1,33 @@
+# BasicContentFileFlow
+
+main: kit: flow: BasicContentFileFlow:
+{
+  entity: "content_file",
+  kind: "basic",
+  name: "BasicContentFileFlow",
+  step: [
+    {
+      input: {
+        ref: "content_file_ref01",
+        srcdatavar: "content_file_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "content_file01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-content_file_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicContentFileFlow"
+}

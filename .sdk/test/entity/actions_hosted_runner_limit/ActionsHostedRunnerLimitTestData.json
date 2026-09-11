@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "actions_hosted_runner_limit": {
+      "ACTIONS_HOSTED_RUNNER_LIMIT00": {
+        "current_usage": "s14",
+        "maximum": "s15",
+        "org_id": "ORG01",
+        "id": "ACTIONS_HOSTED_RUNNER_LIMIT00"
+      },
+      "ACTIONS_HOSTED_RUNNER_LIMIT01": {
+        "current_usage": "s28",
+        "maximum": "s29",
+        "org_id": "ORG01",
+        "id": "ACTIONS_HOSTED_RUNNER_LIMIT01"
+      },
+      "ACTIONS_HOSTED_RUNNER_LIMIT02": {
+        "current_usage": "s3c",
+        "maximum": "s3d",
+        "org_id": "ORG01",
+        "id": "ACTIONS_HOSTED_RUNNER_LIMIT02"
+      }
+    }
+  },
+  "new": {
+    "actions_hosted_runner_limit": {
+      "actions_hosted_runner_limit_ref01": {
+        "current_usage": "s50",
+        "maximum": "s51"
+      }
+    }
+  }
+}

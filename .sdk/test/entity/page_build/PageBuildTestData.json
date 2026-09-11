@@ -1,0 +1,59 @@
+{
+  "existing": {
+    "page_build": {
+      "PAGE_BUILD00": {
+        "commit": "s5a",
+        "created_at": "s5b",
+        "duration": "s5c",
+        "error": {},
+        "id": "PAGE_BUILD00",
+        "pusher": {},
+        "status": "s60",
+        "updated_at": "s61",
+        "url": "s62",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "PAGE_BUILD01": {
+        "commit": "sb4",
+        "created_at": "sb5",
+        "duration": "sb6",
+        "error": {},
+        "id": "PAGE_BUILD01",
+        "pusher": {},
+        "status": "sba",
+        "updated_at": "sbb",
+        "url": "sbc",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "PAGE_BUILD02": {
+        "commit": "s10e",
+        "created_at": "s10f",
+        "duration": "s110",
+        "error": {},
+        "id": "PAGE_BUILD02",
+        "pusher": {},
+        "status": "s114",
+        "updated_at": "s115",
+        "url": "s116",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "page_build": {
+      "page_build_ref01": {
+        "commit": "s168",
+        "created_at": "s169",
+        "duration": "s16a",
+        "error": {},
+        "pusher": {},
+        "status": "s16e",
+        "updated_at": "s16f",
+        "url": "s170"
+      }
+    }
+  }
+}

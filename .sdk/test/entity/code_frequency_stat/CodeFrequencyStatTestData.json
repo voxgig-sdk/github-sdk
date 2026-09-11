@@ -1,0 +1,23 @@
+{
+  "existing": {
+    "code_frequency_stat": {
+      "CODE_FREQUENCY_STAT00": {
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CODE_FREQUENCY_STAT01": {
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CODE_FREQUENCY_STAT02": {
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "code_frequency_stat": {
+      "code_frequency_stat_ref01": {}
+    }
+  }
+}

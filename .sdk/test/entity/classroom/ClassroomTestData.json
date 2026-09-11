@@ -1,0 +1,49 @@
+{
+  "existing": {
+    "classroom": {
+      "CLASSROOM00": {
+        "archived": true,
+        "avatar_url": "s51",
+        "html_url": "s52",
+        "id": "CLASSROOM00",
+        "login": "s54",
+        "name": "s55",
+        "node_id": "NODE01",
+        "url": "s57"
+      },
+      "CLASSROOM01": {
+        "archived": true,
+        "avatar_url": "sa1",
+        "html_url": "sa2",
+        "id": "CLASSROOM01",
+        "login": "sa4",
+        "name": "sa5",
+        "node_id": "NODE01",
+        "url": "sa7"
+      },
+      "CLASSROOM02": {
+        "archived": true,
+        "avatar_url": "sf1",
+        "html_url": "sf2",
+        "id": "CLASSROOM02",
+        "login": "sf4",
+        "name": "sf5",
+        "node_id": "NODE01",
+        "url": "sf7"
+      }
+    }
+  },
+  "new": {
+    "classroom": {
+      "classroom_ref01": {
+        "archived": true,
+        "avatar_url": "s141",
+        "html_url": "s142",
+        "login": "s144",
+        "name": "s145",
+        "node_id": "NODE01",
+        "url": "s147"
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "existing": {
+    "campaign": {
+      "CAMPAIGN00": {
+        "alert_stats": {},
+        "closed_at": "sa1",
+        "code_scanning_alerts": [],
+        "contact_link": "sa3",
+        "created_at": "sa4",
+        "description": "sa5",
+        "ends_at": "sa6",
+        "generate_issues": false,
+        "id": "CAMPAIGN00",
+        "managers": [],
+        "name": "saa",
+        "number": "sab",
+        "published_at": "sac",
+        "state": "sad",
+        "team_managers": [],
+        "updated_at": "saf",
+        "org_id": "ORG01"
+      },
+      "CAMPAIGN01": {
+        "alert_stats": {},
+        "closed_at": "s141",
+        "code_scanning_alerts": [],
+        "contact_link": "s143",
+        "created_at": "s144",
+        "description": "s145",
+        "ends_at": "s146",
+        "generate_issues": false,
+        "id": "CAMPAIGN01",
+        "managers": [],
+        "name": "s14a",
+        "number": "s14b",
+        "published_at": "s14c",
+        "state": "s14d",
+        "team_managers": [],
+        "updated_at": "s14f",
+        "org_id": "ORG01"
+      },
+      "CAMPAIGN02": {
+        "alert_stats": {},
+        "closed_at": "s1e1",
+        "code_scanning_alerts": [],
+        "contact_link": "s1e3",
+        "created_at": "s1e4",
+        "description": "s1e5",
+        "ends_at": "s1e6",
+        "generate_issues": false,
+        "id": "CAMPAIGN02",
+        "managers": [],
+        "name": "s1ea",
+        "number": "s1eb",
+        "published_at": "s1ec",
+        "state": "s1ed",
+        "team_managers": [],
+        "updated_at": "s1ef",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "campaign": {
+      "campaign_ref01": {
+        "alert_stats": {},
+        "closed_at": "s281",
+        "code_scanning_alerts": [],
+        "contact_link": "s283",
+        "created_at": "s284",
+        "description": "s285",
+        "ends_at": "s286",
+        "generate_issues": false,
+        "managers": [],
+        "name": "s28a",
+        "number": "s28b",
+        "published_at": "s28c",
+        "state": "s28d",
+        "team_managers": [],
+        "updated_at": "s28f"
+      }
+    }
+  }
+}

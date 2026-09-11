@@ -1,0 +1,33 @@
+# BasicDependencyGraphSpdxSbomFlow
+
+main: kit: flow: BasicDependencyGraphSpdxSbomFlow:
+{
+  entity: "dependency_graph_spdx_sbom",
+  kind: "basic",
+  name: "BasicDependencyGraphSpdxSbomFlow",
+  step: [
+    {
+      input: {
+        ref: "dependency_graph_spdx_sbom_ref01",
+        srcdatavar: "dependency_graph_spdx_sbom_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "dependency_graph_spdx_sbom01",
+        owner: "owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-dependency_graph_spdx_sbom_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDependencyGraphSpdxSbomFlow"
+}

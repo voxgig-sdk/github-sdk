@@ -1,0 +1,99 @@
+# Entity: actions_cache_usage_by_repository
+
+main: kit: entity: actions_cache_usage_by_repository: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "active_caches_count"
+      req: true
+      short: "The number of active caches in the repository."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "active_caches_size_in_bytes"
+      req: true
+      short: "The sum of the size in bytes of all the active cache items in the repository."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "full_name"
+      req: true
+      short: "The repository owner and name for the cache usage being shown."
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "actions_cache_usage_by_repository"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/cache/usage"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "cache"
+            }
+            {
+              lit: "usage"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

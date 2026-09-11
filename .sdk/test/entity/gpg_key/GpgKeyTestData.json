@@ -1,0 +1,84 @@
+{
+  "existing": {
+    "gpg_key": {
+      "GPG_KEY00": {
+        "armored_public_key": "sa0",
+        "can_certify": false,
+        "can_encrypt_comms": true,
+        "can_encrypt_storage": false,
+        "can_sign": true,
+        "created_at": "sa5",
+        "emails": [],
+        "expires_at": "sa7",
+        "id": "GPG_KEY00",
+        "key_id": "KEY01",
+        "name": "saa",
+        "primary_key_id": "PRIMARY_KEY01",
+        "public_key": "sac",
+        "raw_key": "sad",
+        "revoked": true,
+        "subkeys": [],
+        "username": "USERNAME01"
+      },
+      "GPG_KEY01": {
+        "armored_public_key": "s140",
+        "can_certify": false,
+        "can_encrypt_comms": true,
+        "can_encrypt_storage": false,
+        "can_sign": true,
+        "created_at": "s145",
+        "emails": [],
+        "expires_at": "s147",
+        "id": "GPG_KEY01",
+        "key_id": "KEY01",
+        "name": "s14a",
+        "primary_key_id": "PRIMARY_KEY01",
+        "public_key": "s14c",
+        "raw_key": "s14d",
+        "revoked": true,
+        "subkeys": [],
+        "username": "USERNAME01"
+      },
+      "GPG_KEY02": {
+        "armored_public_key": "s1e0",
+        "can_certify": false,
+        "can_encrypt_comms": true,
+        "can_encrypt_storage": false,
+        "can_sign": true,
+        "created_at": "s1e5",
+        "emails": [],
+        "expires_at": "s1e7",
+        "id": "GPG_KEY02",
+        "key_id": "KEY01",
+        "name": "s1ea",
+        "primary_key_id": "PRIMARY_KEY01",
+        "public_key": "s1ec",
+        "raw_key": "s1ed",
+        "revoked": true,
+        "subkeys": [],
+        "username": "USERNAME01"
+      }
+    }
+  },
+  "new": {
+    "gpg_key": {
+      "gpg_key_ref01": {
+        "armored_public_key": "s280",
+        "can_certify": false,
+        "can_encrypt_comms": true,
+        "can_encrypt_storage": false,
+        "can_sign": true,
+        "created_at": "s285",
+        "emails": [],
+        "expires_at": "s287",
+        "key_id": "KEY01",
+        "name": "s28a",
+        "primary_key_id": "PRIMARY_KEY01",
+        "public_key": "s28c",
+        "raw_key": "s28d",
+        "revoked": true,
+        "subkeys": []
+      }
+    }
+  }
+}

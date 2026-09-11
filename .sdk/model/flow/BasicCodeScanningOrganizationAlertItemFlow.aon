@@ -1,0 +1,26 @@
+# BasicCodeScanningOrganizationAlertItemFlow
+
+main: kit: flow: BasicCodeScanningOrganizationAlertItemFlow:
+{
+  entity: "code_scanning_organization_alert_item",
+  kind: "basic",
+  name: "BasicCodeScanningOrganizationAlertItemFlow",
+  step: [
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "code_scanning_organization_alert_item_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCodeScanningOrganizationAlertItemFlow"
+}

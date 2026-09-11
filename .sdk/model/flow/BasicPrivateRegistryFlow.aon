@@ -1,0 +1,71 @@
+# BasicPrivateRegistryFlow
+
+main: kit: flow: BasicPrivateRegistryFlow:
+{
+  entity: "private_registry",
+  kind: "basic",
+  name: "BasicPrivateRegistryFlow",
+  step: [
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "private_registry_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        org_id: "org01"
+      }
+
+      input: {
+        ref: "private_registry_ref01",
+        srcdatavar: "private_registry_ref01_data",
+        suffix: "_up0",
+        textfield: "created_at"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-private_registry_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "private_registry_ref01",
+        srcdatavar: "private_registry_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "private_registry01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-private_registry_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPrivateRegistryFlow"
+}

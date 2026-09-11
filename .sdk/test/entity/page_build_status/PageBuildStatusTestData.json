@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "page_build_status": {
+      "PAGE_BUILD_STATUS00": {
+        "status": "s14",
+        "url": "s15",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PAGE_BUILD_STATUS00"
+      },
+      "PAGE_BUILD_STATUS01": {
+        "status": "s28",
+        "url": "s29",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PAGE_BUILD_STATUS01"
+      },
+      "PAGE_BUILD_STATUS02": {
+        "status": "s3c",
+        "url": "s3d",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PAGE_BUILD_STATUS02"
+      }
+    }
+  },
+  "new": {
+    "page_build_status": {
+      "page_build_status_ref01": {
+        "status": "s50",
+        "url": "s51"
+      }
+    }
+  }
+}

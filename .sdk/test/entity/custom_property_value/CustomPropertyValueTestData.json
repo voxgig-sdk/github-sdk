@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "custom_property_value": {
+      "CUSTOM_PROPERTY_VALUE00": {
+        "property_name": "s14",
+        "value": "s15",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CUSTOM_PROPERTY_VALUE01": {
+        "property_name": "s28",
+        "value": "s29",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CUSTOM_PROPERTY_VALUE02": {
+        "property_name": "s3c",
+        "value": "s3d",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "custom_property_value": {
+      "custom_property_value_ref01": {
+        "property_name": "s50",
+        "value": "s51"
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+# BasicOrgPrivateRegistryConfigurationFlow
+
+main: kit: flow: BasicOrgPrivateRegistryConfigurationFlow:
+{
+  entity: "org_private_registry_configuration",
+  kind: "basic",
+  name: "BasicOrgPrivateRegistryConfigurationFlow",
+  step: [
+    {
+      input: {
+        ref: "org_private_registry_configuration_ref01",
+        srcdatavar: "org_private_registry_configuration_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "org_private_registry_configuration01",
+        org_id: "org01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-org_private_registry_configuration_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOrgPrivateRegistryConfigurationFlow"
+}

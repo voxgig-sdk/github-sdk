@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "pages_health_check": {
+      "PAGES_HEALTH_CHECK00": {
+        "alt_domain": {},
+        "domain": {},
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PAGES_HEALTH_CHECK00"
+      },
+      "PAGES_HEALTH_CHECK01": {
+        "alt_domain": {},
+        "domain": {},
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PAGES_HEALTH_CHECK01"
+      },
+      "PAGES_HEALTH_CHECK02": {
+        "alt_domain": {},
+        "domain": {},
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "PAGES_HEALTH_CHECK02"
+      }
+    }
+  },
+  "new": {
+    "pages_health_check": {
+      "pages_health_check_ref01": {
+        "alt_domain": {},
+        "domain": {}
+      }
+    }
+  }
+}

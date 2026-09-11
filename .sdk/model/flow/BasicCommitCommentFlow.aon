@@ -1,0 +1,89 @@
+# BasicCommitCommentFlow
+
+main: kit: flow: BasicCommitCommentFlow:
+{
+  entity: "commit_comment",
+  kind: "basic",
+  name: "BasicCommitCommentFlow",
+  step: [
+    {
+      input: {
+        ref: "commit_comment_ref01"
+      }
+
+      match: {
+        commit_sha: "commit_sha01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "commit_comment_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      input: {
+        ref: "commit_comment_ref01",
+        srcdatavar: "commit_comment_ref01_data",
+        suffix: "_up0",
+        textfield: "author_association"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-commit_comment_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "commit_comment_ref01",
+        srcdatavar: "commit_comment_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "commit_comment01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-commit_comment_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCommitCommentFlow"
+}

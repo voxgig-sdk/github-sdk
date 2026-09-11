@@ -1,0 +1,48 @@
+# BasicMarketplacePurchaseFlow
+
+main: kit: flow: BasicMarketplacePurchaseFlow:
+{
+  entity: "marketplace_purchase",
+  kind: "basic",
+  name: "BasicMarketplacePurchaseFlow",
+  step: [
+    {
+      match: {
+        plan_id: "plan01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "marketplace_purchase_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "marketplace_purchase_ref01",
+        srcdatavar: "marketplace_purchase_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "marketplace_purchase01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-marketplace_purchase_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMarketplacePurchaseFlow"
+}

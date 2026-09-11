@@ -1,0 +1,47 @@
+# BasicGitCommitFlow
+
+main: kit: flow: BasicGitCommitFlow:
+{
+  entity: "git_commit",
+  kind: "basic",
+  name: "BasicGitCommitFlow",
+  step: [
+    {
+      input: {
+        ref: "git_commit_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "git_commit_ref01",
+        srcdatavar: "git_commit_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "git_commit01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-git_commit_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGitCommitFlow"
+}

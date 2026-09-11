@@ -12,13 +12,24 @@ main: kit: flow: BasicRepoFlow:
       }
 
       match: {
-        owner: "owner01"
+        branch_id: "branch01",
+        environment_id: "environment01",
+        environment_name: "environment_name01",
+        org_id: "org01",
+        owner: "owner01",
+        repo: "repo01"
       }
 
       op: "create"
     }
 
     {
+      match: {
+        environment_name: "environment_name01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
       op: "list",
       valid: [
         {
@@ -83,8 +94,7 @@ main: kit: flow: BasicRepoFlow:
       }
 
       match: {
-        id: "repo01",
-        owner: "owner01"
+        id: "repo01"
       }
 
       op: "remove"
@@ -93,6 +103,12 @@ main: kit: flow: BasicRepoFlow:
     {
       input: {
         suffix: "_rt0"
+      }
+
+      match: {
+        environment_name: "environment_name01",
+        owner: "owner01",
+        repo: "repo01"
       }
 
       op: "list",

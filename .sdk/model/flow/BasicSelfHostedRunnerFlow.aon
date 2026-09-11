@@ -1,0 +1,32 @@
+# BasicSelfHostedRunnerFlow
+
+main: kit: flow: BasicSelfHostedRunnerFlow:
+{
+  entity: "self_hosted_runner",
+  kind: "basic",
+  name: "BasicSelfHostedRunnerFlow",
+  step: [
+    {
+      input: {
+        ref: "self_hosted_runner_ref01",
+        srcdatavar: "self_hosted_runner_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "self_hosted_runner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-self_hosted_runner_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSelfHostedRunnerFlow"
+}

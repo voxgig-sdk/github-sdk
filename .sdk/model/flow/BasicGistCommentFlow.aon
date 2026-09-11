@@ -1,0 +1,84 @@
+# BasicGistCommentFlow
+
+main: kit: flow: BasicGistCommentFlow:
+{
+  entity: "gist_comment",
+  kind: "basic",
+  name: "BasicGistCommentFlow",
+  step: [
+    {
+      input: {
+        ref: "gist_comment_ref01"
+      }
+
+      match: {
+        gist_id: "gist01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        gist_id: "gist01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "gist_comment_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        gist_id: "gist01"
+      }
+
+      input: {
+        ref: "gist_comment_ref01",
+        srcdatavar: "gist_comment_ref01_data",
+        suffix: "_up0",
+        textfield: "author_association"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-gist_comment_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "gist_comment_ref01",
+        srcdatavar: "gist_comment_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        gist_id: "gist01",
+        id: "gist_comment01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-gist_comment_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGistCommentFlow"
+}

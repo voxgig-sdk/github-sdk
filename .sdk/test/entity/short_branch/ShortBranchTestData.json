@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "short_branch": {
+      "SHORT_BRANCH00": {
+        "commit": {},
+        "name": "s33",
+        "protected": true,
+        "protection": {},
+        "protection_url": "s36",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "SHORT_BRANCH01": {
+        "commit": {},
+        "name": "s65",
+        "protected": true,
+        "protection": {},
+        "protection_url": "s68",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "SHORT_BRANCH02": {
+        "commit": {},
+        "name": "s97",
+        "protected": true,
+        "protection": {},
+        "protection_url": "s9a",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "short_branch": {
+      "short_branch_ref01": {
+        "commit": {},
+        "name": "sc9",
+        "protected": true,
+        "protection": {},
+        "protection_url": "scc"
+      }
+    }
+  }
+}

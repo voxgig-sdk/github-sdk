@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "installation_token": {
+      "INSTALLATION_TOKEN00": {
+        "id": "INSTALLATION_TOKEN00",
+        "permissions": {},
+        "repositories": [],
+        "repository_ids": []
+      },
+      "INSTALLATION_TOKEN01": {
+        "id": "INSTALLATION_TOKEN01",
+        "permissions": {},
+        "repositories": [],
+        "repository_ids": []
+      },
+      "INSTALLATION_TOKEN02": {
+        "id": "INSTALLATION_TOKEN02",
+        "permissions": {},
+        "repositories": [],
+        "repository_ids": []
+      }
+    }
+  },
+  "new": {
+    "installation_token": {
+      "installation_token_ref01": {
+        "permissions": {},
+        "repositories": [],
+        "repository_ids": []
+      }
+    }
+  }
+}

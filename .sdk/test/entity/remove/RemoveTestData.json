@@ -1,0 +1,31 @@
+{
+  "existing": {
+    "remove": {
+      "REMOVE00": {
+        "usernames": [],
+        "enterprise": "ENTERPRISE01",
+        "team_id": "TEAM01",
+        "id": "REMOVE00"
+      },
+      "REMOVE01": {
+        "usernames": [],
+        "enterprise": "ENTERPRISE01",
+        "team_id": "TEAM01",
+        "id": "REMOVE01"
+      },
+      "REMOVE02": {
+        "usernames": [],
+        "enterprise": "ENTERPRISE01",
+        "team_id": "TEAM01",
+        "id": "REMOVE02"
+      }
+    }
+  },
+  "new": {
+    "remove": {
+      "remove_ref01": {
+        "usernames": []
+      }
+    }
+  }
+}

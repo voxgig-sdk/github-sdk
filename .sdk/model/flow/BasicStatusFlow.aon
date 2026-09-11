@@ -1,0 +1,43 @@
+# BasicStatusFlow
+
+main: kit: flow: BasicStatusFlow:
+{
+  entity: "status",
+  kind: "basic",
+  name: "BasicStatusFlow",
+  step: [
+    {
+      input: {
+        ref: "status_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        ref: "ref01",
+        repo: "repo01",
+        sha: "sha01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        owner: "owner01",
+        ref: "ref01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "status_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicStatusFlow"
+}

@@ -1,0 +1,49 @@
+{
+  "existing": {
+    "org_private_registry_configuration_with_selected_repository": {
+      "ORG_PRIVATE_REGISTRY_CONFIGURATION_WITH_SELECTED_REPOSITORY00": {
+        "encrypted_value": "s50",
+        "id": "ORG_PRIVATE_REGISTRY_CONFIGURATION_WITH_SELECTED_REPOSITORY00",
+        "key_id": "KEY01",
+        "registry_type": "s53",
+        "selected_repository_ids": [],
+        "url": "s55",
+        "username": "s56",
+        "visibility": "s57"
+      },
+      "ORG_PRIVATE_REGISTRY_CONFIGURATION_WITH_SELECTED_REPOSITORY01": {
+        "encrypted_value": "sa0",
+        "id": "ORG_PRIVATE_REGISTRY_CONFIGURATION_WITH_SELECTED_REPOSITORY01",
+        "key_id": "KEY01",
+        "registry_type": "sa3",
+        "selected_repository_ids": [],
+        "url": "sa5",
+        "username": "sa6",
+        "visibility": "sa7"
+      },
+      "ORG_PRIVATE_REGISTRY_CONFIGURATION_WITH_SELECTED_REPOSITORY02": {
+        "encrypted_value": "sf0",
+        "id": "ORG_PRIVATE_REGISTRY_CONFIGURATION_WITH_SELECTED_REPOSITORY02",
+        "key_id": "KEY01",
+        "registry_type": "sf3",
+        "selected_repository_ids": [],
+        "url": "sf5",
+        "username": "sf6",
+        "visibility": "sf7"
+      }
+    }
+  },
+  "new": {
+    "org_private_registry_configuration_with_selected_repository": {
+      "org_private_registry_configuration_with_selected_repository_ref01": {
+        "encrypted_value": "s140",
+        "key_id": "KEY01",
+        "registry_type": "s143",
+        "selected_repository_ids": [],
+        "url": "s145",
+        "username": "s146",
+        "visibility": "s147"
+      }
+    }
+  }
+}

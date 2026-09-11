@@ -1,0 +1,23 @@
+# BasicPageDeploymentFlow
+
+main: kit: flow: BasicPageDeploymentFlow:
+{
+  entity: "page_deployment",
+  kind: "basic",
+  name: "BasicPageDeploymentFlow",
+  step: [
+    {
+      input: {
+        ref: "page_deployment_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicPageDeploymentFlow"
+}

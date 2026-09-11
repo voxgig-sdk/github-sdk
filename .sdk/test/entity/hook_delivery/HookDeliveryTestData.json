@@ -1,0 +1,89 @@
+{
+  "existing": {
+    "hook_delivery": {
+      "HOOK_DELIVERY00": {
+        "action": "s96",
+        "delivered_at": "s97",
+        "duration": 152,
+        "event": "s99",
+        "guid": "s9a",
+        "id": "HOOK_DELIVERY00",
+        "installation_id": "INSTALLATION01",
+        "redelivery": false,
+        "repository_id": "REPOSITORY01",
+        "request": {},
+        "response": {},
+        "status": "sa1",
+        "status_code": "sa2",
+        "throttled_at": "sa3",
+        "url": "sa4",
+        "hook_id": "HOOK01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      },
+      "HOOK_DELIVERY01": {
+        "action": "s12c",
+        "delivered_at": "s12d",
+        "duration": 302,
+        "event": "s12f",
+        "guid": "s130",
+        "id": "HOOK_DELIVERY01",
+        "installation_id": "INSTALLATION01",
+        "redelivery": false,
+        "repository_id": "REPOSITORY01",
+        "request": {},
+        "response": {},
+        "status": "s137",
+        "status_code": "s138",
+        "throttled_at": "s139",
+        "url": "s13a",
+        "hook_id": "HOOK01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      },
+      "HOOK_DELIVERY02": {
+        "action": "s1c2",
+        "delivered_at": "s1c3",
+        "duration": 452,
+        "event": "s1c5",
+        "guid": "s1c6",
+        "id": "HOOK_DELIVERY02",
+        "installation_id": "INSTALLATION01",
+        "redelivery": false,
+        "repository_id": "REPOSITORY01",
+        "request": {},
+        "response": {},
+        "status": "s1cd",
+        "status_code": "s1ce",
+        "throttled_at": "s1cf",
+        "url": "s1d0",
+        "hook_id": "HOOK01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "hook_delivery": {
+      "hook_delivery_ref01": {
+        "action": "s258",
+        "delivered_at": "s259",
+        "duration": 602,
+        "event": "s25b",
+        "guid": "s25c",
+        "installation_id": "INSTALLATION01",
+        "redelivery": false,
+        "repository_id": "REPOSITORY01",
+        "request": {},
+        "response": {},
+        "status": "s263",
+        "status_code": "s264",
+        "throttled_at": "s265",
+        "url": "s266"
+      }
+    }
+  }
+}

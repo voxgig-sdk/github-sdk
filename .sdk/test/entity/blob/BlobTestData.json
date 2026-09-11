@@ -1,0 +1,55 @@
+{
+  "existing": {
+    "blob": {
+      "BLOB00": {
+        "content": "s50",
+        "encoding": "s51",
+        "highlighted_content": "s52",
+        "id": "BLOB00",
+        "node_id": "NODE01",
+        "sha": "s55",
+        "size": "s56",
+        "url": "s57",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "BLOB01": {
+        "content": "sa0",
+        "encoding": "sa1",
+        "highlighted_content": "sa2",
+        "id": "BLOB01",
+        "node_id": "NODE01",
+        "sha": "sa5",
+        "size": "sa6",
+        "url": "sa7",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "BLOB02": {
+        "content": "sf0",
+        "encoding": "sf1",
+        "highlighted_content": "sf2",
+        "id": "BLOB02",
+        "node_id": "NODE01",
+        "sha": "sf5",
+        "size": "sf6",
+        "url": "sf7",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "blob": {
+      "blob_ref01": {
+        "content": "s140",
+        "encoding": "s141",
+        "highlighted_content": "s142",
+        "node_id": "NODE01",
+        "sha": "s145",
+        "size": "s146",
+        "url": "s147"
+      }
+    }
+  }
+}

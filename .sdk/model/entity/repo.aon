@@ -4,6 +4,12 @@ main: kit: entity: repo: {
 
   alias: field: {}
 
+  alias: {
+    field: {
+      github_id: "id"
+    }
+  }
+
   fields: [
     {
       name: "allow_auto_merge"
@@ -14,7 +20,7 @@ main: kit: entity: repo: {
     {
       name: "allow_forking"
       req: false
-      short: "Either `true` to allow private forks, or `false` to prevent private forks."
+      short: "Whether to allow forking this repo"
       type: "`$BOOLEAN`"
     }
     {
@@ -38,14 +44,20 @@ main: kit: entity: repo: {
     {
       name: "allow_update_branch"
       req: false
-      short: "Either `true` to always allow a pull request head branch that is behind its base branch to be updated even if it is not required to be up to date before merging, or false otherwise."
+      short: "Whether or not a pull request head branch that is behind its base branch can always be updated even if it is not required to be up to date before merging."
       type: "`$BOOLEAN`"
     }
     {
       name: "anonymous_access_enabled"
       req: false
-      short: "Whether anonymous git access is allowed."
+      short: "Whether anonymous git access is enabled for this repository"
       type: "`$BOOLEAN`"
+    }
+    {
+      name: "app"
+      req: true
+      short: "A GitHub App that is providing a custom deployment protection rule."
+      type: "`$OBJECT`"
     }
     {
       name: "archive_url"
@@ -54,14 +66,8 @@ main: kit: entity: repo: {
     }
     {
       name: "archived"
-      op: {
-        update: {
-          req: false
-          type: "`$BOOLEAN`"
-        }
-      }
       req: true
-      short: "Whether to archive this repository."
+      short: "Whether the repository is archived."
       type: "`$BOOLEAN`"
     }
     {
@@ -70,10 +76,9 @@ main: kit: entity: repo: {
       type: "`$STRING`"
     }
     {
-      name: "auto_init"
+      name: "attestations"
       req: false
-      short: "Whether the repository is initialized with a minimal README."
-      type: "`$BOOLEAN`"
+      type: "`$ARRAY`"
     }
     {
       name: "blobs_url"
@@ -86,15 +91,33 @@ main: kit: entity: repo: {
       type: "`$STRING`"
     }
     {
+      name: "build_type"
+      req: false
+      short: "The process by which the GitHub Pages site will be built."
+      type: "`$STRING`"
+    }
+    {
+      name: "bundle"
+      req: true
+      short: "The attestation's Sigstore Bundle."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "client_payload"
+      req: false
+      short: "JSON payload with extra information about the webhook event that your action or workflow may use."
+      type: "`$OBJECT`"
+    }
+    {
       name: "clone_url"
       req: true
       type: "`$STRING`"
     }
     {
-      name: "code_of_conduct"
-      req: true
-      short: "Code of Conduct Simple"
-      type: "`$OBJECT`"
+      name: "cname"
+      req: false
+      short: "Specify a custom domain for the repository."
+      type: "`$STRING`"
     }
     {
       name: "code_search_index_status"
@@ -123,6 +146,11 @@ main: kit: entity: repo: {
       type: "`$STRING`"
     }
     {
+      name: "content"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "contents_url"
       req: true
       type: "`$STRING`"
@@ -137,31 +165,32 @@ main: kit: entity: repo: {
       format: "date-time"
       name: "created_at"
       req: true
+      short: "The time that the environment was created, in ISO 8601 format."
       type: "`$STRING`"
-    }
-    {
-      name: "custom_properties"
-      req: false
-      short: "The custom properties that were defined for the repository."
-      type: "`$OBJECT`"
     }
     {
       name: "default_branch"
-      op: {
-        update: {
-          req: false
-          type: "`$STRING`"
-        }
-      }
       req: true
-      short: "Updates the default branch for this repository."
+      short: "The default branch of the repository."
       type: "`$STRING`"
+    }
+    {
+      name: "default_branch_only"
+      req: false
+      short: "When forking from an existing repository, fork with only the default branch."
+      type: "`$BOOLEAN`"
     }
     {
       name: "delete_branch_on_merge"
       req: false
       short: "Whether to delete head branches when pull requests are merged"
       type: "`$BOOLEAN`"
+    }
+    {
+      name: "deployment_branch_policy"
+      req: true
+      short: "The type of deployment branch policy for this environment."
+      type: "`$OBJECT`"
     }
     {
       format: "uri"
@@ -171,18 +200,7 @@ main: kit: entity: repo: {
     }
     {
       name: "description"
-      op: {
-        create: {
-          req: false
-          type: "`$STRING`"
-        }
-        update: {
-          req: false
-          type: "`$STRING`"
-        }
-      }
       req: true
-      short: "A short description of the repository."
       type: "`$STRING`"
     }
     {
@@ -192,9 +210,31 @@ main: kit: entity: repo: {
       type: "`$BOOLEAN`"
     }
     {
+      name: "download_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       format: "uri"
       name: "downloads_url"
       req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "enabled"
+      req: true
+      short: "Whether or not private vulnerability reporting is enabled for the repository."
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "encoding"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "event_type"
+      req: true
+      short: "A custom webhook event name."
       type: "`$STRING`"
     }
     {
@@ -246,56 +286,43 @@ main: kit: entity: repo: {
     }
     {
       name: "git_url"
-      req: true
-      type: "`$STRING`"
-    }
-    {
-      name: "gitignore_template"
-      req: false
-      short: "The desired language or platform to apply to the .gitignore."
-      type: "`$STRING`"
-    }
-    {
-      name: "has_discussions"
       op: {
-        create: {
-          req: false
-          type: "`$BOOLEAN`"
+        list: {
+          req: true
+          type: "`$STRING`"
         }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "github_id"
+      op: {
         list: {
           req: false
-          type: "`$BOOLEAN`"
+          type: "`$INTEGER`"
         }
       }
       req: true
+      short: "Unique identifier of the repository"
+      type: "`$INTEGER`"
+    }
+    {
+      name: "has_discussions"
+      req: false
       short: "Whether discussions are enabled."
       type: "`$BOOLEAN`"
     }
     {
       deprecated: true
       name: "has_downloads"
-      op: {
-        list: {
-          req: true
-          type: "`$BOOLEAN`"
-        }
-      }
-      req: false
+      req: true
       short: "Whether downloads are enabled."
       type: "`$BOOLEAN`"
     }
     {
       name: "has_issues"
-      op: {
-        create: {
-          req: false
-          type: "`$BOOLEAN`"
-        }
-        update: {
-          req: false
-          type: "`$BOOLEAN`"
-        }
-      }
       req: true
       short: "Whether issues are enabled."
       type: "`$BOOLEAN`"
@@ -307,38 +334,12 @@ main: kit: entity: repo: {
     }
     {
       name: "has_projects"
-      op: {
-        create: {
-          req: false
-          type: "`$BOOLEAN`"
-        }
-        update: {
-          req: false
-          type: "`$BOOLEAN`"
-        }
-      }
       req: true
       short: "Whether projects are enabled."
       type: "`$BOOLEAN`"
     }
     {
-      name: "has_pull_requests"
-      req: false
-      short: "Either `true` to allow pull requests for this repository or `false` to prevent pull requests."
-      type: "`$BOOLEAN`"
-    }
-    {
       name: "has_wiki"
-      op: {
-        create: {
-          req: false
-          type: "`$BOOLEAN`"
-        }
-        update: {
-          req: false
-          type: "`$BOOLEAN`"
-        }
-      }
       req: true
       short: "Whether the wiki is enabled."
       type: "`$BOOLEAN`"
@@ -346,18 +347,7 @@ main: kit: entity: repo: {
     {
       format: "uri"
       name: "homepage"
-      op: {
-        create: {
-          req: false
-          type: "`$STRING`"
-        }
-        update: {
-          req: false
-          type: "`$STRING`"
-        }
-      }
       req: true
-      short: "A URL with more information about the repository."
       type: "`$STRING`"
     }
     {
@@ -369,15 +359,37 @@ main: kit: entity: repo: {
     {
       format: "uri"
       name: "html_url"
-      req: true
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
       type: "`$STRING`"
     }
     {
-      format: "int64"
+      name: "https_enforced"
+      req: false
+      short: "Specify whether HTTPS should be enforced for the repository."
+      type: "`$BOOLEAN`"
+    }
+    {
       name: "id"
+      op: {
+        list: {
+          req: false
+        }
+      }
       req: true
       short: "Unique identifier of the repository"
-      type: "`$INTEGER`"
+      type: "`$STRING`"
+    }
+    {
+      name: "integration_url"
+      req: true
+      short: "The URL for the endpoint to get details about the app."
+      type: "`$STRING`"
     }
     {
       name: "is_template"
@@ -428,10 +440,9 @@ main: kit: entity: repo: {
       type: "`$OBJECT`"
     }
     {
-      name: "license_template"
+      name: "links"
       req: false
-      short: "The license keyword of the open source license for this repository."
-      type: "`$STRING`"
+      type: "`$OBJECT`"
     }
     {
       name: "master_branch"
@@ -470,23 +481,37 @@ main: kit: entity: repo: {
     {
       name: "name"
       op: {
-        update: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "When forking from an existing repository, a new name for the fork."
+      type: "`$STRING`"
+    }
+    {
+      name: "new_name"
+      req: false
+      short: "The new name to be given to the repository."
+      type: "`$STRING`"
+    }
+    {
+      name: "new_owner"
+      req: true
+      short: "The username or organization name the repository will be transferred to."
+      type: "`$STRING`"
+    }
+    {
+      name: "node_id"
+      op: {
+        list: {
           req: false
           type: "`$STRING`"
         }
       }
       req: true
-      short: "The name of the repository."
-      type: "`$STRING`"
-    }
-    {
-      name: "network_count"
-      req: true
-      type: "`$INTEGER`"
-    }
-    {
-      name: "node_id"
-      req: true
+      short: "The node ID for the deployment protection rule integration."
       type: "`$STRING`"
     }
     {
@@ -506,9 +531,9 @@ main: kit: entity: repo: {
     }
     {
       name: "organization"
-      req: true
-      short: "A GitHub user."
-      type: "`$OBJECT`"
+      req: false
+      short: "Optional parameter to specify the organization name if forking into an organization."
+      type: "`$STRING`"
     }
     {
       name: "owner"
@@ -517,10 +542,9 @@ main: kit: entity: repo: {
       type: "`$OBJECT`"
     }
     {
-      name: "parent"
-      req: true
-      short: "A repository on GitHub."
-      type: "`$OBJECT`"
+      name: "path"
+      req: false
+      type: "`$STRING`"
     }
     {
       name: "permissions"
@@ -529,25 +553,31 @@ main: kit: entity: repo: {
     }
     {
       name: "private"
-      op: {
-        create: {
-          req: false
-          type: "`$BOOLEAN`"
-        }
-        update: {
-          req: false
-          type: "`$BOOLEAN`"
-        }
-      }
       req: true
-      short: "Whether the repository is private."
+      short: "Whether the repository is private or public."
       type: "`$BOOLEAN`"
     }
     {
-      name: "pull_request_creation_policy"
+      name: "properties"
+      req: true
+      short: "A list of custom property names and associated values to apply to the repositories."
+      type: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 3
+      }
+    }
+    {
+      name: "protection_rules"
       req: false
-      short: "The policy controlling who can create pull requests: all or collaborators_only."
-      type: "`$STRING`"
+      short: "Built-in deployment protection rules for the environment."
+      type: "`$ARRAY`"
+      union: {
+        branches: 3
+        count: 2
+        depth: 8
+      }
     }
     {
       name: "pulls_url"
@@ -566,22 +596,37 @@ main: kit: entity: repo: {
       type: "`$STRING`"
     }
     {
-      name: "security_and_analysis"
+      name: "sha"
       req: false
-      short: "Specify which security and analysis features to enable or disable for the repository."
-      type: "`$OBJECT`"
+      type: "`$STRING`"
     }
     {
       name: "size"
-      req: true
+      op: {
+        list: {
+          req: true
+          type: "`$INTEGER`"
+        }
+      }
+      req: false
       short: "The size of the repository, in kilobytes."
       type: "`$INTEGER`"
     }
     {
-      name: "source"
+      name: "slug"
       req: true
-      short: "A repository on GitHub."
-      type: "`$OBJECT`"
+      short: "The slugified name of the deployment protection rule integration."
+      type: "`$STRING`"
+    }
+    {
+      name: "source"
+      req: false
+      type: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
     }
     {
       name: "squash_merge_commit_message"
@@ -622,11 +667,6 @@ main: kit: entity: repo: {
       type: "`$STRING`"
     }
     {
-      name: "subscribers_count"
-      req: true
-      type: "`$INTEGER`"
-    }
-    {
       format: "uri"
       name: "subscribers_url"
       req: true
@@ -651,10 +691,10 @@ main: kit: entity: repo: {
       type: "`$STRING`"
     }
     {
-      name: "team_id"
+      name: "team_ids"
       req: false
-      short: "The id of the team that will be granted access to this repository."
-      type: "`$INTEGER`"
+      short: "ID of the team or teams to add to the repository."
+      type: "`$ARRAY`"
     }
     {
       format: "uri"
@@ -668,12 +708,6 @@ main: kit: entity: repo: {
       type: "`$STRING`"
     }
     {
-      name: "template_repository"
-      req: true
-      short: "A repository on GitHub."
-      type: "`$OBJECT`"
-    }
-    {
       name: "topics"
       req: false
       type: "`$ARRAY`"
@@ -684,22 +718,35 @@ main: kit: entity: repo: {
       type: "`$STRING`"
     }
     {
+      name: "type"
+      req: false
+      short: "Whether this rule targets a branch or tag."
+      type: "`$STRING`"
+    }
+    {
       format: "date-time"
       name: "updated_at"
       req: true
+      short: "The time that the environment was last updated, in ISO 8601 format."
       type: "`$STRING`"
     }
     {
       format: "uri"
       name: "url"
-      req: true
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
       type: "`$STRING`"
     }
     {
       deprecated: true
       name: "use_squash_pr_title_as_default"
       req: false
-      short: "Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message."
+      short: "Whether a squash merge commit can use the pull request title as default."
       type: "`$BOOLEAN`"
     }
     {
@@ -721,14 +768,23 @@ main: kit: entity: repo: {
     {
       name: "web_commit_signoff_required"
       req: false
-      short: "Either `true` to require contributors to sign off on web-based commits, or `false` to not require contributors to sign off on web-based commits."
+      short: "Whether to require contributors to sign off on web-based commits"
       type: "`$BOOLEAN`"
     }
   ]
 
   id: {
     field: "id"
+    from: {
+      owner: "owner.login"
+      repo: "name"
+    }
     name: "id"
+    parts: [
+      "owner"
+      "repo"
+    ]
+    sep: "/"
   }
 
   name: "repo"
@@ -737,16 +793,453 @@ main: kit: entity: repo: {
       name: "create"
       points: [
         {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "delivery_id"
+                orig: "delivery_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "hook_id"
+                orig: "hook_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
           method: "POST"
-          orig: "/user/repos"
+          orig: "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}/attempts"
           segments: [
-            {
-              lit: "user"
-            }
             {
               lit: "repos"
             }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "hooks"
+            }
+            {
+              var: "hook_id"
+            }
+            {
+              lit: "deliveries"
+            }
+            {
+              var: "delivery_id"
+            }
+            {
+              lit: "attempts"
+            }
           ]
+          select: {
+            exist: [
+              "delivery_id"
+              "hook_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              lit: "required_status_checks"
+            }
+            {
+              lit: "contexts"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "hook_id"
+                orig: "hook_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/hooks/{hook_id}/pings"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "hooks"
+            }
+            {
+              var: "hook_id"
+            }
+            {
+              lit: "pings"
+            }
+          ]
+          select: {
+            exist: [
+              "hook_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "hook_id"
+                orig: "hook_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/hooks/{hook_id}/tests"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "hooks"
+            }
+            {
+              var: "hook_id"
+            }
+            {
+              lit: "tests"
+            }
+          ]
+          select: {
+            exist: [
+              "hook_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/attestations"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "attestations"
+            }
+          ]
+          select: {
+            "$action": "attestation"
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/dispatches"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "dispatches"
+            }
+          ]
+          select: {
+            "$action": "dispatch"
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/forks"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "forks"
+            }
+          ]
+          select: {
+            "$action": "fork"
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/transfer"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "transfer"
+            }
+          ]
+          select: {
+            "$action": "transfer"
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
           transform: {
             req: "`reqdata`"
             res: "`body`"
@@ -859,6 +1352,372 @@ main: kit: entity: repo: {
             res: "`body`"
           }
         }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "environment_id"
+                orig: "environment_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps"
+          rename: {
+            param: {
+              environment_name: "environment_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "environments"
+            }
+            {
+              var: "environment_id"
+            }
+            {
+              lit: "deployment_protection_rules"
+            }
+            {
+              lit: "apps"
+            }
+          ]
+          select: {
+            exist: [
+              "environment_id"
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.available_custom_deployment_protection_rule_integrations`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "environment_name"
+                orig: "environment_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "environments"
+            }
+            {
+              var: "environment_name"
+            }
+            {
+              lit: "deployment-branch-policies"
+            }
+          ]
+          select: {
+            exist: [
+              "environment_name"
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.branch_policies`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/environments"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "environments"
+            }
+          ]
+          select: {
+            "$action": "environment"
+            exist: [
+              "owner"
+              "page"
+              "per_page"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.environments`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              lit: "required_status_checks"
+            }
+            {
+              lit: "contexts"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "environment_name"
+                orig: "environment_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "environments"
+            }
+            {
+              var: "environment_name"
+            }
+            {
+              lit: "deployment_protection_rules"
+            }
+          ]
+          select: {
+            exist: [
+              "environment_name"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.custom_deployment_protection_rules`"
+          }
+        }
       ]
     }
     load: {
@@ -881,10 +1740,48 @@ main: kit: entity: repo: {
                 reqd: true
                 type: "`$STRING`"
               }
+              {
+                kind: "param"
+                name: "subject_digest"
+                orig: "subject_digest"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "after"
+                orig: "after"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "before"
+                orig: "before"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "predicate_type"
+                orig: "predicate_type"
+                reqd: false
+                type: "`$STRING`"
+              }
             ]
           }
           method: "GET"
-          orig: "/repos/{owner}/{repo}"
+          orig: "/repos/{owner}/{repo}/attestations/{subject_digest}"
           segments: [
             {
               lit: "repos"
@@ -894,6 +1791,403 @@ main: kit: entity: repo: {
             }
             {
               var: "repo"
+            }
+            {
+              lit: "attestations"
+            }
+            {
+              var: "subject_digest"
+            }
+          ]
+          select: {
+            exist: [
+              "after"
+              "before"
+              "owner"
+              "per_page"
+              "predicate_type"
+              "repo"
+              "subject_digest"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "path"
+                orig: "path"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "ref"
+                orig: "ref"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/contents/{path}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "contents"
+            }
+            {
+              var: "path"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "path"
+              "ref"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "ref"
+                orig: "ref"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/tarball/{ref}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "tarball"
+            }
+            {
+              var: "ref"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "ref"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "ref"
+                orig: "ref"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/zipball/{ref}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "zipball"
+            }
+            {
+              var: "ref"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "ref"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/collaborators/{username}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "collaborators"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/private-vulnerability-reporting"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "private-vulnerability-reporting"
+            }
+          ]
+          select: {
+            "$action": "private_vulnerability_reporting"
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/vulnerability-alerts"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "vulnerability-alerts"
+            }
+          ]
+          select: {
+            "$action": "vulnerability_alert"
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    patch: {
+      name: "patch"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/repos/{owner}/{repo}/properties/values"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "properties"
+            }
+            {
+              lit: "values"
             }
           ]
           select: {
@@ -907,11 +2201,1415 @@ main: kit: entity: repo: {
             res: "`body`"
           }
         }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "invitation_id"
+                orig: "invitation_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/user/repository_invitations/{invitation_id}"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "repository_invitations"
+            }
+            {
+              var: "invitation_id"
+            }
+          ]
+          select: {
+            exist: [
+              "invitation_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
       ]
     }
     remove: {
       name: "remove"
       points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_policy_id"
+                orig: "branch_policy_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "environment_id"
+                orig: "environment_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+          rename: {
+            param: {
+              environment_name: "environment_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "environments"
+            }
+            {
+              var: "environment_id"
+            }
+            {
+              lit: "deployment-branch-policies"
+            }
+            {
+              var: "branch_policy_id"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_policy_id"
+              "environment_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "environment_id"
+                orig: "environment_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "protection_rule_id"
+                orig: "protection_rule_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}"
+          rename: {
+            param: {
+              environment_name: "environment_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "environments"
+            }
+            {
+              var: "environment_id"
+            }
+            {
+              lit: "deployment_protection_rules"
+            }
+            {
+              var: "protection_rule_id"
+            }
+          ]
+          select: {
+            exist: [
+              "environment_id"
+              "owner"
+              "protection_rule_id"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "asset_id"
+                orig: "asset_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/releases/assets/{asset_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "releases"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+          ]
+          select: {
+            exist: [
+              "asset_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "autolink_id"
+                orig: "autolink_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/autolinks/{autolink_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "autolinks"
+            }
+            {
+              var: "autolink_id"
+            }
+          ]
+          select: {
+            exist: [
+              "autolink_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection/enforce_admins"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              lit: "enforce_admins"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection/required_pull_request_reviews"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              lit: "required_pull_request_reviews"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection/required_signatures"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              lit: "required_signatures"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              lit: "required_status_checks"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              lit: "required_status_checks"
+            }
+            {
+              lit: "contexts"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection/restrictions"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              lit: "restrictions"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "comment_id"
+                orig: "comment_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/comments/{comment_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "comments"
+            }
+            {
+              var: "comment_id"
+            }
+          ]
+          select: {
+            exist: [
+              "comment_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "deployment_id"
+                orig: "deployment_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/deployments/{deployment_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "deployments"
+            }
+            {
+              var: "deployment_id"
+            }
+          ]
+          select: {
+            exist: [
+              "deployment_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "environment_name"
+                orig: "environment_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/environments/{environment_name}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "environments"
+            }
+            {
+              var: "environment_name"
+            }
+          ]
+          select: {
+            exist: [
+              "environment_name"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "hook_id"
+                orig: "hook_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/hooks/{hook_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "hooks"
+            }
+            {
+              var: "hook_id"
+            }
+          ]
+          select: {
+            exist: [
+              "hook_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "invitation_id"
+                orig: "invitation_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/invitations/{invitation_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "invitations"
+            }
+            {
+              var: "invitation_id"
+            }
+          ]
+          select: {
+            exist: [
+              "invitation_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "key_id"
+                orig: "key_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/keys/{key_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "keys"
+            }
+            {
+              var: "key_id"
+            }
+          ]
+          select: {
+            exist: [
+              "key_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "release_id"
+                orig: "release_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/releases/{release_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "releases"
+            }
+            {
+              var: "release_id"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "release_id"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "ruleset_id"
+                orig: "ruleset_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/rulesets/{ruleset_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "rulesets"
+            }
+            {
+              var: "ruleset_id"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "ruleset_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "tag_protection_id"
+                orig: "tag_protection_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "tags"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              var: "tag_protection_id"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "tag_protection_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/collaborators/{username}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "collaborators"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "ruleset_id"
+                orig: "ruleset_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/orgs/{org}/rulesets/{ruleset_id}"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "rulesets"
+            }
+            {
+              var: "ruleset_id"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "ruleset_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
         {
           args: {
             params: [
@@ -955,11 +3653,6 @@ main: kit: entity: repo: {
             res: "`body`"
           }
         }
-      ]
-    }
-    update: {
-      name: "update"
-      points: [
         {
           args: {
             params: [
@@ -979,8 +3672,8 @@ main: kit: entity: repo: {
               }
             ]
           }
-          method: "PATCH"
-          orig: "/repos/{owner}/{repo}"
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/automated-security-fixes"
           segments: [
             {
               lit: "repos"
@@ -991,8 +3684,452 @@ main: kit: entity: repo: {
             {
               var: "repo"
             }
+            {
+              lit: "automated-security-fixes"
+            }
           ]
           select: {
+            "$action": "automated_security_fix"
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/pages"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pages"
+            }
+          ]
+          select: {
+            "$action": "page"
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/private-vulnerability-reporting"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "private-vulnerability-reporting"
+            }
+          ]
+          select: {
+            "$action": "private_vulnerability_reporting"
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/vulnerability-alerts"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "vulnerability-alerts"
+            }
+          ]
+          select: {
+            "$action": "vulnerability_alert"
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "invitation_id"
+                orig: "invitation_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/user/repository_invitations/{invitation_id}"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "repository_invitations"
+            }
+            {
+              var: "invitation_id"
+            }
+          ]
+          select: {
+            exist: [
+              "invitation_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              lit: "required_status_checks"
+            }
+            {
+              lit: "contexts"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/automated-security-fixes"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "automated-security-fixes"
+            }
+          ]
+          select: {
+            "$action": "automated_security_fix"
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/pages"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "pages"
+            }
+          ]
+          select: {
+            "$action": "page"
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/private-vulnerability-reporting"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "private-vulnerability-reporting"
+            }
+          ]
+          select: {
+            "$action": "private_vulnerability_reporting"
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/vulnerability-alerts"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "vulnerability-alerts"
+            }
+          ]
+          select: {
+            "$action": "vulnerability_alert"
             exist: [
               "owner"
               "repo"
@@ -1011,6 +4148,96 @@ main: kit: entity: repo: {
     ancestors: [
       [
         "repo"
+      ]
+      [
+        "repository_invitation"
+      ]
+      [
+        "org"
+        "ruleset"
+      ]
+      [
+        "repo"
+        "attestation"
+      ]
+      [
+        "repo"
+        "autolink"
+      ]
+      [
+        "repo"
+        "branch"
+      ]
+      [
+        "repo"
+        "collaborator"
+      ]
+      [
+        "repo"
+        "comment"
+      ]
+      [
+        "repo"
+        "content"
+      ]
+      [
+        "repo"
+        "deployment"
+      ]
+      [
+        "repo"
+        "environment"
+      ]
+      [
+        "repo"
+        "hook"
+      ]
+      [
+        "repo"
+        "invitation"
+      ]
+      [
+        "repo"
+        "key"
+      ]
+      [
+        "repo"
+        "asset"
+      ]
+      [
+        "repo"
+        "release"
+      ]
+      [
+        "repo"
+        "ruleset"
+      ]
+      [
+        "repo"
+        "protection"
+      ]
+      [
+        "repo"
+        "tarball"
+      ]
+      [
+        "repo"
+        "zipball"
+      ]
+      [
+        "repo"
+        "environment"
+        "deployment_branch_policy"
+      ]
+      [
+        "repo"
+        "environment"
+        "deployment_protection_rule"
+      ]
+      [
+        "repo"
+        "hook"
+        "delivery"
       ]
     ]
   }

@@ -1,0 +1,26 @@
+# BasicOidcCustomSubFlow
+
+main: kit: flow: BasicOidcCustomSubFlow:
+{
+  entity: "oidc_custom_sub",
+  kind: "basic",
+  name: "BasicOidcCustomSubFlow",
+  step: [
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "oidc_custom_sub_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOidcCustomSubFlow"
+}

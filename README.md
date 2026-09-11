@@ -18,14 +18,14 @@ Learn more about Voxgig SDKs at [voxgig.com/sdk](https://voxgig.com/sdk/).
 
 ## Entities, not endpoints
 
-This SDK exposes the API as a small set of **semantic entities** — Pull and Repo — that you
-call directly, instead of assembling URL paths and query strings. Entities are
+This SDK exposes the API as **267 semantic entities** that you
+call directly, instead of assembling URL paths and query strings. See the [Entities](#entities) table below for the full list. Entities are
 **Capitalised** to mark them as the primary surface, each with the operations they
-support (`list`, `load`, `create`, `update`, `remove`):
+support (`list`, `load`, `create`, `update`, `remove`, `patch`):
 
 ```ts
 const client = new GithubSDK()
-const items = await client.Pull().list({ owner: "example", repo: "example" })
+const items = await client.Action().list({ org_id: "example" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -44,23 +44,23 @@ network, and no credentials:
 // Shape: { entity: { <entity-name>: { <id>: <record> } } }
 const client = GithubSDK.test({
   entity: {
-    pull: {
-      test01: { id: 'test01', owner: 'example_owner', repo: 'example_repo', additions: 1 },
+    custom_property: {
+      test01: { id: 'test01' },
     },
   },
 })
-const pulls = await client.Pull().list()
-// pulls is an array of Pull entities, populated with mock data
-// — call pulls[0].data() for the record itself
-console.log(pulls)
+const custompropertys = await client.CustomProperty().list()
+// custompropertys is an array of CustomProperty entities, populated with mock data
+// — call custompropertys[0].data() for the record itself
+console.log(custompropertys)
 ```
 
 ### Python
 
 ```python
 client = GithubSDK.test()
-pulls = client.Pull().list()
-print(pulls)
+custompropertys = client.CustomProperty().list()
+print(custompropertys)
 ```
 
 ### PHP
@@ -68,16 +68,16 @@ print(pulls)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = GithubSDK::test([
-    "entity" => ["pull" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["customproperty" => ["test01" => []]],
 ]);
-$pulls = $client->Pull()->list();
+$custompropertys = $client->CustomProperty()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Pull(nil).List(
+result, err := client.CustomProperty(nil).List(
     nil, nil,
 )
 ```
@@ -86,17 +86,17 @@ result, err := client.Pull(nil).List(
 
 ```lua
 local client = sdk.test()
-local results, err = client:Pull():list()
+local results, err = client:CustomProperty():list()
 ```
 
 ### JavaScript
 
 ```js
 const client = GithubSDK.test()
-const pulls = await client.Pull().list()
-// pulls is an array of entities, populated with mock data
-// — call pulls[0].data() for the record itself
-console.log(pulls)
+const custompropertys = await client.CustomProperty().list()
+// custompropertys is an array of entities, populated with mock data
+// — call custompropertys[0].data() for the record itself
+console.log(custompropertys)
 ```
 
 ## Packages
@@ -123,19 +123,20 @@ const client = new GithubSDK({
   apikey: process.env.GITHUB_APIKEY,
 })
 
-// List all pulls (returns PullEntity[] — .data() for the record)
-const pulls = await client.Pull().list({ owner: "example", repo: "example" })
-for (const pull of pulls) {
-  console.log(pull)
+// List all actions (returns ActionEntity[] — .data() for the record)
+const actions = await client.Action().list({ org_id: "example" })
+for (const action of actions) {
+  console.log(action)
 }
 
-// Load a specific pull (returns a Pull)
-const pull = await client.Pull().load({
+// Load a specific action (returns a Action)
+const action = await client.Action().load({
+  archive_format: 'example_archive_format',
+  artifact_id: 1,
   owner: 'example_owner',
   repo: 'example_repo',
-  id: 1,
 })
-console.log(pull)
+console.log(action)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -172,12 +173,277 @@ Then add it to your agent's MCP config (Claude Desktop, Cursor, etc.):
 
 ## Entities
 
-The API exposes 2 entities:
+The API exposes 267 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Pull** | The Pull entity (create, list, load, update). | `/repos/{owner}/{repo}/pulls` |
-| **Repo** | The Repo entity (create, list, load, remove, update). | `/user/repos` |
+| **Action** | The Action entity (create, list, load, patch, remove, update). | `/repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs` |
+| **ActionsArtifactAndLogRetention** | The ActionsArtifactAndLogRetention entity (load). | `/repos/{owner}/{repo}/actions/permissions/artifact-and-log-retention` |
+| **ActionsCacheList** | The ActionsCacheList entity (list, remove). | `/repos/{owner}/{repo}/actions/caches` |
+| **ActionsCacheUsageByRepository** | The ActionsCacheUsageByRepository entity (load). | `/repos/{owner}/{repo}/actions/cache/usage` |
+| **ActionsCacheUsageOrgEnterprise** | The ActionsCacheUsageOrgEnterprise entity (load). | `/orgs/{org}/actions/cache/usage` |
+| **ActionsForkPrContributorApproval** | The ActionsForkPrContributorApproval entity (load). | `/repos/{owner}/{repo}/actions/permissions/fork-pr-contributor-approval` |
+| **ActionsForkPrWorkflowsPrivateRepo** | The ActionsForkPrWorkflowsPrivateRepo entity (load). | `/repos/{owner}/{repo}/actions/permissions/fork-pr-workflows-private-repos` |
+| **ActionsGetDefaultWorkflowPermission** | The ActionsGetDefaultWorkflowPermission entity (load). | `/repos/{owner}/{repo}/actions/permissions/workflow` |
+| **ActionsHostedRunner** | The ActionsHostedRunner entity (create, load, update). | `/orgs/{org}/actions/hosted-runners/{hosted_runner_id}` |
+| **ActionsHostedRunnerLimit** | The ActionsHostedRunnerLimit entity (load). | `/orgs/{org}/actions/hosted-runners/limits` |
+| **ActionsOrganizationPermission** | The ActionsOrganizationPermission entity (load). | `/orgs/{org}/actions/permissions` |
+| **ActionsPublicKey** | The ActionsPublicKey entity (load). | `/repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key` |
+| **ActionsRepositoryPermission** | The ActionsRepositoryPermission entity (load). | `/repos/{owner}/{repo}/actions/permissions` |
+| **ActionsSecret** | The ActionsSecret entity (load). | `/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}` |
+| **ActionsVariable** | The ActionsVariable entity (load). | `/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}` |
+| **ActionsWorkflowAccessToRepository** | The ActionsWorkflowAccessToRepository entity (load). | `/repos/{owner}/{repo}/actions/permissions/access` |
+| **Activity** | The Activity entity (list, load, patch, remove, update). | `/repos/{owner}/{repo}/activity` |
+| **Add** | The Add entity (create). | `/enterprises/{enterprise}/teams/{enterprise-team}/memberships/add` |
+| **ApiInsightsRouteStat** | The ApiInsightsRouteStat entity (list). | `/orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}` |
+| **ApiInsightsSubjectStat** | The ApiInsightsSubjectStat entity (list). | `/orgs/{org}/insights/api/subject-stats` |
+| **ApiInsightsSummaryStat** | The ApiInsightsSummaryStat entity (load). | `/orgs/{org}/insights/api/summary-stats/{actor_type}/{actor_id}` |
+| **ApiInsightsTimeStat** | The ApiInsightsTimeStat entity (list, load). | `/orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id}` |
+| **ApiInsightsUserStat** | The ApiInsightsUserStat entity (load). | `/orgs/{org}/insights/api/user-stats/{user_id}` |
+| **ApiOverview** | The ApiOverview entity (list). | `/meta` |
+| **App** | The App entity (create, list, remove, update). | `/user/installations/{installation_id}/repositories` |
+| **Artifact** | The Artifact entity (load). | `/repos/{owner}/{repo}/actions/artifacts/{artifact_id}` |
+| **Assignee** | The Assignee entity (list). | `/repos/{owner}/{repo}/assignees` |
+| **AuthenticationToken** | The AuthenticationToken entity (create). | `/repos/{owner}/{repo}/actions/runners/registration-token` |
+| **Authorization** | The Authorization entity (create, update). | `/applications/{client_id}/token` |
+| **Autolink** | The Autolink entity (create, list, load). | `/repos/{owner}/{repo}/autolinks` |
+| **BaseGist** | The BaseGist entity (create, list). | `/users/{username}/gists` |
+| **BillingUsageReport** | The BillingUsageReport entity (list). | `/organizations/{org}/settings/billing/usage` |
+| **BillingUsageReportUser** | The BillingUsageReportUser entity (list). | `/users/{username}/settings/billing/usage` |
+| **Blob** | The Blob entity (load). | `/repos/{owner}/{repo}/git/blobs/{file_sha}` |
+| **Block** | The Block entity (list). | `/orgs/{org}/blocks` |
+| **Branch** | The Branch entity (load). | `/repos/{owner}/{repo}/branches/{branch}` |
+| **BranchProtection** | The BranchProtection entity (load). | `/repos/{owner}/{repo}/branches/{branch}/protection` |
+| **BranchRestrictionPolicy** | The BranchRestrictionPolicy entity (list). | `/repos/{owner}/{repo}/branches/{branch}/protection/restrictions` |
+| **BranchShort** | The BranchShort entity (list). | `/repos/{owner}/{repo}/commits/{commit_sha}/branches-where-head` |
+| **BranchWithProtection** | The BranchWithProtection entity (create). | `/repos/{owner}/{repo}/branches/{branch}/rename` |
+| **Campaign** | The Campaign entity (create, list, load, remove, update). | `/orgs/{org}/campaigns` |
+| **Check** | The Check entity (list). | `/repos/{owner}/{repo}/commits/{ref}/check-runs` |
+| **CheckAnnotation** | The CheckAnnotation entity (list). | `/repos/{owner}/{repo}/check-runs/{check_run_id}/annotations` |
+| **CheckAutomatedSecurityFix** | The CheckAutomatedSecurityFix entity (load). | `/repos/{owner}/{repo}/automated-security-fixes` |
+| **CheckRun** | The CheckRun entity (create, load, update). | `/repos/{owner}/{repo}/check-runs/{check_run_id}` |
+| **CheckSuite** | The CheckSuite entity (create, load). | `/repos/{owner}/{repo}/check-suites/{check_suite_id}` |
+| **CheckSuitePreference** | The CheckSuitePreference entity (update). | `/repos/{owner}/{repo}/check-suites/preferences` |
+| **Classroom** | The Classroom entity (list, load). | `/classrooms` |
+| **ClassroomAcceptedAssignment** | The ClassroomAcceptedAssignment entity (list). | `/assignments/{assignment_id}/accepted_assignments` |
+| **ClassroomAssignment** | The ClassroomAssignment entity (load). | `/assignments/{assignment_id}` |
+| **ClassroomAssignmentGrade** | The ClassroomAssignmentGrade entity (list). | `/assignments/{assignment_id}/grades` |
+| **Clone** | The Clone entity (list). | `/repos/{owner}/{repo}/traffic/clones` |
+| **CodeFrequency** | The CodeFrequency entity (list). | `/repos/{owner}/{repo}/stats/code_frequency` |
+| **CodeFrequencyStat** | The CodeFrequencyStat entity (list). | `/repos/{owner}/{repo}/stats/punch_card` |
+| **CodeOfConduct** | The CodeOfConduct entity (list, load). | `/codes_of_conduct` |
+| **CodeScanning** | The CodeScanning entity (create, remove). | `/repos/{owner}/{repo}/code-scanning/sarifs` |
+| **CodeScanningAlert** | The CodeScanningAlert entity (load, update). | `/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}` |
+| **CodeScanningAlertInstance** | The CodeScanningAlertInstance entity (list). | `/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances` |
+| **CodeScanningAlertItem** | The CodeScanningAlertItem entity (list). | `/repos/{owner}/{repo}/code-scanning/alerts` |
+| **CodeScanningAnalysi** | The CodeScanningAnalysi entity (list, load). | `/repos/{owner}/{repo}/code-scanning/analyses` |
+| **CodeScanningAnalysisDeletion** | The CodeScanningAnalysisDeletion entity (remove). | `/repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}` |
+| **CodeScanningAutofix** | The CodeScanningAutofix entity (create, load). | `/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix` |
+| **CodeScanningAutofixCommit** | The CodeScanningAutofixCommit entity (create). | `/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/autofix/commits` |
+| **CodeScanningCodeqlDatabase** | The CodeScanningCodeqlDatabase entity (list, load). | `/repos/{owner}/{repo}/code-scanning/codeql/databases` |
+| **CodeScanningDefaultSetup** | The CodeScanningDefaultSetup entity (list). | `/repos/{owner}/{repo}/code-scanning/default-setup` |
+| **CodeScanningOrganizationAlertItem** | The CodeScanningOrganizationAlertItem entity (list). | `/orgs/{org}/code-scanning/alerts` |
+| **CodeScanningSarifsStatus** | The CodeScanningSarifsStatus entity (load). | `/repos/{owner}/{repo}/code-scanning/sarifs/{sarif_id}` |
+| **CodeScanningVariantAnalysi** | The CodeScanningVariantAnalysi entity (create, load). | `/repos/{owner}/{repo}/code-scanning/codeql/variant-analyses/{codeql_variant_analysis_id}` |
+| **CodeScanningVariantAnalysisRepoTask** | The CodeScanningVariantAnalysisRepoTask entity (load). | `/repos/{owner}/{repo}/code-scanning/codeql/variant-analyses/{codeql_variant_analysis_id}/repos/{repo_owner}/{repo_name}` |
+| **CodeSecurity** | The CodeSecurity entity (remove, update). | `/enterprises/{enterprise}/code-security/configurations/{configuration_id}/defaults` |
+| **CodeSecurityConfiguration** | The CodeSecurityConfiguration entity (create, list, load, update). | `/orgs/{org}/code-security/configurations` |
+| **CodeSecurityConfigurationRepository** | The CodeSecurityConfigurationRepository entity (list). | `/enterprises/{enterprise}/code-security/configurations/{configuration_id}/repositories` |
+| **CodeSecurityDefaultConfiguration** | The CodeSecurityDefaultConfiguration entity (list). | `/enterprises/{enterprise}/code-security/configurations/defaults` |
+| **CodeownersError** | The CodeownersError entity (list). | `/repos/{owner}/{repo}/codeowners/errors` |
+| **Codespace** | The Codespace entity (create, list, load, patch, remove, update). | `/orgs/{org}/codespaces/secrets/{secret_name}/repositories` |
+| **Collaborator** | The Collaborator entity (list). | `/repos/{owner}/{repo}/collaborators` |
+| **CombinedBillingUsage** | The CombinedBillingUsage entity (load). | `/orgs/{org}/settings/billing/shared-storage` |
+| **CombinedCommitStatus** | The CombinedCommitStatus entity (list). | `/repos/{owner}/{repo}/commits/{ref}/status` |
+| **Commit** | The Commit entity (create, list, load). | `/repos/{owner}/{repo}/commits` |
+| **CommitActivity** | The CommitActivity entity (list). | `/repos/{owner}/{repo}/stats/commit_activity` |
+| **CommitComment** | The CommitComment entity (create, list, load, update). | `/repos/{owner}/{repo}/commits/{commit_sha}/comments` |
+| **CommitComparison** | The CommitComparison entity (load). | `/repos/{owner}/{repo}/compare/{basehead}` |
+| **CommunityProfile** | The CommunityProfile entity (load). | `/repos/{owner}/{repo}/community/profile` |
+| **ContentFile** | The ContentFile entity (load). | `/repos/{owner}/{repo}/readme/{dir}` |
+| **ContentTraffic** | The ContentTraffic entity (list). | `/repos/{owner}/{repo}/traffic/popular/paths` |
+| **Contributor** | The Contributor entity (list). | `/repos/{owner}/{repo}/contributors` |
+| **Copilot** | The Copilot entity (create, list, load, remove). | `/orgs/{org}/copilot/billing/seats` |
+| **CopilotOrganizationDetail** | The CopilotOrganizationDetail entity (load). | `/orgs/{org}/copilot/billing` |
+| **CopilotUsageMetricsDay** | The CopilotUsageMetricsDay entity (list). | `/orgs/{org}/team/{team_slug}/copilot/metrics` |
+| **Credential** | The Credential entity (create). | `/credentials/revoke` |
+| **CustomProperty** | The CustomProperty entity (list, load, patch, update). | `/orgs/{org}/properties/schema` |
+| **CustomPropertyValue** | The CustomPropertyValue entity (list). | `/repos/{owner}/{repo}/properties/values` |
+| **Dependabot** | The Dependabot entity (list, patch, remove, update). | `/orgs/{org}/dependabot/secrets/{secret_name}/repositories` |
+| **DependabotAlert** | The DependabotAlert entity (list, load, update). | `/repos/{owner}/{repo}/dependabot/alerts` |
+| **DependabotAlertWithRepository** | The DependabotAlertWithRepository entity (list). | `/orgs/{org}/dependabot/alerts` |
+| **DependabotPublicKey** | The DependabotPublicKey entity (load). | `/repos/{owner}/{repo}/dependabot/secrets/public-key` |
+| **DependabotRepositoryAccessDetail** | The DependabotRepositoryAccessDetail entity (list). | `/organizations/{org}/dependabot/repository-access` |
+| **DependabotSecret** | The DependabotSecret entity (load). | `/repos/{owner}/{repo}/dependabot/secrets/{secret_name}` |
+| **DependencyGraph** | The DependencyGraph entity (create). | `/repos/{owner}/{repo}/dependency-graph/snapshots` |
+| **DependencyGraphDiff** | The DependencyGraphDiff entity (load). | `/repos/{owner}/{repo}/dependency-graph/compare/{basehead}` |
+| **DependencyGraphSpdxSbom** | The DependencyGraphSpdxSbom entity (load). | `/repos/{owner}/{repo}/dependency-graph/sbom` |
+| **DeployKey** | The DeployKey entity (create, list, load). | `/repos/{owner}/{repo}/keys` |
+| **Deployment** | The Deployment entity (create, list, load). | `/repos/{owner}/{repo}/deployments` |
+| **DeploymentBranchPolicy** | The DeploymentBranchPolicy entity (create, load, update). | `/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}` |
+| **DeploymentProtectionRule** | The DeploymentProtectionRule entity (create, load). | `/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}` |
+| **DeploymentStatus** | The DeploymentStatus entity (create, list, load). | `/repos/{owner}/{repo}/deployments/{deployment_id}/statuses` |
+| **DiffEntry** | The DiffEntry entity (list). | `/repos/{owner}/{repo}/pulls/{pull_number}/files` |
+| **Email** | The Email entity (create, list, update). | `/user/emails` |
+| **Emoji** | The Emoji entity (load). | `/emojis` |
+| **EmptyObject** | The EmptyObject entity (create, load, patch, update). | `/users/{username}/attestations/{subject_digest}` |
+| **EnterpriseTeam** | The EnterpriseTeam entity (create, list, load, remove, update). | `/enterprises/{enterprise}/teams` |
+| **EnterpriseTeamMembership** | The EnterpriseTeamMembership entity (remove). | `/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}` |
+| **Environment** | The Environment entity (load, update). | `/repos/{owner}/{repo}/environments/{environment_name}` |
+| **EnvironmentApproval** | The EnvironmentApproval entity (list). | `/repos/{owner}/{repo}/actions/runs/{run_id}/approvals` |
+| **Event** | The Event entity (list, load). | `/networks/{owner}/{repo}/events` |
+| **Feed** | The Feed entity (list). | `/feeds` |
+| **FileCommit** | The FileCommit entity (remove, update). | `/repos/{owner}/{repo}/contents/{path}` |
+| **Follower** | The Follower entity (list). | `/users/{username}/followers` |
+| **Following** | The Following entity (list). | `/users/{username}/following` |
+| **FullRepository** | The FullRepository entity (create, load, update). | `/repos/{owner}/{repo}` |
+| **Gist** | The Gist entity (create, list, load, remove, update). | `/gists` |
+| **GistComment** | The GistComment entity (create, list, load, update). | `/gists/{gist_id}/comments` |
+| **GistCommit** | The GistCommit entity (list). | `/gists/{gist_id}/commits` |
+| **GistSimple** | The GistSimple entity (list). | `/gists/{gist_id}/forks` |
+| **Git** | The Git entity (remove). | `/repos/{owner}/{repo}/git/refs/{ref}` |
+| **GitCommit** | The GitCommit entity (create, load). | `/repos/{owner}/{repo}/git/commits/{commit_sha}` |
+| **GitRef** | The GitRef entity (create, load, update). | `/repos/{owner}/{repo}/git/ref/{ref}` |
+| **GitTag** | The GitTag entity (create, load). | `/repos/{owner}/{repo}/git/tags/{tag_sha}` |
+| **GitTree** | The GitTree entity (create, load). | `/repos/{owner}/{repo}/git/trees/{tree_sha}` |
+| **Gitignore** | The Gitignore entity (list). | `/gitignore/templates` |
+| **GitignoreTemplate** | The GitignoreTemplate entity (load). | `/gitignore/templates/{name}` |
+| **GlobalAdvisory** | The GlobalAdvisory entity (list, load). | `/advisories` |
+| **GpgKey** | The GpgKey entity (create, list, load). | `/users/{username}/gpg_keys` |
+| **Hook** | The Hook entity (create, list, load, update). | `/repos/{owner}/{repo}/hooks` |
+| **HookDelivery** | The HookDelivery entity (load). | `/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}` |
+| **HookDeliveryItem** | The HookDeliveryItem entity (list). | `/app/hook/deliveries` |
+| **HostedCompute** | The HostedCompute entity (list, remove). | `/orgs/{org}/settings/network-configurations` |
+| **Hovercard** | The Hovercard entity (list). | `/users/{username}/hovercard` |
+| **Import** | The Import entity (list, patch, update). | `/repos/{owner}/{repo}/import` |
+| **Installation** | The Installation entity (list, load, remove, update). | `/app/installations` |
+| **InstallationToken** | The InstallationToken entity (create). | `/app/installations/{installation_id}/access_tokens` |
+| **Integration** | The Integration entity (create, list, load, remove, update). | `/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps` |
+| **IntegrationInstallation** | The IntegrationInstallation entity (list). | `/app/installation-requests` |
+| **Interaction** | The Interaction entity (load, remove). | `/repos/{owner}/{repo}/interaction-limits` |
+| **InteractionLimit** | The InteractionLimit entity (update). | `/repos/{owner}/{repo}/interaction-limits` |
+| **Issue** | The Issue entity (create, list, load, remove, update). | `/repos/{owner}/{repo}/issues` |
+| **IssueType** | The IssueType entity (create, list, update). | `/orgs/{org}/issue-types` |
+| **Job** | The Job entity (load). | `/repos/{owner}/{repo}/actions/jobs/{job_id}` |
+| **Key** | The Key entity (create, list, load). | `/users/{username}/keys` |
+| **Label** | The Label entity (create, list, load, update). | `/repos/{owner}/{repo}/milestones/{milestone_number}/labels` |
+| **Language** | The Language entity (load). | `/repos/{owner}/{repo}/languages` |
+| **License** | The License entity (list, load). | `/licenses` |
+| **Markdown** | The Markdown entity (create). | `/markdown` |
+| **MarketplaceListingPlan** | The MarketplaceListingPlan entity (list). | `/marketplace_listing/plans` |
+| **MarketplacePurchase** | The MarketplacePurchase entity (list, load). | `/marketplace_listing/plans/{plan_id}/accounts` |
+| **Member** | The Member entity (list). | `/orgs/{org}/members` |
+| **Membership** | The Membership entity (list, load, update). | `/enterprises/{enterprise}/teams/{enterprise-team}/memberships` |
+| **MergedUpstream** | The MergedUpstream entity (create). | `/repos/{owner}/{repo}/merge-upstream` |
+| **Meta** | The Meta entity (list, load). | `/versions` |
+| **Metaroot** | The Metaroot entity (load). | `/` |
+| **Migration** | The Migration entity (create, list, load, remove). | `/orgs/{org}/migrations` |
+| **Milestone** | The Milestone entity (create, list, load, update). | `/repos/{owner}/{repo}/milestones` |
+| **MinimalRepository** | The MinimalRepository entity (list). | `/orgs/{org}/repos` |
+| **NetworkConfiguration** | The NetworkConfiguration entity (create, load, update). | `/orgs/{org}/settings/network-configurations/{network_configuration_id}` |
+| **NetworkSetting** | The NetworkSetting entity (load). | `/orgs/{org}/settings/network-settings/{network_settings_id}` |
+| **OidcCustomSub** | The OidcCustomSub entity (list). | `/orgs/{org}/actions/oidc/customization/sub` |
+| **OidcCustomSubRepo** | The OidcCustomSubRepo entity (list). | `/repos/{owner}/{repo}/actions/oidc/customization/sub` |
+| **Org** | The Org entity (create, list, load, patch, remove, update). | `/user/memberships/orgs` |
+| **OrgHook** | The OrgHook entity (create, list, load, update). | `/orgs/{org}/hooks` |
+| **OrgMembership** | The OrgMembership entity (load, update). | `/orgs/{org}/memberships/{username}` |
+| **OrgPrivateRegistryConfiguration** | The OrgPrivateRegistryConfiguration entity (load). | `/orgs/{org}/private-registries/{secret_name}` |
+| **OrgPrivateRegistryConfigurationWithSelectedRepository** | The OrgPrivateRegistryConfigurationWithSelectedRepository entity (create). | `/orgs/{org}/private-registries` |
+| **OrgRepoCustomPropertyValue** | The OrgRepoCustomPropertyValue entity (list). | `/orgs/{org}/properties/values` |
+| **Organization** | The Organization entity. | `` |
+| **OrganizationActionsSecret** | The OrganizationActionsSecret entity (load). | `/orgs/{org}/actions/secrets/{secret_name}` |
+| **OrganizationActionsVariable** | The OrganizationActionsVariable entity (load). | `/orgs/{org}/actions/variables/{name}` |
+| **OrganizationDependabotSecret** | The OrganizationDependabotSecret entity (load). | `/orgs/{org}/dependabot/secrets/{secret_name}` |
+| **OrganizationInvitation** | The OrganizationInvitation entity (create, list). | `/orgs/{org}/invitations` |
+| **OrganizationProgrammaticAccessGrant** | The OrganizationProgrammaticAccessGrant entity (list). | `/orgs/{org}/personal-access-token-requests` |
+| **OrganizationRole** | The OrganizationRole entity (load). | `/orgs/{org}/organization-roles/{role_id}` |
+| **OrganizationSecretScanningAlert** | The OrganizationSecretScanningAlert entity (list). | `/orgs/{org}/secret-scanning/alerts` |
+| **OutsideCollaborator** | The OutsideCollaborator entity (list). | `/orgs/{org}/outside_collaborators` |
+| **Package** | The Package entity (create, list, load, remove). | `/orgs/{org}/packages/{package_type}/{package_name}/versions` |
+| **Page** | The Page entity (create, load). | `/repos/{owner}/{repo}/pages` |
+| **PageBuild** | The PageBuild entity (list, load). | `/repos/{owner}/{repo}/pages/builds` |
+| **PageBuildStatus** | The PageBuildStatus entity (create). | `/repos/{owner}/{repo}/pages/builds` |
+| **PageDeployment** | The PageDeployment entity (create). | `/repos/{owner}/{repo}/pages/deployments` |
+| **PagesDeploymentStatus** | The PagesDeploymentStatus entity (create, load). | `/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}` |
+| **PagesHealthCheck** | The PagesHealthCheck entity (load). | `/repos/{owner}/{repo}/pages/health` |
+| **Participation** | The Participation entity (list). | `/repos/{owner}/{repo}/stats/participation` |
+| **PendingDeployment** | The PendingDeployment entity (list). | `/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments` |
+| **PorterAuthor** | The PorterAuthor entity (list, update). | `/repos/{owner}/{repo}/import/authors` |
+| **PorterLargeFile** | The PorterLargeFile entity (list). | `/repos/{owner}/{repo}/import/large_files` |
+| **PrivateRegistry** | The PrivateRegistry entity (list, load, remove, update). | `/orgs/{org}/private-registries` |
+| **PrivateUser** | The PrivateUser entity. | `` |
+| **Project** | The Project entity (create, list, load, remove, update). | `/repos/{owner}/{repo}/projects` |
+| **ProjectCollaboratorPermission** | The ProjectCollaboratorPermission entity (load). | `/projects/{project_id}/collaborators/{username}/permission` |
+| **ProjectColumn** | The ProjectColumn entity (create, list, load, update). | `/projects/{project_id}/columns` |
+| **ProjectsClassic** | The ProjectsClassic entity (create, remove, update). | `/projects/columns/{column_id}/moves` |
+| **ProjectsV2** | The ProjectsV2 entity (list, load). | `/orgs/{org}/projectsV2` |
+| **ProjectsV2Field** | The ProjectsV2Field entity (list, load). | `/orgs/{org}/projectsV2/{project_number}/fields` |
+| **ProjectsV2ItemSimple** | The ProjectsV2ItemSimple entity (create). | `/orgs/{org}/projectsV2/{project_number}/items` |
+| **ProjectsV2ItemWithContent** | The ProjectsV2ItemWithContent entity (list, load, update). | `/orgs/{org}/projectsV2/{project_number}/items` |
+| **ProtectedBranch** | The ProtectedBranch entity (update). | `/repos/{owner}/{repo}/branches/{branch}/protection` |
+| **ProtectedBranchAdminEnforced** | The ProtectedBranchAdminEnforced entity (create, load). | `/repos/{owner}/{repo}/branches/{branch}/protection/enforce_admins` |
+| **ProtectedBranchPullRequestReview** | The ProtectedBranchPullRequestReview entity (load, update). | `/repos/{owner}/{repo}/branches/{branch}/protection/required_pull_request_reviews` |
+| **PublicMember** | The PublicMember entity (list). | `/orgs/{org}/public_members` |
+| **Pull** | The Pull entity (create, list, load, remove, update). | `/repos/{owner}/{repo}/pulls` |
+| **PullRequestReview** | The PullRequestReview entity (create, list, load, remove, update). | `/repos/{owner}/{repo}/pulls/{pull_number}/reviews` |
+| **PullRequestReviewComment** | The PullRequestReviewComment entity (create, list, load, update). | `/repos/{owner}/{repo}/pulls/{pull_number}/comments` |
+| **PullRequestSimple** | The PullRequestSimple entity (create, remove). | `/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers` |
+| **RateLimit** | The RateLimit entity (load). | `/rate_limit` |
+| **Reaction** | The Reaction entity (create, list, remove). | `/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions` |
+| **Referrer** | The Referrer entity (list). | `/repos/{owner}/{repo}/traffic/popular/referrers` |
+| **Release** | The Release entity (create, list, load, update). | `/repos/{owner}/{repo}/releases` |
+| **ReleaseAsset** | The ReleaseAsset entity (create, list, load, update). | `/repos/{owner}/{repo}/releases/{release_id}/assets` |
+| **ReleaseNotesContent** | The ReleaseNotesContent entity (create). | `/repos/{owner}/{repo}/releases/generate-notes` |
+| **Remove** | The Remove entity (create). | `/enterprises/{enterprise}/teams/{enterprise-team}/memberships/remove` |
+| **Repo** | The Repo entity (create, list, load, patch, remove, update). | `/user/repos` |
+| **Repository** | The Repository entity (list). | `/user/starred` |
+| **RepositoryAdvisory** | The RepositoryAdvisory entity (create, list, load, update). | `/repos/{owner}/{repo}/security-advisories` |
+| **RepositoryCollaboratorPermission** | The RepositoryCollaboratorPermission entity (load). | `/repos/{owner}/{repo}/collaborators/{username}/permission` |
+| **RepositoryInvitation** | The RepositoryInvitation entity (list, patch, update). | `/repos/{owner}/{repo}/invitations` |
+| **RepositoryRuleDetailed** | The RepositoryRuleDetailed entity (load). | `/repos/{owner}/{repo}/rules/branches/{branch}` |
+| **RepositoryRuleset** | The RepositoryRuleset entity (create, list, load, update). | `/repos/{owner}/{repo}/rulesets` |
+| **RepositorySubscription** | The RepositorySubscription entity (load, update). | `/repos/{owner}/{repo}/subscription` |
+| **ReviewComment** | The ReviewComment entity (list). | `/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments` |
+| **RuleSuite** | The RuleSuite entity (list, load). | `/orgs/{org}/rulesets/rule-suites` |
+| **RulesetVersion** | The RulesetVersion entity (list). | `/repos/{owner}/{repo}/rulesets/{ruleset_id}/history` |
+| **RulesetVersionWithState** | The RulesetVersionWithState entity (load). | `/repos/{owner}/{repo}/rulesets/{ruleset_id}/history/{version_id}` |
+| **Runner** | The Runner entity (load). | `/repos/{owner}/{repo}/actions/runners/{runner_id}` |
+| **RunnerApplication** | The RunnerApplication entity (list). | `/repos/{owner}/{repo}/actions/runners/downloads` |
+| **RunnerGroup** | The RunnerGroup entity (create, load, update). | `/orgs/{org}/actions/runner-groups/{runner_group_id}` |
+| **Search** | The Search entity (list). | `/search/issues` |
+| **SecretScanning** | The SecretScanning entity (update). | `/orgs/{org}/secret-scanning/pattern-configurations` |
+| **SecretScanningAlert** | The SecretScanningAlert entity (list, load, update). | `/repos/{owner}/{repo}/secret-scanning/alerts` |
+| **SecretScanningLocation** | The SecretScanningLocation entity (list). | `/repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations` |
+| **SecretScanningPatternConfiguration** | The SecretScanningPatternConfiguration entity (list). | `/orgs/{org}/secret-scanning/pattern-configurations` |
+| **SecretScanningPushProtectionBypass** | The SecretScanningPushProtectionBypass entity (create). | `/repos/{owner}/{repo}/secret-scanning/push-protection-bypasses` |
+| **SecretScanningScanHistory** | The SecretScanningScanHistory entity (list). | `/repos/{owner}/{repo}/secret-scanning/scan-history` |
+| **SecurityAdvisory** | The SecurityAdvisory entity (create). | `/repos/{owner}/{repo}/security-advisories/{ghsa_id}/forks` |
+| **SelectedAction** | The SelectedAction entity (list). | `/repos/{owner}/{repo}/actions/permissions/selected-actions` |
+| **SelfHostedRunner** | The SelfHostedRunner entity (load). | `/orgs/{org}/actions/permissions/self-hosted-runners` |
+| **ShortBlob** | The ShortBlob entity (create). | `/repos/{owner}/{repo}/git/blobs` |
+| **ShortBranch** | The ShortBranch entity (list). | `/repos/{owner}/{repo}/branches` |
+| **SimpleClassroom** | The SimpleClassroom entity. | `` |
+| **SimpleClassroomAssignment** | The SimpleClassroomAssignment entity (list). | `/classrooms/{classroom_id}/assignments` |
+| **SocialAccount** | The SocialAccount entity (create, list). | `/users/{username}/social_accounts` |
+| **SshSigningKey** | The SshSigningKey entity (create, list, load). | `/users/{username}/ssh_signing_keys` |
+| **Status** | The Status entity (create, list). | `/repos/{owner}/{repo}/commits/{ref}/statuses` |
+| **StatusCheckPolicy** | The StatusCheckPolicy entity (list, update). | `/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks` |
+| **Subscriber** | The Subscriber entity (list). | `/repos/{owner}/{repo}/subscribers` |
+| **Tag** | The Tag entity (list). | `/repos/{owner}/{repo}/tags` |
+| **TagProtection** | The TagProtection entity (create, list). | `/repos/{owner}/{repo}/tags/protection` |
+| **Team** | The Team entity (create, list, load, patch, remove, update). | `/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments` |
+| **TeamSimple** | The TeamSimple entity (list). | `/orgs/{org}/security-managers` |
+| **Thread** | The Thread entity (list, load, remove). | `/repos/{owner}/{repo}/notifications` |
+| **ThreadSubscription** | The ThreadSubscription entity (load, update). | `/notifications/threads/{thread_id}/subscription` |
+| **Topic** | The Topic entity (list, update). | `/repos/{owner}/{repo}/topics` |
+| **User** | The User entity (create, list, load, patch, remove, update). | `/orgs/{org}/organization-roles/{role_id}/users` |
+| **UserMarketplacePurchase** | The UserMarketplacePurchase entity (list). | `/user/marketplace_purchases` |
+| **View** | The View entity (list). | `/repos/{owner}/{repo}/traffic/views` |
+| **WebhookConfig** | The WebhookConfig entity (load, update). | `/repos/{owner}/{repo}/hooks/{hook_id}/config` |
+| **Workflow** | The Workflow entity (load, update). | `/repos/{owner}/{repo}/actions/workflows/{workflow_id}` |
+| **WorkflowRun** | The WorkflowRun entity (create, load). | `/repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}` |
+| **WorkflowRunUsage** | The WorkflowRunUsage entity (load). | `/repos/{owner}/{repo}/actions/runs/{run_id}/timing` |
+| **WorkflowUsage** | The WorkflowUsage entity (load). | `/repos/{owner}/{repo}/actions/workflows/{workflow_id}/timing` |
 
 The operations available across these entities are **load**, **list**, **create**, **update**, **remove** — see each entity's
 own list above for exactly which it supports.
@@ -194,14 +460,14 @@ client = GithubSDK({
     "apikey": os.environ.get("GITHUB_APIKEY"),
 })
 
-# List all pulls (returns a list, raises on error)
-pulls = client.Pull().list({"owner": "example", "repo": "example"})
-for pull in pulls:
-    print(pull)
+# List all actions (returns a list, raises on error)
+actions = client.Action().list({"org_id": "example"})
+for action in actions:
+    print(action)
 
-# Load a specific pull (returns the record, raises on error)
-pull = client.Pull().load({"id": 1, "owner": "example_owner", "repo": "example_repo"})
-print(pull)
+# Load a specific action (returns the record, raises on error)
+action = client.Action().load({"archive_format": "example_archive_format", "artifact_id": 1, "owner": "example_owner", "repo": "example_repo"})
+print(action)
 ```
 
 ### PHP
@@ -214,13 +480,13 @@ $client = new GithubSDK([
     "apikey" => getenv("GITHUB_APIKEY"),
 ]);
 
-// List all pulls (returns an array; throws on error)
-$pulls = $client->Pull()->list();
-print_r($pulls);
+// List all actions (returns an array; throws on error)
+$actions = $client->Action()->list();
+print_r($actions);
 
-// Load a specific pull (returns the ENTITY; call data_get() for the record; throws on error)
-$pull = $client->Pull()->load(["id" => 1, "owner" => "example_owner", "repo" => "example_repo"]);
-print_r($pull);
+// Load a specific action (returns the ENTITY; call data_get() for the record; throws on error)
+$action = $client->Action()->load(["archive_format" => "example_archive_format", "artifact_id" => 1, "owner" => "example_owner", "repo" => "example_repo"]);
+print_r($action);
 ```
 
 ### Golang
@@ -232,21 +498,21 @@ client := sdk.NewGithubSDK(map[string]any{
     "apikey": os.Getenv("GITHUB_APIKEY"),
 })
 
-// List all pulls
-pulls, err := client.Pull(nil).List(nil, nil)
+// List all actions
+actions, err := client.Action(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(pulls)
+fmt.Println(actions)
 
-// Load a specific pull
-pull, err := client.Pull(nil).Load(
-    map[string]any{"owner": "example_owner", "repo": "example_repo", "id": 1}, nil,
+// Load a specific action
+action, err := client.Action(nil).Load(
+    map[string]any{"archive_format": "example_archive_format", "artifact_id": 1, "owner": "example_owner", "repo": "example_repo"}, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(pull)
+fmt.Println(action)
 ```
 
 ### Lua
@@ -258,13 +524,13 @@ local client = sdk.new({
   apikey = os.getenv("GITHUB_APIKEY"),
 })
 
--- List all pulls
-local pulls, err = client:Pull():list()
-print(pulls)
+-- List all actions
+local actions, err = client:Action():list()
+print(actions)
 
--- Load a specific pull
-local pull, err = client:Pull():load({ id = 1, owner = "example_owner", repo = "example_repo" })
-print(pull)
+-- Load a specific action
+local action, err = client:Action():load({ archive_format = "example_archive_format", artifact_id = 1, owner = "example_owner", repo = "example_repo" })
+print(action)
 ```
 
 ### JavaScript
@@ -276,19 +542,20 @@ const client = new GithubSDK({
   apikey: process.env.GITHUB_APIKEY,
 })
 
-// List all pulls (returns an array)
-const pulls = await client.Pull().list({ owner: "example", repo: "example" })
-for (const pull of pulls) {
-  console.log(pull)
+// List all actions (returns an array)
+const actions = await client.Action().list({ org_id: "example" })
+for (const action of actions) {
+  console.log(action)
 }
 
-// Load a specific pull (returns the entity)
-const pull = await client.Pull().load({
+// Load a specific action (returns the entity)
+const action = await client.Action().load({
+  archive_format: 'example_archive_format',
+  artifact_id: 1,
   owner: 'example_owner',
   repo: 'example_repo',
-  id: 1,
 })
-console.log(pull)
+console.log(action)
 ```
 
 ## Direct and prepare

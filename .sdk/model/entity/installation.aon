@@ -1,0 +1,486 @@
+# Entity: installation
+
+main: kit: entity: installation: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      format: "uri"
+      name: "access_tokens_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "account"
+      req: true
+      type: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    {
+      name: "app_id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "app_slug"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "client_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "contact_email"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "events"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "has_multiple_single_files"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      short: "The ID of the installation."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "permissions"
+      req: true
+      short: "The permissions granted to the user access token."
+      type: "`$OBJECT`"
+    }
+    {
+      format: "uri"
+      name: "repositories_url"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "repository_selection"
+      req: true
+      short: "Describe whether all repositories have been selected or there's a selection involved"
+      type: "`$STRING`"
+    }
+    {
+      name: "single_file_name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "single_file_paths"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      format: "date-time"
+      name: "suspended_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "suspended_by"
+      req: true
+      short: "A GitHub user."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "target_id"
+      req: true
+      short: "The ID of the user or organization this token is being scoped to."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "target_type"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      format: "date-time"
+      name: "updated_at"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "installation"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "outdated"
+                orig: "outdated"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "since"
+                orig: "since"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/app/installations"
+          segments: [
+            {
+              lit: "app"
+            }
+            {
+              lit: "installations"
+            }
+          ]
+          select: {
+            exist: [
+              "outdated"
+              "page"
+              "per_page"
+              "since"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/installation"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "installation"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/installation"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "installation"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users/{username}/installation"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "installation"
+            }
+          ]
+          select: {
+            exist: [
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 1
+                kind: "param"
+                name: "id"
+                orig: "installation_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/app/installations/{installation_id}"
+          rename: {
+            param: {
+              installation_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "app"
+            }
+            {
+              lit: "installations"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 1
+                kind: "param"
+                name: "id"
+                orig: "installation_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/app/installations/{installation_id}/suspended"
+          rename: {
+            param: {
+              installation_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "app"
+            }
+            {
+              lit: "installations"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "suspended"
+            }
+          ]
+          select: {
+            "$action": "suspended"
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 1
+                kind: "param"
+                name: "id"
+                orig: "installation_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/app/installations/{installation_id}/suspended"
+          rename: {
+            param: {
+              installation_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "app"
+            }
+            {
+              lit: "installations"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "suspended"
+            }
+          ]
+          select: {
+            "$action": "suspended"
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+      [
+        "repo"
+      ]
+      [
+        "user"
+      ]
+    ]
+  }
+
+
+
+}

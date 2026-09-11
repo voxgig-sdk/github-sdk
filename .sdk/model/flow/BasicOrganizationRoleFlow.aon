@@ -1,0 +1,33 @@
+# BasicOrganizationRoleFlow
+
+main: kit: flow: BasicOrganizationRoleFlow:
+{
+  entity: "organization_role",
+  kind: "basic",
+  name: "BasicOrganizationRoleFlow",
+  step: [
+    {
+      input: {
+        ref: "organization_role_ref01",
+        srcdatavar: "organization_role_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "organization_role01",
+        org_id: "org01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-organization_role_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOrganizationRoleFlow"
+}

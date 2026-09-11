@@ -1,0 +1,68 @@
+# BasicActionsHostedRunnerFlow
+
+main: kit: flow: BasicActionsHostedRunnerFlow:
+{
+  entity: "actions_hosted_runner",
+  kind: "basic",
+  name: "BasicActionsHostedRunnerFlow",
+  step: [
+    {
+      input: {
+        ref: "actions_hosted_runner_ref01"
+      }
+
+      match: {
+        org_id: "org01"
+      }
+
+      op: "create"
+    }
+
+    {
+      data: {
+        org_id: "org01"
+      }
+
+      input: {
+        ref: "actions_hosted_runner_ref01",
+        srcdatavar: "actions_hosted_runner_ref01_data",
+        suffix: "_up0",
+        textfield: "last_active_on"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-actions_hosted_runner_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "actions_hosted_runner_ref01",
+        srcdatavar: "actions_hosted_runner_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "actions_hosted_runner01",
+        org_id: "org01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-actions_hosted_runner_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicActionsHostedRunnerFlow"
+}

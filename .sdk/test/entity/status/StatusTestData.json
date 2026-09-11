@@ -1,0 +1,70 @@
+{
+  "existing": {
+    "status": {
+      "STATUS00": {
+        "avatar_url": "s6e",
+        "context": "s6f",
+        "created_at": "s70",
+        "creator": {},
+        "description": "s72",
+        "id": "STATUS00",
+        "node_id": "NODE01",
+        "state": "s75",
+        "target_url": "s76",
+        "updated_at": "s77",
+        "url": "s78",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "ref": "REF01"
+      },
+      "STATUS01": {
+        "avatar_url": "sdc",
+        "context": "sdd",
+        "created_at": "sde",
+        "creator": {},
+        "description": "se0",
+        "id": "STATUS01",
+        "node_id": "NODE01",
+        "state": "se3",
+        "target_url": "se4",
+        "updated_at": "se5",
+        "url": "se6",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "ref": "REF01"
+      },
+      "STATUS02": {
+        "avatar_url": "s14a",
+        "context": "s14b",
+        "created_at": "s14c",
+        "creator": {},
+        "description": "s14e",
+        "id": "STATUS02",
+        "node_id": "NODE01",
+        "state": "s151",
+        "target_url": "s152",
+        "updated_at": "s153",
+        "url": "s154",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "ref": "REF01"
+      }
+    }
+  },
+  "new": {
+    "status": {
+      "status_ref01": {
+        "avatar_url": "s1b8",
+        "context": "s1b9",
+        "created_at": "s1ba",
+        "creator": {},
+        "description": "s1bc",
+        "node_id": "NODE01",
+        "state": "s1bf",
+        "target_url": "s1c0",
+        "updated_at": "s1c1",
+        "url": "s1c2"
+      }
+    }
+  }
+}

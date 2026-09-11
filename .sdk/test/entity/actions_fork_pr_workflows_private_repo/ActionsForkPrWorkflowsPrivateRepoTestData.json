@@ -1,0 +1,46 @@
+{
+  "existing": {
+    "actions_fork_pr_workflows_private_repo": {
+      "ACTIONS_FORK_PR_WORKFLOWS_PRIVATE_REPO00": {
+        "require_approval_for_fork_pr_workflows": true,
+        "run_workflows_from_fork_pull_requests": false,
+        "send_secrets_and_variables": true,
+        "send_write_tokens_to_workflows": false,
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "ACTIONS_FORK_PR_WORKFLOWS_PRIVATE_REPO00"
+      },
+      "ACTIONS_FORK_PR_WORKFLOWS_PRIVATE_REPO01": {
+        "require_approval_for_fork_pr_workflows": true,
+        "run_workflows_from_fork_pull_requests": false,
+        "send_secrets_and_variables": true,
+        "send_write_tokens_to_workflows": false,
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "ACTIONS_FORK_PR_WORKFLOWS_PRIVATE_REPO01"
+      },
+      "ACTIONS_FORK_PR_WORKFLOWS_PRIVATE_REPO02": {
+        "require_approval_for_fork_pr_workflows": true,
+        "run_workflows_from_fork_pull_requests": false,
+        "send_secrets_and_variables": true,
+        "send_write_tokens_to_workflows": false,
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01",
+        "id": "ACTIONS_FORK_PR_WORKFLOWS_PRIVATE_REPO02"
+      }
+    }
+  },
+  "new": {
+    "actions_fork_pr_workflows_private_repo": {
+      "actions_fork_pr_workflows_private_repo_ref01": {
+        "require_approval_for_fork_pr_workflows": true,
+        "run_workflows_from_fork_pull_requests": false,
+        "send_secrets_and_variables": true,
+        "send_write_tokens_to_workflows": false
+      }
+    }
+  }
+}

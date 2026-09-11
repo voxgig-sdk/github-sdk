@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "participation": {
+      "PARTICIPATION00": {
+        "all": [],
+        "owner": [],
+        "repo": "REPO01"
+      },
+      "PARTICIPATION01": {
+        "all": [],
+        "owner": [],
+        "repo": "REPO01"
+      },
+      "PARTICIPATION02": {
+        "all": [],
+        "owner": [],
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "participation": {
+      "participation_ref01": {
+        "all": [],
+        "owner": []
+      }
+    }
+  }
+}

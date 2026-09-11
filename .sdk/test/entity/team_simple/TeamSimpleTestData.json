@@ -1,0 +1,72 @@
+{
+  "existing": {
+    "team_simple": {
+      "TEAM_SIMPLE00": {
+        "description": "s82",
+        "html_url": "s83",
+        "id": "TEAM_SIMPLE00",
+        "ldap_dn": "s85",
+        "members_url": "s86",
+        "name": "s87",
+        "node_id": "NODE01",
+        "notification_setting": "s89",
+        "permission": "s8a",
+        "privacy": "s8b",
+        "repositories_url": "s8c",
+        "slug": "s8d",
+        "url": "s8e",
+        "org_id": "ORG01"
+      },
+      "TEAM_SIMPLE01": {
+        "description": "s104",
+        "html_url": "s105",
+        "id": "TEAM_SIMPLE01",
+        "ldap_dn": "s107",
+        "members_url": "s108",
+        "name": "s109",
+        "node_id": "NODE01",
+        "notification_setting": "s10b",
+        "permission": "s10c",
+        "privacy": "s10d",
+        "repositories_url": "s10e",
+        "slug": "s10f",
+        "url": "s110",
+        "org_id": "ORG01"
+      },
+      "TEAM_SIMPLE02": {
+        "description": "s186",
+        "html_url": "s187",
+        "id": "TEAM_SIMPLE02",
+        "ldap_dn": "s189",
+        "members_url": "s18a",
+        "name": "s18b",
+        "node_id": "NODE01",
+        "notification_setting": "s18d",
+        "permission": "s18e",
+        "privacy": "s18f",
+        "repositories_url": "s190",
+        "slug": "s191",
+        "url": "s192",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "team_simple": {
+      "team_simple_ref01": {
+        "description": "s208",
+        "html_url": "s209",
+        "ldap_dn": "s20b",
+        "members_url": "s20c",
+        "name": "s20d",
+        "node_id": "NODE01",
+        "notification_setting": "s20f",
+        "permission": "s210",
+        "privacy": "s211",
+        "repositories_url": "s212",
+        "slug": "s213",
+        "url": "s214"
+      }
+    }
+  }
+}

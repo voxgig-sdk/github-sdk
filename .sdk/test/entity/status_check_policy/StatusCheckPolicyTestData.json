@@ -1,0 +1,58 @@
+{
+  "existing": {
+    "status_check_policy": {
+      "STATUS_CHECK_POLICY00": {
+        "app_id": "APP01",
+        "checks": [],
+        "context": "s48",
+        "contexts": [],
+        "contexts_url": "s4a",
+        "strict": false,
+        "url": "s4c",
+        "branch_id": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "STATUS_CHECK_POLICY00"
+      },
+      "STATUS_CHECK_POLICY01": {
+        "app_id": "APP01",
+        "checks": [],
+        "context": "s8e",
+        "contexts": [],
+        "contexts_url": "s90",
+        "strict": false,
+        "url": "s92",
+        "branch_id": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "STATUS_CHECK_POLICY01"
+      },
+      "STATUS_CHECK_POLICY02": {
+        "app_id": "APP01",
+        "checks": [],
+        "context": "sd4",
+        "contexts": [],
+        "contexts_url": "sd6",
+        "strict": false,
+        "url": "sd8",
+        "branch_id": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "STATUS_CHECK_POLICY02"
+      }
+    }
+  },
+  "new": {
+    "status_check_policy": {
+      "status_check_policy_ref01": {
+        "app_id": "APP01",
+        "checks": [],
+        "context": "s11a",
+        "contexts": [],
+        "contexts_url": "s11c",
+        "strict": false,
+        "url": "s11e"
+      }
+    }
+  }
+}

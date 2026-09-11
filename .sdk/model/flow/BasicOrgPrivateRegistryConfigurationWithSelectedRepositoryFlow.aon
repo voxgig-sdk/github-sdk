@@ -1,0 +1,22 @@
+# BasicOrgPrivateRegistryConfigurationWithSelectedRepositoryFlow
+
+main: kit: flow: BasicOrgPrivateRegistryConfigurationWithSelectedRepositoryFlow:
+{
+  entity: "org_private_registry_configuration_with_selected_repository",
+  kind: "basic",
+  name: "BasicOrgPrivateRegistryConfigurationWithSelectedRepositoryFlow",
+  step: [
+    {
+      input: {
+        ref: "org_private_registry_configuration_with_selected_repository_ref01"
+      }
+
+      match: {
+        org: "org01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicOrgPrivateRegistryConfigurationWithSelectedRepositoryFlow"
+}

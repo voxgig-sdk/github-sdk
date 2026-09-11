@@ -1,0 +1,26 @@
+# BasicPublicMemberFlow
+
+main: kit: flow: BasicPublicMemberFlow:
+{
+  entity: "public_member",
+  kind: "basic",
+  name: "BasicPublicMemberFlow",
+  step: [
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "public_member_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPublicMemberFlow"
+}

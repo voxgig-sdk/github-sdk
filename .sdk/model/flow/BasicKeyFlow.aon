@@ -1,0 +1,56 @@
+# BasicKeyFlow
+
+main: kit: flow: BasicKeyFlow:
+{
+  entity: "key",
+  kind: "basic",
+  name: "BasicKeyFlow",
+  step: [
+    {
+      input: {
+        ref: "key_ref01"
+      }
+
+      match: {
+        username: "username01"
+      }
+
+      op: "create"
+    }
+
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "key_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "key_ref01",
+        srcdatavar: "key_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "key01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-key_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicKeyFlow"
+}

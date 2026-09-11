@@ -1,0 +1,95 @@
+{
+  "existing": {
+    "code_scanning_alert": {
+      "CODE_SCANNING_ALERT00": {
+        "create_request": true,
+        "created_at": "sb5",
+        "dismissal_approved_by": {},
+        "dismissed_at": "sb7",
+        "dismissed_by": {},
+        "dismissed_comment": "sb9",
+        "dismissed_reason": "sba",
+        "fixed_at": "sbb",
+        "html_url": "sbc",
+        "id": "CODE_SCANNING_ALERT00",
+        "instances_url": "sbe",
+        "most_recent_instance": {},
+        "number": "sc0",
+        "rule": {},
+        "state": "sc2",
+        "tool": {},
+        "updated_at": "sc4",
+        "url": "sc5",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CODE_SCANNING_ALERT01": {
+        "create_request": true,
+        "created_at": "s169",
+        "dismissal_approved_by": {},
+        "dismissed_at": "s16b",
+        "dismissed_by": {},
+        "dismissed_comment": "s16d",
+        "dismissed_reason": "s16e",
+        "fixed_at": "s16f",
+        "html_url": "s170",
+        "id": "CODE_SCANNING_ALERT01",
+        "instances_url": "s172",
+        "most_recent_instance": {},
+        "number": "s174",
+        "rule": {},
+        "state": "s176",
+        "tool": {},
+        "updated_at": "s178",
+        "url": "s179",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CODE_SCANNING_ALERT02": {
+        "create_request": true,
+        "created_at": "s21d",
+        "dismissal_approved_by": {},
+        "dismissed_at": "s21f",
+        "dismissed_by": {},
+        "dismissed_comment": "s221",
+        "dismissed_reason": "s222",
+        "fixed_at": "s223",
+        "html_url": "s224",
+        "id": "CODE_SCANNING_ALERT02",
+        "instances_url": "s226",
+        "most_recent_instance": {},
+        "number": "s228",
+        "rule": {},
+        "state": "s22a",
+        "tool": {},
+        "updated_at": "s22c",
+        "url": "s22d",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "code_scanning_alert": {
+      "code_scanning_alert_ref01": {
+        "create_request": true,
+        "created_at": "s2d1",
+        "dismissal_approved_by": {},
+        "dismissed_at": "s2d3",
+        "dismissed_by": {},
+        "dismissed_comment": "s2d5",
+        "dismissed_reason": "s2d6",
+        "fixed_at": "s2d7",
+        "html_url": "s2d8",
+        "instances_url": "s2da",
+        "most_recent_instance": {},
+        "number": "s2dc",
+        "rule": {},
+        "state": "s2de",
+        "tool": {},
+        "updated_at": "s2e0",
+        "url": "s2e1"
+      }
+    }
+  }
+}

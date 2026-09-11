@@ -1,0 +1,50 @@
+{
+  "existing": {
+    "repository_rule_detailed": {
+      "REPOSITORY_RULE_DETAILED00": {
+        "parameters": {},
+        "ruleset_id": "RULESET01",
+        "ruleset_source": "s34",
+        "ruleset_source_type": "s35",
+        "type": "s36",
+        "branch": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "REPOSITORY_RULE_DETAILED00"
+      },
+      "REPOSITORY_RULE_DETAILED01": {
+        "parameters": {},
+        "ruleset_id": "RULESET01",
+        "ruleset_source": "s66",
+        "ruleset_source_type": "s67",
+        "type": "s68",
+        "branch": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "REPOSITORY_RULE_DETAILED01"
+      },
+      "REPOSITORY_RULE_DETAILED02": {
+        "parameters": {},
+        "ruleset_id": "RULESET01",
+        "ruleset_source": "s98",
+        "ruleset_source_type": "s99",
+        "type": "s9a",
+        "branch": "BRANCH01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "REPOSITORY_RULE_DETAILED02"
+      }
+    }
+  },
+  "new": {
+    "repository_rule_detailed": {
+      "repository_rule_detailed_ref01": {
+        "parameters": {},
+        "ruleset_id": "RULESET01",
+        "ruleset_source": "sca",
+        "ruleset_source_type": "scb",
+        "type": "scc"
+      }
+    }
+  }
+}

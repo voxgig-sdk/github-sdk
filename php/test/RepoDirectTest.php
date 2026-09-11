@@ -75,10 +75,11 @@ class RepoDirectTest extends TestCase
         if (!$setup["live"]) {
             $params["owner"] = "direct01";
             $params["repo"] = "direct02";
+            $params["subject_digest"] = "direct03";
         }
 
         $result = $client->direct([
-            "path" => "repos/{owner}/{repo}",
+            "path" => "repos/{owner}/{repo}/attestations/{subject_digest}",
             "method" => "GET",
             "params" => $params,
             "query" => $query,

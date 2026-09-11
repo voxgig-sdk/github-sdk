@@ -1,0 +1,18 @@
+# BasicMarkdownFlow
+
+main: kit: flow: BasicMarkdownFlow:
+{
+  entity: "markdown",
+  kind: "basic",
+  name: "BasicMarkdownFlow",
+  step: [
+    {
+      input: {
+        ref: "markdown_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicMarkdownFlow"
+}

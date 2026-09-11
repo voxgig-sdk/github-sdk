@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "gitignore_template": {
+      "GITIGNORE_TEMPLATE00": {
+        "id": "GITIGNORE_TEMPLATE00",
+        "name": "s1f",
+        "source": "s20"
+      },
+      "GITIGNORE_TEMPLATE01": {
+        "id": "GITIGNORE_TEMPLATE01",
+        "name": "s3d",
+        "source": "s3e"
+      },
+      "GITIGNORE_TEMPLATE02": {
+        "id": "GITIGNORE_TEMPLATE02",
+        "name": "s5b",
+        "source": "s5c"
+      }
+    }
+  },
+  "new": {
+    "gitignore_template": {
+      "gitignore_template_ref01": {
+        "name": "s79",
+        "source": "s7a"
+      }
+    }
+  }
+}

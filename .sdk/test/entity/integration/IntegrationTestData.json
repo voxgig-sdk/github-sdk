@@ -1,0 +1,86 @@
+{
+  "existing": {
+    "integration": {
+      "INTEGRATION00": {
+        "apps": [],
+        "client_id": "CLIENT01",
+        "created_at": "s98",
+        "description": "s99",
+        "events": [],
+        "external_url": "s9b",
+        "html_url": "s9c",
+        "id": "INTEGRATION00",
+        "installations_count": "s9e",
+        "name": "s9f",
+        "node_id": "NODE01",
+        "owner": "sa1",
+        "permissions": {},
+        "slug": "sa3",
+        "updated_at": "sa4",
+        "branch_id": "BRANCH01",
+        "repo": "REPO01",
+        "app_slug": "APP_SLUG01"
+      },
+      "INTEGRATION01": {
+        "apps": [],
+        "client_id": "CLIENT01",
+        "created_at": "s12e",
+        "description": "s12f",
+        "events": [],
+        "external_url": "s131",
+        "html_url": "s132",
+        "id": "INTEGRATION01",
+        "installations_count": "s134",
+        "name": "s135",
+        "node_id": "NODE01",
+        "owner": "s137",
+        "permissions": {},
+        "slug": "s139",
+        "updated_at": "s13a",
+        "branch_id": "BRANCH01",
+        "repo": "REPO01",
+        "app_slug": "APP_SLUG01"
+      },
+      "INTEGRATION02": {
+        "apps": [],
+        "client_id": "CLIENT01",
+        "created_at": "s1c4",
+        "description": "s1c5",
+        "events": [],
+        "external_url": "s1c7",
+        "html_url": "s1c8",
+        "id": "INTEGRATION02",
+        "installations_count": "s1ca",
+        "name": "s1cb",
+        "node_id": "NODE01",
+        "owner": "s1cd",
+        "permissions": {},
+        "slug": "s1cf",
+        "updated_at": "s1d0",
+        "branch_id": "BRANCH01",
+        "repo": "REPO01",
+        "app_slug": "APP_SLUG01"
+      }
+    }
+  },
+  "new": {
+    "integration": {
+      "integration_ref01": {
+        "apps": [],
+        "client_id": "CLIENT01",
+        "created_at": "s25a",
+        "description": "s25b",
+        "events": [],
+        "external_url": "s25d",
+        "html_url": "s25e",
+        "installations_count": "s260",
+        "name": "s261",
+        "node_id": "NODE01",
+        "owner": "s263",
+        "permissions": {},
+        "slug": "s265",
+        "updated_at": "s266"
+      }
+    }
+  }
+}

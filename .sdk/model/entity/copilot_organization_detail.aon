@@ -1,0 +1,108 @@
+# Entity: copilot_organization_detail
+
+main: kit: entity: copilot_organization_detail: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "active_this_cycle"
+      req: false
+      short: "The number of seats that have used Copilot during the current billing cycle."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "added_this_cycle"
+      req: false
+      short: "Seats added during the current billing cycle."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "inactive_this_cycle"
+      req: false
+      short: "The number of seats that have not used Copilot during the current billing cycle."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "pending_cancellation"
+      req: false
+      short: "The number of seats that are pending cancellation at the end of the current billing cycle."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "pending_invitation"
+      req: false
+      short: "The number of users who have been invited to receive a Copilot seat through this organization."
+      type: "`$INTEGER`"
+    }
+    {
+      name: "total"
+      req: false
+      short: "The total number of seats being billed for the organization as of the current billing cycle."
+      type: "`$INTEGER`"
+    }
+  ]
+
+  name: "copilot_organization_detail"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/copilot/billing"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "copilot"
+            }
+            {
+              lit: "billing"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.seat_breakdown`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+    ]
+  }
+
+
+
+}

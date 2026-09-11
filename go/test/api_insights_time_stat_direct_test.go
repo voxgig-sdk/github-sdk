@@ -1,0 +1,314 @@
+package sdktest
+
+import (
+	"encoding/json"
+	"os"
+	"strings"
+	"testing"
+
+	sdk "github.com/voxgig-sdk/github-sdk/go"
+	"github.com/voxgig-sdk/github-sdk/go/core"
+)
+
+func TestApiInsightsTimeStatDirect(t *testing.T) {
+	t.Run("direct-list-api_insights_time_stat", func(t *testing.T) {
+		setup := api_insights_time_statDirectSetup([]any{
+			map[string]any{"id": "direct01"},
+			map[string]any{"id": "direct02"},
+		})
+		_mode := "unit"
+		if setup.live {
+			_mode = "live"
+		}
+		if _shouldSkip, _reason := isControlSkipped("direct", "direct-list-api_insights_time_stat", _mode); _shouldSkip {
+			if _reason == "" {
+				_reason = "skipped via sdk-test-control.json"
+			}
+			t.Skip(_reason)
+			return
+		}
+		if setup.live {
+			for _, _liveKey := range []string{"actor01", "actor_type01", "org01"} {
+				if v := setup.idmap[_liveKey]; v == nil {
+					t.Skipf("live test needs %s via *_ENTID env var (synthetic IDs only)", _liveKey)
+					return
+				}
+			}
+		}
+		client := setup.client
+
+		params := map[string]any{}
+		if setup.live {
+			params["actor_id"] = setup.idmap["actor01"]
+		} else {
+			params["actor_id"] = "direct01"
+		}
+		if setup.live {
+			params["actor_type"] = setup.idmap["actor_type01"]
+		} else {
+			params["actor_type"] = "direct02"
+		}
+		if setup.live {
+			params["org"] = setup.idmap["org01"]
+		} else {
+			params["org"] = "direct03"
+		}
+
+		result, err := client.Direct(map[string]any{
+			"path":   "orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id}",
+			"method": "GET",
+			"params": params,
+		})
+		if setup.live {
+			// Live-mode leniency is a model decision
+			// (main.kit.test.live.strict): synthetic IDs 4xx constantly
+			// against an arbitrary public API, so the default SKIPS here.
+			// A project that owns its test server sets strict and FAILS.
+			if err != nil {
+				t.Skipf("list call failed (likely synthetic IDs against live API): %v", err)
+			}
+			if result["ok"] != true {
+				t.Skipf("list call not ok (likely synthetic IDs against live API): %v", result)
+			}
+			status := core.ToInt(result["status"])
+			if status < 200 || status >= 300 {
+				t.Skipf("expected 2xx status, got %v", result["status"])
+			}
+		} else {
+			if err != nil {
+				t.Fatalf("direct failed: %v", err)
+			}
+			if result["ok"] != true {
+				t.Fatalf("expected ok to be true, got %v", result["ok"])
+			}
+			if core.ToInt(result["status"]) != 200 {
+				t.Fatalf("expected status 200, got %v", result["status"])
+			}
+		}
+
+		if !setup.live {
+			if dataList, ok := result["data"].([]any); ok {
+				if len(dataList) != 2 {
+					t.Fatalf("expected 2 items, got %d", len(dataList))
+				}
+			} else {
+				t.Fatalf("expected data to be an array, got %T", result["data"])
+			}
+
+			if len(*setup.calls) != 1 {
+				t.Fatalf("expected 1 call, got %d", len(*setup.calls))
+			}
+			call := (*setup.calls)[0]
+			if initMap, ok := call["init"].(map[string]any); ok {
+				if initMap["method"] != "GET" {
+					t.Fatalf("expected method GET, got %v", initMap["method"])
+				}
+			}
+			if url, ok := call["url"].(string); ok {
+				if !strings.Contains(url, "direct01") {
+					t.Fatalf("expected url to contain direct01, got %v", url)
+				}
+				if !strings.Contains(url, "direct02") {
+					t.Fatalf("expected url to contain direct02, got %v", url)
+				}
+				if !strings.Contains(url, "direct03") {
+					t.Fatalf("expected url to contain direct03, got %v", url)
+				}
+			}
+		}
+	})
+
+	t.Run("direct-load-api_insights_time_stat", func(t *testing.T) {
+		setup := api_insights_time_statDirectSetup(map[string]any{"id": "direct01"})
+		_mode := "unit"
+		if setup.live {
+			_mode = "live"
+		}
+		if _shouldSkip, _reason := isControlSkipped("direct", "direct-load-api_insights_time_stat", _mode); _shouldSkip {
+			if _reason == "" {
+				_reason = "skipped via sdk-test-control.json"
+			}
+			t.Skip(_reason)
+			return
+		}
+		if setup.live {
+			for _, _liveKey := range []string{"actor01", "actor_type01", "org01"} {
+				if v := setup.idmap[_liveKey]; v == nil {
+					t.Skipf("live test needs %s via *_ENTID env var (synthetic IDs only)", _liveKey)
+					return
+				}
+			}
+		}
+		client := setup.client
+
+		params := map[string]any{}
+		query := map[string]any{}
+		if setup.live {
+			listParams := map[string]any{}
+			listParams["actor_id"] = setup.idmap["actor01"]
+			listParams["actor_type"] = setup.idmap["actor_type01"]
+			listParams["org"] = setup.idmap["org01"]
+			listResult, listErr := client.Direct(map[string]any{
+				"path":   "orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id}",
+				"method": "GET",
+				"params": listParams,
+			})
+			if listErr != nil {
+				t.Skipf("list call failed (likely synthetic IDs against live API): %v", listErr)
+			}
+			if listResult["ok"] != true {
+				t.Skipf("list call not ok (likely synthetic IDs against live API): %v", listResult)
+			}
+
+			// Get first entity ID from list
+			listData, _ := listResult["data"].([]any)
+			if len(listData) == 0 {
+				t.Skip("no entities to load in live mode")
+			}
+			firstEnt := core.ToMapAny(listData[0])
+			params["id"] = firstEnt["id"]
+			params["org_id"] = setup.idmap["org01"]
+			params["user_id"] = setup.idmap["user01"]
+		} else {
+			params["org_id"] = "direct01"
+			params["user_id"] = "direct02"
+		}
+
+		result, err := client.Direct(map[string]any{
+			"path":   "orgs/{org_id}/insights/api/time-stats/users/{user_id}",
+			"method": "GET",
+			"params": params,
+			"query":  query,
+		})
+		if setup.live {
+			// Live mode is lenient: synthetic IDs frequently 4xx. Skip
+			// rather than fail when the load endpoint isn't reachable with
+			// the IDs we can construct from setup.idmap — unless the model
+			// sets main.kit.test.live.strict.
+			if err != nil {
+				t.Skipf("load call failed (likely synthetic IDs against live API): %v", err)
+			}
+			if result["ok"] != true {
+				t.Skipf("load call not ok (likely synthetic IDs against live API): %v", result)
+			}
+			status := core.ToInt(result["status"])
+			if status < 200 || status >= 300 {
+				t.Skipf("expected 2xx status, got %v", result["status"])
+			}
+		} else {
+			if err != nil {
+				t.Fatalf("direct failed: %v", err)
+			}
+			if result["ok"] != true {
+				t.Fatalf("expected ok to be true, got %v", result["ok"])
+			}
+			if core.ToInt(result["status"]) != 200 {
+				t.Fatalf("expected status 200, got %v", result["status"])
+			}
+			if result["data"] == nil {
+				t.Fatal("expected data to be non-nil")
+			}
+		}
+
+		if !setup.live {
+			if dataMap, ok := result["data"].(map[string]any); ok {
+				if dataMap["id"] != "direct01" {
+					t.Fatalf("expected data.id to be direct01, got %v", dataMap["id"])
+				}
+			}
+
+			if len(*setup.calls) != 1 {
+				t.Fatalf("expected 1 call, got %d", len(*setup.calls))
+			}
+			call := (*setup.calls)[0]
+			if initMap, ok := call["init"].(map[string]any); ok {
+				if initMap["method"] != "GET" {
+					t.Fatalf("expected method GET, got %v", initMap["method"])
+				}
+			}
+			if url, ok := call["url"].(string); ok {
+				if !strings.Contains(url, "direct01") {
+					t.Fatalf("expected url to contain direct01, got %v", url)
+				}
+				if !strings.Contains(url, "direct02") {
+					t.Fatalf("expected url to contain direct02, got %v", url)
+				}
+			}
+		}
+	})
+
+}
+
+type api_insights_time_statDirectSetupResult struct {
+	client *sdk.GithubSDK
+	calls  *[]map[string]any
+	live   bool
+	idmap  map[string]any
+}
+
+func api_insights_time_statDirectSetup(mockres any) *api_insights_time_statDirectSetupResult {
+	loadEnvLocal()
+
+	calls := &[]map[string]any{}
+
+	env := envOverride(map[string]any{
+		"GITHUB_TEST_API_INSIGHTS_TIME_STAT_ENTID": map[string]any{},
+		"GITHUB_TEST_LIVE":    "FALSE",
+		"GITHUB_APIKEY":       "",
+	})
+
+	live := env["GITHUB_TEST_LIVE"] == "TRUE"
+
+	if live {
+		// sdk-test-control.json's test.client.options seeds the live
+		// client; the generated fields below overwrite anything they name.
+		mergedOpts := map[string]any{}
+		for k, v := range liveClientOptions() {
+			mergedOpts[k] = v
+		}
+		for k, v := range map[string]any{
+			"apikey": env["GITHUB_APIKEY"],
+		} {
+			mergedOpts[k] = v
+		}
+		client := sdk.NewGithubSDK(mergedOpts)
+
+		idmap := map[string]any{}
+		if entidRaw, ok := env["GITHUB_TEST_API_INSIGHTS_TIME_STAT_ENTID"]; ok {
+			if entidStr, ok := entidRaw.(string); ok && strings.HasPrefix(entidStr, "{") {
+				json.Unmarshal([]byte(entidStr), &idmap)
+			} else if entidMap, ok := entidRaw.(map[string]any); ok {
+				idmap = entidMap
+			}
+		}
+
+		return &api_insights_time_statDirectSetupResult{client: client, calls: calls, live: true, idmap: idmap}
+	}
+
+	mockFetch := func(url string, init map[string]any) (map[string]any, error) {
+		*calls = append(*calls, map[string]any{"url": url, "init": init})
+		return map[string]any{
+			"status":     200,
+			"statusText": "OK",
+			"headers":    map[string]any{},
+			"json": (func() any)(func() any {
+				if mockres != nil {
+					return mockres
+				}
+				return map[string]any{"id": "direct01"}
+			}),
+		}, nil
+	}
+
+	client := sdk.NewGithubSDK(map[string]any{
+		"base": "http://localhost:8080",
+		"system": map[string]any{
+			"fetch": (func(string, map[string]any) (map[string]any, error))(mockFetch),
+		},
+	})
+
+	return &api_insights_time_statDirectSetupResult{client: client, calls: calls, live: false, idmap: map[string]any{}}
+}
+
+var _ = os.Getenv
+var _ = json.Unmarshal

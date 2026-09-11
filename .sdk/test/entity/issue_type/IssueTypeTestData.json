@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "issue_type": {
+      "ISSUE_TYPE00": {
+        "color": "s50",
+        "created_at": "s51",
+        "description": "s52",
+        "id": "ISSUE_TYPE00",
+        "is_enabled": true,
+        "name": "s55",
+        "node_id": "NODE01",
+        "updated_at": "s57",
+        "org_id": "ORG01"
+      },
+      "ISSUE_TYPE01": {
+        "color": "sa0",
+        "created_at": "sa1",
+        "description": "sa2",
+        "id": "ISSUE_TYPE01",
+        "is_enabled": true,
+        "name": "sa5",
+        "node_id": "NODE01",
+        "updated_at": "sa7",
+        "org_id": "ORG01"
+      },
+      "ISSUE_TYPE02": {
+        "color": "sf0",
+        "created_at": "sf1",
+        "description": "sf2",
+        "id": "ISSUE_TYPE02",
+        "is_enabled": true,
+        "name": "sf5",
+        "node_id": "NODE01",
+        "updated_at": "sf7",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "issue_type": {
+      "issue_type_ref01": {
+        "color": "s140",
+        "created_at": "s141",
+        "description": "s142",
+        "is_enabled": true,
+        "name": "s145",
+        "node_id": "NODE01",
+        "updated_at": "s147"
+      }
+    }
+  }
+}

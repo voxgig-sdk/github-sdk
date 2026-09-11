@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "gitignore": {
+      "GITIGNORE00": {},
+      "GITIGNORE01": {},
+      "GITIGNORE02": {}
+    }
+  },
+  "new": {
+    "gitignore": {
+      "gitignore_ref01": {}
+    }
+  }
+}

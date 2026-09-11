@@ -1,0 +1,67 @@
+{
+  "existing": {
+    "code_scanning_alert_instance": {
+      "CODE_SCANNING_ALERT_INSTANCE00": {
+        "analysis_key": "s64",
+        "category": "s65",
+        "classifications": [],
+        "commit_sha": "s67",
+        "environment": "s68",
+        "html_url": "s69",
+        "location": {},
+        "message": {},
+        "ref": "s6c",
+        "state": "s6d",
+        "alert_number": "ALERT_NUMBER01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CODE_SCANNING_ALERT_INSTANCE01": {
+        "analysis_key": "sc8",
+        "category": "sc9",
+        "classifications": [],
+        "commit_sha": "scb",
+        "environment": "scc",
+        "html_url": "scd",
+        "location": {},
+        "message": {},
+        "ref": "sd0",
+        "state": "sd1",
+        "alert_number": "ALERT_NUMBER01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "CODE_SCANNING_ALERT_INSTANCE02": {
+        "analysis_key": "s12c",
+        "category": "s12d",
+        "classifications": [],
+        "commit_sha": "s12f",
+        "environment": "s130",
+        "html_url": "s131",
+        "location": {},
+        "message": {},
+        "ref": "s134",
+        "state": "s135",
+        "alert_number": "ALERT_NUMBER01",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "code_scanning_alert_instance": {
+      "code_scanning_alert_instance_ref01": {
+        "analysis_key": "s190",
+        "category": "s191",
+        "classifications": [],
+        "commit_sha": "s193",
+        "environment": "s194",
+        "html_url": "s195",
+        "location": {},
+        "message": {},
+        "ref": "s198",
+        "state": "s199"
+      }
+    }
+  }
+}

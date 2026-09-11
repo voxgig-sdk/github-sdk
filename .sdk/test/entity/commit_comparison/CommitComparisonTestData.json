@@ -1,0 +1,82 @@
+{
+  "existing": {
+    "commit_comparison": {
+      "COMMIT_COMPARISON00": {
+        "ahead_by": "s82",
+        "base_commit": {},
+        "behind_by": "s84",
+        "commits": [],
+        "diff_url": "s86",
+        "files": [],
+        "html_url": "s88",
+        "merge_base_commit": {},
+        "patch_url": "s8a",
+        "permalink_url": "s8b",
+        "status": "s8c",
+        "total_commits": "s8d",
+        "url": "s8e",
+        "basehead": "BASEHEAD01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "COMMIT_COMPARISON00"
+      },
+      "COMMIT_COMPARISON01": {
+        "ahead_by": "s104",
+        "base_commit": {},
+        "behind_by": "s106",
+        "commits": [],
+        "diff_url": "s108",
+        "files": [],
+        "html_url": "s10a",
+        "merge_base_commit": {},
+        "patch_url": "s10c",
+        "permalink_url": "s10d",
+        "status": "s10e",
+        "total_commits": "s10f",
+        "url": "s110",
+        "basehead": "BASEHEAD01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "COMMIT_COMPARISON01"
+      },
+      "COMMIT_COMPARISON02": {
+        "ahead_by": "s186",
+        "base_commit": {},
+        "behind_by": "s188",
+        "commits": [],
+        "diff_url": "s18a",
+        "files": [],
+        "html_url": "s18c",
+        "merge_base_commit": {},
+        "patch_url": "s18e",
+        "permalink_url": "s18f",
+        "status": "s190",
+        "total_commits": "s191",
+        "url": "s192",
+        "basehead": "BASEHEAD01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "COMMIT_COMPARISON02"
+      }
+    }
+  },
+  "new": {
+    "commit_comparison": {
+      "commit_comparison_ref01": {
+        "ahead_by": "s208",
+        "base_commit": {},
+        "behind_by": "s20a",
+        "commits": [],
+        "diff_url": "s20c",
+        "files": [],
+        "html_url": "s20e",
+        "merge_base_commit": {},
+        "patch_url": "s210",
+        "permalink_url": "s211",
+        "status": "s212",
+        "total_commits": "s213",
+        "url": "s214"
+      }
+    }
+  }
+}

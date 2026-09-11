@@ -1,0 +1,32 @@
+# BasicActionsHostedRunnerLimitFlow
+
+main: kit: flow: BasicActionsHostedRunnerLimitFlow:
+{
+  entity: "actions_hosted_runner_limit",
+  kind: "basic",
+  name: "BasicActionsHostedRunnerLimitFlow",
+  step: [
+    {
+      input: {
+        ref: "actions_hosted_runner_limit_ref01",
+        srcdatavar: "actions_hosted_runner_limit_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "actions_hosted_runner_limit01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-actions_hosted_runner_limit_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicActionsHostedRunnerLimitFlow"
+}

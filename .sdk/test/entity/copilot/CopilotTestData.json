@@ -1,0 +1,75 @@
+{
+  "existing": {
+    "copilot": {
+      "COPILOT00": {
+        "assignee": {},
+        "assigning_team": "s79",
+        "created_at": "s7a",
+        "last_activity_at": "s7b",
+        "last_activity_editor": "s7c",
+        "last_authenticated_at": "s7d",
+        "organization": {},
+        "pending_cancellation_date": "s7f",
+        "plan_type": "s80",
+        "selected_teams": [],
+        "selected_usernames": [],
+        "updated_at": "s83",
+        "org_id": "ORG01",
+        "username": "USERNAME01",
+        "id": "COPILOT00"
+      },
+      "COPILOT01": {
+        "assignee": {},
+        "assigning_team": "sf1",
+        "created_at": "sf2",
+        "last_activity_at": "sf3",
+        "last_activity_editor": "sf4",
+        "last_authenticated_at": "sf5",
+        "organization": {},
+        "pending_cancellation_date": "sf7",
+        "plan_type": "sf8",
+        "selected_teams": [],
+        "selected_usernames": [],
+        "updated_at": "sfb",
+        "org_id": "ORG01",
+        "username": "USERNAME01",
+        "id": "COPILOT01"
+      },
+      "COPILOT02": {
+        "assignee": {},
+        "assigning_team": "s169",
+        "created_at": "s16a",
+        "last_activity_at": "s16b",
+        "last_activity_editor": "s16c",
+        "last_authenticated_at": "s16d",
+        "organization": {},
+        "pending_cancellation_date": "s16f",
+        "plan_type": "s170",
+        "selected_teams": [],
+        "selected_usernames": [],
+        "updated_at": "s173",
+        "org_id": "ORG01",
+        "username": "USERNAME01",
+        "id": "COPILOT02"
+      }
+    }
+  },
+  "new": {
+    "copilot": {
+      "copilot_ref01": {
+        "assignee": {},
+        "assigning_team": "s1e1",
+        "created_at": "s1e2",
+        "last_activity_at": "s1e3",
+        "last_activity_editor": "s1e4",
+        "last_authenticated_at": "s1e5",
+        "organization": {},
+        "pending_cancellation_date": "s1e7",
+        "plan_type": "s1e8",
+        "selected_teams": [],
+        "selected_usernames": [],
+        "updated_at": "s1eb"
+      }
+    }
+  }
+}

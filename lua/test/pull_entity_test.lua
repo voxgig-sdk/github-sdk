@@ -60,7 +60,7 @@ describe("PullEntity", function()
     local setup = pull_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"create", "list", "update", "load"}) do
+    for _, _op in ipairs({"create", "list", "update", "load", "remove"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "pull." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -79,6 +79,7 @@ describe("PullEntity", function()
     local pull_ref01_ent = client:Pull(nil)
     local pull_ref01_data = helpers.to_map(vs.getprop(
       vs.getpath(setup.data, "new.pull"), "pull_ref01"))
+    pull_ref01_data["commit_sha"] = setup.idmap["commit_sha01"]
     pull_ref01_data["owner"] = setup.idmap["owner01"]
     pull_ref01_data["repo"] = setup.idmap["repo01"]
 
@@ -90,6 +91,7 @@ describe("PullEntity", function()
 
     -- LIST
     local pull_ref01_match = {
+      ["commit_sha"] = setup.idmap["commit_sha01"],
       ["owner"] = setup.idmap["owner01"],
       ["repo"] = setup.idmap["repo01"],
     }
@@ -131,6 +133,29 @@ describe("PullEntity", function()
     assert.is_not_nil(pull_ref01_data_dt0_load_result)
     assert.are.equal(pull_ref01_data_dt0_load_result["id"], pull_ref01_data["id"])
 
+    -- REMOVE
+    local pull_ref01_match_rm0 = {
+      id = pull_ref01_data["id"],
+    }
+    local _, err = pull_ref01_ent:remove(pull_ref01_match_rm0, nil)
+    assert.is_nil(err)
+
+    -- LIST
+    local pull_ref01_match_rt0 = {
+      ["commit_sha"] = setup.idmap["commit_sha01"],
+      ["owner"] = setup.idmap["owner01"],
+      ["repo"] = setup.idmap["repo01"],
+    }
+
+    local pull_ref01_list_rt0_result, err = pull_ref01_ent:list(pull_ref01_match_rt0, nil)
+    assert.is_nil(err)
+    assert.is_table(pull_ref01_list_rt0_result)
+
+    local not_found_item = vs.select(
+      runner.entity_list_to_data(pull_ref01_list_rt0_result),
+      { id = pull_ref01_data["id"] })
+    assert.is_true(vs.isempty(not_found_item))
+
   end)
 end)
 
@@ -154,7 +179,7 @@ function pull_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "pull01", "pull02", "pull03", "repo01", "repo02", "repo03", "owner01" },
+    { "pull01", "pull02", "pull03", "repo01", "repo02", "repo03", "commit01", "commit02", "commit03", "comment01", "comment02", "comment03", "commit_sha01", "owner01" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

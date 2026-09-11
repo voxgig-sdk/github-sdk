@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "hosted_compute": {
+      "HOSTED_COMPUTE00": {
+        "compute_service": "s32",
+        "created_on": "s33",
+        "id": "HOSTED_COMPUTE00",
+        "name": "s35",
+        "network_settings_ids": [],
+        "org_id": "ORG01",
+        "network_configuration_id": "NETWORK_CONFIGURATION01"
+      },
+      "HOSTED_COMPUTE01": {
+        "compute_service": "s64",
+        "created_on": "s65",
+        "id": "HOSTED_COMPUTE01",
+        "name": "s67",
+        "network_settings_ids": [],
+        "org_id": "ORG01",
+        "network_configuration_id": "NETWORK_CONFIGURATION01"
+      },
+      "HOSTED_COMPUTE02": {
+        "compute_service": "s96",
+        "created_on": "s97",
+        "id": "HOSTED_COMPUTE02",
+        "name": "s99",
+        "network_settings_ids": [],
+        "org_id": "ORG01",
+        "network_configuration_id": "NETWORK_CONFIGURATION01"
+      }
+    }
+  },
+  "new": {
+    "hosted_compute": {
+      "hosted_compute_ref01": {
+        "compute_service": "sc8",
+        "created_on": "sc9",
+        "name": "scb",
+        "network_settings_ids": []
+      }
+    }
+  }
+}

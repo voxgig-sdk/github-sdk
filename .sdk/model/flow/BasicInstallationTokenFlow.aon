@@ -1,0 +1,22 @@
+# BasicInstallationTokenFlow
+
+main: kit: flow: BasicInstallationTokenFlow:
+{
+  entity: "installation_token",
+  kind: "basic",
+  name: "BasicInstallationTokenFlow",
+  step: [
+    {
+      input: {
+        ref: "installation_token_ref01"
+      }
+
+      match: {
+        installation_id: "installation01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicInstallationTokenFlow"
+}

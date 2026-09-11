@@ -1,0 +1,36 @@
+# BasicCodeScanningVariantAnalysisRepoTaskFlow
+
+main: kit: flow: BasicCodeScanningVariantAnalysisRepoTaskFlow:
+{
+  entity: "code_scanning_variant_analysis_repo_task",
+  kind: "basic",
+  name: "BasicCodeScanningVariantAnalysisRepoTaskFlow",
+  step: [
+    {
+      input: {
+        ref: "code_scanning_variant_analysis_repo_task_ref01",
+        srcdatavar: "code_scanning_variant_analysis_repo_task_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        codeql_variant_analysis_id: "codeql_variant_analysis01",
+        id: "code_scanning_variant_analysis_repo_task01",
+        owner: "owner01",
+        repo: "repo01",
+        repo_owner: "repo_owner01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-code_scanning_variant_analysis_repo_task_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCodeScanningVariantAnalysisRepoTaskFlow"
+}

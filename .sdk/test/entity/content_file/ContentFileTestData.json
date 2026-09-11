@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "content_file": {
+      "CONTENT_FILE00": {
+        "git": "s1e",
+        "html": "s1f",
+        "self": "s20",
+        "dir": "DIR01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CONTENT_FILE00"
+      },
+      "CONTENT_FILE01": {
+        "git": "s3c",
+        "html": "s3d",
+        "self": "s3e",
+        "dir": "DIR01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CONTENT_FILE01"
+      },
+      "CONTENT_FILE02": {
+        "git": "s5a",
+        "html": "s5b",
+        "self": "s5c",
+        "dir": "DIR01",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "id": "CONTENT_FILE02"
+      }
+    }
+  },
+  "new": {
+    "content_file": {
+      "content_file_ref01": {
+        "git": "s78",
+        "html": "s79",
+        "self": "s7a"
+      }
+    }
+  }
+}

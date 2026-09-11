@@ -1,0 +1,55 @@
+{
+  "existing": {
+    "git_ref": {
+      "GIT_REF00": {
+        "force": true,
+        "id": "GIT_REF00",
+        "node_id": "NODE01",
+        "object": {},
+        "ref": "s54",
+        "sha": "s55",
+        "type": "s56",
+        "url": "s57",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "GIT_REF01": {
+        "force": true,
+        "id": "GIT_REF01",
+        "node_id": "NODE01",
+        "object": {},
+        "ref": "sa4",
+        "sha": "sa5",
+        "type": "sa6",
+        "url": "sa7",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "GIT_REF02": {
+        "force": true,
+        "id": "GIT_REF02",
+        "node_id": "NODE01",
+        "object": {},
+        "ref": "sf4",
+        "sha": "sf5",
+        "type": "sf6",
+        "url": "sf7",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "git_ref": {
+      "git_ref_ref01": {
+        "force": true,
+        "node_id": "NODE01",
+        "object": {},
+        "ref": "s144",
+        "sha": "s145",
+        "type": "s146",
+        "url": "s147"
+      }
+    }
+  }
+}

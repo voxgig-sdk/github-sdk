@@ -1,0 +1,9 @@
+# BasicEnterpriseTeamMembershipFlow
+
+main: kit: flow: BasicEnterpriseTeamMembershipFlow:
+{
+  entity: "enterprise_team_membership",
+  kind: "basic",
+  name: "BasicEnterpriseTeamMembershipFlow",
+  "key$": "BasicEnterpriseTeamMembershipFlow"
+}

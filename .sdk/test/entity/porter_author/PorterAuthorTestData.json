@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "porter_author": {
+      "PORTER_AUTHOR00": {
+        "email": "s46",
+        "id": "PORTER_AUTHOR00",
+        "import_url": "s48",
+        "name": "s49",
+        "remote_id": "REMOTE01",
+        "remote_name": "s4b",
+        "url": "s4c",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "PORTER_AUTHOR01": {
+        "email": "s8c",
+        "id": "PORTER_AUTHOR01",
+        "import_url": "s8e",
+        "name": "s8f",
+        "remote_id": "REMOTE01",
+        "remote_name": "s91",
+        "url": "s92",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "PORTER_AUTHOR02": {
+        "email": "sd2",
+        "id": "PORTER_AUTHOR02",
+        "import_url": "sd4",
+        "name": "sd5",
+        "remote_id": "REMOTE01",
+        "remote_name": "sd7",
+        "url": "sd8",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "porter_author": {
+      "porter_author_ref01": {
+        "email": "s118",
+        "import_url": "s11a",
+        "name": "s11b",
+        "remote_id": "REMOTE01",
+        "remote_name": "s11d",
+        "url": "s11e"
+      }
+    }
+  }
+}

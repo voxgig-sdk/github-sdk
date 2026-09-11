@@ -1,0 +1,123 @@
+# Entity: workflow_usage
+
+main: kit: entity: workflow_usage: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "MACOS"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "UBUNTU"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "WINDOWS"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "workflow_usage"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "workflow_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/actions/workflows/{workflow_id}/timing"
+          rename: {
+            param: {
+              workflow_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              lit: "workflows"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "timing"
+            }
+          ]
+          select: {
+            "$action": "timing"
+            exist: [
+              "id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.billable`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

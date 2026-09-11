@@ -1,0 +1,1581 @@
+# Entity: user
+
+main: kit: entity: user: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "assignment"
+      req: false
+      short: "Determines if the user has a direct, indirect, or mixed relationship to a role"
+      type: "`$STRING`"
+    }
+    {
+      name: "attestations_subject_digests"
+      req: false
+      short: "Mapping of subject digest to bundles."
+      type: "`$OBJECT`"
+    }
+    {
+      format: "uri"
+      name: "avatar_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "bio"
+      req: false
+      short: "The new short biography of the user."
+      type: "`$STRING`"
+    }
+    {
+      name: "blog"
+      req: false
+      short: "The new blog URL of the user."
+      type: "`$STRING`"
+    }
+    {
+      name: "collaborators"
+      op: {
+        patch: {
+          req: true
+          type: "`$INTEGER`"
+        }
+      }
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "company"
+      req: false
+      short: "The new company of the user."
+      type: "`$STRING`"
+    }
+    {
+      name: "created_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "disk_usage"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "email"
+      req: false
+      short: "The publicly visible email address of the user."
+      type: "`$STRING`"
+    }
+    {
+      name: "events_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "followers"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "followers_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "following"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "following_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "gists_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "gravatar_id"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "hireable"
+      req: false
+      short: "The new hiring availability of the user."
+      type: "`$BOOLEAN`"
+    }
+    {
+      format: "uri"
+      name: "html_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "int64"
+      name: "id"
+      op: {
+        list: {
+          req: true
+          type: "`$INTEGER`"
+        }
+      }
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "inherited_from"
+      req: false
+      short: "Team the user has gotten the role through"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "location"
+      req: false
+      short: "The new location of the user."
+      type: "`$STRING`"
+    }
+    {
+      name: "login"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      op: {
+        patch: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      short: "The new name of the user."
+      type: "`$STRING`"
+    }
+    {
+      name: "node_id"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "organizations_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "owned_private_repos"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "page_info"
+      req: false
+      short: "Information about the current page."
+      type: "`$OBJECT`"
+    }
+    {
+      name: "plan"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "predicate_type"
+      req: false
+      short: "Optional filter for fetching attestations with a given predicate type."
+      type: "`$STRING`"
+    }
+    {
+      name: "private_gists"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "private_repos"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "public_gists"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "public_repos"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "received_events_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "repos_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "site_admin"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "space"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "starred_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "starred_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "subject_digests"
+      req: true
+      short: "List of subject digests to fetch attestations for."
+      type: "`$ARRAY`"
+    }
+    {
+      format: "uri"
+      name: "subscriptions_url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "total_private_repos"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "twitter_username"
+      req: false
+      short: "The new Twitter username of the user."
+      type: "`$STRING`"
+    }
+    {
+      name: "two_factor_authentication"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "type"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "updated_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url"
+      op: {
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "user_view_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "users"
+      req: true
+      short: "The username for users"
+      type: "`$ARRAY`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "user"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "after"
+                orig: "after"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "before"
+                orig: "before"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/users/{username}/attestations/bulk-list"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "attestations"
+            }
+            {
+              lit: "bulk-list"
+            }
+          ]
+          select: {
+            "$action": "attestation_bulk_list"
+            exist: [
+              "after"
+              "before"
+              "per_page"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              lit: "restrictions"
+            }
+            {
+              lit: "users"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/users/{username}/attestations/delete-request"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "attestations"
+            }
+            {
+              lit: "delete-request"
+            }
+          ]
+          select: {
+            "$action": "attestation_delete_request"
+            exist: [
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "organization_role_id"
+                orig: "role_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/organization-roles/{role_id}/users"
+          rename: {
+            param: {
+              org: "org_id"
+              role_id: "organization_role_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "organization-roles"
+            }
+            {
+              var: "organization_role_id"
+            }
+            {
+              lit: "users"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "organization_role_id"
+              "page"
+              "per_page"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              lit: "restrictions"
+            }
+            {
+              lit: "users"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "since"
+                orig: "since"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users"
+          segments: [
+            {
+              lit: "users"
+            }
+          ]
+          select: {
+            exist: [
+              "per_page"
+              "since"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "target_user"
+                orig: "target_user"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users/{username}/following/{target_user}"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "following"
+            }
+            {
+              var: "target_user"
+            }
+          ]
+          select: {
+            exist: [
+              "target_user"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "account_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/{account_id}"
+          rename: {
+            param: {
+              account_id: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/users/{username}"
+          rename: {
+            param: {
+              username: "id"
+            }
+          }
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "id"
+            }
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/blocks/{username}"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "blocks"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/user/following/{username}"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "following"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/user"
+          segments: [
+            {
+              lit: "user"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    patch: {
+      name: "patch"
+      points: [
+        {
+          method: "PATCH"
+          orig: "/user"
+          segments: [
+            {
+              lit: "user"
+            }
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body.plan`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              lit: "restrictions"
+            }
+            {
+              lit: "users"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "attestation_id"
+                orig: "attestation_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/users/{username}/attestations/{attestation_id}"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "attestations"
+            }
+            {
+              var: "attestation_id"
+            }
+          ]
+          select: {
+            exist: [
+              "attestation_id"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "subject_digest"
+                orig: "subject_digest"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/users/{username}/attestations/digest/{subject_digest}"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "username"
+            }
+            {
+              lit: "attestations"
+            }
+            {
+              lit: "digest"
+            }
+            {
+              var: "subject_digest"
+            }
+          ]
+          select: {
+            exist: [
+              "subject_digest"
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "gpg_key_id"
+                orig: "gpg_key_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/user/gpg_keys/{gpg_key_id}"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "gpg_keys"
+            }
+            {
+              var: "gpg_key_id"
+            }
+          ]
+          select: {
+            exist: [
+              "gpg_key_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "key_id"
+                orig: "key_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/user/keys/{key_id}"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "keys"
+            }
+            {
+              var: "key_id"
+            }
+          ]
+          select: {
+            exist: [
+              "key_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "ssh_signing_key_id"
+                orig: "ssh_signing_key_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/user/ssh_signing_keys/{ssh_signing_key_id}"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "ssh_signing_keys"
+            }
+            {
+              var: "ssh_signing_key_id"
+            }
+          ]
+          select: {
+            exist: [
+              "ssh_signing_key_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/user/blocks/{username}"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "blocks"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/user/following/{username}"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "following"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "DELETE"
+          orig: "/user/emails"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "emails"
+            }
+          ]
+          select: {
+            "$action": "email"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "DELETE"
+          orig: "/user/social_accounts"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "social_accounts"
+            }
+          ]
+          select: {
+            "$action": "social_account"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "branch_id"
+                orig: "branch"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users"
+          rename: {
+            param: {
+              branch: "branch_id"
+            }
+          }
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "branches"
+            }
+            {
+              var: "branch_id"
+            }
+            {
+              lit: "protection"
+            }
+            {
+              lit: "restrictions"
+            }
+            {
+              lit: "users"
+            }
+          ]
+          select: {
+            exist: [
+              "branch_id"
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/user/blocks/{username}"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "blocks"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "username"
+                orig: "username"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PUT"
+          orig: "/user/following/{username}"
+          segments: [
+            {
+              lit: "user"
+            }
+            {
+              lit: "following"
+            }
+            {
+              var: "username"
+            }
+          ]
+          select: {
+            exist: [
+              "username"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "block"
+      ]
+      [
+        "gpg_key"
+      ]
+      [
+        "key"
+      ]
+      [
+        "ssh_signing_key"
+      ]
+      [
+        "user"
+      ]
+      [
+        "org"
+        "organization_role"
+      ]
+      [
+        "repo"
+        "branch"
+      ]
+      [
+        "user"
+        "digest"
+      ]
+      [
+        "user"
+        "attestation"
+      ]
+      [
+        "user"
+        "following"
+      ]
+    ]
+  }
+
+
+
+}

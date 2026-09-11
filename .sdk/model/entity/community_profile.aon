@@ -1,0 +1,115 @@
+# Entity: community_profile
+
+main: kit: entity: community_profile: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "code_of_conduct"
+      req: true
+      short: "Code of Conduct Simple"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "code_of_conduct_file"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "contributing"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "issue_template"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "license"
+      req: true
+      short: "License Simple"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "pull_request_template"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "readme"
+      req: true
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "community_profile"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/community/profile"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "community"
+            }
+            {
+              lit: "profile"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.files`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+      ]
+    ]
+  }
+
+
+
+}

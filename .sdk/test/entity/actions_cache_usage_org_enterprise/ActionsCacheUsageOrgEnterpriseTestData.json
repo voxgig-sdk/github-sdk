@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "actions_cache_usage_org_enterprise": {
+      "ACTIONS_CACHE_USAGE_ORG_ENTERPRISE00": {
+        "total_active_caches_count": "s14",
+        "total_active_caches_size_in_bytes": "s15",
+        "org_id": "ORG01",
+        "id": "ACTIONS_CACHE_USAGE_ORG_ENTERPRISE00"
+      },
+      "ACTIONS_CACHE_USAGE_ORG_ENTERPRISE01": {
+        "total_active_caches_count": "s28",
+        "total_active_caches_size_in_bytes": "s29",
+        "org_id": "ORG01",
+        "id": "ACTIONS_CACHE_USAGE_ORG_ENTERPRISE01"
+      },
+      "ACTIONS_CACHE_USAGE_ORG_ENTERPRISE02": {
+        "total_active_caches_count": "s3c",
+        "total_active_caches_size_in_bytes": "s3d",
+        "org_id": "ORG01",
+        "id": "ACTIONS_CACHE_USAGE_ORG_ENTERPRISE02"
+      }
+    }
+  },
+  "new": {
+    "actions_cache_usage_org_enterprise": {
+      "actions_cache_usage_org_enterprise_ref01": {
+        "total_active_caches_count": "s50",
+        "total_active_caches_size_in_bytes": "s51"
+      }
+    }
+  }
+}

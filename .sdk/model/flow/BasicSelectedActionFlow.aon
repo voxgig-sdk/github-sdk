@@ -1,0 +1,26 @@
+# BasicSelectedActionFlow
+
+main: kit: flow: BasicSelectedActionFlow:
+{
+  entity: "selected_action",
+  kind: "basic",
+  name: "BasicSelectedActionFlow",
+  step: [
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "selected_action_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSelectedActionFlow"
+}

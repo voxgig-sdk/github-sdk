@@ -1,0 +1,60 @@
+{
+  "existing": {
+    "org_membership": {
+      "ORG_MEMBERSHIP00": {
+        "direct_membership": true,
+        "enterprise_teams_providing_indirect_membership": [],
+        "id": "ORG_MEMBERSHIP00",
+        "organization": {},
+        "organization_url": "s68",
+        "permissions": {},
+        "role": "s6a",
+        "state": "s6b",
+        "url": "s6c",
+        "user": {},
+        "org_id": "ORG01"
+      },
+      "ORG_MEMBERSHIP01": {
+        "direct_membership": true,
+        "enterprise_teams_providing_indirect_membership": [],
+        "id": "ORG_MEMBERSHIP01",
+        "organization": {},
+        "organization_url": "scc",
+        "permissions": {},
+        "role": "sce",
+        "state": "scf",
+        "url": "sd0",
+        "user": {},
+        "org_id": "ORG01"
+      },
+      "ORG_MEMBERSHIP02": {
+        "direct_membership": true,
+        "enterprise_teams_providing_indirect_membership": [],
+        "id": "ORG_MEMBERSHIP02",
+        "organization": {},
+        "organization_url": "s130",
+        "permissions": {},
+        "role": "s132",
+        "state": "s133",
+        "url": "s134",
+        "user": {},
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "org_membership": {
+      "org_membership_ref01": {
+        "direct_membership": true,
+        "enterprise_teams_providing_indirect_membership": [],
+        "organization": {},
+        "organization_url": "s194",
+        "permissions": {},
+        "role": "s196",
+        "state": "s197",
+        "url": "s198",
+        "user": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+# BasicReleaseAssetFlow
+
+main: kit: flow: BasicReleaseAssetFlow:
+{
+  entity: "release_asset",
+  kind: "basic",
+  name: "BasicReleaseAssetFlow",
+  step: [
+    {
+      input: {
+        ref: "release_asset_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        release_id: "release01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        owner: "owner01",
+        release_id: "release01",
+        repo: "repo01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "release_asset_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      input: {
+        ref: "release_asset_ref01",
+        srcdatavar: "release_asset_ref01_data",
+        suffix: "_up0",
+        textfield: "avatar_url"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-release_asset_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "release_asset_ref01",
+        srcdatavar: "release_asset_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "release_asset01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-release_asset_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicReleaseAssetFlow"
+}

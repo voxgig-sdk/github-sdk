@@ -1,0 +1,23 @@
+# BasicMergedUpstreamFlow
+
+main: kit: flow: BasicMergedUpstreamFlow:
+{
+  entity: "merged_upstream",
+  kind: "basic",
+  name: "BasicMergedUpstreamFlow",
+  step: [
+    {
+      input: {
+        ref: "merged_upstream_ref01"
+      }
+
+      match: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicMergedUpstreamFlow"
+}

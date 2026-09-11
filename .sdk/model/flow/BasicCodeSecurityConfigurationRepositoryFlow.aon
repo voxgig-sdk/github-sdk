@@ -1,0 +1,27 @@
+# BasicCodeSecurityConfigurationRepositoryFlow
+
+main: kit: flow: BasicCodeSecurityConfigurationRepositoryFlow:
+{
+  entity: "code_security_configuration_repository",
+  kind: "basic",
+  name: "BasicCodeSecurityConfigurationRepositoryFlow",
+  step: [
+    {
+      match: {
+        configuration_id: "configuration01",
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "code_security_configuration_repository_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCodeSecurityConfigurationRepositoryFlow"
+}

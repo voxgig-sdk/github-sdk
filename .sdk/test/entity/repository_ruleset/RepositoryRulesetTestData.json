@@ -1,0 +1,82 @@
+{
+  "existing": {
+    "repository_ruleset": {
+      "REPOSITORY_RULESET00": {
+        "bypass_actors": [],
+        "conditions": "s8d",
+        "created_at": "s8e",
+        "current_user_can_bypass": "s8f",
+        "enforcement": "s90",
+        "id": "REPOSITORY_RULESET00",
+        "links": {},
+        "name": "s93",
+        "node_id": "NODE01",
+        "rules": [],
+        "source": "s96",
+        "source_type": "s97",
+        "target": "s98",
+        "updated_at": "s99",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      },
+      "REPOSITORY_RULESET01": {
+        "bypass_actors": [],
+        "conditions": "s119",
+        "created_at": "s11a",
+        "current_user_can_bypass": "s11b",
+        "enforcement": "s11c",
+        "id": "REPOSITORY_RULESET01",
+        "links": {},
+        "name": "s11f",
+        "node_id": "NODE01",
+        "rules": [],
+        "source": "s122",
+        "source_type": "s123",
+        "target": "s124",
+        "updated_at": "s125",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      },
+      "REPOSITORY_RULESET02": {
+        "bypass_actors": [],
+        "conditions": "s1a5",
+        "created_at": "s1a6",
+        "current_user_can_bypass": "s1a7",
+        "enforcement": "s1a8",
+        "id": "REPOSITORY_RULESET02",
+        "links": {},
+        "name": "s1ab",
+        "node_id": "NODE01",
+        "rules": [],
+        "source": "s1ae",
+        "source_type": "s1af",
+        "target": "s1b0",
+        "updated_at": "s1b1",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "repository_ruleset": {
+      "repository_ruleset_ref01": {
+        "bypass_actors": [],
+        "conditions": "s231",
+        "created_at": "s232",
+        "current_user_can_bypass": "s233",
+        "enforcement": "s234",
+        "links": {},
+        "name": "s237",
+        "node_id": "NODE01",
+        "rules": [],
+        "source": "s23a",
+        "source_type": "s23b",
+        "target": "s23c",
+        "updated_at": "s23d"
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+# BasicRepositoryAdvisoryFlow
+
+main: kit: flow: BasicRepositoryAdvisoryFlow:
+{
+  entity: "repository_advisory",
+  kind: "basic",
+  name: "BasicRepositoryAdvisoryFlow",
+  step: [
+    {
+      input: {
+        ref: "repository_advisory_ref01"
+      }
+
+      match: {
+        org_id: "org01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        org_id: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "repository_advisory_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      input: {
+        ref: "repository_advisory_ref01",
+        srcdatavar: "repository_advisory_ref01_data",
+        suffix: "_up0",
+        textfield: "closed_at"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_advisory_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "repository_advisory_ref01",
+        srcdatavar: "repository_advisory_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "repository_advisory01",
+        owner: "owner01",
+        repo: "repo01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_advisory_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryAdvisoryFlow"
+}

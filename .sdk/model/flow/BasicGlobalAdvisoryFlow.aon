@@ -1,0 +1,44 @@
+# BasicGlobalAdvisoryFlow
+
+main: kit: flow: BasicGlobalAdvisoryFlow:
+{
+  entity: "global_advisory",
+  kind: "basic",
+  name: "BasicGlobalAdvisoryFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "global_advisory_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "global_advisory_ref01",
+        srcdatavar: "global_advisory_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "global_advisory01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-global_advisory_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGlobalAdvisoryFlow"
+}

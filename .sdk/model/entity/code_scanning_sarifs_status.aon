@@ -1,0 +1,111 @@
+# Entity: code_scanning_sarifs_status
+
+main: kit: entity: code_scanning_sarifs_status: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      format: "uri"
+      name: "analyses_url"
+      readOnly: true
+      req: false
+      short: "The REST API URL for getting the analyses associated with the upload."
+      type: "`$STRING`"
+    }
+    {
+      name: "errors"
+      readOnly: true
+      req: false
+      short: "Any errors that ocurred during processing of the delivery."
+      type: "`$ARRAY`"
+    }
+    {
+      name: "processing_status"
+      req: false
+      short: "`pending` files have not yet been processed, while `complete` means results from the SARIF have been stored."
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "code_scanning_sarifs_status"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "owner"
+                orig: "owner"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "repo"
+                orig: "repo"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "sarif_id"
+                orig: "sarif_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/repos/{owner}/{repo}/code-scanning/sarifs/{sarif_id}"
+          segments: [
+            {
+              lit: "repos"
+            }
+            {
+              var: "owner"
+            }
+            {
+              var: "repo"
+            }
+            {
+              lit: "code-scanning"
+            }
+            {
+              lit: "sarifs"
+            }
+            {
+              var: "sarif_id"
+            }
+          ]
+          select: {
+            exist: [
+              "owner"
+              "repo"
+              "sarif_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "repo"
+        "sarif"
+      ]
+    ]
+  }
+
+
+
+}

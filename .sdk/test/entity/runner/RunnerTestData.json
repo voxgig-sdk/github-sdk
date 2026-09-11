@@ -1,0 +1,58 @@
+{
+  "existing": {
+    "runner": {
+      "RUNNER00": {
+        "busy": true,
+        "ephemeral": false,
+        "id": "RUNNER00",
+        "labels": [],
+        "name": "s54",
+        "os": "s55",
+        "runner_group_id": "RUNNER_GROUP01",
+        "status": "s57",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      },
+      "RUNNER01": {
+        "busy": true,
+        "ephemeral": false,
+        "id": "RUNNER01",
+        "labels": [],
+        "name": "sa4",
+        "os": "sa5",
+        "runner_group_id": "RUNNER_GROUP01",
+        "status": "sa7",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      },
+      "RUNNER02": {
+        "busy": true,
+        "ephemeral": false,
+        "id": "RUNNER02",
+        "labels": [],
+        "name": "sf4",
+        "os": "sf5",
+        "runner_group_id": "RUNNER_GROUP01",
+        "status": "sf7",
+        "owner": "OWNER01",
+        "repo": "REPO01",
+        "org_id": "ORG01"
+      }
+    }
+  },
+  "new": {
+    "runner": {
+      "runner_ref01": {
+        "busy": true,
+        "ephemeral": false,
+        "labels": [],
+        "name": "s144",
+        "os": "s145",
+        "runner_group_id": "RUNNER_GROUP01",
+        "status": "s147"
+      }
+    }
+  }
+}

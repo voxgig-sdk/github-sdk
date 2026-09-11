@@ -1,0 +1,126 @@
+# Entity: org_repo_custom_property_value
+
+main: kit: entity: org_repo_custom_property_value: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "properties"
+      req: true
+      short: "List of custom property names and associated values"
+      type: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 3
+      }
+    }
+    {
+      name: "repository_full_name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "repository_id"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "repository_name"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "org_repo_custom_property_value"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "org_id"
+                orig: "org"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 30
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "repository_query"
+                orig: "repository_query"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/orgs/{org}/properties/values"
+          rename: {
+            param: {
+              org: "org_id"
+            }
+          }
+          segments: [
+            {
+              lit: "orgs"
+            }
+            {
+              var: "org_id"
+            }
+            {
+              lit: "properties"
+            }
+            {
+              lit: "values"
+            }
+          ]
+          select: {
+            exist: [
+              "org_id"
+              "page"
+              "per_page"
+              "repository_query"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "org"
+      ]
+    ]
+  }
+
+
+
+}

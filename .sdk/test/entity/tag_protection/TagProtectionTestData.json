@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "tag_protection": {
+      "TAG_PROTECTION00": {
+        "created_at": "s32",
+        "enabled": false,
+        "id": "TAG_PROTECTION00",
+        "pattern": "s35",
+        "updated_at": "s36",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "TAG_PROTECTION01": {
+        "created_at": "s64",
+        "enabled": false,
+        "id": "TAG_PROTECTION01",
+        "pattern": "s67",
+        "updated_at": "s68",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      },
+      "TAG_PROTECTION02": {
+        "created_at": "s96",
+        "enabled": false,
+        "id": "TAG_PROTECTION02",
+        "pattern": "s99",
+        "updated_at": "s9a",
+        "owner": "OWNER01",
+        "repo": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "tag_protection": {
+      "tag_protection_ref01": {
+        "created_at": "sc8",
+        "enabled": false,
+        "pattern": "scb",
+        "updated_at": "scc"
+      }
+    }
+  }
+}

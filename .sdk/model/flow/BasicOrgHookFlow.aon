@@ -1,0 +1,85 @@
+# BasicOrgHookFlow
+
+main: kit: flow: BasicOrgHookFlow:
+{
+  entity: "org_hook",
+  kind: "basic",
+  name: "BasicOrgHookFlow",
+  step: [
+    {
+      input: {
+        ref: "org_hook_ref01"
+      }
+
+      match: {
+        org: "org01",
+        org_id: "org01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        org: "org01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "org_hook_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        org_id: "org01"
+      }
+
+      input: {
+        ref: "org_hook_ref01",
+        srcdatavar: "org_hook_ref01_data",
+        suffix: "_up0",
+        textfield: "created_at"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-org_hook_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "org_hook_ref01",
+        srcdatavar: "org_hook_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "org_hook01",
+        org_id: "org01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-org_hook_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOrgHookFlow"
+}

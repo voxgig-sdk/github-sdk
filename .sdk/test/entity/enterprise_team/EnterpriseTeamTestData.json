@@ -1,0 +1,72 @@
+{
+  "existing": {
+    "enterprise_team": {
+      "ENTERPRISE_TEAM00": {
+        "created_at": "s82",
+        "description": "s83",
+        "group_id": "GROUP01",
+        "group_name": "s85",
+        "html_url": "s86",
+        "id": "ENTERPRISE_TEAM00",
+        "members_url": "s88",
+        "name": "s89",
+        "organization_selection_type": "s8a",
+        "slug": "s8b",
+        "sync_to_organizations": "s8c",
+        "updated_at": "s8d",
+        "url": "s8e",
+        "enterprise": "ENTERPRISE01"
+      },
+      "ENTERPRISE_TEAM01": {
+        "created_at": "s104",
+        "description": "s105",
+        "group_id": "GROUP01",
+        "group_name": "s107",
+        "html_url": "s108",
+        "id": "ENTERPRISE_TEAM01",
+        "members_url": "s10a",
+        "name": "s10b",
+        "organization_selection_type": "s10c",
+        "slug": "s10d",
+        "sync_to_organizations": "s10e",
+        "updated_at": "s10f",
+        "url": "s110",
+        "enterprise": "ENTERPRISE01"
+      },
+      "ENTERPRISE_TEAM02": {
+        "created_at": "s186",
+        "description": "s187",
+        "group_id": "GROUP01",
+        "group_name": "s189",
+        "html_url": "s18a",
+        "id": "ENTERPRISE_TEAM02",
+        "members_url": "s18c",
+        "name": "s18d",
+        "organization_selection_type": "s18e",
+        "slug": "s18f",
+        "sync_to_organizations": "s190",
+        "updated_at": "s191",
+        "url": "s192",
+        "enterprise": "ENTERPRISE01"
+      }
+    }
+  },
+  "new": {
+    "enterprise_team": {
+      "enterprise_team_ref01": {
+        "created_at": "s208",
+        "description": "s209",
+        "group_id": "GROUP01",
+        "group_name": "s20b",
+        "html_url": "s20c",
+        "members_url": "s20e",
+        "name": "s20f",
+        "organization_selection_type": "s210",
+        "slug": "s211",
+        "sync_to_organizations": "s212",
+        "updated_at": "s213",
+        "url": "s214"
+      }
+    }
+  }
+}
