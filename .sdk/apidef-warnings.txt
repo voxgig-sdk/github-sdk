@@ -1,6 +1,5 @@
 {
   point: "warning"
-  when: 1789167378038
   note: "No paths defined for entity=organization"
   entm: {
     name: "organization"
@@ -14,7 +13,6 @@
 
 {
   point: "warning"
-  when: 1789167378038
   note: "No paths defined for entity=private_user"
   entm: {
     name: "private_user"
@@ -28,7 +26,6 @@
 
 {
   point: "warning"
-  when: 1789167378038
   note: "No paths defined for entity=simple_classroom"
   entm: {
     name: "simple_classroom"
