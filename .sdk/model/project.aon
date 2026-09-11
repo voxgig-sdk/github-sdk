@@ -64,16 +64,19 @@ main: kit: target: 'seneca-provider': publish: version: '0.3.0'
 # released at all, and it is why @seneca/github-provider sat unreleasable
 # while this SDK was being regenerated.
 #
-# A GIT TAG needs no registry. npm resolves a git dependency against the
-# repository ROOT and this SDK's package.json is in `ts/`, so the dependency
-# carries the subdirectory too — `::path:ts`, which is the default because it
-# is the layout sdkgen generates.
+# A GITHUB RELEASE needs no registry. It cannot be a bare git dependency:
+# npm resolves one against the repository ROOT and this SDK's package.json is
+# in `ts/`. npm's spec parser accepts `#<ref>::path:ts` and reports a
+# gitSubdir, so that reads as supported — but the installer ignores it and
+# fails with ENOENT, which the provider's own CI demonstrated on linux, macOS
+# and Windows at once. A release asset is `npm pack` output attached to the
+# tag, and npm installs an https tarball without looking at the layout.
 #
 # THE REF IS A TAG, deliberately: a git dependency with no ref follows the
 # default branch, so an install today and an install tomorrow can differ.
 # Move it when this SDK is tagged again; delete this block entirely once the
 # package is published, and the default pin takes over.
 main: kit: target: 'seneca-provider': sdk: dep: {
-  kind: 'git'
+  kind: 'release'
   ref: 'v0.0.1'
 }

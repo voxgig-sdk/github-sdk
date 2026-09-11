@@ -135663,8 +135663,8 @@
           },
           "sdk": {
             "dep": {
-              "kind": "git",
-              "path": "ts",
+              "asset": "",
+              "kind": "release",
               "ref": "v0.0.1",
               "repo": "",
               "spec": ""
