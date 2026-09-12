@@ -27,7 +27,7 @@
     "@types/node": "26.2.0",
     "@voxgig/apidef": "8.5.1",
     "@voxgig/model": "11.0.1",
-    "@voxgig/sdkgen": "4.12.0",
+    "@voxgig/sdkgen": "4.13.2",
     "@voxgig/sdkgen-infrapack": "0.0.10",
     "@voxgig/struct": "0.3.5",
     "@voxgig/util": "0.5.4",
