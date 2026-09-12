@@ -78,5 +78,25 @@ main: kit: target: 'seneca-provider': publish: version: '0.3.1'
 # package is published, and the default pin takes over.
 main: kit: target: 'seneca-provider': sdk: dep: {
   kind: 'release'
-  ref: 'v0.0.1'
+  ref: 'v0.0.2'
 }
+
+
+# THE PUBLISHED PACKAGE NAME.
+#
+# Derived, the name is `@voxgig-sdk/github`: packageName appends `-sdk` to
+# the slug UNLESS the origin already ends in it, and this origin is
+# `voxgig-sdk`. The registry name wanted here carries the suffix anyway, so
+# it is declared outright — which is what this key exists for, a project
+# whose registry name is not what the slug derives and which cannot rename
+# the slug without renaming every SDK class along with it.
+main: kit: target: ts: publish: registry: package: '@voxgig-sdk/github-sdk'
+
+
+# THE SDK'S RELEASE VERSION.
+#
+# 0.0.2 because the PACKAGE NAME changed: v0.0.1 is published as a release
+# asset named for the old name, and a reader asking which tag carries
+# `@voxgig-sdk/github-sdk` should get one answer. Reusing 0.0.1 would leave
+# two different packages claiming the same version.
+main: kit: target: ts: publish: version: '0.0.2'

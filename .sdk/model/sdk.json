@@ -135665,7 +135665,7 @@
             "dep": {
               "asset": "",
               "kind": "release",
-              "ref": "v0.0.1",
+              "ref": "v0.0.2",
               "repo": "",
               "spec": ""
             }
@@ -135724,7 +135724,7 @@
             "registry": {
               "active": false,
               "name": "npm",
-              "package": "",
+              "package": "@voxgig-sdk/github-sdk",
               "state": "pending",
               "url": "https://registry.npmjs.org",
               "vault": {
@@ -135742,7 +135742,7 @@
               },
               "via": "port"
             },
-            "version": "0.0.1"
+            "version": "0.0.2"
           },
           "superseded": [
             "test/runner.ts",

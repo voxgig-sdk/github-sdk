@@ -103,7 +103,7 @@ console.log(custompropertys)
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/github` | publish pending — [install from git tag](https://github.com/voxgig-sdk/github-sdk/releases) |
+| TypeScript | `@voxgig-sdk/github-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/github-sdk/releases) |
 | Python | `voxgig-sdk-github` | publish pending — [install from git tag](https://github.com/voxgig-sdk/github-sdk/releases) |
 | PHP | `voxgig-sdk/github` | publish pending — [install from git tag](https://github.com/voxgig-sdk/github-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/github-sdk/go` | `go get github.com/voxgig-sdk/github-sdk/go@latest` |
@@ -117,7 +117,7 @@ console.log(custompropertys)
 ### TypeScript
 
 ```ts
-import { GithubSDK } from '@voxgig-sdk/github'
+import { GithubSDK } from '@voxgig-sdk/github-sdk'
 
 const client = new GithubSDK({
   apikey: process.env.GITHUB_APIKEY,
