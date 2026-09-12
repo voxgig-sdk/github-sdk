@@ -88,4 +88,4 @@ main: kit: target: ts: publish: registry: package: '@voxgig-sdk/github-sdk'
 # asset named for the old name, and a reader asking which tag carries
 # `@voxgig-sdk/github-sdk` should get one answer. Reusing 0.0.1 would leave
 # two different packages claiming the same version.
-main: kit: target: ts: publish: version: '0.0.2'
+main: kit: target: ts: publish: version: '0.0.3'
