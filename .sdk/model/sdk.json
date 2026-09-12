@@ -135659,13 +135659,13 @@
               },
               "via": "port"
             },
-            "version": "0.3.2"
+            "version": "0.3.3"
           },
           "sdk": {
             "dep": {
               "asset": "",
-              "kind": "release",
-              "ref": "v0.0.2",
+              "kind": "npm",
+              "ref": "",
               "repo": "",
               "spec": ""
             }

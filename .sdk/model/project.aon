@@ -53,33 +53,22 @@ main: kit: target: 'seneca-provider': output: {
 # was renamed (#32, now accepted as an alias, so that half no longer
 # breaks). The narrowing still wants a release note; a version number cannot
 # say it on its own.
-main: kit: target: 'seneca-provider': publish: version: '0.3.2'
+main: kit: target: 'seneca-provider': publish: version: '0.3.3'
 
 
 # HOW THE PROVIDER DEPENDS ON THIS SDK.
 #
-# @voxgig-sdk/github is NOT published — `npm view` returns a 404 — so the
-# default published-and-pinned dependency cannot resolve. That is not a
-# cosmetic problem: the provider cannot be installed, built, tested or
-# released at all, and it is why @seneca/github-provider sat unreleasable
-# while this SDK was being regenerated.
+# Nothing here any more, deliberately: @voxgig-sdk/github-sdk is PUBLISHED,
+# so the default — the published package pinned to the version this model
+# builds — is the right dependency and needs no override.
 #
-# A GITHUB RELEASE needs no registry. It cannot be a bare git dependency:
-# npm resolves one against the repository ROOT and this SDK's package.json is
-# in `ts/`. npm's spec parser accepts `#<ref>::path:ts` and reports a
-# gitSubdir, so that reads as supported — but the installer ignores it and
-# fails with ENOENT, which the provider's own CI demonstrated on linux, macOS
-# and Windows at once. A release asset is `npm pack` output attached to the
-# tag, and npm installs an https tarball without looking at the layout.
-#
-# THE REF IS A TAG, deliberately: a git dependency with no ref follows the
-# default branch, so an install today and an install tomorrow can differ.
-# Move it when this SDK is tagged again; delete this block entirely once the
-# package is published, and the default pin takes over.
-main: kit: target: 'seneca-provider': sdk: dep: {
-  kind: 'release'
-  ref: 'v0.0.2'
-}
+# What was here, until the package existed: a `sdk: dep` block pointing the
+# provider at a GitHub release asset, because an unpublished SDK left the
+# provider unable to install, build, test or release at all. It also carried
+# a cost that could not be fixed from this side — npm 12 refuses a remote
+# tarball by default (`allow-remote` is "none"), and the `--allow-remote=all`
+# the generated CI passed does NOT travel to anyone installing the published
+# provider. Publishing was always the real answer; this is it arriving.
 
 
 # THE PUBLISHED PACKAGE NAME.
