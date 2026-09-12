@@ -53,7 +53,7 @@ main: kit: target: 'seneca-provider': output: {
 # was renamed (#32, now accepted as an alias, so that half no longer
 # breaks). The narrowing still wants a release note; a version number cannot
 # say it on its own.
-main: kit: target: 'seneca-provider': publish: version: '0.3.0'
+main: kit: target: 'seneca-provider': publish: version: '0.3.1'
 
 
 # HOW THE PROVIDER DEPENDS ON THIS SDK.
