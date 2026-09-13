@@ -135542,7 +135542,7 @@
             "name": "",
             "url": ""
           },
-          "base": "BASE",
+          "base": "node_modules/@voxgig/sdkgen-infrapack/.sdk",
           "comment": {
             "line": "//"
           },
@@ -135605,7 +135605,7 @@
           },
           "module": {
             "goversion": "",
-            "name": "$$name$$",
+            "name": "github",
             "package": "",
             "path": ""
           },
@@ -135618,7 +135618,7 @@
             "repo": "",
             "sdkrel": "../../voxgig-sdk/github-sdk"
           },
-          "package": "",
+          "package": "@voxgig/sdkgen-infrapack",
           "phase": {
             "agentguide": {
               "active": false
