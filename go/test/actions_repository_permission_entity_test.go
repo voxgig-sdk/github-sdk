@@ -117,7 +117,6 @@ func actions_repository_permissionBasicSetup(extra map[string]any) *entityTestSe
 		"GITHUB_TEST_ACTIONS_REPOSITORY_PERMISSION_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_ACTIONS_REPOSITORY_PERMISSION_ENTID"])
@@ -140,7 +139,6 @@ func actions_repository_permissionBasicSetup(extra map[string]any) *entityTestSe
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

@@ -197,7 +197,6 @@ func code_of_conductDirectSetup(mockres any) *code_of_conductDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_CODE_OF_CONDUCT_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -210,7 +209,6 @@ func code_of_conductDirectSetup(mockres any) *code_of_conductDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

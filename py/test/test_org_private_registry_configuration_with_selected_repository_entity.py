@@ -87,7 +87,6 @@ def _org_private_registry_configuration_with_selected_repository_basic_setup(ext
         "GITHUB_TEST_ORG_PRIVATE_REGISTRY_CONFIGURATION_WITH_SELECTED_REPOSITORY_ENTID": idmap,
         "GITHUB_TEST_LIVE": "FALSE",
         "GITHUB_TEST_EXPLAIN": "FALSE",
-        "GITHUB_APIKEY": "",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +101,6 @@ def _org_private_registry_configuration_with_selected_repository_basic_setup(ext
             # redirect it.
             runner.live_client_options(),
             {
-                "apikey": env.get("GITHUB_APIKEY"),
             },
             extra or {},
         ])

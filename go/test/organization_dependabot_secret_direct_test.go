@@ -122,7 +122,6 @@ func organization_dependabot_secretDirectSetup(mockres any) *organization_depend
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_ORGANIZATION_DEPENDABOT_SECRET_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -135,7 +134,6 @@ func organization_dependabot_secretDirectSetup(mockres any) *organization_depend
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

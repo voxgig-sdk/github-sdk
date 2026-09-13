@@ -170,7 +170,6 @@ func secret_scanning_scan_historyBasicSetup(extra map[string]any) *entityTestSet
 		"GITHUB_TEST_SECRET_SCANNING_SCAN_HISTORY_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_SECRET_SCANNING_SCAN_HISTORY_ENTID"])
@@ -193,7 +192,6 @@ func secret_scanning_scan_historyBasicSetup(extra map[string]any) *entityTestSet
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

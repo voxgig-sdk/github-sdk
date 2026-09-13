@@ -185,7 +185,6 @@ func marketplace_purchaseBasicSetup(extra map[string]any) *entityTestSetup {
 		"GITHUB_TEST_MARKETPLACE_PURCHASE_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_MARKETPLACE_PURCHASE_ENTID"])
@@ -208,7 +207,6 @@ func marketplace_purchaseBasicSetup(extra map[string]any) *entityTestSetup {
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

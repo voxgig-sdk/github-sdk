@@ -111,7 +111,6 @@ func authentication_tokenBasicSetup(extra map[string]any) *entityTestSetup {
 		"GITHUB_TEST_AUTHENTICATION_TOKEN_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_AUTHENTICATION_TOKEN_ENTID"])
@@ -134,7 +133,6 @@ func authentication_tokenBasicSetup(extra map[string]any) *entityTestSetup {
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

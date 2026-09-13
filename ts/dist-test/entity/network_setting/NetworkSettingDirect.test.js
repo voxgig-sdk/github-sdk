@@ -73,15 +73,12 @@ function directSetup(mockres) {
     const env = (0, utility_1.envOverride)({
         'GITHUB_TEST_NETWORK_SETTING_ENTID': {},
         'GITHUB_TEST_LIVE': 'FALSE',
-        'GITHUB_APIKEY': '',
     });
     const live = 'TRUE' === env.GITHUB_TEST_LIVE;
     if (live) {
         // Merged so the generated fields win: sdk-test-control.json's
         // test.client.options adds to the live client, it does not redirect it.
-        const client = new __1.GithubSDK(Object.assign({}, (0, utility_1.liveClientOptions)(), {
-            apikey: env.GITHUB_APIKEY,
-        }));
+        const client = new __1.GithubSDK(Object.assign({}, (0, utility_1.liveClientOptions)(), {}));
         let idmap = env['GITHUB_TEST_NETWORK_SETTING_ENTID'];
         if ('string' === typeof idmap && idmap.startsWith('{')) {
             idmap = JSON.parse(idmap);

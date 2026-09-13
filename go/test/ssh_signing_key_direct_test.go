@@ -230,7 +230,6 @@ func ssh_signing_keyDirectSetup(mockres any) *ssh_signing_keyDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_SSH_SIGNING_KEY_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -243,7 +242,6 @@ func ssh_signing_keyDirectSetup(mockres any) *ssh_signing_keyDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

@@ -122,7 +122,6 @@ func actions_repository_permissionDirectSetup(mockres any) *actions_repository_p
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_ACTIONS_REPOSITORY_PERMISSION_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -135,7 +134,6 @@ func actions_repository_permissionDirectSetup(mockres any) *actions_repository_p
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

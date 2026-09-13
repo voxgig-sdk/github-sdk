@@ -126,7 +126,6 @@ func content_fileDirectSetup(mockres any) *content_fileDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_CONTENT_FILE_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -139,7 +138,6 @@ func content_fileDirectSetup(mockres any) *content_fileDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

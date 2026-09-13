@@ -169,7 +169,6 @@ func classroom_accepted_assignmentBasicSetup(extra map[string]any) *entityTestSe
 		"GITHUB_TEST_CLASSROOM_ACCEPTED_ASSIGNMENT_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_CLASSROOM_ACCEPTED_ASSIGNMENT_ENTID"])
@@ -192,7 +191,6 @@ func classroom_accepted_assignmentBasicSetup(extra map[string]any) *entityTestSe
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

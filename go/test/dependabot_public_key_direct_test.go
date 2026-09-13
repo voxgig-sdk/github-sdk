@@ -122,7 +122,6 @@ func dependabot_public_keyDirectSetup(mockres any) *dependabot_public_keyDirectS
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_DEPENDABOT_PUBLIC_KEY_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -135,7 +134,6 @@ func dependabot_public_keyDirectSetup(mockres any) *dependabot_public_keyDirectS
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

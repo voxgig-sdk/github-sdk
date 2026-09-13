@@ -118,7 +118,6 @@ func actions_hosted_runner_limitDirectSetup(mockres any) *actions_hosted_runner_
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_ACTIONS_HOSTED_RUNNER_LIMIT_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -131,7 +130,6 @@ func actions_hosted_runner_limitDirectSetup(mockres any) *actions_hosted_runner_
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

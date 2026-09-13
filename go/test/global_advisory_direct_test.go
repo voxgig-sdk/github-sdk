@@ -196,7 +196,6 @@ func global_advisoryDirectSetup(mockres any) *global_advisoryDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_GLOBAL_ADVISORY_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -209,7 +208,6 @@ func global_advisoryDirectSetup(mockres any) *global_advisoryDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

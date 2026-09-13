@@ -169,7 +169,6 @@ func code_scanning_organization_alert_itemBasicSetup(extra map[string]any) *enti
 		"GITHUB_TEST_CODE_SCANNING_ORGANIZATION_ALERT_ITEM_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_CODE_SCANNING_ORGANIZATION_ALERT_ITEM_ENTID"])
@@ -192,7 +191,6 @@ func code_scanning_organization_alert_itemBasicSetup(extra map[string]any) *enti
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

@@ -126,7 +126,6 @@ func repository_rule_detailedDirectSetup(mockres any) *repository_rule_detailedD
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_REPOSITORY_RULE_DETAILED_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -139,7 +138,6 @@ func repository_rule_detailedDirectSetup(mockres any) *repository_rule_detailedD
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

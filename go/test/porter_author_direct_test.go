@@ -127,7 +127,6 @@ func porter_authorDirectSetup(mockres any) *porter_authorDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_PORTER_AUTHOR_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -140,7 +139,6 @@ func porter_authorDirectSetup(mockres any) *porter_authorDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

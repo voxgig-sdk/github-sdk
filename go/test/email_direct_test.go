@@ -94,7 +94,6 @@ func emailDirectSetup(mockres any) *emailDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_EMAIL_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -107,7 +106,6 @@ func emailDirectSetup(mockres any) *emailDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

@@ -164,7 +164,6 @@ function dependabot_alert_basic_setup(extra)
     ["GITHUB_TEST_DEPENDABOT_ALERT_ENTID"] = idmap,
     ["GITHUB_TEST_LIVE"] = "FALSE",
     ["GITHUB_TEST_EXPLAIN"] = "FALSE",
-    ["GITHUB_APIKEY"] = "",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -185,7 +184,6 @@ function dependabot_alert_basic_setup(extra)
       -- test.client.options adds to the live client, it does not redirect it.
       runner.live_client_options(),
       {
-        apikey = env["GITHUB_APIKEY"],
       },
       extra or {},
     })

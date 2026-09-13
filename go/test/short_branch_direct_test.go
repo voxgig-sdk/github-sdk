@@ -127,7 +127,6 @@ func short_branchDirectSetup(mockres any) *short_branchDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_SHORT_BRANCH_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -140,7 +139,6 @@ func short_branchDirectSetup(mockres any) *short_branchDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

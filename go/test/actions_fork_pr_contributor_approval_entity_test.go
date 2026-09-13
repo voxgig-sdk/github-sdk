@@ -117,7 +117,6 @@ func actions_fork_pr_contributor_approvalBasicSetup(extra map[string]any) *entit
 		"GITHUB_TEST_ACTIONS_FORK_PR_CONTRIBUTOR_APPROVAL_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_ACTIONS_FORK_PR_CONTRIBUTOR_APPROVAL_ENTID"])
@@ -140,7 +139,6 @@ func actions_fork_pr_contributor_approvalBasicSetup(extra map[string]any) *entit
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

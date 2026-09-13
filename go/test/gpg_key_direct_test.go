@@ -230,7 +230,6 @@ func gpg_keyDirectSetup(mockres any) *gpg_keyDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_GPG_KEY_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -243,7 +242,6 @@ func gpg_keyDirectSetup(mockres any) *gpg_keyDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

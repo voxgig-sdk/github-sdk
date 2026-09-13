@@ -28,9 +28,7 @@ loading a specific record.
 ```js
 const { GithubSDK } = require('@voxgig-sdk/github-js')
 
-const client = new GithubSDK({
-  apikey: process.env.GITHUB_APIKEY,
-})
+const client = new GithubSDK()
 ```
 
 ### Load an Action
@@ -290,7 +288,7 @@ console.log(customproperty)
 You can also use the instance method:
 
 ```js
-const client = new GithubSDK({ apikey: '...' })
+const client = new GithubSDK()
 const testClient = client.tester()
 ```
 
@@ -326,7 +324,6 @@ const logger = {
 }
 
 const client = new GithubSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -337,7 +334,6 @@ Create a `.env.local` file at the project root:
 
 ```
 GITHUB_TEST_LIVE=TRUE
-GITHUB_APIKEY=<your-key>
 ```
 
 Then run:
@@ -359,7 +355,6 @@ new GithubSDK(options?)
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |

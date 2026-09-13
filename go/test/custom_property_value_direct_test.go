@@ -127,7 +127,6 @@ func custom_property_valueDirectSetup(mockres any) *custom_property_valueDirectS
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_CUSTOM_PROPERTY_VALUE_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -140,7 +139,6 @@ func custom_property_valueDirectSetup(mockres any) *custom_property_valueDirectS
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

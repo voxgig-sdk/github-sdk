@@ -118,7 +118,6 @@ func actions_cache_usage_org_enterpriseDirectSetup(mockres any) *actions_cache_u
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_ACTIONS_CACHE_USAGE_ORG_ENTERPRISE_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -131,7 +130,6 @@ func actions_cache_usage_org_enterpriseDirectSetup(mockres any) *actions_cache_u
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

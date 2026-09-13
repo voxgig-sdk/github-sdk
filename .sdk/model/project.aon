@@ -104,4 +104,22 @@ main: kit: target: ts: publish: registry: package: '@voxgig-sdk/github-sdk'
 # generate-time output override. v0.0.3 pins 4.14.0, so `make regen` in
 # the provider refuses against it. A tag is the only way to carry that
 # forward, and the tag is derived as v<this version>.
-main: kit: target: ts: publish: version: '0.0.4'
+#
+# SET FOR EVERY TARGET, not ts alone. Pinning only ts left js, py and lua on the
+# schema default of 0.0.1, and C21-version-lockstep blocks on that:
+#
+#   DISAGREE: npm=0.0.4 js=0.0.1 py=0.0.1 lua=0.0.1
+#
+# One number for the whole SDK is what the check is for — a reader asking which
+# tag carries a release should get one answer whatever language they install.
+# The value stays 0.0.4, chosen above; only its reach changes.
+main: kit: target: {
+  ts: publish: version: '0.0.4'
+  js: publish: version: '0.0.4'
+  py: publish: version: '0.0.4'
+  lua: publish: version: '0.0.4'
+  php: publish: version: '0.0.4'
+  go: publish: version: '0.0.4'
+  'go-cli': publish: version: '0.0.4'
+  'go-mcp': publish: version: '0.0.4'
+}

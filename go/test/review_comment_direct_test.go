@@ -143,7 +143,6 @@ func review_commentDirectSetup(mockres any) *review_commentDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_REVIEW_COMMENT_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -156,7 +155,6 @@ func review_commentDirectSetup(mockres any) *review_commentDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

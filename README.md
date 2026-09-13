@@ -119,9 +119,7 @@ console.log(custompropertys)
 ```ts
 import { GithubSDK } from '@voxgig-sdk/github-sdk'
 
-const client = new GithubSDK({
-  apikey: process.env.GITHUB_APIKEY,
-})
+const client = new GithubSDK()
 
 // List all actions (returns ActionEntity[] — .data() for the record)
 const actions = await client.Action().list({ org_id: "example" })
@@ -453,12 +451,9 @@ own list above for exactly which it supports.
 ### Python
 
 ```python
-import os
 from github_sdk import GithubSDK
 
-client = GithubSDK({
-    "apikey": os.environ.get("GITHUB_APIKEY"),
-})
+client = GithubSDK()
 
 # List all actions (returns a list, raises on error)
 actions = client.Action().list({"org_id": "example"})
@@ -476,9 +471,7 @@ print(action)
 <?php
 require_once 'github_sdk.php';
 
-$client = new GithubSDK([
-    "apikey" => getenv("GITHUB_APIKEY"),
-]);
+$client = new GithubSDK();
 
 // List all actions (returns an array; throws on error)
 $actions = $client->Action()->list();
@@ -494,9 +487,7 @@ print_r($action);
 ```go
 import sdk "github.com/voxgig-sdk/github-sdk/go"
 
-client := sdk.NewGithubSDK(map[string]any{
-    "apikey": os.Getenv("GITHUB_APIKEY"),
-})
+client := sdk.New()
 
 // List all actions
 actions, err := client.Action(nil).List(nil, nil)
@@ -520,9 +511,7 @@ fmt.Println(action)
 ```lua
 local sdk = require("github_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("GITHUB_APIKEY"),
-})
+local client = sdk.new()
 
 -- List all actions
 local actions, err = client:Action():list()
@@ -538,9 +527,7 @@ print(action)
 ```js
 const { GithubSDK } = require('@voxgig-sdk/github-js')
 
-const client = new GithubSDK({
-  apikey: process.env.GITHUB_APIKEY,
-})
+const client = new GithubSDK()
 
 // List all actions (returns an array)
 const actions = await client.Action().list({ org_id: "example" })

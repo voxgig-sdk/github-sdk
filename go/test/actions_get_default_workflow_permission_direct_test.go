@@ -122,7 +122,6 @@ func actions_get_default_workflow_permissionDirectSetup(mockres any) *actions_ge
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_ACTIONS_GET_DEFAULT_WORKFLOW_PERMISSION_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -135,7 +134,6 @@ func actions_get_default_workflow_permissionDirectSetup(mockres any) *actions_ge
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

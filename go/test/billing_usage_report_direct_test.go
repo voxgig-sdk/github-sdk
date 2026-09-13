@@ -119,7 +119,6 @@ func billing_usage_reportDirectSetup(mockres any) *billing_usage_reportDirectSet
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_BILLING_USAGE_REPORT_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -132,7 +131,6 @@ func billing_usage_reportDirectSetup(mockres any) *billing_usage_reportDirectSet
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

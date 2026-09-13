@@ -263,7 +263,6 @@ func pull_request_reviewDirectSetup(mockres any) *pull_request_reviewDirectSetup
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_PULL_REQUEST_REVIEW_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -276,7 +275,6 @@ func pull_request_reviewDirectSetup(mockres any) *pull_request_reviewDirectSetup
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

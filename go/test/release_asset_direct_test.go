@@ -258,7 +258,6 @@ func release_assetDirectSetup(mockres any) *release_assetDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_RELEASE_ASSET_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -271,7 +270,6 @@ func release_assetDirectSetup(mockres any) *release_assetDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

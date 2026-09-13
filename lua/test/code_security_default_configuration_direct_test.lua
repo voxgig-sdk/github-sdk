@@ -77,14 +77,12 @@ function code_security_default_configuration_direct_setup(mockres)
   local env = runner.env_override({
     ["GITHUB_TEST_CODE_SECURITY_DEFAULT_CONFIGURATION_ENTID"] = {},
     ["GITHUB_TEST_LIVE"] = "FALSE",
-    ["GITHUB_APIKEY"] = "",
   })
 
   local live = env["GITHUB_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["GITHUB_APIKEY"],
     }
     -- sdk-test-control.json's test.client.options goes UNDER the generated
     -- fields: it adds to the live client, it does not redirect it.

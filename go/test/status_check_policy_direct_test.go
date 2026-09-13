@@ -135,7 +135,6 @@ func status_check_policyDirectSetup(mockres any) *status_check_policyDirectSetup
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_STATUS_CHECK_POLICY_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -148,7 +147,6 @@ func status_check_policyDirectSetup(mockres any) *status_check_policyDirectSetup
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

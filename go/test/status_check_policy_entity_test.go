@@ -194,7 +194,6 @@ func status_check_policyBasicSetup(extra map[string]any) *entityTestSetup {
 		"GITHUB_TEST_STATUS_CHECK_POLICY_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_STATUS_CHECK_POLICY_ENTID"])
@@ -225,7 +224,6 @@ func status_check_policyBasicSetup(extra map[string]any) *entityTestSetup {
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

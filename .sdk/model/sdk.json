@@ -1,15 +1,6 @@
 {
-  "NAME": "GITHUB",
-  "Name": "Github",
   "def": "github-full.yaml",
   "main": {
-    "api": {
-      "entity": {},
-      "guide": {}
-    },
-    "custom": {
-      "plurals": {}
-    },
     "def": {
       "desc": ""
     },
@@ -19,10 +10,6 @@
         "url": ""
       },
       "config": {
-        "auth": {
-          "active": true,
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -135765,8 +135752,5 @@
     }
   },
   "name": "github",
-  "name-": "github",
-  "name_": "github",
-  "name__orig": "github",
   "origin": "voxgig-sdk"
 }

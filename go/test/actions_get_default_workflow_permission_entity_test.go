@@ -117,7 +117,6 @@ func actions_get_default_workflow_permissionBasicSetup(extra map[string]any) *en
 		"GITHUB_TEST_ACTIONS_GET_DEFAULT_WORKFLOW_PERMISSION_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_ACTIONS_GET_DEFAULT_WORKFLOW_PERMISSION_ENTID"])
@@ -140,7 +139,6 @@ func actions_get_default_workflow_permissionBasicSetup(extra map[string]any) *en
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

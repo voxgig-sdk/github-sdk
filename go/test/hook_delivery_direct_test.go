@@ -130,7 +130,6 @@ func hook_deliveryDirectSetup(mockres any) *hook_deliveryDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_HOOK_DELIVERY_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -143,7 +142,6 @@ func hook_deliveryDirectSetup(mockres any) *hook_deliveryDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

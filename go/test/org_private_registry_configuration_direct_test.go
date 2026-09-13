@@ -122,7 +122,6 @@ func org_private_registry_configurationDirectSetup(mockres any) *org_private_reg
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_ORG_PRIVATE_REGISTRY_CONFIGURATION_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -135,7 +134,6 @@ func org_private_registry_configurationDirectSetup(mockres any) *org_private_reg
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

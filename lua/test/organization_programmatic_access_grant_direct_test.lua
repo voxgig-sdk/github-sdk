@@ -77,14 +77,12 @@ function organization_programmatic_access_grant_direct_setup(mockres)
   local env = runner.env_override({
     ["GITHUB_TEST_ORGANIZATION_PROGRAMMATIC_ACCESS_GRANT_ENTID"] = {},
     ["GITHUB_TEST_LIVE"] = "FALSE",
-    ["GITHUB_APIKEY"] = "",
   })
 
   local live = env["GITHUB_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["GITHUB_APIKEY"],
     }
     -- sdk-test-control.json's test.client.options goes UNDER the generated
     -- fields: it adds to the live client, it does not redirect it.

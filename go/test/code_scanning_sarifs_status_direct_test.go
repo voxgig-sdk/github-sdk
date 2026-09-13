@@ -126,7 +126,6 @@ func code_scanning_sarifs_statusDirectSetup(mockres any) *code_scanning_sarifs_s
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_CODE_SCANNING_SARIFS_STATUS_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -139,7 +138,6 @@ func code_scanning_sarifs_statusDirectSetup(mockres any) *code_scanning_sarifs_s
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

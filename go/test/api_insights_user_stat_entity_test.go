@@ -123,7 +123,6 @@ func api_insights_user_statBasicSetup(extra map[string]any) *entityTestSetup {
 		"GITHUB_TEST_API_INSIGHTS_USER_STAT_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_API_INSIGHTS_USER_STAT_ENTID"])
@@ -146,7 +145,6 @@ func api_insights_user_statBasicSetup(extra map[string]any) *entityTestSetup {
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

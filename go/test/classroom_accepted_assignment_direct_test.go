@@ -119,7 +119,6 @@ func classroom_accepted_assignmentDirectSetup(mockres any) *classroom_accepted_a
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_CLASSROOM_ACCEPTED_ASSIGNMENT_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -132,7 +131,6 @@ func classroom_accepted_assignmentDirectSetup(mockres any) *classroom_accepted_a
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

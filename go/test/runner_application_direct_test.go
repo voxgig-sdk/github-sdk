@@ -127,7 +127,6 @@ func runner_applicationDirectSetup(mockres any) *runner_applicationDirectSetupRe
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_RUNNER_APPLICATION_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -140,7 +139,6 @@ func runner_applicationDirectSetup(mockres any) *runner_applicationDirectSetupRe
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

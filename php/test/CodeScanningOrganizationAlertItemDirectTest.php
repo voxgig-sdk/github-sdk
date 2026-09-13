@@ -82,7 +82,6 @@ function code_scanning_organization_alert_item_direct_setup($mockres)
     $env = Runner::env_override([
         "GITHUB_TEST_CODE_SCANNING_ORGANIZATION_ALERT_ITEM_ENTID" => [],
         "GITHUB_TEST_LIVE" => "FALSE",
-        "GITHUB_APIKEY" => "",
     ]);
 
     $live = $env["GITHUB_TEST_LIVE"] === "TRUE";
@@ -91,7 +90,6 @@ function code_scanning_organization_alert_item_direct_setup($mockres)
         // Merged so the generated fields win: sdk-test-control.json's
         // test.client.options adds to the live client, it does not redirect it.
         $merged_opts = array_merge(Runner::live_client_options(), [
-            "apikey" => $env["GITHUB_APIKEY"],
         ]);
         $client = new GithubSDK($merged_opts);
         return [

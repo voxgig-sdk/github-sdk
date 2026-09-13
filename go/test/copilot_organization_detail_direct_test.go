@@ -118,7 +118,6 @@ func copilot_organization_detailDirectSetup(mockres any) *copilot_organization_d
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_COPILOT_ORGANIZATION_DETAIL_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -131,7 +130,6 @@ func copilot_organization_detailDirectSetup(mockres any) *copilot_organization_d
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

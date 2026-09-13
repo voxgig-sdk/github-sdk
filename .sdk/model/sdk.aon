@@ -34,7 +34,8 @@ def: 'github-full.yaml'
 @"flow/flow-index.aon"
 
 
-# Project overlay — LAST, so it can refine targets the index above defines.
-# Carries this project's own decisions: where the Seneca provider is
-# generated, and the release version its manifest declares.
+# Project overlay — user-owned, created once and never overwritten.
+#
+# LAST, deliberately: it may refine main.kit.target.<t>, and a target can only
+# be refined after target-index.aon has defined it.
 @"project.aon"

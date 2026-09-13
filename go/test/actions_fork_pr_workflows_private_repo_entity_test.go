@@ -117,7 +117,6 @@ func actions_fork_pr_workflows_private_repoBasicSetup(extra map[string]any) *ent
 		"GITHUB_TEST_ACTIONS_FORK_PR_WORKFLOWS_PRIVATE_REPO_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_ACTIONS_FORK_PR_WORKFLOWS_PRIVATE_REPO_ENTID"])
@@ -140,7 +139,6 @@ func actions_fork_pr_workflows_private_repoBasicSetup(extra map[string]any) *ent
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

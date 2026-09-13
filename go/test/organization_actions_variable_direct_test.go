@@ -122,7 +122,6 @@ func organization_actions_variableDirectSetup(mockres any) *organization_actions
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_ORGANIZATION_ACTIONS_VARIABLE_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -135,7 +134,6 @@ func organization_actions_variableDirectSetup(mockres any) *organization_actions
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

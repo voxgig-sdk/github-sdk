@@ -122,7 +122,6 @@ func check_automated_security_fixDirectSetup(mockres any) *check_automated_secur
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_CHECK_AUTOMATED_SECURITY_FIX_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -135,7 +134,6 @@ func check_automated_security_fixDirectSetup(mockres any) *check_automated_secur
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

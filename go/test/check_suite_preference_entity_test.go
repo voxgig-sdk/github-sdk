@@ -121,7 +121,6 @@ func check_suite_preferenceBasicSetup(extra map[string]any) *entityTestSetup {
 		"GITHUB_TEST_CHECK_SUITE_PREFERENCE_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_CHECK_SUITE_PREFERENCE_ENTID"])
@@ -148,7 +147,6 @@ func check_suite_preferenceBasicSetup(extra map[string]any) *entityTestSetup {
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

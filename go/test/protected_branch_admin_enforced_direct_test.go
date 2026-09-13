@@ -126,7 +126,6 @@ func protected_branch_admin_enforcedDirectSetup(mockres any) *protected_branch_a
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_PROTECTED_BRANCH_ADMIN_ENFORCED_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -139,7 +138,6 @@ func protected_branch_admin_enforcedDirectSetup(mockres any) *protected_branch_a
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

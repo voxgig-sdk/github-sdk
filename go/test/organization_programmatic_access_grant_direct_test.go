@@ -119,7 +119,6 @@ func organization_programmatic_access_grantDirectSetup(mockres any) *organizatio
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_ORGANIZATION_PROGRAMMATIC_ACCESS_GRANT_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -132,7 +131,6 @@ func organization_programmatic_access_grantDirectSetup(mockres any) *organizatio
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

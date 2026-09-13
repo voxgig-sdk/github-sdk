@@ -140,7 +140,6 @@ func protected_branch_pull_request_reviewBasicSetup(extra map[string]any) *entit
 		"GITHUB_TEST_PROTECTED_BRANCH_PULL_REQUEST_REVIEW_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_PROTECTED_BRANCH_PULL_REQUEST_REVIEW_ENTID"])
@@ -171,7 +170,6 @@ func protected_branch_pull_request_reviewBasicSetup(extra map[string]any) *entit
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

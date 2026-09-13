@@ -117,7 +117,6 @@ func actions_hosted_runner_limitBasicSetup(extra map[string]any) *entityTestSetu
 		"GITHUB_TEST_ACTIONS_HOSTED_RUNNER_LIMIT_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_ACTIONS_HOSTED_RUNNER_LIMIT_ENTID"])
@@ -140,7 +139,6 @@ func actions_hosted_runner_limitBasicSetup(extra map[string]any) *entityTestSetu
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

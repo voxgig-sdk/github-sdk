@@ -123,7 +123,6 @@ func code_scanning_variant_analysis_repo_taskBasicSetup(extra map[string]any) *e
 		"GITHUB_TEST_CODE_SCANNING_VARIANT_ANALYSIS_REPO_TASK_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_CODE_SCANNING_VARIANT_ANALYSIS_REPO_TASK_ENTID"])
@@ -146,7 +145,6 @@ func code_scanning_variant_analysis_repo_taskBasicSetup(extra map[string]any) *e
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

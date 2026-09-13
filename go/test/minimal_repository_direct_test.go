@@ -119,7 +119,6 @@ func minimal_repositoryDirectSetup(mockres any) *minimal_repositoryDirectSetupRe
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_MINIMAL_REPOSITORY_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -132,7 +131,6 @@ func minimal_repositoryDirectSetup(mockres any) *minimal_repositoryDirectSetupRe
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

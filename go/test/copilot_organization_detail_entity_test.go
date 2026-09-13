@@ -117,7 +117,6 @@ func copilot_organization_detailBasicSetup(extra map[string]any) *entityTestSetu
 		"GITHUB_TEST_COPILOT_ORGANIZATION_DETAIL_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_COPILOT_ORGANIZATION_DETAIL_ENTID"])
@@ -140,7 +139,6 @@ func copilot_organization_detailBasicSetup(extra map[string]any) *entityTestSetu
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

@@ -130,7 +130,6 @@ function basicSetup(extra) {
     'GITHUB_TEST_RELEASE_ASSET_ENTID': idmap,
     'GITHUB_TEST_LIVE': 'FALSE',
     'GITHUB_TEST_EXPLAIN': 'FALSE',
-    'GITHUB_APIKEY': '',
   })
 
   idmap = env['GITHUB_TEST_RELEASE_ASSET_ENTID']
@@ -141,7 +140,6 @@ function basicSetup(extra) {
       // test.client.options adds to the live client, it does not redirect it.
       liveClientOptions(),
       {
-        apikey: env.GITHUB_APIKEY,
       },
       // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when
       // the last entry is undefined, and basicSetup is normally called with no

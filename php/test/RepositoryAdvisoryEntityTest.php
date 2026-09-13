@@ -149,7 +149,6 @@ function repository_advisory_basic_setup($extra)
         "GITHUB_TEST_REPOSITORY_ADVISORY_ENTID" => $idmap,
         "GITHUB_TEST_LIVE" => "FALSE",
         "GITHUB_TEST_EXPLAIN" => "FALSE",
-        "GITHUB_APIKEY" => "",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -170,7 +169,6 @@ function repository_advisory_basic_setup($extra)
             // test.client.options adds to the live client, it does not redirect it.
             Runner::live_client_options(),
             [
-                "apikey" => $env["GITHUB_APIKEY"],
             ],
             // ismap, not a plain "?? []" default: an empty PHP array is a
             // LIST, and a non-map later entry REPLACES the accumulated map in

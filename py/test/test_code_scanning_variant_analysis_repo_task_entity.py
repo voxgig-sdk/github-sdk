@@ -94,7 +94,6 @@ def _code_scanning_variant_analysis_repo_task_basic_setup(extra):
         "GITHUB_TEST_CODE_SCANNING_VARIANT_ANALYSIS_REPO_TASK_ENTID": idmap,
         "GITHUB_TEST_LIVE": "FALSE",
         "GITHUB_TEST_EXPLAIN": "FALSE",
-        "GITHUB_APIKEY": "",
     })
 
     idmap_resolved = helpers.to_map(
@@ -109,7 +108,6 @@ def _code_scanning_variant_analysis_repo_task_basic_setup(extra):
             # redirect it.
             runner.live_client_options(),
             {
-                "apikey": env.get("GITHUB_APIKEY"),
             },
             extra or {},
         ])

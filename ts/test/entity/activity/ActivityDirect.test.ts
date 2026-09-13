@@ -159,7 +159,6 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'GITHUB_TEST_ACTIVITY_ENTID': {},
     'GITHUB_TEST_LIVE': 'FALSE',
-    'GITHUB_APIKEY': '',
   })
 
   const live = 'TRUE' === env.GITHUB_TEST_LIVE
@@ -169,7 +168,6 @@ function directSetup(mockres?: any) {
     // test.client.options adds to the live client, it does not redirect it.
     const client = new GithubSDK(
       Object.assign({}, liveClientOptions(), {
-      apikey: env.GITHUB_APIKEY,
       }))
 
     let idmap: any = env['GITHUB_TEST_ACTIVITY_ENTID']

@@ -235,7 +235,6 @@ func campaignDirectSetup(mockres any) *campaignDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_CAMPAIGN_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -248,7 +247,6 @@ func campaignDirectSetup(mockres any) *campaignDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

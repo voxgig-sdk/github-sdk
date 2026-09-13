@@ -122,7 +122,6 @@ func pages_health_checkDirectSetup(mockres any) *pages_health_checkDirectSetupRe
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_PAGES_HEALTH_CHECK_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -135,7 +134,6 @@ func pages_health_checkDirectSetup(mockres any) *pages_health_checkDirectSetupRe
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

@@ -119,7 +119,6 @@ func dependabot_alert_with_repositoryDirectSetup(mockres any) *dependabot_alert_
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_DEPENDABOT_ALERT_WITH_REPOSITORY_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -132,7 +131,6 @@ func dependabot_alert_with_repositoryDirectSetup(mockres any) *dependabot_alert_
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

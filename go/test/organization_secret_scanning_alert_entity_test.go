@@ -169,7 +169,6 @@ func organization_secret_scanning_alertBasicSetup(extra map[string]any) *entityT
 		"GITHUB_TEST_ORGANIZATION_SECRET_SCANNING_ALERT_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_ORGANIZATION_SECRET_SCANNING_ALERT_ENTID"])
@@ -192,7 +191,6 @@ func organization_secret_scanning_alertBasicSetup(extra map[string]any) *entityT
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

@@ -127,7 +127,6 @@ func oidc_custom_sub_repoDirectSetup(mockres any) *oidc_custom_sub_repoDirectSet
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_OIDC_CUSTOM_SUB_REPO_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -140,7 +139,6 @@ func oidc_custom_sub_repoDirectSetup(mockres any) *oidc_custom_sub_repoDirectSet
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

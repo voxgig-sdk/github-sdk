@@ -127,7 +127,6 @@ func porter_large_fileDirectSetup(mockres any) *porter_large_fileDirectSetupResu
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_PORTER_LARGE_FILE_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -140,7 +139,6 @@ func porter_large_fileDirectSetup(mockres any) *porter_large_fileDirectSetupResu
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

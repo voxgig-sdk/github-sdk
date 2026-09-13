@@ -127,7 +127,6 @@ func referrerDirectSetup(mockres any) *referrerDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_REFERRER_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -140,7 +139,6 @@ func referrerDirectSetup(mockres any) *referrerDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

@@ -254,7 +254,6 @@ func api_insights_time_statDirectSetup(mockres any) *api_insights_time_statDirec
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_API_INSIGHTS_TIME_STAT_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -267,7 +266,6 @@ func api_insights_time_statDirectSetup(mockres any) *api_insights_time_statDirec
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

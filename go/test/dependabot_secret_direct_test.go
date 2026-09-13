@@ -126,7 +126,6 @@ func dependabot_secretDirectSetup(mockres any) *dependabot_secretDirectSetupResu
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_DEPENDABOT_SECRET_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -139,7 +138,6 @@ func dependabot_secretDirectSetup(mockres any) *dependabot_secretDirectSetupResu
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

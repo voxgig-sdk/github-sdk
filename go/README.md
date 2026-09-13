@@ -44,14 +44,11 @@ package main
 
 import (
     "fmt"
-    "os"
     sdk "github.com/voxgig-sdk/github-sdk/go"
 )
 
 func main() {
-    client := sdk.NewGithubSDK(map[string]any{
-        "apikey": os.Getenv("GITHUB_APIKEY"),
-    })
+    client := sdk.New()
 
     // List action records — the value is the array of records itself.
     actions, err := client.Action(nil).List(nil, nil)
@@ -207,7 +204,6 @@ Create a `.env.local` file at the project root:
 
 ```
 GITHUB_TEST_LIVE=TRUE
-GITHUB_APIKEY=<your-key>
 ```
 
 Then run:
@@ -229,7 +225,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `"apikey"` | `string` | API key for authentication. |
 | `"base"` | `string` | Base URL of the API server. |
 | `"prefix"` | `string` | URL path prefix prepended to all requests. |
 | `"suffix"` | `string` | URL path suffix appended to all requests. |

@@ -119,7 +119,6 @@ func code_scanning_organization_alert_itemDirectSetup(mockres any) *code_scannin
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_CODE_SCANNING_ORGANIZATION_ALERT_ITEM_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -132,7 +131,6 @@ func code_scanning_organization_alert_itemDirectSetup(mockres any) *code_scannin
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

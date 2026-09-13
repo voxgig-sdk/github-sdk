@@ -17,22 +17,20 @@
     "add-target": "voxgig-sdkgen target add",
     "dry-add-target": "voxgig-sdkgen -y target add",
     "add-feature": "voxgig-sdkgen feature add",
-    "dry-add-feature": "voxgig-sdkgen -y feature add",
-    "check-generate": "node tools/check-generate.js",
-    "generate-checked": "start=$(date +%s); npm run generate && GENERATE_ELAPSED_S=$(( $(date +%s) - start )) node tools/check-generate.js"
+    "dry-add-feature": "voxgig-sdkgen -y feature add"
   },
   "author": "Github",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "26.2.0",
-    "@voxgig/apidef": "8.5.1",
-    "@voxgig/model": "11.0.1",
-    "@voxgig/sdkgen": "4.16.0",
-    "@voxgig/sdkgen-infrapack": "0.0.11",
-    "@voxgig/struct": "0.3.5",
-    "@voxgig/util": "0.5.4",
-    "aontu": "0.61.0",
-    "jostraca": "0.33.1",
-    "typescript": "7.0.2"
+    "@types/node": ">=25.6",
+    "@voxgig/apidef": ">=8.0",
+    "@voxgig/model": ">=10.0",
+    "@voxgig/sdkgen": ">=4.0",
+    "@voxgig/sdkgen-infrapack": "^0.0.11",
+    "@voxgig/struct": ">=0.2",
+    "@voxgig/util": ">=0.5",
+    "aontu": ">=0.52",
+    "jostraca": ">=0.33.1",
+    "typescript": ">=6.0"
   }
 }

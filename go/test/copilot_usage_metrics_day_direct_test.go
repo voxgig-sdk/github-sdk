@@ -127,7 +127,6 @@ func copilot_usage_metrics_dayDirectSetup(mockres any) *copilot_usage_metrics_da
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_COPILOT_USAGE_METRICS_DAY_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -140,7 +139,6 @@ func copilot_usage_metrics_dayDirectSetup(mockres any) *copilot_usage_metrics_da
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

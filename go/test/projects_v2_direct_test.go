@@ -235,7 +235,6 @@ func projects_v2DirectSetup(mockres any) *projects_v2DirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_PROJECTS_V2_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -248,7 +247,6 @@ func projects_v2DirectSetup(mockres any) *projects_v2DirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

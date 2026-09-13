@@ -119,7 +119,6 @@ func issue_typeDirectSetup(mockres any) *issue_typeDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_ISSUE_TYPE_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -132,7 +131,6 @@ func issue_typeDirectSetup(mockres any) *issue_typeDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

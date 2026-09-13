@@ -123,7 +123,6 @@ func protected_branch_admin_enforcedBasicSetup(extra map[string]any) *entityTest
 		"GITHUB_TEST_PROTECTED_BRANCH_ADMIN_ENFORCED_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_PROTECTED_BRANCH_ADMIN_ENFORCED_ENTID"])
@@ -146,7 +145,6 @@ func protected_branch_admin_enforcedBasicSetup(extra map[string]any) *entityTest
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

@@ -135,7 +135,6 @@ func secret_scanning_locationDirectSetup(mockres any) *secret_scanning_locationD
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_SECRET_SCANNING_LOCATION_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -148,7 +147,6 @@ func secret_scanning_locationDirectSetup(mockres any) *secret_scanning_locationD
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

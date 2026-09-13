@@ -263,7 +263,6 @@ func deployment_statusDirectSetup(mockres any) *deployment_statusDirectSetupResu
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_DEPLOYMENT_STATUS_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -276,7 +275,6 @@ func deployment_statusDirectSetup(mockres any) *deployment_statusDirectSetupResu
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

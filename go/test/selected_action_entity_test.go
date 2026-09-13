@@ -169,7 +169,6 @@ func selected_actionBasicSetup(extra map[string]any) *entityTestSetup {
 		"GITHUB_TEST_SELECTED_ACTION_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_SELECTED_ACTION_ENTID"])
@@ -192,7 +191,6 @@ func selected_actionBasicSetup(extra map[string]any) *entityTestSetup {
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

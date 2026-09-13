@@ -117,7 +117,6 @@ func actions_cache_usage_org_enterpriseBasicSetup(extra map[string]any) *entityT
 		"GITHUB_TEST_ACTIONS_CACHE_USAGE_ORG_ENTERPRISE_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_ACTIONS_CACHE_USAGE_ORG_ENTERPRISE_ENTID"])
@@ -140,7 +139,6 @@ func actions_cache_usage_org_enterpriseBasicSetup(extra map[string]any) *entityT
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

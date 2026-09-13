@@ -213,7 +213,6 @@ func projects_v2_item_with_contentBasicSetup(extra map[string]any) *entityTestSe
 		"GITHUB_TEST_PROJECTS_V2_ITEM_WITH_CONTENT_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_PROJECTS_V2_ITEM_WITH_CONTENT_ENTID"])
@@ -244,7 +243,6 @@ func projects_v2_item_with_contentBasicSetup(extra map[string]any) *entityTestSe
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

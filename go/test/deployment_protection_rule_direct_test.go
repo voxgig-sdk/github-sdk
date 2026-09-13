@@ -130,7 +130,6 @@ func deployment_protection_ruleDirectSetup(mockres any) *deployment_protection_r
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_DEPLOYMENT_PROTECTION_RULE_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -143,7 +142,6 @@ func deployment_protection_ruleDirectSetup(mockres any) *deployment_protection_r
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

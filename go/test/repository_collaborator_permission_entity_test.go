@@ -123,7 +123,6 @@ func repository_collaborator_permissionBasicSetup(extra map[string]any) *entityT
 		"GITHUB_TEST_REPOSITORY_COLLABORATOR_PERMISSION_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_REPOSITORY_COLLABORATOR_PERMISSION_ENTID"])
@@ -146,7 +145,6 @@ func repository_collaborator_permissionBasicSetup(extra map[string]any) *entityT
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

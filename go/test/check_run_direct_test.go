@@ -126,7 +126,6 @@ func check_runDirectSetup(mockres any) *check_runDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_CHECK_RUN_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -139,7 +138,6 @@ func check_runDirectSetup(mockres any) *check_runDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

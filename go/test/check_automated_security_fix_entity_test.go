@@ -117,7 +117,6 @@ func check_automated_security_fixBasicSetup(extra map[string]any) *entityTestSet
 		"GITHUB_TEST_CHECK_AUTOMATED_SECURITY_FIX_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_CHECK_AUTOMATED_SECURITY_FIX_ENTID"])
@@ -140,7 +139,6 @@ func check_automated_security_fixBasicSetup(extra map[string]any) *entityTestSet
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

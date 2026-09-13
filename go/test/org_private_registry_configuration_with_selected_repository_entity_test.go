@@ -114,7 +114,6 @@ func org_private_registry_configuration_with_selected_repositoryBasicSetup(extra
 		"GITHUB_TEST_ORG_PRIVATE_REGISTRY_CONFIGURATION_WITH_SELECTED_REPOSITORY_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_ORG_PRIVATE_REGISTRY_CONFIGURATION_WITH_SELECTED_REPOSITORY_ENTID"])
@@ -137,7 +136,6 @@ func org_private_registry_configuration_with_selected_repositoryBasicSetup(extra
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

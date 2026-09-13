@@ -100,7 +100,6 @@ func emojiDirectSetup(mockres any) *emojiDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_EMOJI_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -113,7 +112,6 @@ func emojiDirectSetup(mockres any) *emojiDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

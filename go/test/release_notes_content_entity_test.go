@@ -112,7 +112,6 @@ func release_notes_contentBasicSetup(extra map[string]any) *entityTestSetup {
 		"GITHUB_TEST_RELEASE_NOTES_CONTENT_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_RELEASE_NOTES_CONTENT_ENTID"])
@@ -135,7 +134,6 @@ func release_notes_contentBasicSetup(extra map[string]any) *entityTestSetup {
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

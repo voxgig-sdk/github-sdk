@@ -264,7 +264,6 @@ func teamDirectSetup(mockres any) *teamDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_TEAM_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -277,7 +276,6 @@ func teamDirectSetup(mockres any) *teamDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

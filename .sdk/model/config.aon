@@ -3,15 +3,10 @@
 main: kit: config: {
 
   # The Authorization credential prefix is derived from the OpenAPI
-  # security scheme (see api/api-info.aontu: main.kit.info.security,
+  # security scheme (see api/api-info.aon: main.kit.info.security,
   # set by apidef) and defaults to 'Bearer' when the spec gives no
   # signal. Uncomment to override per-SDK:
   # auth: prefix: 'Bearer'
-  #
-  # GitHub's official OpenAPI declares no securitySchemes, so apidef records
-  # `auth: false` for it. The API takes a token all the same: say so here,
-  # and sdkgen (>= 4.10) keeps the credential path with the Bearer prefix.
-  auth: { active: true, prefix: 'Bearer' }
 
 
   headers: {

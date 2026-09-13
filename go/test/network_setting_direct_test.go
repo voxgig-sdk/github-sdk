@@ -122,7 +122,6 @@ func network_settingDirectSetup(mockres any) *network_settingDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_NETWORK_SETTING_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -135,7 +134,6 @@ func network_settingDirectSetup(mockres any) *network_settingDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

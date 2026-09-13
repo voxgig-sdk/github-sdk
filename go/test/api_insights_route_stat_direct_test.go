@@ -135,7 +135,6 @@ func api_insights_route_statDirectSetup(mockres any) *api_insights_route_statDir
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_API_INSIGHTS_ROUTE_STAT_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -148,7 +147,6 @@ func api_insights_route_statDirectSetup(mockres any) *api_insights_route_statDir
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

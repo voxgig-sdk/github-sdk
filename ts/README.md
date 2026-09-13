@@ -30,9 +30,7 @@ loading a specific record.
 ```ts
 import { GithubSDK } from '@voxgig-sdk/github-sdk'
 
-const client = new GithubSDK({
-  apikey: process.env.GITHUB_APIKEY,
-})
+const client = new GithubSDK()
 ```
 
 ### 2. List action records
@@ -289,7 +287,7 @@ console.log(customproperty)
 You can also use the instance method:
 
 ```ts
-const client = new GithubSDK({ apikey: '...' })
+const client = new GithubSDK()
 const testClient = client.tester()
 ```
 
@@ -325,7 +323,6 @@ const logger = {
 }
 
 const client = new GithubSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -336,7 +333,6 @@ Create a `.env.local` file at the project root:
 
 ```
 GITHUB_TEST_LIVE=TRUE
-GITHUB_APIKEY=<your-key>
 ```
 
 Then run:
@@ -354,7 +350,6 @@ cd ts && npm test
 
 ```ts
 new GithubSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -365,7 +360,6 @@ new GithubSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |

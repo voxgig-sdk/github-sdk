@@ -122,7 +122,6 @@ func full_repositoryDirectSetup(mockres any) *full_repositoryDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_FULL_REPOSITORY_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -135,7 +134,6 @@ func full_repositoryDirectSetup(mockres any) *full_repositoryDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

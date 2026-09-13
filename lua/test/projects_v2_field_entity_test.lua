@@ -146,7 +146,6 @@ function projects_v2_field_basic_setup(extra)
     ["GITHUB_TEST_PROJECTS_V2_FIELD_ENTID"] = idmap,
     ["GITHUB_TEST_LIVE"] = "FALSE",
     ["GITHUB_TEST_EXPLAIN"] = "FALSE",
-    ["GITHUB_APIKEY"] = "",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -161,7 +160,6 @@ function projects_v2_field_basic_setup(extra)
       -- test.client.options adds to the live client, it does not redirect it.
       runner.live_client_options(),
       {
-        apikey = env["GITHUB_APIKEY"],
       },
       extra or {},
     })

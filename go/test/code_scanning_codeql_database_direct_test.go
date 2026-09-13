@@ -250,7 +250,6 @@ func code_scanning_codeql_databaseDirectSetup(mockres any) *code_scanning_codeql
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_CODE_SCANNING_CODEQL_DATABASE_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -263,7 +262,6 @@ func code_scanning_codeql_databaseDirectSetup(mockres any) *code_scanning_codeql
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

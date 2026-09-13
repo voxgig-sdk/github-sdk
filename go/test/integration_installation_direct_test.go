@@ -94,7 +94,6 @@ func integration_installationDirectSetup(mockres any) *integration_installationD
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_INTEGRATION_INSTALLATION_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -107,7 +106,6 @@ func integration_installationDirectSetup(mockres any) *integration_installationD
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

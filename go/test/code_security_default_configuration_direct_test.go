@@ -119,7 +119,6 @@ func code_security_default_configurationDirectSetup(mockres any) *code_security_
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_CODE_SECURITY_DEFAULT_CONFIGURATION_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -132,7 +131,6 @@ func code_security_default_configurationDirectSetup(mockres any) *code_security_
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

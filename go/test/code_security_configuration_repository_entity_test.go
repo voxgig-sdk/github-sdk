@@ -170,7 +170,6 @@ func code_security_configuration_repositoryBasicSetup(extra map[string]any) *ent
 		"GITHUB_TEST_CODE_SECURITY_CONFIGURATION_REPOSITORY_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_CODE_SECURITY_CONFIGURATION_REPOSITORY_ENTID"])
@@ -193,7 +192,6 @@ func code_security_configuration_repositoryBasicSetup(extra map[string]any) *ent
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

@@ -94,7 +94,6 @@ func user_marketplace_purchaseDirectSetup(mockres any) *user_marketplace_purchas
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_USER_MARKETPLACE_PURCHASE_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -107,7 +106,6 @@ func user_marketplace_purchaseDirectSetup(mockres any) *user_marketplace_purchas
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

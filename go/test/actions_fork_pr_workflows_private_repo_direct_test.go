@@ -122,7 +122,6 @@ func actions_fork_pr_workflows_private_repoDirectSetup(mockres any) *actions_for
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_ACTIONS_FORK_PR_WORKFLOWS_PRIVATE_REPO_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -135,7 +134,6 @@ func actions_fork_pr_workflows_private_repoDirectSetup(mockres any) *actions_for
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

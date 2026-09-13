@@ -169,7 +169,6 @@ func dependabot_alert_with_repositoryBasicSetup(extra map[string]any) *entityTes
 		"GITHUB_TEST_DEPENDABOT_ALERT_WITH_REPOSITORY_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_DEPENDABOT_ALERT_WITH_REPOSITORY_ENTID"])
@@ -192,7 +191,6 @@ func dependabot_alert_with_repositoryBasicSetup(extra map[string]any) *entityTes
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})

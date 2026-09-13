@@ -69,7 +69,6 @@ def _actions_fork_pr_contributor_approval_direct_setup(mockres):
     env = runner.env_override({
         "GITHUB_TEST_ACTIONS_FORK_PR_CONTRIBUTOR_APPROVAL_ENTID": {},
         "GITHUB_TEST_LIVE": "FALSE",
-        "GITHUB_APIKEY": "",
     })
 
     live = env.get("GITHUB_TEST_LIVE") == "TRUE"
@@ -79,7 +78,6 @@ def _actions_fork_pr_contributor_approval_direct_setup(mockres):
         # client; the generated fields below overwrite anything they name.
         merged_opts = dict(runner.live_client_options())
         merged_opts.update({
-            "apikey": env.get("GITHUB_APIKEY"),
         })
         client = GithubSDK(merged_opts)
         return {

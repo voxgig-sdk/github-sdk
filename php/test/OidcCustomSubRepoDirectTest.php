@@ -87,7 +87,6 @@ function oidc_custom_sub_repo_direct_setup($mockres)
     $env = Runner::env_override([
         "GITHUB_TEST_OIDC_CUSTOM_SUB_REPO_ENTID" => [],
         "GITHUB_TEST_LIVE" => "FALSE",
-        "GITHUB_APIKEY" => "",
     ]);
 
     $live = $env["GITHUB_TEST_LIVE"] === "TRUE";
@@ -96,7 +95,6 @@ function oidc_custom_sub_repo_direct_setup($mockres)
         // Merged so the generated fields win: sdk-test-control.json's
         // test.client.options adds to the live client, it does not redirect it.
         $merged_opts = array_merge(Runner::live_client_options(), [
-            "apikey" => $env["GITHUB_APIKEY"],
         ]);
         $client = new GithubSDK($merged_opts);
         return [

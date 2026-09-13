@@ -135,7 +135,6 @@ func environment_approvalDirectSetup(mockres any) *environment_approvalDirectSet
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_ENVIRONMENT_APPROVAL_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -148,7 +147,6 @@ func environment_approvalDirectSetup(mockres any) *environment_approvalDirectSet
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

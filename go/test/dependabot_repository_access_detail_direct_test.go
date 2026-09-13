@@ -119,7 +119,6 @@ func dependabot_repository_access_detailDirectSetup(mockres any) *dependabot_rep
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_DEPENDABOT_REPOSITORY_ACCESS_DETAIL_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -132,7 +131,6 @@ func dependabot_repository_access_detailDirectSetup(mockres any) *dependabot_rep
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

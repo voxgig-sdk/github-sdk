@@ -76,7 +76,6 @@ def _dependabot_direct_setup(mockres):
     env = runner.env_override({
         "GITHUB_TEST_DEPENDABOT_ENTID": {},
         "GITHUB_TEST_LIVE": "FALSE",
-        "GITHUB_APIKEY": "",
     })
 
     live = env.get("GITHUB_TEST_LIVE") == "TRUE"
@@ -86,7 +85,6 @@ def _dependabot_direct_setup(mockres):
         # client; the generated fields below overwrite anything they name.
         merged_opts = dict(runner.live_client_options())
         merged_opts.update({
-            "apikey": env.get("GITHUB_APIKEY"),
         })
         client = GithubSDK(merged_opts)
         return {

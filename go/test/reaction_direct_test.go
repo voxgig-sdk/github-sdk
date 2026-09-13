@@ -143,7 +143,6 @@ func reactionDirectSetup(mockres any) *reactionDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_REACTION_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -156,7 +155,6 @@ func reactionDirectSetup(mockres any) *reactionDirectSetupResult {
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

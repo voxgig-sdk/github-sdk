@@ -126,7 +126,6 @@ func code_scanning_variant_analysiDirectSetup(mockres any) *code_scanning_varian
 	env := envOverride(map[string]any{
 		"GITHUB_TEST_CODE_SCANNING_VARIANT_ANALYSI_ENTID": map[string]any{},
 		"GITHUB_TEST_LIVE":    "FALSE",
-		"GITHUB_APIKEY":       "",
 	})
 
 	live := env["GITHUB_TEST_LIVE"] == "TRUE"
@@ -139,7 +138,6 @@ func code_scanning_variant_analysiDirectSetup(mockres any) *code_scanning_varian
 			mergedOpts[k] = v
 		}
 		for k, v := range map[string]any{
-			"apikey": env["GITHUB_APIKEY"],
 		} {
 			mergedOpts[k] = v
 		}

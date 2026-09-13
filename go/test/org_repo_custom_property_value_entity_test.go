@@ -169,7 +169,6 @@ func org_repo_custom_property_valueBasicSetup(extra map[string]any) *entityTestS
 		"GITHUB_TEST_ORG_REPO_CUSTOM_PROPERTY_VALUE_ENTID": idmap,
 		"GITHUB_TEST_LIVE":      "FALSE",
 		"GITHUB_TEST_EXPLAIN":   "FALSE",
-		"GITHUB_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GITHUB_TEST_ORG_REPO_CUSTOM_PROPERTY_VALUE_ENTID"])
@@ -192,7 +191,6 @@ func org_repo_custom_property_valueBasicSetup(extra map[string]any) *entityTestS
 			// client, it does not redirect it.
 			liveClientOptions(),
 			map[string]any{
-				"apikey": env["GITHUB_APIKEY"],
 			},
 			extraOpts,
 		})
