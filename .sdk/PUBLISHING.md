@@ -36,6 +36,29 @@ It is a DISPATCH rather than a tag push because the root `Makefile` also
 publishes, with a vault-injected token. A tag-triggered workflow racing it
 would publish one version by two mechanisms.
 
+## The release is tagged for you
+
+The workflow cuts the git tag itself, after a successful publish, so a
+released version always has a ref naming the tree it came from. Nothing to
+do by hand.
+
+| target | tag |
+|---|---|
+| `js/` | `js/v<version>` |
+| `ts/` | `v<version>` |
+
+Re-dispatching a version that is already on the registry skips the publish
+and still cuts a missing tag, so a partial release is finished by running it
+again rather than repaired by hand. If the tag already exists on a DIFFERENT
+commit the run fails rather than moving it: that combination means the
+published artifact and the tag disagree, and only a person should decide
+which is wrong.
+
+The tag job is the only one that may write to the repository, and it runs
+git and nothing else. `contents: write` never shares a job with project
+code, for the same reason `id-token: write` does not — `checkout` persists
+its token into the git config for the whole job.
+
 ## One-time set-up
 
 npm has to be told which repository and which workflow file may publish this
@@ -62,7 +85,7 @@ package goes out by hand from an authenticated machine:
 
 After that, register the publisher and every later release is a dispatch.
 
-## Why the workflow has two jobs
+## Why the workflow has three jobs
 
 A dependency lifecycle script can ask the runner for any OIDC token the job
 it runs in is permitted to mint. A job that both installs dependencies and
@@ -70,5 +93,11 @@ holds `id-token: write` can therefore be made to publish as this package
 before its own gates finish.
 
 So `verify` installs, builds and tests under `contents: read` and holds no
-credential, and `publish` holds `id-token: write` while installing nothing
-and running no project code.
+credential; `publish` holds `id-token: write` while installing nothing and
+running no project code; and `tag` holds `contents: write` while running
+git and nothing else.
+
+The tag cannot be moved out into its own workflow: npm binds the trusted
+publisher to ONE workflow filename, so anything that must accompany a publish
+has to live inside this file. Nor can it be left to a tag-triggered
+publisher — a ref pushed with `GITHUB_TOKEN` starts no further workflow run.
