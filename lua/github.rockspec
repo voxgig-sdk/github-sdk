@@ -1,10 +1,10 @@
 package = "voxgig-sdk-github"
-version = "0.0.1-1"
+version = "0.0.4-1"
 source = {
   -- git+https (GitHub dropped git:// in 2022); pin the install to the release
   -- tag pushed by `make publish`, and point at the lua/ subdir of the monorepo.
   url = "git+https://github.com/voxgig-sdk/github-sdk.git",
-  tag = "lua/v0.0.1",
+  tag = "lua/v0.0.4",
   dir = "github-sdk/lua"
 }
 description = {

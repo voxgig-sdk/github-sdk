@@ -135083,7 +135083,7 @@
               },
               "via": "port"
             },
-            "version": "0.0.1"
+            "version": "0.0.4"
           },
           "srcfeature": false,
           "superseded": [
@@ -135164,7 +135164,7 @@
               },
               "via": "root"
             },
-            "version": "0.0.1"
+            "version": "0.0.4"
           },
           "superseded": [],
           "title": "Go CLI"
@@ -135241,7 +135241,7 @@
               },
               "via": "root"
             },
-            "version": "0.0.1"
+            "version": "0.0.4"
           },
           "superseded": [],
           "title": "Go MCP server"
@@ -135309,7 +135309,7 @@
               },
               "via": "port"
             },
-            "version": "0.0.1"
+            "version": "0.0.4"
           },
           "superseded": [
             "test/runner.js"
@@ -135379,7 +135379,7 @@
               },
               "via": "port"
             },
-            "version": "0.0.1"
+            "version": "0.0.4"
           },
           "srcfeature": false,
           "superseded": [
@@ -135444,7 +135444,7 @@
               },
               "via": "port"
             },
-            "version": "0.0.1"
+            "version": "0.0.4"
           },
           "srcfeature": false,
           "superseded": [
@@ -135515,7 +135515,7 @@
               },
               "via": "port"
             },
-            "version": "0.0.1"
+            "version": "0.0.4"
           },
           "srcfeature": false,
           "superseded": [
